@@ -1,0 +1,51 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    This is the Make file for Testconsole app.
+**
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          mmcccomptests.exe
+
+#if (defined EKA2)
+CAPABILITY 	CAP_GENERAL_DLL
+VENDORID	VID_DEFAULT
+#endif
+
+TARGETTYPE      exe
+UID             0x100039CE 0x102743F6 
+
+USERINCLUDE     ../INC
+USERINCLUDE     ../../../../interface/api
+
+MW_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH      ../SRC
+SOURCE          testconsole.cpp
+SOURCE          testconsoleMain.cpp
+SOURCE          mccteststubs.cpp
+SOURCE          test_interface.cpp
+SOURCE          test_audiocontrol.cpp
+SOURCE          test_dtmf.cpp
+SOURCE          test_rtcp.cpp
+SOURCE          test_async_features.cpp
+SOURCE          test_secure.cpp
+
+LIBRARY     	euser.lib
+LIBRARY     	insock.lib
+LIBRARY     	esock.lib
+LIBRARY         mmccinterface.lib

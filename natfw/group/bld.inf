@@ -1,0 +1,45 @@
+/*
+* Copyright (c) 2006-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    This file provides the information required for building the
+*                whole of a NATFW.
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+../rom/natfw.iby 			CORE_MW_LAYER_IBY_EXPORT_PATH(natfw.iby)
+
+// NATFW settings CenRep configuration file
+../natfwsettings/data/102747d2.txt               z:/private/10202be9/102747d2.txt
+
+// NATFW settings backup file
+../natfwsettings/data/backup_registration.xml    z:/private/10282F04/backup_registration.xml
+
+PRJ_MMPFILES
+../natfwsettings/group/natsettings.mmp
+../natfwconnectionmultiplexer/group/connectionmultiplexer.mmp
+../natfwclient/group/natfwclient.mmp
+../natfwsocketmediaconnwrapper/group/natfwsocketmediaconnwrapper.mmp
+../natfwunsaf_protocols/group/natfwunsafprotocols.mmp
+../natfwstunturnclient/group/natfwstunclient.mmp
+../natfwstunserver/group/natfwstunserver.mmp
+../natfwicecandidatehandler/group/icecandidatehandler.mmp
+../natfwstunplugin/group/natfwstunplugin.mmp
+../natfwturnplugin/group/natfwturnplugin.mmp

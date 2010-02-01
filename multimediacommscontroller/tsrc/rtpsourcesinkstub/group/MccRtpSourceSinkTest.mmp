@@ -1,0 +1,90 @@
+/*
+* Copyright (c) 2002-2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          MMCCRtpSourceSink.dll
+
+#if (defined SYMBIAN_SECURE_ECOM)
+CAPABILITY 	CAP_ECOM_PLUGIN
+VENDORID	VID_DEFAULT
+TARGETTYPE	PLUGIN
+#else
+TARGETTYPE      ECOMIIC
+TARGETPATH      /System/Libs/Plugins
+#endif
+
+// ECom Dll recognition UID followed by the unique dll UID 
+// UID2 for polymorphic-interface DLL ECOM plugin followed by UID3 for this DLL
+UID             0x10009D8D 0x102073FA
+//UID             0x10009D8D 0x1020285E
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../../mmccrtpsourcesink/inc
+USERINCLUDE     ../../../mmccshared/inc
+USERINCLUDE     ../../../mmcccontroller/inc
+USERINCLUDE     ../../../mmccinterface/inc
+USERINCLUDE     ../../../mmccsubcontroller/inc
+USERINCLUDE     ../../../mmccamrpayloadformat/inc
+USERINCLUDE     ../../../mmccanypayloadformat/inc
+USERINCLUDE     ../../../mmccredpayloadformat/inc
+USERINCLUDE     ../../../mmccdtmfpayloadformat/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+SOURCEPATH      ../../../mmccrtpsourcesink/src
+SOURCE          MccRtpSourceSinkFactory.cpp
+SOURCE          MccRtpInterface.cpp
+//SOURCE          MccRtpDataSource.cpp
+//SOURCE          MccRtpDataSink.cpp
+//SOURCE          MccRtpFirewallTimer.cpp
+SOURCE          mmcccryptoadapter.cpp
+
+SOURCEPATH      ../../../mmccshared/src
+SOURCE          mmcccryptocontext.cpp
+
+SOURCEPATH      ../src
+SOURCE          MccRtpDataSource_STUB.cpp
+SOURCE          MccRtpDataSink_STUB.cpp
+
+
+SOURCEPATH      ../../../mmccrtpsourcesink/data
+
+#if (defined SYMBIAN_SECURE_ECOM)
+START RESOURCE	102073FA.RSS 
+//START RESOURCE	1020285E.RSS
+TARGET      MMCCRtpSourceSink.RSC
+//TARGET		MccRtpSourceSink.rsc
+END
+#else
+RESOURCE        102073FA.RSS
+//RESOURCE        1020285E.RSS
+#endif
+
+
+LIBRARY         euser.lib
+LIBRARY         ECom.lib
+LIBRARY         mmfcontrollerframework.lib
+LIBRARY         RtpService_stub.lib
+LIBRARY         mmfserverbaseclasses.lib
+LIBRARY         srtp.lib
+
+
+//EXPORTUNFROZEN

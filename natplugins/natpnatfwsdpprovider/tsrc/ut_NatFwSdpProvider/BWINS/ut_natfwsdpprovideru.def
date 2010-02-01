@@ -1,0 +1,4 @@
+EXPORTS
+	?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * CreateTestSuiteL(void)
+	?SetSendingStateL@CNATFWConnectivityApi@@QAEXABVCNATFWCandidate@@W4TNATFWStreamingState@@ABVTDesC8@@I@Z @ 2 NONAME ; void CNATFWConnectivityApi::SetSendingStateL(class CNATFWCandidate const &, enum TNATFWStreamingState, class TDesC8 const &, unsigned int)
+

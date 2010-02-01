@@ -1,0 +1,71 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#include <testclient/tcuid.h>
+
+TARGET      TestClient.exe
+TARGETTYPE  exe
+UID         0x0 TCUID
+
+#if !defined(__SERIES60_)
+MACRO __SERIES60_
+#endif
+
+START RESOURCE	S60TestClient.rss
+HEADER
+TARGETPATH /resource/apps
+TARGET TestClient.rsc
+END // RESOURCE
+
+START RESOURCE  TestClient_reg.rss
+DEPENDS testclient.rsg
+HEADER
+TARGETPATH      /private/10003a3f/apps
+END
+
+START RESOURCE TestClient_loc.rss
+HEADER
+TARGETPATH      /resource/apps
+END
+
+VENDORID    VID_DEFAULT
+
+CAPABILITY LocalServices ReadUserData WriteUserData UserEnvironment NetworkServices \
+	Location ReadDeviceData WriteDeviceData NetworkControl SwEvent PowerMgmt AllFiles
+
+SOURCEPATH	../Src
+SOURCE		CTcApplication.cpp  
+SOURCE		CTcDocument.cpp
+SOURCE		CTcAppUi.cpp
+SOURCE		CTcContainer.cpp  
+SOURCE		TTcSettings.cpp
+SOURCE		CTcBacklight.cpp
+
+SOURCE		CTcSettingsDialogS60.cpp
+
+SOURCEPATH	../../CommonSrc
+SOURCE		dllMain.cpp
+
+USERINCLUDE	. ../../Group ../../CommonSrc ../Src
+USERINCLUDE	../../Net/Inc ../../TesterCore/Inc ../../Watcher/Inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY		euser.lib apparc.lib efsrv.lib estor.lib ws32.lib
+LIBRARY		cone.lib eikcore.lib eikdlg.lib eikcoctl.lib bafl.lib
+LIBRARY		testclientnet.lib testercore.lib watcherclient.lib
+LIBRARY		avkon.lib commonui.lib gdi.lib

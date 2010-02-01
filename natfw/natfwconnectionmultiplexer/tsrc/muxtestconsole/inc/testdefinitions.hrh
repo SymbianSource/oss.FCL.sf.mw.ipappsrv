@@ -1,0 +1,41 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    definitions
+*
+*/
+
+
+
+#ifndef TESTDEFINITIONS_HRH
+#define TESTDEFINITIONS_HRH
+
+// DEFINITIONS
+
+// CONSTANTS
+_LIT( KMainTitle,"Connection Multiplexer Tests" );
+
+
+_LIT( KTxtLineBreak, "/n" );
+_LIT( KTxtWrongOption, "Wrong Option! Try Again." );
+_LIT( KTxtCharacter, "%c");
+
+_LIT( KTxtMainInstructions, "Please select one option:/n"
+ L"1. Run MUX UDP tests/n"
+ L"2. Run MUX TCP tests/n"
+ L"3. Start UDP audio streaming/n"
+ L"4. Stop UDP audio streaming/n"
+ L"/n"
+ L"0. Quit/n");
+
+#endif //TESTDEFINITIONS_HRH

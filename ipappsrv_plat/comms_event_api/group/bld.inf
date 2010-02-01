@@ -1,0 +1,38 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    File that exports the files belonging to 
+:                comms event api
+*
+*/
+
+
+
+
+#include <platform_paths.hrh>
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+
+../inc/mceevent.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceevent.h)
+../inc/mceeventobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceeventobserver.h)
+../inc/mceinevent.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceinevent.h)
+../inc/mceineventobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceineventobserver.h)
+../inc/mceinrefer.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceinrefer.h)
+../inc/mceinreferobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceinreferobserver.h)
+../inc/mceoutevent.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceoutevent.h)
+../inc/mceoutrefer.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceoutrefer.h)
+../inc/mcerefer.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcerefer.h)
+../inc/mcereferobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcereferobserver.h)

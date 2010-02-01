@@ -1,0 +1,52 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    definitions
+*
+*/
+
+
+
+#ifndef TESTDEFINITIONS_HRH
+#define TESTDEFINITIONS_HRH
+
+// DEFINITIONS
+
+// CONSTANTS
+_LIT( KMainTitle,"MCC Component Tests" );
+_LIT8( KTxtDtmf, "telephone-event" );
+_LIT( KTxtTestDtmfString1, "ABCDabcd0123456789*#" );
+_LIT( KTxtTestDtmfStringWithPauseChars, "ppABp1p" );
+_LIT( KTxtTestDtmfStringWithStopChars, "w12w34w" );
+
+_LIT( KTxtLineBreak, "/n" );
+_LIT( KTxtWrongOption, "Wrong Option! Try Again." );
+_LIT( KTxtCharacter, "%c");
+
+_LIT( KTxtMainInstructions, "Please select one option:/n"
+ L"1. Run MCC IF tests/n"
+ L"2. Run audio control tests/n"
+ L"3. Run RTCP tests/n"
+ L"4. Run DTMF tests/n"
+ L"5. Run async feature tests/n"
+ //L"s. Run Security tests/n"
+ L"/n"
+ L"0. Quit/n");
+
+const TInt KAudioPrefVoipAudioUplink           = 0x05220001;
+const TInt KAudioPrefVoipAudioUplinkNonSignal  = 0x05230001;
+const TInt KAudioPrefVoipAudioDownlink         = 0x05210001;
+const TInt KAudioDTMFString                    = 0x00150001;
+const TInt KAudioPriorityDTMFString            = 45;
+
+#endif //TESTDEFINITIONS_HRH

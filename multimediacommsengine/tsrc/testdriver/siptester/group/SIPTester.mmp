@@ -1,0 +1,221 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#include <bldvariant.hrh>
+
+#if defined __S60_50__
+#include <platform_paths.hrh>
+#else 
+#include <domain/osextensions/platform_paths.hrh>
+#endif
+
+TARGET		SIPTester.dll
+TARGETTYPE	PLUGIN
+UID		    0x10009d8d 0x10203353
+
+// If RD_SIP_TESTER is defined, SIP Tester uses publishedPartner APIs
+// that are not present in public SDKs.
+// Comment this definition, when building SIP Tester on top of a public SDK.
+#define RD_SIP_TESTER
+
+
+//#define     UNSAF_INCLUDED
+#if defined( UNSAF_INCLUDED )
+MACRO UNSAF_COMMANDS_INCLUDED
+#endif
+
+
+MACRO NO_CLIENT_INSTALLER
+
+
+SOURCEPATH	../src
+SOURCE		dllMain.cpp ErrorHandling.cpp 
+SOURCE		CTTcSIPFactory.cpp TTcSIPReceived.cpp TTcSIPCommandBase.cpp
+SOURCE		CTcSIPContext.cpp CTcSIPConnectionContainer.cpp
+SOURCE		TTcProfileReceived.cpp
+SOURCE      CTcSIPProfileContainer.cpp
+SOURCE      CTcSIPHttpDigestContainer.cpp
+SOURCE      CTcSIPIMSAuthenticator.cpp
+SOURCE      TCmdAuthenticate.cpp
+SOURCE		TCmdCreateConnection.cpp
+SOURCE      TCmdCreateInviteDialogAssociation.cpp
+SOURCE		TCmdCreateNewConnection.cpp
+SOURCE		TCmdCreateProfile.cpp
+SOURCE		TCmdCreateProfileRegistry.cpp
+SOURCE		TCmdCreateManagedProfileRegistry.cpp
+SOURCE		TCmdCreateNotifyDialogAssociation.cpp
+SOURCE		TCmdDeleteFile.cpp
+SOURCE		TCmdDeleteProfile.cpp
+SOURCE		TCmdDestroyProfile.cpp
+SOURCE		TCmdDestroyAllProfiles.cpp
+SOURCE		TCmdDisableProfile.cpp
+SOURCE		TCmdEnableProfile.cpp
+SOURCE		TCmdFetchRegistrations.cpp
+SOURCE		TCmdGetConnectionState.cpp
+SOURCE		TCmdGetDefaultProfile.cpp
+SOURCE		TCmdGetDialogAOR.cpp
+SOURCE		TCmdGetDialogFrom.cpp
+SOURCE		TCmdGetDialogRegistration.cpp
+SOURCE		TCmdGetDialogRemoteURI.cpp
+SOURCE		TCmdGetDialogState.cpp
+SOURCE		TCmdGetIAPName.cpp
+SOURCE		TCmdGetIAPNames.cpp
+SOURCE		TCmdGetMessage.cpp
+SOURCE		TCmdGetMessageAndCreateAssoc.cpp
+SOURCE		TCmdGetOutboundProxy.cpp
+SOURCE		TCmdGetProfile.cpp
+SOURCE		TCmdGetProfiles.cpp
+SOURCE		TCmdGetProfileStatus.cpp
+SOURCE		TCmdGetRefresh.cpp
+SOURCE		TCmdGetRefreshState.cpp
+SOURCE		TCmdGetRegistrationAOR.cpp
+SOURCE		TCmdGetRegistrationContact.cpp
+SOURCE		TCmdGetSecurityMechanisms.cpp
+SOURCE		TCmdGetSigCompCompartmentCount.cpp
+SOURCE		TCmdGetTransactionState.cpp
+SOURCE		TCmdGetTransactionType.cpp
+SOURCE		TCmdIsCancelAllowed.cpp
+SOURCE		TCmdIsClientTransaction.cpp
+SOURCE		TCmdIsContextActive.cpp
+SOURCE		TCmdIsResponseAllowed.cpp
+SOURCE		TCmdIsSigCompSupported.cpp
+SOURCE		TCmdSendAck.cpp
+SOURCE		TCmdSendBye.cpp
+SOURCE		TCmdSendCancel.cpp
+SOURCE		TCmdSendInvite.cpp
+SOURCE		TCmdSendInviteUsingProfile.cpp
+SOURCE		TCmdSendInviteWithinDialog.cpp
+SOURCE		TCmdSendInviteWithinDriver.cpp
+SOURCE		TCmdSendMessage.cpp
+SOURCE		TCmdSendNonTargetRefreshRequest.cpp
+SOURCE		TCmdSendNotify.cpp
+SOURCE		TCmdSendRefer.cpp
+SOURCE		TCmdSendReferWithinDialog.cpp
+SOURCE		TCmdSendReferResponseCreateDialog.cpp
+SOURCE		TCmdSendPrack.cpp
+SOURCE		TCmdSendRegister.cpp
+SOURCE		TCmdSendRequest.cpp
+SOURCE		TCmdSendResponse.cpp
+SOURCE		TCmdSendResponseCreateAssoc.cpp
+SOURCE		TCmdSendResponseCreateDialog.cpp
+SOURCE		TCmdSendSubscribe.cpp
+SOURCE		TCmdSendSubscribeUsingProfile.cpp
+SOURCE		TCmdSendSubscribeWithinDialog.cpp
+SOURCE		TCmdSendUnsubscribe.cpp
+SOURCE		TCmdSendUpdate.cpp
+SOURCE		TCmdSetOutboundProxy.cpp
+SOURCE		TCmdSetSecurityParams.cpp
+SOURCE      TCmdStopIAP.cpp
+SOURCE		TCmdTerminate.cpp
+SOURCE		TCmdTerminateProcess.cpp
+SOURCE		TCmdTest.cpp
+SOURCE		TCmdTransferFile.cpp
+SOURCE		TCmdUpdateNotify.cpp
+SOURCE		TCmdUnregister.cpp
+SOURCE		TCmdUpdateProfile.cpp
+SOURCE		TCmdUpdateRefer.cpp
+SOURCE		TCmdUpdateRefresh.cpp
+SOURCE		TCmdUpdateRegistration.cpp
+SOURCE		TCmdUpdateInvite.cpp
+SOURCE		TCmdUpdateSubscribe.cpp
+SOURCE      TCmdGetChallenge.cpp
+SOURCE      TCmdIgnoreChallenge.cpp
+SOURCE      TCmdRemoveCredentials.cpp
+SOURCE      TCmdSetCredentials.cpp
+SOURCE		TCmdDeleteConnection.cpp
+SOURCE      TCmdRemoveHttpObserver.cpp
+SOURCE      TCmdFreezeTester.cpp
+SOURCE      TCmdGetMemoryUsage.cpp
+SOURCE      TCmdSetHttpDigestObserver2.cpp
+SOURCE      TCmdSetSecurityHandling.cpp
+SOURCE      TCmdReuseDialogInitialRequestData.cpp
+SOURCE      TCmdSetClientMatchType.cpp
+SOURCE		TCmdAddUserToClientResolverCenRep.cpp
+SOURCE		TCmdRemoveUserFromClientResolverCenRep.cpp
+SOURCE		TCmdRemoveAllUserFromClientResolverCenRep.cpp
+SOURCE		TCmdSetRepositoryIntValue.cpp
+SOURCE		TCmdGetRepositoryIntValue.cpp
+
+#if defined( RD_SIP_TESTER )
+SOURCE      CTcSIPClientDiscoveryContainer.cpp
+SOURCE      TCmdCreateSession.cpp
+SOURCE      TCmdRegisterClient.cpp
+SOURCE      TCmdChannel.cpp
+SOURCE      TCmdGetClientDiscoveryStatus.cpp
+#endif // RD_SIP_TESTER
+
+#if defined( UNSAF_INCLUDED )
+SOURCE      TCmdUNSAFTimers.cpp
+SOURCE      TCmdGetUNSAFTimers.cpp
+SOURCE      TCmdSetUNSAFTimers.cpp
+SOURCE      TCmdEnableCRLFRefresh.cpp
+SOURCE      TCmdSetSTUNServer.cpp
+SOURCE      TCmdSetDomainParams.cpp
+SOURCE      TCmdGetDomainParams.cpp
+#endif // UNSAF_INCLUDED
+
+START RESOURCE 10203353.rss 
+TARGET SIPTester.rsc                                          
+END 
+
+USERINCLUDE ../client_simulator/client/inc
+USERINCLUDE ../../testclient/testercore/inc
+USERINCLUDE ../../testclient/filehandler/inc
+USERINCLUDE ../../testclient/net/inc
+// tcuid.h
+USERINCLUDE ../../testclient/group
+
+MW_LAYER_SYSTEMINCLUDE
+SYSTEMINCLUDE ../sip_private_api_headers/sip_codec
+SYSTEMINCLUDE ../sip_private_api_headers/sip_client
+
+LIBRARY		euser.lib 
+LIBRARY     efsrv.lib 
+LIBRARY     bafl.lib
+LIBRARY		testercore.lib 
+LIBRARY    	testclientnet.lib
+LIBRARY     filehandlerclient.lib
+LIBRARY		sipclient.lib 
+LIBRARY     sipcodec.lib
+LIBRARY		sipprofilecli.lib 
+LIBRARY     flogger.lib 
+LIBRARY		apparc.lib 
+LIBRARY     apgrfx.lib
+LIBRARY     inetprotutil.lib
+LIBRARY		ecom.lib
+LIBRARY     etel.lib
+LIBRARY     imut.lib
+LIBRARY     commsdat.lib
+LIBRARY     charconv.lib
+LIBRARY     hal.lib
+LIBRARY     centralrepository.lib
+LIBRARY		esock.lib
+LIBRARY     sipclientsimulatorcli.lib
+
+#if defined( RD_SIP_TESTER )
+LIBRARY     siprsvclient.lib
+LIBRARY     etelmm.lib
+#endif // RD_SIP_TESTER
+
+// Choose .def file based on build (WINSCW compatibility..)
+#if defined( WINSCW )
+deffile ../bwinscw/ 
+#endif
+
+CAPABILITY LocalServices ReadUserData WriteUserData UserEnvironment NetworkServices \
+	Location MultimediaDD ReadDeviceData WriteDeviceData PowerMgmt TrustedUI ProtServ \
+	NetworkControl SwEvent SurroundingsDD CommDD DiskAdmin AllFiles

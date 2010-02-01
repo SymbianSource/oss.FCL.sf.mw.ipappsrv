@@ -1,0 +1,40 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Test tools build file
+*
+*/
+
+PRJ_MMPFILES
+
+// Test client files
+../../testclient/Watcher/Group/Watcher.mmp
+../../testclient/Watcher/Group/WatcherClient.mmp
+../../testclient/Net/Group/TestClientNet.mmp
+../../testclient/TesterCore/Group/TesterCore.mmp
+../../testclient/FileHandler/Group/FileHandler.mmp
+../../testclient/FileHandler/Group/FileHandlerClient.mmp
+../../testclient/Ui/Group/S60TestClient.mmp
+
+// SIP Tester
+#include "../../siptester/client_simulator/group/bld.inf"
+
+../../siptester/group/SIPTester.mmp
+
+../../siptester/TTCNResolverPlugin/group/TTCNResolverPlugin.mmp
+
+PRJ_EXPORTS
+
+#include "../../testclient/group/exports.inc"
+
+

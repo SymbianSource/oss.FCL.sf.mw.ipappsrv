@@ -1,0 +1,98 @@
+/*
+* Copyright (c) 2007 - 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    This is the Make file for Testconsole app.
+**
+*/
+
+
+
+
+#include <platform_paths.hrh>
+
+TARGET              natfwtestconsole.exe
+
+CAPABILITY          CAP_GENERAL_DLL
+VENDORID            VID_DEFAULT
+
+
+TARGETTYPE          exe
+UID                 0x100039CE 0xE02743FF 
+
+USERINCLUDE         ../inc
+USERINCLUDE         ../../../../../inc
+USERINCLUDE         ../../../../natfwshared/inc
+USERINCLUDE         ../../../../natfwclient/inc
+USERINCLUDE         ../../../../natfwsettings/inc
+USERINCLUDE         ../../../../natfwconnectionmultiplexer/inc
+USERINCLUDE         ../../../../natfwsocketmediaconnwrapper/inc
+
+MW_LAYER_SYSTEMINCLUDE
+// MCC needs
+
+SOURCEPATH          ../src
+SOURCE              natfwtestconsolemain.cpp
+SOURCE              natfwtestconsole.cpp
+SOURCE              stunturntests.cpp
+SOURCE              icetests.cpp
+SOURCE              stunudpmediatest.cpp
+SOURCE              natsettingstest.cpp
+SOURCE              natfwtestconsolestubs.cpp
+SOURCE              iceteststubs.cpp
+SOURCE              mediateststubs.cpp
+
+SOURCE              testclient.cpp
+SOURCE              testserver.cpp
+SOURCE              timeouttimer.cpp
+SOURCE              iap.cpp
+
+SOURCE              natcomtest.cpp
+SOURCE              natcomteststate.cpp
+SOURCE              natcandidatestore.cpp
+SOURCE              natcandidatestoreitem.cpp
+SOURCE              mccsession.cpp
+SOURCE              mcclink.cpp
+SOURCE              mccmediastream.cpp
+
+SOURCE              datadepository.cpp
+SOURCE              settings.cpp
+SOURCE              generalsettings.cpp
+SOURCE              stunudpsettings.cpp
+SOURCE              stuntcpsettings.cpp
+SOURCE              turnudpsettings.cpp
+SOURCE              turntcpsettings.cpp
+SOURCE              icetcpsettings.cpp
+SOURCE              iceudpsettings.cpp
+SOURCE              additionalstunudpsettings.cpp
+SOURCE              additionalstuntcpsettings.cpp
+SOURCE              additionalturnudpsettings.cpp
+SOURCE              additionalturntcpsettings.cpp
+SOURCE              additionalicesettings.cpp
+SOURCE              wrongserversettings.cpp
+
+LIBRARY             euser.lib
+LIBRARY             esock.lib
+LIBRARY             insock.lib
+LIBRARY             natconfw.lib
+LIBRARY             natfwnatsettings.lib
+LIBRARY             commdb.lib 
+LIBRARY             bafl.lib
+
+LIBRARY             estor.lib
+LIBRARY             efsrv.lib
+
+// MCC
+LIBRARY             mmccinterface.lib
+LIBRARY             socketmediaconnwrapper.lib
+LIBRARY             centralrepository.lib
+

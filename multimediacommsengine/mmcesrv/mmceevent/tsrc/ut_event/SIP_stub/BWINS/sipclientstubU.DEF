@@ -1,0 +1,110 @@
+EXPORTS
+	??1CSIP@@UAE@XZ @ 1 NONAME ; CSIP::~CSIP(void)
+	??1CSIPClientTransaction@@UAE@XZ @ 2 NONAME ; CSIPClientTransaction::~CSIPClientTransaction(void)
+	??1CSIPConnection@@UAE@XZ @ 3 NONAME ; CSIPConnection::~CSIPConnection(void)
+	??1CSIPMessageElements@@UAE@XZ @ 4 NONAME ; CSIPMessageElements::~CSIPMessageElements(void)
+	??1CSIPNotifyDialogAssoc@@UAE@XZ @ 5 NONAME ; CSIPNotifyDialogAssoc::~CSIPNotifyDialogAssoc(void)
+	??1CSIPReferDialogAssoc@@UAE@XZ @ 6 NONAME ; CSIPReferDialogAssoc::~CSIPReferDialogAssoc(void)
+	??1CSIPRefresh@@UAE@XZ @ 7 NONAME ; CSIPRefresh::~CSIPRefresh(void)
+	??1CSIPRegistrationBinding@@UAE@XZ @ 8 NONAME ; CSIPRegistrationBinding::~CSIPRegistrationBinding(void)
+	??1CSIPRequestElements@@UAE@XZ @ 9 NONAME ; CSIPRequestElements::~CSIPRequestElements(void)
+	??1CSIPResponseElements@@UAE@XZ @ 10 NONAME ; CSIPResponseElements::~CSIPResponseElements(void)
+	??1CSIPServerTransaction@@UAE@XZ @ 11 NONAME ; CSIPServerTransaction::~CSIPServerTransaction(void)
+	??1CSIPSubscribeDialogAssoc@@UAE@XZ @ 12 NONAME ; CSIPSubscribeDialogAssoc::~CSIPSubscribeDialogAssoc(void)
+	??8CSIPDialog@@QBEHABV0@@Z @ 13 NONAME ; int CSIPDialog::operator==(class CSIPDialog const &) const
+	??8CSIPRegistrationBinding@@QBEHABV0@@Z @ 14 NONAME ; int CSIPRegistrationBinding::operator==(class CSIPRegistrationBinding const &) const
+	??8CSIPTransactionBase@@QBEHABV0@@Z @ 15 NONAME ; int CSIPTransactionBase::operator==(class CSIPTransactionBase const &) const
+	?CSeqHeader@CSIPResponseElements@@QBEPBVCSIPCSeqHeader@@XZ @ 16 NONAME ; class CSIPCSeqHeader const * CSIPResponseElements::CSeqHeader(void) const
+	?CallIdL@CSIPDialog@@QBEABVCSIPCallIDHeader@@XZ @ 17 NONAME ; class CSIPCallIDHeader const & CSIPDialog::CallIdL(void) const
+	?Connection@CSIP@@QBEPAVCSIPConnection@@K@Z @ 18 NONAME ; class CSIPConnection * CSIP::Connection(unsigned long) const
+	?ContactHeader@CSIPRegistrationBinding@@QAEAAVCSIPContactHeader@@XZ @ 19 NONAME ; class CSIPContactHeader & CSIPRegistrationBinding::ContactHeader(void)
+	?Content@CSIPMessageElements@@QBEABVTDesC8@@XZ @ 20 NONAME ; class TDesC8 const & CSIPMessageElements::Content(void) const
+	?ContentType@CSIPMessageElements@@QBEPBVCSIPContentTypeHeader@@XZ @ 21 NONAME ; class CSIPContentTypeHeader const * CSIPMessageElements::ContentType(void) const
+	?ContextId@CSIPRegistrationBinding@@UBEKXZ @ 22 NONAME ; unsigned long CSIPRegistrationBinding::ContextId(void) const
+	?DeregisterL@CSIPRegistrationBinding@@QAEPAVCSIPClientTransaction@@PAVCSIPMessageElements@@@Z @ 23 NONAME ; class CSIPClientTransaction * CSIPRegistrationBinding::DeregisterL(class CSIPMessageElements *)
+	?Dialog@CSIPDialogAssocBase@@QAEAAVCSIPDialog@@XZ @ 24 NONAME ; class CSIPDialog & CSIPDialogAssocBase::Dialog(void)
+	?Dialog@CSIPDialogAssocBase@@QBEABVCSIPDialog@@XZ @ 25 NONAME ; class CSIPDialog const & CSIPDialogAssocBase::Dialog(void) const
+	?Event@CSIPNotifyDialogAssoc@@QBEABVCSIPEventHeader@@XZ @ 26 NONAME ; class CSIPEventHeader const & CSIPNotifyDialogAssoc::Event(void) const
+	?Event@CSIPSubscribeDialogAssoc@@QBEABVCSIPEventHeader@@XZ @ 27 NONAME ; class CSIPEventHeader const & CSIPSubscribeDialogAssoc::Event(void) const
+	?ExtractContent@CSIPMessageElements@@QAEPAVHBufC8@@XZ @ 28 NONAME ; class HBufC8 * CSIPMessageElements::ExtractContent(void)
+	?FromHeader@CSIPDialog@@QBEABVCSIPFromHeader@@XZ @ 29 NONAME ; class CSIPFromHeader const & CSIPDialog::FromHeader(void) const
+	?FromHeader@CSIPRequestElements@@QBEPBVCSIPFromHeader@@XZ @ 30 NONAME ; class CSIPFromHeader const * CSIPRequestElements::FromHeader(void) const
+	?FromHeader@CSIPResponseElements@@QBEPBVCSIPFromHeader@@XZ @ 31 NONAME ; class CSIPFromHeader const * CSIPResponseElements::FromHeader(void) const
+	?GetLocalAddrL@CSIPConnection@@QBEXAAVTInetAddr@@@Z @ 32 NONAME ; void CSIPConnection::GetLocalAddrL(class TInetAddr &) const
+	?IapId@CSIPConnection@@QBEKXZ @ 33 NONAME ; unsigned long CSIPConnection::IapId(void) const
+	?IsContextActive@CSIPRegistrationBinding@@UBEHXZ @ 34 NONAME ; int CSIPRegistrationBinding::IsContextActive(void) const
+	?IsSIPClientTransaction@CSIPTransactionBase@@QBEHXZ @ 35 NONAME ; int CSIPTransactionBase::IsSIPClientTransaction(void) const
+	?MessageElements@CSIPRequestElements@@QAEAAVCSIPMessageElements@@XZ @ 36 NONAME ; class CSIPMessageElements & CSIPRequestElements::MessageElements(void)
+	?MessageElements@CSIPRequestElements@@QBEABVCSIPMessageElements@@XZ @ 37 NONAME ; class CSIPMessageElements const & CSIPRequestElements::MessageElements(void) const
+	?MessageElements@CSIPResponseElements@@QAEAAVCSIPMessageElements@@XZ @ 38 NONAME ; class CSIPMessageElements & CSIPResponseElements::MessageElements(void)
+	?MessageElements@CSIPResponseElements@@QBEABVCSIPMessageElements@@XZ @ 39 NONAME ; class CSIPMessageElements const & CSIPResponseElements::MessageElements(void) const
+	?Method@CSIPRequestElements@@QBE?AVRStringF@@XZ @ 40 NONAME ; class RStringF CSIPRequestElements::Method(void) const
+	?NewL@CSIP@@SAPAV1@ABVTUid@@AAVMSIPObserver@@@Z @ 41 NONAME ; class CSIP * CSIP::NewL(class TUid const &, class MSIPObserver &)
+	?NewL@CSIPClientTransaction@@SAPAV1@XZ @ 42 NONAME ; class CSIPClientTransaction * CSIPClientTransaction::NewL(void)
+	?NewL@CSIPConnection@@SAPAV1@AAVCSIP@@K@Z @ 43 NONAME ; class CSIPConnection * CSIPConnection::NewL(class CSIP &, unsigned long)
+	?NewL@CSIPMessageElements@@SAPAV1@XZ @ 44 NONAME ; class CSIPMessageElements * CSIPMessageElements::NewL(void)
+	?NewL@CSIPNotifyDialogAssoc@@SAPAV1@XZ @ 45 NONAME ; class CSIPNotifyDialogAssoc * CSIPNotifyDialogAssoc::NewL(void)
+	?NewL@CSIPReferDialogAssoc@@SAPAV1@AAVCSIPConnection@@PAVCSIPFromHeader@@PAVCUri8@@PAVCSIPReferToHeader@@PAVCSIPToHeader@@PAVCSIPContactHeader@@@Z @ 46 NONAME ; class CSIPReferDialogAssoc * CSIPReferDialogAssoc::NewL(class CSIPConnection &, class CSIPFromHeader *, class CUri8 *, class CSIPReferToHeader *, class CSIPToHeader *, class CSIPContactHeader *)
+	?NewL@CSIPReferDialogAssoc@@SAPAV1@AAVCSIPConnection@@PAVCUri8@@ABVMSIPRegistrationContext@@PAVCSIPReferToHeader@@PAVCSIPFromHeader@@PAVCSIPToHeader@@PAVCSIPContactHeader@@@Z @ 47 NONAME ; class CSIPReferDialogAssoc * CSIPReferDialogAssoc::NewL(class CSIPConnection &, class CUri8 *, class MSIPRegistrationContext const &, class CSIPReferToHeader *, class CSIPFromHeader *, class CSIPToHeader *, class CSIPContactHeader *)
+	?NewL@CSIPReferDialogAssoc@@SAPAV1@XZ @ 48 NONAME ; class CSIPReferDialogAssoc * CSIPReferDialogAssoc::NewL(void)
+	?NewL@CSIPRefresh@@SAPAV1@XZ @ 49 NONAME ; class CSIPRefresh * CSIPRefresh::NewL(void)
+	?NewL@CSIPRegistrationBinding@@SAPAV1@AAVCSIPConnection@@PAVCSIPToHeader@@PAVCSIPContactHeader@@PAVCSIPRefresh@@PAVCSIPRouteHeader@@PAVCUri8@@PAVCSIPFromHeader@@@Z @ 50 NONAME ; class CSIPRegistrationBinding * CSIPRegistrationBinding::NewL(class CSIPConnection &, class CSIPToHeader *, class CSIPContactHeader *, class CSIPRefresh *, class CSIPRouteHeader *, class CUri8 *, class CSIPFromHeader *)
+	?NewL@CSIPRequestElements@@SAPAV1@PAVCUri8@@@Z @ 51 NONAME ; class CSIPRequestElements * CSIPRequestElements::NewL(class CUri8 *)
+	?NewL@CSIPResponseElements@@SAPAV1@IVRStringF@@@Z @ 52 NONAME ; class CSIPResponseElements * CSIPResponseElements::NewL(unsigned int, class RStringF)
+	?NewL@CSIPServerTransaction@@SAPAV1@XZ @ 53 NONAME ; class CSIPServerTransaction * CSIPServerTransaction::NewL(void)
+	?NewL@CSIPSubscribeDialogAssoc@@SAPAV1@AAVCSIPConnection@@PAVCUri8@@ABVMSIPRegistrationContext@@PAVCSIPEventHeader@@PAVCSIPFromHeader@@PAVCSIPToHeader@@PAVCSIPContactHeader@@@Z @ 54 NONAME ; class CSIPSubscribeDialogAssoc * CSIPSubscribeDialogAssoc::NewL(class CSIPConnection &, class CUri8 *, class MSIPRegistrationContext const &, class CSIPEventHeader *, class CSIPFromHeader *, class CSIPToHeader *, class CSIPContactHeader *)
+	?NewL@CSIPSubscribeDialogAssoc@@SAPAV1@PAVCSIPEventHeader@@@Z @ 55 NONAME ; class CSIPSubscribeDialogAssoc * CSIPSubscribeDialogAssoc::NewL(class CSIPEventHeader *)
+	?NewLC@CSIPMessageElements@@SAPAV1@XZ @ 56 NONAME ; class CSIPMessageElements * CSIPMessageElements::NewLC(void)
+	?NewLC@CSIPRefresh@@SAPAV1@XZ @ 57 NONAME ; class CSIPRefresh * CSIPRefresh::NewLC(void)
+	?NewLC@CSIPRequestElements@@SAPAV1@PAVCUri8@@@Z @ 58 NONAME ; class CSIPRequestElements * CSIPRequestElements::NewLC(class CUri8 *)
+	?NewLC@CSIPResponseElements@@SAPAV1@IVRStringF@@@Z @ 59 NONAME ; class CSIPResponseElements * CSIPResponseElements::NewLC(unsigned int, class RStringF)
+	?OutboundProxy@CSIPRegistrationBinding@@QBEPBVCSIPRouteHeader@@XZ @ 60 NONAME ; class CSIPRouteHeader const * CSIPRegistrationBinding::OutboundProxy(void) const
+	?ReasonPhrase@CSIPResponseElements@@QBE?AVRStringF@@XZ @ 61 NONAME ; class RStringF CSIPResponseElements::ReasonPhrase(void) const
+	?ReferTo@CSIPReferDialogAssoc@@QBEABVCSIPReferToHeader@@XZ @ 62 NONAME ; class CSIPReferToHeader const & CSIPReferDialogAssoc::ReferTo(void) const
+	?RegisterL@CSIPRegistrationBinding@@QAEPAVCSIPClientTransaction@@PAVCSIPMessageElements@@@Z @ 63 NONAME ; class CSIPClientTransaction * CSIPRegistrationBinding::RegisterL(class CSIPMessageElements *)
+	?RemoteURI@CSIPDialog@@QBEABVCUri8@@XZ @ 64 NONAME ; class CUri8 const & CSIPDialog::RemoteURI(void) const
+	?RemoteUri@CSIPRequestElements@@QBEABVCUri8@@XZ @ 65 NONAME ; class CUri8 const & CSIPRequestElements::RemoteUri(void) const
+	?RequestElements@CSIPServerTransaction@@QBEPBVCSIPRequestElements@@XZ @ 66 NONAME ; class CSIPRequestElements const * CSIPServerTransaction::RequestElements(void) const
+	?ResponseElements@CSIPClientTransaction@@QBEPBVCSIPResponseElements@@XZ @ 67 NONAME ; class CSIPResponseElements const * CSIPClientTransaction::ResponseElements(void) const
+	?SIP@CSIPConnection@@QAEPAVCSIP@@XZ @ 68 NONAME ; class CSIP * CSIPConnection::SIP(void)
+	?SIP@CSIPConnection@@QBEPBVCSIP@@XZ @ 69 NONAME ; class CSIP const * CSIPConnection::SIP(void) const
+	?SIPRefresh@CSIPRegistrationBinding@@QAEPAVCSIPRefresh@@XZ @ 70 NONAME ; class CSIPRefresh * CSIPRegistrationBinding::SIPRefresh(void)
+	?SIPRefresh@CSIPSubscribeDialogAssoc@@QBEPBVCSIPRefresh@@XZ @ 71 NONAME ; class CSIPRefresh const * CSIPSubscribeDialogAssoc::SIPRefresh(void) const
+	?SendNonTargetRefreshRequestL@CSIPDialogAssocBase@@UAEPAVCSIPClientTransaction@@VRStringF@@PAVCSIPMessageElements@@@Z @ 72 NONAME ; class CSIPClientTransaction * CSIPDialogAssocBase::SendNonTargetRefreshRequestL(class RStringF, class CSIPMessageElements *)
+	?SendNotifyL@CSIPNotifyDialogAssoc@@QAEPAVCSIPClientTransaction@@PAVCSIPMessageElements@@@Z @ 73 NONAME ; class CSIPClientTransaction * CSIPNotifyDialogAssoc::SendNotifyL(class CSIPMessageElements *)
+	?SendReferL@CSIPReferDialogAssoc@@QAEPAVCSIPClientTransaction@@PAVCSIPMessageElements@@@Z @ 74 NONAME ; class CSIPClientTransaction * CSIPReferDialogAssoc::SendReferL(class CSIPMessageElements *)
+	?SendResponseL@CSIPServerTransaction@@QAEXPAVCSIPResponseElements@@@Z @ 75 NONAME ; void CSIPServerTransaction::SendResponseL(class CSIPResponseElements *)
+	?SendSubscribeL@CSIPSubscribeDialogAssoc@@QAEPAVCSIPClientTransaction@@PAVCSIPMessageElements@@PAVCSIPRefresh@@@Z @ 76 NONAME ; class CSIPClientTransaction * CSIPSubscribeDialogAssoc::SendSubscribeL(class CSIPMessageElements *, class CSIPRefresh *)
+	?SendUnsubscribeL@CSIPSubscribeDialogAssoc@@QAEPAVCSIPClientTransaction@@PAVCSIPMessageElements@@@Z @ 77 NONAME ; class CSIPClientTransaction * CSIPSubscribeDialogAssoc::SendUnsubscribeL(class CSIPMessageElements *)
+	?SetContentL@CSIPMessageElements@@QAEXPAVHBufC8@@PAVCSIPContentTypeHeader@@@Z @ 78 NONAME ; void CSIPMessageElements::SetContentL(class HBufC8 *, class CSIPContentTypeHeader *)
+	?SetContext@CSIPRegistrationBinding@@QAEXH@Z @ 79 NONAME ; void CSIPRegistrationBinding::SetContext(int)
+	?SetFromHeaderL@CSIPRequestElements@@QAEXPAVCSIPFromHeader@@@Z @ 80 NONAME ; void CSIPRequestElements::SetFromHeaderL(class CSIPFromHeader *)
+	?SetIntervalL@CSIPRefresh@@QAEXI@Z @ 81 NONAME ; void CSIPRefresh::SetIntervalL(unsigned int)
+	?SetLeave@CSIPRegistrationBinding@@QAEXH@Z @ 82 NONAME ; void CSIPRegistrationBinding::SetLeave(int)
+	?SetMethodL@CSIPRequestElements@@QAEXVRStringF@@@Z @ 83 NONAME ; void CSIPRequestElements::SetMethodL(class RStringF)
+	?SetOutboundProxyL@CSIPRegistrationBinding@@QAEXPAVCSIPRouteHeader@@@Z @ 84 NONAME ; void CSIPRegistrationBinding::SetOutboundProxyL(class CSIPRouteHeader *)
+	?SetReasonPhraseL@CSIPResponseElements@@QAEXVRStringF@@@Z @ 85 NONAME ; void CSIPResponseElements::SetReasonPhraseL(class RStringF)
+	?SetRemoteUriL@CSIPRequestElements@@QAEXPAVCUri8@@@Z @ 86 NONAME ; void CSIPRequestElements::SetRemoteUriL(class CUri8 *)
+	?SetRequestElements@CSIPServerTransaction@@QAEXPAVCSIPRequestElements@@@Z @ 87 NONAME ; void CSIPServerTransaction::SetRequestElements(class CSIPRequestElements *)
+	?SetResponseElements@CSIPClientTransaction@@QAEXPAVCSIPResponseElements@@@Z @ 88 NONAME ; void CSIPClientTransaction::SetResponseElements(class CSIPResponseElements *)
+	?SetState@CSIPConnection@@QAEXW4TState@1@@Z @ 89 NONAME ; void CSIPConnection::SetState(enum CSIPConnection::TState)
+	?SetState@CSIPDialog@@QAEXW4TState@1@@Z @ 90 NONAME ; void CSIPDialog::SetState(enum CSIPDialog::TState)
+	?SetStatusCodeL@CSIPResponseElements@@QAEXI@Z @ 91 NONAME ; void CSIPResponseElements::SetStatusCodeL(unsigned int)
+	?SetToHeaderL@CSIPRequestElements@@QAEXPAVCSIPToHeader@@@Z @ 92 NONAME ; void CSIPRequestElements::SetToHeaderL(class CSIPToHeader *)
+	?SetType@CSIPTransactionBase@@QAEXH@Z @ 93 NONAME ; void CSIPTransactionBase::SetType(int)
+	?SetUserHeadersL@CSIPMessageElements@@QAEXAAV?$RPointerArray@VCSIPHeaderBase@@@@@Z @ 94 NONAME ; void CSIPMessageElements::SetUserHeadersL(class RPointerArray<class CSIPHeaderBase> &)
+	?State@CSIPConnection@@QBE?AW4TState@1@XZ @ 95 NONAME ; enum CSIPConnection::TState CSIPConnection::State(void) const
+	?State@CSIPDialog@@QBE?AW4TState@1@XZ @ 96 NONAME ; enum CSIPDialog::TState CSIPDialog::State(void) const
+	?StateL@CSIPTransactionBase@@QBE?AW4TState@1@XZ @ 97 NONAME ; enum CSIPTransactionBase::TState CSIPTransactionBase::StateL(void) const
+	?StatusCode@CSIPResponseElements@@QBEIXZ @ 98 NONAME ; unsigned int CSIPResponseElements::StatusCode(void) const
+	?SubscriptionState@CSIPNotifyDialogAssoc@@QAEAAVCSIPSubscriptionStateHeader@@XZ @ 99 NONAME ; class CSIPSubscriptionStateHeader & CSIPNotifyDialogAssoc::SubscriptionState(void)
+	?SupportedSecurityMechanismsL@CSIP@@QBEPAVCDesC8Array@@XZ @ 100 NONAME ; class CDesC8Array * CSIP::SupportedSecurityMechanismsL(void) const
+	?ToHeader@CSIPDialog@@QBEABVCSIPToHeader@@XZ @ 101 NONAME ; class CSIPToHeader const & CSIPDialog::ToHeader(void) const
+	?ToHeader@CSIPRequestElements@@QBEPBVCSIPToHeader@@XZ @ 102 NONAME ; class CSIPToHeader const * CSIPRequestElements::ToHeader(void) const
+	?ToHeader@CSIPResponseElements@@QBEPBVCSIPToHeader@@XZ @ 103 NONAME ; class CSIPToHeader const * CSIPResponseElements::ToHeader(void) const
+	?Type@CSIPDialogAssocBase@@QBE?AVRStringF@@XZ @ 104 NONAME ; class RStringF CSIPDialogAssocBase::Type(void) const
+	?Type@CSIPTransactionBase@@QBE?AVRStringF@@XZ @ 105 NONAME ; class RStringF CSIPTransactionBase::Type(void) const
+	?UpdateL@CSIPRegistrationBinding@@QAEPAVCSIPClientTransaction@@IPAVCSIPMessageElements@@@Z @ 106 NONAME ; class CSIPClientTransaction * CSIPRegistrationBinding::UpdateL(unsigned int, class CSIPMessageElements *)
+	?UpdateL@CSIPSubscribeDialogAssoc@@QAEPAVCSIPClientTransaction@@PAVCSIPMessageElements@@@Z @ 107 NONAME ; class CSIPClientTransaction * CSIPSubscribeDialogAssoc::UpdateL(class CSIPMessageElements *)
+	?UserHeaders@CSIPMessageElements@@QBEABV?$RPointerArray@VCSIPHeaderBase@@@@XZ @ 108 NONAME ; class RPointerArray<class CSIPHeaderBase> const & CSIPMessageElements::UserHeaders(void) const
+

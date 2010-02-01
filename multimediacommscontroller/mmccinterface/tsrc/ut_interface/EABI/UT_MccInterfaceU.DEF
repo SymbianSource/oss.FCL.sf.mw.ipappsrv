@@ -1,0 +1,63 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZN13CMccInterface10CreateLinkEmiRmR15TMccNetSettings @ 2 NONAME
+	_ZN13CMccInterface10GetBundlesEmR6RArrayI16TMccStreamBundleE @ 3 NONAME
+	_ZN13CMccInterface10LinkExistsEmRmRK15TMccNetSettings @ 4 NONAME
+	_ZN13CMccInterface10StopStreamEmmmm @ 5 NONAME
+	_ZN13CMccInterface11AddDataSinkE4TUidRK6TDesC8Rm @ 6 NONAME
+	_ZN13CMccInterface11PauseStreamEmmmmi @ 7 NONAME
+	_ZN13CMccInterface11StartStreamEmmmmii @ 8 NONAME
+	_ZN13CMccInterface12CloseSessionEm @ 9 NONAME
+	_ZN13CMccInterface12CreateStreamEmmRmiR20CMccCodecInformation @ 10 NONAME
+	_ZN13CMccInterface12DeleteStreamEmmm @ 11 NONAME
+	_ZN13CMccInterface12GetParameterEmmmmmR5TDes8 @ 12 NONAME
+	_ZN13CMccInterface12RemoveBundleEmm @ 13 NONAME
+	_ZN13CMccInterface12ResumeStreamEmmmmi @ 14 NONAME
+	_ZN13CMccInterface12SetParameterEmmmmmRK6TDesC8 @ 15 NONAME
+	_ZN13CMccInterface13AddDataSourceE4TUidRK6TDesC8Rm @ 16 NONAME
+	_ZN13CMccInterface13CreateSessionERm @ 17 NONAME
+	_ZN13CMccInterface13PrepareStreamEmmmm @ 18 NONAME
+	_ZN13CMccInterface13StreamsExistsEmm @ 19 NONAME
+	_ZN13CMccInterface13TranscodeFileERK6TDesC8S2_mRmPK20CMccCodecInformationS6_ @ 20 NONAME
+	_ZN13CMccInterface14ReferenceCountEmmmmRj @ 21 NONAME
+	_ZN13CMccInterface14RemoveDataSinkEmmmm @ 22 NONAME
+	_ZN13CMccInterface14UpdateDataSinkEmmmmRK6TDesC8 @ 23 NONAME
+	_ZN13CMccInterface15GetCapabilitiesE4TUidiRK6TDesC8R13RPointerArrayI20CMccCodecInformationE @ 24 NONAME
+	_ZN13CMccInterface16RemoveDataSourceEmmmm @ 25 NONAME
+	_ZN13CMccInterface16SendMediaSignalLERK9TMccEvent @ 26 NONAME
+	_ZN13CMccInterface16SetRemoteAddressEmmRK9TInetAddrj @ 27 NONAME
+	_ZN13CMccInterface16UpdateDataSourceEmmmmRK6TDesC8 @ 28 NONAME
+	_ZN13CMccInterface19CancelTranscodeFileEm @ 29 NONAME
+	_ZN13CMccInterface19MediaQualityRequestERK22TMccMediaQualityConfig @ 30 NONAME
+	_ZN13CMccInterface19StopInactivityTimerEmmmm @ 31 NONAME
+	_ZN13CMccInterface20StartInactivityTimerEmmmmm @ 32 NONAME
+	_ZN13CMccInterface25CancelMediaQualityRequestERK22TMccMediaQualityConfig @ 33 NONAME
+	_ZN13CMccInterface4NewLER16MMccCtrlObserver @ 34 NONAME
+	_ZN13CMccInterface5ReuseEmmmm @ 35 NONAME
+	_ZN13CMccInterface6CodecLEmmm @ 36 NONAME
+	_ZN13CMccInterface7GetSSRCEmmmmRm @ 37 NONAME
+	_ZN13CMccInterface8SetCodecEmmmR20CMccCodecInformation @ 38 NONAME
+	_ZN13CMccInterface9AddBundleEmR16TMccStreamBundleRm @ 39 NONAME
+	_ZN13CMccInterface9CloseLinkEmm @ 40 NONAME
+	_ZN19CMccSecureInterface13CreateContextERK6TDesC8S2_RmS2_ @ 41 NONAME
+	_ZN19CMccSecureInterface13RemoveContextEm @ 42 NONAME
+	_ZN19CMccSecureInterface13UpdateContextERK6TDesC8S2_mS2_ @ 43 NONAME
+	_ZN19CMccSecureInterface4BindEmmmmm @ 44 NONAME
+	_ZN19CMccSecureInterface4NewLER13CMccInterface @ 45 NONAME
+	_ZN27CMccCodecInformationFactory23CreateCodecInformationLE7TFourCC @ 46 NONAME
+	_ZN27CMccCodecInformationFactory23CreateCodecInformationLERK6TDesC8 @ 47 NONAME
+	_ZN27CMccCodecInformationFactory4NewLEv @ 48 NONAME
+	_ZNK13CMccInterface15GetCapabilitiesER13RPointerArrayI20CMccCodecInformationE @ 49 NONAME
+	_ZTI13CMccInterface @ 50 NONAME ; #<TI>#
+	_ZTI16UT_CMccInterface @ 51 NONAME ; #<TI>#
+	_ZTI19CMccSecureInterface @ 52 NONAME ; #<TI>#
+	_ZTI20CMccCodecInformation @ 53 NONAME ; #<TI>#
+	_ZTI23UT_CMccCodecInformation @ 54 NONAME ; #<TI>#
+	_ZTI27CMccCodecInformationFactory @ 55 NONAME ; #<TI>#
+	_ZTV13CMccInterface @ 56 NONAME ; #<VT>#
+	_ZTV16UT_CMccInterface @ 57 NONAME ; #<VT>#
+	_ZTV19CMccSecureInterface @ 58 NONAME ; #<VT>#
+	_ZTV20CMccCodecInformation @ 59 NONAME ; #<VT>#
+	_ZTV23UT_CMccCodecInformation @ 60 NONAME ; #<VT>#
+	_ZTV27CMccCodecInformationFactory @ 61 NONAME ; #<VT>#
+

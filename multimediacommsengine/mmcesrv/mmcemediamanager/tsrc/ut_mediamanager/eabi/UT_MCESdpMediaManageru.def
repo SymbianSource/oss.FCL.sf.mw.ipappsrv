@@ -1,0 +1,249 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZN13CMccInterface10CreateLinkEmiRmR15TMccNetSettings @ 2 NONAME
+	_ZN13CMccInterface10LinkExistsEmRmRK15TMccNetSettings @ 3 NONAME
+	_ZN13CMccInterface10StopStreamEmmmm @ 4 NONAME
+	_ZN13CMccInterface11AddDataSinkE4TUidRK6TDesC8Rm @ 5 NONAME
+	_ZN13CMccInterface11PauseStreamEmmmmi @ 6 NONAME
+	_ZN13CMccInterface11StartStreamEmmmmii @ 7 NONAME
+	_ZN13CMccInterface12CloseSessionEm @ 8 NONAME
+	_ZN13CMccInterface12CreateStreamEmmRmiR20CMccCodecInformation @ 9 NONAME
+	_ZN13CMccInterface12DeleteStreamEmmm @ 10 NONAME
+	_ZN13CMccInterface12GetParameterEmmmmmR5TDes8 @ 11 NONAME
+	_ZN13CMccInterface12ResumeStreamEmmmmi @ 12 NONAME
+	_ZN13CMccInterface12SetParameterEmmmmmRK6TDesC8 @ 13 NONAME
+	_ZN13CMccInterface13AddDataSourceE4TUidRK6TDesC8Rm @ 14 NONAME
+	_ZN13CMccInterface13CreateSessionERm @ 15 NONAME
+	_ZN13CMccInterface13PrepareStreamEmmmm @ 16 NONAME
+	_ZN13CMccInterface13StreamsExistsEmm @ 17 NONAME
+	_ZN13CMccInterface13TranscodeFileERK6TDesC8S2_mRmPK20CMccCodecInformationS6_ @ 18 NONAME
+	_ZN13CMccInterface14ReferenceCountEmmmmRj @ 19 NONAME
+	_ZN13CMccInterface14RemoveDataSinkEmmmm @ 20 NONAME
+	_ZN13CMccInterface14UpdateDataSinkEmmmmRK6TDesC8 @ 21 NONAME
+	_ZN13CMccInterface16RemoveDataSourceEmmmm @ 22 NONAME
+	_ZN13CMccInterface16SendMediaSignalLERK9TMccEvent @ 23 NONAME
+	_ZN13CMccInterface16SetRemoteAddressEmmRK9TInetAddrj @ 24 NONAME
+	_ZN13CMccInterface16UpdateDataSourceEmmmmRK6TDesC8 @ 25 NONAME
+	_ZN13CMccInterface19CancelTranscodeFileEm @ 26 NONAME
+	_ZN13CMccInterface19StopInactivityTimerEmmmm @ 27 NONAME
+	_ZN13CMccInterface20StartInactivityTimerEmmmmm @ 28 NONAME
+	_ZN13CMccInterface4NewLER16MMccCtrlObserver @ 29 NONAME
+	_ZN13CMccInterface5ReuseEmmmm @ 30 NONAME
+	_ZN13CMccInterface6CodecLEmmm @ 31 NONAME
+	_ZN13CMccInterface7GetSSRCEmmmmRm @ 32 NONAME
+	_ZN13CMccInterface8SetCodecEmmmR20CMccCodecInformation @ 33 NONAME
+	_ZN13CMccInterface9CloseLinkEmm @ 34 NONAME
+	_ZN19CMccSecureInterface13CreateContextERK6TDesC8S2_RmS2_ @ 35 NONAME
+	_ZN19CMccSecureInterface13RemoveContextEm @ 36 NONAME
+	_ZN19CMccSecureInterface13UpdateContextERK6TDesC8S2_mS2_ @ 37 NONAME
+	_ZN19CMccSecureInterface4BindEmmmmm @ 38 NONAME
+	_ZN19CMccSecureInterface4NewLER13CMccInterface @ 39 NONAME
+	_ZN27CMccCodecInformationFactory23CreateCodecInformationLE7TFourCC @ 40 NONAME
+	_ZN27CMccCodecInformationFactory23CreateCodecInformationLERK6TDesC8 @ 41 NONAME
+	_ZN27CMccCodecInformationFactory4NewLEv @ 42 NONAME
+	_ZNK13CMccInterface15GetCapabilitiesER13RPointerArrayI20CMccCodecInformationE @ 43 NONAME
+	_ZTI11CMceMsgBase @ 44 NONAME ; #<TI>#
+	_ZTI11CMceSrvSink @ 45 NONAME ; #<TI>#
+	_ZTI11CPluginStub @ 46 NONAME ; #<TI>#
+	_ZTI12CMceComCodec @ 47 NONAME ; #<TI>#
+	_ZTI12CMceSdpCodec @ 48 NONAME ; #<TI>#
+	_ZTI13CMccInterface @ 49 NONAME ; #<TI>#
+	_ZTI13CMceSrvSource @ 50 NONAME ; #<TI>#
+	_ZTI13CMceSrvStream @ 51 NONAME ; #<TI>#
+	_ZTI13TMceMediaIdle @ 52 NONAME ; #<TI>#
+	_ZTI14CMceComCnCodec @ 53 NONAME ; #<TI>#
+	_ZTI14CMceComRtpSink @ 54 NONAME ; #<TI>#
+	_ZTI14CMceComSession @ 55 NONAME ; #<TI>#
+	_ZTI14CMceMsgSIPData @ 56 NONAME ; #<TI>#
+	_ZTI14CMceSdpSession @ 57 NONAME ; #<TI>#
+	_ZTI14TMceMediaState @ 58 NONAME ; #<TI>#
+	_ZTI14UT_CMceSrvSink @ 59 NONAME ; #<TI>#
+	_ZTI15CMceComAMRCodec @ 60 NONAME ; #<TI>#
+	_ZTI15CMceComAvcCodec @ 61 NONAME ; #<TI>#
+	_ZTI15CMceComEndpoint @ 62 NONAME ; #<TI>#
+	_ZTI15CMceComFileSink @ 63 NONAME ; #<TI>#
+	_ZTI15CMceComRedCodec @ 64 NONAME ; #<TI>#
+	_ZTI15CMceDtmfHandler @ 65 NONAME ; #<TI>#
+	_ZTI15CMceMsgSIPEvent @ 66 NONAME ; #<TI>#
+	_ZTI15CMceMsgSIPReply @ 67 NONAME ; #<TI>#
+	_ZTI15CMceSrvEndpoint @ 68 NONAME ; #<TI>#
+	_ZTI15UT_CMceSdpCodec @ 69 NONAME ; #<TI>#
+	_ZTI16CMceComDtmfCodec @ 70 NONAME ; #<TI>#
+	_ZTI16CMceComG711Codec @ 71 NONAME ; #<TI>#
+	_ZTI16CMceComG729Codec @ 72 NONAME ; #<TI>#
+	_ZTI16CMceComH263Codec @ 73 NONAME ; #<TI>#
+	_ZTI16CMceComMediaSink @ 74 NONAME ; #<TI>#
+	_ZTI16CMceComMicSource @ 75 NONAME ; #<TI>#
+	_ZTI16CMceComRtpSource @ 76 NONAME ; #<TI>#
+	_ZTI16CMceComiLBCCodec @ 77 NONAME ; #<TI>#
+	_ZTI16CMceMediaManager @ 78 NONAME ; #<TI>#
+	_ZTI16CMceMsgTextArray @ 79 NONAME ; #<TI>#
+	_ZTI16UT_CMceSrvSource @ 80 NONAME ; #<TI>#
+	_ZTI16UT_CMceSrvStream @ 81 NONAME ; #<TI>#
+	_ZTI16UT_TMceMediaIdle @ 82 NONAME ; #<TI>#
+	_ZTI17CMceAudioSdpCodec @ 83 NONAME ; #<TI>#
+	_ZTI17CMceComAMRWbCodec @ 84 NONAME ; #<TI>#
+	_ZTI17CMceComAudioCodec @ 85 NONAME ; #<TI>#
+	_ZTI17CMceComFileSource @ 86 NONAME ; #<TI>#
+	_ZTI17CMceComVideoCodec @ 87 NONAME ; #<TI>#
+	_ZTI17CMceMediaSdpCodec @ 88 NONAME ; #<TI>#
+	_ZTI17CMceMsgSIPRequest @ 89 NONAME ; #<TI>#
+	_ZTI17CMceVideoSdpCodec @ 90 NONAME ; #<TI>#
+	_ZTI17TMceOfferingMedia @ 91 NONAME ; #<TI>#
+	_ZTI17TMcePreconditions @ 92 NONAME ; #<TI>#
+	_ZTI17UT_CMceSdpSession @ 93 NONAME ; #<TI>#
+	_ZTI18CMccControllerStub @ 94 NONAME ; #<TI>#
+	_ZTI18CMceComAudioStream @ 95 NONAME ; #<TI>#
+	_ZTI18CMceComDisplaySink @ 96 NONAME ; #<TI>#
+	_ZTI18CMceComMediaSource @ 97 NONAME ; #<TI>#
+	_ZTI18CMceComMediaStream @ 98 NONAME ; #<TI>#
+	_ZTI18CMceComSpeakerSink @ 99 NONAME ; #<TI>#
+	_ZTI18CMceComVideoStream @ 100 NONAME ; #<TI>#
+	_ZTI18TMceAnsweringMedia @ 101 NONAME ; #<TI>#
+	_ZTI19CMccSecureInterface @ 102 NONAME ; #<TI>#
+	_ZTI19CMceComCameraSource @ 103 NONAME ; #<TI>#
+	_ZTI19CMceComStreamBundle @ 104 NONAME ; #<TI>#
+	_ZTI19CMceSecureDesStream @ 105 NONAME ; #<TI>#
+	_ZTI19TMceMediaNegotiated @ 106 NONAME ; #<TI>#
+	_ZTI19UT_CMceMediaManager @ 107 NONAME ; #<TI>#
+	_ZTI20CMccCodecInformation @ 108 NONAME ; #<TI>#
+	_ZTI20CMceAdoptedSrvStream @ 109 NONAME ; #<TI>#
+	_ZTI20CMceNatPluginManager @ 110 NONAME ; #<TI>#
+	_ZTI20TMcePreparingStreams @ 111 NONAME ; #<TI>#
+	_ZTI20UT_CMceAudioSdpCodec @ 112 NONAME ; #<TI>#
+	_ZTI20UT_CMceMediaSdpCodec @ 113 NONAME ; #<TI>#
+	_ZTI20UT_CMceVideoSdpCodec @ 114 NONAME ; #<TI>#
+	_ZTI20UT_TMceOfferingMedia @ 115 NONAME ; #<TI>#
+	_ZTI21UT_TMceAnsweringMedia @ 116 NONAME ; #<TI>#
+	_ZTI22CMceSecureMediaSession @ 117 NONAME ; #<TI>#
+	_ZTI22UT_CMceSecureDesStream @ 118 NONAME ; #<TI>#
+	_ZTI22UT_TMceMediaNegotiated @ 119 NONAME ; #<TI>#
+	_ZTI23TMceSecurePreconditions @ 120 NONAME ; #<TI>#
+	_ZTI23UT_CMceAdoptedSrvStream @ 121 NONAME ; #<TI>#
+	_ZTI23UT_CMceNatPluginManager @ 122 NONAME ; #<TI>#
+	_ZTI24TMceAnsweringMediaUpdate @ 123 NONAME ; #<TI>#
+	_ZTI24UT_TMceSrvStreamIterator @ 124 NONAME ; #<TI>#
+	_ZTI26TMceSegmentedPreconditions @ 125 NONAME ; #<TI>#
+	_ZTI26UT_TMceSecurePreconditions @ 126 NONAME ; #<TI>#
+	_ZTI27CMccCodecInformationFactory @ 127 NONAME ; #<TI>#
+	_ZTI27TMcePreparingOffererStreams @ 128 NONAME ; #<TI>#
+	_ZTI27TMceStartingAnswererStreams @ 129 NONAME ; #<TI>#
+	_ZTI27UT_TMceAnsweringMediaUpdate @ 130 NONAME ; #<TI>#
+	_ZTI28TMcePreparingAnswererStreams @ 131 NONAME ; #<TI>#
+	_ZTI29UT_TMceSegmentedPreconditions @ 132 NONAME ; #<TI>#
+	_ZTI30TMceStartingOffererSendStreams @ 133 NONAME ; #<TI>#
+	_ZTI30UT_TMcePreparingOffererStreams @ 134 NONAME ; #<TI>#
+	_ZTI30UT_TMceStartingAnswererStreams @ 135 NONAME ; #<TI>#
+	_ZTI31UT_TMcePreparingAnswererStreams @ 136 NONAME ; #<TI>#
+	_ZTI33TMceStartingOffererReceiveStreams @ 137 NONAME ; #<TI>#
+	_ZTI33UT_TMceStartingOffererSendStreams @ 138 NONAME ; #<TI>#
+	_ZTI36UT_TMceStartingOffererReceiveStreams @ 139 NONAME ; #<TI>#
+	_ZTIN17TMceOfferingMedia14TMceMediaReadyE @ 140 NONAME ; #<TI>#
+	_ZTIN17TMceOfferingMedia17TMceWaitingAnswerE @ 141 NONAME ; #<TI>#
+	_ZTIN17TMceOfferingMedia20TMceMediaUpdateReadyE @ 142 NONAME ; #<TI>#
+	_ZTIN19TMceMediaNegotiated12TMceEndStateE @ 143 NONAME ; #<TI>#
+	_ZTIN19TMceMediaNegotiated20TMceAnswererEndStateE @ 144 NONAME ; #<TI>#
+	_ZTIN19TMceMediaNegotiated30TMceAnswererWaitingAnswerStateE @ 145 NONAME ; #<TI>#
+	_ZTV11CMceMsgBase @ 146 NONAME ; #<VT>#
+	_ZTV11CMceSrvSink @ 147 NONAME ; #<VT>#
+	_ZTV11CPluginStub @ 148 NONAME ; #<VT>#
+	_ZTV12CMceComCodec @ 149 NONAME ; #<VT>#
+	_ZTV12CMceSdpCodec @ 150 NONAME ; #<VT>#
+	_ZTV13CMccInterface @ 151 NONAME ; #<VT>#
+	_ZTV13CMceSrvSource @ 152 NONAME ; #<VT>#
+	_ZTV13CMceSrvStream @ 153 NONAME ; #<VT>#
+	_ZTV13TMceMediaIdle @ 154 NONAME ; #<VT>#
+	_ZTV14CMceComCnCodec @ 155 NONAME ; #<VT>#
+	_ZTV14CMceComRtpSink @ 156 NONAME ; #<VT>#
+	_ZTV14CMceComSession @ 157 NONAME ; #<VT>#
+	_ZTV14CMceMsgSIPData @ 158 NONAME ; #<VT>#
+	_ZTV14CMceSdpSession @ 159 NONAME ; #<VT>#
+	_ZTV14TMceMediaState @ 160 NONAME ; #<VT>#
+	_ZTV14UT_CMceSrvSink @ 161 NONAME ; #<VT>#
+	_ZTV15CMceComAMRCodec @ 162 NONAME ; #<VT>#
+	_ZTV15CMceComAvcCodec @ 163 NONAME ; #<VT>#
+	_ZTV15CMceComEndpoint @ 164 NONAME ; #<VT>#
+	_ZTV15CMceComFileSink @ 165 NONAME ; #<VT>#
+	_ZTV15CMceComRedCodec @ 166 NONAME ; #<VT>#
+	_ZTV15CMceDtmfHandler @ 167 NONAME ; #<VT>#
+	_ZTV15CMceMsgSIPEvent @ 168 NONAME ; #<VT>#
+	_ZTV15CMceMsgSIPReply @ 169 NONAME ; #<VT>#
+	_ZTV15CMceSrvEndpoint @ 170 NONAME ; #<VT>#
+	_ZTV15UT_CMceSdpCodec @ 171 NONAME ; #<VT>#
+	_ZTV16CMceComDtmfCodec @ 172 NONAME ; #<VT>#
+	_ZTV16CMceComG711Codec @ 173 NONAME ; #<VT>#
+	_ZTV16CMceComG729Codec @ 174 NONAME ; #<VT>#
+	_ZTV16CMceComH263Codec @ 175 NONAME ; #<VT>#
+	_ZTV16CMceComMediaSink @ 176 NONAME ; #<VT>#
+	_ZTV16CMceComMicSource @ 177 NONAME ; #<VT>#
+	_ZTV16CMceComRtpSource @ 178 NONAME ; #<VT>#
+	_ZTV16CMceComiLBCCodec @ 179 NONAME ; #<VT>#
+	_ZTV16CMceMediaManager @ 180 NONAME ; #<VT>#
+	_ZTV16CMceMsgTextArray @ 181 NONAME ; #<VT>#
+	_ZTV16UT_CMceSrvSource @ 182 NONAME ; #<VT>#
+	_ZTV16UT_CMceSrvStream @ 183 NONAME ; #<VT>#
+	_ZTV16UT_TMceMediaIdle @ 184 NONAME ; #<VT>#
+	_ZTV17CMceAudioSdpCodec @ 185 NONAME ; #<VT>#
+	_ZTV17CMceComAMRWbCodec @ 186 NONAME ; #<VT>#
+	_ZTV17CMceComAudioCodec @ 187 NONAME ; #<VT>#
+	_ZTV17CMceComFileSource @ 188 NONAME ; #<VT>#
+	_ZTV17CMceComVideoCodec @ 189 NONAME ; #<VT>#
+	_ZTV17CMceMediaSdpCodec @ 190 NONAME ; #<VT>#
+	_ZTV17CMceMsgSIPRequest @ 191 NONAME ; #<VT>#
+	_ZTV17CMceVideoSdpCodec @ 192 NONAME ; #<VT>#
+	_ZTV17TMceOfferingMedia @ 193 NONAME ; #<VT>#
+	_ZTV17TMcePreconditions @ 194 NONAME ; #<VT>#
+	_ZTV17UT_CMceSdpSession @ 195 NONAME ; #<VT>#
+	_ZTV18CMccControllerStub @ 196 NONAME ; #<VT>#
+	_ZTV18CMceComAudioStream @ 197 NONAME ; #<VT>#
+	_ZTV18CMceComDisplaySink @ 198 NONAME ; #<VT>#
+	_ZTV18CMceComMediaSource @ 199 NONAME ; #<VT>#
+	_ZTV18CMceComMediaStream @ 200 NONAME ; #<VT>#
+	_ZTV18CMceComSpeakerSink @ 201 NONAME ; #<VT>#
+	_ZTV18CMceComVideoStream @ 202 NONAME ; #<VT>#
+	_ZTV18TMceAnsweringMedia @ 203 NONAME ; #<VT>#
+	_ZTV19CMccSecureInterface @ 204 NONAME ; #<VT>#
+	_ZTV19CMceComCameraSource @ 205 NONAME ; #<VT>#
+	_ZTV19CMceComStreamBundle @ 206 NONAME ; #<VT>#
+	_ZTV19CMceSecureDesStream @ 207 NONAME ; #<VT>#
+	_ZTV19TMceMediaNegotiated @ 208 NONAME ; #<VT>#
+	_ZTV19UT_CMceMediaManager @ 209 NONAME ; #<VT>#
+	_ZTV20CMccCodecInformation @ 210 NONAME ; #<VT>#
+	_ZTV20CMceAdoptedSrvStream @ 211 NONAME ; #<VT>#
+	_ZTV20CMceNatPluginManager @ 212 NONAME ; #<VT>#
+	_ZTV20TMcePreparingStreams @ 213 NONAME ; #<VT>#
+	_ZTV20UT_CMceAudioSdpCodec @ 214 NONAME ; #<VT>#
+	_ZTV20UT_CMceMediaSdpCodec @ 215 NONAME ; #<VT>#
+	_ZTV20UT_CMceVideoSdpCodec @ 216 NONAME ; #<VT>#
+	_ZTV20UT_TMceOfferingMedia @ 217 NONAME ; #<VT>#
+	_ZTV21UT_TMceAnsweringMedia @ 218 NONAME ; #<VT>#
+	_ZTV22CMceSecureMediaSession @ 219 NONAME ; #<VT>#
+	_ZTV22UT_CMceSecureDesStream @ 220 NONAME ; #<VT>#
+	_ZTV22UT_TMceMediaNegotiated @ 221 NONAME ; #<VT>#
+	_ZTV23TMceSecurePreconditions @ 222 NONAME ; #<VT>#
+	_ZTV23UT_CMceAdoptedSrvStream @ 223 NONAME ; #<VT>#
+	_ZTV23UT_CMceNatPluginManager @ 224 NONAME ; #<VT>#
+	_ZTV24TMceAnsweringMediaUpdate @ 225 NONAME ; #<VT>#
+	_ZTV24UT_TMceSrvStreamIterator @ 226 NONAME ; #<VT>#
+	_ZTV26TMceSegmentedPreconditions @ 227 NONAME ; #<VT>#
+	_ZTV26UT_TMceSecurePreconditions @ 228 NONAME ; #<VT>#
+	_ZTV27CMccCodecInformationFactory @ 229 NONAME ; #<VT>#
+	_ZTV27TMcePreparingOffererStreams @ 230 NONAME ; #<VT>#
+	_ZTV27TMceStartingAnswererStreams @ 231 NONAME ; #<VT>#
+	_ZTV27UT_TMceAnsweringMediaUpdate @ 232 NONAME ; #<VT>#
+	_ZTV28TMcePreparingAnswererStreams @ 233 NONAME ; #<VT>#
+	_ZTV29UT_TMceSegmentedPreconditions @ 234 NONAME ; #<VT>#
+	_ZTV30TMceStartingOffererSendStreams @ 235 NONAME ; #<VT>#
+	_ZTV30UT_TMcePreparingOffererStreams @ 236 NONAME ; #<VT>#
+	_ZTV30UT_TMceStartingAnswererStreams @ 237 NONAME ; #<VT>#
+	_ZTV31UT_TMcePreparingAnswererStreams @ 238 NONAME ; #<VT>#
+	_ZTV33TMceStartingOffererReceiveStreams @ 239 NONAME ; #<VT>#
+	_ZTV33UT_TMceStartingOffererSendStreams @ 240 NONAME ; #<VT>#
+	_ZTV36UT_TMceStartingOffererReceiveStreams @ 241 NONAME ; #<VT>#
+	_ZTVN17TMceOfferingMedia14TMceMediaReadyE @ 242 NONAME ; #<VT>#
+	_ZTVN17TMceOfferingMedia17TMceWaitingAnswerE @ 243 NONAME ; #<VT>#
+	_ZTVN17TMceOfferingMedia20TMceMediaUpdateReadyE @ 244 NONAME ; #<VT>#
+	_ZTVN19TMceMediaNegotiated12TMceEndStateE @ 245 NONAME ; #<VT>#
+	_ZTVN19TMceMediaNegotiated20TMceAnswererEndStateE @ 246 NONAME ; #<VT>#
+	_ZTVN19TMceMediaNegotiated30TMceAnswererWaitingAnswerStateE @ 247 NONAME ; #<VT>#
+

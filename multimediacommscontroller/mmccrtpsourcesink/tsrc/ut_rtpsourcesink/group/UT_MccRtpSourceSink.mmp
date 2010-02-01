@@ -1,0 +1,88 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET          UT_MccRtpSourceSink.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID        VID_DEFAULT
+
+MACRO           TEST_EUNIT
+
+SOURCEPATH          ../src
+SOURCE              UT_MccRtpSourceSinkDllMain.cpp
+SOURCE              UT_CMccRtpDataSink.cpp
+SOURCE              UT_CMccRtpDataSource.cpp
+SOURCE              UT_CMccTimerManager.cpp
+SOURCE              UT_CMccRtpInterface.cpp
+SOURCE              UT_CMccJitterCalculator.cpp
+SOURCE              UT_CMccRtpSender.cpp
+
+SOURCEPATH          ../../../src
+SOURCE              Mccrtpdatasource.cpp
+SOURCE              MccRtpInterface.cpp
+SOURCE              MccRtpDataSink.cpp
+SOURCE              mccrtpsender.cpp
+
+SOURCE              mccjittercalculator.cpp
+SOURCE              mmcccryptoadapter.cpp
+
+SOURCEPATH          ../../../../mmccshared/src
+SOURCE              mmcccryptocontext.cpp
+SOURCE              mcctimermanager.cpp
+
+SOURCEPATH          ../../../../tsrc/amrpayloadformatstub/src
+SOURCE              AmrPayloadFormatRead_STUB.cpp
+SOURCE              AmrPayloadFormatWrite_STUB.cpp
+SOURCE              amrpayloadformatter_STUB.cpp
+
+SOURCEPATH              ../../../../tsrc/stubs/src
+SOURCE              mccrtpkeepalivecontainer_STUB.cpp
+SOURCE              mcctesteventhandler.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../mmccinterface/inc
+USERINCLUDE             ../../../../mmcccontroller/inc
+USERINCLUDE             ../../../../mmccsubcontroller/inc
+USERINCLUDE             ../../../../mmccamrpayloadformat/inc
+USERINCLUDE             ../../../../mmccredpayloadformat/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 EUnit.lib
+LIBRARY                 euser.lib
+LIBRARY                 RtpService_stub.lib
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfserverbaseclasses.lib
+LIBRARY                 ecom.lib
+LIBRARY                 mmfdevsound.lib
+LIBRARY                 insock.lib
+LIBRARY                 srtp.lib
+// End of file

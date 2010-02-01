@@ -1,0 +1,77 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+/*
+Rom definition file for SIP TestDriver binaries
+*/
+
+#ifndef __SIPTESTDRIVER_IBY__
+#define __SIPTESTDRIVER_IBY__
+
+#include <bldvariant.hrh>
+
+#ifdef SYMBIAN_EXCLUDE_SIP
+REM Feature SIP is not included in this ROM
+#else
+
+// UnComment definition below for ClientResolver ECom plugin testing
+//#define CR_ECOM_TESTING_CONFIGURATION
+
+
+/*=========================================================================
+* TestClient
+* =========================================================================
+*/
+file=ABI_DIR\BUILD_DIR\TestClient.exe PROGRAMS_DIR\TestClient.exe
+
+file=ABI_DIR\BUILD_DIR\TesterCore.dll SHARED_LIB_DIR\TesterCore.dll
+
+file=ABI_DIR\BUILD_DIR\TestClientNet.dll SHARED_LIB_DIR\TestClientNet.dll
+
+file=ABI_DIR\BUILD_DIR\WatcherClient.dll SHARED_LIB_DIR\WatcherClient.dll
+
+file=ABI_DIR\BUILD_DIR\WatcherServ.exe PROGRAMS_DIR\WatcherServ.exe
+
+file=ABI_DIR\BUILD_DIR\FileHandlerClient.dll SHARED_LIB_DIR\FileHandlerClient.dll
+
+file=ABI_DIR\BUILD_DIR\TCFileHandlerServ.exe PROGRAMS_DIR\TCFileHandlerServ.exe
+
+data=\epoc32\data\z\resource\apps\TestClient.rsc resource\apps\TestClient.rsc
+
+data=\epoc32\data\z\resource\apps\TestClient_loc.rsc resource\apps\TestClient_loc.rsc
+
+data=\epoc32\data\z\private\10003a3f\apps\TestClient_reg.rsc private\10003a3f\apps\TestClient_reg.rsc
+
+/*========================================================================
+* SipTester
+* ========================================================================
+*/
+
+ECOM_PLUGIN(SIPTester.dll,SIPTester.rsc)
+
+#ifndef CR_ECOM_TESTING_CONFIGURATION
+
+ECOM_PLUGIN(SIPTTCNResolverPlugin.dll,SIPTTCNResolverPlugin.rsc)
+
+#else
+
+data=ABI_DIR\BUILD_DIR\SIPTTCNResolverPlugin.dll SIPTTCNResolverPlugin.dll
+
+#endif /* CR_ECOM_TESTING_CONFIGURATION */
+
+#endif /* SYMBIAN_EXCLUDE_SIP */
+
+#endif /* __SIPTESTDRIVER_IBY__ */

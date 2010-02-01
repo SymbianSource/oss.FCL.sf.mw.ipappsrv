@@ -1,0 +1,41 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:  
+;
+
+; Languages
+&EN
+
+; Header
+; Package UID equals the mceserver.exe UID
+#{"MultimediaCommsEngine Patch"}, (0x1020E4C7), 1, 0, 0, TYPE=SP
+
+; Supports S60 v 3.0
+[0x101F7961], 0, 0, 0, {"S60ProductID"}
+
+; Localised Vendor name
+%{"Nokia"}
+
+; Unique Vendor name
+:"Nokia"
+
+;Files
+"\epoc32\RELEASE\armv5\urel\mceclient.dll"-"!:\Sys\Bin\mceclient.dll"
+"\epoc32\RELEASE\armv5\urel\fcpluginengine.dll"-"!:\Sys\Bin\fcpluginengine.dll"
+
+"\epoc32\RELEASE\armv5\urel\fctbcp.dll"-"!:\Sys\Bin\fctbcp.dll"
+"\epoc32\data\Z\Resource\Plugins\fctbcp.RSC"-"!:\resource\plugins\fctbcp.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mceserver.exe"-"!:\Sys\Bin\mceserver.exe"
+

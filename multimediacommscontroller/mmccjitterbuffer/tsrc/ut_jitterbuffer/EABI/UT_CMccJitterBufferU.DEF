@@ -1,0 +1,19 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZN16CMccJitterBuffer10DelayDownLEv @ 2 NONAME
+	_ZN16CMccJitterBuffer11GetDataSinkEv @ 3 NONAME
+	_ZN16CMccJitterBuffer11ResetBufferEi @ 4 NONAME
+	_ZN16CMccJitterBuffer12AddDataSinkLEP9MDataSink @ 5 NONAME
+	_ZN16CMccJitterBuffer14AddDataSourceLEP11MDataSource @ 6 NONAME
+	_ZN16CMccJitterBuffer4NewLEP21MJitterBufferObserver @ 7 NONAME
+	_ZN16CMccJitterBuffer6SetupLEiiRK13TMccCodecInfo @ 8 NONAME
+	_ZN16CMccJitterBuffer8DelayUpLEv @ 9 NONAME
+	_ZTI16CMccJitterBuffer @ 10 NONAME ; #<TI>#
+	_ZTI18UT_CMccCnGenerator @ 11 NONAME ; #<TI>#
+	_ZTI19UT_CMccJitterBuffer @ 12 NONAME ; #<TI>#
+	_ZTI23UT_CMccJitterBufferImpl @ 13 NONAME ; #<TI>#
+	_ZTV16CMccJitterBuffer @ 14 NONAME ; #<VT>#
+	_ZTV18UT_CMccCnGenerator @ 15 NONAME ; #<VT>#
+	_ZTV19UT_CMccJitterBuffer @ 16 NONAME ; #<VT>#
+	_ZTV23UT_CMccJitterBufferImpl @ 17 NONAME ; #<VT>#
+

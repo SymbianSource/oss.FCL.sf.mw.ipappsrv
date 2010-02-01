@@ -1,0 +1,37 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:  
+;
+
+;Languages
+&EN
+
+;Header
+#{"EUnit: MCCSubcontroller"},(0x01700000),1,0,0
+
+(0x101F7961), 0, 0, 0, {"Series60ProductID"}
+
+;Localised Vendor name
+%{"Nokia"}
+
+;Unique vendor name
+:"Nokia"
+
+;DLL files
+"\epoc32\release\armv5\urel\UT_MccSubcontroller.dll"-"c:\sys\bin\UT_MccSubcontroller.dll"
+"\epoc32\release\armv5\urel\RtpService_stub.dll"-"c:\sys\bin\RtpService_stub.dll"
+"\epoc32\release\armv5\urel\MMCCRtpSourceSink.dll"-"c:\sys\bin\MMCCRtpSourceSink.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccrtpsourcesink.RSC"-"c:\resource\plugins\mmccrtpsourcesink.RSC"
+"\epoc32\release\armv5\urel\mmfaudiooutput_stub.dll"-"c:\sys\bin\mmfaudiooutput_stub.dll"
+"\epoc32\data\Z\Resource\Plugins\mmfaudiooutput_stub.RSC"-"c:\resource\plugins\mmfaudiooutput_stub.RSC"

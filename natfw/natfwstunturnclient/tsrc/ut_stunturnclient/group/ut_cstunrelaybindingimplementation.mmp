@@ -1,0 +1,144 @@
+/*
+* Copyright (c) 2006-2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:   
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET          ut_cstunrelaybindingimplementation.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700001
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+MACRO                   _DEBUG_EUNIT
+
+EPOCALLOWDLLDATA
+
+SOURCEPATH              ../src
+SOURCE                  ut_cstunrelaybindingimplementationDllMain.cpp
+SOURCE                  ut_cstunrelaybindingimplementation.cpp
+SOURCE                  cunsafmessageencoder.cpp
+ 
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  cstunsharedsecretconnecting.cpp
+SOURCE                  cstunsharedsecretstate.cpp
+SOURCE                  cstunclientready.cpp
+SOURCE                  cstunclientrenewsharedsecret.cpp
+SOURCE                  ttransactioncleanup.cpp
+SOURCE                  casynccallback.cpp
+SOURCE                  cstunclientgetsharedsecret.cpp
+SOURCE                  ctransactionidgenerator.cpp
+SOURCE                  cstunclientstate.cpp
+SOURCE                  cstunbindinggetaddress.cpp
+SOURCE                  cstunbindingwaittoretry.cpp
+SOURCE                  natfwbindingimplementationbase.cpp
+SOURCE                  cstunbindingimplementation.cpp
+SOURCE                  cstuncredentials.cpp
+SOURCE                  cstunsharedsecret.cpp
+SOURCE                  cstunclientresolvingtcp.cpp
+SOURCE                  tstuncallbackinfo.cpp
+SOURCE                  cstunbindingactive.cpp
+SOURCE                  natfwstunbinding.cpp
+SOURCE                  cstunclientresolvingudp.cpp
+SOURCE                  cstunsharedsecretwaittoretry.cpp
+SOURCE                  cstuntimeruser.cpp
+SOURCE                  cstuntransaction.cpp
+SOURCE                  natfwstunrelaybinding.cpp
+SOURCE                  cstunrelaybindingimplementation.cpp
+SOURCE                  stunutils.cpp
+SOURCE                  cstunbindinginit.cpp
+SOURCE                  cstunbindingstate.cpp
+SOURCE                  cstunclientimplementation.cpp
+SOURCE                  cstunsharedsecretwaitresponse.cpp
+SOURCE                  cstunbindinggetsharedsecret.cpp
+SOURCE                  cstunclient.cpp
+SOURCE                  cstunclientresolvingtls.cpp
+SOURCE                  cstunindicationtransmitter.cpp
+
+SOURCEPATH              ../../../../natfwunsaf_protocols/unsaf_codec/src
+SOURCE                  natfwunsafmessage.cpp
+SOURCE                  natfwunsafallocateresponse.cpp
+SOURCE                  natfwunsafattribute.cpp
+SOURCE                  natfwunsafutils.cpp
+SOURCE                  natfwunsafrelayaddressattribute.cpp
+SOURCE                  natfwunsafaddressattribute.cpp
+SOURCE                  natfwunsafxormappedaddressattribute.cpp
+SOURCE                  natfwunsaflifetimeattribute.cpp
+SOURCE                  natfwunsafbandwidthattribute.cpp
+SOURCE                  natfwunsafsetactivedestinationresponse.cpp
+SOURCE                  natfwunsafallocateerrorresponse.cpp
+SOURCE                  natfwunsafsetactivedestinationerrorresponse.cpp
+SOURCE                  natfwunsafconnecterrorresponse.cpp
+SOURCE                  natfwunsafconnectresponse.cpp
+SOURCE                  natfwunsafunknownattributesattribute.cpp
+SOURCE                  natfwunsaffingerprintattribute.cpp
+SOURCE                  natfwunsafalternateserverattribute.cpp
+SOURCE                  natfwunsaficecontrolledattribute.cpp
+SOURCE                  natfwunsaficecontrollingattribute.cpp
+SOURCE                  natfwunsafsharedsecretresponse.cpp
+SOURCE                  natfwunsafsharedsecreterrorResponse.cpp
+SOURCE                  natfwunsaftcprelaypacket.cpp
+
+SOURCEPATH              ../../../../natfwunsaf_protocols/unsaf_transport/src
+SOURCE                  cnatfwunsafencodeditem.cpp
+
+SOURCEPATH              ../stubs
+SOURCE                  cnatfwunsafmediaconnsender_stub.cpp
+SOURCE                  cnatfwunsaftcprelaypacketsender_stub.cpp
+SOURCE                  cnatfwunsaftlstransport_stub.cpp
+SOURCE                  cnatfwunsafudpsender_stub.cpp
+
+USERINCLUDE             ../../../../natfwshared/inc
+USERINCLUDE             ../../../../tsrc/natfwtsrcshared/inc
+USERINCLUDE             ../../../../natfwsettings/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../natfwstunturnclient/inc
+USERINCLUDE             ../../../../natfwunsaf_protocols/natfwunsafshared/inc
+USERINCLUDE             ../../../../natfwunsaf_protocols/unsaf_codec/inc
+USERINCLUDE             ../../../../natfwunsaf_protocols/unsaf_transport/inc
+USERINCLUDE             ../../../../natfwconnectionmultiplexer/inc
+USERINCLUDE             ../../../../natfwsocketmediaconnwrapper/inc
+USERINCLUDE             ../../../../natfwclient/inc
+USERINCLUDE             ../inc
+USERINCLUDE   		../../../../../inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 centralrepository.lib
+LIBRARY                 charconv.lib
+LIBRARY                 esock.lib
+LIBRARY                 EUnit.lib
+LIBRARY					EUnitUtil.lib
+LIBRARY                 euser.lib
+LIBRARY                 flogger.lib
+LIBRARY                 hash.lib
+LIBRARY                 inetprotutil.lib
+LIBRARY                 insock.lib
+LIBRARY                 natfwnatsettings.lib
+LIBRARY                 natfwunsafprotocols.lib
+LIBRARY                 securesocket.lib
+LIBRARY                 commdb.lib
+LIBRARY                 natfwstunclient.lib
+LIBRARY                 connectionmux.lib 
+
+// End of file

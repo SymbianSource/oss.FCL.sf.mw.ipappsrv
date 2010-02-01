@@ -1,0 +1,70 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO           ALLOC_TEST_ON
+MACRO           TEST_EUNIT
+
+VENDORID	    VID_DEFAULT
+
+EPOCALLOWDLLDATA
+
+CAPABILITY      EUNIT_CAPS
+
+
+TARGET          UT_CMccJitterBuffer.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+SOURCEPATH              ../src
+SOURCE                  UT_CMccJitterBufferDllMain.cpp
+SOURCE                  UT_CMccJitterBuffer.cpp
+SOURCE                  UT_CMccJitterBufferImpl.cpp
+SOURCE                  UT_CMccCnGenerator.cpp
+SOURCE                  mccdatasource_stub.cpp
+SOURCE                  mccdatasink_stub.cpp
+
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  mccjitterbuffer.cpp
+SOURCE                  mccjitterbufferimpl.cpp
+SOURCE                  mcccngenerator.cpp
+ 
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 EUnit.lib
+LIBRARY                 euser.lib
+LIBRARY                 ecom.lib
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfserverbaseclasses.lib
+LIBRARY                 mmfdevsound.lib
+LIBRARY         	errorconcealmentintfc.lib
+LIBRARY                 EUnitUtil.lib
+
+// End of file

@@ -1,0 +1,62 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+
+#include <aiftool.rh>
+
+//#include "rtpui.loc"
+
+RESOURCE AIF_DATA
+    {
+    num_icons = 2;
+    app_uid = 0x102010DB;
+    
+    
+    /* Note - Copied from todoaif.rss 
+    
+     // Application capabilities
+    embeddability = KAppNotEmbeddable;
+    
+    */
+    }
+
+// End of File
+
+
+/*
+
+#include <aiftool.rh>
+
+#include "todo.loc"
+
+RESOURCE AIF_DATA
+    {
+    // Application UID
+    app_uid = 0x10005900;
+
+    // Number of icons
+    num_icons = 2;
+
+    // Application capabilities
+    embeddability = KAppNotEmbeddable;
+    }
+
+// End of File
+
+*/

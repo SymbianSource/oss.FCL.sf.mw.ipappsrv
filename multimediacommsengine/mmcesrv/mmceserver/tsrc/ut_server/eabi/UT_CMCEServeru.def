@@ -1,0 +1,605 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZN10CSIPDialog23ReuseInitialRequestDataEv @ 2 NONAME
+	_ZN11CSIPProfileD0Ev @ 3 NONAME
+	_ZN11CSIPProfileD1Ev @ 4 NONAME
+	_ZN11CSIPProfileD2Ev @ 5 NONAME
+	_ZN14CSIPConnection4NewLER4CSIPmR22MSIPConnectionObserver @ 6 NONAME
+	_ZN14CSIPConnection7SetOptLEjji @ 7 NONAME
+	_ZN14CSIPConnection8SetStateENS_6TStateE @ 8 NONAME
+	_ZN14CSIPConnectionD0Ev @ 9 NONAME
+	_ZN14CSIPConnectionD1Ev @ 10 NONAME
+	_ZN14CSIPConnectionD2Ev @ 11 NONAME
+	_ZN14CSIPHttpDigest4NewLER4CSIPR31MSIPHttpDigestChallengeObserver @ 12 NONAME
+	_ZN14CSIPHttpDigest5NewLCER4CSIPR31MSIPHttpDigestChallengeObserver @ 13 NONAME
+	_ZN14CSIPHttpDigestD0Ev @ 14 NONAME
+	_ZN14CSIPHttpDigestD1Ev @ 15 NONAME
+	_ZN14CSIPHttpDigestD2Ev @ 16 NONAME
+	_ZN15CFCPlugInEngine10SendToNetLERK10CFCSessionP6HBufC8 @ 17 NONAME
+	_ZN15CFCPlugInEngine11IsReceiverLERK10CFCSession @ 18 NONAME
+	_ZN15CFCPlugInEngine12UpdateOfferLERK10CFCSessionR12CSdpDocument @ 19 NONAME
+	_ZN15CFCPlugInEngine13PeekDocumentLERK10CFCSessionRK12CSdpDocument @ 20 NONAME
+	_ZN15CFCPlugInEngine13PlugInByNameLERK6TDesC8 @ 21 NONAME
+	_ZN15CFCPlugInEngine13UpdateAnswerLERK10CFCSessionR12CSdpDocument @ 22 NONAME
+	_ZN15CFCPlugInEngine13UpdateNeededLERK10CFCSession @ 23 NONAME
+	_ZN15CFCPlugInEngine14ReleaseSessionERK10CFCSession @ 24 NONAME
+	_ZN15CFCPlugInEngine14UpdateSessionLER10CFCSessionm @ 25 NONAME
+	_ZN15CFCPlugInEngine15SetSessionPortLER10CFCSessionm @ 26 NONAME
+	_ZN15CFCPlugInEngine16StartConnectionLERK10CFCSession @ 27 NONAME
+	_ZN15CFCPlugInEngine17CreateNewSessionLERK6TDesC8mm @ 28 NONAME
+	_ZN15CFCPlugInEngine18SupportedProtocolLEv @ 29 NONAME
+	_ZN15CFCPlugInEngine22FormatAttributeFieldsLERK10CFCSession @ 30 NONAME
+	_ZN15CFCPlugInEngine25SetFormatAttributeFieldsLERK10CFCSessionP13RPointerArrayI21CSdpFmtAttributeFieldE @ 31 NONAME
+	_ZN15CFCPlugInEngine4NewLER11MFCObserver @ 32 NONAME
+	_ZN15CFCPlugInEngine5NewLCER11MFCObserver @ 33 NONAME
+	_ZN15CFCPlugInEngineD0Ev @ 34 NONAME
+	_ZN15CFCPlugInEngineD1Ev @ 35 NONAME
+	_ZN15CFCPlugInEngineD2Ev @ 36 NONAME
+	_ZN19CSIPClientDiscovery10DeregisterE4TUid @ 37 NONAME
+	_ZN19CSIPClientDiscovery4NewLER27MSIPClientDiscoveryObserver4TUid @ 38 NONAME
+	_ZN19CSIPClientDiscovery5NewLCER27MSIPClientDiscoveryObserver4TUid @ 39 NONAME
+	_ZN19CSIPClientDiscovery6CancelEm @ 40 NONAME
+	_ZN19CSIPClientDiscovery8ChannelLE4TUid8RStringFRK6TDesC8RK13RPointerArrayI14CSIPHeaderBaseES4_PK21CSIPContentTypeHeader @ 41 NONAME
+	_ZN19CSIPClientDiscovery8ChannelLE8RStringFRK6TDesC8RK13RPointerArrayI14CSIPHeaderBaseES3_PK21CSIPContentTypeHeader @ 42 NONAME
+	_ZN19CSIPClientDiscovery9CancelAllEv @ 43 NONAME
+	_ZN19CSIPClientDiscovery9RegisterLE4TUid @ 44 NONAME
+	_ZN19CSIPClientDiscoveryD0Ev @ 45 NONAME
+	_ZN19CSIPClientDiscoveryD1Ev @ 46 NONAME
+	_ZN19CSIPClientDiscoveryD2Ev @ 47 NONAME
+	_ZN19CSIPDialogAssocBase28SendNonTargetRefreshRequestLE8RStringFP19CSIPMessageElements @ 48 NONAME
+	_ZN19CSIPDialogAssocBase6DialogEv @ 49 NONAME
+	_ZN19CSIPMessageElements11SetContentLEP6HBufC8P21CSIPContentTypeHeader @ 50 NONAME
+	_ZN19CSIPMessageElements14ExtractContentEv @ 51 NONAME
+	_ZN19CSIPMessageElements15SetUserHeadersLER13RPointerArrayI14CSIPHeaderBaseE @ 52 NONAME
+	_ZN19CSIPMessageElements4NewLEv @ 53 NONAME
+	_ZN19CSIPMessageElements5NewLCEv @ 54 NONAME
+	_ZN19CSIPMessageElementsD0Ev @ 55 NONAME
+	_ZN19CSIPMessageElementsD1Ev @ 56 NONAME
+	_ZN19CSIPMessageElementsD2Ev @ 57 NONAME
+	_ZN19CSIPProfileRegistry11ConnectionLER11CSIPProfile @ 58 NONAME
+	_ZN19CSIPProfileRegistry4NewLER4CSIPR27MSIPProfileRegistryObserver @ 59 NONAME
+	_ZN19CSIPProfileRegistry5NewLCER4CSIPR27MSIPProfileRegistryObserver @ 60 NONAME
+	_ZN19CSIPProfileRegistry7DisableER11CSIPProfile @ 61 NONAME
+	_ZN19CSIPProfileRegistry7EnableLER11CSIPProfileR22MSIPConnectionObserver @ 62 NONAME
+	_ZN19CSIPProfileRegistryD0Ev @ 63 NONAME
+	_ZN19CSIPProfileRegistryD1Ev @ 64 NONAME
+	_ZN19CSIPProfileRegistryD2Ev @ 65 NONAME
+	_ZN19CSIPRequestElements10SetMethodLE8RStringF @ 66 NONAME
+	_ZN19CSIPRequestElements12SetToHeaderLEP12CSIPToHeader @ 67 NONAME
+	_ZN19CSIPRequestElements13SetRemoteUriLEP5CUri8 @ 68 NONAME
+	_ZN19CSIPRequestElements14SetFromHeaderLEP14CSIPFromHeader @ 69 NONAME
+	_ZN19CSIPRequestElements15MessageElementsEv @ 70 NONAME
+	_ZN19CSIPRequestElements4NewLEP5CUri8 @ 71 NONAME
+	_ZN19CSIPRequestElements5NewLCEP5CUri8 @ 72 NONAME
+	_ZN19CSIPRequestElementsD0Ev @ 73 NONAME
+	_ZN19CSIPRequestElementsD1Ev @ 74 NONAME
+	_ZN19CSIPRequestElementsD2Ev @ 75 NONAME
+	_ZN20CSIPReferDialogAssoc10SendReferLEP19CSIPMessageElements @ 76 NONAME
+	_ZN20CSIPReferDialogAssoc4NewLER10CSIPDialogP17CSIPReferToHeader @ 77 NONAME
+	_ZN20CSIPReferDialogAssoc4NewLER14CSIPConnectionP14CSIPFromHeaderP5CUri8P17CSIPReferToHeaderP12CSIPToHeaderP17CSIPContactHeader @ 78 NONAME
+	_ZN20CSIPReferDialogAssoc4NewLER14CSIPConnectionP5CUri8RK23MSIPRegistrationContextP17CSIPReferToHeaderP14CSIPFromHeaderP12CSIPToHeaderP17CSIPContactHeader @ 79 NONAME
+	_ZN20CSIPReferDialogAssoc5NewLCER10CSIPDialogP17CSIPReferToHeader @ 80 NONAME
+	_ZN20CSIPReferDialogAssoc5NewLCER14CSIPConnectionP14CSIPFromHeaderP5CUri8P17CSIPReferToHeaderP12CSIPToHeaderP17CSIPContactHeader @ 81 NONAME
+	_ZN20CSIPReferDialogAssoc5NewLCER14CSIPConnectionP5CUri8RK23MSIPRegistrationContextP17CSIPReferToHeaderP14CSIPFromHeaderP12CSIPToHeaderP17CSIPContactHeader @ 82 NONAME
+	_ZN20CSIPReferDialogAssocD0Ev @ 83 NONAME
+	_ZN20CSIPReferDialogAssocD1Ev @ 84 NONAME
+	_ZN20CSIPReferDialogAssocD2Ev @ 85 NONAME
+	_ZN20CSIPResponseElements14SetStatusCodeLEj @ 86 NONAME
+	_ZN20CSIPResponseElements15MessageElementsEv @ 87 NONAME
+	_ZN20CSIPResponseElements16SetReasonPhraseLE8RStringF @ 88 NONAME
+	_ZN20CSIPResponseElements4NewLEj8RStringF @ 89 NONAME
+	_ZN20CSIPResponseElements5NewLCEj8RStringF @ 90 NONAME
+	_ZN20CSIPResponseElementsD0Ev @ 91 NONAME
+	_ZN20CSIPResponseElementsD1Ev @ 92 NONAME
+	_ZN20CSIPResponseElementsD2Ev @ 93 NONAME
+	_ZN21CSIPClientTransaction19SetResponseElementsEP20CSIPResponseElements @ 94 NONAME
+	_ZN21CSIPClientTransaction4NewLE8RStringF @ 95 NONAME
+	_ZN21CSIPClientTransaction7CancelLEv @ 96 NONAME
+	_ZN21CSIPClientTransactionD0Ev @ 97 NONAME
+	_ZN21CSIPClientTransactionD1Ev @ 98 NONAME
+	_ZN21CSIPClientTransactionD2Ev @ 99 NONAME
+	_ZN21CSIPInviteDialogAssoc10SendPrackLEP19CSIPMessageElements @ 100 NONAME
+	_ZN21CSIPInviteDialogAssoc11SendInviteLEP19CSIPMessageElements @ 101 NONAME
+	_ZN21CSIPInviteDialogAssoc11SendUpdateLEP19CSIPMessageElements @ 102 NONAME
+	_ZN21CSIPInviteDialogAssoc4NewLER10CSIPDialog @ 103 NONAME
+	_ZN21CSIPInviteDialogAssoc4NewLER14CSIPConnectionP14CSIPFromHeaderP5CUri8P12CSIPToHeaderP17CSIPContactHeader @ 104 NONAME
+	_ZN21CSIPInviteDialogAssoc4NewLER14CSIPConnectionP5CUri8RK23MSIPRegistrationContextP14CSIPFromHeaderP12CSIPToHeaderP17CSIPContactHeader @ 105 NONAME
+	_ZN21CSIPInviteDialogAssoc4NewLER21CSIPServerTransaction @ 106 NONAME
+	_ZN21CSIPInviteDialogAssoc4NewLER21CSIPServerTransactionRK23MSIPRegistrationContext @ 107 NONAME
+	_ZN21CSIPInviteDialogAssoc5NewLCER10CSIPDialog @ 108 NONAME
+	_ZN21CSIPInviteDialogAssoc5NewLCER14CSIPConnectionP14CSIPFromHeaderP5CUri8P12CSIPToHeaderP17CSIPContactHeader @ 109 NONAME
+	_ZN21CSIPInviteDialogAssoc5NewLCER14CSIPConnectionP5CUri8RK23MSIPRegistrationContextP14CSIPFromHeaderP12CSIPToHeaderP17CSIPContactHeader @ 110 NONAME
+	_ZN21CSIPInviteDialogAssoc5NewLCER21CSIPServerTransaction @ 111 NONAME
+	_ZN21CSIPInviteDialogAssoc8SendAckLERK21CSIPClientTransactionP19CSIPMessageElements @ 112 NONAME
+	_ZN21CSIPInviteDialogAssoc8SendByeLEP19CSIPMessageElements @ 113 NONAME
+	_ZN21CSIPInviteDialogAssocD0Ev @ 114 NONAME
+	_ZN21CSIPInviteDialogAssocD1Ev @ 115 NONAME
+	_ZN21CSIPInviteDialogAssocD2Ev @ 116 NONAME
+	_ZN21CSIPNotifyDialogAssoc11SendNotifyLEP19CSIPMessageElements @ 117 NONAME
+	_ZN21CSIPNotifyDialogAssoc17SubscriptionStateEv @ 118 NONAME
+	_ZN21CSIPNotifyDialogAssoc4NewLER21CSIPServerTransactionP15CSIPEventHeaderP27CSIPSubscriptionStateHeader @ 119 NONAME
+	_ZN21CSIPNotifyDialogAssoc4NewLER21CSIPServerTransactionRK23MSIPRegistrationContextP15CSIPEventHeaderP27CSIPSubscriptionStateHeader @ 120 NONAME
+	_ZN21CSIPNotifyDialogAssoc5NewLCER21CSIPServerTransactionP15CSIPEventHeaderP27CSIPSubscriptionStateHeader @ 121 NONAME
+	_ZN21CSIPNotifyDialogAssoc5NewLCER21CSIPServerTransactionRK23MSIPRegistrationContextP15CSIPEventHeaderP27CSIPSubscriptionStateHeader @ 122 NONAME
+	_ZN21CSIPNotifyDialogAssocD0Ev @ 123 NONAME
+	_ZN21CSIPNotifyDialogAssocD1Ev @ 124 NONAME
+	_ZN21CSIPNotifyDialogAssocD2Ev @ 125 NONAME
+	_ZN21CSIPServerTransaction13SendResponseLEP20CSIPResponseElements @ 126 NONAME
+	_ZN21CSIPServerTransaction18SetRequestElementsEP19CSIPRequestElements @ 127 NONAME
+	_ZN21CSIPServerTransaction4NewLE8RStringF @ 128 NONAME
+	_ZN21CSIPServerTransactionD0Ev @ 129 NONAME
+	_ZN21CSIPServerTransactionD1Ev @ 130 NONAME
+	_ZN21CSIPServerTransactionD2Ev @ 131 NONAME
+	_ZN23CSIPProfileRegistryBase15DefaultProfileLEv @ 132 NONAME
+	_ZN23CSIPProfileRegistryBase22SupportedProfileTypesLER6RArrayI19TSIPProfileTypeInfoE @ 133 NONAME
+	_ZN23CSIPProfileRegistryBase8ProfileLEm @ 134 NONAME
+	_ZN23CSIPProfileRegistryBase9ProfilesLER13RPointerArrayI11CSIPProfileE @ 135 NONAME
+	_ZN23CSIPProfileRegistryBase9ProfilesLERK19TSIPProfileTypeInfoR13RPointerArrayI11CSIPProfileE @ 136 NONAME
+	_ZN23CSIPProfileRegistryBase9ProfilesLERK6TDesC8R13RPointerArrayI11CSIPProfileE @ 137 NONAME
+	_ZN23CSIPProfileRegistryBaseD0Ev @ 138 NONAME
+	_ZN23CSIPProfileRegistryBaseD1Ev @ 139 NONAME
+	_ZN23CSIPProfileRegistryBaseD2Ev @ 140 NONAME
+	_ZN24CSIPSubscribeDialogAssoc14SendSubscribeLEP19CSIPMessageElementsP11CSIPRefresh @ 141 NONAME
+	_ZN24CSIPSubscribeDialogAssoc16SendUnsubscribeLEP19CSIPMessageElements @ 142 NONAME
+	_ZN24CSIPSubscribeDialogAssoc4NewLER10CSIPDialogP15CSIPEventHeader @ 143 NONAME
+	_ZN24CSIPSubscribeDialogAssoc4NewLER14CSIPConnectionP14CSIPFromHeaderP5CUri8P15CSIPEventHeaderP12CSIPToHeaderP17CSIPContactHeader @ 144 NONAME
+	_ZN24CSIPSubscribeDialogAssoc4NewLER14CSIPConnectionP5CUri8RK23MSIPRegistrationContextP15CSIPEventHeaderP14CSIPFromHeaderP12CSIPToHeaderP17CSIPContactHeader @ 145 NONAME
+	_ZN24CSIPSubscribeDialogAssoc5NewLCER10CSIPDialogP15CSIPEventHeader @ 146 NONAME
+	_ZN24CSIPSubscribeDialogAssoc5NewLCER14CSIPConnectionP14CSIPFromHeaderP5CUri8P15CSIPEventHeaderP12CSIPToHeaderP17CSIPContactHeader @ 147 NONAME
+	_ZN24CSIPSubscribeDialogAssoc5NewLCER14CSIPConnectionP5CUri8RK23MSIPRegistrationContextP15CSIPEventHeaderP14CSIPFromHeaderP12CSIPToHeaderP17CSIPContactHeader @ 148 NONAME
+	_ZN24CSIPSubscribeDialogAssoc7UpdateLEP19CSIPMessageElements @ 149 NONAME
+	_ZN24CSIPSubscribeDialogAssocD0Ev @ 150 NONAME
+	_ZN24CSIPSubscribeDialogAssocD1Ev @ 151 NONAME
+	_ZN24CSIPSubscribeDialogAssocD2Ev @ 152 NONAME
+	_ZN4CSIP4NewLERK4TUidR12MSIPObserver @ 153 NONAME
+	_ZN4CSIPD0Ev @ 154 NONAME
+	_ZN4CSIPD1Ev @ 155 NONAME
+	_ZN4CSIPD2Ev @ 156 NONAME
+	_ZNK10CSIPDialog10FromHeaderEv @ 157 NONAME
+	_ZNK10CSIPDialog5StateEv @ 158 NONAME
+	_ZNK10CSIPDialog7CallIdLEv @ 159 NONAME
+	_ZNK10CSIPDialog8ToHeaderEv @ 160 NONAME
+	_ZNK10CSIPDialog9RemoteURIEv @ 161 NONAME
+	_ZNK10CSIPDialogeqERKS_ @ 162 NONAME
+	_ZNK11CSIPProfile12GetParameterEmRPK11MDesC8Array @ 163 NONAME
+	_ZNK11CSIPProfile12GetParameterEmRPK6TDesC8 @ 164 NONAME
+	_ZNK11CSIPProfile12GetParameterEmRi @ 165 NONAME
+	_ZNK11CSIPProfile12GetParameterEmRm @ 166 NONAME
+	_ZNK11CSIPProfile12GetParameterEmmRPK6TDesC8 @ 167 NONAME
+	_ZNK14CSIPConnection5StateEv @ 168 NONAME
+	_ZNK19CSIPDialogAssocBase4TypeEv @ 169 NONAME
+	_ZNK19CSIPDialogAssocBase6DialogEv @ 170 NONAME
+	_ZNK19CSIPMessageElements11ContentTypeEv @ 171 NONAME
+	_ZNK19CSIPMessageElements11UserHeadersEv @ 172 NONAME
+	_ZNK19CSIPMessageElements7ContentEv @ 173 NONAME
+	_ZNK19CSIPProfileRegistry3SIPEv @ 174 NONAME
+	_ZNK19CSIPProfileRegistry9IsEnabledERK11CSIPProfile @ 175 NONAME
+	_ZNK19CSIPRequestElements10FromHeaderEv @ 176 NONAME
+	_ZNK19CSIPRequestElements15MessageElementsEv @ 177 NONAME
+	_ZNK19CSIPRequestElements6MethodEv @ 178 NONAME
+	_ZNK19CSIPRequestElements8ToHeaderEv @ 179 NONAME
+	_ZNK19CSIPRequestElements9RemoteUriEv @ 180 NONAME
+	_ZNK19CSIPTransactionBase6StateLEv @ 181 NONAME
+	_ZNK19CSIPTransactionBaseeqERKS_ @ 182 NONAME
+	_ZNK20CSIPReferDialogAssoc7ReferToEv @ 183 NONAME
+	_ZNK20CSIPResponseElements10CSeqHeaderEv @ 184 NONAME
+	_ZNK20CSIPResponseElements10FromHeaderEv @ 185 NONAME
+	_ZNK20CSIPResponseElements10StatusCodeEv @ 186 NONAME
+	_ZNK20CSIPResponseElements12ReasonPhraseEv @ 187 NONAME
+	_ZNK20CSIPResponseElements15MessageElementsEv @ 188 NONAME
+	_ZNK20CSIPResponseElements8ToHeaderEv @ 189 NONAME
+	_ZNK21CSIPClientTransaction13CancelAllowedEv @ 190 NONAME
+	_ZNK21CSIPClientTransaction16ResponseElementsEv @ 191 NONAME
+	_ZNK21CSIPNotifyDialogAssoc17SubscriptionStateEv @ 192 NONAME
+	_ZNK21CSIPNotifyDialogAssoc5EventEv @ 193 NONAME
+	_ZNK21CSIPServerTransaction15RequestElementsEv @ 194 NONAME
+	_ZNK21CSIPServerTransaction15ResponseAllowedEv @ 195 NONAME
+	_ZNK23CSIPProfileRegistryBase21LastRegistrationErrorERK11CSIPProfile @ 196 NONAME
+	_ZNK24CSIPSubscribeDialogAssoc10SIPRefreshEv @ 197 NONAME
+	_ZNK24CSIPSubscribeDialogAssoc5EventEv @ 198 NONAME
+	_ZNK4CSIP28SupportedSecurityMechanismsLEv @ 199 NONAME
+	_ZTI10CFCSession @ 200 NONAME ; #<TI>#
+	_ZTI10CSIPDialog @ 201 NONAME ; #<TI>#
+	_ZTI11CMceMsgBase @ 202 NONAME ; #<TI>#
+	_ZTI11CMceSrvSink @ 203 NONAME ; #<TI>#
+	_ZTI11CSIPProfile @ 204 NONAME ; #<TI>#
+	_ZTI11RConnection @ 205 NONAME ; #<TI>#
+	_ZTI12CMceComCodec @ 206 NONAME ; #<TI>#
+	_ZTI12CMceComEvent @ 207 NONAME ; #<TI>#
+	_ZTI12CMceCsServer @ 208 NONAME ; #<TI>#
+	_ZTI12CMceNatState @ 209 NONAME ; #<TI>#
+	_ZTI12CMceSipEvent @ 210 NONAME ; #<TI>#
+	_ZTI12UT_CMceState @ 211 NONAME ; #<TI>#
+	_ZTI13CFCPlugInInfo @ 212 NONAME ; #<TI>#
+	_ZTI13CMceCsSession @ 213 NONAME ; #<TI>#
+	_ZTI13CMceSrvSource @ 214 NONAME ; #<TI>#
+	_ZTI13CMceSrvStream @ 215 NONAME ; #<TI>#
+	_ZTI13CMceStateIdle @ 216 NONAME ; #<TI>#
+	_ZTI14CMceComCnCodec @ 217 NONAME ; #<TI>#
+	_ZTI14CMceComRtpSink @ 218 NONAME ; #<TI>#
+	_ZTI14CMceComSession @ 219 NONAME ; #<TI>#
+	_ZTI14CMceDictionary @ 220 NONAME ; #<TI>#
+	_ZTI14CMceMsgSIPData @ 221 NONAME ; #<TI>#
+	_ZTI14CMceSdpSession @ 222 NONAME ; #<TI>#
+	_ZTI14CMceServerCore @ 223 NONAME ; #<TI>#
+	_ZTI14CMceSipManager @ 224 NONAME ; #<TI>#
+	_ZTI14CMceSipSession @ 225 NONAME ; #<TI>#
+	_ZTI14CMceStateError @ 226 NONAME ; #<TI>#
+	_ZTI14CNSPPluginStub @ 227 NONAME ; #<TI>#
+	_ZTI14CSIPConnection @ 228 NONAME ; #<TI>#
+	_ZTI14CSIPHttpDigest @ 229 NONAME ; #<TI>#
+	_ZTI15CFCPlugInEngine @ 230 NONAME ; #<TI>#
+	_ZTI15CMceComAMRCodec @ 231 NONAME ; #<TI>#
+	_ZTI15CMceComAvcCodec @ 232 NONAME ; #<TI>#
+	_ZTI15CMceComEndpoint @ 233 NONAME ; #<TI>#
+	_ZTI15CMceComFileSink @ 234 NONAME ; #<TI>#
+	_ZTI15CMceComRedCodec @ 235 NONAME ; #<TI>#
+	_ZTI15CMceCsServerITC @ 236 NONAME ; #<TI>#
+	_ZTI15CMceMsgSIPEvent @ 237 NONAME ; #<TI>#
+	_ZTI15CMceMsgSIPReply @ 238 NONAME ; #<TI>#
+	_ZTI15CMceSipDefaults @ 239 NONAME ; #<TI>#
+	_ZTI15CMceSrvEndpoint @ 240 NONAME ; #<TI>#
+	_ZTI15UT_CMceSipEvent @ 241 NONAME ; #<TI>#
+	_ZTI15UT_MCEUsesCases @ 242 NONAME ; #<TI>#
+	_ZTI16CMceComDtmfCodec @ 243 NONAME ; #<TI>#
+	_ZTI16CMceComG711Codec @ 244 NONAME ; #<TI>#
+	_ZTI16CMceComG729Codec @ 245 NONAME ; #<TI>#
+	_ZTI16CMceComH263Codec @ 246 NONAME ; #<TI>#
+	_ZTI16CMceComMediaSink @ 247 NONAME ; #<TI>#
+	_ZTI16CMceComMicSource @ 248 NONAME ; #<TI>#
+	_ZTI16CMceComRtpSource @ 249 NONAME ; #<TI>#
+	_ZTI16CMceComiLBCCodec @ 250 NONAME ; #<TI>#
+	_ZTI16CMceCsSubSession @ 251 NONAME ; #<TI>#
+	_ZTI16CMceEventContext @ 252 NONAME ; #<TI>#
+	_ZTI16CMceMediaManager @ 253 NONAME ; #<TI>#
+	_ZTI16CMceMsgTextArray @ 254 NONAME ; #<TI>#
+	_ZTI16CMceNatStateIdle @ 255 NONAME ; #<TI>#
+	_ZTI16CMceNatStateWait @ 256 NONAME ; #<TI>#
+	_ZTI16CMceStateUpdated @ 257 NONAME ; #<TI>#
+	_ZTI16CMceTimerManager @ 258 NONAME ; #<TI>#
+	_ZTI16UT_CMceCsSession @ 259 NONAME ; #<TI>#
+	_ZTI16UT_CMceStateIdle @ 260 NONAME ; #<TI>#
+	_ZTI16UT_TMceActionSet @ 261 NONAME ; #<TI>#
+	_ZTI17CMceComAMRWbCodec @ 262 NONAME ; #<TI>#
+	_ZTI17CMceComAudioCodec @ 263 NONAME ; #<TI>#
+	_ZTI17CMceComFileSource @ 264 NONAME ; #<TI>#
+	_ZTI17CMceComVideoCodec @ 265 NONAME ; #<TI>#
+	_ZTI17CMceKeyCValuePairI6HBufC8E @ 266 NONAME ; #<TI>#
+	_ZTI17CMceMsgSIPRequest @ 267 NONAME ; #<TI>#
+	_ZTI17CMceNatSipSession @ 268 NONAME ; #<TI>#
+	_ZTI17CMceSipConnection @ 269 NONAME ; #<TI>#
+	_ZTI17CMceSipExtensions @ 270 NONAME ; #<TI>#
+	_ZTI17CMceStateCanceled @ 271 NONAME ; #<TI>#
+	_ZTI17CMceStateOffering @ 272 NONAME ; #<TI>#
+	_ZTI17CMceStateUpdating @ 273 NONAME ; #<TI>#
+	_ZTI17UT_CMceDictionary @ 274 NONAME ; #<TI>#
+	_ZTI17UT_CMceSipManager @ 275 NONAME ; #<TI>#
+	_ZTI17UT_CMceSipSession @ 276 NONAME ; #<TI>#
+	_ZTI17UT_CMceStateError @ 277 NONAME ; #<TI>#
+	_ZTI17UT_CNSPPluginStub @ 278 NONAME ; #<TI>#
+	_ZTI18CMceClientResolver @ 279 NONAME ; #<TI>#
+	_ZTI18CMceComAudioStream @ 280 NONAME ; #<TI>#
+	_ZTI18CMceComDisplaySink @ 281 NONAME ; #<TI>#
+	_ZTI18CMceComMediaSource @ 282 NONAME ; #<TI>#
+	_ZTI18CMceComMediaStream @ 283 NONAME ; #<TI>#
+	_ZTI18CMceComSpeakerSink @ 284 NONAME ; #<TI>#
+	_ZTI18CMceComVideoStream @ 285 NONAME ; #<TI>#
+	_ZTI18CMceCsReceiveQueue @ 286 NONAME ; #<TI>#
+	_ZTI18CMceCsReceiverBase @ 287 NONAME ; #<TI>#
+	_ZTI18CMceReliableSender @ 288 NONAME ; #<TI>#
+	_ZTI18CMceSipDefaultData @ 289 NONAME ; #<TI>#
+	_ZTI18CMceStateAnswering @ 290 NONAME ; #<TI>#
+	_ZTI18UT_CMceSipDefaults @ 291 NONAME ; #<TI>#
+	_ZTI19CMceComCameraSource @ 292 NONAME ; #<TI>#
+	_ZTI19CMceComStreamBundle @ 293 NONAME ; #<TI>#
+	_ZTI19CMceSecureDesStream @ 294 NONAME ; #<TI>#
+	_ZTI19CMceSipStateMachine @ 295 NONAME ; #<TI>#
+	_ZTI19CMceStateConfirming @ 296 NONAME ; #<TI>#
+	_ZTI19CMceStateTerminated @ 297 NONAME ; #<TI>#
+	_ZTI19CSIPClientDiscovery @ 298 NONAME ; #<TI>#
+	_ZTI19CSIPDialogAssocBase @ 299 NONAME ; #<TI>#
+	_ZTI19CSIPMessageElements @ 300 NONAME ; #<TI>#
+	_ZTI19CSIPProfileRegistry @ 301 NONAME ; #<TI>#
+	_ZTI19CSIPRequestElements @ 302 NONAME ; #<TI>#
+	_ZTI19CSIPTransactionBase @ 303 NONAME ; #<TI>#
+	_ZTI19TMceComEventHandler @ 304 NONAME ; #<TI>#
+	_ZTI19UT_CMceCsSubSession @ 305 NONAME ; #<TI>#
+	_ZTI19UT_CMceNatStateIdle @ 306 NONAME ; #<TI>#
+	_ZTI19UT_CMceNatStateWait @ 307 NONAME ; #<TI>#
+	_ZTI19UT_CMceStateUpdated @ 308 NONAME ; #<TI>#
+	_ZTI20CMceNatPluginManager @ 309 NONAME ; #<TI>#
+	_ZTI20CMceStateEstablished @ 310 NONAME ; #<TI>#
+	_ZTI20CMceStateTerminating @ 311 NONAME ; #<TI>#
+	_ZTI20CSIPReferDialogAssoc @ 312 NONAME ; #<TI>#
+	_ZTI20CSIPResponseElements @ 313 NONAME ; #<TI>#
+	_ZTI20UT_CMceNatSipSession @ 314 NONAME ; #<TI>#
+	_ZTI20UT_CMceSipConnection @ 315 NONAME ; #<TI>#
+	_ZTI20UT_CMceSipExtensions @ 316 NONAME ; #<TI>#
+	_ZTI20UT_CMceStateCanceled @ 317 NONAME ; #<TI>#
+	_ZTI20UT_CMceStateOffering @ 318 NONAME ; #<TI>#
+	_ZTI20UT_CMceStateUpdating @ 319 NONAME ; #<TI>#
+	_ZTI21CMceCsSessionReceiver @ 320 NONAME ; #<TI>#
+	_ZTI21CMceLocalAddrResolver @ 321 NONAME ; #<TI>#
+	_ZTI21CMceNatStateConnected @ 322 NONAME ; #<TI>#
+	_ZTI21CSIPClientTransaction @ 323 NONAME ; #<TI>#
+	_ZTI21CSIPInviteDialogAssoc @ 324 NONAME ; #<TI>#
+	_ZTI21CSIPNotifyDialogAssoc @ 325 NONAME ; #<TI>#
+	_ZTI21CSIPServerTransaction @ 326 NONAME ; #<TI>#
+	_ZTI21UT_CMceClientResolver @ 327 NONAME ; #<TI>#
+	_ZTI21UT_CMceCsReceiveQueue @ 328 NONAME ; #<TI>#
+	_ZTI21UT_CMceCsReceiverBase @ 329 NONAME ; #<TI>#
+	_ZTI21UT_CMceReliableSender @ 330 NONAME ; #<TI>#
+	_ZTI21UT_CMceSipDefaultData @ 331 NONAME ; #<TI>#
+	_ZTI21UT_CMceStateAnswering @ 332 NONAME ; #<TI>#
+	_ZTI22CMceNatSipStateMachine @ 333 NONAME ; #<TI>#
+	_ZTI22CMceSecureMediaSession @ 334 NONAME ; #<TI>#
+	_ZTI22UT_CMceStateConfirming @ 335 NONAME ; #<TI>#
+	_ZTI23CMceNatStateCreateOffer @ 336 NONAME ; #<TI>#
+	_ZTI23CMceNatStateDecodeOffer @ 337 NONAME ; #<TI>#
+	_ZTI23CMceStateServerOffering @ 338 NONAME ; #<TI>#
+	_ZTI23CSIPProfileRegistryBase @ 339 NONAME ; #<TI>#
+	_ZTI23UT_CMceStateEstablished @ 340 NONAME ; #<TI>#
+	_ZTI23UT_CMceStateTerminating @ 341 NONAME ; #<TI>#
+	_ZTI24CMceCsSubSessionReceiver @ 342 NONAME ; #<TI>#
+	_ZTI24CMceNatStateCreateAnswer @ 343 NONAME ; #<TI>#
+	_ZTI24CMceNatStateDecodeAnswer @ 344 NONAME ; #<TI>#
+	_ZTI24CMceNatStateInitializing @ 345 NONAME ; #<TI>#
+	_ZTI24CMceStateClientReserving @ 346 NONAME ; #<TI>#
+	_ZTI24CMceStateServerReserving @ 347 NONAME ; #<TI>#
+	_ZTI24CSIPSubscribeDialogAssoc @ 348 NONAME ; #<TI>#
+	_ZTI24UT_CMceLocalAddrResolver @ 349 NONAME ; #<TI>#
+	_ZTI24UT_CMceNatStateConnected @ 350 NONAME ; #<TI>#
+	_ZTI26UT_CMceNatStateCreateOffer @ 351 NONAME ; #<TI>#
+	_ZTI26UT_CMceNatStateDecodeOffer @ 352 NONAME ; #<TI>#
+	_ZTI26UT_CMceStateServerOffering @ 353 NONAME ; #<TI>#
+	_ZTI27CMceCsSessionImplementation @ 354 NONAME ; #<TI>#
+	_ZTI27CMceStateClientEstablishing @ 355 NONAME ; #<TI>#
+	_ZTI27CMceStateServerEstablishing @ 356 NONAME ; #<TI>#
+	_ZTI27CMceStateServerInitializing @ 357 NONAME ; #<TI>#
+	_ZTI27UT_CMceNatStateCreateAnswer @ 358 NONAME ; #<TI>#
+	_ZTI27UT_CMceNatStateDecodeAnswer @ 359 NONAME ; #<TI>#
+	_ZTI27UT_CMceStateClientReserving @ 360 NONAME ; #<TI>#
+	_ZTI27UT_CMceStateServerReserving @ 361 NONAME ; #<TI>#
+	_ZTI29CMceStateConfirmationRequired @ 362 NONAME ; #<TI>#
+	_ZTI30UT_CMceStateClientEstablishing @ 363 NONAME ; #<TI>#
+	_ZTI30UT_CMceStateServerEstablishing @ 364 NONAME ; #<TI>#
+	_ZTI30UT_CMceStateServerInitializing @ 365 NONAME ; #<TI>#
+	_ZTI32CMceNatStateCreateOfferRequested @ 366 NONAME ; #<TI>#
+	_ZTI32CMceStateAcknowledgementRequired @ 367 NONAME ; #<TI>#
+	_ZTI32UT_CMceStateConfirmationRequired @ 368 NONAME ; #<TI>#
+	_ZTI35UT_CMceNatStateCreateOfferRequested @ 369 NONAME ; #<TI>#
+	_ZTI35UT_CMceStateAcknowledgementRequired @ 370 NONAME ; #<TI>#
+	_ZTI4CSIP @ 371 NONAME ; #<TI>#
+	_ZTI7CMCETls @ 372 NONAME ; #<TI>#
+	_ZTI9CMceState @ 373 NONAME ; #<TI>#
+	_ZTI9UT_MCESIP @ 374 NONAME ; #<TI>#
+	_ZTIN18CMceClientResolver18CMceRoutingRequestE @ 375 NONAME ; #<TI>#
+	_ZTV10CFCSession @ 376 NONAME ; #<VT>#
+	_ZTV10CSIPDialog @ 377 NONAME ; #<VT>#
+	_ZTV11CMceMsgBase @ 378 NONAME ; #<VT>#
+	_ZTV11CMceSrvSink @ 379 NONAME ; #<VT>#
+	_ZTV11CSIPProfile @ 380 NONAME ; #<VT>#
+	_ZTV11RConnection @ 381 NONAME ; #<VT>#
+	_ZTV12CMceComCodec @ 382 NONAME ; #<VT>#
+	_ZTV12CMceComEvent @ 383 NONAME ; #<VT>#
+	_ZTV12CMceCsServer @ 384 NONAME ; #<VT>#
+	_ZTV12CMceNatState @ 385 NONAME ; #<VT>#
+	_ZTV12CMceSipEvent @ 386 NONAME ; #<VT>#
+	_ZTV12UT_CMceState @ 387 NONAME ; #<VT>#
+	_ZTV13CFCPlugInInfo @ 388 NONAME ; #<VT>#
+	_ZTV13CMceCsSession @ 389 NONAME ; #<VT>#
+	_ZTV13CMceSrvSource @ 390 NONAME ; #<VT>#
+	_ZTV13CMceSrvStream @ 391 NONAME ; #<VT>#
+	_ZTV13CMceStateIdle @ 392 NONAME ; #<VT>#
+	_ZTV14CMceComCnCodec @ 393 NONAME ; #<VT>#
+	_ZTV14CMceComRtpSink @ 394 NONAME ; #<VT>#
+	_ZTV14CMceComSession @ 395 NONAME ; #<VT>#
+	_ZTV14CMceDictionary @ 396 NONAME ; #<VT>#
+	_ZTV14CMceMsgSIPData @ 397 NONAME ; #<VT>#
+	_ZTV14CMceSdpSession @ 398 NONAME ; #<VT>#
+	_ZTV14CMceServerCore @ 399 NONAME ; #<VT>#
+	_ZTV14CMceSipManager @ 400 NONAME ; #<VT>#
+	_ZTV14CMceSipSession @ 401 NONAME ; #<VT>#
+	_ZTV14CMceStateError @ 402 NONAME ; #<VT>#
+	_ZTV14CNSPPluginStub @ 403 NONAME ; #<VT>#
+	_ZTV14CSIPConnection @ 404 NONAME ; #<VT>#
+	_ZTV14CSIPHttpDigest @ 405 NONAME ; #<VT>#
+	_ZTV15CFCPlugInEngine @ 406 NONAME ; #<VT>#
+	_ZTV15CMceComAMRCodec @ 407 NONAME ; #<VT>#
+	_ZTV15CMceComAvcCodec @ 408 NONAME ; #<VT>#
+	_ZTV15CMceComEndpoint @ 409 NONAME ; #<VT>#
+	_ZTV15CMceComFileSink @ 410 NONAME ; #<VT>#
+	_ZTV15CMceComRedCodec @ 411 NONAME ; #<VT>#
+	_ZTV15CMceCsServerITC @ 412 NONAME ; #<VT>#
+	_ZTV15CMceMsgSIPEvent @ 413 NONAME ; #<VT>#
+	_ZTV15CMceMsgSIPReply @ 414 NONAME ; #<VT>#
+	_ZTV15CMceSipDefaults @ 415 NONAME ; #<VT>#
+	_ZTV15CMceSrvEndpoint @ 416 NONAME ; #<VT>#
+	_ZTV15UT_CMceSipEvent @ 417 NONAME ; #<VT>#
+	_ZTV15UT_MCEUsesCases @ 418 NONAME ; #<VT>#
+	_ZTV16CMceComDtmfCodec @ 419 NONAME ; #<VT>#
+	_ZTV16CMceComG711Codec @ 420 NONAME ; #<VT>#
+	_ZTV16CMceComG729Codec @ 421 NONAME ; #<VT>#
+	_ZTV16CMceComH263Codec @ 422 NONAME ; #<VT>#
+	_ZTV16CMceComMediaSink @ 423 NONAME ; #<VT>#
+	_ZTV16CMceComMicSource @ 424 NONAME ; #<VT>#
+	_ZTV16CMceComRtpSource @ 425 NONAME ; #<VT>#
+	_ZTV16CMceComiLBCCodec @ 426 NONAME ; #<VT>#
+	_ZTV16CMceCsSubSession @ 427 NONAME ; #<VT>#
+	_ZTV16CMceEventContext @ 428 NONAME ; #<VT>#
+	_ZTV16CMceMediaManager @ 429 NONAME ; #<VT>#
+	_ZTV16CMceMsgTextArray @ 430 NONAME ; #<VT>#
+	_ZTV16CMceNatStateIdle @ 431 NONAME ; #<VT>#
+	_ZTV16CMceNatStateWait @ 432 NONAME ; #<VT>#
+	_ZTV16CMceStateUpdated @ 433 NONAME ; #<VT>#
+	_ZTV16CMceTimerManager @ 434 NONAME ; #<VT>#
+	_ZTV16UT_CMceCsSession @ 435 NONAME ; #<VT>#
+	_ZTV16UT_CMceStateIdle @ 436 NONAME ; #<VT>#
+	_ZTV16UT_TMceActionSet @ 437 NONAME ; #<VT>#
+	_ZTV17CMceComAMRWbCodec @ 438 NONAME ; #<VT>#
+	_ZTV17CMceComAudioCodec @ 439 NONAME ; #<VT>#
+	_ZTV17CMceComFileSource @ 440 NONAME ; #<VT>#
+	_ZTV17CMceComVideoCodec @ 441 NONAME ; #<VT>#
+	_ZTV17CMceKeyCValuePairI6HBufC8E @ 442 NONAME ; #<VT>#
+	_ZTV17CMceMsgSIPRequest @ 443 NONAME ; #<VT>#
+	_ZTV17CMceNatSipSession @ 444 NONAME ; #<VT>#
+	_ZTV17CMceSipConnection @ 445 NONAME ; #<VT>#
+	_ZTV17CMceSipExtensions @ 446 NONAME ; #<VT>#
+	_ZTV17CMceStateCanceled @ 447 NONAME ; #<VT>#
+	_ZTV17CMceStateOffering @ 448 NONAME ; #<VT>#
+	_ZTV17CMceStateUpdating @ 449 NONAME ; #<VT>#
+	_ZTV17UT_CMceDictionary @ 450 NONAME ; #<VT>#
+	_ZTV17UT_CMceSipManager @ 451 NONAME ; #<VT>#
+	_ZTV17UT_CMceSipSession @ 452 NONAME ; #<VT>#
+	_ZTV17UT_CMceStateError @ 453 NONAME ; #<VT>#
+	_ZTV17UT_CNSPPluginStub @ 454 NONAME ; #<VT>#
+	_ZTV18CMceClientResolver @ 455 NONAME ; #<VT>#
+	_ZTV18CMceComAudioStream @ 456 NONAME ; #<VT>#
+	_ZTV18CMceComDisplaySink @ 457 NONAME ; #<VT>#
+	_ZTV18CMceComMediaSource @ 458 NONAME ; #<VT>#
+	_ZTV18CMceComMediaStream @ 459 NONAME ; #<VT>#
+	_ZTV18CMceComSpeakerSink @ 460 NONAME ; #<VT>#
+	_ZTV18CMceComVideoStream @ 461 NONAME ; #<VT>#
+	_ZTV18CMceCsReceiveQueue @ 462 NONAME ; #<VT>#
+	_ZTV18CMceCsReceiverBase @ 463 NONAME ; #<VT>#
+	_ZTV18CMceReliableSender @ 464 NONAME ; #<VT>#
+	_ZTV18CMceSipDefaultData @ 465 NONAME ; #<VT>#
+	_ZTV18CMceStateAnswering @ 466 NONAME ; #<VT>#
+	_ZTV18UT_CMceSipDefaults @ 467 NONAME ; #<VT>#
+	_ZTV19CMceComCameraSource @ 468 NONAME ; #<VT>#
+	_ZTV19CMceComStreamBundle @ 469 NONAME ; #<VT>#
+	_ZTV19CMceSecureDesStream @ 470 NONAME ; #<VT>#
+	_ZTV19CMceSipStateMachine @ 471 NONAME ; #<VT>#
+	_ZTV19CMceStateConfirming @ 472 NONAME ; #<VT>#
+	_ZTV19CMceStateTerminated @ 473 NONAME ; #<VT>#
+	_ZTV19CSIPClientDiscovery @ 474 NONAME ; #<VT>#
+	_ZTV19CSIPDialogAssocBase @ 475 NONAME ; #<VT>#
+	_ZTV19CSIPMessageElements @ 476 NONAME ; #<VT>#
+	_ZTV19CSIPProfileRegistry @ 477 NONAME ; #<VT>#
+	_ZTV19CSIPRequestElements @ 478 NONAME ; #<VT>#
+	_ZTV19CSIPTransactionBase @ 479 NONAME ; #<VT>#
+	_ZTV19TMceComEventHandler @ 480 NONAME ; #<VT>#
+	_ZTV19UT_CMceCsSubSession @ 481 NONAME ; #<VT>#
+	_ZTV19UT_CMceNatStateIdle @ 482 NONAME ; #<VT>#
+	_ZTV19UT_CMceNatStateWait @ 483 NONAME ; #<VT>#
+	_ZTV19UT_CMceStateUpdated @ 484 NONAME ; #<VT>#
+	_ZTV20CMceNatPluginManager @ 485 NONAME ; #<VT>#
+	_ZTV20CMceStateEstablished @ 486 NONAME ; #<VT>#
+	_ZTV20CMceStateTerminating @ 487 NONAME ; #<VT>#
+	_ZTV20CSIPReferDialogAssoc @ 488 NONAME ; #<VT>#
+	_ZTV20CSIPResponseElements @ 489 NONAME ; #<VT>#
+	_ZTV20UT_CMceNatSipSession @ 490 NONAME ; #<VT>#
+	_ZTV20UT_CMceSipConnection @ 491 NONAME ; #<VT>#
+	_ZTV20UT_CMceSipExtensions @ 492 NONAME ; #<VT>#
+	_ZTV20UT_CMceStateCanceled @ 493 NONAME ; #<VT>#
+	_ZTV20UT_CMceStateOffering @ 494 NONAME ; #<VT>#
+	_ZTV20UT_CMceStateUpdating @ 495 NONAME ; #<VT>#
+	_ZTV21CMceCsSessionReceiver @ 496 NONAME ; #<VT>#
+	_ZTV21CMceLocalAddrResolver @ 497 NONAME ; #<VT>#
+	_ZTV21CMceNatStateConnected @ 498 NONAME ; #<VT>#
+	_ZTV21CSIPClientTransaction @ 499 NONAME ; #<VT>#
+	_ZTV21CSIPInviteDialogAssoc @ 500 NONAME ; #<VT>#
+	_ZTV21CSIPNotifyDialogAssoc @ 501 NONAME ; #<VT>#
+	_ZTV21CSIPServerTransaction @ 502 NONAME ; #<VT>#
+	_ZTV21UT_CMceClientResolver @ 503 NONAME ; #<VT>#
+	_ZTV21UT_CMceCsReceiveQueue @ 504 NONAME ; #<VT>#
+	_ZTV21UT_CMceCsReceiverBase @ 505 NONAME ; #<VT>#
+	_ZTV21UT_CMceReliableSender @ 506 NONAME ; #<VT>#
+	_ZTV21UT_CMceSipDefaultData @ 507 NONAME ; #<VT>#
+	_ZTV21UT_CMceStateAnswering @ 508 NONAME ; #<VT>#
+	_ZTV22CMceNatSipStateMachine @ 509 NONAME ; #<VT>#
+	_ZTV22CMceSecureMediaSession @ 510 NONAME ; #<VT>#
+	_ZTV22UT_CMceStateConfirming @ 511 NONAME ; #<VT>#
+	_ZTV23CMceNatStateCreateOffer @ 512 NONAME ; #<VT>#
+	_ZTV23CMceNatStateDecodeOffer @ 513 NONAME ; #<VT>#
+	_ZTV23CMceStateServerOffering @ 514 NONAME ; #<VT>#
+	_ZTV23CSIPProfileRegistryBase @ 515 NONAME ; #<VT>#
+	_ZTV23UT_CMceStateEstablished @ 516 NONAME ; #<VT>#
+	_ZTV23UT_CMceStateTerminating @ 517 NONAME ; #<VT>#
+	_ZTV24CMceCsSubSessionReceiver @ 518 NONAME ; #<VT>#
+	_ZTV24CMceNatStateCreateAnswer @ 519 NONAME ; #<VT>#
+	_ZTV24CMceNatStateDecodeAnswer @ 520 NONAME ; #<VT>#
+	_ZTV24CMceNatStateInitializing @ 521 NONAME ; #<VT>#
+	_ZTV24CMceStateClientReserving @ 522 NONAME ; #<VT>#
+	_ZTV24CMceStateServerReserving @ 523 NONAME ; #<VT>#
+	_ZTV24CSIPSubscribeDialogAssoc @ 524 NONAME ; #<VT>#
+	_ZTV24UT_CMceLocalAddrResolver @ 525 NONAME ; #<VT>#
+	_ZTV24UT_CMceNatStateConnected @ 526 NONAME ; #<VT>#
+	_ZTV26UT_CMceNatStateCreateOffer @ 527 NONAME ; #<VT>#
+	_ZTV26UT_CMceNatStateDecodeOffer @ 528 NONAME ; #<VT>#
+	_ZTV26UT_CMceStateServerOffering @ 529 NONAME ; #<VT>#
+	_ZTV27CMceCsSessionImplementation @ 530 NONAME ; #<VT>#
+	_ZTV27CMceStateClientEstablishing @ 531 NONAME ; #<VT>#
+	_ZTV27CMceStateServerEstablishing @ 532 NONAME ; #<VT>#
+	_ZTV27CMceStateServerInitializing @ 533 NONAME ; #<VT>#
+	_ZTV27UT_CMceNatStateCreateAnswer @ 534 NONAME ; #<VT>#
+	_ZTV27UT_CMceNatStateDecodeAnswer @ 535 NONAME ; #<VT>#
+	_ZTV27UT_CMceStateClientReserving @ 536 NONAME ; #<VT>#
+	_ZTV27UT_CMceStateServerReserving @ 537 NONAME ; #<VT>#
+	_ZTV29CMceStateConfirmationRequired @ 538 NONAME ; #<VT>#
+	_ZTV30UT_CMceStateClientEstablishing @ 539 NONAME ; #<VT>#
+	_ZTV30UT_CMceStateServerEstablishing @ 540 NONAME ; #<VT>#
+	_ZTV30UT_CMceStateServerInitializing @ 541 NONAME ; #<VT>#
+	_ZTV32CMceNatStateCreateOfferRequested @ 542 NONAME ; #<VT>#
+	_ZTV32CMceStateAcknowledgementRequired @ 543 NONAME ; #<VT>#
+	_ZTV32UT_CMceStateConfirmationRequired @ 544 NONAME ; #<VT>#
+	_ZTV35UT_CMceNatStateCreateOfferRequested @ 545 NONAME ; #<VT>#
+	_ZTV35UT_CMceStateAcknowledgementRequired @ 546 NONAME ; #<VT>#
+	_ZTV4CSIP @ 547 NONAME ; #<VT>#
+	_ZTV7CMCETls @ 548 NONAME ; #<VT>#
+	_ZTV9CMceState @ 549 NONAME ; #<VT>#
+	_ZTV9UT_MCESIP @ 550 NONAME ; #<VT>#
+	_ZTVN18CMceClientResolver18CMceRoutingRequestE @ 551 NONAME ; #<VT>#
+	_ZThn4_N11CSIPProfileD0Ev @ 552 NONAME ; #<thunk>#
+	_ZThn4_N11CSIPProfileD1Ev @ 553 NONAME ; #<thunk>#
+	_ZThn8_N15CFCPlugInEngineD0Ev @ 554 NONAME ; #<thunk>#
+	_ZThn8_N15CFCPlugInEngineD1Ev @ 555 NONAME ; #<thunk>#
+	_ZTI14TMceMediaState @ 556 NONAME ; #<TI>#
+	_ZTI17TMcePreconditions @ 557 NONAME ; #<TI>#
+	_ZTI23TMceSecurePreconditions @ 558 NONAME ; #<TI>#
+	_ZTI26TMceSegmentedPreconditions @ 559 NONAME ; #<TI>#
+	_ZTV14TMceMediaState @ 560 NONAME ; #<VT>#
+	_ZTV17TMcePreconditions @ 561 NONAME ; #<VT>#
+	_ZTV23TMceSecurePreconditions @ 562 NONAME ; #<VT>#
+	_ZTV26TMceSegmentedPreconditions @ 563 NONAME ; #<VT>#
+	_ZTI12CMceSdpCodec @ 564 NONAME ; #<TI>#
+	_ZTI13TMceMediaIdle @ 565 NONAME ; #<TI>#
+	_ZTI15CMceDtmfHandler @ 566 NONAME ; #<TI>#
+	_ZTI17TMceOfferingMedia @ 567 NONAME ; #<TI>#
+	_ZTI18TMceAnsweringMedia @ 568 NONAME ; #<TI>#
+	_ZTI19TMceMediaNegotiated @ 569 NONAME ; #<TI>#
+	_ZTI20CMceAdoptedSrvStream @ 570 NONAME ; #<TI>#
+	_ZTI20TMcePreparingStreams @ 571 NONAME ; #<TI>#
+	_ZTI24TMceAnsweringMediaUpdate @ 572 NONAME ; #<TI>#
+	_ZTI27TMcePreparingOffererStreams @ 573 NONAME ; #<TI>#
+	_ZTI27TMceStartingAnswererStreams @ 574 NONAME ; #<TI>#
+	_ZTI28TMcePreparingAnswererStreams @ 575 NONAME ; #<TI>#
+	_ZTI30TMceStartingOffererSendStreams @ 576 NONAME ; #<TI>#
+	_ZTI33TMceStartingOffererReceiveStreams @ 577 NONAME ; #<TI>#
+	_ZTIN17TMceOfferingMedia14TMceMediaReadyE @ 578 NONAME ; #<TI>#
+	_ZTIN17TMceOfferingMedia17TMceWaitingAnswerE @ 579 NONAME ; #<TI>#
+	_ZTIN17TMceOfferingMedia20TMceMediaUpdateReadyE @ 580 NONAME ; #<TI>#
+	_ZTIN19TMceMediaNegotiated12TMceEndStateE @ 581 NONAME ; #<TI>#
+	_ZTIN19TMceMediaNegotiated20TMceAnswererEndStateE @ 582 NONAME ; #<TI>#
+	_ZTIN19TMceMediaNegotiated30TMceAnswererWaitingAnswerStateE @ 583 NONAME ; #<TI>#
+	_ZTV12CMceSdpCodec @ 584 NONAME ; #<VT>#
+	_ZTV13TMceMediaIdle @ 585 NONAME ; #<VT>#
+	_ZTV15CMceDtmfHandler @ 586 NONAME ; #<VT>#
+	_ZTV17TMceOfferingMedia @ 587 NONAME ; #<VT>#
+	_ZTV18TMceAnsweringMedia @ 588 NONAME ; #<VT>#
+	_ZTV19TMceMediaNegotiated @ 589 NONAME ; #<VT>#
+	_ZTV20CMceAdoptedSrvStream @ 590 NONAME ; #<VT>#
+	_ZTV20TMcePreparingStreams @ 591 NONAME ; #<VT>#
+	_ZTV24TMceAnsweringMediaUpdate @ 592 NONAME ; #<VT>#
+	_ZTV27TMcePreparingOffererStreams @ 593 NONAME ; #<VT>#
+	_ZTV27TMceStartingAnswererStreams @ 594 NONAME ; #<VT>#
+	_ZTV28TMcePreparingAnswererStreams @ 595 NONAME ; #<VT>#
+	_ZTV30TMceStartingOffererSendStreams @ 596 NONAME ; #<VT>#
+	_ZTV33TMceStartingOffererReceiveStreams @ 597 NONAME ; #<VT>#
+	_ZTVN17TMceOfferingMedia14TMceMediaReadyE @ 598 NONAME ; #<VT>#
+	_ZTVN17TMceOfferingMedia17TMceWaitingAnswerE @ 599 NONAME ; #<VT>#
+	_ZTVN17TMceOfferingMedia20TMceMediaUpdateReadyE @ 600 NONAME ; #<VT>#
+	_ZTVN19TMceMediaNegotiated12TMceEndStateE @ 601 NONAME ; #<VT>#
+	_ZTVN19TMceMediaNegotiated20TMceAnswererEndStateE @ 602 NONAME ; #<VT>#
+	_ZTVN19TMceMediaNegotiated30TMceAnswererWaitingAnswerStateE @ 603 NONAME ; #<VT>#
+

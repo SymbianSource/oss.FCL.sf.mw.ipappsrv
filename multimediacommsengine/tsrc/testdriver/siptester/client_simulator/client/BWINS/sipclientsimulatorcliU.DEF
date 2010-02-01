@@ -1,0 +1,13 @@
+EXPORTS
+	??0RSipClientSimulator@@QAE@XZ @ 1 NONAME ; RSipClientSimulator::RSipClientSimulator(void)
+	?Close@RSipClientSimulator@@QAEXXZ @ 2 NONAME ; void RSipClientSimulator::Close(void)
+	?Connect@RSipClientSimulator@@QAEHXZ @ 3 NONAME ; int RSipClientSimulator::Connect(void)
+	?ConnectClient@RSipClientSimulator@@QAEHABVTUid@@@Z @ 4 NONAME ; int RSipClientSimulator::ConnectClient(class TUid const &)
+	?DisconnectClient@RSipClientSimulator@@QAEHXZ @ 5 NONAME ; int RSipClientSimulator::DisconnectClient(void)
+	?GetClientMatchType@RSipClientSimulator@@QAEHAAW4TMatchType@1@AAVTUid@@@Z @ 6 NONAME ; int RSipClientSimulator::GetClientMatchType(enum RSipClientSimulator::TMatchType &, class TUid &)
+	?SetClientMatchType@RSipClientSimulator@@QAEHW4TMatchType@1@ABVTUid@@@Z @ 7 NONAME ; int RSipClientSimulator::SetClientMatchType(enum RSipClientSimulator::TMatchType, class TUid const &)
+	?ClientSupportedContentTypesL@RSipClientSimulator@@QAE?AV?$RPointerArray@VCSIPContentTypeHeader@@@@AAVTUid@@@Z @ 8 NONAME ; class RPointerArray<class CSIPContentTypeHeader> RSipClientSimulator::ClientSupportedContentTypesL(class TUid &)
+	?ClientSupportedMediaFieldsL@RSipClientSimulator@@QAE?AV?$RPointerArray@VCSdpMediaField@@@@AAVTUid@@@Z @ 9 NONAME ; class RPointerArray<class CSdpMediaField> RSipClientSimulator::ClientSupportedMediaFieldsL(class TUid &)
+	?SetClientSupportedContentTypesL@RSipClientSimulator@@QAEHV?$RPointerArray@VCSIPContentTypeHeader@@@@ABVTUid@@@Z @ 10 NONAME ; int RSipClientSimulator::SetClientSupportedContentTypesL(class RPointerArray<class CSIPContentTypeHeader>, class TUid const &)
+	?SetClientSupportedSdpMediasL@RSipClientSimulator@@QAEHV?$RPointerArray@VCSdpMediaField@@@@ABVTUid@@@Z @ 11 NONAME ; int RSipClientSimulator::SetClientSupportedSdpMediasL(class RPointerArray<class CSdpMediaField>, class TUid const &)
+

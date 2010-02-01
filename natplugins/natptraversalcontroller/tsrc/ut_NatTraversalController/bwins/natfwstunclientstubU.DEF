@@ -1,0 +1,26 @@
+EXPORTS
+	??1CSTUNBinding@@UAE@XZ @ 1 NONAME ; CSTUNBinding::~CSTUNBinding(void)
+	??1CSTUNClient@@UAE@XZ @ 2 NONAME ; CSTUNClient::~CSTUNClient(void)
+	?AddressResolved@CSTUNBinding@@UBEHXZ @ 3 NONAME ; int CSTUNBinding::AddressResolved(void) const
+	?CancelRequest@CSTUNBinding@@UAEXXZ @ 4 NONAME ; void CSTUNBinding::CancelRequest(void)
+	?ExecuteImmediateRetransmitL@CSTUNBinding@@UAEXXZ @ 5 NONAME ; void CSTUNBinding::ExecuteImmediateRetransmitL(void)
+	?HandleDataL@CSTUNBinding@@UAEPAVHBufC8@@ABVTDesC8@@AAHAAVTInetAddr@@@Z @ 6 NONAME ; class HBufC8 * CSTUNBinding::HandleDataL(class TDesC8 const &, int &, class TInetAddr &)
+	?IsInitialized@CSTUNClient@@QBEHXZ @ 7 NONAME ; int CSTUNClient::IsInitialized(void) const
+	?NewL@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@AAVRSocket@@@Z @ 8 NONAME ; class CSTUNBinding * CSTUNBinding::NewL(class CSTUNClient &, class RSocket &)
+	?NewL@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@II@Z @ 9 NONAME ; class CSTUNBinding * CSTUNBinding::NewL(class CSTUNClient &, unsigned int, unsigned int)
+	?NewL@CSTUNClient@@SAPAV1@HABVTDesC8@@I0AAVRSocketServ@@AAVRConnection@@AAVCDeltaTimer@@AAVMSTUNClientObserver@@HHHPAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 10 NONAME ; class CSTUNClient * CSTUNClient::NewL(int, class TDesC8 const &, unsigned int, class TDesC8 const &, class RSocketServ &, class RConnection &, class CDeltaTimer &, class MSTUNClientObserver &, int, int, int, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?NewLC@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@AAVRSocket@@@Z @ 11 NONAME ; class CSTUNBinding * CSTUNBinding::NewLC(class CSTUNClient &, class RSocket &)
+	?NewLC@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@II@Z @ 12 NONAME ; class CSTUNBinding * CSTUNBinding::NewLC(class CSTUNClient &, unsigned int, unsigned int)
+	?NewLC@CSTUNClient@@SAPAV1@HABVTDesC8@@I0AAVRSocketServ@@AAVRConnection@@AAVCDeltaTimer@@AAVMSTUNClientObserver@@HHHPAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 13 NONAME ; class CSTUNClient * CSTUNClient::NewLC(int, class TDesC8 const &, unsigned int, class TDesC8 const &, class RSocketServ &, class RConnection &, class CDeltaTimer &, class MSTUNClientObserver &, int, int, int, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?PublicAddr@CSTUNBinding@@UBEABVTInetAddr@@XZ @ 14 NONAME ; class TInetAddr const & CSTUNBinding::PublicAddr(void) const
+	?STUNClient@CSTUNBinding@@UBEPBVCSTUNClient@@XZ @ 15 NONAME ; class CSTUNClient const * CSTUNBinding::STUNClient(void) const
+	?STUNServerAddrL@CSTUNClient@@QBEABVTInetAddr@@XZ @ 16 NONAME ; class TInetAddr const & CSTUNClient::STUNServerAddrL(void) const
+	?SendRequestL@CSTUNBinding@@UAEXABVTInetAddr@@@Z @ 17 NONAME ; void CSTUNBinding::SendRequestL(class TInetAddr const &)
+	?SendRequestL@CSTUNBinding@@UAEXXZ @ 18 NONAME ; void CSTUNBinding::SendRequestL(void)
+	?SetCredentialsL@CSTUNClient@@QAEXABVTDesC8@@0@Z @ 19 NONAME ; void CSTUNClient::SetCredentialsL(class TDesC8 const &, class TDesC8 const &)
+	?SetICESpecificAttributes@CSTUNBinding@@UAEXABVTICEAttributes@@@Z @ 20 NONAME ; void CSTUNBinding::SetICESpecificAttributes(class TICEAttributes const &)
+	?SharedSecretObtained@CSTUNClient@@QBEHXZ @ 21 NONAME ; int CSTUNClient::SharedSecretObtained(void) const
+	?Socket@CSTUNBinding@@UBEABVRSocket@@XZ @ 22 NONAME ; class RSocket const & CSTUNBinding::Socket(void) const
+	?StreamId@CSTUNBinding@@UBEABIXZ @ 23 NONAME ; unsigned int const & CSTUNBinding::StreamId(void) const
+	?__DbgTestInvariant@CSTUNBinding@@QBEXXZ @ 24 NONAME ; void CSTUNBinding::__DbgTestInvariant(void) const
+

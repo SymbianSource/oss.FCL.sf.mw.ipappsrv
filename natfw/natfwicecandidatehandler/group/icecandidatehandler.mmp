@@ -1,0 +1,77 @@
+/*
+* Copyright (c) 2006-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for project ICE protocol ECom plugin
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET                  icecandidatehandler.dll
+TARGETTYPE              PLUGIN
+UID                     0x10009D8D 0x10275445
+
+CAPABILITY              CAP_ECOM_PLUGIN
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE                  icepluginimplementationproxy.cpp
+SOURCE                  ciceplugin.cpp
+SOURCE                  cicesessiondata.cpp
+SOURCE                  ciceconnectionhandler.cpp
+SOURCE                  cicelocalcandidatefinder.cpp
+SOURCE                  cicestreamcollection.cpp
+SOURCE                  cicecheckhandler.cpp
+SOURCE                  cicechecklist.cpp
+SOURCE                  cicevalidlist.cpp
+SOURCE                  ciceconnectivitycheck.cpp
+SOURCE                  cicecheckprioritizer.cpp
+SOURCE                  cicecandidateprioritizer.cpp
+SOURCE                  cicecallbackexecuter.cpp
+SOURCE                  cicehostresolver.cpp
+SOURCE                  cicenatplugincontainer.cpp
+SOURCE                  ciceconnection.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE		../../../inc
+USERINCLUDE             ../../natfwshared/inc
+USERINCLUDE             ../../natfwconnectionmultiplexer/inc
+USERINCLUDE             ../../natfwsettings/inc
+USERINCLUDE             ../../inc
+USERINCLUDE             ../../natfwstunturnclient/inc
+USERINCLUDE             ../../natfwstunserver/inc
+USERINCLUDE             ../../natfwclient/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+
+LIBRARY                 euser.lib 
+LIBRARY                 ecom.lib 
+LIBRARY                 natconfw.lib 
+LIBRARY                 connectionmux.lib
+LIBRARY                 insock.lib
+LIBRARY                 esock.lib
+LIBRARY                 natfwnatsettings.lib
+LIBRARY                 natfwstunclient.lib
+LIBRARY                 stunserver.lib
+LIBRARY                 bafl.lib
+DEBUGLIBRARY            charconv.lib
+
+START RESOURCE          ../data/10275445.rss
+TARGET                  icecandidatehandler.rsc
+END
+
+PAGED

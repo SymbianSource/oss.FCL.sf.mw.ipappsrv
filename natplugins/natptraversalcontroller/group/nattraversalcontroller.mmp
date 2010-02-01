@@ -1,0 +1,65 @@
+/*
+* Copyright (c) 2007-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: 
+*
+*/
+
+#include <platform_paths.hrh>
+
+TARGET          nattraversalcontroller.dll
+TARGETTYPE      PLUGIN
+UID             0x10009d8d 0x102747d1
+
+SOURCEPATH      ../src
+SOURCE          dllentry.cpp
+SOURCE          cnattraversalcontroller.cpp
+SOURCE          cnattraversalconfig.cpp
+SOURCE          tnattraversalpendingrequest.cpp
+SOURCE          cnattraversalsession.cpp
+SOURCE          cnatbinding.cpp
+SOURCE          cnatbindingrefresher.cpp
+SOURCE          cnatbindingcrlfrefresher.cpp
+SOURCE          ccrlfsender.cpp
+SOURCE          cudpcrlfsender.cpp
+SOURCE          ctcpcrlfsender.cpp
+SOURCE          ctlscrlfsender.cpp
+SOURCE          cnatbindingstunrefresher.cpp
+SOURCE          cnatbindingstunandcrlfrefresher.cpp
+
+SOURCEPATH      ../data
+START RESOURCE 102747D1.rss
+TARGET nattraversalcontroller.rsc
+END
+
+MW_LAYER_SYSTEMINCLUDE
+
+USERINCLUDE     ../inc
+USERINCLUDE	../../../inc
+
+LIBRARY       euser.lib
+LIBRARY       ecom.lib
+LIBRARY       esock.lib
+LIBRARY       insock.lib
+LIBRARY       securesocket.lib
+LIBRARY       inetprotutil.lib
+LIBRARY       centralrepository.lib
+LIBRARY       natfwstunclient.lib
+DEBUGLIBRARY  charconv.lib
+
+VENDORID VID_DEFAULT
+
+CAPABILITY ProtServ NetworkControl NetworkServices Location \
+ReadDeviceData WriteDeviceData ReadUserData
+
+PAGED

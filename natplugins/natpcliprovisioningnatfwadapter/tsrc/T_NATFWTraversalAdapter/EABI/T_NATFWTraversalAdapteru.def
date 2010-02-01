@@ -1,0 +1,11 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZTI17CWPStunServerItem @ 2 NONAME ; #<TI>#
+	_ZTI17CWPTurnServerItem @ 3 NONAME ; #<TI>#
+	_ZTI21CNATFWIAPSpecificItem @ 4 NONAME ; #<TI>#
+	_ZTI24CNATFWDomainSpecificItem @ 5 NONAME ; #<TI>#
+	_ZTV17CWPStunServerItem @ 6 NONAME ; #<VT>#
+	_ZTV17CWPTurnServerItem @ 7 NONAME ; #<VT>#
+	_ZTV21CNATFWIAPSpecificItem @ 8 NONAME ; #<VT>#
+	_ZTV24CNATFWDomainSpecificItem @ 9 NONAME ; #<VT>#
+

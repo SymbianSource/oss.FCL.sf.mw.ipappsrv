@@ -1,0 +1,43 @@
+/*
+* Copyright (c) 2007-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    General definitions for Connection Multiplexer
+*
+*/
+
+
+
+
+#ifndef NCMCONNECTIONMULTIPLEXER_HRH
+#define NCMCONNECTIONMULTIPLEXER_HRH
+
+
+/**  Types of connection notifies */
+
+enum TMultiplexerConnectionNotifyType
+    {
+    EMultiplexerConnectionRemoved           = 1,
+    EMultiplexerConnectionError             = 2,
+    EMultiplexerReceivingActivated          = 3,
+    EMultiplexerReceivingDeactivated        = 4,
+    EMultiplexerSendingActivated            = 5,
+    EMultiplexerSendingDeactivated          = 6,
+    EMultiplexerTcpSetupCompleted           = 7,
+    EMultiplexerFirstMediaPacketSent        = 8,
+    EMultiplexerMediaReceivingActivated     = 9,
+    EMultiplexerMediaReceivingDeactivated   = 10,
+    EMultiplexerMediaSendingActivated       = 11,
+    EMultiplexerMediaSendingDeactivated     = 12
+    };
+       
+#endif // NCMCONNECTIONMULTIPLEXER_HRH

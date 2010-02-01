@@ -1,0 +1,38 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#ifndef __MULTIMEDIACOMMSENGINE_IBY__
+#define __MULTIMEDIACOMMSENGINE_IBY__
+
+#ifdef __MMCOMMSENGINE
+
+file=ABI_DIR\urel\mceserver.exe			PROGRAMS_DIR\mceserver.exe
+
+file=ABI_DIR\urel\mceclient.dll			SHARED_LIB_DIR\mceclient.dll
+
+file=ABI_DIR\urel\fcpluginengine.dll       	SHARED_LIB_DIR\fcpluginengine.dll
+
+ECOM_PLUGIN(fctbcp.dll,102010E3.rsc)
+
+data=ZSYSTEM\install\multimediacommsengine_stub.sis         system\install\multimediacommsengine_stub.sis
+
+
+#endif 
+
+#endif 

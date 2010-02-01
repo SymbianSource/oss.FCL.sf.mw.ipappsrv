@@ -1,0 +1,75 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    This is the Make file for Testconsole app.
+**
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          TestConsole.exe
+TARGETTYPE      exe
+UID	        0	0
+
+SOURCEPATH	../src
+//SOURCEPATH	../../../../src
+
+USERINCLUDE	../inc
+USERINCLUDE     ../../../../../rtpsourcesink/inc
+USERINCLUDE     ../../../../../subcontroller/inc
+USERINCLUDE     ../../../../../common/inc
+USERINCLUDE     ../../../../../jitterbuffer/inc
+USERINCLUDE     ../../../../../amrpayloadformat/inc
+USERINCLUDE     ../../../../../h263payloadformat/inc
+USERINCLUDE     ../../../../../dtmfpayloadformat/inc
+USERINCLUDE     ../../../../../anypayloadformat/inc
+USERINCLUDE     ../../../../../interface/api
+USERINCLUDE     ../../../../../interface/inc
+USERINCLUDE     ../../../../../controller/inc
+USERINCLUDE     ../../../../../videosourcesink/inc
+USERINCLUDE     ../../../../../filesourcesink/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+
+SOURCE          Testconsole.cpp
+SOURCE          TestconsoleMain.cpp
+SOURCE          FileUtil.cpp
+//SOURCE        MccRtpInterface.cpp
+
+//SOURCE		MccRtpDataSink.cpp
+//SOURCE		CUlSinkStateMachine.cpp
+
+//SOURCE		MccRtpDataSource.cpp
+//SOURCE		MccRtpSourceSinkFactory.cpp
+//SOURCE		MccRtpSourceTimer.cpp
+
+
+LIBRARY         EUSER.LIB
+LIBRARY		Ecom.lib 	
+LIBRARY         EFSRV.LIB  
+//LIBRARY		mmfserverbaseclasses.lib 
+LIBRARY		MMFControllerFramework.lib 
+LIBRARY         RtpService.lib
+//LIBRARY         JitterBuffer.lib
+//LIBRARY         insock.lib
+//LIBRARY         esock.lib
+//LIBRARY		estor.lib 
+
+
+
+
+

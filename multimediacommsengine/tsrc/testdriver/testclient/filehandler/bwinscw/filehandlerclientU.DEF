@@ -1,0 +1,14 @@
+EXPORTS
+	??0RTcFileHandler@@QAE@XZ @ 1 NONAME ; RTcFileHandler::RTcFileHandler(void)
+	??1CTcFileHandler@@UAE@XZ @ 2 NONAME ; CTcFileHandler::~CTcFileHandler(void)
+	?Close@RTcFileHandler@@QAEXXZ @ 3 NONAME ; void RTcFileHandler::Close(void)
+	?Connect@RTcFileHandler@@QAEHXZ @ 4 NONAME ; int RTcFileHandler::Connect(void)
+	?CopyFile@RTcFileHandler@@QAEHABVTDesC8@@0@Z @ 5 NONAME ; int RTcFileHandler::CopyFile(class TDesC8 const &, class TDesC8 const &)
+	?CopyFileL@CTcFileHandler@@QAEXABVTDesC8@@0@Z @ 6 NONAME ; void CTcFileHandler::CopyFileL(class TDesC8 const &, class TDesC8 const &)
+	?CreateFile@RTcFileHandler@@QAEHABVTDesC8@@0@Z @ 7 NONAME ; int RTcFileHandler::CreateFile(class TDesC8 const &, class TDesC8 const &)
+	?CreateFileL@CTcFileHandler@@QAEXABVTDesC8@@0@Z @ 8 NONAME ; void CTcFileHandler::CreateFileL(class TDesC8 const &, class TDesC8 const &)
+	?DeleteFile@RTcFileHandler@@QAEHABVTDesC8@@@Z @ 9 NONAME ; int RTcFileHandler::DeleteFile(class TDesC8 const &)
+	?DeleteFileL@CTcFileHandler@@QAEXABVTDesC8@@@Z @ 10 NONAME ; void CTcFileHandler::DeleteFileL(class TDesC8 const &)
+	?NewL@CTcFileHandler@@SAPAV1@XZ @ 11 NONAME ; class CTcFileHandler * CTcFileHandler::NewL(void)
+	?Version@RTcFileHandler@@QBE?AVTVersion@@XZ @ 12 NONAME ; class TVersion RTcFileHandler::Version(void) const
+

@@ -1,0 +1,36 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:  
+;
+
+; Languages
+&EN
+
+; Header
+; Package UID equals the mmcinterface.dll UID
+#{"MultimediaCommsEngine"}, (0x1020E4C7), 1, 0, 0
+
+; Localised Vendor name
+%{"Nokia"}
+
+; Unique Vendor name
+:"Nokia"
+
+;Files
+""	-	"z:\sys\bin\mceserver.exe"
+""	-	"z:\sys\bin\mceclient.dll"
+""	-	"z:\sys\bin\fcpluginengine.dll"
+""	-	"z:\sys\bin\fctbcp.DLL"
+""	-	"z:\resource\plugins\102010E3.rsc"
+""	-	"z:\resource\plugins\fctbcp.RSC"

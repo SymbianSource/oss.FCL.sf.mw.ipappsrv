@@ -1,0 +1,29 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    This file provides the information required for building the
+*                ipappservices
+*
+*/
+
+
+PRJ_EXPORTS
+../rom/ipappsrv.iby CORE_MW_LAYER_IBY_EXPORT_PATH(ipappsrv.iby)
+../rom/ipappsrv_stub.sis /epoc32/data/z/system/install/ipappsrv_stub.sis
+
+PRJ_MMPFILES
+#include "../ipappsrv_plat/group/bld.inf"
+#include "../natfw/group/bld.inf"
+#include "../multimediacommscontroller/group/bld.inf"
+#include "../multimediacommsengine/group/bld.inf"
+#include "../natplugins/group/bld.inf"

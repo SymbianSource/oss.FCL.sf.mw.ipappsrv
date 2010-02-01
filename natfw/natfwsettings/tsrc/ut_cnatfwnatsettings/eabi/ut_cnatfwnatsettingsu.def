@@ -1,0 +1,19 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZTI13CSettingStore @ 2 NONAME ; #<TI>#
+	_ZTI15CDataDepository @ 3 NONAME ; #<TI>#
+	_ZTI17CNATFWIceSettings @ 4 NONAME ; #<TI>#
+	_ZTI18CNATFWStunSettings @ 5 NONAME ; #<TI>#
+	_ZTI18CNATFWTurnSettings @ 6 NONAME ; #<TI>#
+	_ZTI19CNATFWCenRepHandler @ 7 NONAME ; #<TI>#
+	_ZTI20CNATFWServerSettings @ 8 NONAME ; #<TI>#
+	_ZTI21CNATFWNatSettingsImpl @ 9 NONAME ; #<TI>#
+	_ZTV13CSettingStore @ 10 NONAME ; #<VT>#
+	_ZTV15CDataDepository @ 11 NONAME ; #<VT>#
+	_ZTV17CNATFWIceSettings @ 12 NONAME ; #<VT>#
+	_ZTV18CNATFWStunSettings @ 13 NONAME ; #<VT>#
+	_ZTV18CNATFWTurnSettings @ 14 NONAME ; #<VT>#
+	_ZTV19CNATFWCenRepHandler @ 15 NONAME ; #<VT>#
+	_ZTV20CNATFWServerSettings @ 16 NONAME ; #<VT>#
+	_ZTV21CNATFWNatSettingsImpl @ 17 NONAME ; #<VT>#
+

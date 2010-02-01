@@ -1,0 +1,4 @@
+EXPORTS
+	?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * CreateTestSuiteL(void)
+	?NewL@CIcmpReceiver@@SAPAV1@AAVMIcmpErrorObserver@@AAVRSocketServ@@@Z @ 2 NONAME ; class CIcmpReceiver * CIcmpReceiver::NewL(class MIcmpErrorObserver &, class RSocketServ &)
+

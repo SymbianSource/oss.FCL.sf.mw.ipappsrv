@@ -1,0 +1,38 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  TestClient component definition file
+*
+*/
+
+PRJ_MMPFILES
+
+// DevKits don't have bldvariant.hrh that is needed by the UI
+// We'll installa dummy version of the file if none exits.
+gnumakefile bldvariant_patch.mak
+
+../Watcher/Group/Watcher.mmp
+../Watcher/Group/WatcherClient.mmp
+../Net/Group/TestClientNet.mmp
+../TesterCore/Group/TesterCore.mmp
+../FileHandler/Group/FileHandler.mmp
+../FileHandler/Group/FileHandlerClient.mmp
+../Ui/Group/TestClient.mmp
+
+PRJ_TESTMMPFILES
+
+../TesterCore/Test/Group/_TesterCore.mmp
+
+PRJ_EXPORTS
+
+#include "exports.inc"

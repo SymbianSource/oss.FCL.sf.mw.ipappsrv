@@ -1,0 +1,181 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO           TEST_EUNIT
+MACRO           ALLOC_TEST_ON
+
+TARGET          UT_MccSubcontroller.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x102743F5
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID        VID_DEFAULT
+
+SOURCEPATH              ../Src
+SOURCE                  UT_CCompleteCallback.cpp
+SOURCE                  UT_CMccRtpManager.cpp
+SOURCE                  UT_CMccSymDlStream.cpp
+SOURCE                  UT_CMccSymSubthreadClient.cpp
+SOURCE                  UT_CMccSymUlStream.cpp
+SOURCE                  UT_CMccCodecConfigurator.cpp
+SOURCE                  UT_CMccDataPathBase.cpp
+SOURCE                  UT_CMccDlDataPath.cpp
+SOURCE                  UT_CMccUlDataPath.cpp
+SOURCE                  UT_CMccUlDlClient.cpp
+SOURCE                  UT_MccSubthreadsDllMain.cpp 
+SOURCE                  UT_CMCCSymSimpleDlStream.cpp 
+SOURCE                  UT_CMCCRtcpReceiver.cpp 
+SOURCE                  UT_CMccRtpKeepalive.cpp
+SOURCE                  UT_CMccDtmfDlStream.cpp
+SOURCE                  UT_CMccDtmfUlStream.cpp
+SOURCE                  UT_CMccQosEventMonitor.cpp
+SOURCE                  UT_CMccQosHandler.cpp
+SOURCE                  UT_CMccQosSocketHandler.cpp
+
+SOURCEPATH              ../../../src
+SOURCE                  mccsubthreadclientbase.cpp
+SOURCE                  Mcccodecconfigurator.cpp
+SOURCE                  mcccompletecallback.cpp
+SOURCE                  mccdatapathbase.cpp
+SOURCE                  Mccdldatapath.cpp
+SOURCE                  mcculdatapath.cpp
+SOURCE                  Mccrtpmanager.cpp
+SOURCE                  MccSymSubthreadClient.cpp
+SOURCE                  Mccsymstreambase.cpp
+SOURCE                  Mccsymdlstream.cpp
+SOURCE                  MccSymUlStream.cpp
+SOURCE                  Mccsymsimpledlstream.cpp
+SOURCE                  MccUlDlClient.cpp
+SOURCE                  mccaudiorouter.cpp
+SOURCE                  mccrtcpreceiver.cpp
+SOURCE                  mccrtpkeepalivecontainer.cpp
+SOURCE                  mccrtpkeepalive.cpp
+SOURCE                  mccrtpmediaclock.cpp
+SOURCE                  mccdtmfdlstream.cpp
+SOURCE                  mccdtmfulstream.cpp
+SOURCE                  mccqoseventmonitor.cpp
+SOURCE                  mccqoshandler.cpp
+SOURCE                  mccqossockethandler.cpp
+
+SOURCEPATH              ../../../../mmccanysourcesink/src
+SOURCE                  mccanysource.cpp
+SOURCE                  mccanysink.cpp
+
+SOURCEPATH              ../../../../mmccshared/src
+SOURCE                  mcctimermanager.cpp
+SOURCE                  mmcccryptocontext.cpp
+
+SOURCEPATH              ../../../../tsrc/amrpayloadformatstub/src
+SOURCE                  AmrPayloadFormatRead_STUB.cpp
+SOURCE                  AmrPayloadFormatWrite_STUB.cpp
+SOURCE                  amrpayloadformatter_STUB.cpp
+
+SOURCEPATH              ../../../../tsrc/rtpsourcesinkstub/src
+SOURCE                  MccRtpDataSink_STUB.cpp
+SOURCE                  MccRtpDataSource_STUB.cpp
+SOURCE                  mccrtpinterface_stub.cpp
+
+SOURCEPATH              ../../../../tsrc/stubs/src
+SOURCE                  Mcctesteventhandler.cpp
+SOURCE                  mccresourcepool_STUB.cpp
+SOURCE                  mccmultiplexer_STUB.cpp
+SOURCE                  ecom_stubs.cpp
+SOURCE                  mccfilesink_STUB.cpp
+SOURCE                  rsubconnection_STUB.cpp
+SOURCE                  esock_stubs.cpp
+
+SOURCEPATH              ../../../../tsrc/dtmfpayloadformatstub/src
+SOURCE                  dtmfpayloadformatwrite_stub.cpp
+SOURCE                  dtmfpayloadformatread_stub.cpp
+
+SOURCEPATH              ../../../../tsrc/mmfstub/src
+SOURCE                  MmfFormat_STUB.cpp
+SOURCE                  MmfAudioOutput_STUB.cpp
+SOURCE                  MmfAudioInput_STUB.cpp
+SOURCE                  SoundDevice_STUB.cpp
+SOURCE                  AudioOutput_STUB.cpp
+SOURCE                  SpeechEncoderConfig_STUB.cpp
+SOURCE                  SpeechEncoderConfigProxy_STUB.cpp
+SOURCE                  G711EncoderIntfc_STUB.cpp
+SOURCE                  G711EncoderIntfcProxy_STUB.cpp
+SOURCE                  G711DecoderIntfc_STUB.cpp
+SOURCE                  G711DecoderIntfcProxy_STUB.cpp
+SOURCE                  IlbcDecoderIntfc_STUB.cpp
+SOURCE                  IlbcDecoderIntfcproxy_STUB.cpp
+SOURCE                  G729EncoderIntfc_STUB.cpp
+SOURCE                  G729EncoderIntfcProxy_STUB.cpp
+
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../tsrc/rtpsourcesinkstub/inc
+USERINCLUDE             ../../../../tsrc/mmfstub/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../mmccjitterbuffer/inc
+USERINCLUDE             ../../../../mmccamrpayloadformat/inc
+USERINCLUDE             ../../../../mmccg711payloadformat/inc
+USERINCLUDE             ../../../../mmccg729payloadformat/inc
+USERINCLUDE             ../../../../mmccilbcpayloadformat/inc
+USERINCLUDE             ../../../../mmcch263payloadformat/inc
+USERINCLUDE             ../../../../mmccdtmfpayloadformat/inc
+USERINCLUDE             ../../../../mmccanypayloadformat/inc
+USERINCLUDE             ../../../../mmccinterface/inc
+USERINCLUDE             ../../../../mmcccontroller/inc
+USERINCLUDE             ../../../../mmccrtpsourcesink/inc
+USERINCLUDE             ../../../../mmccvideosourcesink/inc
+USERINCLUDE             ../../../../mmccfilesourcesink/inc
+USERINCLUDE             ../../../../mmccmultiplexer/inc
+USERINCLUDE             ../../../../mmccredpayloadformat/inc
+USERINCLUDE             ../../../../mmccanysourcesink/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+//LIBRARY                 esock.lib
+LIBRARY                 EUnit.lib
+LIBRARY                 EUnitUtil.lib
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 MMCCJitterBuffer.lib
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfdevsound.lib
+LIBRARY                 mmfserverbaseclasses.lib
+LIBRARY     			3gpmp4lib.lib
+LIBRARY     			efsrv.lib
+LIBRARY                 RtpService_stub.lib
+LIBRARY                 srtp.lib
+
+#ifdef EKA2
+//LIBRARY                 SpeechEncoderConfig.lib
+LIBRARY                 MediaClientAudioInputStream.lib
+LIBRARY                 ErrorConcealmentIntfc.lib
+//LIBRARY                 g711encoderintfc.lib
+LIBRARY                 ilbcencoderintfc.lib
+#endif
+
+
+// End of file

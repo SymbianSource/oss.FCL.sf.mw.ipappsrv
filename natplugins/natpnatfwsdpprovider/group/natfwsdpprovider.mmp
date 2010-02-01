@@ -1,0 +1,80 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Project definition file
+*
+*/
+
+#include <platform_paths.hrh>
+#include <data_caging_paths.hrh>
+
+MACRO                   NSP_PRINT_INPUT //ifdef input objs printed via RDebug
+MACRO                   NSP_PRINT_OUTPUT //ifdef output objs printed via RDebug
+
+TARGET                  natfwsdpprovider.dll
+
+CAPABILITY              CAP_ECOM_PLUGIN
+VENDORID                VID_DEFAULT
+TARGETTYPE              PLUGIN
+
+UID                     0x10009D8D 0x1028311A
+
+SOURCEPATH              ../data
+START RESOURCE          1028311A.rss
+TARGET                  natfwsdpprovider.rsc
+END
+
+SOURCEPATH              ../src
+SOURCE                  nspinterface.cpp
+SOURCE                  nspcontroller.cpp
+SOURCE                  nspcontentparser.cpp
+SOURCE                  nspsession.cpp
+SOURCE                  nspsessiondata.cpp
+SOURCE                  nspmediastreamcontainer.cpp
+SOURCE                  nspmediastream.cpp
+SOURCE                  nspmediastreamcomponent.cpp
+SOURCE                  nspnatfwasyncstate.cpp
+SOURCE                  nspstatebase.cpp
+SOURCE                  nspstatemachine.cpp
+SOURCE                  nspactionset.cpp
+SOURCE                  nspstateinitializing.cpp
+SOURCE                  nspstateidle.cpp
+SOURCE                  nspstatelocalcand.cpp
+SOURCE                  nspstatenegotiating.cpp
+SOURCE                  nspstateresolving.cpp
+SOURCE                  nspstateactivating.cpp
+SOURCE                  nspstateconnected.cpp
+SOURCE                  nspstatedeactivating.cpp
+SOURCE                  nsputil.cpp
+SOURCE                  nspimplementationproxy.cpp
+SOURCE                  nspactive.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+//USERINCLUDE             ../../../natfw/natfwclient/inc
+//USERINCLUDE             ../../../natfw/socketmediaconnwrapper/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 ecom.lib
+LIBRARY                 euser.lib
+LIBRARY                 estor.lib
+LIBRARY                 insock.lib
+LIBRARY                 esock.lib
+LIBRARY                 bafl.lib
+LIBRARY                 random.lib
+LIBRARY                 centralrepository.lib
+LIBRARY                 sdpcodec.lib
+LIBRARY                 natconfw.lib
+
+PAGED

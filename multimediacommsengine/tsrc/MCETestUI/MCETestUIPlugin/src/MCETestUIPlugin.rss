@@ -1,0 +1,62 @@
+/*
+* Copyright (c) 2002-2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+
+//  INCLUDES
+#include "Ecom/RegistryInfo.rh"
+
+//  RESOURCE DEFINITIONS 
+// -----------------------------------------------------------------------------
+//   
+// VoIPPlugin recource
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE REGISTRY_INFO theInfo
+	{
+	// MCETestUIPlugin.dll
+	dll_uid = 0x10281F9C;
+	interfaces = 
+		{
+		INTERFACE_INFO
+			{
+			// SIP Client Resolver interface UID
+			interface_uid = 0x102010DD;
+			implementations = 
+				{
+				IMPLEMENTATION_INFO
+					{
+					// implementation UID
+					implementation_uid = 0x10281F9C;
+					version_no = 1;
+					display_name = "mcetestuiplugin";
+					// MMCE server UID
+					//default_data = "100058B3"; //"10005C00";
+					//default_data = "10005C00";
+					default_data = "10281F9B";
+					//opaque_data = "<SIP_CLIENT ALLOW_STARTING=\"NO\"><SIP_HEADERS><ACCEPT 
+					//value=\"application/sdp\"/><ACCEPT value=\"\"/><ALLOW_EVENTS 
+					//value=\"\"/></SIP_HEADERS><SDP_LINES><LINE name=\"m\" value=\"audio 
+					//0 RTP/AVP 96\"/><LINE name=\"m\" value=\"application 0 udp TBCP\"/></SDP_LINES></SIP_CLIENT>";
+					}
+				};
+			}
+		};
+	}
+

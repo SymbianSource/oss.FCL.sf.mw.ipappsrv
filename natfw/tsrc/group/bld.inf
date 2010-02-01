@@ -1,0 +1,41 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    project specification
+*
+*/
+
+
+
+
+
+PRJ_PLATFORMS
+DEFAULT
+
+
+PRJ_EXPORTS
+
+
+PRJ_TESTMMPFILES
+#include "../../natfwclient/tsrc/ut_natfwclient/group/bld.inf"
+#include "../../natfwconnectionmultiplexer/tsrc/ut_connectionmultiplexer/group/bld.inf"
+#include "../../natfwicecandidatehandler/tsrc/ut_icecandidatehandler/group/bld.inf"
+#include "../../natfwsettings/tsrc/ut_cnatfwnatsettings/group/bld.inf"
+#include "../../natfwsocketmediaconnwrapper/tsrc/ut_socketmediaconnwrapper/group/bld.inf"
+#include "../../natfwstunplugin/tsrc/ut_cnatfwstunplugin/group/bld.inf"
+#include "../../natfwstunserver/tsrc/ut_cnatfwstunsrv/group/bld.inf"
+#include "../../natfwstunturnclient/tsrc/ut_stunturnclient/group/bld.inf"
+#include "../../natfwturnplugin/tsrc/ut_cnatfwturnplugin/group/bld.inf"
+#include "../../natfwunsaf_protocols/tsrc/ut_unsaf_codec/group/bld.inf"
+#include "../../natfwunsaf_protocols/tsrc/ut_unsaf_transport/group/bld.inf"
+ 

@@ -1,0 +1,48 @@
+/*
+* Copyright (c) 2006-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for Socket Media Connection Wrapper
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET                  socketmediaconnwrapper.dll
+TARGETTYPE              dll
+UID                     0x1000008d 0x10275442
+
+CAPABILITY              CAP_GENERAL_DLL
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE                  natfwsocketmediaconnwrapper.cpp
+SOURCE                  natfwsockethandler.cpp
+SOURCE                  natfwsocketreceiver.cpp
+SOURCE                  natfwsocketsender.cpp
+SOURCE                  cnsmcwsenditem.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE	        ../../../inc
+USERINCLUDE             ../../natfwshared/inc
+USERINCLUDE             ../../natfwclient/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 euser.lib 
+LIBRARY                 esock.lib 
+LIBRARY                 insock.lib
+LIBRARY                 charconv.lib
+
+PAGED

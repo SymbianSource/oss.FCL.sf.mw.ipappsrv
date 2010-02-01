@@ -1,0 +1,51 @@
+/*
+* Copyright (c) 2007-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET                  stunserver.dll
+TARGETTYPE              DLL
+UID                     0x1000008d 0x10275443
+VENDORID                VID_DEFAULT
+CAPABILITY              CAP_GENERAL_DLL
+
+SOURCEPATH              ../src
+SOURCE                  natfwstunsrvclientsession.cpp
+SOURCE                  natfwstunsrvimpl.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE		../../../inc
+USERINCLUDE             ../../natfwshared/inc
+USERINCLUDE             ../../natfwconnectionmultiplexer/inc
+USERINCLUDE             ../../natfwunsaf_protocols/unsaf_codec/inc
+USERINCLUDE             ../../natfwclient/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 natconfw.lib
+LIBRARY                 natfwunsafprotocols.lib
+LIBRARY                 connectionmux.lib
+LIBRARY                 esock.lib
+LIBRARY                 charconv.lib
+
+PAGED

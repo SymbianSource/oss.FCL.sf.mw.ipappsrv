@@ -1,0 +1,66 @@
+/*
+* Copyright (c) 2006-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for project NAT FW TURN Plug-in
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET              turnplugin.dll
+TARGETTYPE          PLUGIN
+UID                 0x10009D8D 0x1027545D
+
+CAPABILITY          CAP_ECOM_PLUGIN
+VENDORID            VID_DEFAULT
+
+SOURCEPATH          ../src
+SOURCE              natfwturnplugin.cpp
+SOURCE              natfwturnconnectionhandler.cpp
+SOURCE              natfwturnrefreshtimer.cpp
+SOURCE              natfwturnactivedestinationtimer.cpp
+SOURCE              natfwturnpluginimplementationproxy.cpp
+SOURCE              cturnasynccallback.cpp
+SOURCE              tturnplugincallbackinfo.cpp
+SOURCE              cnatfwturnserversettings.cpp
+
+SOURCEPATH          ../data
+START RESOURCE      1027545d.rss
+TARGET              turnplugin.rsc
+END
+
+USERINCLUDE         ../inc
+USERINCLUDE	    ../../../inc
+USERINCLUDE         ../../natfwshared/inc
+USERINCLUDE         ../../natfwclient/inc
+USERINCLUDE         ../../natfwconnectionmultiplexer/inc
+USERINCLUDE         ../../natfwsettings/inc
+USERINCLUDE         ../../inc
+USERINCLUDE         ../../natfwstunturnclient/inc
+USERINCLUDE         ../../natfwunsaf_protocols/unsaf_codec/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY             euser.lib
+LIBRARY             ecom.lib
+LIBRARY             esock.lib
+LIBRARY             insock.lib
+LIBRARY             connectionmux.lib
+LIBRARY             natconfw.lib
+LIBRARY             natfwnatsettings.lib
+LIBRARY             natfwstunclient.lib
+LIBRARY             natfwunsafprotocols.lib
+
+PAGED

@@ -1,0 +1,317 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+
+TARGET          UT_CMCEServer.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+EPOCALLOWDLLDATA
+
+SOURCEPATH      ../src
+SOURCE          UT_CMCEServerDllMain.cpp
+
+MACRO           MCESRV_UNIT_TESTING
+MACRO           MCE_COMMON_SERVER_SIDE
+//add this manually to CW compiler flags when debug statements
+//are not wanted to be part of the code coverage
+MACRO           MCESRV_UNIT_TEST_COVERAGE
+
+#define         EUNIT_UNIT_TEST_COVERAGE
+
+SOURCEPATH      ../../../../../mmceshared/src // Added by EUnit Wizard
+SOURCE          mcecomcodec.cpp
+SOURCE          mcecomaudiocodec.cpp
+SOURCE          mcecomendpoint.cpp
+SOURCE          mcecommediastream.cpp // Added by EUnit Wizard
+SOURCE          mcecommediasource.cpp // Added by EUnit Wizard
+SOURCE          mcecomsession.cpp // Added by EUnit Wizard
+SOURCE          mcecommediasink.cpp // Added by EUnit Wizard
+SOURCE          mcecomrtpsource.cpp // Added by EUnit Wizard
+SOURCE          mcecommicsource.cpp // Added by EUnit Wizard
+SOURCE          mcecomspeakersink.cpp // Added by EUnit Wizard
+SOURCE          mcecomavsink.cpp
+SOURCE          mcecomamrcodec.cpp // Added by EUnit Wizard
+SOURCE 			mcecomamrwbcodec.cpp 
+SOURCE          mcecomrtpsink.cpp // Added by EUnit Wizard
+SOURCE          mcecomaudiostream.cpp // Added by EUnit Wizard
+SOURCE          mcecomstreambundle.cpp
+SOURCE          mcecomg711codec.cpp
+SOURCE          mcecomg729codec.cpp   
+SOURCE          mcecomilbccodec.cpp  
+SOURCE          mcecomdtmfcodec.cpp
+SOURCE          mcecomredcodec.cpp
+SOURCE          mcecomcncodec.cpp
+SOURCE          mcecomvideocodec.cpp
+SOURCE          mcecomh263codec.cpp
+SOURCE          mcecomavccodec.cpp
+SOURCE          mcecomvideostream.cpp
+SOURCE          mcecomcamerasource.cpp
+SOURCE          mcecomfilesource.cpp
+SOURCE          mcecomfilesink.cpp
+SOURCE          mcecomdisplaysink.cpp
+SOURCE          mceserial.cpp // Added by EUnit Wizard
+SOURCE          mcecomfactory.cpp // Added by EUnit Wizard
+SOURCE          mceevents.cpp // Added by EUnit Wizar
+SOURCE          mcecomserializationcontext.cpp
+
+SOURCEPATH      ../../../../mmcemediamanager/src // Added by EUnit Wizard
+SOURCE          mcesdpsession.cpp // Added by EUnit Wizard
+SOURCE          mcesrvstream.cpp
+SOURCE          mcesrvendpoint.cpp
+SOURCE          mcesrvsource.cpp
+SOURCE          mcesrvsink.cpp
+SOURCE		mcesecuredesstream.cpp
+SOURCE		mcesecuremediasession.cpp
+SOURCE          mcesrvstreamiterator.cpp
+
+#if !defined(WINS)
+SOURCE          mcepreconditions.cpp
+SOURCE          mcemediastate.cpp
+SOURCE          mcesdpcodec.cpp
+SOURCE          mcemedianegotiated.cpp
+SOURCE          mcemediaidle.cpp
+SOURCE          mceofferingmedia.cpp
+SOURCE          mceansweringmedia.cpp
+SOURCE          mceansweringmediaupdate.cpp
+SOURCE          mcepreparingstreams.cpp
+SOURCE          mcepreparingoffererstreams.cpp
+SOURCE          mcepreparinganswererstreams.cpp
+SOURCE          mcestartingofferersendstreams.cpp
+SOURCE          mcestartingoffererreceivestreams.cpp
+SOURCE          mcestartinganswererstreams.cpp
+SOURCE          mcedtmfhandler.cpp
+SOURCE          mceadoptedsrvstream.cpp
+#endif
+
+SOURCEPATH	    ../stubs/src
+SOURCE          CMCECSServerITCStub.cpp
+SOURCE          CMCECSServerStub.cpp
+SOURCE          CMCEServerCoreStub.cpp
+SOURCE		    CMCEMediaManagerStub.cpp
+SOURCE		    CMCENatPluginManagerStub.cpp
+SOURCE          CMCEComEventStub.cpp
+SOURCE          CMCEEventContextStub.cpp
+SOURCE 			CNSPPluginStub.cpp
+SOURCE 			ecom_stubs.cpp
+
+SOURCE		    Csipclienttransaction.cpp
+SOURCE		    Csiptransactionbase.cpp
+SOURCE		    Csipservertransaction.cpp
+SOURCE		    sipprofileregistry.cpp
+SOURCE		    sipprofileregistrybase.cpp
+SOURCE		    CSIPRequestElements.cpp
+SOURCE		    CSIPResponseElements.cpp
+SOURCE		    CSIPMessageElements.cpp
+SOURCE		    sipprofile.cpp
+SOURCE		    Csipconnection.cpp
+SOURCE		    Csip.cpp
+SOURCE		    sipdialogassocbase.cpp
+SOURCE		    sipinvitedialogassoc.cpp
+SOURCE          sipnotifydialogassoc.cpp
+SOURCE          sipreferdialogassoc.cpp
+SOURCE          sipsubscribedialogassoc.cpp
+SOURCE		    sipdialog.cpp
+source          siphttpdigest.cpp
+
+SOURCE          CFCPlugInEngineStub.cpp
+SOURCE          CFCSessionStub.cpp
+SOURCE          CSIPClientDiscoveryStub.cpp
+SOURCE          esock_stubs.cpp
+
+SOURCEPATH      ../../../../../tsrc/ututils/src
+SOURCE          MCETestHelper.cpp
+SOURCE		      CMCETls.cpp
+
+
+// Sources needed by the test
+SOURCEPATH      ../../../src
+SOURCE          mcecsreceivequeue.cpp // Added by EUnit Wizard
+SOURCE          mcecssessionreceiver.cpp // Added by EUnit Wizard
+SOURCE          mcecssession.cpp // Added by EUnit Wizard
+SOURCE          mcecssessionimplementation.cpp // Added by EUnit Wizard
+SOURCE          mcecssubsession.cpp // Added by EUnit Wizard
+SOURCE          mcesipsession.cpp // Added by EUnit Wizard
+
+SOURCE          mcenatsipsession.cpp
+SOURCE          mcenatsipstatemachine.cpp
+SOURCE          mcenatevents.cpp
+SOURCE          mcenatstate.cpp
+SOURCE          mcenatstateinitializing.cpp
+SOURCE          mcenatstateidle.cpp
+SOURCE          mcenatstatecreateoffer.cpp
+SOURCE          mcenatstatecreateanswer.cpp
+SOURCE          mcenatstatedecodeoffer.cpp
+SOURCE          mcenatstatedecodeanswer.cpp
+SOURCE          mcenatstatewait.cpp
+SOURCE          mcenatstateconnected.cpp
+SOURCE          mcenatstatecreateofferrequested.cpp
+
+SOURCE          mcesipmanager.cpp // Added by EUnit Wizard
+SOURCE          mcesipconnection.cpp // Added by EUnit Wizard
+SOURCE          mcecsreceiverbase.cpp // Added by EUnit Wizard
+SOURCE          mcecssubsessionreceiver.cpp // Added by EUnit Wizard
+SOURCE          mcecsreceiveitem.cpp // Added by EUnit Wizard
+SOURCE          mcestate.cpp // Added by EUnit Wizard
+SOURCE          mcesipstatemachine.cpp // Added by EUnit Wizard
+SOURCE          mcestateupdating.cpp // Added by EUnit Wizard
+SOURCE          mcestateserverestablishing.cpp // Added by EUnit Wizard
+SOURCE          mcestateserveroffering.cpp 
+SOURCE          mcestateclientestablishing.cpp // Added by EUnit Wizard
+SOURCE          mcestateupdated.cpp // Added by EUnit Wizard
+SOURCE          mcestateoffering.cpp // Added by EUnit Wizard
+SOURCE          mcestateterminated.cpp // Added by EUnit Wizard
+SOURCE          mcestateerror.cpp // Added by EUnit Wizard
+SOURCE          mcestateidle.cpp // Added by EUnit Wizard
+SOURCE          mcestateestablished.cpp // Added by EUnit Wizard
+SOURCE          mcestateterminating.cpp // Added by EUnit Wizard
+SOURCE          mcestatecanceled.cpp // Added by EUnit Wizard
+SOURCE          mcestateanswering.cpp // Added by EUnit Wizard
+SOURCE          mcestateclientreserving.cpp
+SOURCE          mcestateconfirming.cpp
+SOURCE          mcestateacknowledgementrequired.cpp
+SOURCE          mcestateserverreserving.cpp
+SOURCE          mcestateconfirmationrequired.cpp
+SOURCE          mcestateserverinitializing.cpp
+SOURCE          mceactionset.cpp // Added by EUnit Wizard
+SOURCE          mcefcactionset.cpp // Added by EUnit Wizard
+SOURCE          mcetimermanager.cpp
+SOURCE          mcesipevent.cpp
+SOURCE          mcesip.cpp
+SOURCE          mceclientresolver.cpp
+SOURCE          mcesipdefaultdata.cpp
+SOURCE          mcesipdefaults.cpp
+SOURCE          mcedictionary.cpp
+SOURCE          mcesipextensions.cpp
+SOURCE          mcereliablesender.cpp 
+SOURCE          mcelocaladdrresolver.cpp
+
+SOURCEPATH      ../../../../mmceevent/src
+SOURCE          mcesipeventhelper.cpp
+
+SOURCEPATH      ../../../../../mmcefloorctrlengine/src
+SOURCE          fcplugininfo.cpp
+SOURCE          fcpluginiter.cpp
+
+SOURCEPATH      ../src // Added by EUnit Wizard
+SOURCE          UT_cmcecsreceivequeue.cpp // Added by EUnit Wizard
+SOURCE          UT_cmcecsreceiverbase.cpp // Added by EUnit Wizard
+SOURCE          UT_cmcecssession.cpp // Added by EUnit Wizard
+SOURCE          UT_cmcecssubsession.cpp // Added by EUnit Wizard
+SOURCE          UT_cmcesipsession.cpp // Added by EUnit Wizard
+SOURCE          UT_cmcesipconnection.cpp
+SOURCE          UT_cmcesipevent.cpp
+SOURCE          UT_cmcesipmanager.cpp
+SOURCE          UT_cmceclientresolver.cpp
+SOURCE          UT_TMCEActionSet.cpp
+SOURCE          UT_cmcestateidle.cpp
+SOURCE          UT_cmcestateclientestablishing.cpp
+SOURCE          UT_cmcestateoffering.cpp
+SOURCE          UT_cmcestateestablished.cpp
+SOURCE          UT_cmcestateserverestablishing.cpp
+SOURCE          UT_cmcestateserveroffering.cpp
+SOURCE          UT_cmcestateupdating.cpp
+SOURCE          UT_cmcestateupdated.cpp
+SOURCE          UT_cmcestateanswering.cpp
+SOURCE          UT_cmcestateterminating.cpp
+SOURCE          UT_cmcestatecanceled.cpp
+SOURCE          UT_cmcestateerror.cpp
+SOURCE          UT_cmcestateclientreserving.cpp
+SOURCE          UT_cmcestateconfirming.cpp
+SOURCE          UT_cmcestateacknowledgementrequired.cpp
+SOURCE          UT_cmcestateserverreserving.cpp
+SOURCE          UT_cmcestateconfirmationrequired.cpp
+SOURCE          UT_CMCEStateServerInitializing.cpp
+SOURCE          UT_MCEUsesCases.cpp
+SOURCE          UT_cmcesipdefaults.cpp
+SOURCE          UT_cmcesipdefaultdata.cpp
+SOURCE          UT_MCESIP.cpp
+SOURCE          UT_cmcedictionary.cpp
+SOURCE          UT_cmcesipextensions.cpp
+SOURCE          UT_CMCEReliableSender.cpp   
+SOURCE          UT_CMceLocalAddrResolver.cpp
+SOURCE          UT_CMCENatSipSession.cpp
+SOURCE		    UT_CMCENatUseCases.cpp
+SOURCE		    UT_CMceNatStateCreateOfferRequested.cpp
+SOURCE		    UT_CMceNatStateCreateOffer.cpp
+SOURCE		    UT_CMceNatStateCreateAnswer.cpp
+SOURCE		    UT_CMceNatStateDecodeAnswer.cpp
+SOURCE		    UT_CMceNatStateDecodeOffer.cpp
+SOURCE		    UT_CMceNatStateConnected.cpp
+SOURCE		    UT_CMceNatStateWait.cpp
+SOURCE		    UT_CMceNatStateIdle.cpp
+SOURCE 			UT_CNSPPluginStub.cpp
+SOURCE 			UT_CMceState.cpp
+
+MW_LAYER_SYSTEMINCLUDE
+
+#if defined ( OS_LAYER_SYSTEMINCLUDE )
+OS_LAYER_SYSTEMINCLUDE
+#else
+SYSTEMINCLUDE   /epoc32/include
+#endif
+
+USERINCLUDE     ../../../../../../inc
+USERINCLUDE     ../inc
+USERINCLUDE     ../stubs/inc
+USERINCLUDE     ../../../../../tsrc/ututils/inc
+USERINCLUDE     ../../../../../mmceshared/inc
+USERINCLUDE     ../../../inc
+USERINCLUDE     ../../../../../mmcefloorctrlengine/inc // Added by EUnit Wizard
+USERINCLUDE     ../../../../../mmcecli/inc // Added by EUnit Wizard
+USERINCLUDE     ../../../../mmcemediamanager/inc // Added by EUnit Wizard
+USERINCLUDE     ../../../../mmceevent/inc
+USERINCLUDE     ../../../../mmcemediamanager/tsrc/ut_mediamanager/inc
+
+LIBRARY         bafl.lib
+LIBRARY         charconv.lib
+LIBRARY         CommonEngine.lib
+LIBRARY         commdb.lib
+LIBRARY         estor.lib
+LIBRARY         EUnit.lib
+LIBRARY         euser.lib
+LIBRARY         sipclient.lib
+LIBRARY         FCPlugInEngine.lib
+LIBRARY         inetprotutil.lib
+LIBRARY         insock.lib
+LIBRARY         esock.lib
+LIBRARY         sdpcodec.lib
+LIBRARY         sipcodec.lib
+LIBRARY         siprsvclient.lib
+LIBRARY         mmccinterface.lib
+LIBRARY         centralrepository.lib 
+LIBRARY         imut.lib
+LIBRARY         platformenv.lib
+LIBRARY         flogger.lib
+LIBRARY         efsrv.lib
+
+//For Qualitykit 4.05 upwards use:
+CAPABILITY      EUNIT_CAPS
+
+//For Qualitykit 4.04 use:
+//CAPABILITY				ALL -TCB -DRM
+
+//EXPORTUNFROZEN
+
+
+// End of file

@@ -1,0 +1,49 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#include <testclient/tcuid.h>
+
+TARGET		TesterCore.dll
+TARGETTYPE	dll
+UID		0x1000008d TCUID
+
+SOURCEPATH	../src
+SOURCE		CTcRegistry.cpp CTcCTRLCodec.cpp CTcTestRunner.cpp
+SOURCE		TTcIdentifier.cpp CTcNameValue.cpp
+SOURCE		CTcParameterList.cpp CTcArray.cpp CTcStructure.cpp
+SOURCE		TTcCommandBase.cpp CTcContextBase.cpp TcLog.cpp
+
+SOURCEPATH	../../commonsrc
+SOURCE		dllMain.cpp
+
+USERINCLUDE	../inc
+USERINCLUDE	../../commonsrc
+USERINCLUDE	../../net/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY		euser.lib bafl.lib efsrv.lib ecom.lib
+LIBRARY		testclientnet.lib
+
+// Choose .def file based on build (WINSCW compatibility..)
+#if defined( WINSCW )
+deffile ../bwinscw/ 
+#endif
+
+CAPABILITY LocalServices ReadUserData WriteUserData UserEnvironment NetworkServices \
+	Location MultimediaDD ReadDeviceData WriteDeviceData PowerMgmt TrustedUI ProtServ \
+	NetworkControl SwEvent SurroundingsDD CommDD DiskAdmin AllFiles

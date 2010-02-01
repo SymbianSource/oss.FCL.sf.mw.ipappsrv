@@ -1,0 +1,123 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET                  ut_cnatfwicecandidatehandler.dll
+TARGETTYPE              dll
+TARGETPATH              /digiaeunit/tests
+UID                     0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                0x00000000
+
+MACRO                   CPPUNIT_TEST
+
+SOURCEPATH              ../src
+SOURCE                  ut_cnatfwicecandidatehandlerdllmain.cpp
+SOURCE                  ut_cicesessiondata.cpp
+SOURCE                  ut_cicechecklist.cpp
+SOURCE                  ut_cicecheckhandler.cpp
+SOURCE                  ut_ciceconnectivitycheck.cpp
+SOURCE                  ut_cicecheckprioritizer.cpp
+SOURCE                  ut_cicecandidateprioritizer.cpp
+SOURCE                  ut_cicestreamcollection.cpp
+SOURCE                  ut_cicevalidlist.cpp
+SOURCE                  ut_ciceplugin.cpp
+SOURCE                  ut_ciceconnectionhandler.cpp
+SOURCE                  ut_cicelocalcandidatefinder.cpp
+SOURCE                  ut_cicecallbackexecuter.cpp
+SOURCE                  ut_cicehostresolver.cpp
+SOURCE                  ut_cicenatplugincontainer.cpp
+SOURCE                  ut_ciceconnection.cpp
+
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  ciceplugin.cpp
+SOURCE                  cicesessiondata.cpp
+SOURCE                  ciceconnectionhandler.cpp
+SOURCE                  cicelocalcandidatefinder.cpp
+SOURCE                  cicecheckhandler.cpp
+SOURCE                  cicechecklist.cpp
+SOURCE                  cicevalidlist.cpp
+SOURCE                  ciceconnectivitycheck.cpp
+SOURCE                  cicecheckprioritizer.cpp
+SOURCE                  cicecandidateprioritizer.cpp
+SOURCE                  cicestreamcollection.cpp
+SOURCE                  cicecallbackexecuter.cpp
+SOURCE                  cicehostresolver.cpp
+SOURCE                  cicenatplugincontainer.cpp
+SOURCE                  ciceconnection.cpp
+
+// STUBS
+USERINCLUDE             ../stubs
+SOURCEPATH              ../stubs
+SOURCE                  natfwconnectionmultiplexer_stub.cpp
+SOURCE                  cstunbindingimplementation_stub.cpp
+SOURCE                  cstunrelaybindingimplementation_stub.cpp
+SOURCE                  cstunbindingstate_stub.cpp
+SOURCE                  natfwbindingimplementationbase_stub.cpp
+SOURCE                  cstuntimeruser_stub.cpp
+SOURCE                  stunutils_stub.cpp
+SOURCE                  cstunbindinggetaddress_stub.cpp
+SOURCE                  cstuntransaction_stub.cpp
+SOURCE                  cstunindicationtransmitter_stub.cpp
+SOURCE                  cstunbindinginit_stub.cpp
+SOURCE                  cstunbindingactive_stub.cpp
+SOURCE                  cstunbindingwaittoretry_stub.cpp
+SOURCE                  cstunbindinggetsharedsecret_stub.cpp
+
+
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../../inc
+USERINCLUDE             ../../../../natfwshared/inc
+USERINCLUDE             ../../../../natfwconnectionmultiplexer/inc
+USERINCLUDE             ../../../../natfwicecandidatehandler/inc
+USERINCLUDE             ../../../../natfwsettings/inc
+USERINCLUDE             ../../../../natfwstunplugin/inc
+USERINCLUDE             ../../../../natfwstunturnclient/inc
+USERINCLUDE             ../../../../natfwsocketmediaconnwrapper/inc
+USERINCLUDE             ../../../../natfwstunserver/inc
+USERINCLUDE             ../../../../natfwunsaf_protocols/natfwunsafshared/inc
+USERINCLUDE             ../../../../natfwunsaf_protocols/unsaf_codec/inc
+USERINCLUDE             ../../../../natfwunsaf_protocols/unsaf_transport/inc
+USERINCLUDE             ../../../../natfwclient/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 natfwunsafprotocols.lib
+LIBRARY                 connectionmux.lib
+LIBRARY                 ecom.lib
+LIBRARY                 esock.lib
+LIBRARY                 eunit.lib
+LIBRARY                 eunitutil.lib
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 natconfw.lib
+LIBRARY                 natfwnatsettings.lib
+LIBRARY                 natfwstunclient.lib
+LIBRARY                 stunserver_stub.lib
+LIBRARY                 bafl.lib
+DEBUGLIBRARY            charconv.lib
+
+// End of file

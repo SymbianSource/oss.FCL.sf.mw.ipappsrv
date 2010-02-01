@@ -1,0 +1,92 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for project connectionmux stub
+*
+*/
+
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO                   _DEBUG_EUNIT
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+TARGET                  ut_connectionmultiplexer.dll
+TARGETTYPE              dll
+TARGETPATH              /DigiaEUnit/Tests
+UID                     0x1000af5a 0x01700000
+
+
+SOURCEPATH              ../src
+SOURCE                  ut_connectionmultiplexerdllmain.cpp
+
+//test suites
+SOURCE                  ut_cncmconnectionmultiplexer.cpp
+SOURCE                  ut_cncmconnection.cpp
+SOURCE                  ut_cncmlocaladdressresolver.cpp
+SOURCE                  ut_cncmicmpreceiver.cpp
+SOURCE                  ut_cncmmediasource.cpp
+ 
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  cncmconnectionobserverhandler.cpp
+SOURCE                  cncmmediasource.cpp
+SOURCE                  cncmsender.cpp
+SOURCE                  cncmtcpsender.cpp
+SOURCE                  cncmudpsender.cpp
+SOURCE                  cncmreceiver.cpp
+SOURCE                  cncmtcpreceiver.cpp
+SOURCE                  cncmudpreceiver.cpp
+SOURCE                  cncmportstore.cpp
+SOURCE                  cncmconnectionmultiplexer.cpp
+SOURCE                  cncmsession.cpp
+SOURCE                  cncmstream.cpp
+SOURCE                  cncmconnection.cpp
+SOURCE                  cncmlocaladdressresolver.cpp
+SOURCE                  cncmicmpv4receiver.cpp
+SOURCE                  cncmicmpv6receiver.cpp
+SOURCE                  cncmicmpsender.cpp
+SOURCE                  cncmsenditem.cpp
+SOURCE                  cncmcallbackexecuter.cpp
+
+
+USERINCLUDE             ../../../../natfwshared/inc
+USERINCLUDE             ../../../../tsrc/natfwtsrcshared/inc
+USERINCLUDE             ../../../../natfwconnectionmultiplexer/inc
+USERINCLUDE             ../../../../natfwclient/inc
+USERINCLUDE             ../../../../natfwsocketmediaconnwrapper/inc
+USERINCLUDE             ../../../../natfwunsaf_protocols/unsaf_transport/inc
+USERINCLUDE             ../inc
+USERINCLUDE		../../../../../inc
+
+
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 EUnit.lib
+LIBRARY                 EUnitUtil.lib
+LIBRARY                 EUnitTestEnvironment.lib
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 esock.lib
+LIBRARY                 commdb.lib
+LIBRARY                 charconv.lib
+LIBRARY                 socketmediaconnwrapper.lib
+LIBRARY                 natfwunsafprotocols.lib
+// End of file

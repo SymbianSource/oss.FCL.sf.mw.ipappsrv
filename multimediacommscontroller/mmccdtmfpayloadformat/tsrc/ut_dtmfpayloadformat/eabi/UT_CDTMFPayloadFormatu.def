@@ -1,0 +1,50 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_Z24ImplementationGroupProxyRi @ 2 NONAME
+	_ZN15CMccMultiplexer15SetCurrentUserLER9MDataSink @ 3 NONAME
+	_ZN15CMccMultiplexer21RegClientForPayloadsLER9MDataSinkRK6RArrayIjE @ 4 NONAME
+	_ZN15CMccMultiplexer28MultiplexerSourceThreadLogonER18MAsyncEventHandlerR9MDataSinki4TUidi @ 5 NONAME
+	_ZN15CMccMultiplexer29MultiplexerSourceThreadLogoffEP9MDataSink @ 6 NONAME
+	_ZN15CMccMultiplexer4NewLEP11MDataSource @ 7 NONAME
+	_ZN15CMccMultiplexerD0Ev @ 8 NONAME
+	_ZN15CMccMultiplexerD1Ev @ 9 NONAME
+	_ZN15CMccMultiplexerD2Ev @ 10 NONAME
+	_ZTI12CMccSinkItem @ 11 NONAME ; #<TI>#
+	_ZTI15CMccMultiplexer @ 12 NONAME ; #<TI>#
+	_ZTI15CMccRtpDataSink @ 13 NONAME ; #<TI>#
+	_ZTI16MMccRtpInterface @ 14 NONAME ; #<TI>#
+	_ZTI17CDtmfHighResTimer @ 15 NONAME ; #<TI>#
+	_ZTI17CMccRtpDataSource @ 16 NONAME ; #<TI>#
+	_ZTI17MMMFClientUtility @ 17 NONAME ; #<TI>#
+	_ZTI19CDTMFPayloadDecoder @ 18 NONAME ; #<TI>#
+	_ZTI19CDTMFPayloadEncoder @ 19 NONAME ; #<TI>#
+	_ZTI20CDtmfEncStateMachine @ 20 NONAME ; #<TI>#
+	_ZTI20CMdaAudioToneUtility @ 21 NONAME ; #<TI>#
+	_ZTI22CDTMFPayloadFormatRead @ 22 NONAME ; #<TI>#
+	_ZTI23CDTMFPayloadFormatWrite @ 23 NONAME ; #<TI>#
+	_ZTI25CFormatDecodeStateMachine @ 24 NONAME ; #<TI>#
+	_ZTI25CFormatEncodeStateMachine @ 25 NONAME ; #<TI>#
+	_ZTI25UT_CDTMFPayloadFormatRead @ 26 NONAME ; #<TI>#
+	_ZTI26UT_CDTMFPayloadFormatWrite @ 27 NONAME ; #<TI>#
+	_ZTV12CMccSinkItem @ 28 NONAME ; #<VT>#
+	_ZTV15CMccMultiplexer @ 29 NONAME ; #<VT>#
+	_ZTV15CMccRtpDataSink @ 30 NONAME ; #<VT>#
+	_ZTV16MMccRtpInterface @ 31 NONAME ; #<VT>#
+	_ZTV17CDtmfHighResTimer @ 32 NONAME ; #<VT>#
+	_ZTV17CMccRtpDataSource @ 33 NONAME ; #<VT>#
+	_ZTV17MMMFClientUtility @ 34 NONAME ; #<VT>#
+	_ZTV19CDTMFPayloadDecoder @ 35 NONAME ; #<VT>#
+	_ZTV19CDTMFPayloadEncoder @ 36 NONAME ; #<VT>#
+	_ZTV20CDtmfEncStateMachine @ 37 NONAME ; #<VT>#
+	_ZTV20CMdaAudioToneUtility @ 38 NONAME ; #<VT>#
+	_ZTV22CDTMFPayloadFormatRead @ 39 NONAME ; #<VT>#
+	_ZTV23CDTMFPayloadFormatWrite @ 40 NONAME ; #<VT>#
+	_ZTV25CFormatDecodeStateMachine @ 41 NONAME ; #<VT>#
+	_ZTV25CFormatEncodeStateMachine @ 42 NONAME ; #<VT>#
+	_ZTV25UT_CDTMFPayloadFormatRead @ 43 NONAME ; #<VT>#
+	_ZTV26UT_CDTMFPayloadFormatWrite @ 44 NONAME ; #<VT>#
+	_ZThn16_N15CMccMultiplexerD0Ev @ 45 NONAME ; #<thunk>#
+	_ZThn16_N15CMccMultiplexerD1Ev @ 46 NONAME ; #<thunk>#
+	_ZThn4_N15CMccMultiplexerD0Ev @ 47 NONAME ; #<thunk>#
+	_ZThn4_N15CMccMultiplexerD1Ev @ 48 NONAME ; #<thunk>#
+

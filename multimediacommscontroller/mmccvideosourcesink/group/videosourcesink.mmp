@@ -1,0 +1,102 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          mmccvideosourcesink.dll
+
+CAPABILITY 		CAP_ECOM_PLUGIN
+VENDORID		VID_DEFAULT
+TARGETTYPE		PLUGIN
+
+UID             0x10009D8D 0x102747CC
+
+SOURCEPATH      ../src
+SOURCE          mccvideosourcesinkfactory.cpp
+SOURCE          mccvideosink.cpp
+SOURCE          mccvideosinkimpl.cpp
+SOURCE          mccvideosinkuser.cpp
+SOURCE          mccvideojitterbuffer.cpp
+SOURCE          mccvideosourceimpl.cpp
+SOURCE          mccvideosourcewrapper.cpp
+SOURCE          mccredrawhandler.cpp
+SOURCE          mccvideosourcekeyretriever.cpp
+
+#if (defined WINS)
+
+SOURCE          mccvideosourceforemu.cpp
+
+SOURCEPATH      ../../mmccfilesourcesink/src
+SOURCE          mcceoftimer.cpp
+SOURCE          mccfilesourceimpl.cpp
+SOURCE          mccfilesourcetypebase.cpp
+SOURCE          mccfilevideo.cpp
+SOURCE          mccfileaudio.cpp
+SOURCE          mccperiodicrunner.cpp
+
+#else
+
+SOURCE          mccvideosource.cpp
+
+SOURCEPATH      ../../mmccfilesourcesink/src
+SOURCE          mccperiodicrunner.cpp
+
+#endif
+
+SOURCEPATH      ../data
+START RESOURCE	102747CC.rss 
+TARGET      	mmccvideosourcesink.rsc
+END
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../mmccshared/inc
+USERINCLUDE     ../../mmccinterface/inc
+USERINCLUDE     ../../mmccsubcontroller/inc
+USERINCLUDE     ../../mmccfilesourcesink/inc
+USERINCLUDE     ../../mmcccontroller/inc
+USERINCLUDE 	../../mmccqoscontroller/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY         ws32.lib
+LIBRARY         3gpmp4lib.lib
+LIBRARY         camcmediarecorder.lib
+LIBRARY         euser.lib 
+LIBRARY         efsrv.lib
+LIBRARY         ecom.lib
+LIBRARY         mmfcontrollerframework.lib
+LIBRARY         mmfserverbaseclasses.lib
+LIBRARY         mediaclientvideo.lib
+LIBRARY         insock.lib 
+LIBRARY         charconv.lib
+LIBRARY         mmccinterface.lib
+LIBRARY         imut.lib
+LIBRARY		inetprotutil.lib
+STATICLIBRARY   XPSPacketSink.lib
+
+
+#if (defined WINS)
+LIBRARY         camc3gpsink.lib
+LIBRARY         esock.lib
+
+MACRO MCC_VIDEO_SOURCE_FOR_EMU
+
+#endif
+
+PAGED

@@ -1,0 +1,8 @@
+EXPORTS
+	?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * __cdecl CreateTestSuiteL(void)
+	??1CSIPProfile@@UAE@XZ @ 2 NONAME ; CSIPProfile::~CSIPProfile(void)
+	?GetParameter@CSIPProfile@@QBEHKAAPBVTDesC8@@@Z @ 3 NONAME ; int CSIPProfile::GetParameter(unsigned long, class TDesC8 const * &) const
+	?GetParameter@CSIPProfile@@QBEHKAAPBVMDesC8Array@@@Z @ 4 NONAME ; int CSIPProfile::GetParameter(unsigned long, class MDesC8Array const * &) const
+	?GetParameter@CSIPProfile@@QBEHKAAH@Z @ 5 NONAME ; int CSIPProfile::GetParameter(unsigned long, int &) const
+	?GetParameter@CSIPProfile@@QBEHKAAK@Z @ 6 NONAME ; int CSIPProfile::GetParameter(unsigned long, unsigned long &) const
+

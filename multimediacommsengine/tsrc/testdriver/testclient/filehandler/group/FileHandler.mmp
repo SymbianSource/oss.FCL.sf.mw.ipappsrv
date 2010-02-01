@@ -1,0 +1,39 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+
+TARGET      TCFileHandlerServ.exe
+#if defined( EKA2 )
+TARGETTYPE  exe
+#else
+TARGETTYPE  epocexe
+#endif
+UID					0x1000008C 0x1020E4CB
+
+SOURCEPATH	../src
+SOURCE		CTcFileHandlerServer.cpp CTcFileHandlerSession.cpp
+SOURCE		E32Main.cpp
+
+USERINCLUDE	. ../../commonsrc ../inc ../src
+
+MW_LAYER_SYSTEMINCLUDE
+	
+LIBRARY		euser.lib efsrv.lib
+
+CAPABILITY LocalServices ReadUserData WriteUserData UserEnvironment NetworkServices \
+	Location MultimediaDD ReadDeviceData WriteDeviceData PowerMgmt TrustedUI ProtServ \
+	NetworkControl SwEvent SurroundingsDD CommDD DiskAdmin AllFiles

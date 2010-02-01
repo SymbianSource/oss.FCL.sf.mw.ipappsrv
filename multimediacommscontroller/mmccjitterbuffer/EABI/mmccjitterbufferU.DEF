@@ -1,0 +1,12 @@
+EXPORTS
+	_ZN16CMccJitterBuffer10DelayDownLEv @ 1 NONAME
+	_ZN16CMccJitterBuffer11GetDataSinkEv @ 2 NONAME
+	_ZN16CMccJitterBuffer11ResetBufferEi @ 3 NONAME
+	_ZN16CMccJitterBuffer12AddDataSinkLEP9MDataSink @ 4 NONAME
+	_ZN16CMccJitterBuffer14AddDataSourceLEP11MDataSource @ 5 NONAME
+	_ZN16CMccJitterBuffer4NewLEP21MJitterBufferObserver @ 6 NONAME
+	_ZN16CMccJitterBuffer6SetupLEiiRK13TMccCodecInfo @ 7 NONAME
+	_ZN16CMccJitterBuffer8DelayUpLEv @ 8 NONAME
+	_ZTI16CMccJitterBuffer @ 9 NONAME ; #<TI>#
+	_ZTV16CMccJitterBuffer @ 10 NONAME ; #<VT>#
+

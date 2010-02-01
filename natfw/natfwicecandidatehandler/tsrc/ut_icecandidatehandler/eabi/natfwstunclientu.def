@@ -1,0 +1,118 @@
+EXPORTS
+	_ZN11CSTUNClient15SetCredentialsLERK6TDesC8S2_ @ 1 NONAME
+	_ZN11CSTUNClient20ObtainTransactionIDLER6TDesC8 @ 2 NONAME
+	_ZN11CSTUNClient4NewLEiR11CDeltaTimerR19MSTUNClientObserverP25MNcmConnectionMultiplexer18TTransportProtocol @ 3 NONAME
+	_ZN11CSTUNClient4NewLEiRK6TDesC8jS2_R11RSocketServR11RConnectionR11CDeltaTimerR19MSTUNClientObserveriiiP25MNcmConnectionMultiplexer18TTransportProtocol @ 4 NONAME
+	_ZN11CSTUNClient5NewLCEiR11CDeltaTimerR19MSTUNClientObserverP25MNcmConnectionMultiplexer18TTransportProtocol @ 5 NONAME
+	_ZN11CSTUNClient5NewLCEiRK6TDesC8jS2_R11RSocketServR11RConnectionR11CDeltaTimerR19MSTUNClientObserveriiiP25MNcmConnectionMultiplexer18TTransportProtocol @ 6 NONAME
+	_ZN11CSTUNClientD0Ev @ 7 NONAME
+	_ZN11CSTUNClientD1Ev @ 8 NONAME
+	_ZN11CSTUNClientD2Ev @ 9 NONAME
+	_ZN12CSTUNBinding11HandleDataLERK6TDesC8RiR9TInetAddr @ 10 NONAME
+	_ZN12CSTUNBinding12SendRequestLERK9TInetAddrij @ 11 NONAME
+	_ZN12CSTUNBinding12SendRequestLEv @ 12 NONAME
+	_ZN12CSTUNBinding13CancelRequestEv @ 13 NONAME
+	_ZN12CSTUNBinding15SendIndicationLERK9TInetAddrRK6TDesC8i @ 14 NONAME
+	_ZN12CSTUNBinding20CancelRetransmissionEv @ 15 NONAME
+	_ZN12CSTUNBinding24SetICESpecificAttributesERK14TICEAttributes @ 16 NONAME
+	_ZN12CSTUNBinding4NewLER11CSTUNClientR7RSocket @ 17 NONAME
+	_ZN12CSTUNBinding4NewLER11CSTUNClientjj @ 18 NONAME
+	_ZN12CSTUNBinding5NewLCER11CSTUNClientR7RSocket @ 19 NONAME
+	_ZN12CSTUNBinding5NewLCER11CSTUNClientjj @ 20 NONAME
+	_ZN12CSTUNBindingD0Ev @ 21 NONAME
+	_ZN12CSTUNBindingD1Ev @ 22 NONAME
+	_ZN12CSTUNBindingD2Ev @ 23 NONAME
+	_ZN17CSTUNRelayBinding11HandleDataLERK6TDesC8RiR9TInetAddr @ 24 NONAME
+	_ZN17CSTUNRelayBinding13CancelRequestEv @ 25 NONAME
+	_ZN17CSTUNRelayBinding15ConnectRequestLERK9TInetAddr @ 26 NONAME
+	_ZN17CSTUNRelayBinding15SendIndicationLERK9TInetAddrRK6TDesC8i @ 27 NONAME
+	_ZN17CSTUNRelayBinding16AllocateRequestLEj @ 28 NONAME
+	_ZN17CSTUNRelayBinding24SetICESpecificAttributesERK14TICEAttributes @ 29 NONAME
+	_ZN17CSTUNRelayBinding28SetActiveDestinationRequestLERK9TInetAddrRm @ 30 NONAME
+	_ZN17CSTUNRelayBinding4NewLER11CSTUNClientjj @ 31 NONAME
+	_ZN17CSTUNRelayBinding5NewLCER11CSTUNClientjj @ 32 NONAME
+	_ZN17CSTUNRelayBindingD0Ev @ 33 NONAME
+	_ZN17CSTUNRelayBindingD1Ev @ 34 NONAME
+	_ZN17CSTUNRelayBindingD2Ev @ 35 NONAME
+	_ZNK11CSTUNClient13IsInitializedEv @ 36 NONAME
+	_ZNK11CSTUNClient15STUNServerAddrLEv @ 37 NONAME
+	_ZNK11CSTUNClient20SharedSecretObtainedEv @ 38 NONAME
+	_ZNK12CSTUNBinding10PublicAddrEv @ 39 NONAME
+	_ZNK12CSTUNBinding10STUNClientEv @ 40 NONAME
+	_ZNK12CSTUNBinding12ConnectionIdEv @ 41 NONAME
+	_ZNK12CSTUNBinding15AddressResolvedEv @ 42 NONAME
+	_ZNK12CSTUNBinding17RealmFromResponseEv @ 43 NONAME
+	_ZNK12CSTUNBinding19AlternateServerAddrEv @ 44 NONAME
+	_ZNK12CSTUNBinding6SocketEv @ 45 NONAME
+	_ZNK12CSTUNBinding8StreamIdEv @ 46 NONAME
+	_ZNK17CSTUNRelayBinding10PublicAddrEv @ 47 NONAME
+	_ZNK17CSTUNRelayBinding10STUNClientEv @ 48 NONAME
+	_ZNK17CSTUNRelayBinding12ConnectionIdEv @ 49 NONAME
+	_ZNK17CSTUNRelayBinding15AddressResolvedEv @ 50 NONAME
+	_ZNK17CSTUNRelayBinding17RealmFromResponseEv @ 51 NONAME
+	_ZNK17CSTUNRelayBinding19AlternateServerAddrEv @ 52 NONAME
+	_ZNK17CSTUNRelayBinding8StreamIdEv @ 53 NONAME
+	_ZNK17CSTUNRelayBinding9RelayAddrEv @ 54 NONAME
+	_ZTI11CSTUNClient @ 55 NONAME ; #<TI>#
+	_ZTI12CSTUNBinding @ 56 NONAME ; #<TI>#
+	_ZTI14CAsyncCallback @ 57 NONAME ; #<TI>#
+	_ZTI14CSTUNTimerUser @ 58 NONAME ; #<TI>#
+	_ZTI16CSTUNBindingInit @ 59 NONAME ; #<TI>#
+	_ZTI16CSTUNClientReady @ 60 NONAME ; #<TI>#
+	_ZTI16CSTUNClientState @ 61 NONAME ; #<TI>#
+	_ZTI16CSTUNCredentials @ 62 NONAME ; #<TI>#
+	_ZTI16CSTUNTransaction @ 63 NONAME ; #<TI>#
+	_ZTI17CSTUNBindingState @ 64 NONAME ; #<TI>#
+	_ZTI17CSTUNRelayBinding @ 65 NONAME ; #<TI>#
+	_ZTI17CSTUNSharedSecret @ 66 NONAME ; #<TI>#
+	_ZTI18CSTUNBindingActive @ 67 NONAME ; #<TI>#
+	_ZTI22CBindingImplementation @ 68 NONAME ; #<TI>#
+	_ZTI22CSTUNBindingGetAddress @ 69 NONAME ; #<TI>#
+	_ZTI22CSTUNSharedSecretState @ 70 NONAME ; #<TI>#
+	_ZTI23CSTUNBindingWaitToRetry @ 71 NONAME ; #<TI>#
+	_ZTI23CSTUNClientResolvingTCP @ 72 NONAME ; #<TI>#
+	_ZTI23CSTUNClientResolvingTLS @ 73 NONAME ; #<TI>#
+	_ZTI23CSTUNClientResolvingUDP @ 74 NONAME ; #<TI>#
+	_ZTI23CTransactionIDGenerator @ 75 NONAME ; #<TI>#
+	_ZTI25CSTUNClientImplementation @ 76 NONAME ; #<TI>#
+	_ZTI26CSTUNBindingImplementation @ 77 NONAME ; #<TI>#
+	_ZTI26CSTUNClientGetSharedSecret @ 78 NONAME ; #<TI>#
+	_ZTI26CStunIndicationTransmitter @ 79 NONAME ; #<TI>#
+	_ZTI27CSTUNBindingGetSharedSecret @ 80 NONAME ; #<TI>#
+	_ZTI27CSTUNSharedSecretConnecting @ 81 NONAME ; #<TI>#
+	_ZTI28CSTUNClientRenewSharedSecret @ 82 NONAME ; #<TI>#
+	_ZTI28CSTUNSharedSecretWaitToRetry @ 83 NONAME ; #<TI>#
+	_ZTI29CSTUNSharedSecretWaitResponse @ 84 NONAME ; #<TI>#
+	_ZTI31CSTUNRelayBindingImplementation @ 85 NONAME ; #<TI>#
+	_ZTV11CSTUNClient @ 86 NONAME ; #<VT>#
+	_ZTV12CSTUNBinding @ 87 NONAME ; #<VT>#
+	_ZTV14CAsyncCallback @ 88 NONAME ; #<VT>#
+	_ZTV14CSTUNTimerUser @ 89 NONAME ; #<VT>#
+	_ZTV16CSTUNBindingInit @ 90 NONAME ; #<VT>#
+	_ZTV16CSTUNClientReady @ 91 NONAME ; #<VT>#
+	_ZTV16CSTUNClientState @ 92 NONAME ; #<VT>#
+	_ZTV16CSTUNCredentials @ 93 NONAME ; #<VT>#
+	_ZTV16CSTUNTransaction @ 94 NONAME ; #<VT>#
+	_ZTV17CSTUNBindingState @ 95 NONAME ; #<VT>#
+	_ZTV17CSTUNRelayBinding @ 96 NONAME ; #<VT>#
+	_ZTV17CSTUNSharedSecret @ 97 NONAME ; #<VT>#
+	_ZTV18CSTUNBindingActive @ 98 NONAME ; #<VT>#
+	_ZTV22CBindingImplementation @ 99 NONAME ; #<VT>#
+	_ZTV22CSTUNBindingGetAddress @ 100 NONAME ; #<VT>#
+	_ZTV22CSTUNSharedSecretState @ 101 NONAME ; #<VT>#
+	_ZTV23CSTUNBindingWaitToRetry @ 102 NONAME ; #<VT>#
+	_ZTV23CSTUNClientResolvingTCP @ 103 NONAME ; #<VT>#
+	_ZTV23CSTUNClientResolvingTLS @ 104 NONAME ; #<VT>#
+	_ZTV23CSTUNClientResolvingUDP @ 105 NONAME ; #<VT>#
+	_ZTV23CTransactionIDGenerator @ 106 NONAME ; #<VT>#
+	_ZTV25CSTUNClientImplementation @ 107 NONAME ; #<VT>#
+	_ZTV26CSTUNBindingImplementation @ 108 NONAME ; #<VT>#
+	_ZTV26CSTUNClientGetSharedSecret @ 109 NONAME ; #<VT>#
+	_ZTV26CStunIndicationTransmitter @ 110 NONAME ; #<VT>#
+	_ZTV27CSTUNBindingGetSharedSecret @ 111 NONAME ; #<VT>#
+	_ZTV27CSTUNSharedSecretConnecting @ 112 NONAME ; #<VT>#
+	_ZTV28CSTUNClientRenewSharedSecret @ 113 NONAME ; #<VT>#
+	_ZTV28CSTUNSharedSecretWaitToRetry @ 114 NONAME ; #<VT>#
+	_ZTV29CSTUNSharedSecretWaitResponse @ 115 NONAME ; #<VT>#
+	_ZTV31CSTUNRelayBindingImplementation @ 116 NONAME ; #<VT>#
+

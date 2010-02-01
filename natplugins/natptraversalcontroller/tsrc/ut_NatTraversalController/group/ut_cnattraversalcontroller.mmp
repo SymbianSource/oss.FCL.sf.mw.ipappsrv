@@ -1,0 +1,86 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET        ut_cnattraversalcontroller.dll
+TARGETTYPE    dll
+TARGETPATH    /DigiaEunit/Tests
+UID           0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID      VID_DEFAULT
+
+MACRO           TEST_EUNIT // to allow friend class in target class
+
+#define USE_STUNCLIENT_STUB
+
+SOURCEPATH    ../src
+SOURCE        ut_cnattraversalcontrollerdllmain.cpp
+SOURCE        ccrlfsenderstub.cpp
+SOURCE        ut_cnattraversalpendingrequest.cpp
+SOURCE        ut_cnatbindingstunrefresher.cpp
+SOURCE        ut_cnatbindingcrlfrefresher.cpp
+SOURCE        ut_cnatbindingstunandcrlfrefresher.cpp
+SOURCE        ut_cnatbinding.cpp
+SOURCE        ut_cnattraversalsession.cpp
+SOURCE        ut_cnattraversalcontroller.cpp
+SOURCE        ut_cnattraversalconfig.cpp
+
+SOURCEPATH    ../../../src
+SOURCE        cnattraversalcontroller.cpp
+SOURCE        cnattraversalconfig.cpp
+SOURCE        tnattraversalpendingrequest.cpp
+SOURCE        cnattraversalsession.cpp
+SOURCE        cnatbinding.cpp
+SOURCE        cnatbindingrefresher.cpp
+SOURCE        cnatbindingcrlfrefresher.cpp
+SOURCE        ccrlfsender.cpp
+SOURCE        cudpcrlfsender.cpp
+SOURCE        ctcpcrlfsender.cpp
+SOURCE        ctlscrlfsender.cpp
+SOURCE        cnatbindingstunrefresher.cpp
+SOURCE        cnatbindingstunandcrlfrefresher.cpp
+
+SOURCEPATH    ../stubs/src
+SOURCE	      plugin_stub.cpp
+SOURCE        ecom_stubs.cpp
+SOURCE        esock_stubs.cpp
+SOURCE        secure_stub.cpp
+
+USERINCLUDE   ../inc
+USERINCLUDE   ../../../inc
+USERINCLUDE   ../stubs/inc
+USERINCLUDE   ../stubs/natfwstunclientstub/inc
+USERINCLUDE   ../../../../../inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY	      euser.lib
+LIBRARY       insock.lib
+LIBRARY       inetprotutil.lib
+LIBRARY       centralrepository.lib
+LIBRARY       charconv.lib
+LIBRARY       commdb.lib
+#ifdef USE_STUNCLIENT_STUB
+    LIBRARY   natfwstunclientstub.lib
+#else
+    LIBRARY   natfwstunclient.lib
+#endif
+LIBRARY       EUnit.lib

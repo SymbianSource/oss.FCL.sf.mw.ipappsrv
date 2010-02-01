@@ -1,0 +1,15 @@
+EXPORTS
+	?AvailableNatProtocols@CNATFWNatSettingsApi@@QBEABVCDesC8Array@@XZ @ 1 NONAME ; class CDesC8Array const & CNATFWNatSettingsApi::AvailableNatProtocols(void) const
+	?CrlfRefreshEnabled@CNATFWNatSettingsApi@@QBEHXZ @ 2 NONAME ; int CNATFWNatSettingsApi::CrlfRefreshEnabled(void) const
+	?Domain@CNATFWNatSettingsApi@@QBEABVTDesC8@@XZ @ 3 NONAME ; class TDesC8 const & CNATFWNatSettingsApi::Domain(void) const
+	?GetPortArea@CNATFWNatSettingsApi@@QBEXAAI0@Z @ 4 NONAME ; void CNATFWNatSettingsApi::GetPortArea(unsigned int &, unsigned int &) const
+	?IceSettingsL@CNATFWNatSettingsApi@@QBEAAVMNATFWIceSettings@@XZ @ 5 NONAME ; class MNATFWIceSettings & CNATFWNatSettingsApi::IceSettingsL(void) const
+	?NewL@CNATFWNatSettingsApi@@SAPAV1@ABVTDesC8@@@Z @ 6 NONAME ; class CNATFWNatSettingsApi * CNATFWNatSettingsApi::NewL(class TDesC8 const &)
+	?NewLC@CNATFWNatSettingsApi@@SAPAV1@ABVTDesC8@@@Z @ 7 NONAME ; class CNATFWNatSettingsApi * CNATFWNatSettingsApi::NewLC(class TDesC8 const &)
+	?RefreshIntervalTcp@CNATFWNatSettingsApi@@QBEHXZ @ 8 NONAME ; int CNATFWNatSettingsApi::RefreshIntervalTcp(void) const
+	?RefreshIntervalUdp@CNATFWNatSettingsApi@@QBEHXZ @ 9 NONAME ; int CNATFWNatSettingsApi::RefreshIntervalUdp(void) const
+	?RetrieveIapSettingsL@CNATFWNatSettingsApi@@QAEXI@Z @ 10 NONAME ; void CNATFWNatSettingsApi::RetrieveIapSettingsL(unsigned int)
+	?StunSettingsL@CNATFWNatSettingsApi@@QBEAAVMNATFWStunSettings@@XZ @ 11 NONAME ; class MNATFWStunSettings & CNATFWNatSettingsApi::StunSettingsL(void) const
+	?TurnSettingsL@CNATFWNatSettingsApi@@QBEAAVMNATFWTurnSettings@@XZ @ 12 NONAME ; class MNATFWTurnSettings & CNATFWNatSettingsApi::TurnSettingsL(void) const
+	?UseSharedSecret@CNATFWNatSettingsApi@@QBEHXZ @ 13 NONAME ; int CNATFWNatSettingsApi::UseSharedSecret(void) const
+

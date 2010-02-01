@@ -1,0 +1,93 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO           EUNIT_ALLOC_TEST_ON
+
+TARGET          UT_CMCCQosController.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../stubs/inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../tsrc/rtpsourcesinkstub/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../mmccmultiplexer/inc
+USERINCLUDE             ../../../../mmcccontroller/inc
+USERINCLUDE             ../../../../mmccsubcontroller/inc
+USERINCLUDE             ../../../../mmccrtpsourcesink/inc
+
+
+// Sources needed by the test
+SOURCEPATH              ../../../../mmcccontroller/src
+SOURCE                  mccresourceitem.cpp
+SOURCE                  mccresourcecontainer.cpp
+SOURCE                  mccresourceiterators.cpp
+SOURCE                  mcccamerahandlerforemu.cpp
+
+SOURCEPATH              ../../../../mmccmultiplexer/src
+SOURCE                  mccmultiplexer.cpp
+SOURCE                  mccsinkitem.cpp
+
+
+SOURCEPATH              ../../../src
+SOURCE                  mccqoscontroller.cpp
+
+SOURCEPATH              ../src
+SOURCE                  UT_CMCCQosControllerDllMain.cpp
+SOURCE                  UT_CMCCQosController.cpp
+
+SOURCEPATH              ../../../../tsrc/rtpsourcesinkstub/src
+SOURCE                  MccRtpDataSource_STUB.cpp
+SOURCE                  MccRtpDataSink_STUB.cpp
+SOURCE                  mccrtpinterface_stub.cpp
+
+SOURCEPATH          	  ../stubs/src
+SOURCE              	  mmccrateadaptationObserver_stub.cpp
+SOURCE					        mccresourcepool_STUB.cpp
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 3gpmp4lib.lib
+LIBRARY                 camcmediarecorder.lib
+LIBRARY                 ecom.lib
+LIBRARY                 efsrv.lib
+LIBRARY                 EUnit.lib
+LIBRARY                 EUnitUtil.lib
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 MediaClientVideo.lib
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfserverbaseclasses.lib
+//LIBRARY                 rtpwrapper.lib
+LIBRARY                 ws32.lib
+LIBRARY       	  		charconv.lib
+
+// End of file

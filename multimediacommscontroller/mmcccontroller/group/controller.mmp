@@ -1,0 +1,97 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+// Uncomment if camerahandler is wanted to be tested on emulator.
+// Requires that src/common/generic/multimedia/ecam/testcamera.mmp and
+// src/common/generic/multimedia/ecam/ecam.mmp are built.
+//MACRO MCC_CAMERAHANDLER_TEST
+//#define MCC_CAMERAHANDLER_TEST_BUILD
+
+TARGET mmcccontroller.dll
+
+CAPABILITY 	CAP_ECOM_PLUGIN
+VENDORID	VID_DEFAULT
+TARGETTYPE	PLUGIN
+
+UID             0x10009D8D 0x102073F6 
+
+SOURCEPATH      ../src
+SOURCE          mcccontroller.cpp
+SOURCE          mccfactory.cpp
+SOURCE          mccscreen.cpp
+SOURCE          mccresourcepool.cpp
+SOURCE          mccresourcecontainer.cpp
+SOURCE          mccresourceitem.cpp
+SOURCE          mccresourceiterators.cpp
+SOURCE          mccasynclinkcreator.cpp
+
+#if (defined WINS && !defined MCC_CAMERAHANDLER_TEST_BUILD)
+SOURCE          mcccamerahandlerforemu.cpp
+#else
+SOURCE          mcccamerahandler.cpp
+#endif
+
+SOURCEPATH      ../../mmccshared/src
+SOURCE          mcctimermanager.cpp
+
+USERINCLUDE     ../../mmcccontroller/inc
+USERINCLUDE     ../../mmccshared/inc
+USERINCLUDE     ../../mmccinterface/inc
+USERINCLUDE     ../../mmccrtpsourcesink/inc
+USERINCLUDE     ../../mmccvideosourcesink/inc
+USERINCLUDE     ../../mmccamrpayloadformat/inc
+USERINCLUDE     ../../mmccsubcontroller/inc
+USERINCLUDE     ../../mmccqoscontroller/inc
+USERINCLUDE     ../../mmccmultiplexer/inc
+
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+
+
+SOURCEPATH      ../data
+START RESOURCE  102073F6.rss 
+TARGET		    mmcccontroller.rsc
+END
+
+LIBRARY mmfserverbaseclasses.lib
+LIBRARY mmfcontrollerframework.lib
+LIBRARY mmfstandardcustomcommands.lib
+LIBRARY euser.lib
+LIBRARY ecom.lib
+LIBRARY insock.lib
+LIBRARY ecam.lib
+LIBRARY ws32.lib
+LIBRARY bitgdi.lib
+LIBRARY fbscli.lib
+LIBRARY mmccsubcontroller.lib
+LIBRARY mmccqoscontroller.lib
+LIBRARY mmccmultiplexer.lib
+LIBRARY esock.lib
+LIBRARY mmfdevsound.lib
+#if (defined MCC_CAMERAHANDLER_TEST_BUILD)
+LIBRARY efsrv.lib
+#endif
+
+PAGED
+
+

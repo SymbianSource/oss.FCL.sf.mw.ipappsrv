@@ -1,0 +1,61 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET          		UT_icepluginstub.dll
+TARGETTYPE      		dll
+TARGETPATH      		/DigiaEUnit/Tests
+UID             		0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE              	UT_icepluginDllMain.cpp
+SOURCE              	UT_CMceIceDirector.cpp // Added by EUnit Wizard
+
+SOURCEPATH              ../../../src
+SOURCE                  cmceicedirector.cpp
+SOURCE                  cmceiceimplementationproxy.cpp
+SOURCE                  cmceicepropertywatcher.cpp
+SOURCE                  cmceiceerrortrigger.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../src
+USERINCLUDE             ../../../../../../../../inc
+USERINCLUDE             ../../../../ps_keys
+
+
+LIBRARY             	EUnit.lib
+
+LIBRARY             	ecom.lib
+LIBRARY            		euser.lib
+LIBRARY             	estor.lib
+LIBRARY             	insock.lib
+LIBRARY            		esock.lib
+LIBRARY             	bafl.lib
+LIBRARY             	random.lib
+LIBRARY             	centralrepository.lib
+LIBRARY             	sdpcodec.lib
+LIBRARY 				commdb.lib
+LIBRARY 		 		inetprotutil.lib
+LIBRARY 		 		charconv.lib
+
+
+// End of file

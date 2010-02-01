@@ -1,0 +1,173 @@
+/*
+* Copyright (c) 1999-2002 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+
+#ifndef MCETestUI_HRH
+#define MCETestUI_HRH
+
+/*
+enum TExampleMenuCommands
+	{
+	ESelectProfile = 6000
+	};
+*/
+enum TViewSuppressions
+	{
+	EManagerSuppression = 7000,
+	EProfilesSuppression,
+	EStatusPaneSuppression 
+	};
+
+enum TMCETestUIViewNumbers
+    {
+	EMCETestUIAppViewId = 200,
+	EMCETestUISessionViewId ,
+	EMCETestUIStreamViewId   
+    };
+
+enum TMCETestUICustomMessageIds
+    {
+    EMCETestUISessionId = 1,
+    EMCETestUIStreamId,
+   // EPoCSessionDialogPoCAddress,
+  //  EPocSessionOriginaterAddress,
+  	ESessionPoCDialogPoCAddress,
+  	ESessionPoCOriginaterAddress,
+  	EPoCSessionDialogSessionType,
+  	ESessionDialogServiceType,
+  	ESessionServiceType,
+  	ESessionVoIPDialogVoIPAddress,
+  	ESessionVoIPOriginaterAddress,
+  	ESessionDialogSecureSessionType,
+    ESessionDialogRecipentAddress,
+    ESessionDialogSessionRtcp,
+    ESessionDialogSessionAccContactKoppa,
+    ESessionDialogSessionType,
+    ESessionDialogVideoSessionType,
+    ESessionDialogSourceType,
+    ESessionDialogSecureSession,
+    ESessionDialogSourceFilePath,
+    ESessionDialogVideoSinkType,
+    ESessionDialogVideoSinkRtp,
+    ESessionDialogBundle,
+    ESessionDialogVideoSinkFile,
+    ESessionDialogVideoSinkDisplay,
+    ESessionDialogAudioSinkType,
+    ESessionDialogSinkFilePath,
+    ESessionDialogPrecondition,
+    ESessionOriginaterAddress,
+    EAudioCodecEnableVAD,
+    EAudioCodecDialogBitRate,
+    EAudioCodecDialogAllowedBitRate,
+    EAudioCodecDialogPTime,
+    EAudioCodecDialogMaxPTime,
+    EAudioCodecDialogCodecMode,
+    EAudioCodecDialogPayLoadType,
+    EAudioCodecKeepalivetimer,
+    EAudioCodecKeepalivePt,
+    EEventRecipentAddress,
+    EEventHeader,
+    ENotifyHeaders,
+    EEventRefreshInterval,
+    EEventOriginaterAddress	,
+    EReferRecipentAddress,
+    EReferTo,
+    ESendReferTo,
+    EReferOriginaterAddress,
+    EMceValueSettingsJitterTreshold,
+    ESessionTimeOut ,
+    ESessionHeaders,
+    ESessionResponseCode,
+    ESessionResponseReason,
+   	ERtpSinkSuppressRtcp,
+   	ESpeakerSinkVolumeSetting,
+   	ESpeakerSinkRoutingSetting,
+   	ERtpSourceGainSetting,
+   	ERtpSourceInactivityTimeSetting,
+   	EMceSettingsFCSession,
+   	EMceSettingsAudioPriority,
+   	EMceSettingsMultiCodecSupport,
+   	EMceSettingsVoipSession,
+   	EMceSettingsSDP,
+   	EMceSettingsCodemeniconAuto,
+   	EMceSettingsSecureSessionAVP,
+   	EMceSettings180Precondition,
+   	EMceSettingsHoldWithAddress,
+   	EMceValueSettingsJitterSize,
+   	EMceValueSettingsJitterTimeout,
+   	EVideoCodecDialogBitRate,
+    EVideoCodecDialogAllowedBitRate,
+    EVideoCodecDialogPTime,
+    EVideoCodecDialogMaxPTime,
+    EVideoCodecDialogCodecMode,
+    EVideoCodecDialogPayLoadType,
+    EVideoCodecKeepalivetimer,
+    EVideoCodecKeepalivePt,
+    ECameraSourceDialogCameraIndex,
+    ECameraSourceDialogCameraZoomFactor,
+    ECameraSourceDialogCameraDigitalZoomFactor,
+    ECameraSourceDialogZoomMax,
+    ECameraSourceDialogCameraBrightness,
+    ECameraSourceDialogExposure,
+    ECameraSourceDialogCameraWhiteBalance,
+    EFileSourceAudioFileUpdating,
+    EFileSourceVideoFileUpdating,
+    EFileSourceAudioFilePosition,
+    EFileSourceAudioFileDuration,
+    EFileSourceAudioFileFastForward,
+    EFileSourceAudioFileFastRewind,
+    EFileSourceAudioFileTransProgress,
+    EFileSourceVideoFilePosition,
+    EFileSourceVideoFileDuration,
+    EFileSourceVideoFileFastForward,
+    EFileSourceVideoFileFastRewind,
+    EFileSourceVideoFileTransProgress,
+    EFileSourceTranscodeFile,
+    EFileSourceVideoFileCurrentMediaElement,
+    EFileSourceVideoFileMediaElementCount,
+    EFileSourceAudioFileCurrentMediaElement,
+    EFileSourceAudioFileMediaElementCount,
+    EDisplaySinkPriority,
+    EDisplaySinksAvailable,
+    EDisplaySinkIndex,
+    EDisplaySinkRectIX1,
+    EDisplaySinkRectIY1,
+    EDisplaySinkRectIX2,
+    EDisplaySinkRectIY2,
+    EStartDtmfTone,
+    ESendDtmfTone,
+    ESendDtmfTone_duration,
+    ESendDtmfToneSequence,
+    EMceAddCodec,
+    ENotifyContentType,
+    ENotifyContent,
+    EMceSecPreconditions,
+    ESessionDialog2WayVideoRecipientAddress,
+    ESessionDialog2WayVideoVideoCodec,
+    ESessionDialog2WayVideoAudioCodec,
+    ESessionDialog2WayVideoViewFinder,
+    ESessionDialog2WayVideoCamera,
+    EVideoCodecDialogEncDecDevice
+    };
+ 
+    
+	
+#define KMaxAddrSize      39
+
+#endif

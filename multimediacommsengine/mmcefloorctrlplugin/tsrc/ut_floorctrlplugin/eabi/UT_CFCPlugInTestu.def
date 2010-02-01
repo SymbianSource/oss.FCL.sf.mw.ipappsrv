@@ -1,0 +1,21 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZTI11CFCReceiver @ 2 NONAME ; #<TI>#
+	_ZTI11RConnection @ 3 NONAME ; #<TI>#
+	_ZTI12UT_CFCSender @ 4 NONAME ; #<TI>#
+	_ZTI14UT_CFCReceiver @ 5 NONAME ; #<TI>#
+	_ZTI21CTBCPFloorControlImpl @ 6 NONAME ; #<TI>#
+	_ZTI22CFCConnectionContainer @ 7 NONAME ; #<TI>#
+	_ZTI24UT_CTBCPFloorControlImpl @ 8 NONAME ; #<TI>#
+	_ZTI25UT_CFCConnectionContainer @ 9 NONAME ; #<TI>#
+	_ZTI9CFCSender @ 10 NONAME ; #<TI>#
+	_ZTV11CFCReceiver @ 11 NONAME ; #<VT>#
+	_ZTV11RConnection @ 12 NONAME ; #<VT>#
+	_ZTV12UT_CFCSender @ 13 NONAME ; #<VT>#
+	_ZTV14UT_CFCReceiver @ 14 NONAME ; #<VT>#
+	_ZTV21CTBCPFloorControlImpl @ 15 NONAME ; #<VT>#
+	_ZTV22CFCConnectionContainer @ 16 NONAME ; #<VT>#
+	_ZTV24UT_CTBCPFloorControlImpl @ 17 NONAME ; #<VT>#
+	_ZTV25UT_CFCConnectionContainer @ 18 NONAME ; #<VT>#
+	_ZTV9CFCSender @ 19 NONAME ; #<VT>#
+

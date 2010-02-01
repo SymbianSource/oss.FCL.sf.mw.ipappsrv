@@ -1,0 +1,103 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO           TEST_EUNIT
+
+TARGET          UT_MccInterface.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+VENDORID	    VID_DEFAULT
+
+CAPABILITY      EUNIT_CAPS
+
+
+SOURCEPATH      ../src
+SOURCE          UT_MccInterfaceDllMain.cpp
+SOURCE          UT_CMCCInterface.cpp
+SOURCE          UT_CMCCCodecInformation.cpp
+SOURCE          UT_CMccCodecAMR.cpp 
+SOURCE          UT_CMccCodecAmrWb.cpp 
+SOURCE          UT_CMccCodecG711.cpp 
+SOURCE          UT_CMccCodecG729.cpp
+SOURCE          UT_CMccCodecILBC.cpp
+SOURCE          UT_CMccCodecAVC.cpp 
+SOURCE          UT_CMccCodecAAC.cpp 
+SOURCE          UT_CMccCodecDTMF.cpp 
+SOURCE          UT_CMccCodecH263.cpp 
+SOURCE          UT_CMccCodecRed.cpp
+SOURCE          UT_CMccCodecCn.cpp
+SOURCE          UT_TMccCryptoContext.cpp 
+SOURCE          UT_CMccCryptoContextContainer.cpp
+SOURCE          UT_CMccSecureInterface.cpp
+ 
+// Sources needed by the test
+SOURCEPATH      ../../../src
+
+SOURCE          mmccinterface.cpp
+SOURCE          mmcccodecinformation.cpp
+SOURCE          mmcccodecinformationfactory.cpp
+SOURCE          mmcccodecamr.cpp
+SOURCE          mmcccodecamrwb.cpp
+SOURCE          mmcccodecg711.cpp
+SOURCE          mmcccodecg729.cpp
+SOURCE          mmcccodecilbc.cpp
+SOURCE          mmcccodecdtmf.cpp
+SOURCE          mmcccodecred.cpp 
+SOURCE          mmcccodeccn.cpp                 
+SOURCE          mmcccodech263.cpp                 
+SOURCE          mmcccodecavc.cpp 
+SOURCE          mmcccodecaac.cpp                
+SOURCE          mmccevent.cpp
+SOURCE          mmcccryptocontextcontainer.cpp
+SOURCE          mmccsecureinterface.cpp
+
+SOURCEPATH      ../../../../mmccshared/src
+SOURCE          mmcccryptocontext.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../tsrc/rtpsourcesinkstub/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../mmcccontroller/inc
+USERINCLUDE             ../../../../mmccsubcontroller/inc
+USERINCLUDE             ../../../../mmccrtpsourcesink/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 ecom.lib
+LIBRARY                 esock.lib
+LIBRARY                 EUnit.lib
+LIBRARY 				        eunitutil.lib
+LIBRARY                 euser.lib
+LIBRARY                 inetprotutil.lib
+LIBRARY                 insock.lib
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfstandardcustomcommands.lib
+LIBRARY 				        charconv.lib
+LIBRARY                 bafl.lib 
+
+// End of file

@@ -1,0 +1,134 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:  
+;
+
+; Languages
+&EN
+
+; Header
+; Package UID equals the mmcccontroller.dll UID
+#{"IpappSrv"}, (0x102073F6), 1, 1, 0, TYPE=SA,RU
+
+
+; Supports S60 v 5.0
+[0x1028315F], 0, 0, 0, {"S60ProductID"}
+
+;Supports Series 60 v5.1
+;[0x10283160], 0, 0, 0, {"Series60ProductID"}
+
+; Localised Vendor name
+%{"Nokia"}
+
+; Unique Vendor name
+:"Nokia"
+
+
+;Files
+;MCC
+"\epoc32\RELEASE\armv5\urel\mmccinterface.dll"-"c:\Sys\Bin\mmccinterface.dll"
+"\epoc32\RELEASE\armv5\urel\mmccjitterbuffer.dll"-"c:\Sys\Bin\mmccjitterbuffer.dll"
+"\epoc32\RELEASE\armv5\urel\mmccqoscontroller.dll"-"c:\Sys\Bin\mmccqoscontroller.dll"
+"\epoc32\RELEASE\armv5\urel\mmccmultiplexer.dll"-"c:\Sys\Bin\mmccmultiplexer.dll"
+
+"\epoc32\RELEASE\armv5\urel\mmccsubcontroller.dll"-"c:\Sys\Bin\mmccsubcontroller.dll"
+
+"\epoc32\RELEASE\armv5\urel\mmcccontroller.dll"-"c:\Sys\Bin\mmcccontroller.dll"
+"\epoc32\data\Z\Resource\Plugins\mmcccontroller.RSC"-"c:\resource\plugins\mmcccontroller.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccrtpsourcesink.dll"-"c:\Sys\Bin\mmccrtpsourcesink.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccrtpsourcesink.RSC"-"c:\resource\plugins\mmccrtpsourcesink.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccamrplformat.dll"-"c:\Sys\Bin\mmccamrplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccamrplformat.RSC"-"c:\resource\plugins\mmccamrplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccg711plformat.dll"-"c:\Sys\Bin\mmccg711plformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccg711plformat.RSC"-"c:\resource\plugins\mmccg711plformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccredplformat.dll"-"c:\Sys\Bin\mmccredplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccredplformat.RSC"-"c:\resource\plugins\mmccredplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccg729plformat.dll"-"c:\Sys\Bin\mmccg729plformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccg729plformat.RSC"-"c:\resource\plugins\mmccg729plformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccilbcplformat.dll"-"c:\Sys\Bin\mmccilbcplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccilbcplformat.RSC"-"c:\resource\plugins\mmccilbcplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccdtmfplformat.dll"-"c:\Sys\Bin\mmccdtmfplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccdtmfplformat.RSC"-"c:\resource\plugins\mmccdtmfplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccanyplformat.dll"-"c:\Sys\Bin\mmccanyplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccanyplformat.RSC"-"c:\resource\plugins\mmccanyplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmcch263plformat.dll"-"c:\Sys\Bin\mmcch263plformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmcch263plformat.RSC"-"c:\resource\plugins\mmcch263plformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccavcplformat.dll"-"c:\Sys\Bin\mmccavcplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccavcplformat.RSC"-"c:\resource\plugins\mmccavcplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccfilesourcesink.dll"-"c:\Sys\Bin\mmccfilesourcesink.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccfilesourcesink.RSC"-"c:\resource\plugins\mmccfilesourcesink.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccvideosourcesink.dll"-"c:\Sys\Bin\mmccvideosourcesink.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccvideosourcesink.RSC"-"c:\resource\plugins\mmccvideosourcesink.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccanysourcesink.dll"-"c:\Sys\Bin\mmccanysourcesink.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccanysourcesink.RSC"-"c:\resource\plugins\mmccanysourcesink.RSC"
+
+;MCE
+"\epoc32\RELEASE\armv5\urel\mceclient.dll"-"c:\Sys\Bin\mceclient.dll"
+"\epoc32\RELEASE\armv5\urel\fcpluginengine.dll"-"c:\Sys\Bin\fcpluginengine.dll"
+
+"\epoc32\RELEASE\armv5\urel\fctbcp.dll"-"c:\Sys\Bin\fctbcp.dll"
+"\epoc32\data\Z\Resource\Plugins\fctbcp.RSC"-"c:\resource\plugins\fctbcp.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mceserver.exe"-"c:\Sys\Bin\mceserver.exe"
+
+;NATFW
+"\epoc32\RELEASE\armv5\urel\connectionmux.dll"-"c:\Sys\Bin\connectionmux.dll"
+"\epoc32\RELEASE\armv5\urel\natconfw.dll"-"c:\Sys\Bin\natconfw.dll"
+"\epoc32\RELEASE\armv5\urel\natfwnatsettings.dll"-"c:\Sys\Bin\natfwnatsettings.dll"
+"\epoc32\RELEASE\armv5\urel\natfwstunclient.dll"-"c:\Sys\Bin\natfwstunclient.dll"
+"\epoc32\RELEASE\armv5\urel\natfwunsafprotocols.dll"-"c:\Sys\Bin\natfwunsafprotocols.dll"
+"\epoc32\RELEASE\armv5\urel\socketmediaconnwrapper.dll"-"c:\Sys\Bin\socketmediaconnwrapper.dll"
+"\epoc32\RELEASE\armv5\urel\stunserver.dll"-"c:\Sys\Bin\stunserver.dll"
+
+"\epoc32\RELEASE\armv5\urel\icecandidatehandler.dll"-"c:\Sys\Bin\icecandidatehandler.dll"
+"\epoc32\data\Z\Resource\Plugins\icecandidatehandler.RSC"-"c:\resource\plugins\icecandidatehandler.RSC"
+
+"\epoc32\RELEASE\armv5\urel\stunplugin.dll"-"c:\Sys\Bin\stunplugin.dll"
+"\epoc32\data\Z\Resource\Plugins\stunplugin.RSC"-"c:\resource\plugins\stunplugin.RSC"
+
+"\epoc32\RELEASE\armv5\urel\turnplugin.dll"-"c:\Sys\Bin\turnplugin.dll"
+"\epoc32\data\Z\Resource\Plugins\turnplugin.RSC"-"c:\resource\plugins\turnplugin.RSC"
+
+;natfw cenrep
+"\epoc32\data\z\private\10202be9\102747d2.txt" - "c:\private\10202be9\102747d2.txt"
+"\epoc32\data\z\private\10282F04\backup_registration.xml" - "c:\private\10282F04\backup_registration.xml"
+
+
+;NAT plugins
+
+;first 3 plugins only for voip enabled
+"\epoc32\RELEASE\armv5\urel\wpnatfwtraversaladapter.dll"-"c:\Sys\Bin\wpnatfwtraversaladapter.dll"
+"\epoc32\data\Z\Resource\Plugins\wpnatfwtraversaladapter.RSC"-"c:\resource\plugins\wpnatfwtraversaladapter.RSC"
+
+"\epoc32\RELEASE\armv5\urel\nsmldmnatfwtraversaladapter.dll"-"c:\Sys\Bin\nsmldmnatfwtraversaladapter.dll"
+"\epoc32\data\Z\Resource\Plugins\nsmldmnatfwtraversaladapter.RSC"-"c:\resource\plugins\nsmldmnatfwtraversaladapter.RSC"
+
+"\epoc32\RELEASE\armv5\urel\natfwsdpprovider.dll"-"c:\Sys\Bin\natfwsdpprovider.dll"
+"\epoc32\data\Z\Resource\Plugins\natfwsdpprovider.RSC"-"c:\resource\plugins\natfwsdpprovider.RSC"
+
+"\epoc32\RELEASE\armv5\urel\NATTraversalController.dll"-"c:\Sys\Bin\NATTraversalController.dll"
+"\epoc32\data\Z\Resource\Plugins\NATTraversalController.RSC"-"c:\resource\plugins\NATTraversalController.RSC"

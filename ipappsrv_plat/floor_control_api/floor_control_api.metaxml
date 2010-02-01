@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<api id="ccda26d331945204d57c70a8e86e7a37" dataversion="2.0">
+  <name>Floor Control API</name>
+  <description>Provides services for controling access to shared resources in the multiparty environement (floor control).</description>
+  <type>c++</type>
+  <collection>multimediacommsengine</collection>
+  <libs>
+    <lib name="MceClient.lib" />
+  </libs>
+  <release category="public" sinceversion="0"/>
+  <attributes>
+     <!-- This indicates wether the api provedes separate html documentation -->
+     <!-- or is the additional documentation generated from headers. -->
+     <!-- If you are unsuere then the value is "no" -->
+     <htmldocprovided>no</htmldocprovided>
+     <adaptation>no</adaptation>
+  </attributes>
+</api>

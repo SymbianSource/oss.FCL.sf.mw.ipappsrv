@@ -1,0 +1,46 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    This file provides the information required for building the
+*                whole of a MCC
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+PRJ_EXPORTS
+../rom/multimediacommscontroller.iby CORE_MW_LAYER_IBY_EXPORT_PATH(multimediacommscontroller.iby)
+../rom/multimediacommscontroller_stub.SIS /epoc32/data/z/system/install/multimediacommscontroller_stub.sis
+
+PRJ_MMPFILES
+../mmccinterface/group/interface.mmp
+../mmccjitterbuffer/group/jitterbuffer.mmp
+../mmccqoscontroller/group/qoscontroller.mmp
+../mmccmultiplexer/group/multiplexer.mmp
+../mmccsubcontroller/group/subcontroller.mmp
+../mmcccontroller/group/controller.mmp
+../mmccredpayloadformat/group/redpayloadformat.mmp
+../mmccamrpayloadformat/group/amrpayloadformat.mmp
+../mmccg711payloadformat/group/g711payloadformat.mmp
+../mmccg729payloadformat/group/g729payloadformat.mmp
+../mmccilbcpayloadformat/group/ilbcpayloadformat.mmp
+../mmccdtmfpayloadformat/group/dtmfpayloadformat.mmp
+../mmccrtpsourcesink/group/rtpsourcesink.mmp
+../mmccvideosourcesink/group/videosourcesink.mmp
+../mmcch263payloadformat/group/h263payloadformat.mmp
+../mmccanypayloadformat/group/anypayloadformat.mmp
+../mmccfilesourcesink/group/filesourcesink.mmp
+../mmccanysourcesink/group/anysourcesink.mmp
+../mmccavcpayloadformat/group/avcpayloadformat.mmp

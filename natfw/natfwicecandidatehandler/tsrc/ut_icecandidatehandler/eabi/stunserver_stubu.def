@@ -1,0 +1,6 @@
+EXPORTS
+	_ZN26CNATFWSTUNSrvClientSession24AddAuthenticationParamsLERK13RPointerArrayI17CNATFWCredentialsE @ 1 NONAME
+	_ZN26CNATFWSTUNSrvClientSession27RemoveAuthenticationParamsLERK13RPointerArrayI17CNATFWCredentialsE @ 2 NONAME
+	_ZN26CNATFWSTUNSrvClientSession4NewLER21MNATFWStunSrvObserverR25MNcmConnectionMultiplexer @ 3 NONAME
+	_ZN26CNATFWSTUNSrvClientSession8SetRoleLE13TNATFWIceRoley @ 4 NONAME
+

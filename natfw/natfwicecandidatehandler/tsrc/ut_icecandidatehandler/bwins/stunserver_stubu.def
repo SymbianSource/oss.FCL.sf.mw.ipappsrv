@@ -1,0 +1,6 @@
+EXPORTS
+	?AddAuthenticationParamsL@CNATFWSTUNSrvClientSession@@QAEXABV?$RPointerArray@VCNATFWCredentials@@@@@Z @ 1 NONAME ; void CNATFWSTUNSrvClientSession::AddAuthenticationParamsL(class RPointerArray<class CNATFWCredentials> const &)
+	?NewL@CNATFWSTUNSrvClientSession@@SAPAV1@AAVMNATFWStunSrvObserver@@AAVMNcmConnectionMultiplexer@@@Z @ 2 NONAME ; class CNATFWSTUNSrvClientSession * CNATFWSTUNSrvClientSession::NewL(class MNATFWStunSrvObserver &, class MNcmConnectionMultiplexer &)
+	?RemoveAuthenticationParamsL@CNATFWSTUNSrvClientSession@@QAEXABV?$RPointerArray@VCNATFWCredentials@@@@@Z @ 3 NONAME ; void CNATFWSTUNSrvClientSession::RemoveAuthenticationParamsL(class RPointerArray<class CNATFWCredentials> const &)
+	?SetRoleL@CNATFWSTUNSrvClientSession@@QAEXW4TNATFWIceRole@@_K@Z @ 4 NONAME ; void CNATFWSTUNSrvClientSession::SetRoleL(enum TNATFWIceRole, unsigned long long)
+

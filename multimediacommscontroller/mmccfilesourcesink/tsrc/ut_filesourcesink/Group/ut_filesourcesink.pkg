@@ -1,0 +1,37 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:  
+;
+
+;Languages
+&EN
+
+;Header
+#{"EUnit: MCCFileSS"},(0x01700000),1,0,0
+
+(0x101F7961), 0, 0, 0, {"Series60ProductID"}
+
+;Localised Vendor name
+%{"Nokia"}
+
+;Unique vendor name
+:"Nokia"
+
+;DLL files
+"\epoc32\release\armv5\urel\UT_CMCCFileSourceSink.dll"-"c:\sys\bin\UT_CMCCFileSourceSink.dll"
+"\epoc32\winscw\c\dummytest.txt"-"c:\dummytest.txt"
+"\epoc32\winscw\c\CrazyFrog.3gp"-"c:\CrazyFrog.3gp"
+"\epoc32\winscw\c\test.3gp"-"c:\test.3gp"
+"\epoc32\winscw\c\test_avc.3gp"-"c:\test_avc.3gp"
+"\epoc32\winscw\c\test.mp4"-"c:\test.mp4"

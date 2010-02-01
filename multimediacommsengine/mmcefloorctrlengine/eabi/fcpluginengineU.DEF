@@ -1,0 +1,30 @@
+EXPORTS
+	_ZN15CFCPlugInEngine10SendToNetLERK10CFCSessionP6HBufC8 @ 1 NONAME
+	_ZN15CFCPlugInEngine11IsReceiverLERK10CFCSession @ 2 NONAME
+	_ZN15CFCPlugInEngine12UpdateOfferLERK10CFCSessionR12CSdpDocument @ 3 NONAME
+	_ZN15CFCPlugInEngine13PeekDocumentLERK10CFCSessionRK12CSdpDocument @ 4 NONAME
+	_ZN15CFCPlugInEngine13PlugInByNameLERK6TDesC8 @ 5 NONAME
+	_ZN15CFCPlugInEngine13UpdateAnswerLERK10CFCSessionR12CSdpDocument @ 6 NONAME
+	_ZN15CFCPlugInEngine13UpdateNeededLERK10CFCSession @ 7 NONAME
+	_ZN15CFCPlugInEngine14ReleaseSessionERK10CFCSession @ 8 NONAME
+	_ZN15CFCPlugInEngine14UpdateSessionLER10CFCSessionm @ 9 NONAME
+	_ZN15CFCPlugInEngine15SetSessionPortLER10CFCSessionm @ 10 NONAME
+	_ZN15CFCPlugInEngine16StartConnectionLERK10CFCSession @ 11 NONAME
+	_ZN15CFCPlugInEngine17CreateNewSessionLERK6TDesC8mm @ 12 NONAME
+	_ZN15CFCPlugInEngine18SupportedProtocolLEv @ 13 NONAME
+	_ZN15CFCPlugInEngine22FormatAttributeFieldsLERK10CFCSession @ 14 NONAME
+	_ZN15CFCPlugInEngine25SetFormatAttributeFieldsLERK10CFCSessionP13RPointerArrayI21CSdpFmtAttributeFieldE @ 15 NONAME
+	_ZN15CFCPlugInEngine4NewLER11MFCObserver @ 16 NONAME
+	_ZN15CFCPlugInEngine5NewLCER11MFCObserver @ 17 NONAME
+	_ZN15CFCPlugInEngineD0Ev @ 18 NONAME
+	_ZN15CFCPlugInEngineD1Ev @ 19 NONAME
+	_ZN15CFCPlugInEngineD2Ev @ 20 NONAME
+	_ZTI10CFCSession @ 21 NONAME ; #<TI>#
+	_ZTI13CFCPlugInInfo @ 22 NONAME ; #<TI>#
+	_ZTI15CFCPlugInEngine @ 23 NONAME ; #<TI>#
+	_ZTV10CFCSession @ 24 NONAME ; #<VT>#
+	_ZTV13CFCPlugInInfo @ 25 NONAME ; #<VT>#
+	_ZTV15CFCPlugInEngine @ 26 NONAME ; #<VT>#
+	_ZThn8_N15CFCPlugInEngineD0Ev @ 27 NONAME ; #<thunk>#
+	_ZThn8_N15CFCPlugInEngineD1Ev @ 28 NONAME ; #<thunk>#
+

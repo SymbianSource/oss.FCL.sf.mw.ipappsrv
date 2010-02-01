@@ -1,0 +1,4 @@
+EXPORTS
+	?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * CreateTestSuiteL(void)
+	?ImplementationGroupProxy@@YAPBUTImplementationProxy@@AAH@Z @ 2 NONAME ; struct TImplementationProxy const * ImplementationGroupProxy(int &)
+

@@ -1,0 +1,25 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Device Management NAT/FW Traversal Adapter iby file
+*
+*/
+
+#ifndef __DMNATFWTRAVERSALADAPTER_IBY__
+#define __DMNATFWTRAVERSALADAPTER_IBY__
+
+    #ifdef __VOIP
+        ECOM_PLUGIN(nsmldmnatfwtraversaladapter.dll, nsmldmnatfwtraversaladapter.rsc)
+    #endif
+
+#endif // __DMNATFWTRAVERSALADAPTER_IBY__

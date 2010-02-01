@@ -1,0 +1,161 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+#include <bldvariant.hrh>
+
+#if defined __S60_50__
+#include <platform_paths.hrh>
+#else 
+#include <domain/osextensions/platform_paths.hrh>
+#endif
+
+TARGET		MCETester.dll
+TARGETTYPE 	PLUGIN
+UID		    0x10009d8d 0x10203355
+
+MACRO		NO_CLIENT_INSTALLER
+
+SOURCEPATH	../src
+SOURCE		dllMain.cpp 
+SOURCE		CTcMCEFactory.cpp 
+SOURCE		TTcMCECommandBase.cpp
+SOURCE		CTcMCEContext.cpp
+SOURCE		CTcMCEProfileContainer.cpp
+SOURCE		CTcMCEReceiveQueue.cpp
+SOURCE		CTcMCEReceived.cpp
+SOURCE		CTcMCEMultimediaAPIObserver.cpp
+SOURCE		CTcMCEFloorControlObserver.cpp
+SOURCE		CTcMCEEventAPIObserver.cpp
+SOURCE		TTcProfileReceived.cpp
+// Commands
+SOURCE		TCmdAddAudioStream.cpp
+SOURCE		TCmdAddVideoStream.cpp
+SOURCE		TCmdAddSink.cpp
+SOURCE		TCmdCreateEvent.cpp
+SOURCE		TCmdCreateRefer.cpp
+SOURCE		TCmdCreateSession.cpp
+SOURCE		TCmdDeleteProperty.cpp
+SOURCE		TCmdEstablish.cpp
+SOURCE		TCmdFCGetMediaAttrLines.cpp
+SOURCE		TCmdFCSend.cpp
+SOURCE		TCmdFCUpdate.cpp
+SOURCE		TCmdGetAudioCodecInfo.cpp
+SOURCE		TCmdGetVideoCodecInfo.cpp
+SOURCE		TCmdGetCurrentState.cpp
+SOURCE		TCmdGetEventId.cpp
+SOURCE		TCmdGetEventState.cpp
+SOURCE		TCmdGetFCMessage.cpp
+SOURCE		TCmdGetMessage.cpp
+SOURCE		TCmdGetNotify.cpp
+SOURCE		TCmdGetProperty.cpp
+SOURCE		TCmdGetReceiverReport.cpp
+SOURCE		TCmdGetReferId.cpp
+SOURCE		TCmdGetReferState.cpp
+SOURCE		TCmdGetRtpEvent.cpp
+SOURCE		TCmdGetSenderReport.cpp
+SOURCE		TCmdGetSessionId.cpp
+SOURCE		TCmdGetState.cpp
+SOURCE		TCmdGetStreamInfo.cpp
+SOURCE		TCmdGetStreamState.cpp
+SOURCE		TCmdGetSupportedCodecs.cpp
+SOURCE		TCmdGetSinkStatus.cpp
+SOURCE		TCmdGetSourceStatus.cpp
+SOURCE		TCmdModifyAudioCodec.cpp
+SOURCE		TCmdModifyVideoCodec.cpp
+SOURCE		TCmdRemoveCodec.cpp
+SOURCE		TCmdRemoveStream.cpp
+SOURCE		TCmdSendAcceptEvent.cpp
+SOURCE		TCmdSendAcceptRefer.cpp
+SOURCE		TCmdSendAcceptSession.cpp
+SOURCE		TCmdSendCancel.cpp
+SOURCE		TCmdSendDeRegister.cpp
+SOURCE		TCmdSendNotify.cpp
+SOURCE		TCmdSendRefer.cpp
+SOURCE		TCmdSendRegister.cpp
+SOURCE		TCmdSendRejectEvent.cpp
+SOURCE		TCmdSendRejectRefer.cpp
+SOURCE		TCmdSendRejectSession.cpp
+SOURCE		TCmdSendRequest.cpp
+SOURCE		TCmdSendResponse.cpp
+SOURCE		TCmdSendRinging.cpp
+SOURCE		TCmdSendRespond.cpp
+SOURCE		TCmdSendRR.cpp
+SOURCE		TCmdSendSR.cpp
+SOURCE		TCmdSendSubscribe.cpp
+SOURCE		TCmdSendTerminate.cpp
+SOURCE		TCmdSendTerminateEvent.cpp
+SOURCE		TCmdSetObserver.cpp
+SOURCE		TCmdSetProperty.cpp
+SOURCE		TCmdSetSinkActivity.cpp
+SOURCE		TCmdSetSource.cpp
+SOURCE		TCmdSetSourceActivity.cpp
+SOURCE		TCmdSetStreamActivity.cpp
+SOURCE		TCmdSetStreamLocalPort.cpp
+SOURCE		TCmdTerminateProcess.cpp
+SOURCE		TCmdUpdateSDPLines.cpp
+SOURCE		TCmdUpdateSession.cpp
+SOURCE		TCmdUpdateRtpSink.cpp
+SOURCE		TCmdUpdateSubscription.cpp
+SOURCE		TCmdSendStreamDtmf.cpp
+SOURCE		TCmdGetControlPathSecurityLevel.cpp
+SOURCE		TCmdCreateSecureSession.cpp
+SOURCE 		TCmdGetProfileId.cpp
+SOURCE		CSessionHelper.cpp
+SOURCE		CDelayedProcess.cpp
+SOURCE		CTcMCEFileHandler.cpp
+SOURCE		TCmdFileHandler.cpp
+
+
+START RESOURCE 10203355.rss 
+TARGET MCETester.rsc                                          
+END
+
+USERINCLUDE  ../inc
+USERINCLUDE  ../ps_keys
+USERINCLUDE  ../../../testdriver/testclient/testercore/inc
+USERINCLUDE  ../../../testdriver/testclient/net/inc
+// tcuid.h
+USERINCLUDE  ../../../testdriver/testclient/group
+
+MW_LAYER_SYSTEMINCLUDE 
+
+LIBRARY		euser.lib 
+LIBRARY     efsrv.lib 
+LIBRARY     bafl.lib
+LIBRARY		testercore.lib 
+LIBRARY    	testclientnet.lib
+LIBRARY		sipclient.lib 
+LIBRARY		sipprofilecli.lib 
+LIBRARY     flogger.lib 
+LIBRARY		apparc.lib 
+LIBRARY     apgrfx.lib
+LIBRARY     inetprotutil.lib
+LIBRARY		charconv.lib
+LIBRARY		ecom.lib
+
+LIBRARY		MCECLIENT.LIB
+
+
+// Choose .def file based on build (WINSCW compatibility..)
+#if defined( WINSCW )
+deffile ../bwinscw/ 
+#endif
+
+CAPABILITY LocalServices ReadUserData WriteUserData UserEnvironment NetworkServices \
+	Location MultimediaDD ReadDeviceData WriteDeviceData PowerMgmt TrustedUI ProtServ \
+	NetworkControl SwEvent SurroundingsDD CommDD DiskAdmin AllFiles

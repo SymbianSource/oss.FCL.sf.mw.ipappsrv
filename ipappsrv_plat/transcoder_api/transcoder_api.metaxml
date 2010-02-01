@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<api id="f7e22bd294728d53394f2b88237aca21" dataversion="2.0">
+  <name>Transcoder API</name>
+  <description>Provides API that non-real time transcoding service provider
+ should implement in order to provide transcoding capability.</description>
+  <type>c++</type>
+  <collection>multimediacommscontroller</collection>
+  <libs>
+  </libs>
+  <release category="platform"/>
+  <attributes>
+     <!-- This indicates wether the api provedes separate html documentation -->
+     <!-- or is the additional documentation generated from headers. -->
+     <!-- If you are unsuere then the value is "no" -->
+     <htmldocprovided>no</htmldocprovided>
+     <adaptation>no</adaptation>
+  </attributes>
+</api>

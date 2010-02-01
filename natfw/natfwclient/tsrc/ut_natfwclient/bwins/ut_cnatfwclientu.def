@@ -1,0 +1,74 @@
+EXPORTS
+	?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * CreateTestSuiteL(void)
+	??8CNATFWCandidate@@QBEHABV0@@Z @ 2 NONAME ; int CNATFWCandidate::operator==(class CNATFWCandidate const &) const
+	??8CNATFWCandidatePair@@QBEHABV0@@Z @ 3 NONAME ; int CNATFWCandidatePair::operator==(class CNATFWCandidatePair const &) const
+	??8CNATFWCredentials@@QBEHABV0@@Z @ 4 NONAME ; int CNATFWCredentials::operator==(class CNATFWCredentials const &) const
+	??9CNATFWCandidate@@QBEHABV0@@Z @ 5 NONAME ; int CNATFWCandidate::operator!=(class CNATFWCandidate const &) const
+	??9CNATFWCandidatePair@@QBEHABV0@@Z @ 6 NONAME ; int CNATFWCandidatePair::operator!=(class CNATFWCandidatePair const &) const
+	??9CNATFWCredentials@@QBEHABV0@@Z @ 7 NONAME ; int CNATFWCredentials::operator!=(class CNATFWCredentials const &) const
+	?Base@CNATFWCandidate@@QBEABVTInetAddr@@XZ @ 8 NONAME ; class TInetAddr const & CNATFWCandidate::Base(void) const
+	?Compare@CNATFWCandidatePair@@SAHABV1@0@Z @ 9 NONAME ; int CNATFWCandidatePair::Compare(class CNATFWCandidatePair const &, class CNATFWCandidatePair const &)
+	?Compare@CNATFWCredentials@@SAHABV1@0@Z @ 10 NONAME ; int CNATFWCredentials::Compare(class CNATFWCredentials const &, class CNATFWCredentials const &)
+	?CompareFoundations@CNATFWCandidate@@SAHABV1@0@Z @ 11 NONAME ; int CNATFWCandidate::CompareFoundations(class CNATFWCandidate const &, class CNATFWCandidate const &)
+	?ComponentId@CNATFWCandidate@@QBEIXZ @ 12 NONAME ; unsigned int CNATFWCandidate::ComponentId(void) const
+	?CopyL@CNATFWCandidate@@QAEXABV1@@Z @ 13 NONAME ; void CNATFWCandidate::CopyL(class CNATFWCandidate const &)
+	?CopyL@CNATFWCandidatePair@@QAEXABV1@@Z @ 14 NONAME ; void CNATFWCandidatePair::CopyL(class CNATFWCandidatePair const &)
+	?CopyL@CNATFWCredentials@@QAEXABV1@@Z @ 15 NONAME ; void CNATFWCredentials::CopyL(class CNATFWCredentials const &)
+	?Direction@CNATFWCredentials@@QBE?AW4TUtilizationDirection@1@XZ @ 16 NONAME ; enum CNATFWCredentials::TUtilizationDirection CNATFWCredentials::Direction(void) const
+	?Foundation@CNATFWCandidate@@QBEABVTDesC8@@XZ @ 17 NONAME ; class TDesC8 const & CNATFWCandidate::Foundation(void) const
+	?Foundation@CNATFWCandidatePair@@QBEABVTDesC8@@XZ @ 18 NONAME ; class TDesC8 const & CNATFWCandidatePair::Foundation(void) const
+	?LocalCandidate@CNATFWCandidatePair@@QBEABVCNATFWCandidate@@XZ @ 19 NONAME ; class CNATFWCandidate const & CNATFWCandidatePair::LocalCandidate(void) const
+	?MatchAddresses@CNATFWCandidatePair@@SAHABV1@0@Z @ 20 NONAME ; int CNATFWCandidatePair::MatchAddresses(class CNATFWCandidatePair const &, class CNATFWCandidatePair const &)
+	?NewL@CNATFWCandidate@@SAPAV1@ABV1@@Z @ 21 NONAME ; class CNATFWCandidate * CNATFWCandidate::NewL(class CNATFWCandidate const &)
+	?NewL@CNATFWCandidate@@SAPAV1@XZ @ 22 NONAME ; class CNATFWCandidate * CNATFWCandidate::NewL(void)
+	?NewL@CNATFWCandidatePair@@SAPAV1@ABV1@@Z @ 23 NONAME ; class CNATFWCandidatePair * CNATFWCandidatePair::NewL(class CNATFWCandidatePair const &)
+	?NewL@CNATFWCandidatePair@@SAPAV1@ABVCNATFWCandidate@@0@Z @ 24 NONAME ; class CNATFWCandidatePair * CNATFWCandidatePair::NewL(class CNATFWCandidate const &, class CNATFWCandidate const &)
+	?NewL@CNATFWCandidatePair@@SAPAV1@XZ @ 25 NONAME ; class CNATFWCandidatePair * CNATFWCandidatePair::NewL(void)
+	?NewL@CNATFWCredentials@@SAPAV1@ABV1@@Z @ 26 NONAME ; class CNATFWCredentials * CNATFWCredentials::NewL(class CNATFWCredentials const &)
+	?NewL@CNATFWCredentials@@SAPAV1@XZ @ 27 NONAME ; class CNATFWCredentials * CNATFWCredentials::NewL(void)
+	?NewLC@CNATFWCandidate@@SAPAV1@ABV1@@Z @ 28 NONAME ; class CNATFWCandidate * CNATFWCandidate::NewLC(class CNATFWCandidate const &)
+	?NewLC@CNATFWCandidate@@SAPAV1@XZ @ 29 NONAME ; class CNATFWCandidate * CNATFWCandidate::NewLC(void)
+	?NewLC@CNATFWCandidatePair@@SAPAV1@ABV1@@Z @ 30 NONAME ; class CNATFWCandidatePair * CNATFWCandidatePair::NewLC(class CNATFWCandidatePair const &)
+	?NewLC@CNATFWCandidatePair@@SAPAV1@ABVCNATFWCandidate@@0@Z @ 31 NONAME ; class CNATFWCandidatePair * CNATFWCandidatePair::NewLC(class CNATFWCandidate const &, class CNATFWCandidate const &)
+	?NewLC@CNATFWCandidatePair@@SAPAV1@XZ @ 32 NONAME ; class CNATFWCandidatePair * CNATFWCandidatePair::NewLC(void)
+	?NewLC@CNATFWCredentials@@SAPAV1@ABV1@@Z @ 33 NONAME ; class CNATFWCredentials * CNATFWCredentials::NewLC(class CNATFWCredentials const &)
+	?NewLC@CNATFWCredentials@@SAPAV1@XZ @ 34 NONAME ; class CNATFWCredentials * CNATFWCredentials::NewLC(void)
+	?Password@CNATFWCredentials@@QBEABVTDesC8@@XZ @ 35 NONAME ; class TDesC8 const & CNATFWCredentials::Password(void) const
+	?Priority@CNATFWCandidate@@QBEIXZ @ 36 NONAME ; unsigned int CNATFWCandidate::Priority(void) const
+	?Priority@CNATFWCandidatePair@@QBE_KXZ @ 37 NONAME ; unsigned long long CNATFWCandidatePair::Priority(void) const
+	?PriorityOrder@CNATFWCandidate@@SAHABV1@0@Z @ 38 NONAME ; int CNATFWCandidate::PriorityOrder(class CNATFWCandidate const &, class CNATFWCandidate const &)
+	?PriorityOrder@CNATFWCandidatePair@@SAHABV1@0@Z @ 39 NONAME ; int CNATFWCandidatePair::PriorityOrder(class CNATFWCandidatePair const &, class CNATFWCandidatePair const &)
+	?RemoteCandidate@CNATFWCandidatePair@@QBEABVCNATFWCandidate@@XZ @ 40 NONAME ; class CNATFWCandidate const & CNATFWCandidatePair::RemoteCandidate(void) const
+	?Selected@CNATFWCandidatePair@@QBEHXZ @ 41 NONAME ; int CNATFWCandidatePair::Selected(void) const
+	?SessionId@CNATFWCandidate@@QBEIXZ @ 42 NONAME ; unsigned int CNATFWCandidate::SessionId(void) const
+	?SetBase@CNATFWCandidate@@QAEXABVTInetAddr@@@Z @ 43 NONAME ; void CNATFWCandidate::SetBase(class TInetAddr const &)
+	?SetComponentId@CNATFWCandidate@@QAEXI@Z @ 44 NONAME ; void CNATFWCandidate::SetComponentId(unsigned int)
+	?SetDirection@CNATFWCredentials@@QAEXW4TUtilizationDirection@1@@Z @ 45 NONAME ; void CNATFWCredentials::SetDirection(enum CNATFWCredentials::TUtilizationDirection)
+	?SetFoundationL@CNATFWCandidate@@QAEXABVTDesC8@@@Z @ 46 NONAME ; void CNATFWCandidate::SetFoundationL(class TDesC8 const &)
+	?SetLocalCandidateL@CNATFWCandidatePair@@QAEXABVCNATFWCandidate@@@Z @ 47 NONAME ; void CNATFWCandidatePair::SetLocalCandidateL(class CNATFWCandidate const &)
+	?SetPasswordL@CNATFWCredentials@@QAEXABVTDesC8@@@Z @ 48 NONAME ; void CNATFWCredentials::SetPasswordL(class TDesC8 const &)
+	?SetPriority@CNATFWCandidate@@QAEXI@Z @ 49 NONAME ; void CNATFWCandidate::SetPriority(unsigned int)
+	?SetPriority@CNATFWCandidatePair@@QAEX_K@Z @ 50 NONAME ; void CNATFWCandidatePair::SetPriority(unsigned long long)
+	?SetRemoteCandidateL@CNATFWCandidatePair@@QAEXABVCNATFWCandidate@@@Z @ 51 NONAME ; void CNATFWCandidatePair::SetRemoteCandidateL(class CNATFWCandidate const &)
+	?SetSelected@CNATFWCandidatePair@@QAEXH@Z @ 52 NONAME ; void CNATFWCandidatePair::SetSelected(int)
+	?SetSessionId@CNATFWCandidate@@QAEXI@Z @ 53 NONAME ; void CNATFWCandidate::SetSessionId(unsigned int)
+	?SetStreamCollectionId@CNATFWCandidate@@QAEXI@Z @ 54 NONAME ; void CNATFWCandidate::SetStreamCollectionId(unsigned int)
+	?SetStreamCollectionId@CNATFWCredentials@@QAEXI@Z @ 55 NONAME ; void CNATFWCredentials::SetStreamCollectionId(unsigned int)
+	?SetStreamId@CNATFWCandidate@@QAEXI@Z @ 56 NONAME ; void CNATFWCandidate::SetStreamId(unsigned int)
+	?SetStreamId@CNATFWCredentials@@QAEXI@Z @ 57 NONAME ; void CNATFWCredentials::SetStreamId(unsigned int)
+	?SetTransportAddrL@CNATFWCandidate@@QAEXABVTInetAddr@@@Z @ 58 NONAME ; void CNATFWCandidate::SetTransportAddrL(class TInetAddr const &)
+	?SetTransportDomainAddrL@CNATFWCandidate@@QAEXABVTDesC8@@I@Z @ 59 NONAME ; void CNATFWCandidate::SetTransportDomainAddrL(class TDesC8 const &, unsigned int)
+	?SetTransportProtocol@CNATFWCandidate@@QAEXI@Z @ 60 NONAME ; void CNATFWCandidate::SetTransportProtocol(unsigned int)
+	?SetType@CNATFWCandidate@@QAEXW4TCandidateType@1@@Z @ 61 NONAME ; void CNATFWCandidate::SetType(enum CNATFWCandidate::TCandidateType)
+	?SetUsernameL@CNATFWCredentials@@QAEXABVTDesC8@@@Z @ 62 NONAME ; void CNATFWCredentials::SetUsernameL(class TDesC8 const &)
+	?StreamCollectionId@CNATFWCandidate@@QBEIXZ @ 63 NONAME ; unsigned int CNATFWCandidate::StreamCollectionId(void) const
+	?StreamCollectionId@CNATFWCredentials@@QBEIXZ @ 64 NONAME ; unsigned int CNATFWCredentials::StreamCollectionId(void) const
+	?StreamId@CNATFWCandidate@@QBEIXZ @ 65 NONAME ; unsigned int CNATFWCandidate::StreamId(void) const
+	?StreamId@CNATFWCredentials@@QBEIXZ @ 66 NONAME ; unsigned int CNATFWCredentials::StreamId(void) const
+	?TransportAddr@CNATFWCandidate@@QBEABVTInetAddr@@XZ @ 67 NONAME ; class TInetAddr const & CNATFWCandidate::TransportAddr(void) const
+	?TransportDomainAddr@CNATFWCandidate@@QBEABVTDesC8@@XZ @ 68 NONAME ; class TDesC8 const & CNATFWCandidate::TransportDomainAddr(void) const
+	?TransportDomainPort@CNATFWCandidate@@QBEIXZ @ 69 NONAME ; unsigned int CNATFWCandidate::TransportDomainPort(void) const
+	?TransportProtocol@CNATFWCandidate@@QBEIXZ @ 70 NONAME ; unsigned int CNATFWCandidate::TransportProtocol(void) const
+	?Type@CNATFWCandidate@@QBE?AW4TCandidateType@1@XZ @ 71 NONAME ; enum CNATFWCandidate::TCandidateType CNATFWCandidate::Type(void) const
+	?Username@CNATFWCredentials@@QBEABVTDesC8@@XZ @ 72 NONAME ; class TDesC8 const & CNATFWCredentials::Username(void) const
+

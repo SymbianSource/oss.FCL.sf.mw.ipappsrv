@@ -1,0 +1,123 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO           EUNIT_ALLOC_TEST_ON
+MACRO           TEST_EUNIT
+
+EPOCALLOWDLLDATA
+
+TARGET          UT_CMCCVideoSourceSink.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  MccVideoSink.cpp
+SOURCE                  MccVideoSinkImpl.cpp
+SOURCE                  MccVideoSinkUser.cpp
+SOURCE                  MccVideoJitterBuffer.cpp
+SOURCE                  MccVideoSourceImpl.cpp 
+SOURCE                  MccVideoSource.cpp 
+SOURCE                  MccVideoSourceWrapper.cpp
+SOURCE					        MccVideoSourceSinkFactory.cpp
+SOURCE                  MccRedrawHandler.cpp
+SOURCE									mccvideosourcekeyretriever.cpp
+
+SOURCEPATH              ../src
+SOURCE                  UT_CMCCVideoSourceSinkDllMain.cpp
+SOURCE                  UT_CMCCVideoSink.cpp
+SOURCE                  UT_CMCCVideoSourceImpl.cpp 
+SOURCE                  UT_CMCCVideoSource.cpp 
+SOURCE                  UT_CMCCVideoSinkImpl.cpp
+SOURCE                  UT_CMCCVideoSinkUser.cpp
+SOURCE                  UT_CMCCVideoJitterBuffer.cpp
+SOURCE									UT_CMCCVideoSourceKeyRetriever.cpp
+
+SOURCEPATH              ../stubs/src
+SOURCE                  mcccamerahandler_STUB.cpp
+SOURCE                  CCMRMediaRecorder_STUB.cpp
+SOURCE                  CVideoPlayerUtility_STUB.cpp
+SOURCE                  CVideoPlayerUtility2_STUB.cpp
+SOURCE                  CXPSPacketSink_STUB.cpp
+SOURCE                  e32std_STUB.cpp
+
+SOURCEPATH              ../../../../mmccsubcontroller/src
+SOURCE                  mccdatapathbase.cpp
+SOURCE                  mcccompletecallback.cpp
+
+SOURCEPATH              ../../../../mmccfilesourcesink/src
+SOURCE                  mccperiodicrunner.cpp
+
+SOURCEPATH              ../../../../mmccshared/src
+SOURCE                  mcctimermanager.cpp
+
+SOURCEPATH              ../../../../tsrc/stubs/src
+SOURCE                  Mcculdatapath_STUB.cpp
+SOURCE                  Mccdldatapath_STUB.cpp
+SOURCE					        mccresourcepool_STUB.cpp
+SOURCE					        mccmultiplexer_STUB.cpp
+SOURCE                  mcctesteventhandler.cpp
+SOURCE					ws_stubs.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE				      ../../../../mmccinterface/inc
+USERINCLUDE             ../../../../mmccsubcontroller/inc 
+USERINCLUDE             ../../../../mmcccontroller/inc 
+USERINCLUDE             ../../../../mmccqoscontroller/inc 
+USERINCLUDE             ../../../../mmccamrpayloadformat/inc 
+USERINCLUDE             ../../../../mmccfilesourcesink/inc 
+USERINCLUDE             ../../../../mmccmultiplexer/inc 
+USERINCLUDE             ../../../../mmccrtpsourcesink/inc 
+USERINCLUDE           ../stubs/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 3gpmp4lib.lib
+LIBRARY                 ecom.lib
+LIBRARY                 efsrv.lib
+LIBRARY                 EUnit.lib
+LIBRARY                 EUnitUtil.lib
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 MediaClientVideo.lib
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfserverbaseclasses.lib
+LIBRARY                 ws32.lib
+LIBRARY                 charconv.lib
+LIBRARY                 mmccinterface.lib
+LIBRARY                 imut.lib
+LIBRARY					        inetprotutil.lib
+LIBRARY					        gdi.lib
+LIBRARY                 fbscli.lib
+LIBRARY                 bitgdi.lib
+
+
+// End of file

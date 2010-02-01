@@ -1,0 +1,161 @@
+/*
+* Copyright (c) 2006-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:   
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          natfwunsafprotocols.dll
+TARGETTYPE      dll
+UID             0x1000008d 0x10275433
+
+// ----- natfwunsaf codec -----
+SOURCEPATH      ../unsaf_codec/src
+SOURCE        natfwunsafmessagefactory.cpp
+SOURCE        natfwunsafmessage.cpp
+SOURCE        natfwunsafbindingrequest.cpp
+SOURCE        natfwunsafbindingindication.cpp
+SOURCE        natfwunsafbindingresponse.cpp
+SOURCE        natfwunsafbindingerrorresponse.cpp
+SOURCE        natfwunsafsharedsecretrequest.cpp
+SOURCE        natfwunsafsharedsecretresponse.cpp
+SOURCE        natfwunsafsharedsecreterrorresponse.cpp
+SOURCE        natfwunsafattribute.cpp
+SOURCE        natfwunsafaddressattribute.cpp
+SOURCE        natfwunsafmappedaddressattribute.cpp
+SOURCE        natfwunsafresponseaddressattribute.cpp
+SOURCE        natfwunsafchangedaddressattribute.cpp
+SOURCE        natfwunsafsourceaddressattribute.cpp
+SOURCE        natfwunsafreflectedfromattribute.cpp
+SOURCE        natfwunsafmessageintegrityattribute.cpp
+SOURCE        natfwunsaftextattribute.cpp
+SOURCE        natfwunsafusernameattribute.cpp
+SOURCE        natfwunsafpasswordattribute.cpp
+SOURCE        natfwunsafchangerequestattribute.cpp
+SOURCE        natfwunsaferrorcodeattribute.cpp
+SOURCE        natfwunsafunknownattributesattribute.cpp
+SOURCE        natfwunsafxoronlyattribute.cpp
+SOURCE        natfwunsafserverattribute.cpp
+SOURCE        natfwunsafxormappedaddressattribute.cpp
+SOURCE        natfwunsaffingerprintattribute.cpp
+// ----- TURN specific -----
+SOURCE        natfwunsaftcprelaypacketfactory.cpp
+SOURCE        natfwunsaftcprelaypacket.cpp
+SOURCE        natfwunsafallocaterequest.cpp
+SOURCE        natfwunsafallocateresponse.cpp
+SOURCE        natfwunsafallocateerrorresponse.cpp
+SOURCE        natfwunsafsendindication.cpp
+SOURCE        natfwunsafsetactivedestinationrequest.cpp
+SOURCE        natfwunsafsetactivedestinationresponse.cpp
+SOURCE        natfwunsafsetactivedestinationerrorresponse.cpp
+SOURCE        natfwunsafdataindication.cpp
+SOURCE        natfwunsafconnectrequest.cpp
+SOURCE        natfwunsafconnectresponse.cpp
+SOURCE        natfwunsafconnecterrorresponse.cpp
+SOURCE        natfwunsafconnectstatusindication.cpp
+SOURCE        natfwunsafrelayaddressattribute.cpp
+SOURCE        natfwunsafalternateserverattribute.cpp
+SOURCE        natfwunsafdestinationaddressattribute.cpp
+SOURCE        natfwunsafremoteaddressattribute.cpp
+SOURCE        natfwunsaflifetimeattribute.cpp
+SOURCE        natfwunsafbandwidthattribute.cpp
+SOURCE        natfwunsafdataattribute.cpp
+SOURCE        natfwunsafmagiccookieattribute.cpp
+SOURCE        natfwunsafnonceattribute.cpp
+SOURCE        natfwunsafrealmattribute.cpp
+SOURCE        natfwunsafrequestedportpropsattribute.cpp
+SOURCE        natfwunsafrequestedtransportattribute.cpp
+SOURCE        natfwunsafrequestedipattribute.cpp
+SOURCE        natfwunsaftimervalattribute.cpp
+SOURCE        natfwunsafconnectstatattribute.cpp
+// ----- ICE specific -----
+SOURCE        natfwunsafpriorityattribute.cpp
+SOURCE        natfwunsafusecandidateattribute.cpp
+SOURCE        natfwunsaficecontrolledattribute.cpp
+SOURCE        natfwunsaficecontrollingattribute.cpp
+
+// ----- General ------
+SOURCE        natfwunsafutils.cpp
+SOURCE        natfwunsafattributelookuptable.cpp
+SOURCE        natfwunsafattributelookuptableitem.cpp
+SOURCE        natfwunsafmessagelookuptable.cpp
+SOURCE        natfwunsafmessagelookuptableitem.cpp
+
+
+// ----- natfwunsaf transport -----
+SOURCEPATH      ../unsaf_transport/src
+SOURCE        cnatfwunsafudpsender.cpp
+SOURCE        cnatfwunsaftlssender.cpp
+SOURCE        cnatfwunsafencodeditem.cpp
+SOURCE        cnatfwunsaftlsreceiver.cpp
+SOURCE        cnatfwunsaftlstransport.cpp
+SOURCE        tnatfwunsaftlstransportstatebase.cpp
+SOURCE        tnatfwunsaftlstransportstateinit.cpp
+SOURCE        tnatfwunsaftlstransportstatetcpconnecting.cpp
+SOURCE        tnatfwunsaftlstransportstatetlsconnecting.cpp
+SOURCE        tnatfwunsaftlstransportstatetlsconnected.cpp
+SOURCE        cnatfwunsafmediaconnsender.cpp
+SOURCE        cnatfwunsaftcprelaypacketsender.cpp
+SOURCE        cnatfwunsafmsgassembler.cpp
+SOURCE        tnatfwunsafmsgstatebase.cpp
+SOURCE        tnatfwunsafmsgstateinit.cpp
+SOURCE        tnatfwunsafmsgstateheaderstart.cpp
+SOURCE        tnatfwunsafmsgstateheaderend.cpp
+SOURCE        tnatfwunsafmsgstatecomplete.cpp
+
+SOURCE        cnatfwunsafserverresolver.cpp
+SOURCE        cnatfwunsafrequestqueue.cpp
+SOURCE        cnatfwunsafhostresolver.cpp
+SOURCE        cnatfwunsafserverquery.cpp
+SOURCE        cnatfwunsafqueryconditionbase.cpp
+SOURCE        cnatfwunsafa_aaaaorigdomain.cpp
+SOURCE        cnatfwunsafsrvorigdomain.cpp
+SOURCE        cnatfwunsafa_aaaasrvdomain.cpp
+SOURCE        cnatfwunsafquerydata.cpp
+SOURCE        cnatfwunsafquerybase.cpp
+SOURCE        cnatfwunsafquerya_aaaa.cpp
+SOURCE        cnatfwunsafquerysrv.cpp
+
+SOURCE        cnatfwunsaficmpreceiver.cpp
+SOURCE        cnatfwunsaficmpv4receiver.cpp
+SOURCE        cnatfwunsaficmpv6receiver.cpp
+
+USERINCLUDE   ../../../inc
+USERINCLUDE   ../natfwunsafshared/inc
+USERINCLUDE   ../unsaf_codec/inc
+USERINCLUDE   ../unsaf_transport/inc
+USERINCLUDE   ../../natfwshared/inc
+USERINCLUDE   ../../natfwconnectionmultiplexer/inc
+USERINCLUDE   ../../natfwclient/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY       euser.lib
+LIBRARY       insock.lib
+LIBRARY       esock.lib
+LIBRARY       charconv.lib
+LIBRARY       hash.lib
+LIBRARY       inetprotutil.lib
+LIBRARY       securesocket.lib
+LIBRARY       connectionmux.lib
+DEBUGLIBRARY  flogger.lib
+
+VENDORID VID_DEFAULT
+
+CAPABILITY All -Tcb
+
+PAGED

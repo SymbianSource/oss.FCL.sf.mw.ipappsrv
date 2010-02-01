@@ -1,0 +1,67 @@
+/*
+* Copyright (c) 2002-2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:   
+*
+*/
+
+
+
+
+//  INCLUDES
+#include <ecom/registryinfo.rh>
+#include <mmf/plugin/mmfplugininterfaceuids.hrh>
+#include "mccuids.hrh"
+
+//  RESOURCE DEFINITIONS 
+
+RESOURCE REGISTRY_INFO theInfo
+	{
+	dll_uid = KDllUidAmrPayloadFormat; 
+	interfaces = 
+		{
+		INTERFACE_INFO
+			{
+			interface_uid = KMmfUidPluginInterfaceFormatDecode;   
+			implementations = 
+				{
+				IMPLEMENTATION_INFO
+					{
+					implementation_uid = KImplUidAmrPayloadFormatDecode;
+					version_no = KIpappsrvEcomVersionNumber;
+					display_name = "AMR/RTP Payload Format Decode";
+					default_data = ""; 
+					opaque_data = "";
+					}
+				};
+			},
+		INTERFACE_INFO
+			{
+			interface_uid = KMmfUidPluginInterfaceFormatEncode;   
+			implementations = 
+				{
+				IMPLEMENTATION_INFO
+					{
+					implementation_uid = KImplUidAmrPayloadFormatEncode;
+					version_no = KIpappsrvEcomVersionNumber;
+					display_name = "AMR/RTP Payload Format Encode";
+					default_data = ""; 
+					opaque_data = "";
+					}
+				};
+			}
+		};
+	}
+
+// End of File
+

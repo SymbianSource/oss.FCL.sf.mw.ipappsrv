@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<api id="8f491b575e8c51735c7c1d3c9e35a6eb" dataversion="2.0">
+<name>NAT Settings API</name>
+<description>NAT Settings API provides access to needed settings for the NATFW.</description>
+<type>c++</type>
+<collection>natfw</collection>
+<libs><lib name="natfwnatsettings.lib"/>
+</libs>
+<release category="platform" sinceversion=""/>
+<attributes>
+<htmldocprovided>no</htmldocprovided>
+<adaptation>no</adaptation>
+</attributes>
+</api>

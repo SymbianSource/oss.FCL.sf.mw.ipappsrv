@@ -1,0 +1,198 @@
+EXPORTS
+	?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * CreateTestSuiteL(void)
+	??1CNATFWUNSAFMessageFactory@@UAE@XZ @ 2 NONAME ; CNATFWUNSAFMessageFactory::~CNATFWUNSAFMessageFactory(void)
+	??1CNATFWUNSAFServerResolver@@UAE@XZ @ 3 NONAME ; CNATFWUNSAFServerResolver::~CNATFWUNSAFServerResolver(void)
+	??1CNATFWUNSAFTcpRelayPacketFactory@@UAE@XZ @ 4 NONAME ; CNATFWUNSAFTcpRelayPacketFactory::~CNATFWUNSAFTcpRelayPacketFactory(void)
+	??1CNATFWUNSAFTlsTransport@@UAE@XZ @ 5 NONAME ; CNATFWUNSAFTlsTransport::~CNATFWUNSAFTlsTransport(void)
+	??1CNATFWUNSAFUdpSender@@UAE@XZ @ 6 NONAME ; CNATFWUNSAFUdpSender::~CNATFWUNSAFUdpSender(void)
+	??1CNATFWUNSAFUnknownAttributesAttribute@@UAE@XZ @ 7 NONAME ; CNATFWUNSAFUnknownAttributesAttribute::~CNATFWUNSAFUnknownAttributesAttribute(void)
+	??8CNATFWCredentials@@QBEHABV0@@Z @ 8 NONAME ; int CNATFWCredentials::operator==(class CNATFWCredentials const &) const
+	??9CNATFWCredentials@@QBEHABV0@@Z @ 9 NONAME ; int CNATFWCredentials::operator!=(class CNATFWCredentials const &) const
+	?AddAttributeL@CNATFWUNSAFMessage@@QAEXPAVCNATFWUNSAFAttribute@@@Z @ 10 NONAME ; void CNATFWUNSAFMessage::AddAttributeL(class CNATFWUNSAFAttribute *)
+	?Address@CNATFWUNSAFAddressAttribute@@QAEAAVTInetAddr@@XZ @ 11 NONAME ; class TInetAddr & CNATFWUNSAFAddressAttribute::Address(void)
+	?Address@CNATFWUNSAFAddressAttribute@@QBEABVTInetAddr@@XZ @ 12 NONAME ; class TInetAddr const & CNATFWUNSAFAddressAttribute::Address(void) const
+	?Attribute@CNATFWUNSAFMessage@@QBEPAVCNATFWUNSAFAttribute@@W4TType@2@@Z @ 13 NONAME ; class CNATFWUNSAFAttribute * CNATFWUNSAFMessage::Attribute(enum CNATFWUNSAFAttribute::TType) const
+	?Bandwidth@CNATFWUNSAFBandwidthAttribute@@QBEHXZ @ 14 NONAME ; int CNATFWUNSAFBandwidthAttribute::Bandwidth(void) const
+	?CancelMessageSendL@CNcmConnectionMultiplexer@@AAEXIIPBVMNcmSenderObserver@@@Z @ 15 NONAME ; void CNcmConnectionMultiplexer::CancelMessageSendL(unsigned int, unsigned int, class MNcmSenderObserver const *)
+	?CancelResolving@CNATFWUNSAFServerResolver@@QAEXXZ @ 16 NONAME ; void CNATFWUNSAFServerResolver::CancelResolving(void)
+	?CheckFingerprintL@CNATFWUNSAFFingerprintAttribute@@QBEHABVTDesC8@@@Z @ 17 NONAME ; int CNATFWUNSAFFingerprintAttribute::CheckFingerprintL(class TDesC8 const &) const
+	?CheckMessageIntegrityL@CNATFWUNSAFMessageIntegrityAttribute@@QBEHABVTDesC8@@0@Z @ 18 NONAME ; int CNATFWUNSAFMessageIntegrityAttribute::CheckMessageIntegrityL(class TDesC8 const &, class TDesC8 const &) const
+	?CloseTcpConnection@CNcmConnectionMultiplexer@@UAEXII@Z @ 19 NONAME ; void CNcmConnectionMultiplexer::CloseTcpConnection(unsigned int, unsigned int)
+	?Compare@CNATFWCredentials@@SAHABV1@0@Z @ 20 NONAME ; int CNATFWCredentials::Compare(class CNATFWCredentials const &, class CNATFWCredentials const &)
+	?ConnectionStatus@CNATFWUNSAFConnectStatAttribute@@QBE?AW4TStatus@1@XZ @ 21 NONAME ; enum CNATFWUNSAFConnectStatAttribute::TStatus CNATFWUNSAFConnectStatAttribute::ConnectionStatus(void) const
+	?ContainedAttributes@CNATFWUNSAFUnknownAttributesAttribute@@QBEABV?$RArray@K@@XZ @ 22 NONAME ; class RArray<unsigned long> const & CNATFWUNSAFUnknownAttributesAttribute::ContainedAttributes(void) const
+	?ContinueListeningL@CNATFWUNSAFTlsTransport@@QBEXXZ @ 23 NONAME ; void CNATFWUNSAFTlsTransport::ContinueListeningL(void) const
+	?CopyL@CNATFWCredentials@@QAEXABV1@@Z @ 24 NONAME ; void CNATFWCredentials::CopyL(class CNATFWCredentials const &)
+	?CreateConnectionL@CNcmConnectionMultiplexer@@UAEIIABVTInetAddr@@@Z @ 25 NONAME ; unsigned int CNcmConnectionMultiplexer::CreateConnectionL(unsigned int, class TInetAddr const &)
+	?CreateConnectionL@CNcmConnectionMultiplexer@@UAEIII@Z @ 26 NONAME ; unsigned int CNcmConnectionMultiplexer::CreateConnectionL(unsigned int, unsigned int)
+	?CreateSessionL@CNcmConnectionMultiplexer@@QAEIKII@Z @ 27 NONAME ; unsigned int CNcmConnectionMultiplexer::CreateSessionL(unsigned long, unsigned int, unsigned int)
+	?CreateStreamL@CNcmConnectionMultiplexer@@QAEIIHI@Z @ 28 NONAME ; unsigned int CNcmConnectionMultiplexer::CreateStreamL(unsigned int, int, unsigned int)
+	?Data@CNATFWUNSAFTcpRelayPacket@@QBEABVTDesC8@@XZ @ 29 NONAME ; class TDesC8 const & CNATFWUNSAFTcpRelayPacket::Data(void) const
+	?DecodeL@CNATFWUNSAFMessageFactory@@QBEPAVCNATFWUNSAFMessage@@ABVTDesC8@@@Z @ 30 NONAME ; class CNATFWUNSAFMessage * CNATFWUNSAFMessageFactory::DecodeL(class TDesC8 const &) const
+	?DecodeL@CNATFWUNSAFTcpRelayPacketFactory@@QBEPAVCNATFWUNSAFTcpRelayPacket@@ABVTDesC8@@@Z @ 31 NONAME ; class CNATFWUNSAFTcpRelayPacket * CNATFWUNSAFTcpRelayPacketFactory::DecodeL(class TDesC8 const &) const
+	?DeleteAttribute@CNATFWUNSAFMessage@@QAEXG@Z @ 32 NONAME ; void CNATFWUNSAFMessage::DeleteAttribute(unsigned short)
+	?DetachAttribute@CNATFWUNSAFMessage@@QAEXPBVCNATFWUNSAFAttribute@@@Z @ 33 NONAME ; void CNATFWUNSAFMessage::DetachAttribute(class CNATFWUNSAFAttribute const *)
+	?Direction@CNATFWCredentials@@QBE?AW4TUtilizationDirection@1@XZ @ 34 NONAME ; enum CNATFWCredentials::TUtilizationDirection CNATFWCredentials::Direction(void) const
+	?EncodeL@CNATFWUNSAFMessage@@QBEPAVCBufBase@@ABVTDesC8@@H@Z @ 35 NONAME ; class CBufBase * CNATFWUNSAFMessage::EncodeL(class TDesC8 const &, int) const
+	?EncodeL@CNATFWUNSAFMessage@@QBEPAVCBufBase@@XZ @ 36 NONAME ; class CBufBase * CNATFWUNSAFMessage::EncodeL(void) const
+	?EncodeL@CNATFWUNSAFTcpRelayPacket@@QBEPAVCBufBase@@XZ @ 37 NONAME ; class CBufBase * CNATFWUNSAFTcpRelayPacket::EncodeL(void) const
+	?GetSessionInfoL@CNcmConnectionMultiplexer@@QAEPAVRSocketServ@@IAAV?$TBuf@$0IA@@@@Z @ 38 NONAME ; class RSocketServ * CNcmConnectionMultiplexer::GetSessionInfoL(unsigned int, class TBuf<128> &)
+	?GetStreamInfoL@CNcmConnectionMultiplexer@@UAEXIAAKAAHAAI@Z @ 39 NONAME ; void CNcmConnectionMultiplexer::GetStreamInfoL(unsigned int, unsigned long &, int &, unsigned int &)
+	?HasAttribute@CNATFWUNSAFMessage@@QBEHW4TType@CNATFWUNSAFAttribute@@@Z @ 40 NONAME ; int CNATFWUNSAFMessage::HasAttribute(enum CNATFWUNSAFAttribute::TType) const
+	?HasUnknownMandatoryAttributes@CNATFWUNSAFMessage@@QBEHXZ @ 41 NONAME ; int CNATFWUNSAFMessage::HasUnknownMandatoryAttributes(void) const
+	?IceControlled@CNATFWUNSAFIceControlledAttribute@@QBE_KXZ @ 42 NONAME ; unsigned long long CNATFWUNSAFIceControlledAttribute::IceControlled(void) const
+	?IceControlling@CNATFWUNSAFIceControllingAttribute@@QBE_KXZ @ 43 NONAME ; unsigned long long CNATFWUNSAFIceControllingAttribute::IceControlling(void) const
+	?IsConnected@CNATFWUNSAFTlsTransport@@QAEHXZ @ 44 NONAME ; int CNATFWUNSAFTlsTransport::IsConnected(void)
+	?Lifetime@CNATFWUNSAFLifetimeAttribute@@QBEHXZ @ 45 NONAME ; int CNATFWUNSAFLifetimeAttribute::Lifetime(void) const
+	?LocalIPAddressL@CNcmConnectionMultiplexer@@UAEAAVTInetAddr@@II@Z @ 46 NONAME ; class TInetAddr & CNcmConnectionMultiplexer::LocalIPAddressL(unsigned int, unsigned int)
+	?MagicCookie@CNATFWUNSAFMagicCookieAttribute@@QBEKXZ @ 47 NONAME ; unsigned long CNATFWUNSAFMagicCookieAttribute::MagicCookie(void) const
+	?NewL@CIcmpReceiver@@SAPAV1@AAVMIcmpErrorObserver@@AAVRSocketServ@@@Z @ 48 NONAME ; class CIcmpReceiver * CIcmpReceiver::NewL(class MIcmpErrorObserver &, class RSocketServ &)
+	?NewL@CNATFWCredentials@@SAPAV1@ABV1@@Z @ 49 NONAME ; class CNATFWCredentials * CNATFWCredentials::NewL(class CNATFWCredentials const &)
+	?NewL@CNATFWCredentials@@SAPAV1@XZ @ 50 NONAME ; class CNATFWCredentials * CNATFWCredentials::NewL(void)
+	?NewL@CNATFWUNSAFAllocateRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 51 NONAME ; class CNATFWUNSAFAllocateRequest * CNATFWUNSAFAllocateRequest::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFBandwidthAttribute@@SAPAV1@H@Z @ 52 NONAME ; class CNATFWUNSAFBandwidthAttribute * CNATFWUNSAFBandwidthAttribute::NewL(int)
+	?NewL@CNATFWUNSAFBindingErrorResponse@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 53 NONAME ; class CNATFWUNSAFBindingErrorResponse * CNATFWUNSAFBindingErrorResponse::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFBindingIndication@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 54 NONAME ; class CNATFWUNSAFBindingIndication * CNATFWUNSAFBindingIndication::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFBindingRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 55 NONAME ; class CNATFWUNSAFBindingRequest * CNATFWUNSAFBindingRequest::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFBindingResponse@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 56 NONAME ; class CNATFWUNSAFBindingResponse * CNATFWUNSAFBindingResponse::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFChangedAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 57 NONAME ; class CNATFWUNSAFChangedAddressAttribute * CNATFWUNSAFChangedAddressAttribute::NewL(class TInetAddr const &)
+	?NewL@CNATFWUNSAFConnectRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 58 NONAME ; class CNATFWUNSAFConnectRequest * CNATFWUNSAFConnectRequest::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFConnectStatAttribute@@SAPAV1@W4TStatus@1@@Z @ 59 NONAME ; class CNATFWUNSAFConnectStatAttribute * CNATFWUNSAFConnectStatAttribute::NewL(enum CNATFWUNSAFConnectStatAttribute::TStatus)
+	?NewL@CNATFWUNSAFDataAttribute@@SAPAV1@ABVTDesC8@@@Z @ 60 NONAME ; class CNATFWUNSAFDataAttribute * CNATFWUNSAFDataAttribute::NewL(class TDesC8 const &)
+	?NewL@CNATFWUNSAFDataIndication@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 61 NONAME ; class CNATFWUNSAFDataIndication * CNATFWUNSAFDataIndication::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFDestinationAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 62 NONAME ; class CNATFWUNSAFDestinationAddressAttribute * CNATFWUNSAFDestinationAddressAttribute::NewL(class TInetAddr const &)
+	?NewL@CNATFWUNSAFErrorCodeAttribute@@SAPAV1@HABVTDesC8@@@Z @ 63 NONAME ; class CNATFWUNSAFErrorCodeAttribute * CNATFWUNSAFErrorCodeAttribute::NewL(int, class TDesC8 const &)
+	?NewL@CNATFWUNSAFIceControlledAttribute@@SAPAV1@_K@Z @ 64 NONAME ; class CNATFWUNSAFIceControlledAttribute * CNATFWUNSAFIceControlledAttribute::NewL(unsigned long long)
+	?NewL@CNATFWUNSAFIceControllingAttribute@@SAPAV1@_K@Z @ 65 NONAME ; class CNATFWUNSAFIceControllingAttribute * CNATFWUNSAFIceControllingAttribute::NewL(unsigned long long)
+	?NewL@CNATFWUNSAFLifetimeAttribute@@SAPAV1@H@Z @ 66 NONAME ; class CNATFWUNSAFLifetimeAttribute * CNATFWUNSAFLifetimeAttribute::NewL(int)
+	?NewL@CNATFWUNSAFMagicCookieAttribute@@SAPAV1@XZ @ 67 NONAME ; class CNATFWUNSAFMagicCookieAttribute * CNATFWUNSAFMagicCookieAttribute::NewL(void)
+	?NewL@CNATFWUNSAFMappedAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 68 NONAME ; class CNATFWUNSAFMappedAddressAttribute * CNATFWUNSAFMappedAddressAttribute::NewL(class TInetAddr const &)
+	?NewL@CNATFWUNSAFMessageFactory@@SAPAV1@XZ @ 69 NONAME ; class CNATFWUNSAFMessageFactory * CNATFWUNSAFMessageFactory::NewL(void)
+	?NewL@CNATFWUNSAFMessageIntegrityAttribute@@SAPAV1@ABVTDesC8@@AAVCBufBase@@H@Z @ 70 NONAME ; class CNATFWUNSAFMessageIntegrityAttribute * CNATFWUNSAFMessageIntegrityAttribute::NewL(class TDesC8 const &, class CBufBase &, int)
+	?NewL@CNATFWUNSAFNonceAttribute@@SAPAV1@ABVTDesC8@@@Z @ 71 NONAME ; class CNATFWUNSAFNonceAttribute * CNATFWUNSAFNonceAttribute::NewL(class TDesC8 const &)
+	?NewL@CNATFWUNSAFPasswordAttribute@@SAPAV1@ABVTDesC8@@@Z @ 72 NONAME ; class CNATFWUNSAFPasswordAttribute * CNATFWUNSAFPasswordAttribute::NewL(class TDesC8 const &)
+	?NewL@CNATFWUNSAFPriorityAttribute@@SAPAV1@I@Z @ 73 NONAME ; class CNATFWUNSAFPriorityAttribute * CNATFWUNSAFPriorityAttribute::NewL(unsigned int)
+	?NewL@CNATFWUNSAFRealmAttribute@@SAPAV1@ABVTDesC8@@@Z @ 74 NONAME ; class CNATFWUNSAFRealmAttribute * CNATFWUNSAFRealmAttribute::NewL(class TDesC8 const &)
+	?NewL@CNATFWUNSAFReflectedFromAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 75 NONAME ; class CNATFWUNSAFReflectedFromAttribute * CNATFWUNSAFReflectedFromAttribute::NewL(class TInetAddr const &)
+	?NewL@CNATFWUNSAFRemoteAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 76 NONAME ; class CNATFWUNSAFRemoteAddressAttribute * CNATFWUNSAFRemoteAddressAttribute::NewL(class TInetAddr const &)
+	?NewL@CNATFWUNSAFRequestedIpAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 77 NONAME ; class CNATFWUNSAFRequestedIpAttribute * CNATFWUNSAFRequestedIpAttribute::NewL(class TInetAddr const &)
+	?NewL@CNATFWUNSAFRequestedPortPropsAttribute@@SAPAV1@W4TPortAlignmentPref@1@G@Z @ 78 NONAME ; class CNATFWUNSAFRequestedPortPropsAttribute * CNATFWUNSAFRequestedPortPropsAttribute::NewL(enum CNATFWUNSAFRequestedPortPropsAttribute::TPortAlignmentPref, unsigned short)
+	?NewL@CNATFWUNSAFRequestedTransportAttribute@@SAPAV1@W4TTransportProtocol@1@@Z @ 79 NONAME ; class CNATFWUNSAFRequestedTransportAttribute * CNATFWUNSAFRequestedTransportAttribute::NewL(enum CNATFWUNSAFRequestedTransportAttribute::TTransportProtocol)
+	?NewL@CNATFWUNSAFSendIndication@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 80 NONAME ; class CNATFWUNSAFSendIndication * CNATFWUNSAFSendIndication::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFServerAttribute@@SAPAV1@ABVTDesC8@@@Z @ 81 NONAME ; class CNATFWUNSAFServerAttribute * CNATFWUNSAFServerAttribute::NewL(class TDesC8 const &)
+	?NewL@CNATFWUNSAFServerResolver@@SAPAV1@AAVRSocketServ@@AAVRConnection@@AAVMNATFWUNSAFServerResolverObserver@@H@Z @ 82 NONAME ; class CNATFWUNSAFServerResolver * CNATFWUNSAFServerResolver::NewL(class RSocketServ &, class RConnection &, class MNATFWUNSAFServerResolverObserver &, int)
+	?NewL@CNATFWUNSAFSetActiveDestinationRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 83 NONAME ; class CNATFWUNSAFSetActiveDestinationRequest * CNATFWUNSAFSetActiveDestinationRequest::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFSharedSecretRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 84 NONAME ; class CNATFWUNSAFSharedSecretRequest * CNATFWUNSAFSharedSecretRequest::NewL(class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFSourceAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 85 NONAME ; class CNATFWUNSAFSourceAddressAttribute * CNATFWUNSAFSourceAddressAttribute::NewL(class TInetAddr const &)
+	?NewL@CNATFWUNSAFTcpRelayPacket@@SAPAV1@ABVTDesC8@@W4TRelayType@1@@Z @ 86 NONAME ; class CNATFWUNSAFTcpRelayPacket * CNATFWUNSAFTcpRelayPacket::NewL(class TDesC8 const &, enum CNATFWUNSAFTcpRelayPacket::TRelayType)
+	?NewL@CNATFWUNSAFTcpRelayPacketFactory@@SAPAV1@XZ @ 87 NONAME ; class CNATFWUNSAFTcpRelayPacketFactory * CNATFWUNSAFTcpRelayPacketFactory::NewL(void)
+	?NewL@CNATFWUNSAFTimerValAttribute@@SAPAV1@I@Z @ 88 NONAME ; class CNATFWUNSAFTimerValAttribute * CNATFWUNSAFTimerValAttribute::NewL(unsigned int)
+	?NewL@CNATFWUNSAFTlsTransport@@SAPAV1@AAVRSocketServ@@AAVRConnection@@ABVTInetAddr@@AAVMNATFWUNSAFTlsTransportObserver@@@Z @ 89 NONAME ; class CNATFWUNSAFTlsTransport * CNATFWUNSAFTlsTransport::NewL(class RSocketServ &, class RConnection &, class TInetAddr const &, class MNATFWUNSAFTlsTransportObserver &)
+	?NewL@CNATFWUNSAFUdpSender@@SAPAV1@AAVRSocket@@AAVMNATFWUNSAFUdpSenderObserver@@@Z @ 90 NONAME ; class CNATFWUNSAFUdpSender * CNATFWUNSAFUdpSender::NewL(class RSocket &, class MNATFWUNSAFUdpSenderObserver &)
+	?NewL@CNATFWUNSAFUdpSender@@SAPAV1@IIAAVMNATFWUNSAFUdpSenderObserver@@@Z @ 91 NONAME ; class CNATFWUNSAFUdpSender * CNATFWUNSAFUdpSender::NewL(unsigned int, unsigned int, class MNATFWUNSAFUdpSenderObserver &)
+	?NewL@CNATFWUNSAFUnknownAttributesAttribute@@SAPAV1@XZ @ 92 NONAME ; class CNATFWUNSAFUnknownAttributesAttribute * CNATFWUNSAFUnknownAttributesAttribute::NewL(void)
+	?NewL@CNATFWUNSAFUseCandidateAttribute@@SAPAV1@XZ @ 93 NONAME ; class CNATFWUNSAFUseCandidateAttribute * CNATFWUNSAFUseCandidateAttribute::NewL(void)
+	?NewL@CNATFWUNSAFUsernameAttribute@@SAPAV1@ABVTDesC8@@@Z @ 94 NONAME ; class CNATFWUNSAFUsernameAttribute * CNATFWUNSAFUsernameAttribute::NewL(class TDesC8 const &)
+	?NewL@CNATFWUNSAFXorMappedAddressAttribute@@SAPAV1@ABVTInetAddr@@ABV?$TBuf8@$0M@@@@Z @ 95 NONAME ; class CNATFWUNSAFXorMappedAddressAttribute * CNATFWUNSAFXorMappedAddressAttribute::NewL(class TInetAddr const &, class TBuf8<12> const &)
+	?NewL@CNATFWUNSAFXorOnlyAttribute@@SAPAV1@XZ @ 96 NONAME ; class CNATFWUNSAFXorOnlyAttribute * CNATFWUNSAFXorOnlyAttribute::NewL(void)
+	?NewL@CNcmConnectionMultiplexer@@SAPAV1@AAVMNcmConnectionMultiplexerObserver@@@Z @ 97 NONAME ; class CNcmConnectionMultiplexer * CNcmConnectionMultiplexer::NewL(class MNcmConnectionMultiplexerObserver &)
+	?NewLC@CNATFWCredentials@@SAPAV1@ABV1@@Z @ 98 NONAME ; class CNATFWCredentials * CNATFWCredentials::NewLC(class CNATFWCredentials const &)
+	?NewLC@CNATFWCredentials@@SAPAV1@XZ @ 99 NONAME ; class CNATFWCredentials * CNATFWCredentials::NewLC(void)
+	?NewLC@CNATFWUNSAFAllocateRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 100 NONAME ; class CNATFWUNSAFAllocateRequest * CNATFWUNSAFAllocateRequest::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFBandwidthAttribute@@SAPAV1@H@Z @ 101 NONAME ; class CNATFWUNSAFBandwidthAttribute * CNATFWUNSAFBandwidthAttribute::NewLC(int)
+	?NewLC@CNATFWUNSAFBindingErrorResponse@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 102 NONAME ; class CNATFWUNSAFBindingErrorResponse * CNATFWUNSAFBindingErrorResponse::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFBindingIndication@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 103 NONAME ; class CNATFWUNSAFBindingIndication * CNATFWUNSAFBindingIndication::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFBindingRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 104 NONAME ; class CNATFWUNSAFBindingRequest * CNATFWUNSAFBindingRequest::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFBindingResponse@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 105 NONAME ; class CNATFWUNSAFBindingResponse * CNATFWUNSAFBindingResponse::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFChangedAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 106 NONAME ; class CNATFWUNSAFChangedAddressAttribute * CNATFWUNSAFChangedAddressAttribute::NewLC(class TInetAddr const &)
+	?NewLC@CNATFWUNSAFConnectRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 107 NONAME ; class CNATFWUNSAFConnectRequest * CNATFWUNSAFConnectRequest::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFConnectStatAttribute@@SAPAV1@W4TStatus@1@@Z @ 108 NONAME ; class CNATFWUNSAFConnectStatAttribute * CNATFWUNSAFConnectStatAttribute::NewLC(enum CNATFWUNSAFConnectStatAttribute::TStatus)
+	?NewLC@CNATFWUNSAFDataAttribute@@SAPAV1@ABVTDesC8@@@Z @ 109 NONAME ; class CNATFWUNSAFDataAttribute * CNATFWUNSAFDataAttribute::NewLC(class TDesC8 const &)
+	?NewLC@CNATFWUNSAFDataIndication@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 110 NONAME ; class CNATFWUNSAFDataIndication * CNATFWUNSAFDataIndication::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFDestinationAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 111 NONAME ; class CNATFWUNSAFDestinationAddressAttribute * CNATFWUNSAFDestinationAddressAttribute::NewLC(class TInetAddr const &)
+	?NewLC@CNATFWUNSAFErrorCodeAttribute@@SAPAV1@HABVTDesC8@@@Z @ 112 NONAME ; class CNATFWUNSAFErrorCodeAttribute * CNATFWUNSAFErrorCodeAttribute::NewLC(int, class TDesC8 const &)
+	?NewLC@CNATFWUNSAFIceControlledAttribute@@SAPAV1@_K@Z @ 113 NONAME ; class CNATFWUNSAFIceControlledAttribute * CNATFWUNSAFIceControlledAttribute::NewLC(unsigned long long)
+	?NewLC@CNATFWUNSAFIceControllingAttribute@@SAPAV1@_K@Z @ 114 NONAME ; class CNATFWUNSAFIceControllingAttribute * CNATFWUNSAFIceControllingAttribute::NewLC(unsigned long long)
+	?NewLC@CNATFWUNSAFLifetimeAttribute@@SAPAV1@H@Z @ 115 NONAME ; class CNATFWUNSAFLifetimeAttribute * CNATFWUNSAFLifetimeAttribute::NewLC(int)
+	?NewLC@CNATFWUNSAFMagicCookieAttribute@@SAPAV1@XZ @ 116 NONAME ; class CNATFWUNSAFMagicCookieAttribute * CNATFWUNSAFMagicCookieAttribute::NewLC(void)
+	?NewLC@CNATFWUNSAFMappedAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 117 NONAME ; class CNATFWUNSAFMappedAddressAttribute * CNATFWUNSAFMappedAddressAttribute::NewLC(class TInetAddr const &)
+	?NewLC@CNATFWUNSAFMessageFactory@@SAPAV1@XZ @ 118 NONAME ; class CNATFWUNSAFMessageFactory * CNATFWUNSAFMessageFactory::NewLC(void)
+	?NewLC@CNATFWUNSAFMessageIntegrityAttribute@@SAPAV1@ABVTDesC8@@AAVCBufBase@@H@Z @ 119 NONAME ; class CNATFWUNSAFMessageIntegrityAttribute * CNATFWUNSAFMessageIntegrityAttribute::NewLC(class TDesC8 const &, class CBufBase &, int)
+	?NewLC@CNATFWUNSAFNonceAttribute@@SAPAV1@ABVTDesC8@@@Z @ 120 NONAME ; class CNATFWUNSAFNonceAttribute * CNATFWUNSAFNonceAttribute::NewLC(class TDesC8 const &)
+	?NewLC@CNATFWUNSAFPasswordAttribute@@SAPAV1@ABVTDesC8@@@Z @ 121 NONAME ; class CNATFWUNSAFPasswordAttribute * CNATFWUNSAFPasswordAttribute::NewLC(class TDesC8 const &)
+	?NewLC@CNATFWUNSAFPriorityAttribute@@SAPAV1@I@Z @ 122 NONAME ; class CNATFWUNSAFPriorityAttribute * CNATFWUNSAFPriorityAttribute::NewLC(unsigned int)
+	?NewLC@CNATFWUNSAFRealmAttribute@@SAPAV1@ABVTDesC8@@@Z @ 123 NONAME ; class CNATFWUNSAFRealmAttribute * CNATFWUNSAFRealmAttribute::NewLC(class TDesC8 const &)
+	?NewLC@CNATFWUNSAFReflectedFromAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 124 NONAME ; class CNATFWUNSAFReflectedFromAttribute * CNATFWUNSAFReflectedFromAttribute::NewLC(class TInetAddr const &)
+	?NewLC@CNATFWUNSAFRemoteAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 125 NONAME ; class CNATFWUNSAFRemoteAddressAttribute * CNATFWUNSAFRemoteAddressAttribute::NewLC(class TInetAddr const &)
+	?NewLC@CNATFWUNSAFRequestedIpAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 126 NONAME ; class CNATFWUNSAFRequestedIpAttribute * CNATFWUNSAFRequestedIpAttribute::NewLC(class TInetAddr const &)
+	?NewLC@CNATFWUNSAFRequestedPortPropsAttribute@@SAPAV1@W4TPortAlignmentPref@1@G@Z @ 127 NONAME ; class CNATFWUNSAFRequestedPortPropsAttribute * CNATFWUNSAFRequestedPortPropsAttribute::NewLC(enum CNATFWUNSAFRequestedPortPropsAttribute::TPortAlignmentPref, unsigned short)
+	?NewLC@CNATFWUNSAFRequestedTransportAttribute@@SAPAV1@W4TTransportProtocol@1@@Z @ 128 NONAME ; class CNATFWUNSAFRequestedTransportAttribute * CNATFWUNSAFRequestedTransportAttribute::NewLC(enum CNATFWUNSAFRequestedTransportAttribute::TTransportProtocol)
+	?NewLC@CNATFWUNSAFSendIndication@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 129 NONAME ; class CNATFWUNSAFSendIndication * CNATFWUNSAFSendIndication::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFServerAttribute@@SAPAV1@ABVTDesC8@@@Z @ 130 NONAME ; class CNATFWUNSAFServerAttribute * CNATFWUNSAFServerAttribute::NewLC(class TDesC8 const &)
+	?NewLC@CNATFWUNSAFServerResolver@@SAPAV1@AAVRSocketServ@@AAVRConnection@@AAVMNATFWUNSAFServerResolverObserver@@H@Z @ 131 NONAME ; class CNATFWUNSAFServerResolver * CNATFWUNSAFServerResolver::NewLC(class RSocketServ &, class RConnection &, class MNATFWUNSAFServerResolverObserver &, int)
+	?NewLC@CNATFWUNSAFSetActiveDestinationRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 132 NONAME ; class CNATFWUNSAFSetActiveDestinationRequest * CNATFWUNSAFSetActiveDestinationRequest::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFSharedSecretRequest@@SAPAV1@ABV?$TBuf8@$0M@@@@Z @ 133 NONAME ; class CNATFWUNSAFSharedSecretRequest * CNATFWUNSAFSharedSecretRequest::NewLC(class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFSourceAddressAttribute@@SAPAV1@ABVTInetAddr@@@Z @ 134 NONAME ; class CNATFWUNSAFSourceAddressAttribute * CNATFWUNSAFSourceAddressAttribute::NewLC(class TInetAddr const &)
+	?NewLC@CNATFWUNSAFTcpRelayPacket@@SAPAV1@ABVTDesC8@@W4TRelayType@1@@Z @ 135 NONAME ; class CNATFWUNSAFTcpRelayPacket * CNATFWUNSAFTcpRelayPacket::NewLC(class TDesC8 const &, enum CNATFWUNSAFTcpRelayPacket::TRelayType)
+	?NewLC@CNATFWUNSAFTcpRelayPacketFactory@@SAPAV1@XZ @ 136 NONAME ; class CNATFWUNSAFTcpRelayPacketFactory * CNATFWUNSAFTcpRelayPacketFactory::NewLC(void)
+	?NewLC@CNATFWUNSAFTimerValAttribute@@SAPAV1@I@Z @ 137 NONAME ; class CNATFWUNSAFTimerValAttribute * CNATFWUNSAFTimerValAttribute::NewLC(unsigned int)
+	?NewLC@CNATFWUNSAFTlsTransport@@SAPAV1@AAVRSocketServ@@AAVRConnection@@ABVTInetAddr@@AAVMNATFWUNSAFTlsTransportObserver@@@Z @ 138 NONAME ; class CNATFWUNSAFTlsTransport * CNATFWUNSAFTlsTransport::NewLC(class RSocketServ &, class RConnection &, class TInetAddr const &, class MNATFWUNSAFTlsTransportObserver &)
+	?NewLC@CNATFWUNSAFUdpSender@@SAPAV1@AAVRSocket@@AAVMNATFWUNSAFUdpSenderObserver@@@Z @ 139 NONAME ; class CNATFWUNSAFUdpSender * CNATFWUNSAFUdpSender::NewLC(class RSocket &, class MNATFWUNSAFUdpSenderObserver &)
+	?NewLC@CNATFWUNSAFUdpSender@@SAPAV1@IIAAVMNATFWUNSAFUdpSenderObserver@@@Z @ 140 NONAME ; class CNATFWUNSAFUdpSender * CNATFWUNSAFUdpSender::NewLC(unsigned int, unsigned int, class MNATFWUNSAFUdpSenderObserver &)
+	?NewLC@CNATFWUNSAFUnknownAttributesAttribute@@SAPAV1@XZ @ 141 NONAME ; class CNATFWUNSAFUnknownAttributesAttribute * CNATFWUNSAFUnknownAttributesAttribute::NewLC(void)
+	?NewLC@CNATFWUNSAFUseCandidateAttribute@@SAPAV1@XZ @ 142 NONAME ; class CNATFWUNSAFUseCandidateAttribute * CNATFWUNSAFUseCandidateAttribute::NewLC(void)
+	?NewLC@CNATFWUNSAFUsernameAttribute@@SAPAV1@ABVTDesC8@@@Z @ 143 NONAME ; class CNATFWUNSAFUsernameAttribute * CNATFWUNSAFUsernameAttribute::NewLC(class TDesC8 const &)
+	?NewLC@CNATFWUNSAFXorMappedAddressAttribute@@SAPAV1@ABVTInetAddr@@ABV?$TBuf8@$0M@@@@Z @ 144 NONAME ; class CNATFWUNSAFXorMappedAddressAttribute * CNATFWUNSAFXorMappedAddressAttribute::NewLC(class TInetAddr const &, class TBuf8<12> const &)
+	?NewLC@CNATFWUNSAFXorOnlyAttribute@@SAPAV1@XZ @ 145 NONAME ; class CNATFWUNSAFXorOnlyAttribute * CNATFWUNSAFXorOnlyAttribute::NewLC(void)
+	?OpenTcpConnectionL@CNcmConnectionMultiplexer@@UAEXIIW4TNATFWTcpConnectionSetup@@ABVTInetAddr@@@Z @ 146 NONAME ; void CNcmConnectionMultiplexer::OpenTcpConnectionL(unsigned int, unsigned int, enum TNATFWTcpConnectionSetup, class TInetAddr const &)
+	?Password@CNATFWCredentials@@QBEABVTDesC8@@XZ @ 147 NONAME ; class TDesC8 const & CNATFWCredentials::Password(void) const
+	?Port@CNATFWUNSAFRequestedPortPropsAttribute@@QBEGXZ @ 148 NONAME ; unsigned short CNATFWUNSAFRequestedPortPropsAttribute::Port(void) const
+	?PortAlignmentPref@CNATFWUNSAFRequestedPortPropsAttribute@@QBE?AW4TPortAlignmentPref@1@XZ @ 149 NONAME ; enum CNATFWUNSAFRequestedPortPropsAttribute::TPortAlignmentPref CNATFWUNSAFRequestedPortPropsAttribute::PortAlignmentPref(void) const
+	?PortStoreL@CNcmConnectionMultiplexer@@QAEAAVCNcmPortStore@@I@Z @ 150 NONAME ; class CNcmPortStore & CNcmConnectionMultiplexer::PortStoreL(unsigned int)
+	?Priority@CNATFWUNSAFPriorityAttribute@@QBEIXZ @ 151 NONAME ; unsigned int CNATFWUNSAFPriorityAttribute::Priority(void) const
+	?ReasonPhrase@CNATFWUNSAFErrorCodeAttribute@@QBEABVTDesC8@@XZ @ 152 NONAME ; class TDesC8 const & CNATFWUNSAFErrorCodeAttribute::ReasonPhrase(void) const
+	?RegisterConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmConnectionObserver@@@Z @ 153 NONAME ; void CNcmConnectionMultiplexer::RegisterConnectionObserverL(unsigned int, class MNcmConnectionObserver &)
+	?RegisterIncomingConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmIncomingConnectionObserver@@@Z @ 154 NONAME ; void CNcmConnectionMultiplexer::RegisterIncomingConnectionObserverL(unsigned int, class MNcmIncomingConnectionObserver &)
+	?RegisterMediaWrapperL@CNcmConnectionMultiplexer@@QAEXPAVMNATFWMediaWrapper@@@Z @ 155 NONAME ; void CNcmConnectionMultiplexer::RegisterMediaWrapperL(class MNATFWMediaWrapper *)
+	?RegisterMessageObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmMessageObserver@@@Z @ 156 NONAME ; void CNcmConnectionMultiplexer::RegisterMessageObserverL(unsigned int, class MNcmMessageObserver &)
+	?RegisterOutgoingConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmOutgoingConnectionObserver@@@Z @ 157 NONAME ; void CNcmConnectionMultiplexer::RegisterOutgoingConnectionObserverL(unsigned int, class MNcmOutgoingConnectionObserver &)
+	?RemoveConnectionL@CNcmConnectionMultiplexer@@UAEXII@Z @ 158 NONAME ; void CNcmConnectionMultiplexer::RemoveConnectionL(unsigned int, unsigned int)
+	?RemoveSessionL@CNcmConnectionMultiplexer@@QAEXI@Z @ 159 NONAME ; void CNcmConnectionMultiplexer::RemoveSessionL(unsigned int)
+	?RemoveStreamL@CNcmConnectionMultiplexer@@QAEXI@Z @ 160 NONAME ; void CNcmConnectionMultiplexer::RemoveStreamL(unsigned int)
+	?ResolveDestinationAddressL@CNcmConnectionMultiplexer@@QAEXIABVTDesC8@@IAAVTInetAddr@@@Z @ 161 NONAME ; void CNcmConnectionMultiplexer::ResolveDestinationAddressL(unsigned int, class TDesC8 const &, unsigned int, class TInetAddr &)
+	?ResolveL@CNATFWUNSAFServerResolver@@QAEXABVTDesC8@@00IAAV?$RArray@VTInetAddr@@@@@Z @ 162 NONAME ; void CNATFWUNSAFServerResolver::ResolveL(class TDesC8 const &, class TDesC8 const &, class TDesC8 const &, unsigned int, class RArray<class TInetAddr> &)
+	?ResponseCode@CNATFWUNSAFErrorCodeAttribute@@QBEHXZ @ 163 NONAME ; int CNATFWUNSAFErrorCodeAttribute::ResponseCode(void) const
+	?SendL@CNATFWUNSAFTlsTransport@@QAEXABVCNATFWUNSAFMessage@@ABVTDesC8@@I@Z @ 164 NONAME ; void CNATFWUNSAFTlsTransport::SendL(class CNATFWUNSAFMessage const &, class TDesC8 const &, unsigned int)
+	?SendL@CNATFWUNSAFUdpSender@@QAEXABVTInetAddr@@ABVCNATFWUNSAFMessage@@ABVTDesC8@@@Z @ 165 NONAME ; void CNATFWUNSAFUdpSender::SendL(class TInetAddr const &, class CNATFWUNSAFMessage const &, class TDesC8 const &)
+	?SendL@CNcmConnectionMultiplexer@@UAEXIABVTDesC8@@ABVTInetAddr@@1@Z @ 166 NONAME ; void CNcmConnectionMultiplexer::SendL(unsigned int, class TDesC8 const &, class TInetAddr const &, class TInetAddr const &)
+	?SendL@CNcmConnectionMultiplexer@@UAEXIIABVTDesC8@@ABVTInetAddr@@PAVMNcmSenderObserver@@@Z @ 167 NONAME ; void CNcmConnectionMultiplexer::SendL(unsigned int, unsigned int, class TDesC8 const &, class TInetAddr const &, class MNcmSenderObserver *)
+	?SendL@CNcmConnectionMultiplexer@@UAEXIIABVTDesC8@@HPAVMNcmSenderObserver@@@Z @ 168 NONAME ; void CNcmConnectionMultiplexer::SendL(unsigned int, unsigned int, class TDesC8 const &, int, class MNcmSenderObserver *)
+	?SendL@CNcmConnectionMultiplexer@@UAEXIIABVTDesC8@@PAVMNcmSenderObserver@@@Z @ 169 NONAME ; void CNcmConnectionMultiplexer::SendL(unsigned int, unsigned int, class TDesC8 const &, class MNcmSenderObserver *)
+	?SetDirection@CNATFWCredentials@@QAEXW4TUtilizationDirection@1@@Z @ 170 NONAME ; void CNATFWCredentials::SetDirection(enum CNATFWCredentials::TUtilizationDirection)
+	?SetPasswordL@CNATFWCredentials@@QAEXABVTDesC8@@@Z @ 171 NONAME ; void CNATFWCredentials::SetPasswordL(class TDesC8 const &)
+	?SetReceivingStateL@CNcmConnectionMultiplexer@@UAEXIIW4TNATFWStreamingState@@@Z @ 172 NONAME ; void CNcmConnectionMultiplexer::SetReceivingStateL(unsigned int, unsigned int, enum TNATFWStreamingState)
+	?SetSendingStateL@CNcmConnectionMultiplexer@@UAEXIIABVTInetAddr@@W4TNATFWStreamingState@@@Z @ 173 NONAME ; void CNcmConnectionMultiplexer::SetSendingStateL(unsigned int, unsigned int, class TInetAddr const &, enum TNATFWStreamingState)
+	?SetStreamCollectionId@CNATFWCredentials@@QAEXI@Z @ 174 NONAME ; void CNATFWCredentials::SetStreamCollectionId(unsigned int)
+	?SetStreamId@CNATFWCredentials@@QAEXI@Z @ 175 NONAME ; void CNATFWCredentials::SetStreamId(unsigned int)
+	?SetTransactionIDAndXorL@CNATFWUNSAFXorMappedAddressAttribute@@QAEXABV?$TBuf8@$0M@@@@Z @ 176 NONAME ; void CNATFWUNSAFXorMappedAddressAttribute::SetTransactionIDAndXorL(class TBuf8<12> const &)
+	?SetUsernameL@CNATFWCredentials@@QAEXABVTDesC8@@@Z @ 177 NONAME ; void CNATFWCredentials::SetUsernameL(class TDesC8 const &)
+	?StreamCollectionId@CNATFWCredentials@@QBEIXZ @ 178 NONAME ; unsigned int CNATFWCredentials::StreamCollectionId(void) const
+	?StreamId@CNATFWCredentials@@QBEIXZ @ 179 NONAME ; unsigned int CNATFWCredentials::StreamId(void) const
+	?TimerVal@CNATFWUNSAFTimerValAttribute@@QBEIXZ @ 180 NONAME ; unsigned int CNATFWUNSAFTimerValAttribute::TimerVal(void) const
+	?TransactionID@CNATFWUNSAFMessage@@QBE?AV?$TBuf8@$0M@@@XZ @ 181 NONAME ; class TBuf8<12> CNATFWUNSAFMessage::TransactionID(void) const
+	?TransportProtocol@CNATFWUNSAFRequestedTransportAttribute@@QBE?AW4TTransportProtocol@1@XZ @ 182 NONAME ; enum CNATFWUNSAFRequestedTransportAttribute::TTransportProtocol CNATFWUNSAFRequestedTransportAttribute::TransportProtocol(void) const
+	?Type@CNATFWUNSAFTcpRelayPacket@@QBE?AW4TRelayType@1@XZ @ 183 NONAME ; enum CNATFWUNSAFTcpRelayPacket::TRelayType CNATFWUNSAFTcpRelayPacket::Type(void) const
+	?UnregisterConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmConnectionObserver@@@Z @ 184 NONAME ; void CNcmConnectionMultiplexer::UnregisterConnectionObserverL(unsigned int, class MNcmConnectionObserver &)
+	?UnregisterIncomingConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmIncomingConnectionObserver@@@Z @ 185 NONAME ; void CNcmConnectionMultiplexer::UnregisterIncomingConnectionObserverL(unsigned int, class MNcmIncomingConnectionObserver &)
+	?UnregisterMessageObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmMessageObserver@@@Z @ 186 NONAME ; void CNcmConnectionMultiplexer::UnregisterMessageObserverL(unsigned int, class MNcmMessageObserver &)
+	?UnregisterOutgoingConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmOutgoingConnectionObserver@@@Z @ 187 NONAME ; void CNcmConnectionMultiplexer::UnregisterOutgoingConnectionObserverL(unsigned int, class MNcmOutgoingConnectionObserver &)
+	?UseLongTermCredentials@CNATFWUNSAFMessageIntegrityAttribute@@QAEXH@Z @ 188 NONAME ; void CNATFWUNSAFMessageIntegrityAttribute::UseLongTermCredentials(int)
+	?Username@CNATFWCredentials@@QBEABVTDesC8@@XZ @ 189 NONAME ; class TDesC8 const & CNATFWCredentials::Username(void) const
+	?Value@CNATFWUNSAFNonceAttribute@@QBEABVTDesC8@@XZ @ 190 NONAME ; class TDesC8 const & CNATFWUNSAFNonceAttribute::Value(void) const
+	?Value@CNATFWUNSAFRealmAttribute@@QBEABVTDesC8@@XZ @ 191 NONAME ; class TDesC8 const & CNATFWUNSAFRealmAttribute::Value(void) const
+	?Value@CNATFWUNSAFTextAttribute@@QBEABVTDesC8@@XZ @ 192 NONAME ; class TDesC8 const & CNATFWUNSAFTextAttribute::Value(void) const
+	?__DbgTestInvariant@CNATFWUNSAFErrorCodeAttribute@@QBEXXZ @ 193 NONAME ; void CNATFWUNSAFErrorCodeAttribute::__DbgTestInvariant(void) const
+	?__DbgTestInvariant@CNATFWUNSAFMessageFactory@@QBEXXZ @ 194 NONAME ; void CNATFWUNSAFMessageFactory::__DbgTestInvariant(void) const
+	?__DbgTestInvariant@CNATFWUNSAFTextAttribute@@QBEXXZ @ 195 NONAME ; void CNATFWUNSAFTextAttribute::__DbgTestInvariant(void) const
+	?__DbgTestInvariant@CNATFWUNSAFUnknownAttributesAttribute@@QBEXXZ @ 196 NONAME ; void CNATFWUNSAFUnknownAttributesAttribute::__DbgTestInvariant(void) const
+

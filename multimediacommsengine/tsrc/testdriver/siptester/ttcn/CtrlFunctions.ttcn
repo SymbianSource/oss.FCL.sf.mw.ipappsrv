@@ -1,0 +1,1088 @@
+// File : CtrlFunctions.ttcn
+//
+// Info : This file specifies functions for using CTRL elements
+//
+//        Do not modify without permission!
+//
+
+module CtrlFunctions
+{
+
+import from CtrlRel2Types all;
+import from CtrlRel2Templates all;
+import from ModuleParameters all;
+import from OtherTypesAndConstants all;
+import from TestSystem all;
+import from L4RouterConfig all;  
+import from TestCoordinationManagement all;
+import from CtrlTestCaseTemplates all;
+
+// Use f_ctrlGetParameter to read actual parameter values from the returned AbstractCtrlResponse	
+function f_ctrlAuthenticate ( in template ParameterList p_params  ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+		return f_ctrlGenericRequest( "Authenticate", {}, omit, p_params );
+	}
+	
+function f_ctrlIgnoreChallenge ( in template ParameterList p_params ) runs on CtrlCompType
+	{
+		f_ctrlGenericRequest( "IgnoreChallenge", {}, omit, p_params );
+	}
+
+function f_ctrlGetChallenge ( in template ParameterList p_params ) runs on CtrlCompType return charstring
+	{
+		var AbstractCtrlResponse res;
+		res := f_ctrlGenericRequest( "GetChallenge", {}, omit, p_params );
+		return f_ctrlGetParameter( res, a_ctrlDigestRealm( ? ) );
+	}
+	
+function f_ctrlSetCredentials ( in template ParameterList p_params ) runs on CtrlCompType
+	{
+		f_ctrlGenericRequest( "SetCredentials", {}, omit, p_params );
+	}
+	
+function f_ctrlRemoveCredentials ( in template ParameterList p_params ) runs on CtrlCompType
+	{
+		f_ctrlGenericRequest( "RemoveCredentials", {}, omit, p_params );
+	}
+	
+function f_ctrlDeleteConnection ( in template TestClientIdList p_ids ) runs on CtrlCompType
+	{
+		f_ctrlGenericRequest( "DeleteConnection", {}, p_ids, omit );
+	}
+	
+function f_ctrlRemoveHttpObserver ( ) runs on CtrlCompType
+	{
+		f_ctrlGenericRequest( "RemoveHttpObserver", {}, omit, omit );
+	}
+	
+function f_ctrlFreezeTester ( in template ParameterList p_params  ) runs on CtrlCompType
+	{
+		f_ctrlGenericRequest( "FreezeTester", {}, omit, p_params );
+	}
+	
+function f_ctrlChannel ( in ValueList p_headers,
+												 in template ParameterList p_params  ) runs on CtrlCompType return charstring
+	{
+		var AbstractCtrlResponse res;
+		res := f_ctrlGenericRequest( "Channel", p_headers, omit, p_params  );
+		return f_ctrlGetParameter( res, a_ctrlClientDiscoveryRequestId( ? ) );
+	}
+	
+function f_ctrlCreateSession ( in template ParameterList p_params  ) runs on CtrlCompType 
+	{
+		f_ctrlGenericRequest( "CreateSession", {}, omit, p_params );
+	}
+
+// Use f_ctrlGetParameter to read actual parameter values from the returned AbstractCtrlResponse	
+function f_ctrlGetClientDiscoveryStatus ( in template ParameterList p_params  ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+		return f_ctrlGenericRequest( "GetClientDiscoveryStatus", {}, omit, p_params );
+	}
+	
+function f_ctrlRegisterClient ( in template ParameterList p_params  ) runs on CtrlCompType 
+	{
+		f_ctrlGenericRequest( "RegisterClient", {}, omit, p_params );
+	}
+
+
+// Added by jarim 6.7.2004 for special hardware case INV_16
+
+function f_ctrlStartTestCase_hardware (	in charstring p_testCaseName,
+										CompRefs p_compRefs  ) runs on CtrlCompType
+	{
+	f_ctrlInit_hardware( p_compRefs );
+
+	CTRL.send( a_ctrlStartTCRequest( p_testCaseName ) );
+	alt {
+		[] CTRL.receive( a_ctrlOkResponse )
+			{
+			}
+		}
+
+	}
+
+
+function f_ctrlInit_hardware( CompRefs p_compRefs ) runs on CtrlCompType
+	{
+	g_v_compRefs := p_compRefs;
+	f_initAndMapL4rCtrlTcpIpv4_hardware();
+
+	var default defaultsRef;
+	defaultsRef := activate( defaultCTRL() );
+
+	f_syncCTRL();
+	
+	deactivate(defaultsRef); // Tero added 18.2.
+	}
+
+function f_initAndMapL4rCtrlTcpIpv4_hardware() runs on CtrlCompType
+	{
+	map( self:MGMT, system:MGMT );
+	if( mp_sip_bearer_bt )
+		{
+		MGMT.send( a_CreateBluetoothCompProfile( mp_sip_bearer_bt_com_port ) );
+		map( self:CTRL, system:BT );
+		}
+	else
+		{
+		MGMT.send( a_CreateMyCompProfile( e_tcp, 5071, mp_sip_emu_ipAddress_ctrl.ipv4, 5070 ) );
+		map( self:CTRL, system:TCP );
+		}
+	}
+
+// Added for Remote URI handling in requests for R4 Ite 4 and later
+
+function f_constructParameters(in ParameterList p_params,
+							   in ParameterList p_mandatoryRequestParams) return ParameterList
+{
+	var integer i := 0;
+	var integer ii := 0;
+	var boolean v_remoteURIWasNotAssigned := true;
+	var ParameterList v_parameterList;
+
+	for ( i := 0; i < sizeof(valueof(p_params)); i := i + 1)
+	{
+		if ( valueof(p_params[i].parameter.pName) == "RemoteURI" ) {
+			v_remoteURIWasNotAssigned := false;
+		}
+
+		v_parameterList[i] := valueof(p_params[i]);
+	}
+
+	if ( v_remoteURIWasNotAssigned ) {
+		i := sizeof(valueof(p_params));
+		for ( ii := 0; ii < sizeof(valueof(p_mandatoryRequestParams)); ii := ii + 1)
+		{
+			v_parameterList[i] := valueof(p_mandatoryRequestParams[ii]);
+		}
+	}
+
+	return v_parameterList;
+}
+
+// End of adding by jarim
+
+
+function f_initAndMapL4rCtrlTcpIpv4() runs on CtrlCompType
+	{
+	map( self:MGMT, system:MGMT );
+	if( mp_sip_bearer_bt )
+		{
+		MGMT.send( a_CreateBluetoothCompProfile( mp_sip_bearer_bt_com_port ) );
+		map( self:CTRL, system:BT );
+		}
+	else
+		{
+		MGMT.send( a_CreateMyCompProfile( e_tcp, 5071, mp_sip_emu_ipAddress.ipv4, 5070 ) );
+		map( self:CTRL, system:TCP );
+		}
+	}
+
+
+//
+// -- GetXXX functions --------------------------------------------------------
+//
+
+function f_ctrlGetConnectionState ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetConnectionState", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlConnectionState( ? ) );
+	}
+
+function f_ctrlGetDialogAOR ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetDialogAOR", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlAddress( ? ) );
+	}
+
+function f_ctrlGetDialogFrom ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetDialogFrom", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlAddress( ? ) );
+	}
+
+function f_ctrlGetDialogRegistration ( in template TestClientIdList p_ids ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetDialogRegistration", {}, p_ids, omit );
+	return res;
+	}
+
+function f_ctrlGetDialogRemoteURI ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetDialogRemoteURI", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlRemoteURI( ? ) );
+	}
+
+function f_ctrlGetDialogState ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetDialogState", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlDialogState( ? ) );
+	}
+
+function f_ctrlGetTransactionState ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetTransactionState", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlTransactionState( ? ) );
+	}
+
+function f_ctrlGetTransactionStateWitResponse ( in template TestClientIdList p_ids ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "GetTransactionState", {}, p_ids, omit );
+	}
+
+function f_ctrlGetIAPName ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetIAPName", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlIAPName( ? ) );
+	}
+
+function f_ctrlGetIAPNames ( ) runs on CtrlCompType return ValueList
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetIAPNames", {}, omit, omit );
+	return f_ctrlGetArray( res, a_ctrlIAPNames( ? ) );
+	}
+
+function f_ctrlGetMessage ( in template ParameterList p_params ) runs on CtrlCompType return ReceivedMsg
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetMessage", {}, omit, p_params );
+
+	if ( not ispresent(res.recvMsg))
+	{
+		res.recvMsg := {-1,omit,{}}; // add something because there can not be omit -value
+		return res.recvMsg;
+	}
+	else
+	{
+		return res.recvMsg;
+	}
+	}
+
+function f_ctrlGetMessageWithErr ( in template ParameterList p_params ) runs on CtrlCompType return ReceivedMsg
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetMessage", {}, omit, p_params );
+	
+	if ( not ispresent(res.recvMsg))
+	{
+		res.recvMsg := {-1,omit,{}}; // add something because there can not be omit -value
+		res.recvMsg.respCode := 200;
+	}
+	return res.recvMsg;
+	}
+
+function f_ctrlGetMessageWithResponse ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetMessage", {}, omit, p_params );
+	return res;
+	}
+
+function f_ctrlGetMessageAndCreateAssoc ( in template ParameterList p_params ) runs on CtrlCompType return ReceivedMsg
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetMessageAndCreateAssoc", {}, omit, p_params );
+
+	if ( not ispresent(res.recvMsg))
+	{
+		res.recvMsg := {-1,omit,{}}; // add something because there can not be omit -value
+		return res.recvMsg;
+	}
+	else
+	{
+		return res.recvMsg;
+	}
+	}
+
+function f_ctrlGetMessageWithResponseWithConnId ( in template ParameterList p_params, in template TestClientIdList p_ids  ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetMessage", {}, p_ids, p_params );
+	return res;
+	}
+
+function f_ctrlGetOutboundProxy ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetOutboundProxy", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlAddress( ? ) );
+	}
+
+function f_ctrlGetRefresh (	in template TestClientIdList	p_ids ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "GetRefresh", {}, p_ids, omit );
+	}
+
+function f_ctrlGetRefreshState ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetRefreshState", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlRefreshState( ? ) );
+	}
+
+function f_ctrlGetRegistrationAOR ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetRegistrationAOR", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlAddress( ? ) );
+	}
+	
+
+function f_ctrlGetSecurityMechanisms () runs on CtrlCompType return ValueList
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetSecurityMechanisms", {}, omit, omit );
+	return f_ctrlGetArray( res, a_ctrlSecurityMechanisms( ? ) );
+	}
+
+function f_ctrlGetSigCompCompartmentCount () runs on CtrlCompType return integer
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetSigCompCompartmentCount", {}, omit, omit );
+	return str2int( f_ctrlGetParameter( res, a_ctrlCompartmentCount( ? ) ) );
+	}
+
+function f_ctrlGetTransactionType ( in template TestClientIdList p_ids ) runs on CtrlCompType return charstring
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetTransactionType", {}, p_ids, omit );
+	return f_ctrlGetParameter( res, a_ctrlTransactionType( ? ) );
+	}
+
+//
+// -- IsXXX functions ---------------------------------------------------------
+//
+
+function f_ctrlIsClientTransaction ( in template TestClientIdList p_ids ) runs on CtrlCompType return boolean
+	{
+	return f_ctrlBooleanRequest( "IsClientTransaction", p_ids );
+	}
+
+function f_ctrlIsCancelAllowed ( in template TestClientIdList p_ids ) runs on CtrlCompType return boolean
+	{
+	return f_ctrlBooleanRequest( "IsCancelAllowed", p_ids );
+	}
+
+function f_ctrlIsContextActive ( in template TestClientIdList p_ids ) runs on CtrlCompType return boolean
+	{
+	return f_ctrlBooleanRequest( "IsContextActive", p_ids );
+	}
+
+function f_ctrlIsDialogAssociated ( in template TestClientIdList p_ids ) runs on CtrlCompType return boolean
+	{
+	return f_ctrlBooleanRequest( "IsDialogAssociated", p_ids );
+	}
+
+function f_ctrlIsResponseAllowed ( in template TestClientIdList p_ids ) runs on CtrlCompType return boolean
+	{
+	return f_ctrlBooleanRequest( "IsResponseAllowed", p_ids );
+	}
+
+function f_ctrlIsSigCompSupported ( in template TestClientIdList p_ids ) runs on CtrlCompType return boolean
+	{
+	return f_ctrlBooleanRequest( "IsSigCompSupported", p_ids );
+	}
+
+//
+// -- SendXXX functions -------------------------------------------------------
+//
+
+function f_ctrlSendAck (	in ValueList					p_headers,
+							in template TestClientIdList	p_ids,
+							in template ParameterList		p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "SendAck", p_headers, p_ids, p_params );
+	}
+
+function f_ctrlSendBye (	in ValueList					p_headers,
+							in template TestClientIdList	p_ids,
+							in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "SendBye", p_headers, p_ids, p_params );
+	}
+
+function f_ctrlSendCancel ( in template TestClientIdList p_ids ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "SendCancel", {}, p_ids, omit );
+	return res;
+	}
+
+group requestFunctionsWithURIHandling {
+
+
+	function f_ctrlSendInvite(in ValueList					p_headers,
+							  in template TestClientIdList	p_ids,
+							  in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{	
+		var ParameterList v_parameterListConstruction;
+
+		if ( mp_remoteURIMandatory ) {
+			if ( valueof(p_params) == omit ) {
+				return f_ctrlGenericRequest( "SendInvite", p_headers, p_ids, valueof(a_ctrlInviteParamsMandatory) );
+			} else {
+				// Parameters must be inserted into variable before sending to ctrlGenericRequest
+				v_parameterListConstruction := valueof(f_constructParameters(valueof(p_params),valueof(a_ctrlInviteParamsMandatory)));
+				return f_ctrlGenericRequest( "SendInvite", p_headers, p_ids, v_parameterListConstruction );
+			}
+		} else {
+			return f_ctrlGenericRequest( "SendInvite", p_headers, p_ids, p_params );
+		}
+	}
+
+
+	function f_ctrlSendMessage (	in ValueList					p_headers,
+									in template TestClientIdList	p_ids,
+									in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+		var ParameterList v_parameterListConstruction;
+
+		if ( mp_remoteURIMandatory ) {
+			if ( valueof(p_params) == omit ) {
+				return f_ctrlGenericRequest( "SendMessage", p_headers, p_ids, valueof(a_ctrlMessageParamsMandatory) );
+			} else {
+				// Parameters must be inserted into variable before sending to ctrlGenericRequest
+				v_parameterListConstruction := valueof(f_constructParameters(valueof(p_params),valueof(a_ctrlMessageParamsMandatory)));
+				return f_ctrlGenericRequest( "SendMessage", p_headers, p_ids, v_parameterListConstruction );
+			}
+		} else {
+			return f_ctrlGenericRequest( "SendMessage", p_headers, p_ids, p_params );
+		}
+	}
+
+
+	function f_ctrlSendRequest (in ValueList					p_headers,
+								in template TestClientIdList	p_ids,
+								in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+		var ParameterList v_parameterListConstruction;
+
+		if ( mp_remoteURIMandatory ) {
+			if ( valueof(p_params) == omit ) {
+				return f_ctrlGenericRequest( "SendRequest", p_headers, p_ids, valueof(a_ctrlRequestParamsMandatory) );
+			} else {
+				// Parameters must be inserted into variable before sending to ctrlGenericRequest
+				v_parameterListConstruction := valueof(f_constructParameters(valueof(p_params),valueof(a_ctrlRequestParamsMandatory)));
+				return f_ctrlGenericRequest( "SendRequest", p_headers, p_ids, v_parameterListConstruction );
+			}
+		} else {
+			return f_ctrlGenericRequest( "SendRequest", p_headers, p_ids, p_params );
+		}
+	}
+
+	function f_ctrlFetchRegistrations ( in ValueList					p_headers,
+									  	in template TestClientIdList	p_ids,
+										in template ParameterList		p_params  ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+		var ParameterList v_parameterListConstruction;
+
+		if ( mp_remoteURIMandatory ) {
+			if ( valueof(p_params) == omit ) {
+				return f_ctrlGenericRequest( "FetchRegistrations", p_headers, p_ids, valueof(a_ctrlFetchRegistrationParamsMandatory) );
+			} else {
+				// Parameters must be inserted into variable before sending to ctrlGenericRequest
+				v_parameterListConstruction := valueof(f_constructParameters(valueof(p_params),valueof(a_ctrlFetchRegistrationParamsMandatory)));
+				return f_ctrlGenericRequest( "FetchRegistrations", p_headers, p_ids, v_parameterListConstruction );
+			}
+		} else {
+			return f_ctrlGenericRequest( "FetchRegistrations", p_headers, p_ids, p_params );
+		}
+	}
+
+	function f_ctrlSendSubscribe (	in ValueList					p_headers,
+									in template TestClientIdList	p_ids,
+									in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+		var ParameterList v_parameterListConstruction;
+
+		if ( mp_remoteURIMandatory ) {
+			if ( valueof(p_params) == omit ) {
+				return f_ctrlGenericRequest( "SendSubscribe", p_headers, p_ids, valueof(a_ctrlSubscribeParamsMandatory) );
+			} else {
+				// Parameters must be inserted into variable before sending to ctrlGenericRequest
+				v_parameterListConstruction := valueof(f_constructParameters(valueof(p_params),valueof(a_ctrlSubscribeParamsMandatory)));
+				return f_ctrlGenericRequest( "SendSubscribe", p_headers, p_ids, v_parameterListConstruction );
+			}
+		} else {
+			return f_ctrlGenericRequest( "SendSubscribe", p_headers, p_ids, p_params );
+		}
+	}	
+
+function f_ctrlSendRefer (	in ValueList					p_headers,
+				in template TestClientIdList	p_ids,
+				in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{	
+		var ParameterList v_parameterListConstruction;
+
+		if ( mp_remoteURIMandatory ) {
+			if ( valueof(p_params) == omit ) {
+				return f_ctrlGenericRequest( "SendRefer", p_headers, p_ids, valueof(a_ctrlReferParamsMandatory) );
+			} else {
+				// Parameters must be inserted into variable before sending to ctrlGenericRequest
+				v_parameterListConstruction := valueof(f_constructParameters(valueof(p_params),valueof(a_ctrlReferParamsMandatory)));
+				return f_ctrlGenericRequest( "SendRefer", p_headers, p_ids, v_parameterListConstruction );
+			}
+		} else {
+
+			return f_ctrlGenericRequest( "SendRefer", p_headers, p_ids, p_params );
+		}
+		
+	}
+
+
+}	// End of group requestFunctionsWithURIHandling
+
+
+function f_ctrlSendInviteUsingProfile (	in ValueList p_headers,
+							in template TestClientIdList	p_ids,
+							in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{	
+		return f_ctrlGenericRequest( "SendInviteUsingProfile", p_headers, p_ids, p_params );
+	}
+
+function f_ctrlSendInviteWithinDriver (	in ValueList					p_headers,
+										in template TestClientIdList	p_ids,
+										in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "SendInviteWithinDriver", p_headers, p_ids, p_params );
+	}
+
+function f_ctrlSendInviteWithinDialog (	in ValueList					p_headers,
+										in template TestClientIdList	p_ids,
+										in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := 	f_ctrlGenericRequest( "SendInviteWithinDialog", p_headers, p_ids, p_params );
+	return res;
+	}
+
+function f_ctrlSendNotify (	in template TestClientIdList	p_ids) runs on CtrlCompType return AbstractCtrlResponse
+	{	
+		return f_ctrlGenericRequest( "SendNotify", {}, p_ids, omit );
+	}
+
+function f_ctrlSendReferWithinDialog (	in ValueList					p_headers,
+										in template TestClientIdList	p_ids,
+										in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := 	f_ctrlGenericRequest( "SendReferWithinDialog", p_headers, p_ids, p_params );
+	return res;
+	}
+
+function f_ctrlSendReferResponseCreateDialog (	in ValueList					p_headers,
+											in template TestClientIdList	p_ids,
+											in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{	
+		var AbstractCtrlResponse res;
+		res := f_ctrlGenericRequest( "SendReferResponseCreateDialog", p_headers, p_ids, p_params );
+		return res;
+	}	
+
+
+function f_ctrlSendNonTargetRefreshRequest ( in ValueList					p_headers,
+										     in template TestClientIdList	p_ids,
+										     in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "SendNonTargetRefreshRequest", p_headers, p_ids, p_params );
+	return res;
+	}
+
+
+function f_ctrlSendPrack (	in ValueList					p_headers,
+								in template TestClientIdList	p_ids,
+								in template ParameterList		p_params ) runs on CtrlCompType  return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "SendPrack", p_headers, p_ids, p_params );
+	return res;
+	}
+
+function f_ctrlSendRegister (	in ValueList					p_headers,
+								in template TestClientIdList	p_ids,
+								in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "SendRegister", p_headers, p_ids, p_params );
+	return res;
+	}
+
+function f_ctrlSendResponse (	in ValueList					p_headers,
+								in template TestClientIdList	p_ids,
+								in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "SendResponse", p_headers, p_ids, p_params );
+	return res;
+	}
+
+function f_ctrlSendResponseCreateAssoc (	in ValueList					p_headers,
+								in template TestClientIdList	p_ids,
+								in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "SendResponseCreateAssoc", p_headers, p_ids, p_params );
+	}
+
+function f_ctrlCreateInviteDialogAssociation ( in template TestClientIdList	p_ids ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "CreateInviteDialogAssociation", omit, p_ids, omit );
+	}
+	
+function f_ctrlCreateNotifyAssoc (	in ValueList					p_headers,
+								in template TestClientIdList	p_ids,
+								in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "CreateNotifyDialogAssociation", p_headers, p_ids, p_params );
+	}
+
+
+function f_ctrlSendResponseCreateDialog (	in ValueList					p_headers,
+											in template TestClientIdList	p_ids,
+											in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{	
+		var AbstractCtrlResponse res;
+		res := f_ctrlGenericRequest( "SendResponseCreateDialog", p_headers, p_ids, p_params );
+		return res;
+	}
+	
+function f_ctrlUpdateInvite (	in ValueList					p_headers,
+									in template TestClientIdList	p_ids,
+									in template ParameterList		p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "UpdateInvite", p_headers, p_ids, p_params );
+	}
+
+function f_ctrlUpdateRefer(	in ValueList					p_headers,
+									in template TestClientIdList	p_ids,
+									in template ParameterList		p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "UpdateRefer", p_headers, p_ids, p_params );
+	}
+
+function f_ctrlUpdateNotify(	in ValueList					p_headers,
+									in template TestClientIdList	p_ids,
+									in template ParameterList		p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "UpdateNotify", p_headers, p_ids, p_params );
+	}	
+
+function f_ctrlUpdateSubscribe (	in ValueList					p_headers,
+									in template TestClientIdList	p_ids,
+									in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{		
+		return f_ctrlGenericRequest( "UpdateSubscribe", p_headers, p_ids, p_params );
+	}
+
+
+// Added by jarim
+function f_ctrlSendSubscribeWithinDialog (	in ValueList					p_headers,
+											in template TestClientIdList	p_ids,
+											in template ParameterList		p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "SendSubscribeWithinDialog", p_headers, p_ids, p_params );
+	}
+
+function f_ctrlSendUnsubscribe (	in ValueList					p_headers,
+									in template TestClientIdList	p_ids,
+									in template ParameterList		p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "SendUnsubscribe", {}, p_ids, omit );
+	}
+
+function f_ctrlSendUpdate (	in ValueList					p_headers,
+							in template TestClientIdList	p_ids,
+							in template ParameterList		p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "SendUpdate", {}, p_ids, omit );
+	}
+
+//
+// -- SetXXX functions --------------------------------------------------------
+//
+
+function f_ctrlSetOutboundProxy (	in template ParameterList					p_params,
+									in template TestClientIdList	p_ids ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "SetOutboundProxy", {}, p_ids, p_params );
+	}
+
+function f_ctrlSetSecurityParams ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "SetSecurityParams", {}, omit, p_params );
+	}
+
+//
+// -- UpdateXXX functions --------------------------------------------------------
+//
+
+function f_ctrlUpdateRefresh (	in ValueList					p_headers,
+								in template TestClientIdList	p_ids,
+								in template ParameterList		p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "UpdateRefresh", p_headers, p_ids, p_params );
+	}
+
+function f_ctrlUpdateRegistration (	in ValueList					p_headers,
+									in template TestClientIdList	p_ids,
+									in template ParameterList		p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "UpdateRegistration", p_headers, p_ids, p_params );
+	}
+
+//
+// -- Misc functions ----------------------------------------------------------
+//
+function f_ctrlDeleteFile ( in template ParameterList p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "DeleteFile", {}, omit, p_params );
+	}
+
+function f_ctrlCreateConnection ( in template ParameterList p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "CreateConnection", {}, omit, p_params );
+	}
+
+
+function f_ctrlInstallClient ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "InstallClient", {}, omit, p_params );
+	}
+	
+
+function f_ctrlTerminate ( in template TestClientIdList p_ids ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "Terminate", {}, p_ids, omit );
+	}
+
+function f_ctrlTerminateProcess ( in template ParameterList p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "TerminateProcess", {}, omit, p_params );
+	}
+
+function f_ctrlUninstallClient ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "UninstallClient", {}, omit, p_params );
+	}
+	
+function f_ctrlUnregister ( in template TestClientIdList p_ids ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "Unregister", {}, p_ids, omit );
+	}
+
+
+//New Transfer File function Added by Satish
+function f_ctrlTransferFile ( in charstring p_srcFileName, charstring p_destFileName, octetstring p_fileContent  ) runs on CtrlCompType
+	{
+
+	CTRL.send( a_ctrlFileXferRequest( p_srcFileName, p_destFileName, p_fileContent ) );
+	alt {
+		[] CTRL.receive /*( a_ctrlOkResponse )*/
+			{
+			}
+		}
+
+	}	
+
+function f_ctrlGetMemoryUsage ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "GetMemoryUsage", {}, omit, p_params );	
+	}
+
+
+function f_ctrlGetUNSAFTimers ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "GetUNSAFTimers", {}, omit, p_params );
+	}
+
+
+function f_ctrlSetUNSAFTimers ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "SetUNSAFTimers", {}, omit, p_params );
+	}
+
+
+function f_ctrlEnableCRLFRefresh ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "EnableCRLFRefresh", {}, omit, p_params );
+	}
+
+
+function f_ctrlSetSTUNServer ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "SetSTUNServer", {}, omit, p_params );
+	}
+	
+function f_ctrlSetDomainParams ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "SetDomainParams", {}, omit, p_params );
+	}
+	
+function f_ctrlGetDomainParams ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "GetDomainParams", {}, omit, p_params );
+	}
+
+function f_ctrlStopIAP ( in template ParameterList p_params ) runs on CtrlCompType
+	{
+	f_ctrlGenericRequest( "StopIAP", {}, omit, p_params );
+	}
+	
+
+//
+// -- Test case start & end & reset -------------------------------------------
+//
+
+function f_ctrlStartTestCase ( in charstring p_testCaseName ) runs on CtrlCompType
+	{
+	f_ctrlInit();
+
+	CTRL.send( a_ctrlStartTCRequest( p_testCaseName ) );
+	alt {
+		[] CTRL.receive( a_ctrlOkResponse )
+			{
+			}
+		}
+
+	}
+	
+function f_ctrlStartTestCase_1 (	in charstring p_testCaseName,
+								CompRefs p_compRefs  ) runs on CtrlCompType
+	{
+	f_ctrlInit_1( p_compRefs );
+
+	CTRL.send( a_ctrlStartTCRequest( p_testCaseName ) );
+	alt {
+		[] CTRL.receive( a_ctrlOkResponse )
+			{
+			}
+		}
+
+	}
+
+
+function f_ctrlEndTestCase () runs on CtrlCompType
+	{
+	CTRL.send( a_ctrlEndTCRequest( omit ) );
+	timer mytimer;
+	mytimer.start(5.0);
+	alt {
+		[] CTRL.receive( a_ctrlOkResponse )
+			{
+			}
+		[] mytimer.timeout
+			{
+				f_ctrlResetAll();
+			}
+		}
+
+	setverdict( pass );
+	stop;
+	}
+	
+function f_ctrlReset ( in integer p_objectId ) runs on CtrlCompType
+	{
+	CTRL.send( a_ctrlResetRequest( int2str( p_objectId ) ) );
+	alt {
+		[] CTRL.receive( a_ctrlOkResponse )
+			{
+			}
+		}
+
+	}
+	
+function f_ctrlStartTester (	in charstring p_testCaseName,
+								CompRefs p_compRefs  ) runs on CtrlCompType
+	{
+	//f_ctrlInitWithOnePort( p_compRefs );
+
+	CTRL.send( a_ctrlStartTCRequest( p_testCaseName ) );
+	alt {
+		[] CTRL.receive( a_ctrlOkResponse )
+			{
+			}
+		}
+
+	}
+	
+function f_ctrlEndTester () runs on CtrlCompType
+	{
+	CTRL.send( a_ctrlEndTCRequest( omit ) );
+	alt {
+		[] CTRL.receive( a_ctrlOkResponse )
+			{
+			}
+		}
+
+	}	
+	
+function f_ctrlResetAll ( ) runs on CtrlCompType
+	{
+
+	CTRL.send( a_ctrlResetRequest( omit ) );
+	alt {
+		[] CTRL.receive( a_ctrlOkResponse )
+			{
+			}
+		}
+
+	}
+
+function f_ctrlInit() runs on CtrlCompType
+	{
+
+	f_initAndMapL4rCtrlTcpIpv4();
+
+	var default defaultsRef;
+	defaultsRef := activate( defaultCTRL() );
+
+	f_syncCTRL();
+	
+	deactivate(defaultsRef); // Tero added 18.2.
+	}
+	
+function f_ctrlInit_1( CompRefs p_compRefs ) runs on CtrlCompType
+	{
+	g_v_compRefs := p_compRefs;
+	f_initAndMapL4rCtrlTcpIpv4();
+
+	var default defaultsRef;
+	defaultsRef := activate( defaultCTRL() );
+
+	f_syncCTRL();
+	
+	deactivate(defaultsRef); // Tero added 18.2.
+	}	
+
+//
+// -- Internal request wrapper functions --------------------------------------
+//
+
+function f_ctrlBooleanRequest (	in charstring p_action,
+								in template TestClientIdList	p_ids ) runs on CtrlCompType return boolean
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( p_action, {}, p_ids, omit );
+	return match( f_ctrlGetParameter( res, a_ctrlBoolean( ? ) ), a_ctrlBooleanTrue );
+	}
+
+function f_ctrlGenericRequest (	in charstring					p_action,
+								in ValueList					p_headers,
+								in template TestClientIdList	p_ids,
+								in template ParameterList		p_params ) runs on CtrlCompType return AbstractCtrlResponse 
+	{
+	
+	var AbstractCtrlResponse res;
+	CTRL.send( a_ctrlRequest( p_action, p_headers, p_ids, p_params ) );
+	alt {
+//		[] CTRL.receive( a_ctrlResponse( p_action, 0, *, *, * ) ) -> value res
+		[] CTRL.receive( a_ctrlResponse( p_action, *, *, *, * ) ) -> value res
+			{
+			// As a work-around to avoid TEMPLATE MISMATHCES in the Tau log, we're having
+			// all (or none) of the ID fields present in the messages
+			// For SIP =4.0
+
+			//HS
+			if( ispresent( res.ids ) ) {
+				if (sizeof(res.ids) == 12 ) {
+					log("12"); //HS
+					if( res.ids[ 0 ].idValue > 0 ) { v_ctrlCompState.v_connectionId := res.ids[ 0 ].idValue }
+					if( res.ids[ 1 ].idValue > 0 ) { v_ctrlCompState.v_dialogId := res.ids[ 1 ].idValue }
+					if( res.ids[ 2 ].idValue > 0 ) { v_ctrlCompState.v_inviteDialogId := res.ids[ 2 ].idValue }
+
+					// New value
+					if( res.ids[ 3 ].idValue > 0 ) { v_ctrlCompState.v_notifyDialogId := res.ids[ 3 ].idValue }
+
+					if( res.ids[ 4 ].idValue > 0 ) { v_ctrlCompState.v_profileId := res.ids[ 4 ].idValue }
+
+					// New value
+					if( res.ids[ 5 ].idValue > 0 ) { v_ctrlCompState.v_referDialogId := res.ids[ 5 ].idValue }
+
+					if( res.ids[ 6 ].idValue > 0 ) { v_ctrlCompState.v_refreshId := res.ids[ 6 ].idValue }
+					if( res.ids[ 7 ].idValue > 0 ) { v_ctrlCompState.v_registryId := res.ids[ 7 ].idValue }
+					if( res.ids[ 8 ].idValue > 0 ) { v_ctrlCompState.v_registrationId := res.ids[ 8 ].idValue }
+					if( res.ids[ 9 ].idValue > 0 ) { v_ctrlCompState.v_serverTransactionId := res.ids[ 9 ].idValue }
+					if( res.ids[ 10 ].idValue > 0 ) { v_ctrlCompState.v_subscribeDialogId := res.ids[ 10 ].idValue }
+					if( res.ids[ 11 ].idValue > 0 ) { v_ctrlCompState.v_transactionId := res.ids[ 11 ].idValue }			
+				} else if (sizeof(res.ids) == 10 ) {
+					log("10"); //HS
+					if( res.ids[ 0 ].idValue > 0 ) { v_ctrlCompState.v_connectionId := res.ids[ 0 ].idValue }
+					if( res.ids[ 1 ].idValue > 0 ) { v_ctrlCompState.v_dialogId := res.ids[ 1 ].idValue }
+					if( res.ids[ 2 ].idValue > 0 ) { v_ctrlCompState.v_inviteDialogId := res.ids[ 2 ].idValue }
+					if( res.ids[ 3 ].idValue > 0 ) { v_ctrlCompState.v_profileId := res.ids[ 3 ].idValue }
+					if( res.ids[ 4 ].idValue > 0 ) { v_ctrlCompState.v_refreshId := res.ids[ 4 ].idValue }
+
+					// New value 29.6.2004
+					if( res.ids[ 5 ].idValue > 0 ) { v_ctrlCompState.v_registryId := res.ids[ 5 ].idValue }
+
+					if( res.ids[ 6 ].idValue > 0 ) { v_ctrlCompState.v_registrationId := res.ids[ 6 ].idValue }
+					if( res.ids[ 7 ].idValue > 0 ) { v_ctrlCompState.v_serverTransactionId := res.ids[ 7 ].idValue }
+					if( res.ids[ 8 ].idValue > 0 ) { v_ctrlCompState.v_subscribeDialogId := res.ids[ 8 ].idValue }
+					if( res.ids[ 9 ].idValue > 0 ) { v_ctrlCompState.v_transactionId := res.ids[ 9 ].idValue }			
+				}
+			} //ispresent
+			} //receive
+		} //alt
+	return res;
+	}
+
+//
+// -- Internal utility functions for getting data out of responses ------------
+//
+
+function f_ctrlGetParameter(	in AbstractCtrlResponse p_response,
+								in template ParameterListElement p_param ) runs on CtrlCompType return charstring
+	{
+	var integer I;
+
+	if( ispresent( p_response.params ) ) {
+		for( I := 0; I < sizeof( p_response.params ); I := I + 1 ) {
+			if( match( p_response.params[ I ], p_param ) ) {
+				return p_response.params[ I ].parameter.pValue;
+				}
+			}
+		}
+
+	return "";
+	}
+
+
+function f_ctrlGetArray(	in AbstractCtrlResponse p_response,
+							in template ParameterListElement p_array ) runs on CtrlCompType return ValueList
+	{
+	var integer I;
+
+	if( ispresent( p_response.params ) ) {
+		for( I := 0; I < sizeof( p_response.params ); I := I + 1 ) {
+			if( match( p_response.params[ I ], p_array ) ) {
+				return p_response.params[ I ].array.aValues;
+				}
+			}
+		}
+	return {};
+	}
+
+function f_ctrlGetStructure(	in AbstractCtrlResponse p_response,
+								in template ParameterListElement p_struct ) runs on CtrlCompType return FieldList
+	{
+	var integer I;
+
+	if( ispresent( p_response.params ) ) {
+		for( I := 0; I < sizeof( p_response.params ); I := I + 1 ) {
+			if( match( p_response.params[ I ], p_struct ) ) {
+				return p_response.params[ I ].struct.sFields;
+				}
+			}
+		}
+	return {};
+	}
+}

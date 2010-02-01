@@ -1,0 +1,391 @@
+EXPORTS
+	?VolumeL@CMceSpeakerSink@@QBEHXZ @ 1 NONAME ; int CMceSpeakerSink::VolumeL(void) const
+	?TranscodeL@CMceFileSource@@QAEXABV?$TBuf@$0BAA@@@@Z @ 2 NONAME ; void CMceFileSource::TranscodeL(class TBuf<256> const &)
+	?SetPreferredEncodingDecodingDeviceL@CMceAvcCodec@@UAEXVTUid@@@Z @ 3 NONAME ; void CMceAvcCodec::SetPreferredEncodingDecodingDeviceL(class TUid)
+	?RejectL@CMceInSession@@QAEXABVTDesC8@@KPAVCDesC8Array@@PAVHBufC8@@2@Z @ 4 NONAME ; void CMceInSession::RejectL(class TDesC8 const &, unsigned long, class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?CloneL@CMceCnCodec@@UBEPAVCMceAudioCodec@@XZ @ 5 NONAME ; class CMceAudioCodec * CMceCnCodec::CloneL(void) const
+	??1CMceStreamBundle@@UAE@XZ @ 6 NONAME ; CMceStreamBundle::~CMceStreamBundle(void)
+	?SetPayloadType@CMceDtmfCodec@@UAEHE@Z @ 7 NONAME ; int CMceDtmfCodec::SetPayloadType(unsigned char)
+	?KeepAliveData@CMceCodec@@QBEABVTDesC8@@XZ @ 8 NONAME ; class TDesC8 const & CMceCodec::KeepAliveData(void) const
+	?IsSsrcEnabledL@CMceRtpSource@@QAEHI@Z @ 9 NONAME ; int CMceRtpSource::IsSsrcEnabledL(unsigned int)
+	?GetCameraInfo@CMceCameraSource@@QBEXAAVTCameraInfo@@@Z @ 10 NONAME ; void CMceCameraSource::GetCameraInfo(class TCameraInfo &) const
+	??1CMceSpeakerSink@@UAE@XZ @ 11 NONAME ; CMceSpeakerSink::~CMceSpeakerSink(void)
+	?NewL@CMceSecureOutSession@@SAPAV1@AAVCMceRefer@@@Z @ 12 NONAME ; class CMceSecureOutSession * CMceSecureOutSession::NewL(class CMceRefer &)
+	?SetPayloadType@CMceG711Codec@@UAEHE@Z @ 13 NONAME ; int CMceG711Codec::SetPayloadType(unsigned char)
+	?SetLocalMediaPortL@CMceMediaStream@@QAEXI@Z @ 14 NONAME ; void CMceMediaStream::SetLocalMediaPortL(unsigned int)
+	?CloneL@CMceDtmfCodec@@UBEPAVCMceAudioCodec@@XZ @ 15 NONAME ; class CMceAudioCodec * CMceDtmfCodec::CloneL(void) const
+	?NewLC@CMceStreamBundle@@SAPAV1@W4TMceStreamBundleType@1@@Z @ 16 NONAME ; class CMceStreamBundle * CMceStreamBundle::NewLC(enum CMceStreamBundle::TMceStreamBundleType)
+	?AssociatedRefersL@CMceEvent@@QBEPAV?$RPointerArray@VCMceRefer@@@@XZ @ 17 NONAME ; class RPointerArray<class CMceRefer> * CMceEvent::AssociatedRefersL(void) const
+	?SetMaxPTime@CMceiLBCCodec@@UAEHI@Z @ 18 NONAME ; int CMceiLBCCodec::SetMaxPTime(unsigned int)
+	?AssociatedEventsL@CMceSession@@QBEPAV?$RPointerArray@VCMceEvent@@@@XZ @ 19 NONAME ; class RPointerArray<class CMceEvent> * CMceSession::AssociatedEventsL(void) const
+	?UpdateL@CMceRtpSource@@QAEXIIKPAVHBufC8@@@Z @ 20 NONAME ; void CMceRtpSource::UpdateL(unsigned int, unsigned int, unsigned long, class HBufC8 *)
+	?NewL@CMceDisplaySink@@SAPAV1@AAVCMceManager@@@Z @ 21 NONAME ; class CMceDisplaySink * CMceDisplaySink::NewL(class CMceManager &)
+	?SetPreferredEncodingDecodingDeviceL@CMceH263Codec@@UAEXVTUid@@@Z @ 22 NONAME ; void CMceH263Codec::SetPreferredEncodingDecodingDeviceL(class TUid)
+	?SetAllowedBitrates@CMceAmrCodec@@UAEHI@Z @ 23 NONAME ; int CMceAmrCodec::SetAllowedBitrates(unsigned int)
+	?Bundles@CMceSession@@QBEABV?$RPointerArray@VCMceStreamBundle@@@@XZ @ 24 NONAME ; class RPointerArray<class CMceStreamBundle> const & CMceSession::Bundles(void) const
+	?DisableL@CMceFileSink@@UAEXXZ @ 25 NONAME ; void CMceFileSink::DisableL(void)
+	?NewL@CMceSecureOutSession@@SAPAV1@AAVCMceEvent@@@Z @ 26 NONAME ; class CMceSecureOutSession * CMceSecureOutSession::NewL(class CMceEvent &)
+	?AllowedResolutions@CMceVideoCodec@@QBEIXZ @ 27 NONAME ; unsigned int CMceVideoCodec::AllowedResolutions(void) const
+	?SetAllowedBitrates@CMceDtmfCodec@@UAEHI@Z @ 28 NONAME ; int CMceDtmfCodec::SetAllowedBitrates(unsigned int)
+	?NotifyL@CMceInEvent@@QAEXPAVCDesC8Array@@PAVHBufC8@@1@Z @ 29 NONAME ; void CMceInEvent::NotifyL(class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?DisplaysAvailable@CMceDisplaySink@@QBEHXZ @ 30 NONAME ; int CMceDisplaySink::DisplaysAvailable(void) const
+	?SetConfigKeyL@CMceH263Codec@@UAEXABVTDesC8@@@Z @ 31 NONAME ; void CMceH263Codec::SetConfigKeyL(class TDesC8 const &)
+	?LastPacket@CMceRtpSink@@QBEKXZ @ 32 NONAME ; unsigned long CMceRtpSink::LastPacket(void) const
+	?NewLC@CMceAudioStream@@SAPAV1@XZ @ 33 NONAME ; class CMceAudioStream * CMceAudioStream::NewLC(void)
+	?Type@CMceMediaSource@@QBEIXZ @ 34 NONAME ; unsigned int CMceMediaSource::Type(void) const
+	?NewLC@CMceSpeakerSink@@SAPAV1@XZ @ 35 NONAME ; class CMceSpeakerSink * CMceSpeakerSink::NewLC(void)
+	?UpdateL@CMceFcMsgExchange@@QAEXAAVCMceSession@@PAVCDesC8Array@@@Z @ 36 NONAME ; void CMceFcMsgExchange::UpdateL(class CMceSession &, class CDesC8Array *)
+	?RemoveStreamL@CMceSession@@QAEXAAVCMceMediaStream@@@Z @ 37 NONAME ; void CMceSession::RemoveStreamL(class CMceMediaStream &)
+	?ReplaceCodecsL@CMceAudioStream@@QAEXPAV?$RPointerArray@VCMceAudioCodec@@@@@Z @ 38 NONAME ; void CMceAudioStream::ReplaceCodecsL(class RPointerArray<class CMceAudioCodec> *)
+	?Type@CMceMediaSink@@QBEIXZ @ 39 NONAME ; unsigned int CMceMediaSink::Type(void) const
+	?SetAllowedBitrates@CMceG711Codec@@UAEHI@Z @ 40 NONAME ; int CMceG711Codec::SetAllowedBitrates(unsigned int)
+	?UpdateL@CMceRtpSink@@QAEXHPAVHBufC8@@@Z @ 41 NONAME ; void CMceRtpSink::UpdateL(int, class HBufC8 *)
+	?SetInEventObserver@CMceManager@@QAEXPAVMMceInEventObserver@@@Z @ 42 NONAME ; void CMceManager::SetInEventObserver(class MMceInEventObserver *)
+	?NewL@CMceOutEvent@@SAPAV1@AAVCMceSession@@ABVTDesC8@@K@Z @ 43 NONAME ; class CMceOutEvent * CMceOutEvent::NewL(class CMceSession &, class TDesC8 const &, unsigned long)
+	?SetRtpObserver@CMceManager@@QAEXPAVMMceRtpObserver@@@Z @ 44 NONAME ; void CMceManager::SetRtpObserver(class MMceRtpObserver *)
+	?SetFrameRateL@CMceH263Codec@@UAEXN@Z @ 45 NONAME ; void CMceH263Codec::SetFrameRateL(double)
+	?SetTransactionObserver@CMceManager@@QAEXPAVMMceTransactionObserver@@@Z @ 46 NONAME ; void CMceManager::SetTransactionObserver(class MMceTransactionObserver *)
+	?SetMaxPTime@CMceG729Codec@@UAEHI@Z @ 47 NONAME ; int CMceG729Codec::SetMaxPTime(unsigned int)
+	?Recipient@CMceSession@@QBEABVTDesC8@@XZ @ 48 NONAME ; class TDesC8 const & CMceSession::Recipient(void) const
+	?GetModifierL@CMceSession@@QBEXKAAI@Z @ 49 NONAME ; void CMceSession::GetModifierL(unsigned long, unsigned int &) const
+	?DisableL@CMceCameraSource@@UAEXXZ @ 50 NONAME ; void CMceCameraSource::DisableL(void)
+	?SubscribeL@CMceOutEvent@@QAEXPAVCDesC8Array@@PAVHBufC8@@1@Z @ 51 NONAME ; void CMceOutEvent::SubscribeL(class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?CurrentMediaElement@CMceFileSource@@QAEHI@Z @ 52 NONAME ; int CMceFileSource::CurrentMediaElement(unsigned int)
+	?ControlPathSecurityLevel@CMceSession@@QBE?AW4TControlPathSecurityLevel@1@XZ @ 53 NONAME ; enum CMceSession::TControlPathSecurityLevel CMceSession::ControlPathSecurityLevel(void) const
+	?RingL@CMceInSession@@QAEXPAVCDesC8Array@@PAVHBufC8@@1@Z @ 54 NONAME ; void CMceInSession::RingL(class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?ReplaceCodecsL@CMceVideoStream@@QAEXPAV?$RPointerArray@VCMceVideoCodec@@@@@Z @ 55 NONAME ; void CMceVideoStream::ReplaceCodecsL(class RPointerArray<class CMceVideoCodec> *)
+	?SetPTime@CMceRedCodec@@UAEHI@Z @ 56 NONAME ; int CMceRedCodec::SetPTime(unsigned int)
+	?SetExposureL@CMceCameraSource@@QAEXW4TExposure@CCamera@@@Z @ 57 NONAME ; void CMceCameraSource::SetExposureL(enum CCamera::TExposure)
+	?NewL@CMceOutEvent@@SAPAV1@AAVCMceRefer@@ABVTDesC8@@K@Z @ 58 NONAME ; class CMceOutEvent * CMceOutEvent::NewL(class CMceRefer &, class TDesC8 const &, unsigned long)
+	?Type@CMceRefer@@QBE?AW4TType@1@XZ @ 59 NONAME ; enum CMceRefer::TType CMceRefer::Type(void) const
+	?GetContentType@TMceTransactionDataContainer@@QAEPAVHBufC8@@XZ @ 60 NONAME ; class HBufC8 * TMceTransactionDataContainer::GetContentType(void)
+	?EnableVAD@CMceAmrCodec@@UAEHH@Z @ 61 NONAME ; int CMceAmrCodec::EnableVAD(int)
+	?AcceptL@CMceInEvent@@QAEXXZ @ 62 NONAME ; void CMceInEvent::AcceptL(void)
+	?SetCodecMode@CMceiLBCCodec@@UAEHI@Z @ 63 NONAME ; int CMceiLBCCodec::SetCodecMode(unsigned int)
+	?RejectL@CMceInEvent@@QAEXXZ @ 64 NONAME ; void CMceInEvent::RejectL(void)
+	?ReferL@CMceOutRefer@@QAEPAVCMceOutEvent@@PAVCDesC8Array@@PAVHBufC8@@1@Z @ 65 NONAME ; class CMceOutEvent * CMceOutRefer::ReferL(class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?NewL@CMceOutRefer@@SAPAV1@AAVCMceManager@@AAVCSIPProfile@@ABVTDesC8@@2W4TType@CMceRefer@@PAVHBufC8@@@Z @ 66 NONAME ; class CMceOutRefer * CMceOutRefer::NewL(class CMceManager &, class CSIPProfile &, class TDesC8 const &, class TDesC8 const &, enum CMceRefer::TType, class HBufC8 *)
+	?NewLC@CMceRtpSource@@SAPAV1@IIKPAVHBufC8@@@Z @ 67 NONAME ; class CMceRtpSource * CMceRtpSource::NewLC(unsigned int, unsigned int, unsigned long, class HBufC8 *)
+	??1CMceDtmfCodec@@UAE@XZ @ 68 NONAME ; CMceDtmfCodec::~CMceDtmfCodec(void)
+	?AddStreamL@CMceStreamBundle@@QAEXAAVCMceMediaStream@@@Z @ 69 NONAME ; void CMceStreamBundle::AddStreamL(class CMceMediaStream &)
+	?NewL@CMceFileSink@@SAPAV1@ABV?$TBuf@$0BAA@@@@Z @ 70 NONAME ; class CMceFileSink * CMceFileSink::NewL(class TBuf<256> const &)
+	?CloneL@CMceAmrWbCodec@@UBEPAVCMceAudioCodec@@XZ @ 71 NONAME ; class CMceAudioCodec * CMceAmrWbCodec::CloneL(void) const
+	?SetPTime@CMceDtmfCodec@@UAEHI@Z @ 72 NONAME ; int CMceDtmfCodec::SetPTime(unsigned int)
+	?NewLC@CMceFileSource@@SAPAV1@AAVCMceManager@@ABV?$TBuf@$0BAA@@@@Z @ 73 NONAME ; class CMceFileSource * CMceFileSource::NewLC(class CMceManager &, class TBuf<256> const &)
+	??1CMceiLBCCodec@@UAE@XZ @ 74 NONAME ; CMceiLBCCodec::~CMceiLBCCodec(void)
+	?RejectL@CMceInSession@@QAEXXZ @ 75 NONAME ; void CMceInSession::RejectL(void)
+	?AssociatedSession@CMceRefer@@QBEPAVCMceSession@@XZ @ 76 NONAME ; class CMceSession * CMceRefer::AssociatedSession(void) const
+	?SetModifierL@CMceSession@@QAEXKI@Z @ 77 NONAME ; void CMceSession::SetModifierL(unsigned long, unsigned int)
+	?SetMMFPriorityPreferenceL@CMceCodec@@QAEXH@Z @ 78 NONAME ; void CMceCodec::SetMMFPriorityPreferenceL(int)
+	?SetAllowedResolutionsL@CMceAvcCodec@@UAEXI@Z @ 79 NONAME ; void CMceAvcCodec::SetAllowedResolutionsL(unsigned int)
+	?State@CMceSession@@QBE?AW4TState@1@XZ @ 80 NONAME ; enum CMceSession::TState CMceSession::State(void) const
+	?SetPTime@CMceG711Codec@@UAEHI@Z @ 81 NONAME ; int CMceG711Codec::SetPTime(unsigned int)
+	?SetMaxBitrateL@CMceH263Codec@@UAEXI@Z @ 82 NONAME ; void CMceH263Codec::SetMaxBitrateL(unsigned int)
+	?SetInTransactionObserver@CMceManager@@QAEXPAVMMceInTransactionObserver@@@Z @ 83 NONAME ; void CMceManager::SetInTransactionObserver(class MMceInTransactionObserver *)
+	?Events@CMceManager@@QBEABV?$RPointerArray@VCMceEvent@@@@XZ @ 84 NONAME ; class RPointerArray<class CMceEvent> const & CMceManager::Events(void) const
+	?CloneL@CMceH263Codec@@UBEPAVCMceVideoCodec@@XZ @ 85 NONAME ; class CMceVideoCodec * CMceH263Codec::CloneL(void) const
+	?MaxBitRate@CMceVideoCodec@@QBEIXZ @ 86 NONAME ; unsigned int CMceVideoCodec::MaxBitRate(void) const
+	?SetPayloadType@CMceCnCodec@@UAEHE@Z @ 87 NONAME ; int CMceCnCodec::SetPayloadType(unsigned char)
+	?SetCurrentMediaElementL@CMceFileSource@@QAEXIH@Z @ 88 NONAME ; void CMceFileSource::SetCurrentMediaElementL(unsigned int, int)
+	?SetCodecMode@CMceG729Codec@@UAEHI@Z @ 89 NONAME ; int CMceG729Codec::SetCodecMode(unsigned int)
+	??1CMceH263Codec@@UAE@XZ @ 90 NONAME ; CMceH263Codec::~CMceH263Codec(void)
+	?EnableVAD@CMceiLBCCodec@@UAEHH@Z @ 91 NONAME ; int CMceiLBCCodec::EnableVAD(int)
+	?SetBitrate@CMceAvcCodec@@UAEHI@Z @ 92 NONAME ; int CMceAvcCodec::SetBitrate(unsigned int)
+	?Ssrc@CMceRtpSource@@QBEKXZ @ 93 NONAME ; unsigned long CMceRtpSource::Ssrc(void) const
+	?Streams@CMceStreamBundle@@QAEABV?$RPointerArray@VCMceMediaStream@@@@XZ @ 94 NONAME ; class RPointerArray<class CMceMediaStream> const & CMceStreamBundle::Streams(void)
+	?SendRRL@CMceRtpSource@@QAEXXZ @ 95 NONAME ; void CMceRtpSource::SendRRL(void)
+	?NewLC@CMceDisplaySink@@SAPAV1@AAVCMceManager@@@Z @ 96 NONAME ; class CMceDisplaySink * CMceDisplaySink::NewLC(class CMceManager &)
+	?NewL@CMceOutEvent@@SAPAV1@AAVCMceEvent@@ABVTDesC8@@K@Z @ 97 NONAME ; class CMceOutEvent * CMceOutEvent::NewL(class CMceEvent &, class TDesC8 const &, unsigned long)
+	??1CMceRtpSink@@UAE@XZ @ 98 NONAME ; CMceRtpSink::~CMceRtpSink(void)
+	?SetWhiteBalanceL@CMceCameraSource@@QAEXW4TWhiteBalance@CCamera@@@Z @ 99 NONAME ; void CMceCameraSource::SetWhiteBalanceL(enum CCamera::TWhiteBalance)
+	?SupportedVideoCodecs@CMceManager@@QBEABV?$RPointerArray@$$CBVCMceVideoCodec@@@@XZ @ 100 NONAME ; class RPointerArray<class CMceVideoCodec const > const & CMceManager::SupportedVideoCodecs(void) const
+	?MediaAttributeLinesL@CMceMediaStream@@QAEPAVMDesC8Array@@XZ @ 101 NONAME ; class MDesC8Array * CMceMediaStream::MediaAttributeLinesL(void)
+	?NewL@CMceOutRefer@@SAPAV1@AAVCMceSession@@ABVTDesC8@@W4TType@CMceRefer@@@Z @ 102 NONAME ; class CMceOutRefer * CMceOutRefer::NewL(class CMceSession &, class TDesC8 const &, enum CMceRefer::TType)
+	?ZoomFactorL@CMceCameraSource@@QAEHXZ @ 103 NONAME ; int CMceCameraSource::ZoomFactorL(void)
+	?SetPayloadType@CMceiLBCCodec@@UAEHE@Z @ 104 NONAME ; int CMceiLBCCodec::SetPayloadType(unsigned char)
+	?EnableVAD@CMceCnCodec@@UAEHH@Z @ 105 NONAME ; int CMceCnCodec::EnableVAD(int)
+	?RemoveBundleL@CMceSession@@QAEXAAVCMceStreamBundle@@@Z @ 106 NONAME ; void CMceSession::RemoveBundleL(class CMceStreamBundle &)
+	?Type@CMceCodec@@QBEIXZ @ 107 NONAME ; unsigned int CMceCodec::Type(void) const
+	?SetSamplingFreq@CMceDtmfCodec@@UAEHI@Z @ 108 NONAME ; int CMceDtmfCodec::SetSamplingFreq(unsigned int)
+	?SetRoutingL@CMceSpeakerSink@@QAEXH@Z @ 109 NONAME ; void CMceSpeakerSink::SetRoutingL(int)
+	?SetMediaAttributeLinesL@CMceMediaStream@@QAEXPAVCDesC8Array@@@Z @ 110 NONAME ; void CMceMediaStream::SetMediaAttributeLinesL(class CDesC8Array *)
+	??1CMceG729Codec@@UAE@XZ @ 111 NONAME ; CMceG729Codec::~CMceG729Codec(void)
+	?RemoveStreamL@CMceStreamBundle@@QAEXAAVCMceMediaStream@@@Z @ 112 NONAME ; void CMceStreamBundle::RemoveStreamL(class CMceMediaStream &)
+	?SetRotationL@CMceDisplaySink@@QAEXW4TRotation@1@@Z @ 113 NONAME ; void CMceDisplaySink::SetRotationL(enum CMceDisplaySink::TRotation)
+	?SetCodecMode@CMceAvcCodec@@UAEHI@Z @ 114 NONAME ; int CMceAvcCodec::SetCodecMode(unsigned int)
+	?SessionTimer@CMceSession@@QBEKXZ @ 115 NONAME ; unsigned long CMceSession::SessionTimer(void) const
+	?CloneL@CMceRedCodec@@UBEPAVCMceAudioCodec@@XZ @ 116 NONAME ; class CMceAudioCodec * CMceRedCodec::CloneL(void) const
+	?FrameSize@CMceCodec@@QBEIXZ @ 117 NONAME ; unsigned int CMceCodec::FrameSize(void) const
+	?NewLC@CMceVideoStream@@SAPAV1@XZ @ 118 NONAME ; class CMceVideoStream * CMceVideoStream::NewLC(void)
+	?SetSamplingFreq@CMceG711Codec@@UAEHI@Z @ 119 NONAME ; int CMceG711Codec::SetSamplingFreq(unsigned int)
+	?EnableL@CMceSpeakerSink@@UAEXXZ @ 120 NONAME ; void CMceSpeakerSink::EnableL(void)
+	?EnableVAD@CMceG729Codec@@UAEHH@Z @ 121 NONAME ; int CMceG729Codec::EnableVAD(int)
+	?Profile@CMceSession@@QBEKXZ @ 122 NONAME ; unsigned long CMceSession::Profile(void) const
+	??1CMceRedCodec@@UAE@XZ @ 123 NONAME ; CMceRedCodec::~CMceRedCodec(void)
+	?SetAllowedBitrates@CMceiLBCCodec@@UAEHI@Z @ 124 NONAME ; int CMceiLBCCodec::SetAllowedBitrates(unsigned int)
+	??1CMceInRefer@@UAE@XZ @ 125 NONAME ; CMceInRefer::~CMceInRefer(void)
+	?TranscodingProgressL@CMceFileSource@@QBEHXZ @ 126 NONAME ; int CMceFileSource::TranscodingProgressL(void) const
+	?RemoveSinkL@CMceMediaStream@@QAEXAAVCMceMediaSink@@@Z @ 127 NONAME ; void CMceMediaStream::RemoveSinkL(class CMceMediaSink &)
+	?BoundStream@CMceMediaStream@@QBEHXZ @ 128 NONAME ; int CMceMediaStream::BoundStream(void) const
+	?State@CMceEvent@@QBE?AW4TState@1@XZ @ 129 NONAME ; enum CMceEvent::TState CMceEvent::State(void) const
+	??1CMceCameraSource@@UAE@XZ @ 130 NONAME ; CMceCameraSource::~CMceCameraSource(void)
+	?SetPositionL@CMceFileSource@@QAEXABVTTimeIntervalMicroSeconds@@@Z @ 131 NONAME ; void CMceFileSource::SetPositionL(class TTimeIntervalMicroSeconds const &)
+	?SetSamplingFreq@CMceAmrCodec@@UAEHI@Z @ 132 NONAME ; int CMceAmrCodec::SetSamplingFreq(unsigned int)
+	?SetPayloadType@CMceG729Codec@@UAEHE@Z @ 133 NONAME ; int CMceG729Codec::SetPayloadType(unsigned char)
+	?SetMaxBitrateL@CMceAvcCodec@@UAEXI@Z @ 134 NONAME ; void CMceAvcCodec::SetMaxBitrateL(unsigned int)
+	?DisableL@CMceSpeakerSink@@UAEXXZ @ 135 NONAME ; void CMceSpeakerSink::DisableL(void)
+	?SetVolumeL@CMceSpeakerSink@@QAEXH@Z @ 136 NONAME ; void CMceSpeakerSink::SetVolumeL(int)
+	?SetBitrate@CMceAmrCodec@@UAEHI@Z @ 137 NONAME ; int CMceAmrCodec::SetBitrate(unsigned int)
+	?EnableSsrcL@CMceRtpSource@@QAEXI@Z @ 138 NONAME ; void CMceRtpSource::EnableSsrcL(unsigned int)
+	?SetBitrate@CMceCnCodec@@UAEHI@Z @ 139 NONAME ; int CMceCnCodec::SetBitrate(unsigned int)
+	?NewL@CMceAvcCodec@@SAPAV1@V?$TBuf8@$0BE@@@@Z @ 140 NONAME ; class CMceAvcCodec * CMceAvcCodec::NewL(class TBuf8<20>)
+	?CloneL@CMceG729Codec@@UBEPAVCMceAudioCodec@@XZ @ 141 NONAME ; class CMceAudioCodec * CMceG729Codec::CloneL(void) const
+	??1CMceMediaStream@@UAE@XZ @ 142 NONAME ; CMceMediaStream::~CMceMediaStream(void)
+	?SetDefaultHeadersL@CMceManager@@QAEXPAVCDesC8Array@@0@Z @ 143 NONAME ; void CMceManager::SetDefaultHeadersL(class CDesC8Array *, class CDesC8Array *)
+	?EnableL@CMceRtpSink@@UAEXXZ @ 144 NONAME ; void CMceRtpSink::EnableL(void)
+	?NewLC@CMceRtpSink@@SAPAV1@XZ @ 145 NONAME ; class CMceRtpSink * CMceRtpSink::NewLC(void)
+	?SetAllowedBitrates@CMceG729Codec@@UAEHI@Z @ 146 NONAME ; int CMceG729Codec::SetAllowedBitrates(unsigned int)
+	?ExposureL@CMceCameraSource@@QAE?AW4TExposure@CCamera@@XZ @ 147 NONAME ; enum CCamera::TExposure CMceCameraSource::ExposureL(void)
+	?SetCodecMode@CMceAmrCodec@@UAEHI@Z @ 148 NONAME ; int CMceAmrCodec::SetCodecMode(unsigned int)
+	?SetReferObserver@CMceManager@@QAEXPAVMMceReferObserver@@@Z @ 149 NONAME ; void CMceManager::SetReferObserver(class MMceReferObserver *)
+	?SetCameraIndexL@CMceCameraSource@@QAEXH@Z @ 150 NONAME ; void CMceCameraSource::SetCameraIndexL(int)
+	?SetBitrate@CMceH263Codec@@UAEHI@Z @ 151 NONAME ; int CMceH263Codec::SetBitrate(unsigned int)
+	??1CMceFileSink@@UAE@XZ @ 152 NONAME ; CMceFileSink::~CMceFileSink(void)
+	?Originator@CMceEvent@@QBEABVTDesC8@@XZ @ 153 NONAME ; class TDesC8 const & CMceEvent::Originator(void) const
+	?GainL@CMceMicSource@@QBEHXZ @ 154 NONAME ; int CMceMicSource::GainL(void) const
+	?SetRedPayloadTypesL@CMceRedCodec@@QAEXABV?$RArray@I@@@Z @ 155 NONAME ; void CMceRedCodec::SetRedPayloadTypesL(class RArray<unsigned int> const &)
+	?SetPTime@CMceiLBCCodec@@UAEHI@Z @ 156 NONAME ; int CMceiLBCCodec::SetPTime(unsigned int)
+	?CloneL@CMceiLBCCodec@@UBEPAVCMceAudioCodec@@XZ @ 157 NONAME ; class CMceAudioCodec * CMceiLBCCodec::CloneL(void) const
+	??1CMceVideoStream@@UAE@XZ @ 158 NONAME ; CMceVideoStream::~CMceVideoStream(void)
+	?DisableL@CMceRtpSink@@UAEXXZ @ 159 NONAME ; void CMceRtpSink::DisableL(void)
+	??1CMceSecureOutSession@@UAE@XZ @ 160 NONAME ; CMceSecureOutSession::~CMceSecureOutSession(void)
+	??1CMceMicSource@@UAE@XZ @ 161 NONAME ; CMceMicSource::~CMceMicSource(void)
+	?Resolution@CMceVideoCodec@@QBE?AVTSize@@XZ @ 162 NONAME ; class TSize CMceVideoCodec::Resolution(void) const
+	?NewLC@CMceMicSource@@SAPAV1@XZ @ 163 NONAME ; class CMceMicSource * CMceMicSource::NewLC(void)
+	?CancelTranscodeL@CMceFileSource@@QAEXXZ @ 164 NONAME ; void CMceFileSource::CancelTranscodeL(void)
+	?SetResolutionL@CMceAvcCodec@@UAEXVTSize@@@Z @ 165 NONAME ; void CMceAvcCodec::SetResolutionL(class TSize)
+	?ContrastL@CMceCameraSource@@QAEHXZ @ 166 NONAME ; int CMceCameraSource::ContrastL(void)
+	?PriorityL@CMceDisplaySink@@QAEIXZ @ 167 NONAME ; unsigned int CMceDisplaySink::PriorityL(void)
+	??1CMceManager@@UAE@XZ @ 168 NONAME ; CMceManager::~CMceManager(void)
+	?Recipient@CMceRefer@@QBEABVTDesC8@@XZ @ 169 NONAME ; class TDesC8 const & CMceRefer::Recipient(void) const
+	?SetPTime@CMceG729Codec@@UAEHI@Z @ 170 NONAME ; int CMceG729Codec::SetPTime(unsigned int)
+	?SetMaxPTime@CMceAmrCodec@@UAEHI@Z @ 171 NONAME ; int CMceAmrCodec::SetMaxPTime(unsigned int)
+	?SetDisplay@CMceDisplaySink@@QAEXAAVRWindow@@AAVCWindowGc@@@Z @ 172 NONAME ; void CMceDisplaySink::SetDisplay(class RWindow &, class CWindowGc &)
+	?NewL@CMceManager@@SAPAV1@ABVTUid@@PAVTMceTransactionDataContainer@@@Z @ 173 NONAME ; class CMceManager * CMceManager::NewL(class TUid const &, class TMceTransactionDataContainer *)
+	?Streams@CMceSession@@QBEABV?$RPointerArray@VCMceMediaStream@@@@XZ @ 174 NONAME ; class RPointerArray<class CMceMediaStream> const & CMceSession::Streams(void) const
+	??1CMceDisplaySink@@UAE@XZ @ 175 NONAME ; CMceDisplaySink::~CMceDisplaySink(void)
+	?SupportedVideoCodecs@CMceVideoStream@@QBEABV?$RPointerArray@$$CBVCMceVideoCodec@@@@XZ @ 176 NONAME ; class RPointerArray<class CMceVideoCodec const > const & CMceVideoStream::SupportedVideoCodecs(void) const
+	?Sessions@CMceManager@@QBEABV?$RPointerArray@VCMceSession@@@@XZ @ 177 NONAME ; class RPointerArray<class CMceSession> const & CMceManager::Sessions(void) const
+	??0TMceTransactionDataContainer@@QAE@XZ @ 178 NONAME ; TMceTransactionDataContainer::TMceTransactionDataContainer(void)
+	?SetFrameRateL@CMceAvcCodec@@UAEXN@Z @ 179 NONAME ; void CMceAvcCodec::SetFrameRateL(double)
+	?ConnectionActive@CMceSession@@QBEHXZ @ 180 NONAME ; int CMceSession::ConnectionActive(void) const
+	?RemoveCodecL@CMceAudioStream@@QAEXAAVCMceAudioCodec@@@Z @ 181 NONAME ; void CMceAudioStream::RemoveCodecL(class CMceAudioCodec &)
+	?SetPriorityL@CMceDisplaySink@@QAEXI@Z @ 182 NONAME ; void CMceDisplaySink::SetPriorityL(unsigned int)
+	?CloneL@CMceAmrCodec@@UBEPAVCMceAudioCodec@@XZ @ 183 NONAME ; class CMceAudioCodec * CMceAmrCodec::CloneL(void) const
+	?NewL@CMceOutSession@@SAPAV1@AAVCMceManager@@KABVTDesC8@@1PAVCDesC8Array@@@Z @ 184 NONAME ; class CMceOutSession * CMceOutSession::NewL(class CMceManager &, unsigned long, class TDesC8 const &, class TDesC8 const &, class CDesC8Array *)
+	?SetPayloadType@CMceRedCodec@@UAEHE@Z @ 185 NONAME ; int CMceRedCodec::SetPayloadType(unsigned char)
+	?NewL@CMceH263Codec@@SAPAV1@V?$TBuf8@$0BE@@@@Z @ 186 NONAME ; class CMceH263Codec * CMceH263Codec::NewL(class TBuf8<20>)
+	?CloneL@CMceAvcCodec@@UBEPAVCMceVideoCodec@@XZ @ 187 NONAME ; class CMceVideoCodec * CMceAvcCodec::CloneL(void) const
+	?Type@CMceStreamBundle@@QBE?AW4TMceStreamBundleType@1@XZ @ 188 NONAME ; enum CMceStreamBundle::TMceStreamBundleType CMceStreamBundle::Type(void) const
+	?NewL@CMceOutSession@@SAPAV1@AAVCMceManager@@AAVCSIPProfile@@ABVTDesC8@@PAVHBufC8@@@Z @ 189 NONAME ; class CMceOutSession * CMceOutSession::NewL(class CMceManager &, class CSIPProfile &, class TDesC8 const &, class HBufC8 *)
+	??1CMceAudioStream@@UAE@XZ @ 190 NONAME ; CMceAudioStream::~CMceAudioStream(void)
+	?SetSamplingFreq@CMceiLBCCodec@@UAEHI@Z @ 191 NONAME ; int CMceiLBCCodec::SetSamplingFreq(unsigned int)
+	?LocalMediaPort@CMceMediaStream@@QBEIXZ @ 192 NONAME ; unsigned int CMceMediaStream::LocalMediaPort(void) const
+	?InitializeL@CMceFcMsgExchange@@QAEXAAVCMceSession@@HAAVMMceFcMsgObserver@@@Z @ 193 NONAME ; void CMceFcMsgExchange::InitializeL(class CMceSession &, int, class MMceFcMsgObserver &)
+	?NewL@CMceAudioStream@@SAPAV1@XZ @ 194 NONAME ; class CMceAudioStream * CMceAudioStream::NewL(void)
+	?Sinks@CMceMediaStream@@QBEABV?$RPointerArray@VCMceMediaSink@@@@XZ @ 195 NONAME ; class RPointerArray<class CMceMediaSink> const & CMceMediaStream::Sinks(void) const
+	?SetResolutionL@CMceH263Codec@@UAEXVTSize@@@Z @ 196 NONAME ; void CMceH263Codec::SetResolutionL(class TSize)
+	?NewL@CMceSpeakerSink@@SAPAV1@XZ @ 197 NONAME ; class CMceSpeakerSink * CMceSpeakerSink::NewL(void)
+	?DisplayRectL@CMceDisplaySink@@QAE?BVTRect@@XZ @ 198 NONAME ; class TRect const CMceDisplaySink::DisplayRectL(void)
+	?SetDigitalZoomFactorL@CMceCameraSource@@QAEXH@Z @ 199 NONAME ; void CMceCameraSource::SetDigitalZoomFactorL(int)
+	?SetBrightnessL@CMceCameraSource@@QAEXH@Z @ 200 NONAME ; void CMceCameraSource::SetBrightnessL(int)
+	?NewL@CMceStreamBundle@@SAPAV1@W4TMceStreamBundleType@1@@Z @ 201 NONAME ; class CMceStreamBundle * CMceStreamBundle::NewL(enum CMceStreamBundle::TMceStreamBundleType)
+	?NewL@CMceOutRefer@@SAPAV1@AAVCMceRefer@@ABVTDesC8@@W4TType@2@@Z @ 202 NONAME ; class CMceOutRefer * CMceOutRefer::NewL(class CMceRefer &, class TDesC8 const &, enum CMceRefer::TType)
+	?SetSamplingFreq@CMceCnCodec@@UAEHI@Z @ 203 NONAME ; int CMceCnCodec::SetSamplingFreq(unsigned int)
+	?AcceptL@CMceInSession@@QAEXABVTDesC8@@KPAVCDesC8Array@@PAVHBufC8@@2@Z @ 204 NONAME ; void CMceInSession::AcceptL(class TDesC8 const &, unsigned long, class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	??1CMceSecureInSession@@UAE@XZ @ 205 NONAME ; CMceSecureInSession::~CMceSecureInSession(void)
+	?SetEventObserver@CMceManager@@QAEXPAVMMceEventObserver@@@Z @ 206 NONAME ; void CMceManager::SetEventObserver(class MMceEventObserver *)
+	?AddSinkL@CMceMediaStream@@QAEXPAVCMceMediaSink@@@Z @ 207 NONAME ; void CMceMediaStream::AddSinkL(class CMceMediaSink *)
+	?NewL@CMceRtpSink@@SAPAV1@HPAVHBufC8@@@Z @ 208 NONAME ; class CMceRtpSink * CMceRtpSink::NewL(int, class HBufC8 *)
+	?ServiceType@CMceSession@@QBEKXZ @ 209 NONAME ; unsigned long CMceSession::ServiceType(void) const
+	?CodecMode@CMceCodec@@QBEIXZ @ 210 NONAME ; unsigned int CMceCodec::CodecMode(void) const
+	?DigitalZoomFactorL@CMceCameraSource@@QAEHXZ @ 211 NONAME ; int CMceCameraSource::DigitalZoomFactorL(void)
+	?BindL@CMceMediaStream@@QAEXPAV1@@Z @ 212 NONAME ; void CMceMediaStream::BindL(class CMceMediaStream *)
+	?SetFastForwardL@CMceFileSource@@QAEXH@Z @ 213 NONAME ; void CMceFileSource::SetFastForwardL(int)
+	?SupportedAudioCodecs@CMceManager@@QBEABV?$RPointerArray@$$CBVCMceAudioCodec@@@@XZ @ 214 NONAME ; class RPointerArray<class CMceAudioCodec const > const & CMceManager::SupportedAudioCodecs(void) const
+	?SetSamplingFreq@CMceG729Codec@@UAEHI@Z @ 215 NONAME ; int CMceG729Codec::SetSamplingFreq(unsigned int)
+	?SendSRL@CMceRtpSink@@QAEXXZ @ 216 NONAME ; void CMceRtpSink::SendSRL(void)
+	?NewLC@CMceAvcCodec@@SAPAV1@V?$TBuf8@$0BE@@@@Z @ 217 NONAME ; class CMceAvcCodec * CMceAvcCodec::NewLC(class TBuf8<20>)
+	??1CMceOutRefer@@UAE@XZ @ 218 NONAME ; CMceOutRefer::~CMceOutRefer(void)
+	?DisableL@CMceFileSource@@UAEXXZ @ 219 NONAME ; void CMceFileSource::DisableL(void)
+	?AllowedBitrates@CMceCodec@@QBEIXZ @ 220 NONAME ; unsigned int CMceCodec::AllowedBitrates(void) const
+	?ConfigKeyL@CMceVideoCodec@@QBEPAVHBufC8@@XZ @ 221 NONAME ; class HBufC8 * CMceVideoCodec::ConfigKeyL(void) const
+	?AllowedFrameRates@CMceVideoCodec@@QBEIXZ @ 222 NONAME ; unsigned int CMceVideoCodec::AllowedFrameRates(void) const
+	?SetGainL@CMceMicSource@@QAEXH@Z @ 223 NONAME ; void CMceMicSource::SetGainL(int)
+	?SetCodecMode@CMceCnCodec@@UAEHI@Z @ 224 NONAME ; int CMceCnCodec::SetCodecMode(unsigned int)
+	?EventHeader@CMceEvent@@QBEABVTDesC8@@XZ @ 225 NONAME ; class TDesC8 const & CMceEvent::EventHeader(void) const
+	?SetPTime@CMceCnCodec@@UAEHI@Z @ 226 NONAME ; int CMceCnCodec::SetPTime(unsigned int)
+	?IsEnabled@CMceMediaStream@@QBEHXZ @ 227 NONAME ; int CMceMediaStream::IsEnabled(void) const
+	?BrightnessL@CMceCameraSource@@QAEHXZ @ 228 NONAME ; int CMceCameraSource::BrightnessL(void)
+	?AssociatedEventsL@CMceRefer@@QBEPAV?$RPointerArray@VCMceEvent@@@@XZ @ 229 NONAME ; class RPointerArray<class CMceEvent> * CMceRefer::AssociatedEventsL(void) const
+	?SetBitrate@CMceDtmfCodec@@UAEHI@Z @ 230 NONAME ; int CMceDtmfCodec::SetBitrate(unsigned int)
+	?Bitrate@CMceCodec@@QBEIXZ @ 231 NONAME ; unsigned int CMceCodec::Bitrate(void) const
+	??1CMceMediaSink@@UAE@XZ @ 232 NONAME ; CMceMediaSink::~CMceMediaSink(void)
+	?SetAllowedBitrates@CMceRedCodec@@UAEHI@Z @ 233 NONAME ; int CMceRedCodec::SetAllowedBitrates(unsigned int)
+	??1CMceAvcCodec@@UAE@XZ @ 234 NONAME ; CMceAvcCodec::~CMceAvcCodec(void)
+	?AssociatedSession@CMceEvent@@QBEPAVCMceSession@@XZ @ 235 NONAME ; class CMceSession * CMceEvent::AssociatedSession(void) const
+	?SetBitrate@CMceG711Codec@@UAEHI@Z @ 236 NONAME ; int CMceG711Codec::SetBitrate(unsigned int)
+	?CamerasAvailable@CMceCameraSource@@QBEHXZ @ 237 NONAME ; int CMceCameraSource::CamerasAvailable(void) const
+	??1CMceOutSession@@UAE@XZ @ 238 NONAME ; CMceOutSession::~CMceOutSession(void)
+	?SetPTime@CMceAmrCodec@@UAEHI@Z @ 239 NONAME ; int CMceAmrCodec::SetPTime(unsigned int)
+	?State@CMceCodec@@QBE?AW4TState@1@XZ @ 240 NONAME ; enum CMceCodec::TState CMceCodec::State(void) const
+	?NewL@CMceOutEvent@@SAPAV1@AAVCMceManager@@AAVCSIPProfile@@ABVTDesC8@@2KPAVHBufC8@@@Z @ 241 NONAME ; class CMceOutEvent * CMceOutEvent::NewL(class CMceManager &, class CSIPProfile &, class TDesC8 const &, class TDesC8 const &, unsigned long, class HBufC8 *)
+	?Refers@CMceManager@@QBEABV?$RPointerArray@VCMceRefer@@@@XZ @ 242 NONAME ; class RPointerArray<class CMceRefer> const & CMceManager::Refers(void) const
+	?Ssrcs@CMceRtpSource@@QBEABV?$RArray@I@@XZ @ 243 NONAME ; class RArray<unsigned int> const & CMceRtpSource::Ssrcs(void) const
+	??1CMceRtpSource@@UAE@XZ @ 244 NONAME ; CMceRtpSource::~CMceRtpSource(void)
+	?DisableSsrcL@CMceRtpSource@@QAEXI@Z @ 245 NONAME ; void CMceRtpSource::DisableSsrcL(unsigned int)
+	?RespondL@CMceInSession@@QAEXABVTDesC8@@KPAVCDesC8Array@@PAVHBufC8@@2@Z @ 246 NONAME ; void CMceInSession::RespondL(class TDesC8 const &, unsigned long, class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?NewL@CMceOutRefer@@SAPAV1@AAVCMceEvent@@ABVTDesC8@@W4TType@CMceRefer@@@Z @ 247 NONAME ; class CMceOutRefer * CMceOutRefer::NewL(class CMceEvent &, class TDesC8 const &, enum CMceRefer::TType)
+	?TerminateL@CMceSession@@QAEXPAVCDesC8Array@@PAVHBufC8@@1@Z @ 248 NONAME ; void CMceSession::TerminateL(class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?Type@CMceMediaStream@@QBEIXZ @ 249 NONAME ; unsigned int CMceMediaStream::Type(void) const
+	?DisableL@CMceMicSource@@UAEXXZ @ 250 NONAME ; void CMceMicSource::DisableL(void)
+	?SetMediaObserver@CMceManager@@QAEXPAVMMceStreamObserver@@@Z @ 251 NONAME ; void CMceManager::SetMediaObserver(class MMceStreamObserver *)
+	?SetStandByTimerL@CMceCodec@@QAEXK@Z @ 252 NONAME ; void CMceCodec::SetStandByTimerL(unsigned long)
+	?SetAllowedFrameRatesL@CMceH263Codec@@UAEXI@Z @ 253 NONAME ; void CMceH263Codec::SetAllowedFrameRatesL(unsigned int)
+	?NewL@CMceRtpSink@@SAPAV1@XZ @ 254 NONAME ; class CMceRtpSink * CMceRtpSink::NewL(void)
+	?Session@CMceMediaStream@@QBEPAVCMceSession@@XZ @ 255 NONAME ; class CMceSession * CMceMediaStream::Session(void) const
+	?SetSessionObserver@CMceManager@@QAEXPAVMMceSessionObserver@@@Z @ 256 NONAME ; void CMceManager::SetSessionObserver(class MMceSessionObserver *)
+	?NewL@CMceMicSource@@SAPAV1@XZ @ 257 NONAME ; class CMceMicSource * CMceMicSource::NewL(void)
+	?EnableVAD@CMceRedCodec@@UAEHH@Z @ 258 NONAME ; int CMceRedCodec::EnableVAD(int)
+	??1CMceInEvent@@UAE@XZ @ 259 NONAME ; CMceInEvent::~CMceInEvent(void)
+	?Originator@CMceSession@@QBEABVTDesC8@@XZ @ 260 NONAME ; class TDesC8 const & CMceSession::Originator(void) const
+	?SetKeepAliveTimerL@CMceCodec@@QAEXE@Z @ 261 NONAME ; void CMceCodec::SetKeepAliveTimerL(unsigned char)
+	?SetConfigKeyL@CMceAvcCodec@@UAEXABVTDesC8@@@Z @ 262 NONAME ; void CMceAvcCodec::SetConfigKeyL(class TDesC8 const &)
+	?SetSourceL@CMceMediaStream@@QAEXPAVCMceMediaSource@@@Z @ 263 NONAME ; void CMceMediaStream::SetSourceL(class CMceMediaSource *)
+	?NewL@CMceVideoStream@@SAPAV1@XZ @ 264 NONAME ; class CMceVideoStream * CMceVideoStream::NewL(void)
+	?SetFastRewindL@CMceFileSource@@QAEXH@Z @ 265 NONAME ; void CMceFileSource::SetFastRewindL(int)
+	?RemoveCodecL@CMceVideoStream@@QAEXAAVCMceVideoCodec@@@Z @ 266 NONAME ; void CMceVideoStream::RemoveCodecL(class CMceVideoCodec &)
+	?DefaultHeadersL@CMceManager@@QBEPAVCDesC8Array@@ABVTDesC8@@@Z @ 267 NONAME ; class CDesC8Array * CMceManager::DefaultHeadersL(class TDesC8 const &) const
+	?EnableL@CMceDisplaySink@@UAEXXZ @ 268 NONAME ; void CMceDisplaySink::EnableL(void)
+	?SdpName@CMceCodec@@QBEABVTDesC8@@XZ @ 269 NONAME ; class TDesC8 const & CMceCodec::SdpName(void) const
+	?NewL@CMceFileSource@@SAPAV1@AAVCMceManager@@ABV?$TBuf@$0BAA@@@@Z @ 270 NONAME ; class CMceFileSource * CMceFileSource::NewL(class CMceManager &, class TBuf<256> const &)
+	?DisableInactivityTimerL@CMceRtpSource@@QAEXXZ @ 271 NONAME ; void CMceRtpSource::DisableInactivityTimerL(void)
+	?UpdateL@CMceFileSource@@QAEXABV?$TBuf@$0BAA@@@@Z @ 272 NONAME ; void CMceFileSource::UpdateL(class TBuf<256> const &)
+	?RespondL@CMceInEvent@@QAEXABVTDesC8@@KPAVCDesC8Array@@PAVHBufC8@@2@Z @ 273 NONAME ; void CMceInEvent::RespondL(class TDesC8 const &, unsigned long, class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?SetCodecMode@CMceH263Codec@@UAEHI@Z @ 274 NONAME ; int CMceH263Codec::SetCodecMode(unsigned int)
+	?MaxGainL@CMceMicSource@@QBEHXZ @ 275 NONAME ; int CMceMicSource::MaxGainL(void) const
+	?EnableL@CMceMicSource@@UAEXXZ @ 276 NONAME ; void CMceMicSource::EnableL(void)
+	?UpdateL@CMceOutEvent@@QAEXKPAVCDesC8Array@@PAVHBufC8@@1@Z @ 277 NONAME ; void CMceOutEvent::UpdateL(unsigned long, class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?NewLC@CMceCameraSource@@SAPAV1@AAVCMceManager@@@Z @ 278 NONAME ; class CMceCameraSource * CMceCameraSource::NewLC(class CMceManager &)
+	?SendResponseL@CMceSession@@QAEXKABVTDesC8@@KPAVCDesC8Array@@PAVHBufC8@@2@Z @ 279 NONAME ; void CMceSession::SendResponseL(unsigned long, class TDesC8 const &, unsigned long, class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?GetContent@TMceTransactionDataContainer@@QAEPAVHBufC8@@XZ @ 280 NONAME ; class HBufC8 * TMceTransactionDataContainer::GetContent(void)
+	?DisableL@CMceDisplaySink@@UAEXXZ @ 281 NONAME ; void CMceDisplaySink::DisableL(void)
+	?PayloadType@CMceCodec@@QBEEXZ @ 282 NONAME ; unsigned char CMceCodec::PayloadType(void) const
+	?TerminateL@CMceEvent@@QAEXPAVCDesC8Array@@PAVHBufC8@@1@Z @ 283 NONAME ; void CMceEvent::TerminateL(class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?AcceptL@CMceInRefer@@QAEPAVCMceInEvent@@XZ @ 284 NONAME ; class CMceInEvent * CMceInRefer::AcceptL(void)
+	?SetZoomFactorL@CMceCameraSource@@QAEXH@Z @ 285 NONAME ; void CMceCameraSource::SetZoomFactorL(int)
+	?CancelL@CMceOutSession@@QAEXXZ @ 286 NONAME ; void CMceOutSession::CancelL(void)
+	?AddCodecL@CMceAudioStream@@QAEXPAVCMceAudioCodec@@@Z @ 287 NONAME ; void CMceAudioStream::AddCodecL(class CMceAudioCodec *)
+	??1CMceAmrWbCodec@@UAE@XZ @ 288 NONAME ; CMceAmrWbCodec::~CMceAmrWbCodec(void)
+	?CloneL@CMceG711Codec@@UBEPAVCMceAudioCodec@@XZ @ 289 NONAME ; class CMceAudioCodec * CMceG711Codec::CloneL(void) const
+	?Codecs@CMceAudioStream@@QAEABV?$RPointerArray@VCMceAudioCodec@@@@XZ @ 290 NONAME ; class RPointerArray<class CMceAudioCodec> const & CMceAudioStream::Codecs(void)
+	??1CMceMediaSource@@UAE@XZ @ 291 NONAME ; CMceMediaSource::~CMceMediaSource(void)
+	?MediaElementCountL@CMceFileSource@@QBEHI@Z @ 292 NONAME ; int CMceFileSource::MediaElementCountL(unsigned int) const
+	?RejectL@CMceInRefer@@QAEXXZ @ 293 NONAME ; void CMceInRefer::RejectL(void)
+	?UpdateL@CMceSession@@QAEXKPAVCDesC8Array@@PAVHBufC8@@10@Z @ 294 NONAME ; void CMceSession::UpdateL(unsigned long, class CDesC8Array *, class HBufC8 *, class HBufC8 *, class CDesC8Array *)
+	?SetDisplayRectL@CMceDisplaySink@@QAEXABVTRect@@@Z @ 295 NONAME ; void CMceDisplaySink::SetDisplayRectL(class TRect const &)
+	?GetHeaders@TMceTransactionDataContainer@@QAEPAVCDesC8Array@@XZ @ 296 NONAME ; class CDesC8Array * TMceTransactionDataContainer::GetHeaders(void)
+	??1CMceCnCodec@@UAE@XZ @ 297 NONAME ; CMceCnCodec::~CMceCnCodec(void)
+	?AssociatedRefersL@CMceRefer@@QBEPAV?$RPointerArray@VCMceRefer@@@@XZ @ 298 NONAME ; class RPointerArray<class CMceRefer> * CMceRefer::AssociatedRefersL(void) const
+	??1CMceFileSource@@UAE@XZ @ 299 NONAME ; CMceFileSource::~CMceFileSource(void)
+	?EnableL@CMceCameraSource@@UAEXXZ @ 300 NONAME ; void CMceCameraSource::EnableL(void)
+	?SetBitrate@CMceiLBCCodec@@UAEHI@Z @ 301 NONAME ; int CMceiLBCCodec::SetBitrate(unsigned int)
+	?Codecs@CMceVideoStream@@QAEABV?$RPointerArray@VCMceVideoCodec@@@@XZ @ 302 NONAME ; class RPointerArray<class CMceVideoCodec> const & CMceVideoStream::Codecs(void)
+	?SetServiceTypeL@CMceSession@@QAEXK@Z @ 303 NONAME ; void CMceSession::SetServiceTypeL(unsigned long)
+	?NewL@CMceOutSession@@SAPAV1@AAVCMceRefer@@@Z @ 304 NONAME ; class CMceOutSession * CMceOutSession::NewL(class CMceRefer &)
+	?SetPayloadType@CMceH263Codec@@UAEHE@Z @ 305 NONAME ; int CMceH263Codec::SetPayloadType(unsigned char)
+	?BoundStreamL@CMceMediaStream@@QBEAAV1@XZ @ 306 NONAME ; class CMceMediaStream & CMceMediaStream::BoundStreamL(void) const
+	?RotationL@CMceDisplaySink@@QAE?AW4TRotation@1@XZ @ 307 NONAME ; enum CMceDisplaySink::TRotation CMceDisplaySink::RotationL(void)
+	?SetMaxPTime@CMceDtmfCodec@@UAEHI@Z @ 308 NONAME ; int CMceDtmfCodec::SetMaxPTime(unsigned int)
+	?GetStatusCode@TMceTransactionDataContainer@@QAEHXZ @ 309 NONAME ; int TMceTransactionDataContainer::GetStatusCode(void)
+	?AssociatedRefersL@CMceSession@@QBEPAV?$RPointerArray@VCMceRefer@@@@XZ @ 310 NONAME ; class RPointerArray<class CMceRefer> * CMceSession::AssociatedRefersL(void) const
+	?NewLC@CMceH263Codec@@SAPAV1@V?$TBuf8@$0BE@@@@Z @ 311 NONAME ; class CMceH263Codec * CMceH263Codec::NewLC(class TBuf8<20>)
+	?MediaAttributeLinesL@CMceFcMsgExchange@@QAEPAVMDesC8Array@@AAVCMceSession@@@Z @ 312 NONAME ; class MDesC8Array * CMceFcMsgExchange::MediaAttributeLinesL(class CMceSession &)
+	?NewLC@CMceFileSink@@SAPAV1@ABV?$TBuf@$0BAA@@@@Z @ 313 NONAME ; class CMceFileSink * CMceFileSink::NewLC(class TBuf<256> const &)
+	?RoutingL@CMceSpeakerSink@@QBEHXZ @ 314 NONAME ; int CMceSpeakerSink::RoutingL(void) const
+	?NewL@CMceOutSession@@SAPAV1@AAVCMceEvent@@@Z @ 315 NONAME ; class CMceOutSession * CMceOutSession::NewL(class CMceEvent &)
+	?State@CMceRefer@@QBE?AW4TState@1@XZ @ 316 NONAME ; enum CMceRefer::TState CMceRefer::State(void) const
+	?SetSamplingFreq@CMceRedCodec@@UAEHI@Z @ 317 NONAME ; int CMceRedCodec::SetSamplingFreq(unsigned int)
+	?SetAllowedFrameRatesL@CMceAvcCodec@@UAEXI@Z @ 318 NONAME ; void CMceAvcCodec::SetAllowedFrameRatesL(unsigned int)
+	?FourCC@CMceCodec@@QBEKXZ @ 319 NONAME ; unsigned long CMceCodec::FourCC(void) const
+	?AssociatedEventsL@CMceEvent@@QBEPAV?$RPointerArray@VCMceEvent@@@@XZ @ 320 NONAME ; class RPointerArray<class CMceEvent> * CMceEvent::AssociatedEventsL(void) const
+	?PositionL@CMceFileSource@@QBE?AVTTimeIntervalMicroSeconds@@XZ @ 321 NONAME ; class TTimeIntervalMicroSeconds CMceFileSource::PositionL(void) const
+	?SetMaxPTime@CMceG711Codec@@UAEHI@Z @ 322 NONAME ; int CMceG711Codec::SetMaxPTime(unsigned int)
+	?Originator@CMceRefer@@QBEABVTDesC8@@XZ @ 323 NONAME ; class TDesC8 const & CMceRefer::Originator(void) const
+	?SetBitrate@CMceRedCodec@@UAEHI@Z @ 324 NONAME ; int CMceRedCodec::SetBitrate(unsigned int)
+	?DisableL@CMceRtpSource@@UAEXXZ @ 325 NONAME ; void CMceRtpSource::DisableL(void)
+	?SetPayloadType@CMceAvcCodec@@UAEHE@Z @ 326 NONAME ; int CMceAvcCodec::SetPayloadType(unsigned char)
+	?NewL@CMceCameraSource@@SAPAV1@AAVCMceManager@@@Z @ 327 NONAME ; class CMceCameraSource * CMceCameraSource::NewL(class CMceManager &)
+	?RespondL@CMceInRefer@@QAEPAVCMceInEvent@@ABVTDesC8@@KPAVCDesC8Array@@PAVHBufC8@@2@Z @ 328 NONAME ; class CMceInEvent * CMceInRefer::RespondL(class TDesC8 const &, unsigned long, class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?SetAllowedBitrates@CMceH263Codec@@UAEHI@Z @ 329 NONAME ; int CMceH263Codec::SetAllowedBitrates(unsigned int)
+	?MMFPriority@CMceCodec@@QBEHXZ @ 330 NONAME ; int CMceCodec::MMFPriority(void) const
+	?FrameRate@CMceVideoCodec@@QBENXZ @ 331 NONAME ; double CMceVideoCodec::FrameRate(void) const
+	?SetBitrate@CMceG729Codec@@UAEHI@Z @ 332 NONAME ; int CMceG729Codec::SetBitrate(unsigned int)
+	?GetContentHeaders@TMceTransactionDataContainer@@QAEPAVCDesC8Array@@XZ @ 333 NONAME ; class CDesC8Array * TMceTransactionDataContainer::GetContentHeaders(void)
+	?NewL@CMceRtpSource@@SAPAV1@IIKPAVHBufC8@@@Z @ 334 NONAME ; class CMceRtpSource * CMceRtpSource::NewL(unsigned int, unsigned int, unsigned long, class HBufC8 *)
+	?EstablishL@CMceOutSession@@QAEXKPAVCDesC8Array@@PAVHBufC8@@10@Z @ 335 NONAME ; void CMceOutSession::EstablishL(unsigned long, class CDesC8Array *, class HBufC8 *, class HBufC8 *, class CDesC8Array *)
+	?EnableInactivityTimerL@CMceRtpSource@@QAEXK@Z @ 336 NONAME ; void CMceRtpSource::EnableInactivityTimerL(unsigned long)
+	?ReferTo@CMceRefer@@QBEABVTDesC8@@XZ @ 337 NONAME ; class TDesC8 const & CMceRefer::ReferTo(void) const
+	?MMFPriorityPreference@CMceCodec@@QBEHXZ @ 338 NONAME ; int CMceCodec::MMFPriorityPreference(void) const
+	?SetCodecMode@CMceRedCodec@@UAEHI@Z @ 339 NONAME ; int CMceRedCodec::SetCodecMode(unsigned int)
+	?SetDisplayIndexL@CMceDisplaySink@@QAEXH@Z @ 340 NONAME ; void CMceDisplaySink::SetDisplayIndexL(int)
+	?MaxVolumeL@CMceSpeakerSink@@QBEHXZ @ 341 NONAME ; int CMceSpeakerSink::MaxVolumeL(void) const
+	?RedPayloadTypesL@CMceRedCodec@@QAEXAAV?$RArray@I@@@Z @ 342 NONAME ; void CMceRedCodec::RedPayloadTypesL(class RArray<unsigned int> &)
+	?Preference@CMceCodec@@QBEHXZ @ 343 NONAME ; int CMceCodec::Preference(void) const
+	?KeepAliveTimer@CMceCodec@@QBEEXZ @ 344 NONAME ; unsigned char CMceCodec::KeepAliveTimer(void) const
+	?SendRequestL@CMceSession@@QAEKABVTDesC8@@PAVCDesC8Array@@PAVHBufC8@@2@Z @ 345 NONAME ; unsigned long CMceSession::SendRequestL(class TDesC8 const &, class CDesC8Array *, class HBufC8 *, class HBufC8 *)
+	?SetDtmfObserver@CMceManager@@QAEXPAVMMceDtmfObserver@@@Z @ 346 NONAME ; void CMceManager::SetDtmfObserver(class MMceDtmfObserver *)
+	?DurationL@CMceFileSource@@QBE?AVTTimeIntervalMicroSeconds@@XZ @ 347 NONAME ; class TTimeIntervalMicroSeconds CMceFileSource::DurationL(void) const
+	??1CMceInSession@@UAE@XZ @ 348 NONAME ; CMceInSession::~CMceInSession(void)
+	?SendL@CMceFcMsgExchange@@QAEXAAVCMceSession@@PAVHBufC8@@@Z @ 349 NONAME ; void CMceFcMsgExchange::SendL(class CMceSession &, class HBufC8 *)
+	?EnableL@CMceRtpSource@@UAEXXZ @ 350 NONAME ; void CMceRtpSource::EnableL(void)
+	?SetCodecMode@CMceDtmfCodec@@UAEHI@Z @ 351 NONAME ; int CMceDtmfCodec::SetCodecMode(unsigned int)
+	?AcceptL@CMceInSession@@QAEXXZ @ 352 NONAME ; void CMceInSession::AcceptL(void)
+	?SetAllowedResolutionsL@CMceH263Codec@@UAEXI@Z @ 353 NONAME ; void CMceH263Codec::SetAllowedResolutionsL(unsigned int)
+	?AddBundleL@CMceSession@@QAEXPAVCMceStreamBundle@@@Z @ 354 NONAME ; void CMceSession::AddBundleL(class CMceStreamBundle *)
+	??1CMceOutEvent@@UAE@XZ @ 355 NONAME ; CMceOutEvent::~CMceOutEvent(void)
+	?IsEnabled@CMceMediaSink@@QBEHXZ @ 356 NONAME ; int CMceMediaSink::IsEnabled(void) const
+	?SetCodecMode@CMceG711Codec@@UAEHI@Z @ 357 NONAME ; int CMceG711Codec::SetCodecMode(unsigned int)
+	?SetPayloadType@CMceAmrCodec@@UAEHE@Z @ 358 NONAME ; int CMceAmrCodec::SetPayloadType(unsigned char)
+	??1CMceG711Codec@@UAE@XZ @ 359 NONAME ; CMceG711Codec::~CMceG711Codec(void)
+	?SetStateL@CMceCodec@@QAEXW4TState@1@@Z @ 360 NONAME ; void CMceCodec::SetStateL(enum CMceCodec::TState)
+	?SetInSessionObserver@CMceManager@@QAEXPAVMMceInSessionObserver@@@Z @ 361 NONAME ; void CMceManager::SetInSessionObserver(class MMceInSessionObserver *)
+	?GetReasonPhrase@TMceTransactionDataContainer@@QAEPAVHBufC8@@XZ @ 362 NONAME ; class HBufC8 * TMceTransactionDataContainer::GetReasonPhrase(void)
+	?SetMaxPTime@CMceCnCodec@@UAEHI@Z @ 363 NONAME ; int CMceCnCodec::SetMaxPTime(unsigned int)
+	?SetSessionSDPLinesL@CMceSession@@QAEXPAVCDesC8Array@@@Z @ 364 NONAME ; void CMceSession::SetSessionSDPLinesL(class CDesC8Array *)
+	?SetAllowedBitrates@CMceAvcCodec@@UAEHI@Z @ 365 NONAME ; int CMceAvcCodec::SetAllowedBitrates(unsigned int)
+	?EnableL@CMceFileSource@@UAEXXZ @ 366 NONAME ; void CMceFileSource::EnableL(void)
+	?EnableL@CMceFileSink@@UAEXXZ @ 367 NONAME ; void CMceFileSink::EnableL(void)
+	?SetMaxPTime@CMceRedCodec@@UAEHI@Z @ 368 NONAME ; int CMceRedCodec::SetMaxPTime(unsigned int)
+	?SetContrastL@CMceCameraSource@@QAEXH@Z @ 369 NONAME ; void CMceCameraSource::SetContrastL(int)
+	?Recipient@CMceEvent@@QBEABVTDesC8@@XZ @ 370 NONAME ; class TDesC8 const & CMceEvent::Recipient(void) const
+	?WhiteBalanceL@CMceCameraSource@@QAE?AW4TWhiteBalance@CCamera@@XZ @ 371 NONAME ; enum CCamera::TWhiteBalance CMceCameraSource::WhiteBalanceL(void)
+	?SetKeepAliveDataL@CMceCodec@@QAEXABVTDesC8@@@Z @ 372 NONAME ; void CMceCodec::SetKeepAliveDataL(class TDesC8 const &)
+	?AddCodecL@CMceVideoStream@@QAEXPAVCMceVideoCodec@@@Z @ 373 NONAME ; void CMceVideoStream::AddCodecL(class CMceVideoCodec *)
+	?NewL@CMceFcMsgExchange@@SAPAV1@AAVCMceManager@@ABVTDesC8@@@Z @ 374 NONAME ; class CMceFcMsgExchange * CMceFcMsgExchange::NewL(class CMceManager &, class TDesC8 const &)
+	?SetMMFPriorityL@CMceCodec@@QAEXH@Z @ 375 NONAME ; void CMceCodec::SetMMFPriorityL(int)
+	?KeepAlivePayloadType@CMceCodec@@QBEEXZ @ 376 NONAME ; unsigned char CMceCodec::KeepAlivePayloadType(void) const
+	?SessionSDPLinesL@CMceSession@@QAEPAVMDesC8Array@@XZ @ 377 NONAME ; class MDesC8Array * CMceSession::SessionSDPLinesL(void)
+	?SetPreferenceL@CMceCodec@@QAEXH@Z @ 378 NONAME ; void CMceCodec::SetPreferenceL(int)
+	?Ssrc@CMceRtpSink@@QBEKXZ @ 379 NONAME ; unsigned long CMceRtpSink::Ssrc(void) const
+	??1CMceAmrCodec@@UAE@XZ @ 380 NONAME ; CMceAmrCodec::~CMceAmrCodec(void)
+	?EnableVAD@CMceDtmfCodec@@UAEHH@Z @ 381 NONAME ; int CMceDtmfCodec::EnableVAD(int)
+	?State@CMceMediaStream@@QBE?AW4TState@1@XZ @ 382 NONAME ; enum CMceMediaStream::TState CMceMediaStream::State(void) const
+	?Source@CMceMediaStream@@QBEPAVCMceMediaSource@@XZ @ 383 NONAME ; class CMceMediaSource * CMceMediaStream::Source(void) const
+	?SetKeepAlivePayloadTypeL@CMceCodec@@QAEXE@Z @ 384 NONAME ; void CMceCodec::SetKeepAlivePayloadTypeL(unsigned char)
+	?SetInReferObserver@CMceManager@@QAEXPAVMMceInReferObserver@@@Z @ 385 NONAME ; void CMceManager::SetInReferObserver(class MMceInReferObserver *)
+	?NewL@CMceSecureOutSession@@SAPAV1@AAVCMceManager@@AAVCSIPProfile@@ABVTDesC8@@PAVHBufC8@@@Z @ 386 NONAME ; class CMceSecureOutSession * CMceSecureOutSession::NewL(class CMceManager &, class CSIPProfile &, class TDesC8 const &, class HBufC8 *)
+	?EnableVAD@CMceG711Codec@@UAEHH@Z @ 387 NONAME ; int CMceG711Codec::EnableVAD(int)
+	?IsEnabled@CMceMediaSource@@QBEHXZ @ 388 NONAME ; int CMceMediaSource::IsEnabled(void) const
+	?SetAllowedBitrates@CMceCnCodec@@UAEHI@Z @ 389 NONAME ; int CMceCnCodec::SetAllowedBitrates(unsigned int)
+

@@ -1,0 +1,239 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZN11CSTUNClient15SetCredentialsLERK6TDesC8S2_ @ 2 NONAME
+	_ZN11CSTUNClient20ObtainTransactionIDLER6TDesC8 @ 3 NONAME
+	_ZN11CSTUNClient4NewLEiR11CDeltaTimerR19MSTUNClientObserverP25MNcmConnectionMultiplexer18TTransportProtocol @ 4 NONAME
+	_ZN11CSTUNClient4NewLEiRK6TDesC8jS2_R11RSocketServR11RConnectionR11CDeltaTimerR19MSTUNClientObserveriiiP25MNcmConnectionMultiplexer18TTransportProtocol @ 5 NONAME
+	_ZN11CSTUNClient5NewLCEiR11CDeltaTimerR19MSTUNClientObserverP25MNcmConnectionMultiplexer18TTransportProtocol @ 6 NONAME
+	_ZN11CSTUNClient5NewLCEiRK6TDesC8jS2_R11RSocketServR11RConnectionR11CDeltaTimerR19MSTUNClientObserveriiiP25MNcmConnectionMultiplexer18TTransportProtocol @ 7 NONAME
+	_ZN11CSTUNClientD0Ev @ 8 NONAME
+	_ZN11CSTUNClientD1Ev @ 9 NONAME
+	_ZN11CSTUNClientD2Ev @ 10 NONAME
+	_ZN12CSTUNBinding11HandleDataLERK6TDesC8RiR9TInetAddr @ 11 NONAME
+	_ZN12CSTUNBinding12SendRequestLERK9TInetAddrij @ 12 NONAME
+	_ZN12CSTUNBinding12SendRequestLEv @ 13 NONAME
+	_ZN12CSTUNBinding13CancelRequestEv @ 14 NONAME
+	_ZN12CSTUNBinding15SendIndicationLERK9TInetAddrRK6TDesC8i @ 15 NONAME
+	_ZN12CSTUNBinding20CancelRetransmissionEv @ 16 NONAME
+	_ZN12CSTUNBinding24SetICESpecificAttributesERK14TICEAttributes @ 17 NONAME
+	_ZN12CSTUNBinding4NewLER11CSTUNClientR7RSocket @ 18 NONAME
+	_ZN12CSTUNBinding4NewLER11CSTUNClientjj @ 19 NONAME
+	_ZN12CSTUNBinding5NewLCER11CSTUNClientR7RSocket @ 20 NONAME
+	_ZN12CSTUNBinding5NewLCER11CSTUNClientjj @ 21 NONAME
+	_ZN12CSTUNBindingD0Ev @ 22 NONAME
+	_ZN12CSTUNBindingD1Ev @ 23 NONAME
+	_ZN12CSTUNBindingD2Ev @ 24 NONAME
+	_ZN17CSTUNRelayBinding11HandleDataLERK6TDesC8RiR9TInetAddr @ 25 NONAME
+	_ZN17CSTUNRelayBinding13CancelRequestEv @ 26 NONAME
+	_ZN17CSTUNRelayBinding15ConnectRequestLERK9TInetAddr @ 27 NONAME
+	_ZN17CSTUNRelayBinding15SendIndicationLERK9TInetAddrRK6TDesC8i @ 28 NONAME
+	_ZN17CSTUNRelayBinding16AllocateRequestLEj @ 29 NONAME
+	_ZN17CSTUNRelayBinding24SetICESpecificAttributesERK14TICEAttributes @ 30 NONAME
+	_ZN17CSTUNRelayBinding28SetActiveDestinationRequestLERK9TInetAddrRm @ 31 NONAME
+	_ZN17CSTUNRelayBinding4NewLER11CSTUNClientjj @ 32 NONAME
+	_ZN17CSTUNRelayBinding5NewLCER11CSTUNClientjj @ 33 NONAME
+	_ZN17CSTUNRelayBindingD0Ev @ 34 NONAME
+	_ZN17CSTUNRelayBindingD1Ev @ 35 NONAME
+	_ZN17CSTUNRelayBindingD2Ev @ 36 NONAME
+	_ZN18CNATFWUNSAFMessage13AddAttributeLEP20CNATFWUNSAFAttribute @ 37 NONAME
+	_ZN18CNATFWUNSAFMessage15DeleteAttributeEt @ 38 NONAME
+	_ZN18CNATFWUNSAFMessage15DetachAttributeEPK20CNATFWUNSAFAttribute @ 39 NONAME
+	_ZN20CNATFWUNSAFUdpSender4NewLER7RSocketR28MNATFWUNSAFUdpSenderObserver @ 40 NONAME
+	_ZN20CNATFWUNSAFUdpSender4NewLEjjR28MNATFWUNSAFUdpSenderObserver @ 41 NONAME
+	_ZN20CNATFWUNSAFUdpSender5NewLCER7RSocketR28MNATFWUNSAFUdpSenderObserver @ 42 NONAME
+	_ZN20CNATFWUNSAFUdpSender5NewLCEjjR28MNATFWUNSAFUdpSenderObserver @ 43 NONAME
+	_ZN20CNATFWUNSAFUdpSender5SendLERK9TInetAddrRK18CNATFWUNSAFMessageRK6TDesC8 @ 44 NONAME
+	_ZN20CNATFWUNSAFUdpSenderD0Ev @ 45 NONAME
+	_ZN20CNATFWUNSAFUdpSenderD1Ev @ 46 NONAME
+	_ZN20CNATFWUNSAFUdpSenderD2Ev @ 47 NONAME
+	_ZN23CNATFWUNSAFTlsTransport11IsConnectedEv @ 48 NONAME
+	_ZN23CNATFWUNSAFTlsTransport4NewLER11RSocketServR11RConnectionRK9TInetAddrR31MNATFWUNSAFTlsTransportObserver @ 49 NONAME
+	_ZN23CNATFWUNSAFTlsTransport5NewLCER11RSocketServR11RConnectionRK9TInetAddrR31MNATFWUNSAFTlsTransportObserver @ 50 NONAME
+	_ZN23CNATFWUNSAFTlsTransport5SendLERK18CNATFWUNSAFMessageRK6TDesC8j @ 51 NONAME
+	_ZN23CNATFWUNSAFTlsTransportD0Ev @ 52 NONAME
+	_ZN23CNATFWUNSAFTlsTransportD1Ev @ 53 NONAME
+	_ZN23CNATFWUNSAFTlsTransportD2Ev @ 54 NONAME
+	_ZN25CNATFWUNSAFTcpRelayPacket4NewLERK6TDesC8NS_10TRelayTypeE @ 55 NONAME
+	_ZN25CNATFWUNSAFTcpRelayPacket5NewLCERK6TDesC8NS_10TRelayTypeE @ 56 NONAME
+	_ZN26CNATFWUNSAFMediaConnSender4NewLER25MNcmConnectionMultiplexer @ 57 NONAME
+	_ZN26CNATFWUNSAFMediaConnSender5NewLCER25MNcmConnectionMultiplexer @ 58 NONAME
+	_ZN26CNATFWUNSAFMediaConnSender5SendLEjjRK18CNATFWUNSAFMessageRK6TDesC8P18MNcmSenderObserverj @ 59 NONAME
+	_ZN26CNATFWUNSAFMediaConnSender5SendLEjjRK18CNATFWUNSAFMessageRK6TDesC8RK9TInetAddrP18MNcmSenderObserverj @ 60 NONAME
+	_ZN26CNATFWUNSAFMediaConnSenderD0Ev @ 61 NONAME
+	_ZN26CNATFWUNSAFMediaConnSenderD1Ev @ 62 NONAME
+	_ZN26CNATFWUNSAFMediaConnSenderD2Ev @ 63 NONAME
+	_ZN27CNATFWUNSAFAddressAttribute7AddressEv @ 64 NONAME
+	_ZN28CNATFWUNSAFLifetimeAttribute4NewLEi @ 65 NONAME
+	_ZN28CNATFWUNSAFLifetimeAttribute5NewLCEi @ 66 NONAME
+	_ZN29CNATFWUNSAFBandwidthAttribute4NewLEi @ 67 NONAME
+	_ZN29CNATFWUNSAFBandwidthAttribute5NewLCEi @ 68 NONAME
+	_ZN31CNATFWUNSAFTcpRelayPacketSender4NewLER25MNcmConnectionMultiplexer @ 69 NONAME
+	_ZN31CNATFWUNSAFTcpRelayPacketSender5NewLCER25MNcmConnectionMultiplexer @ 70 NONAME
+	_ZN31CNATFWUNSAFTcpRelayPacketSender5SendLEjjRK25CNATFWUNSAFTcpRelayPacketP18MNcmSenderObserver @ 71 NONAME
+	_ZN31CNATFWUNSAFTcpRelayPacketSenderD0Ev @ 72 NONAME
+	_ZN31CNATFWUNSAFTcpRelayPacketSenderD1Ev @ 73 NONAME
+	_ZN31CNATFWUNSAFTcpRelayPacketSenderD2Ev @ 74 NONAME
+	_ZN33CNATFWUNSAFIceControlledAttribute4NewLEy @ 75 NONAME
+	_ZN33CNATFWUNSAFIceControlledAttribute5NewLCEy @ 76 NONAME
+	_ZN34CNATFWUNSAFIceControllingAttribute4NewLEy @ 77 NONAME
+	_ZN34CNATFWUNSAFIceControllingAttribute5NewLCEy @ 78 NONAME
+	_ZN36CNATFWUNSAFXorMappedAddressAttribute23SetTransactionIDAndXorLERK5TBuf8ILi12EE @ 79 NONAME
+	_ZN36CNATFWUNSAFXorMappedAddressAttribute4NewLERK9TInetAddrRK5TBuf8ILi12EE @ 80 NONAME
+	_ZN36CNATFWUNSAFXorMappedAddressAttribute5NewLCERK9TInetAddrRK5TBuf8ILi12EE @ 81 NONAME
+	_ZN37CNATFWUNSAFUnknownAttributesAttribute4NewLEv @ 82 NONAME
+	_ZN37CNATFWUNSAFUnknownAttributesAttribute5NewLCEv @ 83 NONAME
+	_ZN37CNATFWUNSAFUnknownAttributesAttributeD0Ev @ 84 NONAME
+	_ZN37CNATFWUNSAFUnknownAttributesAttributeD1Ev @ 85 NONAME
+	_ZN37CNATFWUNSAFUnknownAttributesAttributeD2Ev @ 86 NONAME
+	_ZNK11CSTUNClient13IsInitializedEv @ 87 NONAME
+	_ZNK11CSTUNClient15STUNServerAddrLEv @ 88 NONAME
+	_ZNK11CSTUNClient20SharedSecretObtainedEv @ 89 NONAME
+	_ZNK12CSTUNBinding10PublicAddrEv @ 90 NONAME
+	_ZNK12CSTUNBinding10STUNClientEv @ 91 NONAME
+	_ZNK12CSTUNBinding12ConnectionIdEv @ 92 NONAME
+	_ZNK12CSTUNBinding15AddressResolvedEv @ 93 NONAME
+	_ZNK12CSTUNBinding17RealmFromResponseEv @ 94 NONAME
+	_ZNK12CSTUNBinding19AlternateServerAddrEv @ 95 NONAME
+	_ZNK12CSTUNBinding6SocketEv @ 96 NONAME
+	_ZNK12CSTUNBinding8StreamIdEv @ 97 NONAME
+	_ZNK17CSTUNRelayBinding10PublicAddrEv @ 98 NONAME
+	_ZNK17CSTUNRelayBinding10STUNClientEv @ 99 NONAME
+	_ZNK17CSTUNRelayBinding12ConnectionIdEv @ 100 NONAME
+	_ZNK17CSTUNRelayBinding15AddressResolvedEv @ 101 NONAME
+	_ZNK17CSTUNRelayBinding17RealmFromResponseEv @ 102 NONAME
+	_ZNK17CSTUNRelayBinding19AlternateServerAddrEv @ 103 NONAME
+	_ZNK17CSTUNRelayBinding8StreamIdEv @ 104 NONAME
+	_ZNK17CSTUNRelayBinding9RelayAddrEv @ 105 NONAME
+	_ZNK18CNATFWUNSAFMessage12HasAttributeEN20CNATFWUNSAFAttribute5TTypeE @ 106 NONAME
+	_ZNK18CNATFWUNSAFMessage13TransactionIDEv @ 107 NONAME
+	_ZNK18CNATFWUNSAFMessage29HasUnknownMandatoryAttributesEv @ 108 NONAME
+	_ZNK18CNATFWUNSAFMessage7EncodeLERK6TDesC8i @ 109 NONAME
+	_ZNK18CNATFWUNSAFMessage7EncodeLEv @ 110 NONAME
+	_ZNK18CNATFWUNSAFMessage9AttributeEN20CNATFWUNSAFAttribute5TTypeE @ 111 NONAME
+	_ZNK23CNATFWUNSAFTlsTransport18ContinueListeningLEv @ 112 NONAME
+	_ZNK25CNATFWUNSAFTcpRelayPacket4DataEv @ 113 NONAME
+	_ZNK25CNATFWUNSAFTcpRelayPacket4TypeEv @ 114 NONAME
+	_ZNK25CNATFWUNSAFTcpRelayPacket7EncodeLEv @ 115 NONAME
+	_ZNK26CNATFWUNSAFMediaConnSender6CancelEjjP18MNcmSenderObserver @ 116 NONAME
+	_ZNK27CNATFWUNSAFAddressAttribute7AddressEv @ 117 NONAME
+	_ZNK28CNATFWUNSAFLifetimeAttribute8LifetimeEv @ 118 NONAME
+	_ZNK29CNATFWUNSAFBandwidthAttribute9BandwidthEv @ 119 NONAME
+	_ZNK31CNATFWUNSAFFingerprintAttribute17CheckFingerprintLERK6TDesC8 @ 120 NONAME
+	_ZNK33CNATFWUNSAFIceControlledAttribute13IceControlledEv @ 121 NONAME
+	_ZNK34CNATFWUNSAFIceControllingAttribute14IceControllingEv @ 122 NONAME
+	_ZNK37CNATFWUNSAFUnknownAttributesAttribute19ContainedAttributesEv @ 123 NONAME
+	_ZTI11CSTUNClient @ 124 NONAME ; #<TI>#
+	_ZTI12CSTUNBinding @ 125 NONAME ; #<TI>#
+	_ZTI14CAsyncCallback @ 126 NONAME ; #<TI>#
+	_ZTI14CSTUNTimerUser @ 127 NONAME ; #<TI>#
+	_ZTI16CSTUNBindingInit @ 128 NONAME ; #<TI>#
+	_ZTI16CSTUNClientReady @ 129 NONAME ; #<TI>#
+	_ZTI16CSTUNClientState @ 130 NONAME ; #<TI>#
+	_ZTI16CSTUNCredentials @ 131 NONAME ; #<TI>#
+	_ZTI16CSTUNTransaction @ 132 NONAME ; #<TI>#
+	_ZTI17CSTUNBindingState @ 133 NONAME ; #<TI>#
+	_ZTI17CSTUNRelayBinding @ 134 NONAME ; #<TI>#
+	_ZTI17CSTUNSharedSecret @ 135 NONAME ; #<TI>#
+	_ZTI18CNATFWUNSAFMessage @ 136 NONAME ; #<TI>#
+	_ZTI18CSTUNBindingActive @ 137 NONAME ; #<TI>#
+	_ZTI20CNATFWUNSAFAttribute @ 138 NONAME ; #<TI>#
+	_ZTI20CNATFWUNSAFUdpSender @ 139 NONAME ; #<TI>#
+	_ZTI20CUnsafMessageEncoder @ 140 NONAME ; #<TI>#
+	_ZTI22CBindingImplementation @ 141 NONAME ; #<TI>#
+	_ZTI22CSTUNBindingGetAddress @ 142 NONAME ; #<TI>#
+	_ZTI22CSTUNSharedSecretState @ 143 NONAME ; #<TI>#
+	_ZTI23CNATFWUNSAFTlsTransport @ 144 NONAME ; #<TI>#
+	_ZTI23CSTUNBindingWaitToRetry @ 145 NONAME ; #<TI>#
+	_ZTI23CSTUNClientResolvingTCP @ 146 NONAME ; #<TI>#
+	_ZTI23CSTUNClientResolvingTLS @ 147 NONAME ; #<TI>#
+	_ZTI23CSTUNClientResolvingUDP @ 148 NONAME ; #<TI>#
+	_ZTI23CTransactionIDGenerator @ 149 NONAME ; #<TI>#
+	_ZTI25CNATFWUNSAFTcpRelayPacket @ 150 NONAME ; #<TI>#
+	_ZTI25CSTUNClientImplementation @ 151 NONAME ; #<TI>#
+	_ZTI26CNATFWUNSAFConnectResponse @ 152 NONAME ; #<TI>#
+	_ZTI26CNATFWUNSAFMediaConnSender @ 153 NONAME ; #<TI>#
+	_ZTI26CSTUNBindingImplementation @ 154 NONAME ; #<TI>#
+	_ZTI26CSTUNClientGetSharedSecret @ 155 NONAME ; #<TI>#
+	_ZTI26CStunIndicationTransmitter @ 156 NONAME ; #<TI>#
+	_ZTI27CNATFWUNSAFAddressAttribute @ 157 NONAME ; #<TI>#
+	_ZTI27CNATFWUNSAFAllocateResponse @ 158 NONAME ; #<TI>#
+	_ZTI27CSTUNBindingGetSharedSecret @ 159 NONAME ; #<TI>#
+	_ZTI27CSTUNSharedSecretConnecting @ 160 NONAME ; #<TI>#
+	_ZTI28CNATFWUNSAFLifetimeAttribute @ 161 NONAME ; #<TI>#
+	_ZTI28CSTUNClientRenewSharedSecret @ 162 NONAME ; #<TI>#
+	_ZTI28CSTUNSharedSecretWaitToRetry @ 163 NONAME ; #<TI>#
+	_ZTI29CNATFWUNSAFBandwidthAttribute @ 164 NONAME ; #<TI>#
+	_ZTI29CSTUNSharedSecretWaitResponse @ 165 NONAME ; #<TI>#
+	_ZTI31CNATFWUNSAFConnectErrorResponse @ 166 NONAME ; #<TI>#
+	_ZTI31CNATFWUNSAFFingerprintAttribute @ 167 NONAME ; #<TI>#
+	_ZTI31CNATFWUNSAFSharedSecretResponse @ 168 NONAME ; #<TI>#
+	_ZTI31CNATFWUNSAFTcpRelayPacketSender @ 169 NONAME ; #<TI>#
+	_ZTI31CSTUNRelayBindingImplementation @ 170 NONAME ; #<TI>#
+	_ZTI32CNATFWUNSAFAllocateErrorResponse @ 171 NONAME ; #<TI>#
+	_ZTI32CNATFWUNSAFRelayAddressAttribute @ 172 NONAME ; #<TI>#
+	_ZTI33CNATFWUNSAFIceControlledAttribute @ 173 NONAME ; #<TI>#
+	_ZTI34CNATFWUNSAFIceControllingAttribute @ 174 NONAME ; #<TI>#
+	_ZTI35CNATFWUNSAFAlternateServerAttribute @ 175 NONAME ; #<TI>#
+	_ZTI36CNATFWUNSAFSharedSecretErrorResponse @ 176 NONAME ; #<TI>#
+	_ZTI36CNATFWUNSAFXorMappedAddressAttribute @ 177 NONAME ; #<TI>#
+	_ZTI37CNATFWUNSAFUnknownAttributesAttribute @ 178 NONAME ; #<TI>#
+	_ZTI39CNATFWUNSAFSetActiveDestinationResponse @ 179 NONAME ; #<TI>#
+	_ZTI44CNATFWUNSAFSetActiveDestinationErrorResponse @ 180 NONAME ; #<TI>#
+	_ZTV11CSTUNClient @ 181 NONAME ; #<VT>#
+	_ZTV12CSTUNBinding @ 182 NONAME ; #<VT>#
+	_ZTV14CAsyncCallback @ 183 NONAME ; #<VT>#
+	_ZTV14CSTUNTimerUser @ 184 NONAME ; #<VT>#
+	_ZTV16CSTUNBindingInit @ 185 NONAME ; #<VT>#
+	_ZTV16CSTUNClientReady @ 186 NONAME ; #<VT>#
+	_ZTV16CSTUNClientState @ 187 NONAME ; #<VT>#
+	_ZTV16CSTUNCredentials @ 188 NONAME ; #<VT>#
+	_ZTV16CSTUNTransaction @ 189 NONAME ; #<VT>#
+	_ZTV17CSTUNBindingState @ 190 NONAME ; #<VT>#
+	_ZTV17CSTUNRelayBinding @ 191 NONAME ; #<VT>#
+	_ZTV17CSTUNSharedSecret @ 192 NONAME ; #<VT>#
+	_ZTV18CNATFWUNSAFMessage @ 193 NONAME ; #<VT>#
+	_ZTV18CSTUNBindingActive @ 194 NONAME ; #<VT>#
+	_ZTV20CNATFWUNSAFAttribute @ 195 NONAME ; #<VT>#
+	_ZTV20CNATFWUNSAFUdpSender @ 196 NONAME ; #<VT>#
+	_ZTV20CUnsafMessageEncoder @ 197 NONAME ; #<VT>#
+	_ZTV22CBindingImplementation @ 198 NONAME ; #<VT>#
+	_ZTV22CSTUNBindingGetAddress @ 199 NONAME ; #<VT>#
+	_ZTV22CSTUNSharedSecretState @ 200 NONAME ; #<VT>#
+	_ZTV23CNATFWUNSAFTlsTransport @ 201 NONAME ; #<VT>#
+	_ZTV23CSTUNBindingWaitToRetry @ 202 NONAME ; #<VT>#
+	_ZTV23CSTUNClientResolvingTCP @ 203 NONAME ; #<VT>#
+	_ZTV23CSTUNClientResolvingTLS @ 204 NONAME ; #<VT>#
+	_ZTV23CSTUNClientResolvingUDP @ 205 NONAME ; #<VT>#
+	_ZTV23CTransactionIDGenerator @ 206 NONAME ; #<VT>#
+	_ZTV25CNATFWUNSAFTcpRelayPacket @ 207 NONAME ; #<VT>#
+	_ZTV25CSTUNClientImplementation @ 208 NONAME ; #<VT>#
+	_ZTV26CNATFWUNSAFConnectResponse @ 209 NONAME ; #<VT>#
+	_ZTV26CNATFWUNSAFMediaConnSender @ 210 NONAME ; #<VT>#
+	_ZTV26CSTUNBindingImplementation @ 211 NONAME ; #<VT>#
+	_ZTV26CSTUNClientGetSharedSecret @ 212 NONAME ; #<VT>#
+	_ZTV26CStunIndicationTransmitter @ 213 NONAME ; #<VT>#
+	_ZTV27CNATFWUNSAFAddressAttribute @ 214 NONAME ; #<VT>#
+	_ZTV27CNATFWUNSAFAllocateResponse @ 215 NONAME ; #<VT>#
+	_ZTV27CSTUNBindingGetSharedSecret @ 216 NONAME ; #<VT>#
+	_ZTV27CSTUNSharedSecretConnecting @ 217 NONAME ; #<VT>#
+	_ZTV28CNATFWUNSAFLifetimeAttribute @ 218 NONAME ; #<VT>#
+	_ZTV28CSTUNClientRenewSharedSecret @ 219 NONAME ; #<VT>#
+	_ZTV28CSTUNSharedSecretWaitToRetry @ 220 NONAME ; #<VT>#
+	_ZTV29CNATFWUNSAFBandwidthAttribute @ 221 NONAME ; #<VT>#
+	_ZTV29CSTUNSharedSecretWaitResponse @ 222 NONAME ; #<VT>#
+	_ZTV31CNATFWUNSAFConnectErrorResponse @ 223 NONAME ; #<VT>#
+	_ZTV31CNATFWUNSAFFingerprintAttribute @ 224 NONAME ; #<VT>#
+	_ZTV31CNATFWUNSAFSharedSecretResponse @ 225 NONAME ; #<VT>#
+	_ZTV31CNATFWUNSAFTcpRelayPacketSender @ 226 NONAME ; #<VT>#
+	_ZTV31CSTUNRelayBindingImplementation @ 227 NONAME ; #<VT>#
+	_ZTV32CNATFWUNSAFAllocateErrorResponse @ 228 NONAME ; #<VT>#
+	_ZTV32CNATFWUNSAFRelayAddressAttribute @ 229 NONAME ; #<VT>#
+	_ZTV33CNATFWUNSAFIceControlledAttribute @ 230 NONAME ; #<VT>#
+	_ZTV34CNATFWUNSAFIceControllingAttribute @ 231 NONAME ; #<VT>#
+	_ZTV35CNATFWUNSAFAlternateServerAttribute @ 232 NONAME ; #<VT>#
+	_ZTV36CNATFWUNSAFSharedSecretErrorResponse @ 233 NONAME ; #<VT>#
+	_ZTV36CNATFWUNSAFXorMappedAddressAttribute @ 234 NONAME ; #<VT>#
+	_ZTV37CNATFWUNSAFUnknownAttributesAttribute @ 235 NONAME ; #<VT>#
+	_ZTV39CNATFWUNSAFSetActiveDestinationResponse @ 236 NONAME ; #<VT>#
+	_ZTV44CNATFWUNSAFSetActiveDestinationErrorResponse @ 237 NONAME ; #<VT>#
+

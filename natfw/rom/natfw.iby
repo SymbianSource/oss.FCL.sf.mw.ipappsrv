@@ -1,0 +1,52 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Image description file for project NATFW
+*
+*/
+
+
+
+
+#ifndef __NATFW_IBY__
+#define __NATFW_IBY__
+
+#include <data_caging_paths_for_iby.hrh>
+
+// file=ABI_DIR\BUILD_DIR\natfwtestconsole.exe        SHARED_LIB_DIR\000natfwtestconsole.exe
+
+data=DATAZ_\private\10202be9\102747d2.txt          private\10202be9\102747d2.txt
+data=DATAZ_\private\10282F04\backup_registration.xml		 PRIVATE\10282F04\backup_registration.xml
+
+file=ABI_DIR\BUILD_DIR\connectionmux.dll           SHARED_LIB_DIR\connectionmux.dll
+
+file=ABI_DIR\BUILD_DIR\natconfw.dll                SHARED_LIB_DIR\natconfw.dll
+
+file=ABI_DIR\BUILD_DIR\natfwnatsettings.dll        SHARED_LIB_DIR\natfwnatsettings.dll
+
+file=ABI_DIR\BUILD_DIR\natfwstunclient.dll         SHARED_LIB_DIR\natfwstunclient.dll
+
+file=ABI_DIR\BUILD_DIR\natfwunsafprotocols.dll     SHARED_LIB_DIR\natfwunsafprotocols.dll
+
+file=ABI_DIR\BUILD_DIR\socketmediaconnwrapper.dll  SHARED_LIB_DIR\socketmediaconnwrapper.dll
+
+file=ABI_DIR\BUILD_DIR\stunserver.dll              SHARED_LIB_DIR\stunserver.dll
+
+ECOM_PLUGIN(icecandidatehandler.dll,10275445.rsc)
+
+ECOM_PLUGIN(stunplugin.dll,1027545c.rsc)
+
+ECOM_PLUGIN(turnplugin.dll,1027545d.rsc)
+
+#endif // __NATFW_IBY
+

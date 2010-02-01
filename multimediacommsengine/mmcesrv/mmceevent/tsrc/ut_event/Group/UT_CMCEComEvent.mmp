@@ -1,0 +1,123 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET          UT_CMCEComEvent.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+EPOCALLOWDLLDATA
+
+SOURCEPATH              ../src
+SOURCE                  UT_CMCEComEventDllMain.cpp
+SOURCE                  ut_cmcecomevent.cpp
+SOURCE		            ut_cmceeventcontext.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventstatebase.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventsubscribemoidlestate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventsubscribemoestablishingstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventsubscribemoestablishedstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventsubscribemtestablishedstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventsubscribeterminatingstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventsubscribeterminatedstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventrefermoidlestate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventsubscribemtidlestate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventsubscribemtestablishingstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventrefermoestablishingstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventrefermtidlestate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventrefermtestablishingstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventrefermoestablishedstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventrefermtestablishedstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventreferterminatingstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_cmceeventreferterminatedstate.cpp // Added by EUnit Wizard
+SOURCE              	ut_mcesipeventhelper.cpp // Added by EUnit Wizard
+
+// stubs for testing
+SOURCE                  cmcesipevent.cpp
+SOURCE                  sipprofile.cpp
+SOURCE                  cmcesipconnection.cpp
+
+// Utility
+SOURCEPATH              ../../../../mmceserver/src
+SOURCE                  MCESIP.cpp
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  mceeventsubscribemoestablishedstate.cpp
+SOURCE                  mceeventsubscribemtestablishedstate.cpp
+SOURCE                  mceeventsubscribemoidlestate.cpp
+SOURCE                  mceeventsubscribemtidlestate.cpp
+SOURCE                  mceeventsubscribemoestablishingstate.cpp
+SOURCE                  mceeventsubscribemtestablishingstate.cpp
+SOURCE                  mceeventsubscribeterminatingstate.cpp
+SOURCE                  mceeventsubscribeterminatedstate.cpp
+SOURCE                  mceeventrefermoestablishedstate.cpp
+SOURCE                  mceeventrefermtestablishedstate.cpp
+SOURCE                  mceeventrefermtidlestate.cpp
+SOURCE                  mceeventrefermoidlestate.cpp
+SOURCE                  mceeventreferterminatedstate.cpp
+SOURCE                  mceeventreferterminatingstate.cpp
+SOURCE                  mceeventrefermtestablishingstate.cpp
+SOURCE                  mceeventrefermoestablishingstate.cpp
+SOURCE                  mcecomevent.cpp
+SOURCE                  mceeventcontext.cpp
+SOURCE                  mceeventstatebase.cpp
+SOURCE                  mcesipeventhelper.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../../../mmceshared/inc
+USERINCLUDE             ../../../../../mmcecli/inc
+USERINCLUDE             ../../../../mmceserver/inc
+USERINCLUDE             ../../../../mmcemediamanager/inc
+USERINCLUDE             ../../../../../mmcefloorctrlengine/inc
+USERINCLUDE             ../../../inc
+
+USERINCLUDE             ../SIP_stub/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+#if defined ( OS_LAYER_SYSTEMINCLUDE )
+OS_LAYER_SYSTEMINCLUDE
+#else
+SYSTEMINCLUDE           /epoc32/include
+#endif
+
+LIBRARY                 bafl.lib
+LIBRARY                 charconv.lib
+LIBRARY                 CommonEngine.lib
+LIBRARY                 esock.lib
+LIBRARY                 estor.lib
+LIBRARY                 EUnit.lib
+LIBRARY                 euser.lib
+LIBRARY                 inetprotutil.lib
+LIBRARY                 insock.lib
+LIBRARY                 sdpcodec.lib
+LIBRARY                 sipclientstub.lib
+LIBRARY                 sipcodec.lib
+LIBRARY                 sipprofilecli.lib
+LIBRARY					flogger.lib
+LIBRARY					efsrv.lib
+
+CAPABILITY      EUNIT_CAPS
+
+//For Qualitykit 4.05 upwards
+//CAPABILITY				ALL -TCB -DRM
+//EXPORTUNFROZEN
+// End of file

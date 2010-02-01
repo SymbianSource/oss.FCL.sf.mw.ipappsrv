@@ -1,0 +1,67 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#ifndef __MULTIMEDIACOMMSCONTROLLER_IBY__
+#define __MULTIMEDIACOMMSCONTROLLER_IBY__
+
+#ifdef __MMCOMMSAVCONTROLLER
+
+file=ABI_DIR\BUILD_DIR\mmccinterface.dll	SHARED_LIB_DIR\mmccinterface.dll
+
+file=ABI_DIR\BUILD_DIR\mmccjitterbuffer.dll	SHARED_LIB_DIR\mmccjitterbuffer.dll
+
+file=ABI_DIR\BUILD_DIR\mmccqoscontroller.dll	SHARED_LIB_DIR\mmccqoscontroller.dll
+
+file=ABI_DIR\BUILD_DIR\mmccmultiplexer.dll	SHARED_LIB_DIR\mmccmultiplexer.dll
+
+file=ABI_DIR\BUILD_DIR\mmccsubcontroller.dll	SHARED_LIB_DIR\mmccsubcontroller.dll
+
+ECOM_PLUGIN(mmcccontroller.dll,10202855.rsc)
+
+ECOM_PLUGIN(mmccrtpsourcesink.dll,1020285E.rsc)
+
+ECOM_PLUGIN(mmccamrplformat.dll,10202858.rsc)
+
+ECOM_PLUGIN(mmccg711plformat.dll,1028257C.rsc)
+
+ECOM_PLUGIN(mmccredplformat.dll,102073F9.rsc)
+
+ECOM_PLUGIN(mmccg729plformat.dll,1028257F.rsc)
+
+ECOM_PLUGIN(mmccilbcplformat.dll,10282582.rsc)
+
+ECOM_PLUGIN(mmccdtmfplformat.dll,102073F1.rsc)
+
+ECOM_PLUGIN(mmccanyplformat.dll,102747DB.rsc)
+
+ECOM_PLUGIN(mmcch263plformat.dll,102747D9.rsc)
+
+ECOM_PLUGIN(mmccavcplformat.dll,102823A1.rsc)
+
+ECOM_PLUGIN(mmccfilesourcesink.dll,102747CB.rsc)
+
+ECOM_PLUGIN(mmccvideosourcesink.dll,102747CC.rsc)
+
+ECOM_PLUGIN(mmccanysourcesink.dll,10283393.rsc)
+
+data=ZSYSTEM\install\multimediacommscontroller_stub.sis    System\Install\multimediacommscontroller_stub.sis
+
+#endif
+
+#endif 

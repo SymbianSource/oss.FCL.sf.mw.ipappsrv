@@ -1,0 +1,33 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:
+;
+
+&EN
+
+#{"SIPTester"},(0x102010D5),2,0,0,TYPE=SISPATCH
+
+;Requires TestClient v2.0
+(0x102010D5), 2, 0, 0, {"TestClient"}
+
+%{"Vendor-EN"}
+:"Nokia"
+
+;Files
+"\epoc32\release\armv5\urel\SIPTester.dll"-"!:\sys\bin\SIPTester.dll"
+"\epoc32\data\z\resource\plugins\SIPTester.rsc"-"!:\resource\plugins\SIPTester.rsc"
+"\epoc32\release\armv5\urel\SIPTTCNResolverPlugin.dll"-"!:\sys\bin\SIPTTCNResolverPlugin.dll"
+"\epoc32\data\z\resource\plugins\SIPTTCNResolverPlugin.rsc"-"!:\resource\plugins\SIPTTCNResolverPlugin.rsc"
+"\epoc32\release\armv5\urel\sipclientsimulatorcli.dll"-"!:\sys\bin\sipclientsimulatorcli.dll"
+"\epoc32\release\armv5\urel\sipclientsimulatorsrv.exe"-"!:\sys\bin\sipclientsimulatorsrv.exe"

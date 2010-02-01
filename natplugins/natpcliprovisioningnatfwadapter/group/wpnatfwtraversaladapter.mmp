@@ -1,0 +1,65 @@
+/*
+* Copyright (c) 2005 - 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Client Provisioning NAT/FW Traversal adapter
+*
+*/
+
+#include <data_caging_paths.hrh>
+#include <platform_paths.hrh>
+
+TARGET          wpnatfwtraversaladapter.dll
+TARGETTYPE      PLUGIN
+UID             0x10009D8D 0x10275407
+VENDORID        VID_DEFAULT
+CAPABILITY      CAP_ECOM_PLUGIN
+
+SOURCEPATH      ../src
+SOURCE          wpnatfwitem.cpp
+SOURCE          natfwtraversaladapter.cpp
+SOURCE          natfwdomainspecificitem.cpp
+SOURCE          natfwiapspecificitem.cpp
+SOURCE	        wpnatfwtraversaladaptergroupproxy.cpp
+SOURCE          stunserveritem.cpp
+SOURCE          turnserveritem.cpp
+
+SOURCEPATH      ../data
+
+START RESOURCE 10275407.rss
+TARGET wpnatfwtraversaladapter.rsc
+END
+
+START RESOURCE wpnatfwtraversaladapter.rss
+HEADER
+TARGET wpnatfwtraversaladapter.rsc
+TARGETPATH RESOURCE_FILES_DIR
+LANGUAGE_IDS
+END
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+
+USERINCLUDE     .
+USERINCLUDE     ../inc
+USERINCLUDE     ../loc
+
+LIBRARY        	euser.lib 
+LIBRARY	        ProvisioningEngine.lib
+LIBRARY         centralrepository.lib
+LIBRARY         charconv.lib
+LIBRARY         apengine.lib 
+LIBRARY         commdb.lib
+LIBRARY         cmmanager.lib
+
+PAGED

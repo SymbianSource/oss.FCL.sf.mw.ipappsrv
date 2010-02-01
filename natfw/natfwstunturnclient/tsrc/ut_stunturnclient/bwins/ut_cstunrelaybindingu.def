@@ -1,0 +1,116 @@
+EXPORTS
+  ?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * CreateTestSuiteL(void)
+	??1CNATFWUNSAFMediaConnSender@@UAE@XZ @ 2 NONAME ; CNATFWUNSAFMediaConnSender::~CNATFWUNSAFMediaConnSender(void)
+	??1CNATFWUNSAFTcpRelayPacketSender@@UAE@XZ @ 3 NONAME ; CNATFWUNSAFTcpRelayPacketSender::~CNATFWUNSAFTcpRelayPacketSender(void)
+	??1CNATFWUNSAFTlsTransport@@UAE@XZ @ 4 NONAME ; CNATFWUNSAFTlsTransport::~CNATFWUNSAFTlsTransport(void)
+	??1CNATFWUNSAFUdpSender@@UAE@XZ @ 5 NONAME ; CNATFWUNSAFUdpSender::~CNATFWUNSAFUdpSender(void)
+	??1CNATFWUNSAFUnknownAttributesAttribute@@UAE@XZ @ 6 NONAME ; CNATFWUNSAFUnknownAttributesAttribute::~CNATFWUNSAFUnknownAttributesAttribute(void)
+	??1CSTUNBinding@@UAE@XZ @ 7 NONAME ; CSTUNBinding::~CSTUNBinding(void)
+	??1CSTUNClient@@UAE@XZ @ 8 NONAME ; CSTUNClient::~CSTUNClient(void)
+	??1CSTUNRelayBinding@@UAE@XZ @ 9 NONAME ; CSTUNRelayBinding::~CSTUNRelayBinding(void)
+	?AddAttributeL@CNATFWUNSAFMessage@@QAEXPAVCNATFWUNSAFAttribute@@@Z @ 10 NONAME ; void CNATFWUNSAFMessage::AddAttributeL(class CNATFWUNSAFAttribute *)
+	?Address@CNATFWUNSAFAddressAttribute@@QAEAAVTInetAddr@@XZ @ 11 NONAME ; class TInetAddr & CNATFWUNSAFAddressAttribute::Address(void)
+	?Address@CNATFWUNSAFAddressAttribute@@QBEABVTInetAddr@@XZ @ 12 NONAME ; class TInetAddr const & CNATFWUNSAFAddressAttribute::Address(void) const
+	?AddressResolved@CSTUNBinding@@UBEHXZ @ 13 NONAME ; int CSTUNBinding::AddressResolved(void) const
+	?AddressResolved@CSTUNRelayBinding@@UBEHXZ @ 14 NONAME ; int CSTUNRelayBinding::AddressResolved(void) const
+	?AllocateRequestL@CSTUNRelayBinding@@QAEXI@Z @ 15 NONAME ; void CSTUNRelayBinding::AllocateRequestL(unsigned int)
+	?AlternateServerAddr@CSTUNBinding@@UBEABVTInetAddr@@XZ @ 16 NONAME ; class TInetAddr const & CSTUNBinding::AlternateServerAddr(void) const
+	?AlternateServerAddr@CSTUNRelayBinding@@UBEABVTInetAddr@@XZ @ 17 NONAME ; class TInetAddr const & CSTUNRelayBinding::AlternateServerAddr(void) const
+	?Attribute@CNATFWUNSAFMessage@@QBEPAVCNATFWUNSAFAttribute@@W4TType@2@@Z @ 18 NONAME ; class CNATFWUNSAFAttribute * CNATFWUNSAFMessage::Attribute(enum CNATFWUNSAFAttribute::TType) const
+	?Bandwidth@CNATFWUNSAFBandwidthAttribute@@QBEHXZ @ 19 NONAME ; int CNATFWUNSAFBandwidthAttribute::Bandwidth(void) const
+	?Cancel@CNATFWUNSAFMediaConnSender@@QBEXIIPAVMNcmSenderObserver@@@Z @ 20 NONAME ; void CNATFWUNSAFMediaConnSender::CancelL(unsigned int, unsigned int, class MNcmSenderObserver *) const
+	?CancelRequest@CSTUNBinding@@UAEXXZ @ 21 NONAME ; void CSTUNBinding::CancelRequest(void)
+	?CancelRequest@CSTUNRelayBinding@@UAEXXZ @ 22 NONAME ; void CSTUNRelayBinding::CancelRequest(void)
+	?CancelRetransmission@CSTUNBinding@@QAEXXZ @ 23 NONAME ; void CSTUNBinding::CancelRetransmission(void)
+	?CheckFingerprintL@CNATFWUNSAFFingerprintAttribute@@QBEHABVTDesC8@@@Z @ 24 NONAME ; int CNATFWUNSAFFingerprintAttribute::CheckFingerprintL(class TDesC8 const &) const
+	?ConnectRequestL@CSTUNRelayBinding@@QAEXABVTInetAddr@@@Z @ 25 NONAME ; void CSTUNRelayBinding::ConnectRequestL(class TInetAddr const &)
+	?ConnectionId@CSTUNBinding@@UBEIXZ @ 26 NONAME ; unsigned int CSTUNBinding::ConnectionId(void) const
+	?ConnectionId@CSTUNRelayBinding@@UBEIXZ @ 27 NONAME ; unsigned int CSTUNRelayBinding::ConnectionId(void) const
+	?ContainedAttributes@CNATFWUNSAFUnknownAttributesAttribute@@QBEABV?$RArray@K@@XZ @ 28 NONAME ; class RArray<unsigned long> const & CNATFWUNSAFUnknownAttributesAttribute::ContainedAttributes(void) const
+	?ContinueListeningL@CNATFWUNSAFTlsTransport@@QBEXXZ @ 29 NONAME ; void CNATFWUNSAFTlsTransport::ContinueListeningL(void) const
+	?Data@CNATFWUNSAFTcpRelayPacket@@QBEABVTDesC8@@XZ @ 30 NONAME ; class TDesC8 const & CNATFWUNSAFTcpRelayPacket::Data(void) const
+	?DeleteAttribute@CNATFWUNSAFMessage@@QAEXG@Z @ 31 NONAME ; void CNATFWUNSAFMessage::DeleteAttribute(unsigned short)
+	?DetachAttribute@CNATFWUNSAFMessage@@QAEXPBVCNATFWUNSAFAttribute@@@Z @ 32 NONAME ; void CNATFWUNSAFMessage::DetachAttribute(class CNATFWUNSAFAttribute const *)
+	?EncodeL@CNATFWUNSAFMessage@@QBEPAVCBufBase@@ABVTDesC8@@H@Z @ 33 NONAME ; class CBufBase * CNATFWUNSAFMessage::EncodeL(class TDesC8 const &, int) const
+	?EncodeL@CNATFWUNSAFMessage@@QBEPAVCBufBase@@XZ @ 34 NONAME ; class CBufBase * CNATFWUNSAFMessage::EncodeL(void) const
+	?EncodeL@CNATFWUNSAFTcpRelayPacket@@QBEPAVCBufBase@@XZ @ 35 NONAME ; class CBufBase * CNATFWUNSAFTcpRelayPacket::EncodeL(void) const
+	?HandleDataL@CSTUNBinding@@UAEPAVHBufC8@@ABVTDesC8@@AAHAAVTInetAddr@@@Z @ 36 NONAME ; class HBufC8 * CSTUNBinding::HandleDataL(class TDesC8 const &, int &, class TInetAddr &)
+	?HandleDataL@CSTUNRelayBinding@@UAEPAVHBufC8@@ABVTDesC8@@AAHAAVTInetAddr@@@Z @ 37 NONAME ; class HBufC8 * CSTUNRelayBinding::HandleDataL(class TDesC8 const &, int &, class TInetAddr &)
+	?HasAttribute@CNATFWUNSAFMessage@@QBEHW4TType@CNATFWUNSAFAttribute@@@Z @ 38 NONAME ; int CNATFWUNSAFMessage::HasAttribute(enum CNATFWUNSAFAttribute::TType) const
+	?HasUnknownMandatoryAttributes@CNATFWUNSAFMessage@@QBEHXZ @ 39 NONAME ; int CNATFWUNSAFMessage::HasUnknownMandatoryAttributes(void) const
+	?IceControlled@CNATFWUNSAFIceControlledAttribute@@QBE_KXZ @ 40 NONAME ; unsigned long long CNATFWUNSAFIceControlledAttribute::IceControlled(void) const
+	?IceControlling@CNATFWUNSAFIceControllingAttribute@@QBE_KXZ @ 41 NONAME ; unsigned long long CNATFWUNSAFIceControllingAttribute::IceControlling(void) const
+	?IsConnected@CNATFWUNSAFTlsTransport@@QAEHXZ @ 42 NONAME ; int CNATFWUNSAFTlsTransport::IsConnected(void)
+	?IsInitialized@CSTUNClient@@QBEHXZ @ 43 NONAME ; int CSTUNClient::IsInitialized(void) const
+	?Lifetime@CNATFWUNSAFLifetimeAttribute@@QBEHXZ @ 44 NONAME ; int CNATFWUNSAFLifetimeAttribute::Lifetime(void) const
+	?NewL@CNATFWUNSAFBandwidthAttribute@@SAPAV1@H@Z @ 45 NONAME ; class CNATFWUNSAFBandwidthAttribute * CNATFWUNSAFBandwidthAttribute::NewL(int)
+	?NewL@CNATFWUNSAFIceControlledAttribute@@SAPAV1@_K@Z @ 46 NONAME ; class CNATFWUNSAFIceControlledAttribute * CNATFWUNSAFIceControlledAttribute::NewL(unsigned long long)
+	?NewL@CNATFWUNSAFIceControllingAttribute@@SAPAV1@_K@Z @ 47 NONAME ; class CNATFWUNSAFIceControllingAttribute * CNATFWUNSAFIceControllingAttribute::NewL(unsigned long long)
+	?NewL@CNATFWUNSAFLifetimeAttribute@@SAPAV1@H@Z @ 48 NONAME ; class CNATFWUNSAFLifetimeAttribute * CNATFWUNSAFLifetimeAttribute::NewL(int)
+	?NewL@CNATFWUNSAFMediaConnSender@@SAPAV1@AAVMNcmConnectionMultiplexer@@@Z @ 49 NONAME ; class CNATFWUNSAFMediaConnSender * CNATFWUNSAFMediaConnSender::NewL(class MNcmConnectionMultiplexer &)
+	?NewL@CNATFWUNSAFTcpRelayPacket@@SAPAV1@ABVTDesC8@@W4TRelayType@1@@Z @ 50 NONAME ; class CNATFWUNSAFTcpRelayPacket * CNATFWUNSAFTcpRelayPacket::NewL(class TDesC8 const &, enum CNATFWUNSAFTcpRelayPacket::TRelayType)
+	?NewL@CNATFWUNSAFTcpRelayPacketSender@@SAPAV1@AAVMNcmConnectionMultiplexer@@@Z @ 51 NONAME ; class CNATFWUNSAFTcpRelayPacketSender * CNATFWUNSAFTcpRelayPacketSender::NewL(class MNcmConnectionMultiplexer &)
+	?NewL@CNATFWUNSAFTlsTransport@@SAPAV1@AAVRSocketServ@@AAVRConnection@@ABVTInetAddr@@AAVMNATFWUNSAFTlsTransportObserver@@@Z @ 52 NONAME ; class CNATFWUNSAFTlsTransport * CNATFWUNSAFTlsTransport::NewL(class RSocketServ &, class RConnection &, class TInetAddr const &, class MNATFWUNSAFTlsTransportObserver &)
+	?NewL@CNATFWUNSAFUdpSender@@SAPAV1@AAVRSocket@@AAVMNATFWUNSAFUdpSenderObserver@@@Z @ 53 NONAME ; class CNATFWUNSAFUdpSender * CNATFWUNSAFUdpSender::NewL(class RSocket &, class MNATFWUNSAFUdpSenderObserver &)
+	?NewL@CNATFWUNSAFUdpSender@@SAPAV1@IIAAVMNATFWUNSAFUdpSenderObserver@@@Z @ 54 NONAME ; class CNATFWUNSAFUdpSender * CNATFWUNSAFUdpSender::NewL(unsigned int, unsigned int, class MNATFWUNSAFUdpSenderObserver &)
+	?NewL@CNATFWUNSAFUnknownAttributesAttribute@@SAPAV1@XZ @ 55 NONAME ; class CNATFWUNSAFUnknownAttributesAttribute * CNATFWUNSAFUnknownAttributesAttribute::NewL(void)
+	?NewL@CNATFWUNSAFXorMappedAddressAttribute@@SAPAV1@ABVTInetAddr@@ABV?$TBuf8@$0M@@@@Z @ 56 NONAME ; class CNATFWUNSAFXorMappedAddressAttribute * CNATFWUNSAFXorMappedAddressAttribute::NewL(class TInetAddr const &, class TBuf8<12> const &)
+	?NewL@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@AAVRSocket@@@Z @ 57 NONAME ; class CSTUNBinding * CSTUNBinding::NewL(class CSTUNClient &, class RSocket &)
+	?NewL@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@II@Z @ 58 NONAME ; class CSTUNBinding * CSTUNBinding::NewL(class CSTUNClient &, unsigned int, unsigned int)
+	?NewL@CSTUNClient@@SAPAV1@HAAVCDeltaTimer@@AAVMSTUNClientObserver@@PAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 59 NONAME ; class CSTUNClient * CSTUNClient::NewL(int, class CDeltaTimer &, class MSTUNClientObserver &, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?NewL@CSTUNClient@@SAPAV1@HABVTDesC8@@I0AAVRSocketServ@@AAVRConnection@@AAVCDeltaTimer@@AAVMSTUNClientObserver@@HHHPAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 60 NONAME ; class CSTUNClient * CSTUNClient::NewL(int, class TDesC8 const &, unsigned int, class TDesC8 const &, class RSocketServ &, class RConnection &, class CDeltaTimer &, class MSTUNClientObserver &, int, int, int, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?NewL@CSTUNRelayBinding@@SAPAV1@AAVCSTUNClient@@II@Z @ 61 NONAME ; class CSTUNRelayBinding * CSTUNRelayBinding::NewL(class CSTUNClient &, unsigned int, unsigned int)
+	?NewLC@CNATFWUNSAFBandwidthAttribute@@SAPAV1@H@Z @ 62 NONAME ; class CNATFWUNSAFBandwidthAttribute * CNATFWUNSAFBandwidthAttribute::NewLC(int)
+	?NewLC@CNATFWUNSAFIceControlledAttribute@@SAPAV1@_K@Z @ 63 NONAME ; class CNATFWUNSAFIceControlledAttribute * CNATFWUNSAFIceControlledAttribute::NewLC(unsigned long long)
+	?NewLC@CNATFWUNSAFIceControllingAttribute@@SAPAV1@_K@Z @ 64 NONAME ; class CNATFWUNSAFIceControllingAttribute * CNATFWUNSAFIceControllingAttribute::NewLC(unsigned long long)
+	?NewLC@CNATFWUNSAFLifetimeAttribute@@SAPAV1@H@Z @ 65 NONAME ; class CNATFWUNSAFLifetimeAttribute * CNATFWUNSAFLifetimeAttribute::NewLC(int)
+	?NewLC@CNATFWUNSAFMediaConnSender@@SAPAV1@AAVMNcmConnectionMultiplexer@@@Z @ 66 NONAME ; class CNATFWUNSAFMediaConnSender * CNATFWUNSAFMediaConnSender::NewLC(class MNcmConnectionMultiplexer &)
+	?NewLC@CNATFWUNSAFTcpRelayPacket@@SAPAV1@ABVTDesC8@@W4TRelayType@1@@Z @ 67 NONAME ; class CNATFWUNSAFTcpRelayPacket * CNATFWUNSAFTcpRelayPacket::NewLC(class TDesC8 const &, enum CNATFWUNSAFTcpRelayPacket::TRelayType)
+	?NewLC@CNATFWUNSAFTcpRelayPacketSender@@SAPAV1@AAVMNcmConnectionMultiplexer@@@Z @ 68 NONAME ; class CNATFWUNSAFTcpRelayPacketSender * CNATFWUNSAFTcpRelayPacketSender::NewLC(class MNcmConnectionMultiplexer &)
+	?NewLC@CNATFWUNSAFTlsTransport@@SAPAV1@AAVRSocketServ@@AAVRConnection@@ABVTInetAddr@@AAVMNATFWUNSAFTlsTransportObserver@@@Z @ 69 NONAME ; class CNATFWUNSAFTlsTransport * CNATFWUNSAFTlsTransport::NewLC(class RSocketServ &, class RConnection &, class TInetAddr const &, class MNATFWUNSAFTlsTransportObserver &)
+	?NewLC@CNATFWUNSAFUdpSender@@SAPAV1@AAVRSocket@@AAVMNATFWUNSAFUdpSenderObserver@@@Z @ 70 NONAME ; class CNATFWUNSAFUdpSender * CNATFWUNSAFUdpSender::NewLC(class RSocket &, class MNATFWUNSAFUdpSenderObserver &)
+	?NewLC@CNATFWUNSAFUdpSender@@SAPAV1@IIAAVMNATFWUNSAFUdpSenderObserver@@@Z @ 71 NONAME ; class CNATFWUNSAFUdpSender * CNATFWUNSAFUdpSender::NewLC(unsigned int, unsigned int, class MNATFWUNSAFUdpSenderObserver &)
+	?NewLC@CNATFWUNSAFUnknownAttributesAttribute@@SAPAV1@XZ @ 72 NONAME ; class CNATFWUNSAFUnknownAttributesAttribute * CNATFWUNSAFUnknownAttributesAttribute::NewLC(void)
+	?NewLC@CNATFWUNSAFXorMappedAddressAttribute@@SAPAV1@ABVTInetAddr@@ABV?$TBuf8@$0M@@@@Z @ 73 NONAME ; class CNATFWUNSAFXorMappedAddressAttribute * CNATFWUNSAFXorMappedAddressAttribute::NewLC(class TInetAddr const &, class TBuf8<12> const &)
+	?NewLC@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@AAVRSocket@@@Z @ 74 NONAME ; class CSTUNBinding * CSTUNBinding::NewLC(class CSTUNClient &, class RSocket &)
+	?NewLC@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@II@Z @ 75 NONAME ; class CSTUNBinding * CSTUNBinding::NewLC(class CSTUNClient &, unsigned int, unsigned int)
+	?NewLC@CSTUNClient@@SAPAV1@HAAVCDeltaTimer@@AAVMSTUNClientObserver@@PAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 76 NONAME ; class CSTUNClient * CSTUNClient::NewLC(int, class CDeltaTimer &, class MSTUNClientObserver &, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?NewLC@CSTUNClient@@SAPAV1@HABVTDesC8@@I0AAVRSocketServ@@AAVRConnection@@AAVCDeltaTimer@@AAVMSTUNClientObserver@@HHHPAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 77 NONAME ; class CSTUNClient * CSTUNClient::NewLC(int, class TDesC8 const &, unsigned int, class TDesC8 const &, class RSocketServ &, class RConnection &, class CDeltaTimer &, class MSTUNClientObserver &, int, int, int, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?NewLC@CSTUNRelayBinding@@SAPAV1@AAVCSTUNClient@@II@Z @ 78 NONAME ; class CSTUNRelayBinding * CSTUNRelayBinding::NewLC(class CSTUNClient &, unsigned int, unsigned int)
+	?ObtainTransactionIDL@CSTUNClient@@QAEXAAVTDesC8@@@Z @ 79 NONAME ; void CSTUNClient::ObtainTransactionIDL(class TDesC8 &)
+	?PublicAddr@CSTUNBinding@@UBEABVTInetAddr@@XZ @ 80 NONAME ; class TInetAddr const & CSTUNBinding::PublicAddr(void) const
+	?PublicAddr@CSTUNRelayBinding@@UBEABVTInetAddr@@XZ @ 81 NONAME ; class TInetAddr const & CSTUNRelayBinding::PublicAddr(void) const
+	?RealmFromResponse@CSTUNBinding@@UBEPBVHBufC8@@XZ @ 82 NONAME ; class HBufC8 const * CSTUNBinding::RealmFromResponse(void) const
+	?RealmFromResponse@CSTUNRelayBinding@@UBEPBVHBufC8@@XZ @ 83 NONAME ; class HBufC8 const * CSTUNRelayBinding::RealmFromResponse(void) const
+	?RelayAddr@CSTUNRelayBinding@@QBEABVTInetAddr@@XZ @ 84 NONAME ; class TInetAddr const & CSTUNRelayBinding::RelayAddr(void) const
+	?STUNClient@CSTUNBinding@@UBEPBVCSTUNClient@@XZ @ 85 NONAME ; class CSTUNClient const * CSTUNBinding::STUNClient(void) const
+	?STUNClient@CSTUNRelayBinding@@UBEPBVCSTUNClient@@XZ @ 86 NONAME ; class CSTUNClient const * CSTUNRelayBinding::STUNClient(void) const
+	?STUNServerAddrL@CSTUNClient@@QBEABVTInetAddr@@XZ @ 87 NONAME ; class TInetAddr const & CSTUNClient::STUNServerAddrL(void) const
+	?SendIndicationL@CSTUNBinding@@UAEXABVTInetAddr@@ABVTDesC8@@H@Z @ 88 NONAME ; void CSTUNBinding::SendIndicationL(class TInetAddr const &, class TDesC8 const &, int)
+	?SendIndicationL@CSTUNRelayBinding@@UAEXABVTInetAddr@@ABVTDesC8@@H@Z @ 89 NONAME ; void CSTUNRelayBinding::SendIndicationL(class TInetAddr const &, class TDesC8 const &, int)
+	?SendL@CNATFWUNSAFMediaConnSender@@QAEXIIABVCNATFWUNSAFMessage@@ABVTDesC8@@ABVTInetAddr@@PAVMNcmSenderObserver@@I@Z @ 90 NONAME ; void CNATFWUNSAFMediaConnSender::SendL(unsigned int, unsigned int, class CNATFWUNSAFMessage const &, class TDesC8 const &, class TInetAddr const &, class MNcmSenderObserver *, unsigned int)
+	?SendL@CNATFWUNSAFMediaConnSender@@QAEXIIABVCNATFWUNSAFMessage@@ABVTDesC8@@PAVMNcmSenderObserver@@I@Z @ 91 NONAME ; void CNATFWUNSAFMediaConnSender::SendL(unsigned int, unsigned int, class CNATFWUNSAFMessage const &, class TDesC8 const &, class MNcmSenderObserver *, unsigned int)
+	?SendL@CNATFWUNSAFTcpRelayPacketSender@@QAEXIIABVCNATFWUNSAFTcpRelayPacket@@PAVMNcmSenderObserver@@@Z @ 92 NONAME ; void CNATFWUNSAFTcpRelayPacketSender::SendL(unsigned int, unsigned int, class CNATFWUNSAFTcpRelayPacket const &, class MNcmSenderObserver *)
+	?SendL@CNATFWUNSAFTlsTransport@@QAEXABVCNATFWUNSAFMessage@@ABVTDesC8@@I@Z @ 93 NONAME ; void CNATFWUNSAFTlsTransport::SendL(class CNATFWUNSAFMessage const &, class TDesC8 const &, unsigned int)
+	?SendL@CNATFWUNSAFUdpSender@@QAEXABVTInetAddr@@ABVCNATFWUNSAFMessage@@ABVTDesC8@@@Z @ 94 NONAME ; void CNATFWUNSAFUdpSender::SendL(class TInetAddr const &, class CNATFWUNSAFMessage const &, class TDesC8 const &)
+	?SendRequestL@CSTUNBinding@@QAEXABVTInetAddr@@HI@Z @ 95 NONAME ; void CSTUNBinding::SendRequestL(class TInetAddr const &, int, unsigned int)
+	?SendRequestL@CSTUNBinding@@QAEXXZ @ 96 NONAME ; void CSTUNBinding::SendRequestL(void)
+	?SetActiveDestinationRequestL@CSTUNRelayBinding@@QAEXABVTInetAddr@@AAK@Z @ 97 NONAME ; void CSTUNRelayBinding::SetActiveDestinationRequestL(class TInetAddr const &, unsigned long &)
+	?SetCredentialsL@CSTUNClient@@QAEXABVTDesC8@@0@Z @ 98 NONAME ; void CSTUNClient::SetCredentialsL(class TDesC8 const &, class TDesC8 const &)
+	?SetICESpecificAttributes@CSTUNBinding@@UAEXABVTICEAttributes@@@Z @ 99 NONAME ; void CSTUNBinding::SetICESpecificAttributes(class TICEAttributes const &)
+	?SetICESpecificAttributes@CSTUNRelayBinding@@UAEXABVTICEAttributes@@@Z @ 100 NONAME ; void CSTUNRelayBinding::SetICESpecificAttributes(class TICEAttributes const &)
+	?SetTransactionIDAndXorL@CNATFWUNSAFXorMappedAddressAttribute@@QAEXABV?$TBuf8@$0M@@@@Z @ 101 NONAME ; void CNATFWUNSAFXorMappedAddressAttribute::SetTransactionIDAndXorL(class TBuf8<12> const &)
+	?SharedSecretObtained@CSTUNClient@@QBEHXZ @ 102 NONAME ; int CSTUNClient::SharedSecretObtained(void) const
+	?Socket@CSTUNBinding@@QBEABVRSocket@@XZ @ 103 NONAME ; class RSocket const & CSTUNBinding::Socket(void) const
+	?StreamId@CSTUNBinding@@UBEIXZ @ 104 NONAME ; unsigned int CSTUNBinding::StreamId(void) const
+	?StreamId@CSTUNRelayBinding@@UBEIXZ @ 105 NONAME ; unsigned int CSTUNRelayBinding::StreamId(void) const
+	?TransactionID@CNATFWUNSAFMessage@@QBE?AV?$TBuf8@$0M@@@XZ @ 106 NONAME ; class TBuf8<12> CNATFWUNSAFMessage::TransactionID(void) const
+	?Type@CNATFWUNSAFTcpRelayPacket@@QBE?AW4TRelayType@1@XZ @ 107 NONAME ; enum CNATFWUNSAFTcpRelayPacket::TRelayType CNATFWUNSAFTcpRelayPacket::Type(void) const
+	?__DbgTestInvariant@CNATFWUNSAFUnknownAttributesAttribute@@QBEXXZ @ 108 NONAME ; void CNATFWUNSAFUnknownAttributesAttribute::__DbgTestInvariant(void) const
+	?__DbgTestInvariant@CSTUNBinding@@QBEXXZ @ 109 NONAME ; void CSTUNBinding::__DbgTestInvariant(void) const
+	?__DbgTestInvariant@CSTUNClient@@QBEXXZ @ 110 NONAME ; void CSTUNClient::__DbgTestInvariant(void) const
+	?__DbgTestInvariant@CSTUNClientImplementation@@QBEXXZ @ 111 NONAME ; void CSTUNClientImplementation::__DbgTestInvariant(void) const
+	?__DbgTestInvariant@CSTUNRelayBinding@@QBEXXZ @ 112 NONAME ; void CSTUNRelayBinding::__DbgTestInvariant(void) const
+	?__DbgTestInvariant@CSTUNSharedSecret@@QBEXXZ @ 113 NONAME ; void CSTUNSharedSecret::__DbgTestInvariant(void) const
+	?__DbgTestInvariant@CSTUNTransaction@@QBEXXZ @ 114 NONAME ; void CSTUNTransaction::__DbgTestInvariant(void) const
+

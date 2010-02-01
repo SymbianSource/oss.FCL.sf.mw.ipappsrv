@@ -1,0 +1,380 @@
+// File : CtrlTemplates.ttcn
+//
+// Info : This file specifies templates for CTRL elements:
+//        requests, responses, parameters and IDs
+//
+//        Do not modify without permission!
+//
+
+module CtrlRel2Templates
+{
+
+import from CtrlRel2Types all; 		// import TTCN-3 CTRL definition
+
+//
+// -- Request templates -------------------------------------------------------
+//
+
+template AbstractCtrlRequest a_ctrlRequest (	charstring					p_action,
+												template ValueList			p_headers,
+												template TestClientIdList	p_ids,
+												template ParameterList		p_params ) := 
+	{
+	actionName := p_action,
+	headers := p_headers,
+	ids := p_ids,
+	params := p_params
+	}
+
+template CtrlStartTCRequest a_ctrlStartTCRequest (	charstring	p_testCaseName ) :=
+	{
+	testCaseName := p_testCaseName
+	}
+
+template CtrlEndTCRequest a_ctrlEndTCRequest (	template charstring	p_testCaseName ) :=
+	{
+	testCaseName := p_testCaseName
+	}
+
+template CtrlResetRequest a_ctrlResetRequest (	template charstring	p_classOrObjName ) :=
+	{
+	classOrObjName := p_classOrObjName
+	}
+
+//
+// -- Response templates ------------------------------------------------------
+//
+
+//New Template
+template CtrlFileXferRequest a_ctrlFileXferRequest ( 
+	charstring p_srcFileName,
+	charstring p_destFileName,
+	octetstring p_fileContent ) :=
+	{
+		 actionName   := "write",
+		 srcFileName	:= p_srcFileName,
+		 destFileName := p_destFileName,
+		 fileContent  := p_fileContent
+	} 		
+
+template AbstractCtrlResponse a_ctrlResponse (	template charstring			p_action,
+												template integer			p_returnCode,
+												template ReceivedMsg		p_msg,
+												template TestClientIdList	p_ids,
+												template ParameterList		p_params ) := 
+	{
+	actionName := p_action,
+	returnCode := p_returnCode,
+	recvMsg := p_msg,
+	ids := p_ids,
+	params := p_params
+	}
+
+template CtrlOkResponse a_ctrlOkResponse () :=
+	{
+	}
+
+template CtrlError a_ctrlError (	template charstring	p_reason ) :=
+	{
+	reason := p_reason
+	}
+
+//
+// -- Parameter templates -----------------------------------------------------
+//
+
+template ParameterListElement a_ctrlAddress ( template charstring p_value ) :=
+	{
+	parameter := { pName := "Address", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlApplicationUid ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ApplicationUid", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlAuthenticationAuts ( template charstring p_value ) :=
+	{
+	parameter := { pName := "AuthenticationAuts", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlAuthenticationCk ( template charstring p_value ) :=
+	{
+	parameter := { pName := "AuthenticationCk", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlAuthenticationIk ( template charstring p_value ) :=
+	{
+	parameter := { pName := "AuthenticationIk", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlAuthenticationMechanism ( template charstring p_value ) :=
+	{
+	parameter := { pName := "AuthenticationMechanism", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlAuthenticationNonce ( template charstring p_value ) :=
+	{
+	parameter := { pName := "AuthenticationNonce", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlAuthenticationRes ( template charstring p_value ) :=
+	{
+	parameter := { pName := "AuthenticationRes", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlBoolean ( template charstring p_value ) :=
+	{
+	parameter := { pName := "Boolean", pValue := p_value }
+	}
+template charstring a_ctrlBooleanTrue := "true";
+
+
+template ParameterListElement a_ctrlClientDiscoveryErrorCode ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ClientDiscoveryErrorCode", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlClientDiscoveryRequestId ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ClientDiscoveryRequestId", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlClientDiscoveryStatus ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ClientDiscoveryStatus", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlClientInfo ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ClientInfo", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlCompartmentCount ( template charstring p_value ) :=
+	{
+	parameter := { pName := "CompartmentCount", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlConnectionState ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ConnectionState", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlContent ( template charstring p_value ) :=
+	{
+	parameter := { pName := "Content", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlDialogState ( template charstring p_value ) :=
+	{
+	parameter := { pName := "DialogState", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlDigestRealm( template charstring p_value ) :=
+	{
+	parameter := { pName := "DigestRealm", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlDigestUsername( template charstring p_value ) :=
+	{
+	parameter := { pName := "DigestUsername", pValue := p_value }
+	}	
+	
+template ParameterListElement a_ctrlDigestPassword( template charstring p_value ) :=
+	{
+	parameter := { pName := "DigestPassword", pValue := p_value }
+	}	
+
+template ParameterListElement a_ctrlFile ( template charstring p_filename ) :=
+	{
+	parameter := { pName := "File", pValue := p_filename }
+	}
+
+template ParameterListElement a_ctrlExpires ( template charstring p_seconds ) :=
+	{
+	parameter := { pName := "Expires", pValue := p_seconds }
+	}
+
+template ParameterListElement a_ctrlIAPName ( template charstring p_value ) :=
+	{
+	parameter := { pName := "IAPName", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlIAPNames ( template ValueList p_values ) :=
+	{
+	array := { aName := "IAPNames", aValues := p_values }
+	}
+	
+template ParameterListElement a_ctrlMethod ( template charstring p_value ) :=
+	{
+	parameter := { pName := "Method", pValue := p_value }
+	}
+template ParameterListElement a_ctrlProcess ( template charstring p_processname ) :=
+	{
+	parameter := { pName := "Process", pValue := p_processname }
+	}
+	
+template ParameterListElement a_ctrlProxy( template charstring p_proxy ) :=
+	{
+	parameter := { pName := "Proxy", pValue := p_proxy }
+	}
+	
+template ParameterListElement a_ctrlReason ( template charstring p_value ) :=
+	{
+	parameter := { pName := "Reason", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlRefresh () :=
+	{
+	parameter := { pName := "Refresh",	pValue := "true" }
+	}
+
+template ParameterListElement a_ctrlRefreshState ( template charstring p_value ) :=
+	{
+	parameter := { pName := "RefreshState",	pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlRemoteURI ( template charstring p_value ) :=
+	{
+	parameter := { pName := "RemoteURI", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlSecurityMechanisms ( template ValueList p_values ) :=
+	{
+	array := { aName := "SecurityMechanisms", aValues := p_values }
+	}
+
+template ParameterListElement a_ctrlSecurityParams ( template charstring p_realm,
+													 template charstring p_server,
+													 template charstring p_userid,
+													 template charstring p_passwd ) :=
+	{
+	struct := { sName := "SecurityParams", sFields := { { pName := "Realm", pValue := p_realm },
+														{ pName := "Server", pValue := p_server },
+														{ pName := "UserId", pValue := p_userid },
+														{ pName := "Passwd", pValue := p_passwd }
+													  }
+			  }
+	}
+
+template ParameterListElement a_ctrlSecurityParamsProtected ( template charstring p_realm,
+															  template charstring p_server,
+															  template charstring p_userid,
+															  template charstring p_passwd ) :=
+	{
+	struct := { sName := "SecurityParams", sFields := { { pName := "Realm", pValue := p_realm },
+														{ pName := "Server", pValue := p_server },
+														{ pName := "UserId", pValue := p_userid },
+														{ pName := "Passwd", pValue := p_passwd },
+														{ pName := "Protected", pValue := "true" }
+													  }
+			  }
+	}
+
+template ParameterListElement a_ctrlStackError ( template charstring p_error ) :=
+	{
+	parameter := { pName := "StackError", pValue := p_error }
+	}
+	
+template ParameterListElement a_ctrlStatusCode ( template charstring p_status ) :=
+	{
+	parameter := { pName := "StatusCode", pValue := p_status }
+	}
+	
+template ParameterListElement a_ctrlTimeout( template charstring p_timeout ) :=
+	{
+	parameter := { pName := "Timeout", pValue := p_timeout }
+	}
+	
+template ParameterListElement a_ctrlTransactionState ( template charstring p_value ) :=
+	{
+	parameter := { pName := "TransactionState", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlTransactionType ( template charstring p_value ) :=
+	{
+	parameter := { pName := "TransactionType", pValue := p_value }
+	}
+
+//
+// -- TestClientId templates --------------------------------------------------
+//
+
+
+template TestClientId a_ctrlRegistryId ( template integer p_value ) :=
+	{
+	idName := "RegistryId", idValue := p_value
+	}
+
+template TestClientId a_ctrlConnectionId ( template integer p_value ) :=
+	{
+	idName := "ConnectionId", idValue := p_value
+	}
+
+// Used for SIP =4.0
+template TestClientId a_ctrlNotifyDialogId (template integer p_value) :=
+	{
+	idName := "NotifyDialogId", idValue := p_value
+	}
+
+template TestClientId a_ctrlReferDialogId (template integer p_value) :=
+	{
+	idName := "ReferDialogId", idValue := p_value
+	}
+// End
+
+template TestClientId a_ctrlDialogId ( template integer p_value ) :=
+	{
+	idName := "DialogId", idValue := p_value
+	}
+
+template TestClientId a_ctrlInviteDialogId ( template integer p_value ) :=
+	{
+	idName := "InviteDialogId", idValue := p_value
+	}
+
+template TestClientId a_ctrlRefreshId ( template integer p_value ) :=
+	{
+	idName := "RefreshId", idValue := p_value
+	}
+
+template TestClientId a_ctrlRegistrationId ( template integer p_value ) :=
+	{
+	idName := "RegistrationId", idValue := p_value
+	}
+	
+template TestClientId a_ctrlServerTransactionId ( template integer p_value ) :=
+	{
+	idName := "ServerTransactionId", idValue := p_value
+	}
+
+template TestClientId a_ctrlSubscribeDialogId ( template integer p_value ) :=
+	{
+	idName := "SubscribeDialogId", idValue := p_value
+	}
+
+template TestClientId a_ctrlTransactionId ( template integer p_value ) :=
+	{
+	idName := "TransactionId", idValue := p_value
+	}
+
+//
+// -- ParameterListElement templates for matching -----------------------------
+//
+
+template ParameterListElement a_ctrlParameter ( template Parameter p_param ) :=
+	{
+	parameter := p_param
+	}
+
+template ParameterListElement a_ctrlArray ( template Array p_array ) :=
+	{
+	array := p_array
+	}
+
+template ParameterListElement a_ctrlStructure ( template Structure p_struct ) :=
+	{
+	struct := p_struct
+	}
+
+}

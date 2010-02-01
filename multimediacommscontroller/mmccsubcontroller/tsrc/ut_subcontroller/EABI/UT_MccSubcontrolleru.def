@@ -1,0 +1,304 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_Z13GetParameterLmmmmR6TDesC8 @ 2 NONAME
+	_Z24ImplementationGroupProxyRi @ 3 NONAME
+	_ZN11RConnectionC1Ev @ 4 NONAME
+	_ZN11RConnectionC2Ev @ 5 NONAME
+	_ZN11RConnectionD0Ev @ 6 NONAME
+	_ZN11RConnectionD1Ev @ 7 NONAME
+	_ZN11RConnectionD2Ev @ 8 NONAME
+	_ZN11RSocketServC1Ev @ 9 NONAME
+	_ZN11RSocketServC2Ev @ 10 NONAME
+	_ZN12CAudioOutput4NewLER12CMMFDevSound @ 11 NONAME
+	_ZN12CAudioOutput4NewLER14MCustomCommand @ 12 NONAME
+	_ZN12CAudioOutput4NewLER16MCustomInterface @ 13 NONAME
+	_ZN12CAudioOutput4NewLER17CDrmPlayerUtility @ 14 NONAME
+	_ZN12CAudioOutput4NewLER18CMidiClientUtility @ 15 NONAME
+	_ZN12CAudioOutput4NewLER19CVideoPlayerUtility @ 16 NONAME
+	_ZN12CAudioOutput4NewLER20CMdaAudioToneUtility @ 17 NONAME
+	_ZN12CAudioOutput4NewLER21CMdaAudioOutputStream @ 18 NONAME
+	_ZN12CAudioOutput4NewLER22CMdaAudioPlayerUtility @ 19 NONAME
+	_ZN12CAudioOutput4NewLER24CMdaAudioRecorderUtilityi @ 20 NONAME
+	_ZN12CMMFDevSound10RecordDataEv @ 21 NONAME
+	_ZN12CMMFDevSound10SetConfigLERK16TMMFCapabilities @ 22 NONAME
+	_ZN12CMMFDevSound11InitializeLER17MDevSoundObserver4TUid9TMMFState @ 23 NONAME
+	_ZN12CMMFDevSound11InitializeLER17MDevSoundObserver7TFourCC9TMMFState @ 24 NONAME
+	_ZN12CMMFDevSound11InitializeLER17MDevSoundObserver9TMMFState @ 25 NONAME
+	_ZN12CMMFDevSound11RecordInitLEv @ 26 NONAME
+	_ZN12CMMFDevSound12CapabilitiesEv @ 27 NONAME
+	_ZN12CMMFDevSound13PlayDualToneLEiiRK25TTimeIntervalMicroSeconds @ 28 NONAME
+	_ZN12CMMFDevSound13SamplesPlayedEv @ 29 NONAME
+	_ZN12CMMFDevSound13SetVolumeRampERK25TTimeIntervalMicroSeconds @ 30 NONAME
+	_ZN12CMMFDevSound14SetDTMFLengthsER27TTimeIntervalMicroSeconds32S1_S1_ @ 31 NONAME
+	_ZN12CMMFDevSound14SetToneRepeatsEiRK25TTimeIntervalMicroSeconds @ 32 NONAME
+	_ZN12CMMFDevSound15CustomInterfaceE4TUid @ 33 NONAME
+	_ZN12CMMFDevSound15GetPlayBalanceLERiS0_ @ 34 NONAME
+	_ZN12CMMFDevSound15PlayDTMFStringLERK7TDesC16 @ 35 NONAME
+	_ZN12CMMFDevSound15SamplesRecordedEv @ 36 NONAME
+	_ZN12CMMFDevSound15SetPlayBalanceLEii @ 37 NONAME
+	_ZN12CMMFDevSound17FixedSequenceNameEi @ 38 NONAME
+	_ZN12CMMFDevSound17GetRecordBalanceLERiS0_ @ 39 NONAME
+	_ZN12CMMFDevSound17PlayToneSequenceLERK6TDesC8 @ 40 NONAME
+	_ZN12CMMFDevSound17SetRecordBalanceLEii @ 41 NONAME
+	_ZN12CMMFDevSound18FixedSequenceCountEv @ 42 NONAME
+	_ZN12CMMFDevSound18PlayFixedSequenceLEi @ 43 NONAME
+	_ZN12CMMFDevSound19SetPrioritySettingsERK20TMMFPrioritySettings @ 44 NONAME
+	_ZN12CMMFDevSound4GainEv @ 45 NONAME
+	_ZN12CMMFDevSound4NewLEv @ 46 NONAME
+	_ZN12CMMFDevSound4StopEv @ 47 NONAME
+	_ZN12CMMFDevSound5PauseEv @ 48 NONAME
+	_ZN12CMMFDevSound6VolumeEv @ 49 NONAME
+	_ZN12CMMFDevSound7MaxGainEv @ 50 NONAME
+	_ZN12CMMFDevSound7SetGainEi @ 51 NONAME
+	_ZN12CMMFDevSound8PlayDataEv @ 52 NONAME
+	_ZN12CMMFDevSound9MaxVolumeEv @ 53 NONAME
+	_ZN12CMMFDevSound9PlayInitLEv @ 54 NONAME
+	_ZN12CMMFDevSound9PlayToneLEiRK25TTimeIntervalMicroSeconds @ 55 NONAME
+	_ZN12CMMFDevSound9SetVolumeEi @ 56 NONAME
+	_ZN12CMMFDevSoundD0Ev @ 57 NONAME
+	_ZN12CMMFDevSoundD1Ev @ 58 NONAME
+	_ZN12CMMFDevSoundD2Ev @ 59 NONAME
+	_ZN12REComSession21CreateImplementationLE4TUidl @ 60 NONAME
+	_ZN14CMccUlDlClient10CloseLinkLEm @ 61 NONAME
+	_ZN14CMccUlDlClient10MaxVolumeLEmmRi @ 62 NONAME
+	_ZN14CMccUlDlClient10SetVolumeLEi @ 63 NONAME
+	_ZN14CMccUlDlClient11CreateLinkLERmi @ 64 NONAME
+	_ZN14CMccUlDlClient12GetFmtpAttrLEmmR5TDes8 @ 65 NONAME
+	_ZN14CMccUlDlClient12GetSessionIdEv @ 66 NONAME
+	_ZN14CMccUlDlClient12SetPriorityLEmm20TMMFPrioritySettings @ 67 NONAME
+	_ZN14CMccUlDlClient13SendRTCPDataLEmmRK6TDesC8 @ 68 NONAME
+	_ZN14CMccUlDlClient13SetParameterLEmmmmRK6TDesC8 @ 69 NONAME
+	_ZN14CMccUlDlClient14GetAudioRouteLEmmRm @ 70 NONAME
+	_ZN14CMccUlDlClient14RemoveContextLEmmm @ 71 NONAME
+	_ZN14CMccUlDlClient14SetAudioRouteLEmmm @ 72 NONAME
+	_ZN14CMccUlDlClient14StreamsExistsLEm @ 73 NONAME
+	_ZN14CMccUlDlClient15GetPlayBalanceLEmmRiS0_ @ 74 NONAME
+	_ZN14CMccUlDlClient15InitializeLinkLER14TRequestStatusmi @ 75 NONAME
+	_ZN14CMccUlDlClient15SetPlayBalanceLEmmii @ 76 NONAME
+	_ZN14CMccUlDlClient16GenerateStreamIdEv @ 77 NONAME
+	_ZN14CMccUlDlClient16SendMediaSignalLERK9TMccEvent @ 78 NONAME
+	_ZN14CMccUlDlClient17CreateRtpSessionLEmjii @ 79 NONAME
+	_ZN14CMccUlDlClient17GetCodecDefaultsLE4TUidR5TDes8R13TMccCodecInfo @ 80 NONAME
+	_ZN14CMccUlDlClient17GetRecordBalanceLEmmRiS0_ @ 81 NONAME
+	_ZN14CMccUlDlClient17SetRecordBalanceLEmmii @ 82 NONAME
+	_ZN14CMccUlDlClient17SetRemoteAddressLE9TInetAddrm @ 83 NONAME
+	_ZN14CMccUlDlClient18SetRemoteRtcpAddrLE9TInetAddrm @ 84 NONAME
+	_ZN14CMccUlDlClient20GetLocalIpAddressesLER14TMccCreateLink @ 85 NONAME
+	_ZN14CMccUlDlClient20SetCodecInformationLEmmRK13TMccCodecInfoRK6TDesC8 @ 86 NONAME
+	_ZN14CMccUlDlClient20StopInactivityTimerLEmm @ 87 NONAME
+	_ZN14CMccUlDlClient21GetSupportedBitratesLEmmR6RArrayIjE @ 88 NONAME
+	_ZN14CMccUlDlClient21SendRTCPSenderReportLEmm @ 89 NONAME
+	_ZN14CMccUlDlClient21StartInactivityTimerLEmmm @ 90 NONAME
+	_ZN14CMccUlDlClient22BindContextIntoStreamLEmmmRK17TMccCryptoContext @ 91 NONAME
+	_ZN14CMccUlDlClient23SendRTCPReceiverReportLEmm @ 92 NONAME
+	_ZN14CMccUlDlClient4NewLEP16MMccEventHandlerP13MMccResourcesm @ 93 NONAME
+	_ZN14CMccUlDlClient5OpenLEmmi7TFourCCP11MDataSourceP9MDataSink20TMMFPrioritySettings @ 94 NONAME
+	_ZN14CMccUlDlClient5PlayLEmmmii @ 95 NONAME
+	_ZN14CMccUlDlClient5StopLEmmm @ 96 NONAME
+	_ZN14CMccUlDlClient6CloseLEmm @ 97 NONAME
+	_ZN14CMccUlDlClient6PauseLEmmmi @ 98 NONAME
+	_ZN14CMccUlDlClient6UnuseLEmm @ 99 NONAME
+	_ZN14CMccUlDlClient7ResumeLEmmmi @ 100 NONAME
+	_ZN14CMccUlDlClient8GetGainLEmmRi @ 101 NONAME
+	_ZN14CMccUlDlClient8GetSSRCLEmmRm @ 102 NONAME
+	_ZN14CMccUlDlClient8MaxGainLEmmRi @ 103 NONAME
+	_ZN14CMccUlDlClient8PrepareLEmmm @ 104 NONAME
+	_ZN14CMccUlDlClient8SetGainLEi @ 105 NONAME
+	_ZN14CMccUlDlClient9GetCodecLEmmR13TMccCodecInfo @ 106 NONAME
+	_ZN14CMccUlDlClientD0Ev @ 107 NONAME
+	_ZN14CMccUlDlClientD1Ev @ 108 NONAME
+	_ZN14CMccUlDlClientD2Ev @ 109 NONAME
+	_ZN14RSubConnection13GetParametersER22RSubConParameterBundle @ 110 NONAME
+	_ZN14RSubConnection13SetParametersERK22RSubConParameterBundle @ 111 NONAME
+	_ZN14RSubConnection17EventNotificationER21TNotificationEventBufPNS_12TEventFilterEjR14TRequestStatus @ 112 NONAME
+	_ZN14RSubConnection17EventNotificationER21TNotificationEventBufiR14TRequestStatus @ 113 NONAME
+	_ZN14RSubConnection23CancelEventNotificationEv @ 114 NONAME
+	_ZN14RSubConnection3AddER7RSocketR14TRequestStatus @ 115 NONAME
+	_ZN14RSubConnection4OpenER11RSocketServN12TSubConnOpen12TSubConnTypeER11RConnection @ 116 NONAME
+	_ZN14RSubConnection4OpenER11RSocketServNS_12TSubConnTypeER11RConnection @ 117 NONAME
+	_ZN14RSubConnection4StopEv @ 118 NONAME
+	_ZN14RSubConnection5CloseEv @ 119 NONAME
+	_ZN14RSubConnection5StartER14TRequestStatus @ 120 NONAME
+	_ZN14RSubConnection5StartEv @ 121 NONAME
+	_ZN14RSubConnection6RemoveER7RSocketR14TRequestStatus @ 122 NONAME
+	_ZN14RSubConnection7ControlEjjR5TDes8 @ 123 NONAME
+	_ZN14RSubConnectionC1Ev @ 124 NONAME
+	_ZN14RSubConnectionC2Ev @ 125 NONAME
+	_ZN15CMccMultiplexer15SetCurrentUserLER9MDataSink @ 126 NONAME
+	_ZN15CMccMultiplexer21RegClientForPayloadsLER9MDataSinkRK6RArrayIjE @ 127 NONAME
+	_ZN15CMccMultiplexer28MultiplexerSourceThreadLogonER18MAsyncEventHandlerR9MDataSinki4TUidi @ 128 NONAME
+	_ZN15CMccMultiplexer29MultiplexerSourceThreadLogoffEP9MDataSink @ 129 NONAME
+	_ZN15CMccMultiplexer4NewLEP11MDataSource @ 130 NONAME
+	_ZN15CMccMultiplexerD0Ev @ 131 NONAME
+	_ZN15CMccMultiplexerD1Ev @ 132 NONAME
+	_ZN15CMccMultiplexerD2Ev @ 133 NONAME
+	_ZN16CMMFFormatDecode4NewLE4TUidP11MDataSource @ 134 NONAME
+	_ZN16CMMFFormatEncode4NewLE4TUidP9MDataSink @ 135 NONAME
+	_ZN17CG711DecoderIntfc4NewLER12CMMFDevSound @ 136 NONAME
+	_ZN17CG711EncoderIntfc4NewLER12CMMFDevSound @ 137 NONAME
+	_ZN17CG711EncoderIntfc4NewLER20CMdaAudioInputStream @ 138 NONAME
+	_ZN17CG729EncoderIntfc4NewLER12CMMFDevSound @ 139 NONAME
+	_ZN17CIlbcDecoderIntfc4NewLER12CMMFDevSound @ 140 NONAME
+	_ZN19CSubConParameterSet4NewLERKN4Meta7STypeIdE @ 141 NONAME
+	_ZN20CSpeechEncoderConfig4NewLER12CMMFDevSound @ 142 NONAME
+	_ZN20CSpeechEncoderConfig4NewLER20CMdaAudioInputStream @ 143 NONAME
+	_ZN21TNotificationEventBufC1Ev @ 144 NONAME
+	_ZN21TNotificationEventBufC2Ev @ 145 NONAME
+	_ZN21TNotificationEventBufD1Ev @ 146 NONAME
+	_ZN21TNotificationEventBufD2Ev @ 147 NONAME
+	_ZN22CG711DecoderIntfcProxy14SetDecoderModeEN17CG711DecoderIntfc11TDecodeModeE @ 148 NONAME
+	_ZN22CG711DecoderIntfcProxy4NewLE8TPckgBufI22TMMFMessageDestinationER14MCustomCommandP23CCustomInterfaceUtility @ 149 NONAME
+	_ZN22CG711DecoderIntfcProxy6GetCngERi @ 150 NONAME
+	_ZN22CG711DecoderIntfcProxy6SetCngEi @ 151 NONAME
+	_ZN22CG711DecoderIntfcProxy6SetPlcEi @ 152 NONAME
+	_ZN22CG711DecoderIntfcProxyD0Ev @ 153 NONAME
+	_ZN22CG711DecoderIntfcProxyD1Ev @ 154 NONAME
+	_ZN22CG711DecoderIntfcProxyD2Ev @ 155 NONAME
+	_ZN22CG729EncoderIntfcProxy10GetVadModeERi @ 156 NONAME
+	_ZN22CG729EncoderIntfcProxy10SetVadModeEi @ 157 NONAME
+	_ZN22CG729EncoderIntfcProxy4NewLE8TPckgBufI22TMMFMessageDestinationER14MCustomCommandP23CCustomInterfaceUtility @ 158 NONAME
+	_ZN22CG729EncoderIntfcProxyD0Ev @ 159 NONAME
+	_ZN22CG729EncoderIntfcProxyD1Ev @ 160 NONAME
+	_ZN22CG729EncoderIntfcProxyD2Ev @ 161 NONAME
+	_ZN22CIlbcDecoderIntfcProxy14SetDecoderModeEN17CIlbcDecoderIntfc11TDecodeModeE @ 162 NONAME
+	_ZN22CIlbcDecoderIntfcProxy4NewLE8TPckgBufI22TMMFMessageDestinationER14MCustomCommandP23CCustomInterfaceUtility @ 163 NONAME
+	_ZN22CIlbcDecoderIntfcProxy6GetCngERi @ 164 NONAME
+	_ZN22CIlbcDecoderIntfcProxy6SetCngEi @ 165 NONAME
+	_ZN22CIlbcDecoderIntfcProxyD0Ev @ 166 NONAME
+	_ZN22CIlbcDecoderIntfcProxyD1Ev @ 167 NONAME
+	_ZN22CIlbcDecoderIntfcProxyD2Ev @ 168 NONAME
+	_ZN22CSubConParameterBundle10AddFamilyLEP22CSubConParameterFamily @ 169 NONAME
+	_ZN22CSubConParameterBundle4NewLEv @ 170 NONAME
+	_ZN22CSubConParameterBundleD0Ev @ 171 NONAME
+	_ZN22CSubConParameterBundleD1Ev @ 172 NONAME
+	_ZN22CSubConParameterBundleD2Ev @ 173 NONAME
+	_ZN22CSubConParameterFamily16AddExtensionSetLER28CSubConExtensionParameterSetNS_17TParameterSetTypeE @ 174 NONAME
+	_ZN22CSubConParameterFamily4NewLER22RSubConParameterBundlem @ 175 NONAME
+	_ZN22CSubConParameterFamilyD0Ev @ 176 NONAME
+	_ZN22CSubConParameterFamilyD1Ev @ 177 NONAME
+	_ZN22CSubConParameterFamilyD2Ev @ 178 NONAME
+	_ZN22RSubConParameterBundle10AddFamilyLEP22CSubConParameterFamily @ 179 NONAME
+	_ZN22RSubConParameterBundle5CloseEv @ 180 NONAME
+	_ZN22RSubConParameterBundleC1Ev @ 181 NONAME
+	_ZN22RSubConParameterBundleC2Ev @ 182 NONAME
+	_ZN27CG711EncoderIntfcProxy_STUB10GetVadModeERi @ 183 NONAME
+	_ZN27CG711EncoderIntfcProxy_STUB10SetVadModeEi @ 184 NONAME
+	_ZN27CG711EncoderIntfcProxy_STUB14SetEncoderModeEN17CG711EncoderIntfc11TEncodeModeE @ 185 NONAME
+	_ZN27CG711EncoderIntfcProxy_STUB4NewLEv @ 186 NONAME
+	_ZN27CG711EncoderIntfcProxy_STUBD0Ev @ 187 NONAME
+	_ZN27CG711EncoderIntfcProxy_STUBD1Ev @ 188 NONAME
+	_ZN27CG711EncoderIntfcProxy_STUBD2Ev @ 189 NONAME
+	_ZN30CSpeechEncoderConfigProxy_STUB10GetBitrateERj @ 190 NONAME
+	_ZN30CSpeechEncoderConfigProxy_STUB10GetVadModeERi @ 191 NONAME
+	_ZN30CSpeechEncoderConfigProxy_STUB10SetBitrateEj @ 192 NONAME
+	_ZN30CSpeechEncoderConfigProxy_STUB10SetVadModeEi @ 193 NONAME
+	_ZN30CSpeechEncoderConfigProxy_STUB20GetSupportedBitratesER6RArrayIjE @ 194 NONAME
+	_ZN30CSpeechEncoderConfigProxy_STUB4NewLEv @ 195 NONAME
+	_ZN30CSpeechEncoderConfigProxy_STUBD0Ev @ 196 NONAME
+	_ZN30CSpeechEncoderConfigProxy_STUBD1Ev @ 197 NONAME
+	_ZN30CSpeechEncoderConfigProxy_STUBD2Ev @ 198 NONAME
+	_ZN4Meta13SMetaDataECom12NewInstanceLERKNS_7STypeIdE @ 199 NONAME
+	_ZN4Meta13SMetaDataECom5LoadLER6TPtrC8 @ 200 NONAME
+	_ZN4Meta13SMetaDataEComC2Ev @ 201 NONAME
+	_ZN4Meta13SMetaDataEComD0Ev @ 202 NONAME
+	_ZN4Meta13SMetaDataEComD1Ev @ 203 NONAME
+	_ZN4Meta13SMetaDataEComD2Ev @ 204 NONAME
+	_ZN4Meta22RMetaDataContainerBaseC2Ev @ 205 NONAME
+	_ZN4Meta9SMetaDataC2Ev @ 206 NONAME
+	_ZN4Meta9SMetaDataD0Ev @ 207 NONAME
+	_ZN4Meta9SMetaDataD1Ev @ 208 NONAME
+	_ZN4Meta9SMetaDataD2Ev @ 209 NONAME
+	_ZN7RSocket6SetOptEjjRK6TDesC8 @ 210 NONAME
+	_ZN7RSocket6SetOptEjji @ 211 NONAME
+	_ZN7RSocket9LocalNameER9TSockAddr @ 212 NONAME
+	_ZN7RSocket9LocalPortEv @ 213 NONAME
+	_ZN7RSocketC1Ev @ 214 NONAME
+	_ZN7RSocketC2Ev @ 215 NONAME
+	_ZN9TSockAddr10GetUserLenEv @ 216 NONAME
+	_ZN9TSockAddr10SetUserLenEi @ 217 NONAME
+	_ZN9TSockAddr7SetPortEj @ 218 NONAME
+	_ZN9TSockAddr9SetFamilyEj @ 219 NONAME
+	_ZN9TSockAddrC1Ej @ 220 NONAME
+	_ZN9TSockAddrC1Ev @ 221 NONAME
+	_ZN9TSockAddrC2Ej @ 222 NONAME
+	_ZN9TSockAddrC2Ev @ 223 NONAME
+	_ZNK12CMMFDevSound27GetSupportedInputDataTypesLER6RArrayI7TFourCCERK20TMMFPrioritySettings @ 224 NONAME
+	_ZNK12CMMFDevSound28GetSupportedOutputDataTypesLER6RArrayI7TFourCCERK20TMMFPrioritySettings @ 225 NONAME
+	_ZNK12CMMFDevSound6ConfigEv @ 226 NONAME
+	_ZNK21TNotificationEventBuf2IdEv @ 227 NONAME
+	_ZNK9TSockAddr4PortEv @ 228 NONAME
+	_ZNK9TSockAddr6FamilyEv @ 229 NONAME
+	_ZNK9TSockAddr7CmpPortERKS_ @ 230 NONAME
+	_ZTI11CMccAnySink @ 231 NONAME ; #<TI>#
+	_ZTI11RConnection @ 232 NONAME ; #<TI>#
+	_ZTI12CMMFDevSound @ 233 NONAME ; #<TI>#
+	_ZTI12CMccFileSink @ 234 NONAME ; #<TI>#
+	_ZTI13CMccAnySource @ 235 NONAME ; #<TI>#
+	_ZTI14CMMFAudioInput @ 236 NONAME ; #<TI>#
+	_ZTI14CMccUlDlClient @ 237 NONAME ; #<TI>#
+	_ZTI15CMMFAudioOutput @ 238 NONAME ; #<TI>#
+	_ZTI15CMccMultiplexer @ 239 NONAME ; #<TI>#
+	_ZTI15CMccRtpDataSink @ 240 NONAME ; #<TI>#
+	_ZTI16CMccTimerManager @ 241 NONAME ; #<TI>#
+	_ZTI16MMccRtpInterface @ 242 NONAME ; #<TI>#
+	_ZTI17CMccRtpDataSource @ 243 NONAME ; #<TI>#
+	_ZTI19CSubConParameterSet @ 244 NONAME ; #<TI>#
+	_ZTI19UT_CMccRtcpReceiver @ 245 NONAME ; #<TI>#
+	_ZTI19UT_CMccRtpKeepalive @ 246 NONAME ; #<TI>#
+	_ZTI20CAmrPayloadFormatter @ 247 NONAME ; #<TI>#
+	_ZTI20CMccResourcePoolStub @ 248 NONAME ; #<TI>#
+	_ZTI21CAmrPayloadFormatRead @ 249 NONAME ; #<TI>#
+	_ZTI21CSubConQosR99ParamSet @ 250 NONAME ; #<TI>#
+	_ZTI22CAmrPayloadFormatWrite @ 251 NONAME ; #<TI>#
+	_ZTI22CDTMFPayloadFormatRead @ 252 NONAME ; #<TI>#
+	_ZTI22CG711DecoderIntfcProxy @ 253 NONAME ; #<TI>#
+	_ZTI22CG729EncoderIntfcProxy @ 254 NONAME ; #<TI>#
+	_ZTI22CIlbcDecoderIntfcProxy @ 255 NONAME ; #<TI>#
+	_ZTI22CSubConParameterBundle @ 256 NONAME ; #<TI>#
+	_ZTI22CSubConParameterFamily @ 257 NONAME ; #<TI>#
+	_ZTI23CDTMFPayloadFormatWrite @ 258 NONAME ; #<TI>#
+	_ZTI27CG711EncoderIntfcProxy_STUB @ 259 NONAME ; #<TI>#
+	_ZTI28CSubConExtensionParameterSet @ 260 NONAME ; #<TI>#
+	_ZTI30CSpeechEncoderConfigProxy_STUB @ 261 NONAME ; #<TI>#
+	_ZTIN4Meta13SMetaDataEComE @ 262 NONAME ; #<TI>#
+	_ZTIN4Meta18RMetaDataContainerINS_13SMetaDataEComEEE @ 263 NONAME ; #<TI>#
+	_ZTIN4Meta9SMetaDataE @ 264 NONAME ; #<TI>#
+	_ZTV11CMccAnySink @ 265 NONAME ; #<VT>#
+	_ZTV11RConnection @ 266 NONAME ; #<VT>#
+	_ZTV12CMMFDevSound @ 267 NONAME ; #<VT>#
+	_ZTV12CMccFileSink @ 268 NONAME ; #<VT>#
+	_ZTV13CMccAnySource @ 269 NONAME ; #<VT>#
+	_ZTV14CMMFAudioInput @ 270 NONAME ; #<VT>#
+	_ZTV14CMccUlDlClient @ 271 NONAME ; #<VT>#
+	_ZTV15CMMFAudioOutput @ 272 NONAME ; #<VT>#
+	_ZTV15CMccMultiplexer @ 273 NONAME ; #<VT>#
+	_ZTV15CMccRtpDataSink @ 274 NONAME ; #<VT>#
+	_ZTV16CMccTimerManager @ 275 NONAME ; #<VT>#
+	_ZTV16MMccRtpInterface @ 276 NONAME ; #<VT>#
+	_ZTV17CMccRtpDataSource @ 277 NONAME ; #<VT>#
+	_ZTV19CSubConParameterSet @ 278 NONAME ; #<VT>#
+	_ZTV19UT_CMccRtcpReceiver @ 279 NONAME ; #<VT>#
+	_ZTV19UT_CMccRtpKeepalive @ 280 NONAME ; #<VT>#
+	_ZTV20CAmrPayloadFormatter @ 281 NONAME ; #<VT>#
+	_ZTV20CMccResourcePoolStub @ 282 NONAME ; #<VT>#
+	_ZTV21CAmrPayloadFormatRead @ 283 NONAME ; #<VT>#
+	_ZTV21CSubConQosR99ParamSet @ 284 NONAME ; #<VT>#
+	_ZTV22CAmrPayloadFormatWrite @ 285 NONAME ; #<VT>#
+	_ZTV22CDTMFPayloadFormatRead @ 286 NONAME ; #<VT>#
+	_ZTV22CG711DecoderIntfcProxy @ 287 NONAME ; #<VT>#
+	_ZTV22CG729EncoderIntfcProxy @ 288 NONAME ; #<VT>#
+	_ZTV22CIlbcDecoderIntfcProxy @ 289 NONAME ; #<VT>#
+	_ZTV22CSubConParameterBundle @ 290 NONAME ; #<VT>#
+	_ZTV22CSubConParameterFamily @ 291 NONAME ; #<VT>#
+	_ZTV23CDTMFPayloadFormatWrite @ 292 NONAME ; #<VT>#
+	_ZTV27CG711EncoderIntfcProxy_STUB @ 293 NONAME ; #<VT>#
+	_ZTV28CSubConExtensionParameterSet @ 294 NONAME ; #<VT>#
+	_ZTV30CSpeechEncoderConfigProxy_STUB @ 295 NONAME ; #<VT>#
+	_ZTVN4Meta13SMetaDataEComE @ 296 NONAME ; #<VT>#
+	_ZTVN4Meta18RMetaDataContainerINS_13SMetaDataEComEEE @ 297 NONAME ; #<VT>#
+	_ZTVN4Meta9SMetaDataE @ 298 NONAME ; #<VT>#
+	_ZThn16_N15CMccMultiplexerD0Ev @ 299 NONAME ; #<thunk>#
+	_ZThn16_N15CMccMultiplexerD1Ev @ 300 NONAME ; #<thunk>#
+	_ZThn4_N15CMccMultiplexerD0Ev @ 301 NONAME ; #<thunk>#
+	_ZThn4_N15CMccMultiplexerD1Ev @ 302 NONAME ; #<thunk>#
+

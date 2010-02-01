@@ -1,0 +1,61 @@
+EXPORTS
+    ?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * CreateTestSuiteL(void)
+	??1CSTUNBinding@@UAE@XZ @ 2 NONAME ; CSTUNBinding::~CSTUNBinding(void)
+	??1CSTUNClient@@UAE@XZ @ 3 NONAME ; CSTUNClient::~CSTUNClient(void)
+	?AddressResolved@CSTUNBinding@@UBEHXZ @ 4 NONAME ; int CSTUNBinding::AddressResolved(void) const
+	?AlternateServerAddr@CSTUNBinding@@UBEABVTInetAddr@@XZ @ 5 NONAME ; class TInetAddr const & CSTUNBinding::AlternateServerAddr(void) const
+	?CancelMessageSend@CNcmConnectionMultiplexer@@UAEXIIPBVMNcmSenderObserver@@@Z @ 6 NONAME ; void CNcmConnectionMultiplexer::CancelMessageSend(unsigned int, unsigned int, class MNcmSenderObserver const *)
+	?CancelRequest@CSTUNBinding@@UAEXXZ @ 7 NONAME ; void CSTUNBinding::CancelRequest(void)
+	?CloseTcpConnection@CNcmConnectionMultiplexer@@UAEXII@Z @ 8 NONAME ; void CNcmConnectionMultiplexer::CloseTcpConnection(unsigned int, unsigned int)
+	?ConnectionId@CSTUNBinding@@UBEIXZ @ 9 NONAME ; unsigned int CSTUNBinding::ConnectionId(void) const
+	?CreateConnectionL@CNcmConnectionMultiplexer@@UAEIIABVTInetAddr@@@Z @ 10 NONAME ; unsigned int CNcmConnectionMultiplexer::CreateConnectionL(unsigned int, class TInetAddr const &)
+	?CreateConnectionL@CNcmConnectionMultiplexer@@UAEIII@Z @ 11 NONAME ; unsigned int CNcmConnectionMultiplexer::CreateConnectionL(unsigned int, unsigned int)
+	?CreateSessionL@CNcmConnectionMultiplexer@@QAEIKII@Z @ 12 NONAME ; unsigned int CNcmConnectionMultiplexer::CreateSessionL(unsigned long, unsigned int, unsigned int)
+	?CreateStreamL@CNcmConnectionMultiplexer@@QAEIIHI@Z @ 13 NONAME ; unsigned int CNcmConnectionMultiplexer::CreateStreamL(unsigned int, int, unsigned int)
+	?GetSessionInfoL@CNcmConnectionMultiplexer@@QAEPAVRSocketServ@@IAAV?$TBuf@$0IA@@@@Z @ 14 NONAME ; class RSocketServ * CNcmConnectionMultiplexer::GetSessionInfoL(unsigned int, class TBuf<128> &)
+	?GetStreamInfoL@CNcmConnectionMultiplexer@@UAEXIAAKAAHAAI@Z @ 15 NONAME ; void CNcmConnectionMultiplexer::GetStreamInfoL(unsigned int, unsigned long &, int &, unsigned int &)
+	?HandleDataL@CSTUNBinding@@UAEPAVHBufC8@@ABVTDesC8@@AAHAAVTInetAddr@@@Z @ 16 NONAME ; class HBufC8 * CSTUNBinding::HandleDataL(class TDesC8 const &, int &, class TInetAddr &)
+	?IsInitialized@CSTUNClient@@QBEHXZ @ 17 NONAME ; int CSTUNClient::IsInitialized(void) const
+	?LocalIPAddressL@CNcmConnectionMultiplexer@@UAEAAVTInetAddr@@II@Z @ 18 NONAME ; class TInetAddr & CNcmConnectionMultiplexer::LocalIPAddressL(unsigned int, unsigned int)
+	?NewL@CNcmConnectionMultiplexer@@SAPAV1@AAVMNcmConnectionMultiplexerObserver@@@Z @ 19 NONAME ; class CNcmConnectionMultiplexer * CNcmConnectionMultiplexer::NewL(class MNcmConnectionMultiplexerObserver &)
+	?NewL@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@AAVRSocket@@@Z @ 20 NONAME ; class CSTUNBinding * CSTUNBinding::NewL(class CSTUNClient &, class RSocket &)
+	?NewL@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@II@Z @ 21 NONAME ; class CSTUNBinding * CSTUNBinding::NewL(class CSTUNClient &, unsigned int, unsigned int)
+	?NewL@CSTUNClient@@SAPAV1@HAAVCDeltaTimer@@AAVMSTUNClientObserver@@PAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 22 NONAME ; class CSTUNClient * CSTUNClient::NewL(int, class CDeltaTimer &, class MSTUNClientObserver &, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?NewL@CSTUNClient@@SAPAV1@HABVTDesC8@@I0AAVRSocketServ@@AAVRConnection@@AAVCDeltaTimer@@AAVMSTUNClientObserver@@HHHPAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 23 NONAME ; class CSTUNClient * CSTUNClient::NewL(int, class TDesC8 const &, unsigned int, class TDesC8 const &, class RSocketServ &, class RConnection &, class CDeltaTimer &, class MSTUNClientObserver &, int, int, int, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?NewLC@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@AAVRSocket@@@Z @ 24 NONAME ; class CSTUNBinding * CSTUNBinding::NewLC(class CSTUNClient &, class RSocket &)
+	?NewLC@CSTUNBinding@@SAPAV1@AAVCSTUNClient@@II@Z @ 25 NONAME ; class CSTUNBinding * CSTUNBinding::NewLC(class CSTUNClient &, unsigned int, unsigned int)
+	?NewLC@CSTUNClient@@SAPAV1@HAAVCDeltaTimer@@AAVMSTUNClientObserver@@PAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 26 NONAME ; class CSTUNClient * CSTUNClient::NewLC(int, class CDeltaTimer &, class MSTUNClientObserver &, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?NewLC@CSTUNClient@@SAPAV1@HABVTDesC8@@I0AAVRSocketServ@@AAVRConnection@@AAVCDeltaTimer@@AAVMSTUNClientObserver@@HHHPAVMNcmConnectionMultiplexer@@W4TTransportProtocol@@@Z @ 27 NONAME ; class CSTUNClient * CSTUNClient::NewLC(int, class TDesC8 const &, unsigned int, class TDesC8 const &, class RSocketServ &, class RConnection &, class CDeltaTimer &, class MSTUNClientObserver &, int, int, int, class MNcmConnectionMultiplexer *, enum TTransportProtocol)
+	?ObtainTransactionIDL@CSTUNClient@@QAEXAAVTDesC8@@@Z @ 28 NONAME ; void CSTUNClient::ObtainTransactionIDL(class TDesC8 &)
+	?OpenTcpConnectionL@CNcmConnectionMultiplexer@@UAEXIIW4TNATFWTcpConnectionSetup@@ABVTInetAddr@@@Z @ 29 NONAME ; void CNcmConnectionMultiplexer::OpenTcpConnectionL(unsigned int, unsigned int, enum TNATFWTcpConnectionSetup, class TInetAddr const &)
+	?PortStoreL@CNcmConnectionMultiplexer@@QAEAAVCNcmPortStore@@I@Z @ 30 NONAME ; class CNcmPortStore & CNcmConnectionMultiplexer::PortStoreL(unsigned int)
+	?PublicAddr@CSTUNBinding@@UBEABVTInetAddr@@XZ @ 31 NONAME ; class TInetAddr const & CSTUNBinding::PublicAddr(void) const
+	?RegisterConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmConnectionObserver@@@Z @ 32 NONAME ; void CNcmConnectionMultiplexer::RegisterConnectionObserverL(unsigned int, class MNcmConnectionObserver &)
+	?RegisterIncomingConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmIncomingConnectionObserver@@@Z @ 33 NONAME ; void CNcmConnectionMultiplexer::RegisterIncomingConnectionObserverL(unsigned int, class MNcmIncomingConnectionObserver &)
+	?RegisterMediaWrapperL@CNcmConnectionMultiplexer@@QAEXPAVMNATFWMediaWrapper@@@Z @ 34 NONAME ; void CNcmConnectionMultiplexer::RegisterMediaWrapperL(class MNATFWMediaWrapper *)
+	?RegisterMessageObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmMessageObserver@@@Z @ 35 NONAME ; void CNcmConnectionMultiplexer::RegisterMessageObserverL(unsigned int, class MNcmMessageObserver &)
+	?RegisterOutgoingConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmOutgoingConnectionObserver@@@Z @ 36 NONAME ; void CNcmConnectionMultiplexer::RegisterOutgoingConnectionObserverL(unsigned int, class MNcmOutgoingConnectionObserver &)
+	?RemoveConnectionL@CNcmConnectionMultiplexer@@UAEXII@Z @ 37 NONAME ; void CNcmConnectionMultiplexer::RemoveConnectionL(unsigned int, unsigned int)
+	?RemoveSessionL@CNcmConnectionMultiplexer@@QAEXI@Z @ 38 NONAME ; void CNcmConnectionMultiplexer::RemoveSessionL(unsigned int)
+	?RemoveStreamL@CNcmConnectionMultiplexer@@QAEXI@Z @ 39 NONAME ; void CNcmConnectionMultiplexer::RemoveStreamL(unsigned int)
+	?STUNClient@CSTUNBinding@@UBEPBVCSTUNClient@@XZ @ 40 NONAME ; class CSTUNClient const * CSTUNBinding::STUNClient(void) const
+	?STUNServerAddrL@CSTUNClient@@QBEABVTInetAddr@@XZ @ 41 NONAME ; class TInetAddr const & CSTUNClient::STUNServerAddrL(void) const
+	?SendL@CNcmConnectionMultiplexer@@UAEXIABVTDesC8@@ABVTInetAddr@@1@Z @ 42 NONAME ; void CNcmConnectionMultiplexer::SendL(unsigned int, class TDesC8 const &, class TInetAddr const &, class TInetAddr const &)
+	?SendL@CNcmConnectionMultiplexer@@UAEXIIABVTDesC8@@ABVTInetAddr@@PAVMNcmSenderObserver@@@Z @ 43 NONAME ; void CNcmConnectionMultiplexer::SendL(unsigned int, unsigned int, class TDesC8 const &, class TInetAddr const &, class MNcmSenderObserver *)
+	?SendL@CNcmConnectionMultiplexer@@UAEXIIABVTDesC8@@HPAVMNcmSenderObserver@@@Z @ 44 NONAME ; void CNcmConnectionMultiplexer::SendL(unsigned int, unsigned int, class TDesC8 const &, int, class MNcmSenderObserver *)
+	?SendL@CNcmConnectionMultiplexer@@UAEXIIABVTDesC8@@PAVMNcmSenderObserver@@@Z @ 45 NONAME ; void CNcmConnectionMultiplexer::SendL(unsigned int, unsigned int, class TDesC8 const &, class MNcmSenderObserver *)
+	?SendRequestL@CSTUNBinding@@QAEXABVTInetAddr@@HI@Z @ 46 NONAME ; void CSTUNBinding::SendRequestL(class TInetAddr const &, int, unsigned int)
+	?SendRequestL@CSTUNBinding@@QAEXXZ @ 47 NONAME ; void CSTUNBinding::SendRequestL(void)
+	?SetAcceptedFromAddressL@CNcmConnectionMultiplexer@@UAEXIIABVTInetAddr@@@Z @ 48 NONAME ; void CNcmConnectionMultiplexer::SetAcceptedFromAddressL(unsigned int, unsigned int, class TInetAddr const &)
+	?SetCredentialsL@CSTUNClient@@QAEXABVTDesC8@@0@Z @ 49 NONAME ; void CSTUNClient::SetCredentialsL(class TDesC8 const &, class TDesC8 const &)
+	?SetICESpecificAttributes@CSTUNBinding@@UAEXABVTICEAttributes@@@Z @ 50 NONAME ; void CSTUNBinding::SetICESpecificAttributes(class TICEAttributes const &)
+	?SetReceivingStateL@CNcmConnectionMultiplexer@@UAEXIIW4TNATFWStreamingState@@@Z @ 51 NONAME ; void CNcmConnectionMultiplexer::SetReceivingStateL(unsigned int, unsigned int, enum TNATFWStreamingState)
+	?SetSendingStateL@CNcmConnectionMultiplexer@@UAEXIIABVTInetAddr@@W4TNATFWStreamingState@@@Z @ 52 NONAME ; void CNcmConnectionMultiplexer::SetSendingStateL(unsigned int, unsigned int, class TInetAddr const &, enum TNATFWStreamingState)
+	?SharedSecretObtained@CSTUNClient@@QBEHXZ @ 53 NONAME ; int CSTUNClient::SharedSecretObtained(void) const
+	?Socket@CSTUNBinding@@QBEABVRSocket@@XZ @ 54 NONAME ; class RSocket const & CSTUNBinding::Socket(void) const
+	?StreamId@CSTUNBinding@@UBEIXZ @ 55 NONAME ; unsigned int CSTUNBinding::StreamId(void) const
+	?UnregisterConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmConnectionObserver@@@Z @ 56 NONAME ; void CNcmConnectionMultiplexer::UnregisterConnectionObserverL(unsigned int, class MNcmConnectionObserver &)
+	?UnregisterIncomingConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmIncomingConnectionObserver@@@Z @ 57 NONAME ; void CNcmConnectionMultiplexer::UnregisterIncomingConnectionObserverL(unsigned int, class MNcmIncomingConnectionObserver &)
+	?UnregisterMessageObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmMessageObserver@@@Z @ 58 NONAME ; void CNcmConnectionMultiplexer::UnregisterMessageObserverL(unsigned int, class MNcmMessageObserver &)
+	?UnregisterOutgoingConnectionObserverL@CNcmConnectionMultiplexer@@UAEXIAAVMNcmOutgoingConnectionObserver@@@Z @ 59 NONAME ; void CNcmConnectionMultiplexer::UnregisterOutgoingConnectionObserverL(unsigned int, class MNcmOutgoingConnectionObserver &)
+

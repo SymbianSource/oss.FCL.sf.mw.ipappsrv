@@ -1,0 +1,39 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description: This is the project specification file for rtpwrapper.
+// 
+//
+
+#include <platform_paths.hrh>
+
+TARGET		  rtpservice.dll
+TARGETTYPE	  DLL
+UID           0x1000008d 0x101F85CF
+VENDORID      0x70000001
+
+MW_LAYER_SYSTEMINCLUDE
+USERINCLUDE    ../inc
+USERINCLUDE    ../../mmccshared/inc
+
+SOURCEPATH     ../src
+SOURCE         rtp_wrapper.cpp
+SOURCE         rtp_api.cpp
+
+LIBRARY rtp.lib euser.lib esock.lib insock.lib random.lib bluetooth.lib srtp.lib
+LIBRARY commdb.lib
+
+CAPABILITY 		  CAP_GENERAL_DLL
+
+DEBUGLIBRARY flogger.lib
+
+PAGED

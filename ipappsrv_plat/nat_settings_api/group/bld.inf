@@ -1,0 +1,34 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    File that exports the files belonging to NATFW API.
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+
+// NAT Settings API
+../inc/cnatfwsettingsapi.h         		MW_LAYER_PLATFORM_EXPORT_PATH(cnatfwsettingsapi.h)
+../inc/mnatfwserversettings.h      		MW_LAYER_PLATFORM_EXPORT_PATH(mnatfwserversettings.h)
+../inc/mnatfwstunsettings.h        		MW_LAYER_PLATFORM_EXPORT_PATH(mnatfwstunsettings.h)
+../inc/mnatfwturnsettings.h        		MW_LAYER_PLATFORM_EXPORT_PATH(mnatfwturnsettings.h)
+../inc/mnatfwicesettings.h         		MW_LAYER_PLATFORM_EXPORT_PATH(mnatfwicesettings.h)
+../inc/unsafprotocolscrkeys.h      		MW_LAYER_PLATFORM_EXPORT_PATH(unsafprotocolscrkeys.h)
+../inc/unsafprotocolsinternalcrkeys.h   MW_LAYER_PLATFORM_EXPORT_PATH(unsafprotocolsinternalcrkeys.h)

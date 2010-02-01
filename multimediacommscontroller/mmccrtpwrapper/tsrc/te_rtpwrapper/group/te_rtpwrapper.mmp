@@ -1,0 +1,55 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// te_rtpwrapper.exe Application for testing RTP APIs, unit tests
+// 
+//
+
+/**
+ @file
+*/
+#include<platform_paths.hrh>
+#include<eunitcaps.h>
+
+
+
+TARGETTYPE 	EXE
+TARGET 		te_rtpwrapper.exe
+UID 		0x1000008d 0x101F85CF
+
+SOURCEPATH  ../src
+
+SOURCE      	te_rtp_wrappercoreserver.cpp
+SOURCE          te_rtp_wrappercorestep.cpp
+
+SOURCEPATH 		../../../src
+SOURCE			rtp_api.cpp
+SOURCE			rtp_wrapper.cpp
+
+USERINCLUDE   ../../../src
+USERINCLUDE		../../../inc
+USERINCLUDE   ../../../../mmccshared/inc
+MW_LAYER_SYSTEMINCLUDE
+LIBRARY testexecuteutils.lib 
+LIBRARY testexecutelogclient.lib
+
+LIBRARY rtp.lib rtpservice.lib euser.lib
+LIBRARY esock.lib insock.lib
+LIBRARY commdb.lib srtp.lib
+
+DEBUGLIBRARY flogger.lib
+
+
+CAPABILITY      EUNIT_CAPS
+SMPSAFE
+MACRO __RTPWRAPPER_UNITTEST__

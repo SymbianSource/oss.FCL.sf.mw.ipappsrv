@@ -1,0 +1,13 @@
+EXPORTS
+	?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * CreateTestSuiteL(void)
+	?Close@CNATFWSocketMediaConnWrapper@@UAEXXZ @ 2 NONAME ; void CNATFWSocketMediaConnWrapper::Close(void)
+	?NewL@CNATFWSocketMediaConnWrapper@@SAPAV1@III@Z @ 3 NONAME ; class CNATFWSocketMediaConnWrapper * CNATFWSocketMediaConnWrapper::NewL(unsigned int, unsigned int, unsigned int)
+	?OutgoingAddr@CNATFWSocketMediaConnWrapper@@UAEXAAVTSockAddr@@@Z @ 4 NONAME ; void CNATFWSocketMediaConnWrapper::OutgoingAddr(class TSockAddr &)
+	?RegisterMediaWrapperObserverL@CNATFWSocketMediaConnWrapper@@UAEXPAVMNATFWMediaWrapperObserver@@ABVRSocketServ@@ABVTInetAddr@@@Z @ 5 NONAME ; void CNATFWSocketMediaConnWrapper::RegisterMediaWrapperObserverL(class MNATFWMediaWrapperObserver *, class RSocketServ const &, class TInetAddr const &)
+	?SendL@CNATFWSocketMediaConnWrapper@@UAEXABVTDesC8@@@Z @ 6 NONAME ; void CNATFWSocketMediaConnWrapper::SendL(class TDesC8 const &)
+	?SetIncomingAddrL@CNATFWSocketMediaConnWrapper@@UAEXABVTSockAddr@@@Z @ 7 NONAME ; void CNATFWSocketMediaConnWrapper::SetIncomingAddrL(class TSockAddr const &)
+	?SetReceivingStateForMuxWrapper@CNATFWSocketMediaConnWrapper@@UAEXW4TNATFWStreamingState@@@Z @ 8 NONAME ; void CNATFWSocketMediaConnWrapper::SetReceivingStateForMuxWrapper(enum TNATFWStreamingState)
+	?SetReceivingStateL@CNATFWSocketMediaConnWrapper@@UAEXW4TNATFWStreamingState@@@Z @ 9 NONAME ; void CNATFWSocketMediaConnWrapper::SetReceivingStateL(enum TNATFWStreamingState)
+	?SetSendingStateL@CNATFWSocketMediaConnWrapper@@UAEXW4TNATFWStreamingState@@@Z @ 10 NONAME ; void CNATFWSocketMediaConnWrapper::SetSendingStateL(enum TNATFWStreamingState)
+	?StreamId@CNATFWSocketMediaConnWrapper@@UAEIXZ @ 11 NONAME ; unsigned int CNATFWSocketMediaConnWrapper::StreamId(void)
+

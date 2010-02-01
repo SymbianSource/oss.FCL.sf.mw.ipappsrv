@@ -1,0 +1,63 @@
+/*
+* Copyright (c) 2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file
+*
+*/
+
+
+#include <bldvariant.hrh>
+
+#if defined __S60_50__
+#include <platform_paths.hrh>
+#else 
+#include <domain/osextensions/platform_paths.hrh>
+#endif
+#include <data_caging_paths.hrh>
+
+TARGET                  natfwsdpprovider.dll
+
+CAPABILITY              CAP_ECOM_PLUGIN
+VENDORID                VID_DEFAULT
+TARGETTYPE              PLUGIN
+
+UID                     0x10009D8D 0x102832EF //not the reserved one
+
+SOURCEPATH              ../data
+START RESOURCE          102832EF.rss
+TARGET                  natfwsdpprovider.rsc
+END
+
+SOURCEPATH              ../src
+SOURCE                  cmceicedirector.cpp
+SOURCE                  cmceiceimplementationproxy.cpp
+SOURCE                  cmceicepropertywatcher.cpp
+SOURCE                  cmceiceerrortrigger.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../ps_keys
+USERINCLUDE             ../../../../../../inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 ecom.lib
+LIBRARY                 euser.lib
+LIBRARY                 estor.lib
+LIBRARY                 insock.lib
+LIBRARY                 esock.lib
+LIBRARY                 bafl.lib
+LIBRARY                 centralrepository.lib
+LIBRARY                 sdpcodec.lib
+LIBRARY 		 		commdb.lib
+LIBRARY 		 		inetprotutil.lib
+LIBRARY 		 		charconv.lib

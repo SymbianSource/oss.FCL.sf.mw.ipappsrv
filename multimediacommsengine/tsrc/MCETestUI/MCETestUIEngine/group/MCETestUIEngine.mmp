@@ -1,0 +1,124 @@
+/*
+* Copyright (c) 2002-2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    This is project specification file for the MCETestUIEngine.
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          MCETestUIEngine.dll
+TARGETTYPE      DLL
+//UID							KSharedLibraryUidValue 0x0FFFFFFF
+UID             0x1000008D 0x0FFFFFFF
+
+SOURCEPATH      ../src
+SOURCE      CMCETestUIEngine.cpp
+SOURCE      CMCETestUIEngineAudioStream.cpp
+SOURCE      CMCETestUIEngineInSession.cpp
+SOURCE      CMCETestUIEngineMultimediaObserver.cpp
+SOURCE      CMCETestUIEngineOutSession.cpp
+SOURCE      CMCETestUIEngineProfile.cpp
+SOURCE      CMCETestUIEngineProfileContainer.cpp
+SOURCE      CMCETestUIEngineSession.cpp
+SOURCE      CMCETestUIEngineSipObserver.cpp
+SOURCE      CMCETestUIQuestionBase.cpp
+SOURCE      CMCETestUIQuestionDataQuery.cpp
+SOURCE      CMCETestUIQuestionSingleSelection.cpp
+SOURCE      MCETestUIEngineDefaultValues.cpp
+SOURCE      TMCETestUIEngineCmdAcceptSession.cpp
+SOURCE      TMCETestUIEngineCmdAnswerSession.cpp
+SOURCE      TMCETestUIEngineCmdBase.cpp
+SOURCE      TMCETestUIEngineCmdCreateSession.cpp
+SOURCE      TMCETestUIEngineCmdDeleteSession.cpp
+SOURCE      TMCETestUIEngineCmdDisableStream.cpp
+SOURCE      TMCETestUIEngineCmdEnableStream.cpp
+SOURCE      TMCETestUIEngineCmdEstablish.cpp
+SOURCE      TMCETestUIEngineCmdRejectSession.cpp
+SOURCE      TMCETestUIEngineCmdRegister.cpp
+SOURCE      TMCETestUIEngineCmdSelectProfile.cpp
+SOURCE      TMCETestUIEngineCmdUnregister.cpp
+SOURCE      TMCETestUIEngineCmdTerminateSession.cpp
+SOURCE      TMCETestUIEngineCmdUpdateSession.cpp
+SOURCE      TMCETestUIEngineCmdCreatePoCSession.cpp
+SOURCE      TMCETestUIEngineCmdCreateVoIPSession.cpp
+SOURCE      TMCETestUIEngineCmdCreate2WayVideoSession.cpp
+SOURCE      CMCETestUIEngineCodec.cpp
+SOURCE	    CMCETestUIEngineSink.cpp
+SOURCE      CMCETestUIEngineSource.cpp
+SOURCE      TMCETestUIEngineCmdEnableAudioSource.cpp
+SOURCE	    TMCETestUIEngineCmdDisableAudioSource.cpp
+SOURCE      TMCETestUIEngineCmdEnableAudioSink.cpp
+SOURCE      TMCETestUIEngineCmdDisableAudioSink.cpp
+SOURCE	    TMCETestUIEngineCmdRingingSession.cpp
+SOURCE	    TMCETestUIEngineCmdCancelSession.cpp
+SOURCE	    TMCETestUIEngineCmdDeleteAudioCodec.cpp
+SOURCE      CMCETestUIEngineEvent.cpp 
+SOURCE      CMCETestUIEngineOutEvent.cpp 
+SOURCE      CMCETestUIEngineInEvent.cpp 
+SOURCE      TMCETestUIEngineCmdCreateEvent.cpp
+SOURCE      TMCETestUIEngineCmdSubscribeEvent.cpp
+SOURCE      TMCETestUIEngineCmdTerminateEvent.cpp
+SOURCE      TMCETestUIEngineCmdDeleteEvent.cpp
+SOURCE      TMCETestUIEngineCmdAcceptEvent.cpp
+SOURCE      TMCETestUIEngineCmdRejectEvent.cpp
+SOURCE      TMCETestUIEngineCmdNotifyEvent.cpp
+SOURCE      TMCETestUIEngineCmdUpdateEvent.cpp
+SOURCE      CMCETestUIEngineRefer.cpp 
+SOURCE      CMCETestUIEngineOutRefer.cpp 
+SOURCE      CMCETestUIEngineInRefer.cpp 
+SOURCE 	    TMCETestUIEngineFloorControlSession.cpp
+SOURCE      TMCETestUIEngineCmdWriteSdpToFile.cpp
+SOURCE      TMCETestUIEngineCmdCreateMceSettings.cpp
+SOURCE      CMCETestUIEngineVideoStream.cpp
+SOURCE      CMCETestUIEngineVideoCodec.cpp
+SOURCE	    CMCETestUIEngineVideoSink.cpp
+SOURCE      CMCETestUIEngineVideoSource.cpp
+SOURCE      CMCEPoCOmaCsCallWatcher.cpp
+SOURCE      TMCETestUIEngineCmdCreateMceValueSettings.cpp
+SOURCE	    TMCETestUIEngineCmdCryptoHandling.cpp
+SOURCE      TMCETestUIEngineCmdDisplayProfileUser.cpp
+SOURCE      TMCETestUIEngineCmdRemoveStream.cpp
+SOURCE      TMCETestUIEngineCmdSRReqRes.cpp
+SOURCE      StaticDllEntry.cpp
+
+USERINCLUDE		../inc	
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY         euser.lib
+LIBRARY         bafl.lib 
+LIBRARY		    mceclient.lib
+LIBRARY		    sipclient.lib
+LIBRARY         sipprofilecli.lib
+LIBRARY         InetProtUtil.lib 
+LIBRARY         efsrv.lib 
+LIBRARY         sipcodec.lib
+
+LIBRARY			esock.lib 
+LIBRARY			commdb.lib 
+LIBRARY			insock.lib
+
+LIBRARY         charconv.lib
+LIBRARY         avkon.lib
+
+VENDORID VID_DEFAULT
+
+CAPABILITY LocalServices ReadUserData WriteUserData UserEnvironment \
+NetworkServices Location MultimediaDD ReadDeviceData WriteDeviceData \
+PowerMgmt TrustedUI ProtServ NetworkControl SwEvent DRM \
+SurroundingsDD CommDD DiskAdmin AllFiles
+
+EXPORTUNFROZEN

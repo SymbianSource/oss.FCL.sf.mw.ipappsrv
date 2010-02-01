@@ -1,0 +1,8 @@
+EXPORTS
+    ?CreateTestSuiteL@@YAPAVMEUnitTest@@XZ @ 1 NONAME ; class MEUnitTest * CreateTestSuiteL(void)
+	??1CNATFWUNSAFServerResolver@@UAE@XZ @ 2 NONAME ; CNATFWUNSAFServerResolver::~CNATFWUNSAFServerResolver(void)
+	?CancelResolving@CNATFWUNSAFServerResolver@@QAEXXZ @ 3 NONAME ; void CNATFWUNSAFServerResolver::CancelResolving(void)
+	?NewL@CNATFWUNSAFServerResolver@@SAPAV1@AAVRSocketServ@@AAVRConnection@@AAVMNATFWUNSAFServerResolverObserver@@H@Z @ 4 NONAME ; class CNATFWUNSAFServerResolver * CNATFWUNSAFServerResolver::NewL(class RSocketServ &, class RConnection &, class MNATFWUNSAFServerResolverObserver &, int)
+	?NewLC@CNATFWUNSAFServerResolver@@SAPAV1@AAVRSocketServ@@AAVRConnection@@AAVMNATFWUNSAFServerResolverObserver@@H@Z @ 5 NONAME ; class CNATFWUNSAFServerResolver * CNATFWUNSAFServerResolver::NewLC(class RSocketServ &, class RConnection &, class MNATFWUNSAFServerResolverObserver &, int)
+	?ResolveL@CNATFWUNSAFServerResolver@@QAEXABVTDesC8@@00IAAV?$RArray@VTInetAddr@@@@@Z @ 6 NONAME ; void CNATFWUNSAFServerResolver::ResolveL(class TDesC8 const &, class TDesC8 const &, class TDesC8 const &, unsigned int, class RArray<class TInetAddr> &)
+

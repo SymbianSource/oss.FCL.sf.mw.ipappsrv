@@ -1,0 +1,172 @@
+/*
+* Copyright (c) 2006-2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:   
+*
+*/
+
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET                  ut_cnatfwunsafcodec.dll
+TARGETTYPE              dll
+TARGETPATH              /DigiaEUnit/Tests
+UID                     0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+MACRO           TEST_EUNIT // to allow friend class in target class
+
+SOURCEPATH              ../src
+SOURCE                  ut_cnatfwunsafcodecdllmain.cpp
+SOURCE                  ut_cnatfwunsafallocaterequest.cpp
+SOURCE                  ut_cnatfwunsafalternateserverattribute.cpp
+SOURCE                  ut_cnatfwunsafbandwidthattribute.cpp
+SOURCE                  ut_cnatfwunsafbindingrequest.cpp
+SOURCE                  ut_cnatfwunsafbindingresponse.cpp
+SOURCE                  ut_cnatfwunsafchangedaddressattribute.cpp
+SOURCE                  ut_cnatfwunsafchangerequestattribute.cpp
+SOURCE                  ut_cnatfwunsafconnectrequest.cpp
+SOURCE                  ut_cnatfwunsafdataattribute.cpp
+SOURCE                  ut_cnatfwunsafdestinationaddressattribute.cpp
+SOURCE                  ut_cnatfwunsaferrorcodeattribute.cpp
+SOURCE                  ut_cnatfwunsaffingerprintattribute.cpp
+SOURCE                  ut_cnatfwunsaficecontrolledattribute.cpp
+SOURCE                  ut_cnatfwunsaficecontrollingattribute.cpp
+SOURCE                  ut_cnatfwunsaflifetimeattribute.cpp
+SOURCE                  ut_cnatfwunsafmagiccookieattribute.cpp
+SOURCE                  ut_cnatfwunsafmappedaddressattribute.cpp
+SOURCE                  ut_cnatfwunsafmessage.cpp
+SOURCE                  ut_cnatfwunsafmessagefactory.cpp
+SOURCE                  ut_cnatfwunsafmessageintegrityattribute.cpp
+SOURCE                  ut_cnatfwunsafnonceattribute.cpp
+SOURCE                  ut_cnatfwunsafpasswordattribute.cpp
+SOURCE                  ut_cnatfwunsafpriorityattribute.cpp
+SOURCE                  ut_cnatfwunsafrealmattribute.cpp
+SOURCE                  ut_cnatfwunsafreflectedfromattribute.cpp
+SOURCE                  ut_cnatfwunsafrelayaddressattribute.cpp
+SOURCE                  ut_cnatfwunsafremoteaddressattribute.cpp
+SOURCE                  ut_cnatfwunsafrequestedipattribute.cpp
+SOURCE                  ut_cnatfwunsafrequestedportpropsattribute.cpp
+SOURCE                  ut_cnatfwunsafrequestedtransportattribute.cpp
+SOURCE                  ut_cnatfwunsafresponseaddressattribute.cpp
+SOURCE                  ut_cnatfwunsafsendindication.cpp
+SOURCE                  ut_cnatfwunsafserverattribute.cpp
+SOURCE                  ut_cnatfwunsafsetactivedestinationrequest.cpp
+SOURCE                  ut_cnatfwunsafsourceaddressattribute.cpp
+SOURCE                  ut_cnatfwunsaftcprelaypacket.cpp
+SOURCE                  ut_cnatfwunsaftcprelaypacketfactory.cpp
+SOURCE                  ut_cnatfwunsaftimervalattribute.cpp
+SOURCE                  ut_cnatfwunsafunknownattributesattribute.cpp
+SOURCE                  ut_cnatfwunsafusecandidateattribute.cpp
+SOURCE                  ut_cnatfwunsafusernameattribute.cpp
+SOURCE                  ut_cnatfwunsafxormappedaddressattribute.cpp
+SOURCE                  ut_cnatfwunsafxoronlyattribute.cpp
+
+// Sources needed by the test
+SOURCEPATH              ../../../unsaf_codec/src
+SOURCE                  natfwunsafmessagefactory.cpp
+SOURCE                  natfwunsafmessage.cpp
+SOURCE                  natfwunsafbindingrequest.cpp
+SOURCE                  natfwunsafbindingindication.cpp
+SOURCE                  natfwunsafbindingresponse.cpp
+SOURCE                  natfwunsafbindingerrorresponse.cpp
+SOURCE                  natfwunsafsharedsecretrequest.cpp
+SOURCE                  natfwunsafsharedsecretresponse.cpp
+SOURCE                  natfwunsafsharedsecreterrorResponse.cpp
+SOURCE                  natfwunsafattribute.cpp
+SOURCE                  natfwunsafaddressattribute.cpp
+SOURCE                  natfwunsafmappedaddressattribute.cpp
+SOURCE                  natfwunsafresponseaddressattribute.cpp
+SOURCE                  natfwunsafchangedaddressattribute.cpp
+SOURCE                  natfwunsafsourceaddressattribute.cpp
+SOURCE                  natfwunsafreflectedfromattribute.cpp
+SOURCE                  natfwunsafmessageintegrityattribute.cpp
+SOURCE                  natfwunsaftextattribute.cpp
+SOURCE                  natfwunsafusernameattribute.cpp
+SOURCE                  natfwunsafpasswordattribute.cpp
+SOURCE                  natfwunsafchangerequestattribute.cpp
+SOURCE                  natfwunsaferrorcodeattribute.cpp
+SOURCE                  natfwunsafunknownattributesattribute.cpp
+SOURCE                  natfwunsafxoronlyattribute.cpp
+SOURCE                  natfwunsafserverattribute.cpp
+SOURCE                  natfwunsafxormappedaddressattribute.cpp
+SOURCE                  natfwunsaffingerprintattribute.cpp
+
+SOURCE                  natfwunsaftcprelaypacketfactory.cpp
+SOURCE                  natfwunsaftcprelaypacket.cpp
+SOURCE                  natfwunsafallocaterequest.cpp
+SOURCE                  natfwunsafallocateresponse.cpp
+SOURCE                  natfwunsafallocateerrorresponse.cpp
+SOURCE                  natfwunsafsendindication.cpp
+SOURCE                  natfwunsafsetactivedestinationrequest.cpp
+SOURCE                  natfwunsafsetactivedestinationresponse.cpp
+SOURCE                  natfwunsafsetactivedestinationerrorresponse.cpp
+SOURCE                  natfwunsafdataindication.cpp
+SOURCE                  natfwunsafconnectrequest.cpp
+SOURCE                  natfwunsafconnectresponse.cpp
+SOURCE                  natfwunsafconnecterrorresponse.cpp
+SOURCE                  natfwunsafconnectstatusindication.cpp
+SOURCE                  natfwunsafrelayaddressattribute.cpp
+SOURCE                  natfwunsafalternateserverattribute.cpp
+SOURCE                  natfwunsafdestinationaddressattribute.cpp
+SOURCE                  natfwunsafremoteaddressattribute.cpp
+SOURCE                  natfwunsaflifetimeattribute.cpp
+SOURCE                  natfwunsafbandwidthattribute.cpp
+SOURCE                  natfwunsafdataattribute.cpp
+SOURCE                  natfwunsafmagiccookieattribute.cpp
+SOURCE                  natfwunsafnonceattribute.cpp
+SOURCE                  natfwunsafrealmattribute.cpp
+SOURCE                  natfwunsafrequestedportpropsattribute.cpp
+SOURCE                  natfwunsafrequestedtransportattribute.cpp
+SOURCE                  natfwunsafrequestedipattribute.cpp
+SOURCE                  natfwunsaftimervalattribute.cpp
+SOURCE                  natfwunsafconnectstatattribute.cpp
+
+SOURCE                  natfwunsaficecontrolledattribute.cpp
+SOURCE                  natfwunsaficecontrollingattribute.cpp
+SOURCE                  natfwunsafpriorityattribute.cpp
+SOURCE                  natfwunsafusecandidateattribute.cpp
+
+SOURCE                  natfwunsafutils.cpp
+SOURCE                  natfwunsafattributelookuptable.cpp
+SOURCE                  natfwunsafattributelookuptableitem.cpp
+SOURCE                  natfwunsafmessagelookuptable.cpp
+SOURCE                  natfwunsafmessagelookuptableitem.cpp
+
+
+USERINCLUDE             ../../../unsaf_codec/inc
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../natfwunsafshared/inc
+USERINCLUDE             ../../../../natfwshared/inc
+USERINCLUDE             ../../../../tsrc/natfwtsrcshared/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 centralrepository.lib
+LIBRARY                 charconv.lib
+LIBRARY                 esock.lib
+LIBRARY                 EUnit.lib
+LIBRARY                 euser.lib
+LIBRARY                 flogger.lib
+LIBRARY                 hash.lib
+LIBRARY                 inetprotutil.lib
+LIBRARY                 insock.lib
+LIBRARY                 securesocket.lib
+
+// End of file

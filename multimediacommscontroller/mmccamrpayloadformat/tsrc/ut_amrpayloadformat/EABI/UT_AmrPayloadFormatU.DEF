@@ -1,0 +1,38 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_Z24ImplementationGroupProxyRi @ 2 NONAME
+	_ZTI12CAmrTocEntry @ 3 NONAME ; #<TI>#
+	_ZTI14CAmrTocEntryOA @ 4 NONAME ; #<TI>#
+	_ZTI17CAmrPayloadHeader @ 5 NONAME ; #<TI>#
+	_ZTI18CAmrPayloadDecoder @ 6 NONAME ; #<TI>#
+	_ZTI18CAmrPayloadEncoder @ 7 NONAME ; #<TI>#
+	_ZTI18CMccRedPayloadRead @ 8 NONAME ; #<TI>#
+	_ZTI19CAmrPayloadHeaderOA @ 9 NONAME ; #<TI>#
+	_ZTI19CMccRedPayloadWrite @ 10 NONAME ; #<TI>#
+	_ZTI20CAmrPayloadDecoderOA @ 11 NONAME ; #<TI>#
+	_ZTI20CAmrPayloadEncoderOA @ 12 NONAME ; #<TI>#
+	_ZTI20CAmrPayloadFormatter @ 13 NONAME ; #<TI>#
+	_ZTI21CAmrPayloadFormatRead @ 14 NONAME ; #<TI>#
+	_ZTI22CAmrPayloadFormatWrite @ 15 NONAME ; #<TI>#
+	_ZTI25CFormatDecodeStateMachine @ 16 NONAME ; #<TI>#
+	_ZTI25CFormatEncodeStateMachine @ 17 NONAME ; #<TI>#
+	_ZTV12CAmrTocEntry @ 18 NONAME ; #<VT>#
+	_ZTV14CAmrTocEntryOA @ 19 NONAME ; #<VT>#
+	_ZTV17CAmrPayloadHeader @ 20 NONAME ; #<VT>#
+	_ZTV18CAmrPayloadDecoder @ 21 NONAME ; #<VT>#
+	_ZTV18CAmrPayloadEncoder @ 22 NONAME ; #<VT>#
+	_ZTV18CMccRedPayloadRead @ 23 NONAME ; #<VT>#
+	_ZTV19CAmrPayloadHeaderOA @ 24 NONAME ; #<VT>#
+	_ZTV19CMccRedPayloadWrite @ 25 NONAME ; #<VT>#
+	_ZTV20CAmrPayloadDecoderOA @ 26 NONAME ; #<VT>#
+	_ZTV20CAmrPayloadEncoderOA @ 27 NONAME ; #<VT>#
+	_ZTV20CAmrPayloadFormatter @ 28 NONAME ; #<VT>#
+	_ZTV21CAmrPayloadFormatRead @ 29 NONAME ; #<VT>#
+	_ZTV22CAmrPayloadFormatWrite @ 30 NONAME ; #<VT>#
+	_ZTV25CFormatDecodeStateMachine @ 31 NONAME ; #<VT>#
+	_ZTV25CFormatEncodeStateMachine @ 32 NONAME ; #<VT>#
+	_ZTI25UT_CAmrPayloadFormatWrite @ 33 NONAME ; #<TI>#
+	_ZTV25UT_CAmrPayloadFormatWrite @ 34 NONAME ; #<VT>#
+	_ZTI24UT_CAmrPayloadFormatRead @ 35 NONAME ; #<TI>#
+	_ZTV24UT_CAmrPayloadFormatRead @ 36 NONAME ; #<VT>#
+

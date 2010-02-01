@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<api id="e1c30d6b9dd921f26f4d667440169cb0" dataversion="2.0">
+<name>Multimedia Comms API</name>
+<description>Provides services for managing multimedia sessions and controling media streams within the sessions.</description>
+<type>c++</type>
+<collection>multimediacommsengine</collection>
+<libs><lib name="MceClient.lib"/>
+</libs>
+<release category="platform" sinceversion=""/>
+<attributes>
+<htmldocprovided>no</htmldocprovided>
+<adaptation>no</adaptation>
+</attributes>
+</api>

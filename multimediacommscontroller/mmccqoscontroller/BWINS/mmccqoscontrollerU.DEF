@@ -1,0 +1,5 @@
+EXPORTS
+	??1CMccQosController@@UAE@XZ @ 1 NONAME ; CMccQosController::~CMccQosController(void)
+	?EventReceived@CMccQosController@@QAEHABVTMccEvent@@@Z @ 2 NONAME ; int CMccQosController::EventReceived(class TMccEvent const &)
+	?NewL@CMccQosController@@SAPAV1@AAVMMccRateAdaptationObserver@@AAVMMccResources@@@Z @ 3 NONAME ; class CMccQosController * CMccQosController::NewL(class MMccRateAdaptationObserver &, class MMccResources &)
+

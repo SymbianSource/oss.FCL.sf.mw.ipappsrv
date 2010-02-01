@@ -1,0 +1,67 @@
+/*
+* Copyright (c) 2002-2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    mmp for VoIPPlugin
+*
+*/
+
+
+#include <bldvariant.hrh>
+
+#if defined __S60_50__
+#include <platform_paths.hrh>
+#else 
+#include <domain/osextensions/platform_paths.hrh>
+#endif
+
+TARGET VoIPPlugin.dll
+#ifndef EKA2
+TARGETTYPE ECOMIIC
+TARGETPATH      /System/Libs/Plugins
+#else
+TARGETTYPE	PLUGIN
+#endif
+
+// ECOM Dll recognition UID followed by the unique UID for this dll
+UID 0x10009D8D 0x10202870
+
+SOURCEPATH	../src
+SOURCE		VoIPPlugin.cpp VoIPPluginImplementationProxy.cpp 
+
+#ifndef EKA2
+RESOURCE	10202870.rss
+#else
+START RESOURCE	10202870.rss
+TARGET VoIPPlugin.rsc
+END
+#endif
+
+USERINCLUDE 	../inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY 	euser.lib
+LIBRARY 	ECom.lib
+LIBRARY         sipclient.lib
+LIBRARY         sipcodec.lib
+LIBRARY		bafl.lib
+LIBRARY         apparc.lib
+LIBRARY         apgrfx.lib
+
+#ifdef EKA2
+VENDORID VID_DEFAULT
+#endif
+
+CAPABILITY LocalServices ReadUserData WriteUserData UserEnvironment NetworkServices \
+Location MultimediaDD ReadDeviceData WriteDeviceData PowerMgmt TrustedUI ProtServ \
+NetworkControl SwEvent SurroundingsDD CommDD DiskAdmin AllFiles

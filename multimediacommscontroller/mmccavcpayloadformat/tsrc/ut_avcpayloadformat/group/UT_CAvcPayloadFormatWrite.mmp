@@ -1,0 +1,66 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO           TEST_EUNIT
+
+TARGET          UT_CAvcPayloadFormatWrite.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE                  UT_CAvcPayloadFormatWriteDllMain.cpp
+SOURCE                  UT_CAvcPayloadFormatWrite.cpp
+ 
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  rfc3984encode.cpp
+SOURCE                  rfc3984base.cpp
+SOURCE                  avcpayloadformatwrite.cpp
+
+SOURCEPATH              ../../../../mmccshared/src
+SOURCE                  formatstatemachine.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../mmccinterface/inc
+USERINCLUDE             ../../../../mmccrtpsourcesink/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 ecom.lib
+LIBRARY                 EUnit.lib EUnitUtil.lib
+LIBRARY                 euser.lib
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfserverbaseclasses.lib
+LIBRARY                 estor.lib
+LIBRARY                 efsrv.lib
+LIBRARY         		esock.lib
+
+// End of file

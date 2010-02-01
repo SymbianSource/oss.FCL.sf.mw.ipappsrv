@@ -1,0 +1,109 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#include <bldvariant.hrh>
+
+#if defined __S60_50__
+#include <platform_paths.hrh>
+#else 
+#include <domain/osextensions/platform_paths.hrh>
+#endif
+
+#include <testclient/tcuid.h>
+#include <bldvariant.hrh>
+
+#ifdef EKA2
+
+TARGET      TestClient.exe
+TARGETTYPE  exe
+UID         0x0 TCUID
+
+
+#if defined __UI_FRAMEWORKS_V2__ // New app framework used
+
+START RESOURCE	TestClient.rss
+HEADER
+TARGETPATH /resource/apps
+END // RESOURCE
+
+START RESOURCE  TestClient_reg.rss
+DEPENDS testclient.rsg
+HEADER
+TARGETPATH      /private/10003a3f/apps
+END
+
+START RESOURCE TestClient_loc.rss
+HEADER
+TARGETPATH      /resource/apps
+END
+
+#endif // __UI_FRAMEWORKS_V2__
+
+
+#else
+
+TARGET		TestClient.app
+TARGETTYPE	app
+UID		   	0x100039CE TCUID
+TARGETPATH	/system/apps/TestClient
+RESOURCE	TestClient.rss
+
+#endif // EKA2
+
+VENDORID    VID_DEFAULT
+
+CAPABILITY LocalServices ReadUserData WriteUserData UserEnvironment NetworkServices \
+	Location ReadDeviceData WriteDeviceData NetworkControl SwEvent PowerMgmt \
+	AllFiles MultimediaDD
+
+SOURCEPATH	../Src
+SOURCE		CTcApplication.cpp  
+SOURCE		CTcDocument.cpp
+SOURCE		CTcAppUi.cpp
+SOURCE		CTcContainer.cpp  
+SOURCE		TTcSettings.cpp
+SOURCE		CTcBacklight.cpp
+
+#if defined __SERIES60_
+SOURCE		CTcSettingsDialogS60.cpp
+#else
+SOURCE		CTcSettingsDialog.cpp
+#endif
+
+SOURCEPATH	../../CommonSrc
+SOURCE		dllMain.cpp
+
+MW_LAYER_SYSTEMINCLUDE
+
+USERINCLUDE	. ../../Group ../../CommonSrc ../Src
+USERINCLUDE ../../Net/Inc ../../TesterCore/Inc ../../Watcher/Inc
+
+LIBRARY		euser.lib apparc.lib efsrv.lib estor.lib ws32.lib
+LIBRARY		cone.lib eikcore.lib eikdlg.lib eikcoctl.lib bafl.lib
+LIBRARY		testclientnet.lib testercore.lib watcherclient.lib 
+LIBRARY     esock.lib insock.lib
+
+#if defined __SERIES60_
+LIBRARY		avkon.lib commonui.lib gdi.lib
+#else
+LIBRARY		eikctl.lib
+#if defined _SERIES_90_
+LIBRARY		ckndlg.lib ckncore.lib 
+#else
+LIBRARY		eikcdlg.lib 
+#endif
+#endif

@@ -1,0 +1,50 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Test tools build file
+*
+*/
+
+
+#include <bldvariant.hrh>
+#if defined __S60_50__
+#include <platform_paths.hrh>
+#else 
+#include <domain/osextensions/platform_paths.hrh>
+#endif
+
+PRJ_EXPORTS
+#include "../../testdriver/testclient/group/exports.inc"
+../rom/mcetestdriver.iby CORE_MW_LAYER_IBY_EXPORT_PATH(mcetestdriver.iby)
+
+PRJ_MMPFILES
+// DevKits don't have bldvariant.hrh that is needed by the UI
+// We'll install a dummy version of the file if none exits.
+gnumakefile ../../testdriver/testclient/group/bldvariant_patch.mak
+
+// Generic test client
+../../testdriver/testclient/Watcher/Group/Watcher.mmp
+../../testdriver/testclient/Watcher/Group/WatcherClient.mmp
+../../testdriver/testclient/Net/Group/TestClientNet.mmp
+../../testdriver/testclient/TesterCore/Group/TesterCore.mmp
+../../testdriver/testclient/FileHandler/Group/FileHandler.mmp
+../../testdriver/testclient/FileHandler/Group/FileHandlerClient.mmp
+../../testdriver/testclient/Ui/Group/TestClient.mmp
+
+// SIP tester
+#include "../../testdriver/siptester/group/bld.inf"
+
+// MCE Tester
+../MCETester/group/MCETester.mmp
+../MCETester/ttcnresolverplugin/group/MCETTCNResolverPlugin.mmp
+

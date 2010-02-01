@@ -1,0 +1,96 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZN11CSIPProfileD0Ev @ 2 NONAME
+	_ZN11CSIPProfileD1Ev @ 3 NONAME
+	_ZN11CSIPProfileD2Ev @ 4 NONAME
+	_ZNK11CSIPProfile12GetParameterEmRPK11MDesC8Array @ 5 NONAME
+	_ZNK11CSIPProfile12GetParameterEmRPK6TDesC8 @ 6 NONAME
+	_ZNK11CSIPProfile12GetParameterEmRi @ 7 NONAME
+	_ZNK11CSIPProfile12GetParameterEmRm @ 8 NONAME
+	_ZTI11CSIPProfile @ 9 NONAME ; #<TI>#
+	_ZTI12CMceComEvent @ 10 NONAME ; #<TI>#
+	_ZTI12CMceSipEvent @ 11 NONAME ; #<TI>#
+	_ZTI15UT_CMceComEvent @ 12 NONAME ; #<TI>#
+	_ZTI16CMceEventContext @ 13 NONAME ; #<TI>#
+	_ZTI17CMceSipConnection @ 14 NONAME ; #<TI>#
+	_ZTI18CMceEventStateBase @ 15 NONAME ; #<TI>#
+	_ZTI19UT_CMceEventContext @ 16 NONAME ; #<TI>#
+	_ZTI20UT_MCESIPEventHelper @ 17 NONAME ; #<TI>#
+	_ZTI21UT_CMceEventStateBase @ 18 NONAME ; #<TI>#
+	_ZTI25CMceEventReferMoIdleState @ 19 NONAME ; #<TI>#
+	_ZTI25CMceEventReferMtIdleState @ 20 NONAME ; #<TI>#
+	_ZTI28UT_CMceEventReferMoIdleState @ 21 NONAME ; #<TI>#
+	_ZTI28UT_CMceEventReferMtIdleState @ 22 NONAME ; #<TI>#
+	_ZTI29CMceEventReferTerminatedState @ 23 NONAME ; #<TI>#
+	_ZTI29CMceEventSubscribeMoIdleState @ 24 NONAME ; #<TI>#
+	_ZTI29CMceEventSubscribeMtIdleState @ 25 NONAME ; #<TI>#
+	_ZTI30CMceEventReferTerminatingState @ 26 NONAME ; #<TI>#
+	_ZTI32CMceEventReferMoEstablishedState @ 27 NONAME ; #<TI>#
+	_ZTI32CMceEventReferMtEstablishedState @ 28 NONAME ; #<TI>#
+	_ZTI32UT_CMceEventReferTerminatedState @ 29 NONAME ; #<TI>#
+	_ZTI32UT_CMceEventSubscribeMoIdleState @ 30 NONAME ; #<TI>#
+	_ZTI32UT_CMceEventSubscribeMtIdleState @ 31 NONAME ; #<TI>#
+	_ZTI33CMceEventReferMoEstablishingState @ 32 NONAME ; #<TI>#
+	_ZTI33CMceEventReferMtEstablishingState @ 33 NONAME ; #<TI>#
+	_ZTI33CMceEventSubscribeTerminatedState @ 34 NONAME ; #<TI>#
+	_ZTI33UT_CMceEventReferTerminatingState @ 35 NONAME ; #<TI>#
+	_ZTI34CMceEventSubscribeTerminatingState @ 36 NONAME ; #<TI>#
+	_ZTI35UT_CMceEventReferMoEstablishedState @ 37 NONAME ; #<TI>#
+	_ZTI35UT_CMceEventReferMtEstablishedState @ 38 NONAME ; #<TI>#
+	_ZTI36CMceEventSubscribeMoEstablishedState @ 39 NONAME ; #<TI>#
+	_ZTI36CMceEventSubscribeMtEstablishedState @ 40 NONAME ; #<TI>#
+	_ZTI36UT_CMceEventReferMoEstablishingState @ 41 NONAME ; #<TI>#
+	_ZTI36UT_CMceEventReferMtEstablishingState @ 42 NONAME ; #<TI>#
+	_ZTI36UT_CMceEventSubscribeTerminatedState @ 43 NONAME ; #<TI>#
+	_ZTI37CMceEventSubscribeMoEstablishingState @ 44 NONAME ; #<TI>#
+	_ZTI37CMceEventSubscribeMtEstablishingState @ 45 NONAME ; #<TI>#
+	_ZTI37UT_CMceEventSubscribeTerminatingState @ 46 NONAME ; #<TI>#
+	_ZTI39UT_CMceEventSubscribeMoEstablishedState @ 47 NONAME ; #<TI>#
+	_ZTI39UT_CMceEventSubscribeMtEstablishedState @ 48 NONAME ; #<TI>#
+	_ZTI40UT_CMceEventSubscribeMoEstablishingState @ 49 NONAME ; #<TI>#
+	_ZTI40UT_CMceEventSubscribeMtEstablishingState @ 50 NONAME ; #<TI>#
+	_ZTV11CSIPProfile @ 51 NONAME ; #<VT>#
+	_ZTV12CMceComEvent @ 52 NONAME ; #<VT>#
+	_ZTV12CMceSipEvent @ 53 NONAME ; #<VT>#
+	_ZTV15UT_CMceComEvent @ 54 NONAME ; #<VT>#
+	_ZTV16CMceEventContext @ 55 NONAME ; #<VT>#
+	_ZTV17CMceSipConnection @ 56 NONAME ; #<VT>#
+	_ZTV18CMceEventStateBase @ 57 NONAME ; #<VT>#
+	_ZTV19UT_CMceEventContext @ 58 NONAME ; #<VT>#
+	_ZTV20UT_MCESIPEventHelper @ 59 NONAME ; #<VT>#
+	_ZTV21UT_CMceEventStateBase @ 60 NONAME ; #<VT>#
+	_ZTV25CMceEventReferMoIdleState @ 61 NONAME ; #<VT>#
+	_ZTV25CMceEventReferMtIdleState @ 62 NONAME ; #<VT>#
+	_ZTV28UT_CMceEventReferMoIdleState @ 63 NONAME ; #<VT>#
+	_ZTV28UT_CMceEventReferMtIdleState @ 64 NONAME ; #<VT>#
+	_ZTV29CMceEventReferTerminatedState @ 65 NONAME ; #<VT>#
+	_ZTV29CMceEventSubscribeMoIdleState @ 66 NONAME ; #<VT>#
+	_ZTV29CMceEventSubscribeMtIdleState @ 67 NONAME ; #<VT>#
+	_ZTV30CMceEventReferTerminatingState @ 68 NONAME ; #<VT>#
+	_ZTV32CMceEventReferMoEstablishedState @ 69 NONAME ; #<VT>#
+	_ZTV32CMceEventReferMtEstablishedState @ 70 NONAME ; #<VT>#
+	_ZTV32UT_CMceEventReferTerminatedState @ 71 NONAME ; #<VT>#
+	_ZTV32UT_CMceEventSubscribeMoIdleState @ 72 NONAME ; #<VT>#
+	_ZTV32UT_CMceEventSubscribeMtIdleState @ 73 NONAME ; #<VT>#
+	_ZTV33CMceEventReferMoEstablishingState @ 74 NONAME ; #<VT>#
+	_ZTV33CMceEventReferMtEstablishingState @ 75 NONAME ; #<VT>#
+	_ZTV33CMceEventSubscribeTerminatedState @ 76 NONAME ; #<VT>#
+	_ZTV33UT_CMceEventReferTerminatingState @ 77 NONAME ; #<VT>#
+	_ZTV34CMceEventSubscribeTerminatingState @ 78 NONAME ; #<VT>#
+	_ZTV35UT_CMceEventReferMoEstablishedState @ 79 NONAME ; #<VT>#
+	_ZTV35UT_CMceEventReferMtEstablishedState @ 80 NONAME ; #<VT>#
+	_ZTV36CMceEventSubscribeMoEstablishedState @ 81 NONAME ; #<VT>#
+	_ZTV36CMceEventSubscribeMtEstablishedState @ 82 NONAME ; #<VT>#
+	_ZTV36UT_CMceEventReferMoEstablishingState @ 83 NONAME ; #<VT>#
+	_ZTV36UT_CMceEventReferMtEstablishingState @ 84 NONAME ; #<VT>#
+	_ZTV36UT_CMceEventSubscribeTerminatedState @ 85 NONAME ; #<VT>#
+	_ZTV37CMceEventSubscribeMoEstablishingState @ 86 NONAME ; #<VT>#
+	_ZTV37CMceEventSubscribeMtEstablishingState @ 87 NONAME ; #<VT>#
+	_ZTV37UT_CMceEventSubscribeTerminatingState @ 88 NONAME ; #<VT>#
+	_ZTV39UT_CMceEventSubscribeMoEstablishedState @ 89 NONAME ; #<VT>#
+	_ZTV39UT_CMceEventSubscribeMtEstablishedState @ 90 NONAME ; #<VT>#
+	_ZTV40UT_CMceEventSubscribeMoEstablishingState @ 91 NONAME ; #<VT>#
+	_ZTV40UT_CMceEventSubscribeMtEstablishingState @ 92 NONAME ; #<VT>#
+	_ZThn4_N11CSIPProfileD0Ev @ 93 NONAME ; #<thunk>#
+	_ZThn4_N11CSIPProfileD1Ev @ 94 NONAME ; #<thunk>#
+

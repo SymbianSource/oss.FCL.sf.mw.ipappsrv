@@ -1,0 +1,115 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZN11CSTUNClient15SetCredentialsLERK6TDesC8S2_ @ 2 NONAME
+	_ZN11CSTUNClient20ObtainTransactionIDLER6TDesC8 @ 3 NONAME
+	_ZN11CSTUNClient4NewLEiR11CDeltaTimerR19MSTUNClientObserverP25MNcmConnectionMultiplexer18TTransportProtocol @ 4 NONAME
+	_ZN11CSTUNClient4NewLEiRK6TDesC8jS2_R11RSocketServR11RConnectionR11CDeltaTimerR19MSTUNClientObserveriiiP25MNcmConnectionMultiplexer18TTransportProtocol @ 5 NONAME
+	_ZN11CSTUNClient5NewLCEiR11CDeltaTimerR19MSTUNClientObserverP25MNcmConnectionMultiplexer18TTransportProtocol @ 6 NONAME
+	_ZN11CSTUNClient5NewLCEiRK6TDesC8jS2_R11RSocketServR11RConnectionR11CDeltaTimerR19MSTUNClientObserveriiiP25MNcmConnectionMultiplexer18TTransportProtocol @ 7 NONAME
+	_ZN11CSTUNClientD0Ev @ 8 NONAME
+	_ZN11CSTUNClientD1Ev @ 9 NONAME
+	_ZN11CSTUNClientD2Ev @ 10 NONAME
+	_ZN17CSTUNRelayBinding11HandleDataLERK6TDesC8RiR9TInetAddr @ 11 NONAME
+	_ZN17CSTUNRelayBinding13CancelRequestEv @ 12 NONAME
+	_ZN17CSTUNRelayBinding15ConnectRequestLERK9TInetAddr @ 13 NONAME
+	_ZN17CSTUNRelayBinding15SendIndicationLERK9TInetAddrRK6TDesC8i @ 14 NONAME
+	_ZN17CSTUNRelayBinding16AllocateRequestLEj @ 15 NONAME
+	_ZN17CSTUNRelayBinding24SetICESpecificAttributesERK14TICEAttributes @ 16 NONAME
+	_ZN17CSTUNRelayBinding28SetActiveDestinationRequestLERK9TInetAddrRm @ 17 NONAME
+	_ZN17CSTUNRelayBinding4NewLER11CSTUNClientjj @ 18 NONAME
+	_ZN17CSTUNRelayBinding5NewLCER11CSTUNClientjj @ 19 NONAME
+	_ZN17CSTUNRelayBindingD0Ev @ 20 NONAME
+	_ZN17CSTUNRelayBindingD1Ev @ 21 NONAME
+	_ZN17CSTUNRelayBindingD2Ev @ 22 NONAME
+	_ZN25CNcmConnectionMultiplexer10PortStoreLEj @ 23 NONAME
+	_ZN25CNcmConnectionMultiplexer13CreateStreamLEjij @ 24 NONAME
+	_ZN25CNcmConnectionMultiplexer13RemoveStreamLEj @ 25 NONAME
+	_ZN25CNcmConnectionMultiplexer14CreateSessionLEmjj @ 26 NONAME
+	_ZN25CNcmConnectionMultiplexer14GetStreamInfoLEjRmRiRj @ 27 NONAME
+	_ZN25CNcmConnectionMultiplexer14RemoveSessionLEj @ 28 NONAME
+	_ZN25CNcmConnectionMultiplexer15GetSessionInfoLEjR4TBufILi128EE @ 29 NONAME
+	_ZN25CNcmConnectionMultiplexer15LocalIPAddressLEjj @ 30 NONAME
+	_ZN25CNcmConnectionMultiplexer16SetSendingStateLEjjRK9TInetAddr20TNATFWStreamingState @ 31 NONAME
+	_ZN25CNcmConnectionMultiplexer17CreateConnectionLEjRK9TInetAddr @ 32 NONAME
+	_ZN25CNcmConnectionMultiplexer17CreateConnectionLEjj @ 33 NONAME
+	_ZN25CNcmConnectionMultiplexer17RemoveConnectionLEjj @ 34 NONAME
+	_ZN25CNcmConnectionMultiplexer18CloseTcpConnectionEjj @ 35 NONAME
+	_ZN25CNcmConnectionMultiplexer18OpenTcpConnectionLEjj24TNATFWTcpConnectionSetupRK9TInetAddr @ 36 NONAME
+	_ZN25CNcmConnectionMultiplexer18SetReceivingStateLEjj20TNATFWStreamingState @ 37 NONAME
+	_ZN25CNcmConnectionMultiplexer21RegisterMediaWrapperLEP18MNATFWMediaWrapper @ 38 NONAME
+	_ZN25CNcmConnectionMultiplexer23SetAcceptedFromAddressLEjjRK9TInetAddr @ 39 NONAME
+	_ZN25CNcmConnectionMultiplexer24RegisterMessageObserverLEjR19MNcmMessageObserver @ 40 NONAME
+	_ZN25CNcmConnectionMultiplexer26UnregisterMessageObserverLEjR19MNcmMessageObserver @ 41 NONAME
+	_ZN25CNcmConnectionMultiplexer27RegisterConnectionObserverLEjR22MNcmConnectionObserver @ 42 NONAME
+	_ZN25CNcmConnectionMultiplexer29UnregisterConnectionObserverLEjR22MNcmConnectionObserver @ 43 NONAME
+	_ZN25CNcmConnectionMultiplexer35RegisterIncomingConnectionObserverLEjR30MNcmIncomingConnectionObserver @ 44 NONAME
+	_ZN25CNcmConnectionMultiplexer35RegisterOutgoingConnectionObserverLEjR30MNcmOutgoingConnectionObserver @ 45 NONAME
+	_ZN25CNcmConnectionMultiplexer37UnregisterIncomingConnectionObserverLEjR30MNcmIncomingConnectionObserver @ 46 NONAME
+	_ZN25CNcmConnectionMultiplexer37UnregisterOutgoingConnectionObserverLEjR30MNcmOutgoingConnectionObserver @ 47 NONAME
+	_ZN25CNcmConnectionMultiplexer4NewLER33MNcmConnectionMultiplexerObserver @ 48 NONAME
+	_ZN25CNcmConnectionMultiplexer5SendLEjRK6TDesC8RK9TInetAddrS5_ @ 49 NONAME
+	_ZN25CNcmConnectionMultiplexer5SendLEjjRK6TDesC8P18MNcmSenderObserver @ 50 NONAME
+	_ZN25CNcmConnectionMultiplexer5SendLEjjRK6TDesC8RK9TInetAddrP18MNcmSenderObserver @ 51 NONAME
+	_ZN25CNcmConnectionMultiplexer5SendLEjjRK6TDesC8iP18MNcmSenderObserver @ 52 NONAME
+	_ZNK11CSTUNClient13IsInitializedEv @ 53 NONAME
+	_ZNK11CSTUNClient15STUNServerAddrLEv @ 54 NONAME
+	_ZNK11CSTUNClient20SharedSecretObtainedEv @ 55 NONAME
+	_ZNK17CSTUNRelayBinding10PublicAddrEv @ 56 NONAME
+	_ZNK17CSTUNRelayBinding10STUNClientEv @ 57 NONAME
+	_ZNK17CSTUNRelayBinding12ConnectionIdEv @ 58 NONAME
+	_ZNK17CSTUNRelayBinding15AddressResolvedEv @ 59 NONAME
+	_ZNK17CSTUNRelayBinding17RealmFromResponseEv @ 60 NONAME
+	_ZNK17CSTUNRelayBinding19AlternateServerAddrEv @ 61 NONAME
+	_ZNK17CSTUNRelayBinding8StreamIdEv @ 62 NONAME
+	_ZNK17CSTUNRelayBinding9RelayAddrEv @ 63 NONAME
+	_ZTI11CSTUNClient @ 64 NONAME ; #<TI>#
+	_ZTI13CTestSettings @ 65 NONAME ; #<TI>#
+	_ZTI15CDataDepository @ 66 NONAME ; #<TI>#
+	_ZTI16CNATFWTurnPlugin @ 67 NONAME ; #<TI>#
+	_ZTI17CSTUNRelayBinding @ 68 NONAME ; #<TI>#
+	_ZTI18CTurnAsyncCallback @ 69 NONAME ; #<TI>#
+	_ZTI19CTurnServerSettings @ 70 NONAME ; #<TI>#
+	_ZTI22CBindingImplementation @ 71 NONAME ; #<TI>#
+	_ZTI22CNATFWTurnRefreshTimer @ 72 NONAME ; #<TI>#
+	_ZTI25CNcmConnectionMultiplexer @ 73 NONAME ; #<TI>#
+	_ZTI27CNATFWTurnConnectionHandler @ 74 NONAME ; #<TI>#
+	_ZTI32CNATFWTurnActiveDestinationTimer @ 75 NONAME ; #<TI>#
+	_ZTI9CSettings @ 76 NONAME ; #<TI>#
+	_ZTV11CSTUNClient @ 77 NONAME ; #<VT>#
+	_ZTV13CTestSettings @ 78 NONAME ; #<VT>#
+	_ZTV15CDataDepository @ 79 NONAME ; #<VT>#
+	_ZTV16CNATFWTurnPlugin @ 80 NONAME ; #<VT>#
+	_ZTV17CSTUNRelayBinding @ 81 NONAME ; #<VT>#
+	_ZTV18CTurnAsyncCallback @ 82 NONAME ; #<VT>#
+	_ZTV19CTurnServerSettings @ 83 NONAME ; #<VT>#
+	_ZTV22CBindingImplementation @ 84 NONAME ; #<VT>#
+	_ZTV22CNATFWTurnRefreshTimer @ 85 NONAME ; #<VT>#
+	_ZTV25CNcmConnectionMultiplexer @ 86 NONAME ; #<VT>#
+	_ZTV27CNATFWTurnConnectionHandler @ 87 NONAME ; #<VT>#
+	_ZTV32CNATFWTurnActiveDestinationTimer @ 88 NONAME ; #<VT>#
+	_ZTV9CSettings @ 89 NONAME ; #<VT>#
+	_ZThn4_N25CNcmConnectionMultiplexer14GetStreamInfoLEjRmRiRj @ 90 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer15LocalIPAddressLEjj @ 91 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer16SetSendingStateLEjjRK9TInetAddr20TNATFWStreamingState @ 92 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer17CreateConnectionLEjRK9TInetAddr @ 93 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer17CreateConnectionLEjj @ 94 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer17RemoveConnectionLEjj @ 95 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer18CloseTcpConnectionEjj @ 96 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer18OpenTcpConnectionLEjj24TNATFWTcpConnectionSetupRK9TInetAddr @ 97 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer18SetReceivingStateLEjj20TNATFWStreamingState @ 98 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer23SetAcceptedFromAddressLEjjRK9TInetAddr @ 99 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer24RegisterMessageObserverLEjR19MNcmMessageObserver @ 100 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer26UnregisterMessageObserverLEjR19MNcmMessageObserver @ 101 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer27RegisterConnectionObserverLEjR22MNcmConnectionObserver @ 102 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer29UnregisterConnectionObserverLEjR22MNcmConnectionObserver @ 103 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer35RegisterIncomingConnectionObserverLEjR30MNcmIncomingConnectionObserver @ 104 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer35RegisterOutgoingConnectionObserverLEjR30MNcmOutgoingConnectionObserver @ 105 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer37UnregisterIncomingConnectionObserverLEjR30MNcmIncomingConnectionObserver @ 106 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer37UnregisterOutgoingConnectionObserverLEjR30MNcmOutgoingConnectionObserver @ 107 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer5SendLEjRK6TDesC8RK9TInetAddrS5_ @ 108 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer5SendLEjjRK6TDesC8P18MNcmSenderObserver @ 109 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer5SendLEjjRK6TDesC8RK9TInetAddrP18MNcmSenderObserver @ 110 NONAME ; #<thunk>#
+	_ZThn4_N25CNcmConnectionMultiplexer5SendLEjjRK6TDesC8iP18MNcmSenderObserver @ 111 NONAME ; #<thunk>#
+	_ZTI14CSTUNTimerUser @ 112 NONAME ; #<TI>#
+	_ZTV14CSTUNTimerUser @ 113 NONAME ; #<VT>#
+

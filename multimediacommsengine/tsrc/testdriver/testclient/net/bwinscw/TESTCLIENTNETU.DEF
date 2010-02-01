@@ -1,0 +1,24 @@
+EXPORTS
+	??0TTcBtFactory@@QAE@XZ @ 1 NONAME ; TTcBtFactory::TTcBtFactory(void)
+	??0TTcSerialFactory@@QAE@ABVTDesC16@@0I@Z @ 2 NONAME ; TTcSerialFactory::TTcSerialFactory(class TDesC16 const &, class TDesC16 const &, unsigned int)
+	??0TTcTcpFactory@@QAE@HH@Z @ 3 NONAME ; TTcTcpFactory::TTcTcpFactory(int, int)
+	??1CTcBearer@@UAE@XZ @ 4 NONAME ; CTcBearer::~CTcBearer(void)
+	??1CTcIAPManager@@UAE@XZ @ 5 NONAME ; CTcIAPManager::~CTcIAPManager(void)
+	??1TTcBtFactory@@UAE@XZ @ 6 NONAME ; TTcBtFactory::~TTcBtFactory(void)
+	??1TTcSerialFactory@@UAE@XZ @ 7 NONAME ; TTcSerialFactory::~TTcSerialFactory(void)
+	??1TTcTcpFactory@@UAE@XZ @ 8 NONAME ; TTcTcpFactory::~TTcTcpFactory(void)
+	?Close@CTcBearer@@QAEXXZ @ 9 NONAME ; void CTcBearer::Close(void)
+	?ConnectL@CTcBearer@@QAEXPAVTInetAddr@@@Z @ 10 NONAME ; void CTcBearer::ConnectL(class TInetAddr *)
+	?Count@CTcIAPManager@@QBEHXZ @ 11 NONAME ; int CTcIAPManager::Count(void) const
+	?GetLocalAddressL@CTcBearer@@QAEXAAVTDes16@@@Z @ 12 NONAME ; void CTcBearer::GetLocalAddressL(class TDes16 &)
+	?Id@CTcIAPManager@@QBEKH@Z @ 13 NONAME ; unsigned long CTcIAPManager::Id(int) const
+	?IdForNameL@CTcIAPManager@@QBEKABVTDesC8@@@Z @ 14 NONAME ; unsigned long CTcIAPManager::IdForNameL(class TDesC8 const &) const
+	?Name@CTcIAPManager@@QBEABVTDesC8@@H@Z @ 15 NONAME ; class TDesC8 const & CTcIAPManager::Name(int) const
+	?NameForIdL@CTcIAPManager@@QBEABVTDesC8@@K@Z @ 16 NONAME ; class TDesC8 const & CTcIAPManager::NameForIdL(unsigned long) const
+	?NewL@CTcBearer@@SAPAV1@ABVMTcBearerFactory@@@Z @ 17 NONAME ; class CTcBearer * CTcBearer::NewL(class MTcBearerFactory const &)
+	?NewL@CTcIAPManager@@SAPAV1@XZ @ 18 NONAME ; class CTcIAPManager * CTcIAPManager::NewL(void)
+	?Receive@CTcBearer@@QAEXAAVTDes8@@@Z @ 19 NONAME ; void CTcBearer::Receive(class TDes8 &)
+	?ReceiveOneOrMore@CTcBearer@@QAEXAAVTDes8@@@Z @ 20 NONAME ; void CTcBearer::ReceiveOneOrMore(class TDes8 &)
+	?Send@CTcBearer@@QAEXABVTDesC8@@@Z @ 21 NONAME ; void CTcBearer::Send(class TDesC8 const &)
+	?SetObserver@CTcBearer@@QAEXPAVMTcBearerObserver@@@Z @ 22 NONAME ; void CTcBearer::SetObserver(class MTcBearerObserver *)
+

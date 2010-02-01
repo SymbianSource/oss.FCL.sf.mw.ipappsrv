@@ -1,0 +1,74 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    File that exports the files belonging to 
+:                multimedia comms api
+*
+*/
+
+
+
+
+#include <platform_paths.hrh>
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+
+../inc/mceamrcodec.h    MW_LAYER_PLATFORM_EXPORT_PATH(mceamrcodec.h)
+../inc/mceamrwbcodec.h    MW_LAYER_PLATFORM_EXPORT_PATH(mceamrwbcodec.h)
+../inc/mceaudiocodec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceaudiocodec.h)
+../inc/mceaudiostream.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceaudiostream.h)
+../inc/mcecamerasource.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcecamerasource.h)
+../inc/mcecncodec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcecncodec.h)
+../inc/mcecodec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcecodec.h)
+../inc/mcedefs.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcedefs.h)
+../inc/mcedisplaysink.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcedisplaysink.h)
+../inc/mcedtmfcodec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcedtmfcodec.h)
+../inc/mcedtmfobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcedtmfobserver.h)
+//../inc/mcefcmsgexchange.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcefcmsgexchange.h)
+//../inc/mcefcmsgobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcefcmsgobserver.h)
+../inc/mcefilesink.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcefilesink.h)
+../inc/mcefilesource.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcefilesource.h)
+../inc/mceg711codec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceg711codec.h)
+../inc/mceg729codec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceg729codec.h)
+../inc/mceh263codec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceh263codec.h)
+../inc/mceavccodec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceavccodec.h)
+../inc/mceilbccodec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceilbccodec.h)
+../inc/mceinsession.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceinsession.h)
+../inc/mceinsessionobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceinsessionobserver.h)
+../inc/mcemanager.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcemanager.h)
+../inc/mcemediasink.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcemediasink.h)
+../inc/mcemediasource.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcemediasource.h)
+../inc/mcemediastream.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcemediastream.h)
+../inc/mcemicsource.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcemicsource.h)
+../inc/mceoutsession.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceoutsession.h)
+../inc/mceredcodec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceredcodec.h)
+../inc/mcertpobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcertpobserver.h)
+../inc/mcertpsink.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcertpsink.h)
+../inc/mcertpsource.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcertpsource.h)
+../inc/mcesecureinsession.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcesecureinsession.h)
+../inc/mcesecureoutsession.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcesecureoutsession.h)
+../inc/mcesecuresession.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcesecuresession.h)
+../inc/mcesession.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcesession.h)
+../inc/mceintransactionobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mceintransactionobserver.h)
+../inc/mcetransactionobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcetransactionobserver.h)
+../inc/mcesessionobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcesessionobserver.h)
+../inc/mcespeakersink.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcespeakersink.h)
+../inc/mcestreambundle.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcestreambundle.h)
+../inc/mcestreamobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcestreamobserver.h)
+../inc/mcetransactiondatacontainer.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcetransactiondatacontainer.h)
+../inc/mcevideocodec.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcevideocodec.h)
+../inc/mcevideostream.h     MW_LAYER_PLATFORM_EXPORT_PATH(mcevideostream.h)			
+			

@@ -1,0 +1,97 @@
+/*
+* Copyright (c) 2006-2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:   
+*
+*/
+
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO                   ALLOC_TEST_ON
+
+TARGET                  ut_cnatfwturnplugin.dll
+TARGETTYPE              dll
+TARGETPATH              /digiaeunit/tests
+UID                     0x1000af5a 0x01700000
+
+EPOCALLOWDLLDATA
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                0x00000000
+
+SOURCEPATH              ../src
+SOURCE                  ut_cnatfwturnplugindllmain.cpp
+SOURCE                  ut_cnatfwturnconnectionhandler.cpp
+
+SOURCEPATH              ../stubs
+SOURCE                  cstunclientstub.cpp
+SOURCE                  natfwstunrelaybindingstub.cpp
+SOURCE                  natfwconnectionmultiplexerstub.cpp
+SOURCE                  datadepository.cpp
+SOURCE                  settings.cpp
+SOURCE                  cncmsession_stub.cpp
+SOURCE                  cncmstream_stub.cpp
+SOURCE                  cncmconnection_stub.cpp
+SOURCE                  testsettings.cpp
+ 
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  natfwturnconnectionhandler.cpp
+SOURCE                  natfwturnrefreshtimer.cpp
+SOURCE                  natfwturnactivedestinationtimer.cpp
+SOURCE                  natfwturnplugin.cpp
+SOURCE                  cturnasynccallback.cpp
+SOURCE                  tturnplugincallbackinfo.cpp
+SOURCE                  cnatfwturnserversettings.cpp
+
+SOURCEPATH              ../../../../natfwstunturnclient/src
+SOURCE                  natfwbindingimplementationbase.cpp
+SOURCE                  cstuntimeruser.cpp
+
+USERINCLUDE             ../../../../tsrc/natfwtsrcshared/inc
+USERINCLUDE             ../../../../natfwshared/inc
+USERINCLUDE             ../../../../natfwturnplugin/inc
+USERINCLUDE             ../../../../natfwsettings/inc
+USERINCLUDE             ../../../../natfwclient/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE		../../../../../inc
+USERINCLUDE             ../../../../natfwstunturnclient/inc
+USERINCLUDE             ../../../../natfwconnectionmultiplexer/inc
+USERINCLUDE             ../../../../natfwunsaf_protocols/unsaf_codec/inc
+USERINCLUDE             ../../../../natfwunsaf_protocols/unsaf_transport/inc
+USERINCLUDE             ../../../../natfwsocketmediaconnwrapper/inc
+USERINCLUDE             ../inc
+USERINCLUDE             ../stubs
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 natfwnatsettings.lib
+LIBRARY                 ecom.lib
+LIBRARY                 esock.lib
+LIBRARY                 insock.lib
+LIBRARY                 eunit.lib
+LIBRARY                 eunitutil.lib
+LIBRARY                 euser.lib
+LIBRARY                 natconfw.lib
+LIBRARY	                natfwunsafprotocols.lib
+LIBRARY                 natfwstunclient.lib
+LIBRARY                 centralrepository.lib
+LIBRARY                 commdb.lib
+
+
+// End of file

@@ -1,0 +1,79 @@
+/*
+* Copyright (c) 2006-2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:   
+*
+*/
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+
+TARGET         ut_natfwunsafserverresolver.dll
+TARGETTYPE     dll
+TARGETPATH      /DigiaEUnit/Tests
+UID            0x1000af5a 0x01700000
+
+MACRO           TEST_EUNIT // to allow friend class in target class
+
+SOURCEPATH     ../src
+SOURCE         ut_cnatfwunsafserverresolverdllmain.cpp
+SOURCE         ut_cnatfwunsafserverresolverobserverstub.cpp
+SOURCE         ut_cnatfwunsafquerya_aaaa.cpp
+SOURCE         ut_cnatfwunsafquerysrv.cpp
+SOURCE         ut_cnatfwunsafquerydata.cpp
+SOURCE         ut_cnatfwunsafa_aaaaorigdomain.cpp
+SOURCE         ut_cnatfwunsafserverresolver.cpp
+SOURCE         ut_cnatfwunsafrequestqueue.cpp
+SOURCE         ut_cnatfwunsafhostresolver.cpp
+SOURCE         ut_cnatfwunsafserverquery.cpp
+SOURCE         ut_cnatfwunsafsrvorigdomain.cpp
+SOURCE         ut_cnatfwunsafquerya_aaaastub.cpp
+SOURCE         ut_cnatfwunsafquerysrvstub.cpp
+SOURCE         ut_cnatfwunsafqueryconditionstub.cpp
+SOURCE         ut_cnatfwunsafa_aaaasrvdomain.cpp
+
+SOURCEPATH     ../../../unsaf_transport/src
+SOURCE         cnatfwunsafserverresolver.cpp
+SOURCE         cnatfwunsafrequestqueue.cpp
+SOURCE         cnatfwunsafhostresolver.cpp
+SOURCE         cnatfwunsafserverquery.cpp
+SOURCE         cnatfwunsafqueryconditionbase.cpp
+SOURCE         cnatfwunsafa_aaaaorigdomain.cpp
+SOURCE         cnatfwunsafsrvorigdomain.cpp
+SOURCE         cnatfwunsafa_aaaasrvdomain.cpp
+SOURCE         cnatfwunsafquerydata.cpp
+SOURCE         cnatfwunsafquerybase.cpp
+SOURCE         cnatfwunsafquerya_aaaa.cpp
+SOURCE         cnatfwunsafquerysrv.cpp
+
+MW_LAYER_SYSTEMINCLUDE
+
+USERINCLUDE    ../inc
+USERINCLUDE    ../../../unsaf_transport/inc
+USERINCLUDE    ../../../natfwunsafshared/inc
+USERINCLUDE    ../../../../natfwshared/inc
+
+LIBRARY        euser.lib
+LIBRARY        bafl.lib
+LIBRARY        insock.lib
+LIBRARY        charconv.lib
+LIBRARY        esock.lib
+LIBRARY        commdb.lib
+LIBRARY        EUnit.lib
+LIBRARY        InetProtUtil.lib
+
+CAPABILITY      EUNIT_CAPS
+
+

@@ -1,0 +1,104 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET                  ut_natfwsdpprovider.dll
+TARGETTYPE              dll
+TARGETPATH              /DigiaEUnit/Tests
+UID                     0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+MACRO                   TEST_EUNIT
+
+MACRO                   NSP_PRINT_INPUT
+MACRO                   NSP_PRINT_OUTPUT
+
+// Test sources
+SOURCEPATH              ../src
+SOURCE                  ut_natfwsdpproviderdllmain.cpp
+SOURCE                  nsptesthelper.cpp
+SOURCE                  nsptls.cpp
+SOURCE                  ut_nspcontroller.cpp
+SOURCE                  ut_nspcontentparser.cpp
+SOURCE                  ut_nspsession.cpp
+SOURCE                  ut_nspusecases.cpp
+SOURCE                  ut_nspusecases_fqdn.cpp
+SOURCE                  ut_nsputil.cpp
+SOURCE                  ut_nspmediastreamcontainer.cpp
+SOURCE                  ut_nspmediastream.cpp
+SOURCE                  ut_nspmediastreamcomponent.cpp
+SOURCE                  ut_nspinterface.cpp
+
+// Stubs
+SOURCEPATH              ../stubs/src
+SOURCE                  s_natfwconnectivityapi.cpp
+SOURCE                  s_natfwsocketmediaconnwrapper.cpp
+SOURCE                  s_natfwcandidatepair.cpp
+SOURCE                  s_natfwcandidate.cpp
+SOURCE                  s_natfwcredentials.cpp
+
+// Tested sources
+SOURCEPATH              ../../../src
+SOURCE                  nspcontroller.cpp
+SOURCE                  nspstateresolving.cpp
+SOURCE                  nspstatemachine.cpp
+SOURCE                  nspactionset.cpp
+SOURCE                  nspstatebase.cpp
+SOURCE                  nspstatelocalcand.cpp
+SOURCE                  nspstateconnected.cpp
+SOURCE                  nspstateactivating.cpp
+SOURCE                  nspstatedeactivating.cpp
+SOURCE                  nspmediastreamcomponent.cpp
+SOURCE                  nspnatfwasyncstate.cpp
+SOURCE                  nspmediastream.cpp
+SOURCE                  nspstateinitializing.cpp
+SOURCE                  nspstateidle.cpp
+SOURCE                  nspsessiondata.cpp
+SOURCE                  nspmediastreamcontainer.cpp
+SOURCE                  nspcontentparser.cpp
+SOURCE                  nspstatenegotiating.cpp
+SOURCE                  nspsession.cpp
+SOURCE                  nsputil.cpp
+SOURCE                  nspactive.cpp
+SOURCE                  nspinterface.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../stubs/inc
+USERINCLUDE             ../../../inc
+
+MW_LAYER_SYSTEMINCLUDE
+USERINCLUDE             ../../../../../inc
+
+LIBRARY                 ecom.lib
+LIBRARY                 bafl.lib
+LIBRARY                 estor.lib
+LIBRARY                 eunit.lib
+LIBRARY                 eunitutil.lib
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 esock.lib
+LIBRARY                 sdpcodec.lib
+LIBRARY                 random.lib
+LIBRARY                 centralrepository.lib
+LIBRARY                 charconv.lib
+
+// End of file

@@ -1,0 +1,8 @@
+EXPORTS
+	??1CMccMultiplexer@@UAE@XZ @ 1 NONAME ; CMccMultiplexer::~CMccMultiplexer(void)
+	?MultiplexerSourceThreadLogoff@CMccMultiplexer@@QAEHPAVMDataSink@@@Z @ 2 NONAME ; int CMccMultiplexer::MultiplexerSourceThreadLogoff(class MDataSink *)
+	?MultiplexerSourceThreadLogon@CMccMultiplexer@@QAEHAAVMAsyncEventHandler@@AAVMDataSink@@HVTUid@@H@Z @ 3 NONAME ; int CMccMultiplexer::MultiplexerSourceThreadLogon(class MAsyncEventHandler &, class MDataSink &, int, class TUid, int)
+	?NewL@CMccMultiplexer@@SAPAV1@PAVMDataSource@@@Z @ 4 NONAME ; class CMccMultiplexer * CMccMultiplexer::NewL(class MDataSource *)
+	?RegClientForPayloadsL@CMccMultiplexer@@QAEXAAVMDataSink@@ABV?$RArray@I@@@Z @ 5 NONAME ; void CMccMultiplexer::RegClientForPayloadsL(class MDataSink &, class RArray<unsigned int> const &)
+	?SetCurrentUserL@CMccMultiplexer@@QAEXAAVMDataSink@@@Z @ 6 NONAME ; void CMccMultiplexer::SetCurrentUserL(class MDataSink &)
+

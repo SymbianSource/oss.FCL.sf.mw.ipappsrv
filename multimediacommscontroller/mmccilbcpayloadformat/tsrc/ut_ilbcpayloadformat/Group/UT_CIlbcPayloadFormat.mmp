@@ -1,0 +1,91 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO           EUNIT_ALLOC_TEST_ON
+MACRO           TEST_EUNIT
+
+TARGET          UT_CIlbcPayloadFormat.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+
+SOURCEPATH              ../src
+SOURCE                  UT_CIlbcPayloadFormatDllMain.cpp
+SOURCE                  UT_CIlbcPayloadFormatRead.cpp
+SOURCE                  UT_CIlbcPayloadFormatWrite.cpp
+SOURCE                  UT_TStreamDecoder.cpp
+SOURCE                  UT_TStreamEncoder.cpp
+
+// Sources needed by the test
+SOURCEPATH              ../../../../mmccshared/src
+SOURCE                  formatstatemachine.cpp
+SOURCE                  streamformatter.cpp
+
+
+SOURCEPATH              ../../../src
+SOURCE                  IlbcPayloadFormatRead.cpp
+SOURCE                  IlbcPayloadFormatWrite.cpp
+
+SOURCEPATH              ../../../../mmccsubcontroller/src
+SOURCE                  mccdatapathbase.cpp
+SOURCE			mccrtpmediaclock.cpp
+SOURCE                  mcccompletecallback.cpp
+
+
+SOURCEPATH              ../../../../tsrc/stubs/src
+SOURCE                  mccredpayloadwrite_STUB.cpp
+SOURCE                  mccredpayloadread_STUB.cpp
+SOURCE                  mcculdatapath_STUB.cpp
+SOURCE                  mccdldatapath_STUB.cpp
+SOURCE					        ecom_simple_stubs.cpp
+
+SOURCEPATH              ../../../../tsrc/rtpsourcesinkstub/src
+SOURCE					        MccRtpDataSink_STUB.cpp
+SOURCE					        mccrtpinterface_stub.cpp
+SOURCE					        MccRtpDataSource_STUB.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../tsrc/rtpsourcesinkstub/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../mmcccontroller/inc
+USERINCLUDE             ../../../../mmccsubcontroller/inc
+USERINCLUDE             ../../../../mmccredpayloadformat/inc
+USERINCLUDE             ../../../../mmccrtpsourcesink/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 EUnit.lib
+LIBRARY                 euser.lib
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfserverbaseclasses.lib
+LIBRARY                 EUnitUtil.lib
+
+// End of file

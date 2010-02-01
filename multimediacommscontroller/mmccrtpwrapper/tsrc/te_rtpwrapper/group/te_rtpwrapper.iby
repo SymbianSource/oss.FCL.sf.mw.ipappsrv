@@ -1,0 +1,28 @@
+// Copyright (c) 2007-2009 Nokia Corporation and/or its subsidiary(-ies).
+// All rights reserved.
+// This component and the accompanying materials are made available
+// under the terms of "Eclipse Public License v1.0"
+// which accompanies this distribution, and is available
+// at the URL "http://www.eclipse.org/legal/epl-v10.html".
+//
+// Initial Contributors:
+// Nokia Corporation - initial contribution.
+//
+// Contributors:
+//
+// Description:
+// Name     : te_rtpwrapper.iby
+// Part of  : test Component for rtpwrapper unit test cases
+// IBY file for te_rtpwrapper component
+// 
+//
+
+#ifndef __TE_RTPWRAPPER_IBY__
+#define __TE_RTPWRAPPER_IBY__
+
+#include <testexecute.iby>
+
+
+file=ABI_DIR\BUILD_DIR\te_rtpwrapper.exe		system\bin\te_rtpwrapper.exe
+data=EPOCROOT##epoc32\data\z\testData\scripts\rtp\te_rtpwrapper.script		testData\scripts\rtp\te_rtpwrapper.script
+#endif

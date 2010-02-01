@@ -1,0 +1,65 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:  
+;
+
+; Languages
+&EN
+
+; Header
+; Package UID equals the mmcinterface.dll UID
+#{"MultimediaCommsController"}, (0x102073F7), 1, 0, 0, TYPE=SA
+
+; Localised Vendor name
+%{"Nokia"}
+
+; Unique Vendor name
+:"Nokia"
+
+;Files
+""	-	"z:\sys\bin\mmccinterface.dll"
+""	-	"z:\sys\bin\mmccjitterbuffer.dll"
+""	-	"z:\sys\bin\mmccqoscontroller.dll"
+""	-	"z:\sys\bin\mmccmultiplexer.DLL"
+""	-	"z:\sys\bin\mmccsubcontroller.DLL"
+
+""	-	"z:\sys\bin\mmcccontroller.dll"
+""	-	"z:\sys\bin\mmccrtpsourcesink.dll"
+""	-	"z:\sys\bin\mmccamrplformat.dll"
+""	-	"z:\sys\bin\mmccg711plformat.dll"
+""	-	"z:\sys\bin\mmccredplformat.dll"
+""	-	"z:\sys\bin\mmccg729plformat.dll"
+""	-	"z:\sys\bin\mmccilbcplformat.dll"
+""	-	"z:\sys\bin\mmccdtmfplformat.dll"
+""	-	"z:\sys\bin\mmccanyplformat.DLL"
+""	-	"z:\sys\bin\mmcch263plformat.DLL"
+""	-	"z:\sys\bin\mmccavcplformat.dll"
+""	-	"z:\sys\bin\mmccfilesourcesink.dll"
+""	-	"z:\sys\bin\mmccvideosourcesink.DLL"
+""	-	"z:\sys\bin\mmccanysourcesink.dll"
+
+""	-	"z:\resource\plugins\mmcccontroller.R??"
+""	-	"z:\resource\plugins\mmccrtpsourcesink.R??"
+""	-	"z:\resource\plugins\mmccamrplformat.R??"
+""	-	"z:\resource\plugins\mmccg711plformat.R??"
+""	-	"z:\resource\plugins\mmccredplformat.R??"
+""	-	"z:\resource\plugins\mmccg729plformat.R??"
+""	-	"z:\resource\plugins\mmccilbcplformat.R??"
+""	-	"z:\resource\plugins\mmccdtmfplformat.R??"
+""	-	"z:\resource\plugins\mmccanyplformat.R??"
+""	-	"z:\resource\plugins\mmcch263plformat.R??"
+""	-	"z:\resource\plugins\mmccavcplformat.R??"
+""	-	"z:\resource\plugins\mmccfilesourcesink.R??"
+""	-	"z:\resource\plugins\mmccvideosourcesink.R??"
+""	-	"z:\resource\plugins\mmccanysourcesink.R??"

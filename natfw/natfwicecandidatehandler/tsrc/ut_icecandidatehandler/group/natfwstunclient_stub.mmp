@@ -1,0 +1,93 @@
+/*
+* Copyright (c) 2006-2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+
+#include <platform_paths.hrh>
+
+TARGET        natfwstunclient.dll
+TARGETTYPE    DLL
+UID           0x1000008d 0x10275432
+VENDORID      VID_DEFAULT
+CAPABILITY    CAP_GENERAL_DLL //All -Tcb
+
+
+// ----- STUN Client -----
+SOURCEPATH    ../../../../natfwstunturnclient/src
+SOURCE        cstunclient.cpp
+SOURCE        cstunclientimplementation.cpp
+SOURCE        cstunclientstate.cpp
+SOURCE        cstunclientresolvingtcp.cpp
+SOURCE        cstunclientresolvingtls.cpp
+SOURCE        cstunclientresolvingudp.cpp
+SOURCE        cstunclientgetsharedsecret.cpp
+SOURCE        cstunclientready.cpp
+SOURCE        cstunclientrenewsharedsecret.cpp
+SOURCE        cstunsharedsecret.cpp
+SOURCE        cstunsharedsecretstate.cpp
+SOURCE        cstunsharedsecretconnecting.cpp
+SOURCE        cstunsharedsecretwaitresponse.cpp
+SOURCE        cstunsharedsecretwaittoretry.cpp
+SOURCE        natfwbindingimplementationbase.cpp
+SOURCE        natfwstunbinding.cpp
+SOURCE        natfwstunrelaybinding.cpp
+SOURCE        cstunbindingstate.cpp
+SOURCE        cstunbindinginit.cpp
+SOURCE        cstunbindinggetsharedsecret.cpp
+SOURCE        cstunbindinggetaddress.cpp
+SOURCE        cstunbindingwaittoretry.cpp
+SOURCE        cstunbindingactive.cpp
+SOURCE        cstuntransaction.cpp
+SOURCE        ttransactioncleanup.cpp
+SOURCE        ctransactionidgenerator.cpp
+SOURCE        stunutils.cpp
+SOURCE        tstuncallbackinfo.cpp
+SOURCE        casynccallback.cpp
+SOURCE        cstuntimeruser.cpp
+SOURCE        cstuncredentials.cpp
+SOURCE        cstunindicationtransmitter.cpp
+
+// STUBS
+SOURCEPATH    ../stubs
+SOURCE        cstunbindingimplementation_stub.cpp
+SOURCE        cstunrelaybindingimplementation_stub.cpp
+
+USERINCLUDE   ../../../../inc
+USERINCLUDE   ../../../../../inc
+USERINCLUDE   ../../../../natfwstunturnclient/inc
+USERINCLUDE   ../../../../natfwshared/inc
+USERINCLUDE   ../../../../natfwsettings/inc
+USERINCLUDE   ../../../../natfwunsaf_protocols/natfwunsafshared/inc
+USERINCLUDE   ../../../../natfwunsaf_protocols/unsaf_codec/inc
+USERINCLUDE   ../../../../natfwunsaf_protocols/unsaf_transport/inc
+USERINCLUDE   ../../../../natfwconnectionmultiplexer/inc
+
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY       euser.lib
+LIBRARY       centralrepository.lib
+LIBRARY       insock.lib
+LIBRARY       esock.lib
+LIBRARY       charconv.lib
+LIBRARY       hash.lib
+LIBRARY       inetprotutil.lib
+LIBRARY       securesocket.lib
+LIBRARY       flogger.lib
+LIBRARY       natfwunsafprotocols.lib
+LIBRARY       natfwnatsettings.lib

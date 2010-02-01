@@ -1,0 +1,324 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  TestClient application resource file. For both S60 and S90.
+*
+*/
+
+NAME TCLI
+
+#include <bldvariant.hrh>
+
+#include <avkon.rh>
+#include <avkonicons.hrh>
+#include <avkon.rsg>
+#include <avkon.mbg>
+#include <eikon.rh>
+#include <eikon.rsg>
+#include <uikon.rh>
+#include "TestClient.hrh"
+#include <appinfo.rh>
+
+RESOURCE RSS_SIGNATURE {}
+RESOURCE TBUF r_default_document_name { buf=""; }
+
+RESOURCE EIK_APP_INFO
+	{
+	menubar = r_tc_menubar;
+	cba = r_tc_softkeys_options_exit;
+	}
+
+RESOURCE CBA r_tc_softkeys_options_exit
+	{
+	buttons =
+		{
+		CBA_BUTTON { id = EAknSoftkeyOptions; txt = "Options"; },
+		CBA_BUTTON { id = EEikCmdExit; txt = "Exit"; }
+		};
+	}
+
+RESOURCE MENU_BAR r_tc_menubar
+	{
+	titles =
+		{
+		MENU_TITLE { menu_pane = r_tc_menu; txt = "File"; }
+		};
+	}
+
+
+// -- Menus for settings dialog -----------------------------------------------
+
+RESOURCE MENU_PANE r_tc_menu
+	{
+	items = 
+		{
+		MENU_ITEM { command = ECmdConnect; txt = "Connect"; },
+		MENU_ITEM { command = ECmdDisconnect; txt = "Disconnect"; },
+		MENU_ITEM { command = ECmdLocalAddress; txt = "Show local IP"; },
+		MENU_ITEM { command = ECmdSettings; txt = "Settings"; },
+		MENU_ITEM { command = EEikCmdExit; txt = "Exit"; }
+		};
+	}
+
+
+RESOURCE MENU_BAR r_tc_settings_menubar
+	{
+	titles=
+		{
+		MENU_TITLE { menu_pane = r_tc_settings_menu; }
+		};
+	}
+
+RESOURCE MENU_PANE r_tc_settings_menu
+	{
+	items=
+		{
+		MENU_ITEM { command = ECmdChange; txt = "Change"; },
+		MENU_ITEM { command = EEikCmdExit; txt = "Exit"; }
+		};
+	}
+
+// -- Settings dialog ---------------------------------------------------------
+
+RESOURCE DIALOG r_tc_settings_dlg
+	{
+	buttons = R_AVKON_SOFTKEYS_OPTIONS_BACK;
+	flags = EEikDialogFlagWait | EEikDialogFlagNoDrag
+			| EEikDialogFlagCbaButtons | EEikDialogFlagNoTitleBar
+			| EEikDialogFlagFillAppClientRect;
+	items =
+		{
+		DLG_LINE
+			{
+			type = EAknCtSettingListBox;
+			id = ECtrlSettingsList;
+			itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+			control = LISTBOX {	flags = EAknListBoxSelectionList; };
+			}
+		};
+	}
+
+RESOURCE TBUF r_tc_settings_dlg_title { buf = "Settings"; }
+
+/**
+ Each settings item has the following structures:
+  - an item title (shown in the settings item list box)
+  - a settings page
+  - a text link structure
+*/
+
+// -- Settings dialog item [CONNECTION] ---------------------------------------
+
+RESOURCE TBUF r_tc_settings_mode_title { buf = "Connection"; }
+
+RESOURCE AVKON_SETTING_PAGE r_tc_settings_mode_page
+	{
+	label = "Connection";
+	type = EAknCtPopupSettingList;
+	editor_resource_id = r_tc_settings_mode_control;
+	}
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_tc_settings_mode_texts
+	{
+	setting_texts_resource = r_tc_settings_mode;
+	}
+
+RESOURCE ARRAY r_tc_settings_mode
+	{
+	items=
+		{
+		AVKON_ENUMERATED_TEXT { value = 0; text = "Bluetooth"; },
+		AVKON_ENUMERATED_TEXT { value = 1; text = "TCP/IP"; },
+		AVKON_ENUMERATED_TEXT { value = 2; text = "Serial"; }		    
+		};
+	}
+
+RESOURCE POPUP_SETTING_LIST r_tc_settings_mode_control
+	{
+	}
+
+// -- Settings dialog item [TCPPORT] ------------------------------------------
+
+RESOURCE TBUF r_tc_settings_tcpport_title { buf = "TCP port"; }
+
+RESOURCE AVKON_SETTING_PAGE r_tc_settings_tcpport_page
+	{
+	label = "TCP port";
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_tc_settings_tcpport_control;
+	}
+
+RESOURCE AVKON_INTEGER_EDWIN r_tc_settings_tcpport_control
+	{
+	maxlength = 5;
+	min = 1024;
+	max = 32000;
+    }
+
+// -- Settings dialog item [IAPNAME] --------------------------------------
+
+RESOURCE TBUF r_tc_settings_iapname_title { buf = "IAP"; }
+
+RESOURCE AVKON_SETTING_PAGE r_tc_settings_iapname_page
+	{
+	label = "IAP";
+	type = EAknCtPopupSettingList;
+	editor_resource_id = r_tc_settings_iapname_control;
+	}
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_tc_settings_iapname_texts
+	{
+	setting_texts_resource = r_tc_settings_iapname;
+	}
+
+RESOURCE ARRAY r_tc_settings_iapname
+	{
+	items=
+		{
+		AVKON_ENUMERATED_TEXT { value = 0; text = "<do not remove>"; }
+		};
+	}
+
+RESOURCE POPUP_SETTING_LIST r_tc_settings_iapname_control
+	{
+	}
+	
+// -- Settings dialog item [CSYNAME] --------------------------------------
+
+RESOURCE TBUF r_tc_settings_csyname_title { buf = "CSY name"; }
+
+RESOURCE AVKON_SETTING_PAGE r_tc_settings_csyname_page
+	{
+	label = "CSY name";
+	type = EAknCtPopupSettingList;
+	editor_resource_id = r_tc_settings_csyname_control;
+	}
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_tc_settings_csyname_texts
+	{
+	setting_texts_resource = r_tc_settings_csyname;
+	}
+
+RESOURCE ARRAY r_tc_settings_csyname
+	{
+	items=
+		{
+		AVKON_ENUMERATED_TEXT { value = 0; text = "ECUART"; },
+	    AVKON_ENUMERATED_TEXT { value = 1; text = "IRCOMM"; }
+		};
+	}
+
+RESOURCE POPUP_SETTING_LIST r_tc_settings_csyname_control
+	{
+	}
+	
+// -- Settings dialog item [COMMPORT] --------------------------------------
+
+RESOURCE TBUF r_tc_settings_commport_title { buf = "Comm port"; }
+
+RESOURCE AVKON_SETTING_PAGE r_tc_settings_commport_page
+	{
+	label = "Comm port";
+	type = EAknCtPopupSettingList;
+	editor_resource_id = r_tc_settings_commport_control;
+	}
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_tc_settings_commport_texts
+	{
+	setting_texts_resource = r_tc_settings_commport;
+	}
+
+RESOURCE ARRAY r_tc_settings_commport
+	{
+	items=
+		{
+		AVKON_ENUMERATED_TEXT { value = 0; text = "COMM::0"; },
+	    AVKON_ENUMERATED_TEXT { value = 1; text = "COMM::1"; },
+		AVKON_ENUMERATED_TEXT { value = 2; text = "COMM::2"; }
+		};
+	}
+
+RESOURCE POPUP_SETTING_LIST r_tc_settings_commport_control
+	{
+	}
+	
+// -- Settings dialog item [BAUDRATE] ------------------------------------------
+
+RESOURCE TBUF r_tc_settings_baudrate_title { buf = "Baudrate"; }
+
+RESOURCE AVKON_SETTING_PAGE r_tc_settings_baudrate_page
+	{
+	label = "Baudrate";
+	type = EAknCtIntegerEdwin;
+	editor_resource_id = r_tc_settings_baudrate_control;
+	}
+
+RESOURCE AVKON_INTEGER_EDWIN r_tc_settings_baudrate_control
+	{
+	maxlength = 6;
+	min = 0;
+	max = 115200;
+    }		
+
+// -- Settings dialog item [AUTOCONNECT] --------------------------------------
+
+RESOURCE TBUF r_tc_settings_autoconnect_title { buf = "Connection startup"; }
+
+RESOURCE AVKON_SETTING_PAGE r_tc_settings_autoconnect_page
+	{
+	label = "Connection startup";
+	type = EAknCtPopupSettingList;
+	editor_resource_id = r_tc_settings_autoconnect_control;
+	}
+
+RESOURCE AVKON_POPUP_SETTING_TEXTS r_tc_settings_autoconnect_texts
+	{
+	setting_texts_resource = r_tc_settings_autoconnect;
+	}
+
+RESOURCE ARRAY r_tc_settings_autoconnect
+	{
+	items=
+		{
+		AVKON_ENUMERATED_TEXT { value = 0; text = "Manual"; },
+		AVKON_ENUMERATED_TEXT { value = 1; text = "Automatic"; }
+		};
+	}
+
+RESOURCE POPUP_SETTING_LIST r_tc_settings_autoconnect_control
+	{
+	}
+
+// -- Local address confirmation query ----------------------------------------
+
+RESOURCE DIALOG r_tc_local_address_dlg
+	{
+	flags = EGeneralQueryFlags;
+	buttons = R_AVKON_SOFTKEYS_OK_EMPTY;
+	items =
+		{
+		DLG_LINE
+			{
+			type = EAknCtQuery;
+			id = EGeneralQuery;
+			control = AVKON_CONFIRMATION_QUERY
+				{
+				layout = EConfirmationQueryLayout;
+				bmpfile = AVKON_ICON_FILE;
+				bmpid = EMbmAvkonQgn_note_empty;
+				bmpmask = EMbmAvkonQgn_note_empty_mask;
+				};
+			}
+		};
+	}
+

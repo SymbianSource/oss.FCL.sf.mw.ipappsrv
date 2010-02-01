@@ -1,0 +1,59 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for project ?myapp
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET                  natconfw.dll
+TARGETTYPE              dll
+UID                     0x1000008d 0x10275440
+
+CAPABILITY              CAP_GENERAL_DLL
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE                  natfwconnectivityapi.cpp
+SOURCE                  natfwclient.cpp
+SOURCE                  natfwcandidate.cpp
+SOURCE                  natfwcandidatepair.cpp
+SOURCE                  natfwcredentials.cpp
+SOURCE                  natfwsession.cpp
+SOURCE                  natfwstream.cpp
+SOURCE                  cnatfwasynccallback.cpp
+SOURCE                  natfwcallbackinfo.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE		../../../inc
+USERINCLUDE             ../../natfwsocketmediaconnwrapper/inc
+USERINCLUDE             ../../natfwconnectionmultiplexer/inc
+USERINCLUDE             ../../natfwsettings/inc
+USERINCLUDE             ../../natfwshared/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 ecom.lib
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 esock.lib
+LIBRARY                 bafl.lib
+LIBRARY                 socketmediaconnwrapper.lib
+LIBRARY                 connectionmux.lib
+LIBRARY                 natfwnatsettings.lib
+LIBRARY                 charconv.lib
+
+PAGED

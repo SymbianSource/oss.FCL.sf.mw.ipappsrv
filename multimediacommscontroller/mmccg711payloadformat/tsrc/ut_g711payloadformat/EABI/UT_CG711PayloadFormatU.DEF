@@ -1,0 +1,19 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZTI18CMccRedPayloadRead @ 2 NONAME ; #<TI>#
+	_ZTI19CMccRedPayloadWrite @ 3 NONAME ; #<TI>#
+	_ZTI22CG711PayloadFormatRead @ 4 NONAME ; #<TI>#
+	_ZTI23CG711PayloadFormatWrite @ 5 NONAME ; #<TI>#
+	_ZTI25CFormatDecodeStateMachine @ 6 NONAME ; #<TI>#
+	_ZTI25CFormatEncodeStateMachine @ 7 NONAME ; #<TI>#
+	_ZTI25UT_CG711PayloadFormatRead @ 8 NONAME ; #<TI>#
+	_ZTI26UT_CG711PayloadFormatWrite @ 9 NONAME ; #<TI>#
+	_ZTV18CMccRedPayloadRead @ 10 NONAME ; #<VT>#
+	_ZTV19CMccRedPayloadWrite @ 11 NONAME ; #<VT>#
+	_ZTV22CG711PayloadFormatRead @ 12 NONAME ; #<VT>#
+	_ZTV23CG711PayloadFormatWrite @ 13 NONAME ; #<VT>#
+	_ZTV25CFormatDecodeStateMachine @ 14 NONAME ; #<VT>#
+	_ZTV25CFormatEncodeStateMachine @ 15 NONAME ; #<VT>#
+	_ZTV25UT_CG711PayloadFormatRead @ 16 NONAME ; #<VT>#
+	_ZTV26UT_CG711PayloadFormatWrite @ 17 NONAME ; #<VT>#
+

@@ -1,0 +1,10 @@
+EXPORTS
+	?AddDataSinkL@CMccJitterBuffer@@QAEXPAVMDataSink@@@Z @ 1 NONAME ; void CMccJitterBuffer::AddDataSinkL(class MDataSink *)
+	?AddDataSourceL@CMccJitterBuffer@@QAEXPAVMDataSource@@@Z @ 2 NONAME ; void CMccJitterBuffer::AddDataSourceL(class MDataSource *)
+	?DelayDownL@CMccJitterBuffer@@QAEXXZ @ 3 NONAME ; void CMccJitterBuffer::DelayDownL(void)
+	?DelayUpL@CMccJitterBuffer@@QAEXXZ @ 4 NONAME ; void CMccJitterBuffer::DelayUpL(void)
+	?GetDataSink@CMccJitterBuffer@@QAEPAVMDataSink@@XZ @ 5 NONAME ; class MDataSink * CMccJitterBuffer::GetDataSink(void)
+	?NewL@CMccJitterBuffer@@SAPAV1@PAVMJitterBufferObserver@@@Z @ 6 NONAME ; class CMccJitterBuffer * CMccJitterBuffer::NewL(class MJitterBufferObserver *)
+	?ResetBuffer@CMccJitterBuffer@@QAEXH@Z @ 7 NONAME ; void CMccJitterBuffer::ResetBuffer(int)
+	?SetupL@CMccJitterBuffer@@QAEXHHABVTMccCodecInfo@@@Z @ 8 NONAME ; void CMccJitterBuffer::SetupL(int, int, class TMccCodecInfo const &)
+

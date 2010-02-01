@@ -1,0 +1,61 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Implementation
+*
+*/
+
+#include <sipaddress.h>
+#include <sipregistrationbinding.h>
+#include <sipcontactheader.h>
+
+#include "TCmdGetRegistrationContact.h"
+#include "SIPConstants.h"
+
+/**
+ * INPUT:
+ *   Headers:		-
+ *   Parameters:	-
+ *   IDs:			RegistrationId
+ *
+ * OUTPUT:
+ *   Parameters:	-
+ *   IDs:			Address
+ */
+void TCmdGetRegistrationContact::ExecuteL()
+	{
+	// -- Setup ---------------------------------------------------------------
+
+	// Get SIP objects from registry
+	CSIPRegistrationBinding* registration = GetRegistrationL();
+
+	// -- Execution -----------------------------------------------------------
+
+	// Get registration To address
+	HBufC8* contactValue = registration->ContactHeader().ToTextValueLC();
+
+	// -- Response creation ---------------------------------------------------
+
+	AddTextResponseL( KParamAddress, *contactValue );
+	CleanupStack::PopAndDestroy( contactValue );
+	}
+
+TBool TCmdGetRegistrationContact::Match( const TTcIdentifier& aId )
+	{
+	return TTcSIPCommandBase::Match( aId, _L8("GetRegistrationContact") );
+	}
+
+TTcCommandBase* TCmdGetRegistrationContact::CreateL( MTcTestContext& aContext )
+	{
+	return new( ELeave ) TCmdGetRegistrationContact( aContext );
+	}

@@ -1,0 +1,236 @@
+/*
+* Copyright (c) 2005 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+CAPABILITY CAP_SERVER MultimediaDD AllFiles NetworkControl
+
+VENDORID VID_DEFAULT
+
+#if defined(WINS) && !defined(EKA2)
+TARGET          mceserver.dll
+#else
+TARGET          mceserver.exe
+#endif
+
+#ifdef EKA2
+TARGETPATH      /system/programs
+TARGETTYPE      EXE
+#else
+TARGETTYPE      EPOCEXE
+#endif // EKA2
+
+// Bigger than default stack size is required because of heavy logging
+// in debug mode
+EPOCSTACKSIZE 0x5000
+
+UID             0x1000008d 0x1020E4C7
+
+MACRO           MCE_COMMON_SERVER_SIDE
+SOURCEPATH      ../../../src
+
+SOURCE          mceactivescheduler.cpp
+SOURCE          mcecsreceivequeue.cpp
+SOURCE          mcecsreceiverbase.cpp
+SOURCE          mcecsserver.cpp
+SOURCE          mcecsserverclosetimer.cpp
+SOURCE          mcecssession.cpp
+SOURCE          mcecssessionimplementation.cpp
+SOURCE          mcecssessionreceiver.cpp
+SOURCE          mcecssubsession.cpp
+SOURCE          mcecssubsessionreceiver.cpp
+SOURCE          mceservercore.cpp
+SOURCE          mcecsserveritc.cpp
+SOURCE          mceservermain.cpp
+SOURCE          mcecsreceiveitem.cpp
+SOURCE          mcesipmanager.cpp
+SOURCE          mcesipsession.cpp
+SOURCE          mcesipstatemachine.cpp
+SOURCE          mcestate.cpp
+SOURCE          mceactionset.cpp
+SOURCE          mcefcactionset.cpp
+SOURCE          mcesip.cpp
+SOURCE          mcesipconnection.cpp
+SOURCE          mcestateidle.cpp
+SOURCE          mcestateclientestablishing.cpp
+SOURCE          mcestateoffering.cpp
+SOURCE          mcestateconfirming.cpp
+SOURCE          mcestateclientreserving.cpp
+SOURCE          mcestateestablished.cpp
+SOURCE          mcestateterminating.cpp
+SOURCE          mcestateterminated.cpp
+SOURCE          mcestateserverestablishing.cpp
+SOURCE          mcestateserveroffering.cpp
+SOURCE          mcestateupdating.cpp
+SOURCE          mcestateacknowledgementrequired.cpp
+SOURCE          mcestateconfirmationrequired.cpp
+SOURCE          mcestateserverreserving.cpp
+SOURCE          mcestateupdated.cpp
+SOURCE          mcestateanswering.cpp
+SOURCE          mcestateerror.cpp
+SOURCE          mcestatecanceled.cpp
+SOURCE          mcestateserverinitializing.cpp
+SOURCE          mcesipevent.cpp
+SOURCE          mcetimermanager.cpp
+SOURCE          mceclientresolver.cpp
+SOURCE          mcesipdefaultdata.cpp
+SOURCE          mcesipdefaults.cpp
+SOURCE          mcedictionary.cpp
+SOURCE          mcesipextensions.cpp
+SOURCE          mcereliablesender.cpp
+SOURCE          mcelocaladdrresolver.cpp
+SOURCE          mcenatsipsession.cpp
+SOURCE          mcenatsipstatemachine.cpp
+SOURCE          mcenatevents.cpp
+SOURCE          mcenatstate.cpp
+SOURCE          mcenatstateinitializing.cpp
+SOURCE          mcenatstateidle.cpp
+SOURCE          mcenatstatecreateoffer.cpp
+SOURCE          mcenatstatecreateanswer.cpp
+SOURCE          mcenatstatedecodeoffer.cpp
+SOURCE          mcenatstatedecodeanswer.cpp
+SOURCE          mcenatstatewait.cpp
+SOURCE          mcenatstateconnected.cpp
+SOURCE          mcenatstatecreateofferrequested.cpp
+
+SOURCEPATH      ../../../../../mmceshared/src
+
+SOURCE          mcecomcodec.cpp
+SOURCE          mcecomaudiocodec.cpp
+SOURCE          mcecomaudiostream.cpp
+SOURCE          mcecomendpoint.cpp
+SOURCE          mcecommediasink.cpp
+SOURCE          mcecommediasource.cpp
+SOURCE          mcecommediastream.cpp
+SOURCE          mcecommicsource.cpp
+SOURCE          mcecomrtpsink.cpp
+SOURCE          mcecomrtpsource.cpp
+SOURCE          mcecomsession.cpp
+SOURCE          mcecomstreambundle.cpp
+SOURCE          mcecomspeakersink.cpp
+SOURCE          mcecomavsink.cpp
+SOURCE          mcecomamrcodec.cpp
+SOURCE          mcecomg711codec.cpp
+SOURCE          mcecomg729codec.cpp   
+SOURCE          mcecomilbccodec.cpp  
+SOURCE          mcecomdtmfcodec.cpp
+SOURCE          mcecomcncodec.cpp
+SOURCE          mcecomredcodec.cpp
+SOURCE          mcecomvideocodec.cpp
+SOURCE          mcecomh263codec.cpp
+SOURCE          mcecomvideostream.cpp
+SOURCE          mcecomcamerasource.cpp
+SOURCE          mcecomfilesource.cpp
+SOURCE          mcecomfilesink.cpp
+SOURCE          mcecomdisplaysink.cpp
+SOURCE          mcecomfactory.cpp
+SOURCE          mceserial.cpp
+SOURCE          mceevents.cpp
+SOURCE          mcecomserializationcontext.cpp
+ 
+
+SOURCEPATH      ../../../../mmcemediamanager/src
+
+SOURCE          mcemediamanager.cpp
+SOURCE          mcesdpsession.cpp
+SOURCE          mcesdpcodec.cpp
+SOURCE          mcemediasdpcodec.cpp
+SOURCE          mceaudiosdpcodec.cpp
+SOURCE          mcevideosdpcodec.cpp
+SOURCE          mcesrvstream.cpp
+SOURCE          mceadoptedsrvstream.cpp
+SOURCE          mcesrvendpoint.cpp
+SOURCE          mcesrvsink.cpp
+SOURCE          mcesrvsource.cpp
+SOURCE          mcesrvstreamiterator.cpp
+SOURCE          mcemediastate.cpp
+SOURCE          mcemediaidle.cpp
+SOURCE          mceofferingmedia.cpp
+SOURCE          mceansweringmedia.cpp
+SOURCE          mceansweringmediaupdate.cpp
+SOURCE          mcemedianegotiated.cpp
+SOURCE          mcepreparingstreams.cpp
+SOURCE          mcepreparingoffererstreams.cpp
+SOURCE          mcestartingoffererreceivestreams.cpp
+SOURCE          mcestartingofferersendstreams.cpp
+SOURCE          mcepreparinganswererstreams.cpp
+SOURCE          mcestartinganswererstreams.cpp
+SOURCE          mcepreconditions.cpp
+SOURCE          mcedtmfhandler.cpp
+SOURCE          mcesecuredesstream.cpp
+SOURCE          mcesecuremediasession.cpp
+SOURCE          mcenatpluginmanager.cpp
+SOURCE          mceloglineparser.cpp
+
+SOURCEPATH      ../../../../mmceevent/src
+
+SOURCE          mcesipeventhelper.cpp
+SOURCE          mcecomevent.cpp
+SOURCE          mceeventcontext.cpp
+SOURCE          mceeventstatebase.cpp
+SOURCE          mceeventsubscribemoidlestate.cpp
+SOURCE          mceeventsubscribemtidlestate.cpp
+SOURCE          mceeventsubscribemoestablishingstate.cpp
+SOURCE          mceeventsubscribemtestablishingstate.cpp
+SOURCE          mceeventsubscribemoestablishedstate.cpp
+SOURCE          mceeventsubscribemtestablishedstate.cpp
+SOURCE          mceeventsubscribeterminatingstate.cpp
+SOURCE          mceeventsubscribeterminatedstate.cpp
+SOURCE          mceeventreferterminatedstate.cpp
+SOURCE          mceeventreferterminatingstate.cpp
+SOURCE          mceeventrefermoidlestate.cpp
+SOURCE          mceeventrefermtidlestate.cpp
+SOURCE          mceeventrefermoestablishingstate.cpp
+SOURCE          mceeventrefermtestablishingstate.cpp
+SOURCE          mceeventrefermoestablishedstate.cpp
+SOURCE          mceeventrefermtestablishedstate.cpp
+
+USERINCLUDE     ../../../../mmceevent/inc
+USERINCLUDE     ../../../inc
+USERINCLUDE     ../../../../../mmceshared/inc
+USERINCLUDE     ../../../../mmcemediamanager/inc
+USERINCLUDE     ../../../../../mmcecli/inc
+USERINCLUDE     ../../../../../mmcefloorctrlengine/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY     euser.lib
+LIBRARY     insock.lib
+LIBRARY     esock.lib
+LIBRARY     bafl.lib
+LIBRARY     estor.lib
+LIBRARY     commonengine.lib
+LIBRARY     commdb.lib 
+LIBRARY     charconv.lib
+LIBRARY     sipclient.lib
+LIBRARY     sipcodec.lib
+LIBRARY     sipprofilecli.lib
+LIBRARY     siprsvclient.lib
+LIBRARY     mmccinterface.lib
+LIBRARY     fcpluginengine.lib
+LIBRARY     sdpcodec.lib 
+LIBRARY     inetprotutil.lib 
+LIBRARY     ecom.lib 
+LIBRARY     centralrepository.lib 
+LIBRARY     imut.lib
+LIBRARY     platformenv.lib
+LIBRARY     flogger.lib
+LIBRARY     efsrv.lib
+
+// MACRO PLAT_SEC_TEST

@@ -1,0 +1,100 @@
+/*
+* Copyright (c) 2004-2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          mmccsubcontroller.dll
+
+CAPABILITY 	CAP_GENERAL_DLL
+VENDORID	VID_DEFAULT
+TARGETTYPE      dll
+
+UID             0x1000008d 0x102073F8
+
+SOURCEPATH      ../src
+SOURCE          mccsubthreadclientbase.cpp
+SOURCE          mcculdlclient.cpp
+SOURCE          mccdatapathbase.cpp
+SOURCE          mcculdatapath.cpp
+SOURCE          mccdldatapath.cpp
+SOURCE          mcccodecconfigurator.cpp
+SOURCE          mcccompletecallback.cpp
+SOURCE          mccqoshandler.cpp
+SOURCE          mccqossockethandler.cpp
+SOURCE          mccqoseventmonitor.cpp
+SOURCE          mccrtpmanager.cpp
+SOURCE          mccsymstreambase.cpp
+SOURCE          mccsymdlstream.cpp
+SOURCE          mccsymulstream.cpp
+SOURCE          mccsymsimpledlstream.cpp
+SOURCE          mccsymsubthreadclient.cpp
+SOURCE          mccaudiorouter.cpp
+SOURCE          mccrtcpreceiver.cpp
+SOURCE          mccrtpkeepalivecontainer.cpp
+SOURCE          mccrtpkeepalive.cpp
+SOURCE          mccrtpmediaclock.cpp
+SOURCE          mccdtmfdlstream.cpp
+SOURCE          mccdtmfulstream.cpp
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../mmccshared/inc
+USERINCLUDE     ../../mmccjitterbuffer/inc
+USERINCLUDE     ../../mmccamrpayloadformat/inc
+USERINCLUDE     ../../mmccg711payloadformat/inc
+USERINCLUDE     ../../mmccg729payloadformat/inc
+USERINCLUDE     ../../mmccilbcpayloadformat/inc
+USERINCLUDE     ../../mmcch263payloadformat/inc
+USERINCLUDE     ../../mmccdtmfpayloadformat/inc
+USERINCLUDE     ../../mmccanypayloadformat/inc
+USERINCLUDE     ../../mmccinterface/inc
+USERINCLUDE     ../../mmcccontroller/inc
+USERINCLUDE     ../../mmccrtpsourcesink/inc
+USERINCLUDE     ../../mmccvideosourcesink/inc
+USERINCLUDE     ../../mmccfilesourcesink/inc
+USERINCLUDE     ../../mmccmultiplexer/inc
+USERINCLUDE     ../../mmccredpayloadformat/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY     euser.lib
+LIBRARY     mmfcontrollerframework.lib
+LIBRARY     mmfserverbaseclasses.lib
+LIBRARY     ecom.lib
+LIBRARY     mmfdevsound.lib
+LIBRARY     rtpservice.lib
+LIBRARY     esock.lib
+LIBRARY     insock.lib
+LIBRARY     3gpmp4lib.lib
+LIBRARY     efsrv.lib
+LIBRARY     speechencoderconfig.lib
+LIBRARY	    errorconcealmentintfc.lib
+LIBRARY     audiooutputrouting.lib
+LIBRARY     g711decoderintfc.lib
+LIBRARY     g711encoderintfc.lib
+LIBRARY     g729decoderintfc.lib
+LIBRARY     g729encoderintfc.lib
+LIBRARY     ilbcdecoderintfc.lib
+LIBRARY     ilbcencoderintfc.lib
+LIBRARY     srtp.lib
+// Other MCC libraries
+LIBRARY     mmccjitterbuffer.lib
+LIBRARY     mmccmultiplexer.lib
+
+PAGED
+

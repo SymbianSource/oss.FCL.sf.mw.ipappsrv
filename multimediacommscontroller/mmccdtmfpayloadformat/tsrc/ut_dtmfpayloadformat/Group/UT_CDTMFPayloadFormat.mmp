@@ -1,0 +1,97 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO                   TEST_EUNIT
+
+TARGET                  UT_CDTMFPayloadFormat.dll
+TARGETTYPE              dll
+TARGETPATH              /DigiaEUnit/Tests
+UID                     0x1000af5a 0x01700000
+
+CAPABILITY      				EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE                  UT_CDTMFPayloadFormatDllMain.cpp
+SOURCE                  UT_CDTMFPayloadFormatRead.cpp
+SOURCE                  UT_CDTMFPayloadFormatWrite.cpp
+SOURCE                  UT_CDTMFPayloadDecoder.cpp
+SOURCE                  UT_CDTMFPayloadEncoder.cpp
+
+SOURCEPATH              ../../../../tsrc/rtpsourcesinkstub/src
+SOURCE                  mccrtpinterface_stub.cpp
+SOURCE                  mccrtpdatasink_stub.cpp
+SOURCE                  mccrtpdatasource_stub.cpp
+
+SOURCEPATH              ../../../../tsrc/stubs/src
+SOURCE                  ecom_simple_stubs.cpp
+
+SOURCEPATH              ../stubs/src
+SOURCE					        mdaaudiotoneutility_stub.cpp
+
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  dtmfpayloadformatread.cpp
+SOURCE                  dtmfpayloadformatwrite.cpp
+SOURCE                  dtmfpayloadformatimplementationproxy.cpp
+SOURCE                  dtmfpayloaddecoder.cpp
+SOURCE                  dtmfpayloadencoder.cpp
+SOURCE                  dtmfencstatemachine.cpp
+SOURCE                  dtmfhighresolutiontimer.cpp
+
+SOURCEPATH              ../../../../mmccsubcontroller/src
+SOURCE                  mccrtpmediaclock.cpp
+
+SOURCEPATH              ../../../../mmccshared/src
+SOURCE                  formatstatemachine.cpp
+SOURCE                  streamformatter.cpp
+SOURCE                  mmcccryptocontext.cpp
+
+SOURCEPATH              ../../../../mmccmultiplexer/src
+SOURCE                  mccmultiplexer.cpp
+SOURCE                  mccsinkitem.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../tsrc/rtpsourcesinkstub/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../mmcccontroller/inc
+USERINCLUDE             ../../../../mmccsubcontroller/inc
+USERINCLUDE             ../../../../mmccrtpsourcesink/inc
+USERINCLUDE             ../../../../mmccmultiplexer/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 eunit.lib
+LIBRARY                 euser.lib
+LIBRARY                 mmfcontrollerframework.lib
+//LIBRARY                 mediaclientaudio.lib            // For tone playback
+LIBRARY                 mmfdevsound.lib
+LIBRARY                 mmfserverbaseclasses.lib
+LIBRARY                 eunitutil.lib
+LIBRARY                 hal.lib
+
+// End of file

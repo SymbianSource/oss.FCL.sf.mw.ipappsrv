@@ -1,0 +1,33 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    UIDs for DTMF RTP payload format plugin.
+*
+*/
+
+
+
+
+#ifndef __DTMF_PAYLOAD_FORMAT_HRH__
+#define __DTMF_PAYLOAD_FORMAT_HRH__
+
+// Plugin DLL UID
+#define KDllUidDTMFPayloadFormat         0x102073F1
+
+// Interface Implementation UIDs
+#define KImplUidDTMFPayloadFormatEncode  0x102073FD
+#define KImplUidDTMFPayloadFormatDecode  0x102073FE
+
+#endif
+
+// End of File

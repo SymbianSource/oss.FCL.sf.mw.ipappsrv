@@ -1,0 +1,138 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+// MCETestUI.mmp
+//
+
+#include <platform_paths.hrh>
+#include <data_caging_paths.hrh>
+
+TARGET        MCETestUI.exe
+TARGETTYPE    exe
+UID           0x0 0X10281F9A//0x10005BB4
+
+
+VENDORID      VID_DEFAULT
+CAPABILITY    ALL -TCB
+
+#ifndef RD_APPS_TO_EXES
+    TARGETPATH	/System/Apps/MCETestUI
+#endif
+
+START RESOURCE  ../data/MCETestUI.rss
+HEADER
+TARGETPATH /resource/apps
+END 
+
+START RESOURCE  ../data/MCETestUI_reg.rss
+DEPENDS mcetestui.rsg
+HEADER
+TARGETPATH      /private/10003a3f/apps
+END
+
+START RESOURCE ../data/MCETestUI_loc.rss
+HEADER
+TARGETPATH      /resource/apps
+END
+// Own includes
+USERINCLUDE   ../inc
+USERINCLUDE   ../data
+USERINCLUDE   ../MCETestUIEngine/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH    ../src
+SOURCE        MCETestUIMain.cpp
+SOURCE        CMCETestUIApp.cpp
+SOURCE        CMCETestUIDoc.cpp
+SOURCE        CMCETestUIAppUi.cpp
+SOURCE        CMCETestUIAppView.cpp
+SOURCE        CMCETestUIMainViewContainer.cpp
+SOURCE        CMCETestUIMainViewModel.cpp
+SOURCE        CMCETestUISessionView.cpp
+SOURCE        CMCETestUISessionViewContainer.cpp
+SOURCE        CMCETestUISessionViewModel.cpp
+SOURCE	      createpocsessiondialog.cpp
+SOURCE	      createvoipsessiondialog.cpp
+SOURCE        create2wayvideosessiondialog.cpp
+SOURCE	      createsessiondialog.cpp
+SOURCE	      createsessionEstablishValuesdialog.cpp
+SOURCE	      CMCETestUIStreamView.cpp
+SOURCE	      CMCETestUIStreamViewContainer.cpp
+SOURCE	      CMCETestUIStreamViewModel.cpp
+SOURCE	      createAudioCodecDialog.cpp
+SOURCE	      createeventDialog.cpp
+SOURCE	      createreferDialog.cpp
+SOURCE        createRtpSinkDialog.cpp
+SOURCE        createSpeakerSinkDialog.cpp
+SOURCE	      createMCETestSettingsDialog.cpp
+SOURCE	      createMCETestValueSettingsDialog.cpp
+SOURCE	      createVideoCodecDialog.cpp
+SOURCE	      createMicSourceDialog.cpp
+SOURCE	      createRtpSourceDialog.cpp
+SOURCE	      createCameraSourceDialog.cpp
+SOURCE	      createFileSourceDialog.cpp
+SOURCE        createDisplaySinkDialog.cpp
+SOURCE        createSendDTMFSequenceDialog.cpp
+SOURCE        createStartDTMFDialog.cpp
+SOURCE        createSendDTMFDialog.cpp
+SOURCE	      createCryptoHandlingDialog.cpp
+SOURCE	      createNotifyDialog.cpp
+SOURCE        mcetestuiactivitymanager.cpp
+
+LIBRARY       	euser.lib
+LIBRARY		apparc.lib
+LIBRARY		eikcore.lib
+LIBRARY		eikcoctl.lib
+LIBRARY		cone.lib
+LIBRARY		bafl.lib
+LIBRARY		eiksrv.lib
+LIBRARY		avkon.lib
+LIBRARY		eikctl.lib
+LIBRARY     mcetestuiengine.lib
+LIBRARY     aknicon.lib
+LIBRARY     eikdlg.lib
+LIBRARY     egul.lib
+LIBRARY     aknnotify.lib
+LIBRARY     charconv.lib
+LIBRARY     commonengine.lib //StringLoader
+LIBRARY     efsrv.lib
+LIBRARY     mceclient.lib
+LIBRARY     ecam.lib
+//LIBRARY       	ecom.lib
+//LIBRARY       	insock.lib
+//LIBRARY   		aknnotify.lib
+//LIBRARY		mceclient.lib
+//LIBRARY		sipclient.lib
+//LIBRARY		sipprofilecli.lib
+//LIBRARY           eikdlg.lib 
+//LIBRARY           eikcdlg.lib 
+//LIBRARY           charconv.lib
+//LIBRARY           apgrfx.lib
+//LIBRARY           AknSkins.lib
+//LIBRARY           commdb.lib
+//LIBRARY           egul.lib
+//LIBRARY           estor.lib
+//LIBRARY           etext.lib
+//LIBRARY           gdi.lib
+//LIBRARY           http.lib
+//LIBRARY           inetprotutil.lib
+//LIBRARY           esock.lib
+//LIBRARY           ws32.lib
+
+EXPORTUNFROZEN

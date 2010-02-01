@@ -1,0 +1,49 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    project specification
+*
+*/
+
+
+
+
+
+PRJ_PLATFORMS
+DEFAULT
+
+
+PRJ_EXPORTS
+
+
+PRJ_TESTMMPFILES
+#include "../../mmccamrpayloadformat/tsrc/ut_amrpayloadformat/group/bld.inf"
+#include "../../mmccanypayloadformat/tsrc/ut_anypayloadformat/group/bld.inf"
+#include "../../mmccanysourcesink/tsrc/ut_anysourcesink/group/bld.inf"
+#include "../../mmccavcpayloadformat/tsrc/ut_avcpayloadformat/group/bld.inf"
+#include "../../mmcccontroller/tsrc/ut_controller/group/bld.inf"
+#include "../../mmccdtmfpayloadformat/tsrc/ut_dtmfpayloadformat/group/bld.inf"
+#include "../../mmccfilesourcesink/tsrc/ut_filesourcesink/group/bld.inf"
+#include "../../mmccg711payloadformat/tsrc/ut_g711payloadformat/group/bld.inf"
+#include "../../mmccg729payloadformat/tsrc/ut_g729payloadformat/group/bld.inf"
+#include "../../mmcch263payloadformat/tsrc/ut_h263payloadformat/group/bld.inf"
+#include "../../mmccilbcpayloadformat/tsrc/ut_ilbcpayloadformat/group/bld.inf"
+#include "../../mmccinterface/tsrc/ut_interface/group/bld.inf"
+#include "../../mmccjitterbuffer/tsrc/ut_jitterbuffer/group/bld.inf"
+#include "../../mmccmultiplexer/tsrc/ut_multiplexer/group/bld.inf"
+#include "../../mmccqoscontroller/tsrc/ut_qoscontroller/group/bld.inf"
+#include "../../mmccredpayloadformat/tsrc/ut_redpayloadformat/group/bld.inf"
+#include "../../mmccrtpsourcesink/tsrc/ut_rtpsourcesink/group/bld.inf"
+#include "../../mmccsubcontroller/tsrc/ut_rtpmediaclock/group/bld.inf"
+#include "../../mmccsubcontroller/tsrc/ut_subcontroller/group/bld.inf"
+#include "../../mmccvideosourcesink/tsrc/ut_videosourcesink/group/bld.inf"

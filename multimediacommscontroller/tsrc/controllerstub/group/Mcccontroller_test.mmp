@@ -1,0 +1,96 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+MACRO           TEST_EUNIT // to allow friend class in target class
+
+TARGET MMCCController.dll
+
+#if (defined SYMBIAN_SECURE_ECOM)
+CAPABILITY 	CAP_ECOM_PLUGIN
+VENDORID	VID_DEFAULT
+TARGETTYPE	PLUGIN
+#else
+TARGETTYPE ECOMIIC
+TARGETPATH /System/Libs/Plugins
+#endif
+
+// UID2 for polymorphic-interface DLL ECOM plugin followed by UID3 for this DLL
+UID             0x10009D8D 0x102073F6 
+
+SOURCEPATH      ../../../mmcccontroller/src
+SOURCE          MCCController.cpp
+SOURCE          MCCFactory.cpp
+SOURCE          mccresourcepool.cpp
+SOURCE          mccresourcecontainer.cpp
+SOURCE          mccresourceitem.cpp
+SOURCE          mccresourceiterators.cpp
+SOURCE          mcccamerahandlerforemu.cpp
+SOURCE          mccscreen.cpp
+SOURCE          mccasynclinkcreator.cpp
+
+SOURCEPATH      ../../../mmccshared/src
+SOURCE          mcctimermanager.cpp
+
+USERINCLUDE     ../../../mmcccontroller/inc
+USERINCLUDE     ../../../mmccshared/inc
+USERINCLUDE     ../../../mmccinterface/inc
+USERINCLUDE     ../../../mmccrtpsourcesink/inc
+USERINCLUDE     ../../../mmccvideosourcesink/inc
+USERINCLUDE     ../../../mmccamrpayloadformat/inc
+USERINCLUDE     ../../../mmccsubcontroller/inc
+USERINCLUDE     ../../../mmccqoscontroller/inc
+USERINCLUDE     ../../../mmccmultiplexer/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+SOURCEPATH      ../../../mmcccontroller/data
+#if (defined SYMBIAN_SECURE_ECOM)
+START RESOURCE	102073F6.RSS
+TARGET		MMCCController.rsc
+END
+#else
+RESOURCE        102073F6.RSS
+#endif
+
+LIBRARY mmfserverbaseclasses.lib
+LIBRARY euser.lib
+LIBRARY mmfcontrollerframework.lib
+LIBRARY mmfstandardcustomcommands.lib
+LIBRARY ecom.lib
+LIBRARY insock.lib
+LIBRARY esock.lib
+LIBRARY ecam.lib
+LIBRARY ws32.lib
+LIBRARY bitgdi.lib
+LIBRARY fbscli.lib
+LIBRARY mmccqoscontroller.lib
+LIBRARY mmccmultiplexer.lib
+LIBRARY mmfdevsound.lib
+
+//Use stub instead of the real subthread.lib 
+LIBRARY mccsubthreads_stub.lib
+
+#ifdef EKA2
+LIBRARY centralrepository.lib
+LIBRARY commonengine.lib
+LIBRARY CenRepNotifHandler.lib
+#endif
+
+

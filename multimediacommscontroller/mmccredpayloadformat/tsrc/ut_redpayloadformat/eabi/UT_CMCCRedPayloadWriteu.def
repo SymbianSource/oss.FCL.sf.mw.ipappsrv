@@ -1,0 +1,21 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZTI14CMccRedEncoder @ 2 NONAME ; #<TI>#
+	_ZTI15CMccRtpDataSink @ 3 NONAME ; #<TI>#
+	_ZTI16MMccRtpInterface @ 4 NONAME ; #<TI>#
+	_ZTI17CMccRedEncDecBase @ 5 NONAME ; #<TI>#
+	_ZTI17CMccRtpDataSource @ 6 NONAME ; #<TI>#
+	_ZTI19CMccRedPayloadWrite @ 7 NONAME ; #<TI>#
+	_ZTI20CAmrPayloadFormatter @ 8 NONAME ; #<TI>#
+	_ZTI22CAmrPayloadFormatWrite @ 9 NONAME ; #<TI>#
+	_ZTI22UT_CMccRedPayloadWrite @ 10 NONAME ; #<TI>#
+	_ZTV14CMccRedEncoder @ 11 NONAME ; #<VT>#
+	_ZTV15CMccRtpDataSink @ 12 NONAME ; #<VT>#
+	_ZTV16MMccRtpInterface @ 13 NONAME ; #<VT>#
+	_ZTV17CMccRedEncDecBase @ 14 NONAME ; #<VT>#
+	_ZTV17CMccRtpDataSource @ 15 NONAME ; #<VT>#
+	_ZTV19CMccRedPayloadWrite @ 16 NONAME ; #<VT>#
+	_ZTV20CAmrPayloadFormatter @ 17 NONAME ; #<VT>#
+	_ZTV22CAmrPayloadFormatWrite @ 18 NONAME ; #<VT>#
+	_ZTV22UT_CMccRedPayloadWrite @ 19 NONAME ; #<VT>#
+

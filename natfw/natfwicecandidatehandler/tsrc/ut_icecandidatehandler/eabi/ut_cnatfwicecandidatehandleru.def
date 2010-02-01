@@ -1,0 +1,39 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZTI10CIcePlugin @ 2 NONAME ; #<TI>#
+	_ZTI13CIceCheckList @ 3 NONAME ; #<TI>#
+	_ZTI13CIceValidList @ 4 NONAME ; #<TI>#
+	_ZTI14CIceConnection @ 5 NONAME ; #<TI>#
+	_ZTI15CIceSessionData @ 6 NONAME ; #<TI>#
+	_ZTI16CIceCheckHandler @ 7 NONAME ; #<TI>#
+	_ZTI16CIceHostResolver @ 8 NONAME ; #<TI>#
+	_ZTI20CIceCallBackExecuter @ 9 NONAME ; #<TI>#
+	_ZTI20CIceCheckPrioritizer @ 10 NONAME ; #<TI>#
+	_ZTI20CIceStreamCollection @ 11 NONAME ; #<TI>#
+	_ZTI21CIceConnectionHandler @ 12 NONAME ; #<TI>#
+	_ZTI21CIceConnectivityCheck @ 13 NONAME ; #<TI>#
+	_ZTI22CIceNatPluginContainer @ 14 NONAME ; #<TI>#
+	_ZTI24CIceCandidatePrioritizer @ 15 NONAME ; #<TI>#
+	_ZTI24CIceLocalCandidateFinder @ 16 NONAME ; #<TI>#
+	_ZTI25CNcmConnectionMultiplexer @ 17 NONAME ; #<TI>#
+	_ZTI26CSTUNBindingImplementation @ 18 NONAME ; #<TI>#
+	_ZTI31CSTUNRelayBindingImplementation @ 19 NONAME ; #<TI>#
+	_ZTV10CIcePlugin @ 20 NONAME ; #<VT>#
+	_ZTV13CIceCheckList @ 21 NONAME ; #<VT>#
+	_ZTV13CIceValidList @ 22 NONAME ; #<VT>#
+	_ZTV14CIceConnection @ 23 NONAME ; #<VT>#
+	_ZTV15CIceSessionData @ 24 NONAME ; #<VT>#
+	_ZTV16CIceCheckHandler @ 25 NONAME ; #<VT>#
+	_ZTV16CIceHostResolver @ 26 NONAME ; #<VT>#
+	_ZTV20CIceCallBackExecuter @ 27 NONAME ; #<VT>#
+	_ZTV20CIceCheckPrioritizer @ 28 NONAME ; #<VT>#
+	_ZTV20CIceStreamCollection @ 29 NONAME ; #<VT>#
+	_ZTV21CIceConnectionHandler @ 30 NONAME ; #<VT>#
+	_ZTV21CIceConnectivityCheck @ 31 NONAME ; #<VT>#
+	_ZTV22CIceNatPluginContainer @ 32 NONAME ; #<VT>#
+	_ZTV24CIceCandidatePrioritizer @ 33 NONAME ; #<VT>#
+	_ZTV24CIceLocalCandidateFinder @ 34 NONAME ; #<VT>#
+	_ZTV25CNcmConnectionMultiplexer @ 35 NONAME ; #<VT>#
+	_ZTV26CSTUNBindingImplementation @ 36 NONAME ; #<VT>#
+	_ZTV31CSTUNRelayBindingImplementation @ 37 NONAME ; #<VT>#
+

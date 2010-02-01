@@ -1,0 +1,77 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for project connectionmux stub
+*
+*/
+
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET                  ut_socketmediaconnwrapper.dll
+TARGETTYPE              dll
+TARGETPATH              /digiaeunit/tests
+UID                     0x1000af5a 0x01700000
+
+EPOCALLOWDLLDATA
+
+CAPABILITY      EUNIT_CAPS
+
+EXPORTUNFROZEN
+VENDORID                0x00000000
+
+SOURCEPATH              ../src
+SOURCE                  ut_socketmediaconnwrapperdllmain.cpp
+
+//test suites
+SOURCE                  ut_cnatfwsocketmediaconnwrapper.cpp
+SOURCE                  ut_mnatfwsocketmediaconnwrapper.cpp
+SOURCE                  ut_mnatfwmediawrapper.cpp
+SOURCE                  ut_cnatfwsockethandler.cpp 
+SOURCE                  ut_cnatfwsocketreceiver.cpp
+SOURCE                  ut_cnatfwsocketsender.cpp
+ 
+// Sources needed by the test
+SOURCEPATH              ../../../../natfwsocketmediaconnwrapper/src
+SOURCE                  natfwsockethandler.cpp
+SOURCE                  natfwsocketsender.cpp
+SOURCE                  natfwsocketreceiver.cpp
+SOURCE                  natfwsocketmediaconnwrapper.cpp
+SOURCE                  cnsmcwsenditem.cpp
+
+// Stubs
+SOURCEPATH              ../stubs
+SOURCE                  esock_stubs.cpp
+
+USERINCLUDE             ../../../../natfwsocketmediaconnwrapper/inc
+USERINCLUDE             ../../../../natfwconnectionmultiplexer/inc
+USERINCLUDE             ../../../../natfwshared/inc
+USERINCLUDE             ../../../../tsrc/natfwtsrcshared/inc
+USERINCLUDE             ../inc
+USERINCLUDE		../../../../../inc
+
+USERINCLUDE           ../../../../natfwclient/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 ecom.lib
+LIBRARY                 eunit.lib
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 commdb.lib
+LIBRARY                 charconv.lib
+
+// End of file

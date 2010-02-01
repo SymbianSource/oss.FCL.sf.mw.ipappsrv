@@ -1,0 +1,58 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+#include <platform_paths.hrh>
+
+
+TARGET        MCECSServerCapabilityTest.dll
+TARGETTYPE    dll
+UID           0x101F5380 0x102747CF
+
+
+//MACRO       MCE_NWS_CAPS
+//MACRO       MCE_WDD_CAPS
+MACRO         MCE_ALLMCE_CAPS
+
+SOURCEPATH	  ../src
+SOURCE        MCECSServerCapabilityTest.cpp
+SOURCE 		  CMCECsServerCaller.cpp
+
+SOURCEPATH 	  ../../../../../mmcecli/src
+SOURCE        mceserverstarter.cpp
+
+
+USERINCLUDE 	../../../../../mmcecli/inc
+USERINCLUDE 	../../../../../mmceshared/inc
+USERINCLUDE		../inc
+// CppUnit header files. Needed since cppunit headers include other cppunit
+// headers using #include ""
+USERINCLUDE     /epoc32/include/cppunit
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY       euser.lib
+LIBRARY       efsrv.lib 
+LIBRARY       estor.lib
+LIBRARY       bafl.lib
+LIBRARY       cppunitframework.lib
+
+CAPABILITY    ALL -Tcb
+
+VENDORID VID_DEFAULT
+
+EXPORTUNFROZEN

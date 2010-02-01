@@ -1,0 +1,49 @@
+/*
+* Copyright (c) 2005-2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  Device Management NAT-FW Traversal adapter resource file
+*
+*/
+
+
+//  INCLUDES
+#include <ecom/registryinfo.rh>
+#include "nsmldmconstants.h"
+#include "../../../inc/ipappsrvversionnumbers.h"
+
+// -----------------------------------------------------------------------------
+// RESOURCE DEFINITION 
+// -----------------------------------------------------------------------------
+RESOURCE REGISTRY_INFO theRegistryInfo
+    {
+ 	  dll_uid = 0x1020E590; //The DLL's 3rd UID.
+    interfaces = 
+        {
+        INTERFACE_INFO
+            {
+            interface_uid = KNSmlDMInterfaceUid; // DM interface UID
+            implementations = 
+                {
+                IMPLEMENTATION_INFO
+                    {
+                    // DM NAT-FW Traversal Adapter implementation UID
+                    implementation_uid = 0x1020E58F; 
+                    version_no = KIpappsrvEcomVersionNumber; 
+                    display_name = "";
+                    default_data = "";
+                    opaque_data = "";
+                    }
+                };
+            }
+        };
+    }

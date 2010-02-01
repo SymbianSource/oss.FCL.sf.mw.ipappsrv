@@ -1,0 +1,17 @@
+<SIP_CLIENT ALLOW_STARTING="YES">\
+<SIP_HEADERS>\
+<ACCEPT value="text/plain"/>\
+<ACCEPT value="application/sdp"/>\
+<ACCEPT value=""/>\
+<ACCEPT_CONTACT value="*;+g.poc.talkburst;require;explicit"/>\
+<ACCEPT_CONTACT value="*;+g.3gpp.cs-voice"/>\
+<ACCEPT_CONTACT value="*;+mckoppa"/>\
+<ALLOW_EVENTS value="Presence"/>\
+</SIP_HEADERS>\
+<SDP_LINES>\
+<LINE name="m" value="audio 123 RTP/AVP 0"/>\
+<LINE name="m" value="audio 123 RTP/SAVP 0"/>\
+<LINE name="m" value="video 123 RTP/AVP 0"/>\
+<LINE name="m" value="application 1024 udp TBCP"/>\
+</SDP_LINES>\
+</SIP_CLIENT>

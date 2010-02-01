@@ -1,0 +1,29 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZTI11CCRLFSender @ 2 NONAME ; #<TI>#
+	_ZTI11CNATBinding @ 3 NONAME ; #<TI>#
+	_ZTI14CTcpCRLFSender @ 4 NONAME ; #<TI>#
+	_ZTI14CTlsCRLFSender @ 5 NONAME ; #<TI>#
+	_ZTI14CUdpCRLFSender @ 6 NONAME ; #<TI>#
+	_ZTI15CCRLFSenderStub @ 7 NONAME ; #<TI>#
+	_ZTI19CNATTraversalConfig @ 8 NONAME ; #<TI>#
+	_ZTI20CNATBindingRefresher @ 9 NONAME ; #<TI>#
+	_ZTI20CNATTraversalSession @ 10 NONAME ; #<TI>#
+	_ZTI23CNATTraversalController @ 11 NONAME ; #<TI>#
+	_ZTI24CNATBindingCRLFRefresher @ 12 NONAME ; #<TI>#
+	_ZTI24CNATBindingSTUNRefresher @ 13 NONAME ; #<TI>#
+	_ZTI31CNATBindingSTUNAndCRLFRefresher @ 14 NONAME ; #<TI>#
+	_ZTV11CCRLFSender @ 15 NONAME ; #<VT>#
+	_ZTV11CNATBinding @ 16 NONAME ; #<VT>#
+	_ZTV14CTcpCRLFSender @ 17 NONAME ; #<VT>#
+	_ZTV14CTlsCRLFSender @ 18 NONAME ; #<VT>#
+	_ZTV14CUdpCRLFSender @ 19 NONAME ; #<VT>#
+	_ZTV15CCRLFSenderStub @ 20 NONAME ; #<VT>#
+	_ZTV19CNATTraversalConfig @ 21 NONAME ; #<VT>#
+	_ZTV20CNATBindingRefresher @ 22 NONAME ; #<VT>#
+	_ZTV20CNATTraversalSession @ 23 NONAME ; #<VT>#
+	_ZTV23CNATTraversalController @ 24 NONAME ; #<VT>#
+	_ZTV24CNATBindingCRLFRefresher @ 25 NONAME ; #<VT>#
+	_ZTV24CNATBindingSTUNRefresher @ 26 NONAME ; #<VT>#
+	_ZTV31CNATBindingSTUNAndCRLFRefresher @ 27 NONAME ; #<VT>#
+

@@ -1,0 +1,19 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZTI14CNATFWIAPEntry @ 2 NONAME ; #<TI>#
+	_ZTI17CNATFWDomainEntry @ 3 NONAME ; #<TI>#
+	_ZTI19CSmlDmCallback_stub @ 4 NONAME ; #<TI>#
+	_ZTI28CNSmlDmNATFWTraversalAdapter @ 5 NONAME ; #<TI>#
+	_ZTI31UT_CNSmlDmNATFWTraversalAdapter @ 6 NONAME ; #<TI>#
+	_ZTV14CNATFWIAPEntry @ 7 NONAME ; #<VT>#
+	_ZTV17CNATFWDomainEntry @ 8 NONAME ; #<VT>#
+	_ZTV19CSmlDmCallback_stub @ 9 NONAME ; #<VT>#
+	_ZTV28CNSmlDmNATFWTraversalAdapter @ 10 NONAME ; #<VT>#
+	_ZTV31UT_CNSmlDmNATFWTraversalAdapter @ 11 NONAME ; #<VT>#
+	_ZN17CNSmlDMIAPMatcher13IAPIdFromURILERK6TDesC8 @ 12 NONAME
+	_ZN17CNSmlDMIAPMatcher13URIFromIAPIdLEi @ 13 NONAME
+	_ZN17CNSmlDMIAPMatcher4NewLEP14MSmlDmCallback @ 14 NONAME
+	_ZN17CNSmlDMIAPMatcher5NewLCEP14MSmlDmCallback @ 15 NONAME
+	_ZTI17CNSmlDMIAPMatcher @ 16 NONAME ; #<TI>#
+	_ZTV17CNSmlDMIAPMatcher @ 17 NONAME ; #<VT>#
+

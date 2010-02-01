@@ -1,0 +1,201 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET          UT_MCESdpMediaManager.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700222
+
+MACRO           EUNIT_UNIT_TEST
+MACRO           MCEMM_UNIT_TESTING
+MACRO           MCE_COMMON_SERVER_SIDE
+MACRO           TEST_EUNIT
+
+EPOCALLOWDLLDATA
+
+//add this manually to CW compiler flags when debug statements
+//are not wanted to be part of the code coverage
+MACRO           EUNIT_UNIT_TEST_COVERAGE
+
+
+SOURCEPATH     ../src
+SOURCE         UT_MCESdpMediaManagerDllMain.cpp
+SOURCE         UT_cmcesdpsession.cpp 
+SOURCE         UT_cmcemediamanager.cpp 
+SOURCE         UT_tmcesrvstreamiterator.cpp
+SOURCE         UT_tmcemediaidle.cpp
+SOURCE         UT_tmceofferingmedia.cpp
+SOURCE         UT_tmceansweringmedia.cpp
+SOURCE         UT_tmceansweringmediaupdate.cpp
+SOURCE         UT_tmcemedianegotiated.cpp
+SOURCE         UT_tmcepreparingoffererstreams.cpp
+SOURCE         UT_tmcestartingoffererreceivestreams.cpp
+SOURCE         UT_tmcestartingofferersendstreams.cpp
+SOURCE         UT_tmcepreparinganswererstreams.cpp
+SOURCE         UT_tmcestartinganswererstreams.cpp
+SOURCE         UT_cmcesrvstream.cpp
+SOURCE         UT_cmcesrvsink.cpp
+SOURCE         UT_cmcesrvsource.cpp
+SOURCE         UT_cmceadoptedsrvstream.cpp
+SOURCE         UT_cmcesdpcodec.cpp
+SOURCE         UT_cmcemediasdpcodec.cpp
+SOURCE         UT_cmceaudiosdpcodec.cpp
+SOURCE         UT_cmcevideosdpcodec.cpp
+SOURCE         UT_tmcepreconditions.cpp
+SOURCE         MCEMediaManagerTestHelper.cpp
+SOURCE         UT_CMceSecureDesStream.cpp
+SOURCE         UT_CMceSecureMediaSession.cpp
+SOURCE		   UT_TMceSecurePreconditions.cpp
+SOURCE		   UT_CMceNatPluginManager.cpp
+ 
+// Sources needed by the test
+SOURCEPATH    ../../../src
+SOURCE          mcemediamanager.cpp
+SOURCE          mcesdpsession.cpp
+SOURCE          mcesdpcodec.cpp
+SOURCE          mcemediasdpcodec.cpp
+SOURCE          mceaudiosdpcodec.cpp
+SOURCE          mcevideosdpcodec.cpp
+
+SOURCE          mcesrvstream.cpp
+SOURCE          mceadoptedsrvstream.cpp
+SOURCE          mcesrvendpoint.cpp
+SOURCE          mcesrvsink.cpp
+SOURCE          mcesrvsource.cpp
+SOURCE          mcesrvstreamiterator.cpp
+SOURCE          mcemediastate.cpp
+SOURCE          mcemediaidle.cpp
+SOURCE          mceofferingmedia.cpp
+SOURCE          mceansweringmedia.cpp
+SOURCE          mceansweringmediaupdate.cpp
+SOURCE          mcemedianegotiated.cpp
+SOURCE          mcepreparingstreams.cpp
+SOURCE          mcepreparingoffererstreams.cpp
+SOURCE          mcestartingoffererreceivestreams.cpp
+SOURCE          mcestartingofferersendstreams.cpp
+SOURCE          mcepreparinganswererstreams.cpp
+SOURCE          mcestartinganswererstreams.cpp
+SOURCE          mcepreconditions.cpp
+SOURCE          mcesecuremediasession.cpp
+SOURCE          mcesecuredesstream.cpp
+SOURCE          mcedtmfhandler.cpp
+SOURCE          mcenatpluginmanager.cpp
+SOURCE          mceloglineparser.cpp
+
+SOURCEPATH          ../../../../../mmceshared/src
+SOURCE          mcecomcodec.cpp
+SOURCE          mcecomaudiocodec.cpp
+SOURCE          mcecomaudiostream.cpp
+SOURCE          mcecomendpoint.cpp
+SOURCE          mcecommediasink.cpp
+SOURCE          mcecommediasource.cpp
+SOURCE          mcecommediastream.cpp
+SOURCE          mcecommicsource.cpp
+SOURCE          mcecomrtpsink.cpp
+SOURCE          mcecomrtpsource.cpp
+SOURCE          mcecomsession.cpp
+SOURCE          mcecomstreambundle.cpp
+SOURCE          mcecomavsink.cpp
+SOURCE          mcecomspeakersink.cpp
+SOURCE          mcecomamrcodec.cpp
+SOURCE 			mcecomamrwbcodec.cpp
+SOURCE          mcecomg711codec.cpp
+SOURCE          mcecomg729codec.cpp
+SOURCE          mcecomh263codec.cpp
+SOURCE          mcecomavccodec.cpp
+SOURCE          mcecomilbccodec.cpp
+SOURCE          mcecomfactory.cpp
+SOURCE          mceserial.cpp
+SOURCE          mceevents.cpp
+SOURCE          mcecomvideocodec.cpp
+SOURCE          mcecomvideostream.cpp
+SOURCE          mcecomcamerasource.cpp
+SOURCE          mcecomfilesource.cpp
+SOURCE          mcecomfilesink.cpp
+SOURCE          mcecomdisplaysink.cpp
+SOURCE          mcecomserializationcontext.cpp
+SOURCE          mcecomdtmfcodec.cpp
+SOURCE          mcecomredcodec.cpp
+SOURCE          mcecomcncodec.cpp
+
+SOURCEPATH      ../../../../../tsrc/mccstub/src
+SOURCE          mmccinterface_stub.cpp
+SOURCE          CMCCController_stub.cpp
+SOURCE          mmccsecureinterface_stub.cpp
+SOURCE          mmcccodecinformation.cpp
+SOURCE          mmcccodecinformationfactory.cpp
+SOURCE          mmcccodecamr.cpp
+SOURCE          mmcccodecamrwb.cpp
+SOURCE          mmcccodecg711.cpp
+SOURCE          mmcccodecg729.cpp
+SOURCE          mmcccodecilbc.cpp
+SOURCE          mmcccodecdtmf.cpp
+SOURCE          mmcccodecred.cpp  
+SOURCE          mmcccodeccn.cpp               
+SOURCE          mmcccodech263.cpp                 
+SOURCE          mmcccodecavc.cpp 
+SOURCE          mmcccodecaac.cpp    
+
+SOURCEPATH      ../stubs/src
+SOURCE          mcecssessionimplementation.cpp
+SOURCE			ecom_stubs.cpp
+//SOURCE			implementationinformation.cpp
+SOURCE			plugin_stub.cpp
+
+
+USERINCLUDE       ../../../../../mmceshared/inc
+USERINCLUDE       ../../../../mmceserver/inc
+USERINCLUDE       ../../../../../mmcecli/inc
+USERINCLUDE       ../../../inc
+USERINCLUDE       ../../../../../mmcefloorctrlengine/inc // Added by EUnit Wizard
+USERINCLUDE       ../../../../../tsrc/mccstub/inc
+USERINCLUDE       ../../../../../tsrc/ututils/inc
+USERINCLUDE       ../stubs/inc
+USERINCLUDE       ../inc
+USERINCLUDE       ../../../../../../inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+#if defined ( OS_LAYER_SYSTEMINCLUDE )
+OS_LAYER_SYSTEMINCLUDE
+#else
+SYSTEMINCLUDE     /epoc32/include
+#endif
+
+LIBRARY           estor.lib
+LIBRARY           EUnit.lib
+LIBRARY           euser.lib
+LIBRARY           esock.lib
+LIBRARY           insock.lib
+LIBRARY           bafl.lib 
+LIBRARY           sdpcodec.lib 
+LIBRARY           charconv.lib
+LIBRARY           InetProtUtil.lib
+LIBRARY 		  imut.lib
+LIBRARY           sipcodec.lib
+//LIBRARY			  ecom.lib 
+//For QualityKit 4.0.5
+//CAPABILITY ALL -TCB -DRM
+CAPABILITY      EUNIT_CAPS
+
+
+// End of file

@@ -1,0 +1,108 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO           TEST_EUNIT
+
+TARGET          UT_CMccMultiplexer.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE                  UT_CMccMultiplexerDllMain.cpp
+SOURCE                  UT_CMccSinkItem.cpp
+SOURCE                  UT_CMccMultiplexer.cpp
+
+ 
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  mccsinkitem.cpp
+SOURCE                  mccmultiplexer.cpp
+
+SOURCEPATH              ../../../../tsrc/rtpsourcesinkstub/src
+SOURCE                  mccrtpinterface_stub.cpp
+SOURCE                  mccrtpdatasink_stub.cpp
+SOURCE                  mccrtpdatasource_stub.cpp
+
+SOURCEPATH              ../../../../tsrc/amrpayloadformatstub/src
+SOURCE                  amrpayloadformatread_stub.cpp
+
+SOURCEPATH              ../../../../tsrc/stubs/src
+SOURCE                  Mcctesteventhandler.cpp
+SOURCE                  Mccdldatapath_STUB.cpp
+SOURCE                  mcccompletecallback_stub.cpp
+
+SOURCEPATH              ../../../../mmccfilesourcesink/src
+SOURCE                  mcceoftimer.cpp
+SOURCE                  mccfilesourceimpl.cpp
+SOURCE                  mccfilesource.cpp
+SOURCE                  mccperiodicrunner.cpp
+SOURCE                  mccfilesourcetypebase.cpp
+SOURCE                  mccfilevideo.cpp
+SOURCE                  mccfileaudio.cpp
+
+
+SOURCEPATH              ../../../../mmccsubcontroller/src
+SOURCE                  mccdatapathbase.cpp
+
+SOURCEPATH              ../../../../mmccshared/src
+SOURCE                  mmcccryptocontext.cpp
+
+
+SOURCEPATH              ../stubs/src
+SOURCE                  ecom_stubs.cpp
+SOURCE			            implementationinformation.cpp
+
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../tsrc/rtpsourcesinkstub/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../mmccfilesourcesink/inc
+USERINCLUDE             ../../../../mmccamrpayloadformat/inc
+USERINCLUDE             ../../../../mmccredpayloadformat/inc
+USERINCLUDE             ../../../../mmccrtpsourcesink/inc
+USERINCLUDE             ../../../../mmcccontroller/inc
+USERINCLUDE             ../../../../mmccsubcontroller/inc
+USERINCLUDE             ../../../../mmccinterface/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 EUnit.lib
+LIBRARY                 euser.lib
+LIBRARY                 3gpmp4lib.lib
+LIBRARY                 efsrv.lib
+LIBRARY                 ws32.lib
+LIBRARY                 esock.lib 
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfserverbaseclasses.lib
+LIBRARY                 imut.lib
+LIBRARY                 charconv.lib
+LIBRARY			inetprotutil.lib
+// End of file

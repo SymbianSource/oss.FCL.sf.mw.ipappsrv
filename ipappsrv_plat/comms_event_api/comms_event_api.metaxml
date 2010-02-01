@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<api id="ff83e878149b1e6d05733254309c8bd8" dataversion="2.0">
+<name>Comms Event API</name>
+<description>Provides services for subscribing, notifying about events and publishing the event states.</description>
+<type>c++</type>
+<collection>multimediacommsengine</collection>
+<libs><lib name="MceClient.lib"/>
+</libs>
+<release category="platform" sinceversion=""/>
+<attributes>
+<htmldocprovided>no</htmldocprovided>
+<adaptation>no</adaptation>
+</attributes>
+</api>

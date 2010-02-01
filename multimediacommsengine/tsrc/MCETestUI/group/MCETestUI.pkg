@@ -1,0 +1,40 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:  
+;
+
+; Supported languages
+&en
+
+#{"MCETestUI"},(0x10281F9A),0,1,0,TYPE=SA
+
+
+%{"Vendor-EN"}
+:"Nokia"
+
+(0x101F6F88), 0, 0, 0, {"Series60ProductID"}
+
+
+"\EPOC32\RELEASE\ARMV5\UDEB\MCETestUI.exe"-"!:\sys\bin\MCETestUI.exe"
+"\EPOC32\RELEASE\ARMV5\UDEB\MCETestUIEngine.dll"-"!:\sys\bin\MCETestUIEngine.dll"
+"\EPOC32\DATA\Z\resource\apps\MCETestUI.RSC"-"!:\resource\apps\MCETestUI.RSC"
+"\EPOC32\DATA\Z\private\10003a3f\apps\MCETestUI_reg.RSC"-"!:\private\10003a3f\import\apps\MCETestUI_reg.RSC"
+"\EPOC32\DATA\Z\resource\apps\MCETestUI_loc.RSC"-"!:\resource\apps\MCETestUI_loc.RSC"
+
+"\EPOC32\RELEASE\ARMV5\UDEB\mcetestuiplugin.dll"-"!:\Sys\Bin\mcetestuiplugin.dll"
+"\EPOC32\DATA\Z\Resource\Plugins\mcetestuiplugin.RSC"-"!:\resource\plugins\mcetestuiplugin.RSC"
+
+; mcetestui capability file
+"\epoc32\winscw\c\MCETestUICaps.xml"-"!:\MCETestUICaps.xml"
+

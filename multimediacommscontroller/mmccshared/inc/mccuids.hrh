@@ -1,0 +1,200 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    UIDs for MCC
+*
+*/
+
+
+
+
+#ifndef MCCUIDS_HRH
+#define MCCUIDS_HRH
+
+#include "../../../inc/ipappsrvversionnumbers.h"
+
+// -----------------------------------------------------------------------------
+// Controller
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidMccController            0x102073F6 
+
+// Interface Implementation UIDs
+#define KImplUidMccController           0x10207406  // MMF Controller plugin interface
+
+// -----------------------------------------------------------------------------
+// AMR Payload Format
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidAmrPayloadFormat         0x102073F0
+
+// Interface Implementation UIDs
+#define KImplUidAmrPayloadFormatEncode  0x102073FB  // CMMFFormatEncode interface
+#define KImplUidAmrPayloadFormatDecode  0x102073FC  // CMMFFormatDecode interface
+
+// -----------------------------------------------------------------------------
+// G711 Payload Format
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidG711PayloadFormat         0x1028257C
+
+// Interface Implementation UIDs
+#define KImplUidG711PayloadFormatEncode  0x1028257D  // CMMFFormatEncode interface
+#define KImplUidG711PayloadFormatDecode  0x1028257E  // CMMFFormatDecode interface
+
+// -----------------------------------------------------------------------------
+// G729 Payload Format
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidG729PayloadFormat         0x1028257F
+
+// Interface Implementation UIDs
+#define KImplUidG729PayloadFormatEncode  0x10282580  // CMMFFormatEncode interface
+#define KImplUidG729PayloadFormatDecode  0x10282581  // CMMFFormatDecode interface
+
+// -----------------------------------------------------------------------------
+// iLBC Payload Format
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidiLBCPayloadFormat         0x10282582
+
+// Interface Implementation UIDs
+#define KImplUidiLBCPayloadFormatEncode  0x10282583  // CMMFFormatEncode interface
+#define KImplUidiLBCPayloadFormatDecode  0x10282584  // CMMFFormatDecode interface
+
+// -----------------------------------------------------------------------------
+// Any Payload Format
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidAnyPayloadFormat         0x102747DB
+
+// Interface Implementation UIDs
+#define KImplUidAnyPayloadFormatDecode  0x102747DC  // CMMFFormatDecode interface
+
+// -----------------------------------------------------------------------------
+// AVC Payload Format
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidAvcPayloadFormat         0x102823A1
+
+// Interface Implementation UIDs
+#define KImplUidAvcPayloadFormatEncode  0x102823A2	  // CMMFFormatEncode interface
+
+// -----------------------------------------------------------------------------
+// DTMF Payload Format
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidDTMFPayloadFormat         0x102073F1
+
+// Interface Implementation UIDs
+#define KImplUidDTMFPayloadFormatEncode  0x102073FD  // CMMFFormatEncode interface
+#define KImplUidDTMFPayloadFormatDecode  0x102073FE  // CMMFFormatDecode interface
+
+// -----------------------------------------------------------------------------
+// H263 Payload Format
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidH263PayloadFormat         0x102747D9
+
+// Interface Implementation UIDs
+#define KImplUidH263PayloadFormatEncode  0x102747DA  // CMMFFormatEncode interface
+
+// -----------------------------------------------------------------------------
+// Red Payload Format
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidRedPayloadFormat         0x102073F9
+
+// Interface Implementation UIDs
+#define KImplUidRedPayloadFormatEncode  0x10207409      // CMMFFormatEncode interface
+#define KImplUidRedPayloadFormatDecode  0x1020740A      // CMMFFormatDecode interface
+
+// -----------------------------------------------------------------------------
+// File SourceSink
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidMccFileSourceSink     	0x102747CB
+
+// Interface Implementation UIDs
+#define KImplUidMccFileSource           0x102747D5      // MMF MDataSource interface
+#define KImplUidMccFileSink           	0x102747D7      // MMF MDataSink interface
+
+// -----------------------------------------------------------------------------
+// Jitter Buffer
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidMccJitterBuffer          0x102073F5
+
+// Interface Implementation UIDs
+#define KImplUidMccJitterBuffer         0x10207405  // CMccJitterBuffer interface
+
+// -----------------------------------------------------------------------------
+// Media NAT Traversal
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidMedianattraversal        0x10282DB7
+
+// Interface Implementation UIDs
+#define KImplUidMccmedianattraversal    0x10282DB9
+
+// -----------------------------------------------------------------------------
+// RTP SourceSink
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidRtpSourceSink            0x102073FA
+
+// Interface Implementation UIDs
+#define KImplUidRtpDataSource           0x1020740B      // MMF MDataSource interface
+#define KImplUidRtpDataSink             0x1020740C      // MMF MDataSink interface
+
+// -----------------------------------------------------------------------------
+// Video SourceSink
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidMccVideoSourceSink     	0x102747CC
+
+// Interface Implementation UIDs
+#define KImplUidMccVideoSource          0x102747D6      // MMF MDataSource interface
+#define KImplUidMccVideoSink           	0x102747D8      // MMF MDataSink interface
+
+// -----------------------------------------------------------------------------
+// Multiplexer
+// -----------------------------------------------------------------------------
+// DLL UID
+#define KDllUidMccMultiplexer        	0x10282585
+
+// -----------------------------------------------------------------------------
+// Any SourceSink
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidMccAnySourceSink     	0x10283393
+
+// Interface Implementation UIDs
+#define KImplUidMccAnySource            0x10283394      // MMF MDataSource interface
+#define KImplUidMccAnySink              0x10283395      // MMF MDataSink interface
+
+// -----------------------------------------------------------------------------
+// TRANSCODER
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidTranscoder                 0x10282896
+
+// Interface Implementation UID
+#define KImplUidTranscoder                0x10282897
+
+
+// Plugin Interface UID 
+#define KMmfUidPluginInterfaceTranscoder  0x10282898
+
+#endif /* MCCUIDS_HRH */
+

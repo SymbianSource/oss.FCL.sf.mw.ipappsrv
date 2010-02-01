@@ -1,0 +1,3 @@
+EXPORTS
+	?CreateFactory@@YAPAVMTcContextFactory@@XZ @ 1 NONAME ; class MTcContextFactory * __cdecl CreateFactory(void)
+

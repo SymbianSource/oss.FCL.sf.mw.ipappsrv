@@ -1,0 +1,64 @@
+/*
+* Copyright (c) 2006-2008 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for project connectionmux
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET                  connectionmux.dll
+TARGETTYPE              dll
+UID                     0x1000008D 0x10275441
+
+CAPABILITY              CAP_GENERAL_DLL
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE                  cncmconnectionmultiplexer.cpp
+SOURCE                  cncmportstore.cpp
+SOURCE                  cncmsession.cpp
+SOURCE                  cncmstream.cpp
+SOURCE                  cncmconnection.cpp
+SOURCE                  cncmcallbackexecuter.cpp
+SOURCE                  cncmsender.cpp
+SOURCE                  cncmudpsender.cpp
+SOURCE                  cncmtcpsender.cpp
+SOURCE                  cncmreceiver.cpp
+SOURCE                  cncmudpreceiver.cpp
+SOURCE                  cncmtcpreceiver.cpp
+SOURCE                  cncmicmpv4receiver.cpp
+SOURCE                  cncmicmpv6receiver.cpp
+SOURCE                  cncmicmpsender.cpp
+SOURCE                  cncmlocaladdressresolver.cpp
+SOURCE                  cncmmediasource.cpp
+SOURCE                  cncmsenditem.cpp
+SOURCE                  cncmconnectionobserverhandler.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE		../../../inc
+USERINCLUDE             ../../natfwsocketmediaconnwrapper/inc
+USERINCLUDE             ../../natfwclient/inc
+USERINCLUDE             ../../natfwshared/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 euser.lib
+LIBRARY                 insock.lib
+LIBRARY                 esock.lib
+LIBRARY                 commdb.lib
+LIBRARY                 charconv.lib
+
+PAGED

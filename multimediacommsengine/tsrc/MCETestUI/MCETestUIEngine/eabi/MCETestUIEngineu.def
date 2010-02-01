@@ -1,0 +1,581 @@
+EXPORTS
+	_ZN16CMCETestUIEngine10InSessionsEv @ 1 NONAME
+	_ZN16CMCETestUIEngine11DeleteEventER21CMCETestUIEngineEvent @ 2 NONAME
+	_ZN16CMCETestUIEngine11DeleteReferER21CMCETestUIEngineRefer @ 3 NONAME
+	_ZN16CMCETestUIEngine11EnableVideoER23CMCETestUIEngineSession @ 4 NONAME
+	_ZN16CMCETestUIEngine11IsFCSessionEv @ 5 NONAME
+	_ZN16CMCETestUIEngine11OutSessionsEv @ 6 NONAME
+	_ZN16CMCETestUIEngine12DisableVideoER23CMCETestUIEngineSession @ 7 NONAME
+	_ZN16CMCETestUIEngine12GetCommandsLEv @ 8 NONAME
+	_ZN16CMCETestUIEngine12SetFCSessionEi @ 9 NONAME
+	_ZN16CMCETestUIEngine12UsedProfilesEv @ 10 NONAME
+	_ZN16CMCETestUIEngine13DeleteSessionER23CMCETestUIEngineSession @ 11 NONAME
+	_ZN16CMCETestUIEngine13GetCodecTypeLERi @ 12 NONAME
+	_ZN16CMCETestUIEngine13SendDTMFToneLER5TCharRi @ 13 NONAME
+	_ZN16CMCETestUIEngine14CreateInEventLEP11CMceInEvent @ 14 NONAME
+	_ZN16CMCETestUIEngine14CreateInReferLEP11CMceInRefer @ 15 NONAME
+	_ZN16CMCETestUIEngine14IsVideoEnabledEv @ 16 NONAME
+	_ZN16CMCETestUIEngine14StartDTMFToneLER5TChar @ 17 NONAME
+	_ZN16CMCETestUIEngine15CreateOutEventLEP12CMceOutEvent @ 18 NONAME
+	_ZN16CMCETestUIEngine15CreateOutEventLER23CMCETestUIEngineProfile @ 19 NONAME
+	_ZN16CMCETestUIEngine15CreateOutReferLER21CMCETestUIEngineEvent @ 20 NONAME
+	_ZN16CMCETestUIEngine15CreateOutReferLER23CMCETestUIEngineProfile @ 21 NONAME
+	_ZN16CMCETestUIEngine15CreateOutReferLER23CMCETestUIEngineSession @ 22 NONAME
+	_ZN16CMCETestUIEngine15IncomingUpdateLER11CMceSessionP13CMceInSession @ 23 NONAME
+	_ZN16CMCETestUIEngine16CreateInSessionLEP13CMceInSession @ 24 NONAME
+	_ZN16CMCETestUIEngine16DeleteAudioCodecER21CMCETestUIEngineCodec @ 25 NONAME
+	_ZN16CMCETestUIEngine16DeleteVideoCodecER26CMCETestUIEngineVideoCodec @ 26 NONAME
+	_ZN16CMCETestUIEngine16SetUserInterfaceEP23MMCETestUIUserInterface @ 27 NONAME
+	_ZN16CMCETestUIEngine17AvailableProfilesEv @ 28 NONAME
+	_ZN16CMCETestUIEngine17CreateOutSessionLER23CMCETestUIEngineProfile10TDirection15TVideoDirection12TSessionType @ 29 NONAME
+	_ZN16CMCETestUIEngine17CreateOutSessionLER9CMceRefer @ 30 NONAME
+	_ZN16CMCETestUIEngine17CreateOutSessionLEm10TDirection15TVideoDirection12TSessionType @ 31 NONAME
+	_ZN16CMCETestUIEngine18CreateMceSettingsLEv @ 32 NONAME
+	_ZN16CMCETestUIEngine18GetCryptoContextsLERiS0_ @ 33 NONAME
+	_ZN16CMCETestUIEngine20EnableReceivingVideoER23CMCETestUIEngineSession @ 34 NONAME
+	_ZN16CMCETestUIEngine21DisableReceivingVideoER23CMCETestUIEngineSession @ 35 NONAME
+	_ZN16CMCETestUIEngine21SendDTMFToneSequenceLER6TDes16 @ 36 NONAME
+	_ZN16CMCETestUIEngine23CreateMceValueSettingsLEv @ 37 NONAME
+	_ZN16CMCETestUIEngine26ShowCurrentCryptoContextsLEii @ 38 NONAME
+	_ZN16CMCETestUIEngine28ShowSupportedCryptoContextsLEii @ 39 NONAME
+	_ZN16CMCETestUIEngine4NewLEv @ 40 NONAME
+	_ZN16CMCETestUIEngine7GetRectEv @ 41 NONAME
+	_ZN16CMCETestUIEngine8InEventsEv @ 42 NONAME
+	_ZN16CMCETestUIEngine8InRefersEv @ 43 NONAME
+	_ZN16CMCETestUIEngine9GetIapIdLERi @ 44 NONAME
+	_ZN16CMCETestUIEngine9OutEventsEv @ 45 NONAME
+	_ZN16CMCETestUIEngine9OutRefersEv @ 46 NONAME
+	_ZN16CMCETestUIEngineD0Ev @ 47 NONAME
+	_ZN16CMCETestUIEngineD1Ev @ 48 NONAME
+	_ZN16CMCETestUIEngineD2Ev @ 49 NONAME
+	_ZN20CMCETestUIEngineSink4SinkEv @ 50 NONAME
+	_ZN20CMCETestUIEngineSinkD0Ev @ 51 NONAME
+	_ZN20CMCETestUIEngineSinkD1Ev @ 52 NONAME
+	_ZN20CMCETestUIEngineSinkD2Ev @ 53 NONAME
+	_ZN21CMCETestUIEngineCodec4TypeEv @ 54 NONAME
+	_ZN21CMCETestUIEngineCodec5CodecEv @ 55 NONAME
+	_ZN21CMCETestUIEngineCodecD0Ev @ 56 NONAME
+	_ZN21CMCETestUIEngineCodecD1Ev @ 57 NONAME
+	_ZN21CMCETestUIEngineCodecD2Ev @ 58 NONAME
+	_ZN21CMCETestUIEngineEvent5StateEv @ 59 NONAME
+	_ZN21CMCETestUIEngineEventD0Ev @ 60 NONAME
+	_ZN21CMCETestUIEngineEventD1Ev @ 61 NONAME
+	_ZN21CMCETestUIEngineEventD2Ev @ 62 NONAME
+	_ZN21CMCETestUIEngineRefer5ReferEv @ 63 NONAME
+	_ZN21CMCETestUIEngineRefer5StateEv @ 64 NONAME
+	_ZN21CMCETestUIEngineReferD0Ev @ 65 NONAME
+	_ZN21CMCETestUIEngineReferD1Ev @ 66 NONAME
+	_ZN21CMCETestUIEngineReferD2Ev @ 67 NONAME
+	_ZN22CMCETestUIEngineSource6SourceEv @ 68 NONAME
+	_ZN22CMCETestUIEngineSourceD0Ev @ 69 NONAME
+	_ZN22CMCETestUIEngineSourceD1Ev @ 70 NONAME
+	_ZN22CMCETestUIEngineSourceD2Ev @ 71 NONAME
+	_ZN22CMCETestUIQuestionBaseD0Ev @ 72 NONAME
+	_ZN22CMCETestUIQuestionBaseD1Ev @ 73 NONAME
+	_ZN22CMCETestUIQuestionBaseD2Ev @ 74 NONAME
+	_ZN23CMCETestUIEngineInEventD0Ev @ 75 NONAME
+	_ZN23CMCETestUIEngineInEventD1Ev @ 76 NONAME
+	_ZN23CMCETestUIEngineInEventD2Ev @ 77 NONAME
+	_ZN23CMCETestUIEngineInReferD0Ev @ 78 NONAME
+	_ZN23CMCETestUIEngineInReferD1Ev @ 79 NONAME
+	_ZN23CMCETestUIEngineInReferD2Ev @ 80 NONAME
+	_ZN23CMCETestUIEngineSession13AudioStreamsLEv @ 81 NONAME
+	_ZN23CMCETestUIEngineSession13VideoStreamsLEv @ 82 NONAME
+	_ZN23CMCETestUIEngineSession19CurrentAudioStreamsEv @ 83 NONAME
+	_ZN23CMCETestUIEngineSession19CurrentVideoStreamsEv @ 84 NONAME
+	_ZN23CMCETestUIEngineSession5StateEv @ 85 NONAME
+	_ZN23CMCETestUIEngineSession9ProfileIdEv @ 86 NONAME
+	_ZN23CMCETestUIEngineSessionD0Ev @ 87 NONAME
+	_ZN23CMCETestUIEngineSessionD1Ev @ 88 NONAME
+	_ZN23CMCETestUIEngineSessionD2Ev @ 89 NONAME
+	_ZN23TMCETestUIEngineCmdBaseD0Ev @ 90 NONAME
+	_ZN23TMCETestUIEngineCmdBaseD1Ev @ 91 NONAME
+	_ZN23TMCETestUIEngineCmdBaseD2Ev @ 92 NONAME
+	_ZN24CMCETestUIEngineOutEventD0Ev @ 93 NONAME
+	_ZN24CMCETestUIEngineOutEventD1Ev @ 94 NONAME
+	_ZN24CMCETestUIEngineOutEventD2Ev @ 95 NONAME
+	_ZN24CMCETestUIEngineOutReferD0Ev @ 96 NONAME
+	_ZN24CMCETestUIEngineOutReferD1Ev @ 97 NONAME
+	_ZN24CMCETestUIEngineOutReferD2Ev @ 98 NONAME
+	_ZN24TMCETestUIEngineCmdRefer8ExecuteLEv @ 99 NONAME
+	_ZN25CMCETestUIEngineInSessionD0Ev @ 100 NONAME
+	_ZN25CMCETestUIEngineInSessionD1Ev @ 101 NONAME
+	_ZN25CMCETestUIEngineInSessionD2Ev @ 102 NONAME
+	_ZN25CMCETestUIEngineVideoSink4SinkEv @ 103 NONAME
+	_ZN25CMCETestUIEngineVideoSink4TypeEv @ 104 NONAME
+	_ZN25CMCETestUIEngineVideoSinkD0Ev @ 105 NONAME
+	_ZN25CMCETestUIEngineVideoSinkD1Ev @ 106 NONAME
+	_ZN25CMCETestUIEngineVideoSinkD2Ev @ 107 NONAME
+	_ZN25TMCETestUIEngineCmdSendRR8ExecuteLEv @ 108 NONAME
+	_ZN25TMCETestUIEngineCmdSendSR8ExecuteLEv @ 109 NONAME
+	_ZN26CMCETestUIEngineOutSessionD0Ev @ 110 NONAME
+	_ZN26CMCETestUIEngineOutSessionD1Ev @ 111 NONAME
+	_ZN26CMCETestUIEngineOutSessionD2Ev @ 112 NONAME
+	_ZN26CMCETestUIEngineVideoCodec4TypeEv @ 113 NONAME
+	_ZN26CMCETestUIEngineVideoCodec5CodecEv @ 114 NONAME
+	_ZN26CMCETestUIEngineVideoCodecD0Ev @ 115 NONAME
+	_ZN26CMCETestUIEngineVideoCodecD1Ev @ 116 NONAME
+	_ZN26CMCETestUIEngineVideoCodecD2Ev @ 117 NONAME
+	_ZN27CMCETestUIEngineAudioStream11StreamStateEv @ 118 NONAME
+	_ZN27CMCETestUIEngineAudioStream13CurrentCodecsEv @ 119 NONAME
+	_ZN27CMCETestUIEngineAudioStream6SinksLEv @ 120 NONAME
+	_ZN27CMCETestUIEngineAudioStream7CodecsLEv @ 121 NONAME
+	_ZN27CMCETestUIEngineAudioStream8SourcesLEv @ 122 NONAME
+	_ZN27CMCETestUIEngineAudioStreamD0Ev @ 123 NONAME
+	_ZN27CMCETestUIEngineAudioStreamD1Ev @ 124 NONAME
+	_ZN27CMCETestUIEngineAudioStreamD2Ev @ 125 NONAME
+	_ZN27CMCETestUIEngineVideoSource6SourceEv @ 126 NONAME
+	_ZN27CMCETestUIEngineVideoSourceD0Ev @ 127 NONAME
+	_ZN27CMCETestUIEngineVideoSourceD1Ev @ 128 NONAME
+	_ZN27CMCETestUIEngineVideoSourceD2Ev @ 129 NONAME
+	_ZN27CMCETestUIEngineVideoStream11StreamStateEv @ 130 NONAME
+	_ZN27CMCETestUIEngineVideoStream13CurrentCodecsEv @ 131 NONAME
+	_ZN27CMCETestUIEngineVideoStream6SinksLEv @ 132 NONAME
+	_ZN27CMCETestUIEngineVideoStream7CodecsLEv @ 133 NONAME
+	_ZN27CMCETestUIEngineVideoStream8SourcesLEv @ 134 NONAME
+	_ZN27CMCETestUIEngineVideoStreamD0Ev @ 135 NONAME
+	_ZN27CMCETestUIEngineVideoStreamD1Ev @ 136 NONAME
+	_ZN27CMCETestUIEngineVideoStreamD2Ev @ 137 NONAME
+	_ZN27CMCETestUIQuestionDataQuery10SetAnswerLERK7TDesC16 @ 138 NONAME
+	_ZN27CMCETestUIQuestionDataQueryD0Ev @ 139 NONAME
+	_ZN27CMCETestUIQuestionDataQueryD1Ev @ 140 NONAME
+	_ZN27CMCETestUIQuestionDataQueryD2Ev @ 141 NONAME
+	_ZN27TMCETestUIEngineCmdAddCodec8ExecuteLEv @ 142 NONAME
+	_ZN27TMCETestUIEngineCmdDTMFInfo8ExecuteLEv @ 143 NONAME
+	_ZN27TMCETestUIEngineCmdHoldCall13DisableAudioLEv @ 144 NONAME
+	_ZN27TMCETestUIEngineCmdHoldCall19DisableAudioStreamLER15CMceMediaStream @ 145 NONAME
+	_ZN27TMCETestUIEngineCmdHoldCall19HandleLocalHoldingLER15CMceMediaStreamS1_ @ 146 NONAME
+	_ZN27TMCETestUIEngineCmdHoldCall20HandleLocalResumingLER15CMceMediaStreamS1_ @ 147 NONAME
+	_ZN27TMCETestUIEngineCmdHoldCall8ExecuteLEv @ 148 NONAME
+	_ZN27TMCETestUIEngineCmdRegister8ExecuteLEv @ 149 NONAME
+	_ZN27TMCETestUIEngineCmdSendInfo8ExecuteLEv @ 150 NONAME
+	_ZN28TMCETestUIEngineCmdEstablish12DeleteCodecsEv @ 151 NONAME
+	_ZN28TMCETestUIEngineCmdEstablish8ExecuteLEv @ 152 NONAME
+	_ZN29TMCETestUIEngineCmdEnableSink8ExecuteLEv @ 153 NONAME
+	_ZN29TMCETestUIEngineCmdUnregister8ExecuteLEv @ 154 NONAME
+	_ZN30TMCETestUIEngineCmdAcceptEvent8ExecuteLEv @ 155 NONAME
+	_ZN30TMCETestUIEngineCmdAcceptRefer8ExecuteLEv @ 156 NONAME
+	_ZN30TMCETestUIEngineCmdCreateEvent8ExecuteLEv @ 157 NONAME
+	_ZN30TMCETestUIEngineCmdCreateRefer8ExecuteLEv @ 158 NONAME
+	_ZN30TMCETestUIEngineCmdDeleteEvent8ExecuteLEv @ 159 NONAME
+	_ZN30TMCETestUIEngineCmdDeleteRefer8ExecuteLEv @ 160 NONAME
+	_ZN30TMCETestUIEngineCmdDisableSink8ExecuteLEv @ 161 NONAME
+	_ZN30TMCETestUIEngineCmdNotifyEvent8ExecuteLEv @ 162 NONAME
+	_ZN30TMCETestUIEngineCmdRejectEvent8ExecuteLEv @ 163 NONAME
+	_ZN30TMCETestUIEngineCmdRejectRefer8ExecuteLEv @ 164 NONAME
+	_ZN30TMCETestUIEngineCmdUpdateEvent8ExecuteLEv @ 165 NONAME
+	_ZN31TMCETestUIEngineCmdEnableSource8ExecuteLEv @ 166 NONAME
+	_ZN31TMCETestUIEngineCmdEnableStream8ExecuteLEv @ 167 NONAME
+	_ZN31TMCETestUIEngineCmdRespondRefer8ExecuteLEv @ 168 NONAME
+	_ZN32TMCETestUIEngineCmdAcceptSession8ExecuteLEv @ 169 NONAME
+	_ZN32TMCETestUIEngineCmdAnswerSession8ExecuteLEv @ 170 NONAME
+	_ZN32TMCETestUIEngineCmdCancelSession8ExecuteLEv @ 171 NONAME
+	_ZN32TMCETestUIEngineCmdCreateSession8ExecuteLEv @ 172 NONAME
+	_ZN32TMCETestUIEngineCmdDeleteSession8ExecuteLEv @ 173 NONAME
+	_ZN32TMCETestUIEngineCmdDisableSource8ExecuteLEv @ 174 NONAME
+	_ZN32TMCETestUIEngineCmdDisableStream8ExecuteLEv @ 175 NONAME
+	_ZN32TMCETestUIEngineCmdFCSendSession8ExecuteLEv @ 176 NONAME
+	_ZN32TMCETestUIEngineCmdRejectSession8ExecuteLEv @ 177 NONAME
+	_ZN32TMCETestUIEngineCmdSelectProfile8ExecuteLEv @ 178 NONAME
+	_ZN32TMCETestUIEngineCmdSendDtmfToneL8ExecuteLEv @ 179 NONAME
+	_ZN32TMCETestUIEngineCmdStopDtmfToneL8ExecuteLEv @ 180 NONAME
+	_ZN32TMCETestUIEngineCmdUpdateSession12DeleteCodecsEv @ 181 NONAME
+	_ZN32TMCETestUIEngineCmdUpdateSession8ExecuteLEv @ 182 NONAME
+	_ZN33CMCETestUIQuestionSingleSelectionD0Ev @ 183 NONAME
+	_ZN33CMCETestUIQuestionSingleSelectionD1Ev @ 184 NONAME
+	_ZN33CMCETestUIQuestionSingleSelectionD2Ev @ 185 NONAME
+	_ZN33TMCETestUIEngineCmdAudioTranscode8ExecuteLEv @ 186 NONAME
+	_ZN33TMCETestUIEngineCmdRespondSession8ExecuteLEv @ 187 NONAME
+	_ZN33TMCETestUIEngineCmdRingingSession8ExecuteLEv @ 188 NONAME
+	_ZN33TMCETestUIEngineCmdStartDtmfToneL8ExecuteLEv @ 189 NONAME
+	_ZN33TMCETestUIEngineCmdSubscribeEvent8ExecuteLEv @ 190 NONAME
+	_ZN33TMCETestUIEngineCmdTerminateEvent8ExecuteLEv @ 191 NONAME
+	_ZN33TMCETestUIEngineCmdVideoTranscode8ExecuteLEv @ 192 NONAME
+	_ZN33TMCETestUIEngineCmdWriteSdpToFile8ExecuteLEv @ 193 NONAME
+	_ZN34TMCETestUIEngineCmdEnableVideoSink8ExecuteLEv @ 194 NONAME
+	_ZN35TMCETestUIEngineCmdCreatePoCSession8ExecuteLEv @ 195 NONAME
+	_ZN35TMCETestUIEngineCmdCreateReferEvent8ExecuteLEv @ 196 NONAME
+	_ZN35TMCETestUIEngineCmdDeleteAudioCodec8ExecuteLEv @ 197 NONAME
+	_ZN35TMCETestUIEngineCmdDeleteVideoCodec8ExecuteLEv @ 198 NONAME
+	_ZN35TMCETestUIEngineCmdDisableVideoSink8ExecuteLEv @ 199 NONAME
+	_ZN35TMCETestUIEngineCmdEnableAudioCodec8ExecuteLEv @ 200 NONAME
+	_ZN35TMCETestUIEngineCmdEnableVideoCodec8ExecuteLEv @ 201 NONAME
+	_ZN35TMCETestUIEngineCmdSendInfoResponse8ExecuteLEv @ 202 NONAME
+	_ZN35TMCETestUIEngineCmdSetCryptoContext8ExecuteLEv @ 203 NONAME
+	_ZN35TMCETestUIEngineCmdTerminateSession8ExecuteLEv @ 204 NONAME
+	_ZN36TMCETestUIEngineCmdCreateMceSettings8ExecuteLEv @ 205 NONAME
+	_ZN36TMCETestUIEngineCmdCreateVoIPSession8ExecuteLEv @ 206 NONAME
+	_ZN36TMCETestUIEngineCmdDisableAudioCodec8ExecuteLEv @ 207 NONAME
+	_ZN36TMCETestUIEngineCmdDisableVideoCodec8ExecuteLEv @ 208 NONAME
+	_ZN36TMCETestUIEngineCmdEnableVideoSource8ExecuteLEv @ 209 NONAME
+	_ZN36TMCETestUIEngineCmdEnableVideoStream8ExecuteLEv @ 210 NONAME
+	_ZN36TMCETestUIEngineCmdStandByAudioCodec8ExecuteLEv @ 211 NONAME
+	_ZN36TMCETestUIEngineCmdStandByVideoCodec8ExecuteLEv @ 212 NONAME
+	_ZN37TMCETestUIEngineCmdCreateReferSession8ExecuteLEv @ 213 NONAME
+	_ZN37TMCETestUIEngineCmdDisableVideoSource8ExecuteLEv @ 214 NONAME
+	_ZN37TMCETestUIEngineCmdDisableVideoStream8ExecuteLEv @ 215 NONAME
+	_ZN37TMCETestUIEngineCmdEnableVideoSession8ExecuteLEv @ 216 NONAME
+	_ZN38TMCETestUIEngineCmdDisableVideoSession8ExecuteLEv @ 217 NONAME
+	_ZN38TMCETestUIEngineCmdEstablishWithValues12DeleteCodecsEv @ 218 NONAME
+	_ZN38TMCETestUIEngineCmdEstablishWithValues8ExecuteLEv @ 219 NONAME
+	_ZN39TMCETestUIEngineCmdAudioCancelTranscode8ExecuteLEv @ 220 NONAME
+	_ZN39TMCETestUIEngineCmdCurrentCryptoContext8ExecuteLEv @ 221 NONAME
+	_ZN39TMCETestUIEngineCmdVideoCancelTranscode8ExecuteLEv @ 222 NONAME
+	_ZN40TMCETestUIEngineCmdSendDtmfToneSequenceL8ExecuteLEv @ 223 NONAME
+	_ZN41TMCETestUIEngineCmdCreate2WayVideoSession8ExecuteLEv @ 224 NONAME
+	_ZN41TMCETestUIEngineCmdCreateMceValueSettings8ExecuteLEv @ 225 NONAME
+	_ZN41TMCETestUIEngineCmdCreateSessionFromRefer8ExecuteLEv @ 226 NONAME
+	_ZN41TMCETestUIEngineCmdSupportedCryptoContext8ExecuteLEv @ 227 NONAME
+	_ZN42TMCETestUIEngineCmdUpdateSessionWithValues12DeleteCodecsEv @ 228 NONAME
+	_ZN42TMCETestUIEngineCmdUpdateSessionWithValues8ExecuteLEv @ 229 NONAME
+	_ZN43TMCETestUIEngineCmdCreateSessionUsingAPList8ExecuteLEv @ 230 NONAME
+	_ZN45TMCETestUIEngineCmdCreateSessionUsingAPNumber8ExecuteLEv @ 231 NONAME
+	_ZN46TMCETestUIEngineCmdEnableReceivingVideoSession8ExecuteLEv @ 232 NONAME
+	_ZN47TMCETestUIEngineCmdDisableReceivingVideoSession8ExecuteLEv @ 233 NONAME
+	_ZN49TMCETestUIEngineCmdEnableRtpSourceInActivityTimer8ExecuteLEv @ 234 NONAME
+	_ZNK20CMCETestUIEngineSink4TypeEv @ 235 NONAME
+	_ZNK20CMCETestUIEngineSink5StateEv @ 236 NONAME
+	_ZNK21CMCETestUIEngineCodec5StateEv @ 237 NONAME
+	_ZNK22CMCETestUIEngineSource4TypeEv @ 238 NONAME
+	_ZNK22CMCETestUIEngineSource5StateEv @ 239 NONAME
+	_ZNK22CMCETestUIQuestionBase7CaptionEv @ 240 NONAME
+	_ZNK23CMCETestUIEngineInEvent2IdEv @ 241 NONAME
+	_ZNK23CMCETestUIEngineInRefer2IdEv @ 242 NONAME
+	_ZNK23CMCETestUIEngineProfile12IsRegisteredEv @ 243 NONAME
+	_ZNK23CMCETestUIEngineProfile12ProviderNameEv @ 244 NONAME
+	_ZNK23CMCETestUIEngineProfile3AorEv @ 245 NONAME
+	_ZNK23CMCETestUIEngineProfile9IsDefaultEv @ 246 NONAME
+	_ZNK23CMCETestUIEngineProfile9ProfileIdEv @ 247 NONAME
+	_ZNK23CMCETestUIEngineSession14VideoDirectionEv @ 248 NONAME
+	_ZNK23CMCETestUIEngineSession16TextualDirectionEv @ 249 NONAME
+	_ZNK23CMCETestUIEngineSession21TextualVideoDirectionEv @ 250 NONAME
+	_ZNK23CMCETestUIEngineSession9DirectionEv @ 251 NONAME
+	_ZNK24CMCETestUIEngineOutEvent2IdEv @ 252 NONAME
+	_ZNK24CMCETestUIEngineOutRefer2IdEv @ 253 NONAME
+	_ZNK24TMCETestUIEngineCmdRefer7CaptionEv @ 254 NONAME
+	_ZNK25CMCETestUIEngineInSession2IdEv @ 255 NONAME
+	_ZNK25CMCETestUIEngineVideoSink5StateEv @ 256 NONAME
+	_ZNK25TMCETestUIEngineCmdSendRR7CaptionEv @ 257 NONAME
+	_ZNK25TMCETestUIEngineCmdSendSR7CaptionEv @ 258 NONAME
+	_ZNK26CMCETestUIEngineOutSession2IdEv @ 259 NONAME
+	_ZNK26CMCETestUIEngineVideoCodec5StateEv @ 260 NONAME
+	_ZNK27CMCETestUIEngineAudioStream16TextualDirectionEv @ 261 NONAME
+	_ZNK27CMCETestUIEngineAudioStream5StateEv @ 262 NONAME
+	_ZNK27CMCETestUIEngineAudioStream9DirectionEv @ 263 NONAME
+	_ZNK27CMCETestUIEngineVideoSource4TypeEv @ 264 NONAME
+	_ZNK27CMCETestUIEngineVideoSource5StateEv @ 265 NONAME
+	_ZNK27CMCETestUIEngineVideoStream14VideoDirectionEv @ 266 NONAME
+	_ZNK27CMCETestUIEngineVideoStream21TextualVideoDirectionEv @ 267 NONAME
+	_ZNK27CMCETestUIEngineVideoStream5StateEv @ 268 NONAME
+	_ZNK27CMCETestUIQuestionDataQuery12DefaultValueEv @ 269 NONAME
+	_ZNK27TMCETestUIEngineCmdAddCodec7CaptionEv @ 270 NONAME
+	_ZNK27TMCETestUIEngineCmdDTMFInfo7CaptionEv @ 271 NONAME
+	_ZNK27TMCETestUIEngineCmdHoldCall7CaptionEv @ 272 NONAME
+	_ZNK27TMCETestUIEngineCmdRegister7CaptionEv @ 273 NONAME
+	_ZNK27TMCETestUIEngineCmdSendInfo7CaptionEv @ 274 NONAME
+	_ZNK28TMCETestUIEngineCmdEstablish7CaptionEv @ 275 NONAME
+	_ZNK29TMCETestUIEngineCmdEnableSink7CaptionEv @ 276 NONAME
+	_ZNK29TMCETestUIEngineCmdUnregister7CaptionEv @ 277 NONAME
+	_ZNK30TMCETestUIEngineCmdAcceptEvent7CaptionEv @ 278 NONAME
+	_ZNK30TMCETestUIEngineCmdAcceptRefer7CaptionEv @ 279 NONAME
+	_ZNK30TMCETestUIEngineCmdCreateEvent7CaptionEv @ 280 NONAME
+	_ZNK30TMCETestUIEngineCmdCreateRefer7CaptionEv @ 281 NONAME
+	_ZNK30TMCETestUIEngineCmdDeleteEvent7CaptionEv @ 282 NONAME
+	_ZNK30TMCETestUIEngineCmdDeleteRefer7CaptionEv @ 283 NONAME
+	_ZNK30TMCETestUIEngineCmdDisableSink7CaptionEv @ 284 NONAME
+	_ZNK30TMCETestUIEngineCmdNotifyEvent7CaptionEv @ 285 NONAME
+	_ZNK30TMCETestUIEngineCmdRejectEvent7CaptionEv @ 286 NONAME
+	_ZNK30TMCETestUIEngineCmdRejectRefer7CaptionEv @ 287 NONAME
+	_ZNK30TMCETestUIEngineCmdUpdateEvent7CaptionEv @ 288 NONAME
+	_ZNK31TMCETestUIEngineCmdEnableSource7CaptionEv @ 289 NONAME
+	_ZNK31TMCETestUIEngineCmdEnableStream7CaptionEv @ 290 NONAME
+	_ZNK31TMCETestUIEngineCmdRespondRefer7CaptionEv @ 291 NONAME
+	_ZNK32TMCETestUIEngineCmdAcceptSession7CaptionEv @ 292 NONAME
+	_ZNK32TMCETestUIEngineCmdAnswerSession7CaptionEv @ 293 NONAME
+	_ZNK32TMCETestUIEngineCmdCancelSession7CaptionEv @ 294 NONAME
+	_ZNK32TMCETestUIEngineCmdCreateSession7CaptionEv @ 295 NONAME
+	_ZNK32TMCETestUIEngineCmdDeleteSession7CaptionEv @ 296 NONAME
+	_ZNK32TMCETestUIEngineCmdDisableSource7CaptionEv @ 297 NONAME
+	_ZNK32TMCETestUIEngineCmdDisableStream7CaptionEv @ 298 NONAME
+	_ZNK32TMCETestUIEngineCmdFCSendSession7CaptionEv @ 299 NONAME
+	_ZNK32TMCETestUIEngineCmdRejectSession7CaptionEv @ 300 NONAME
+	_ZNK32TMCETestUIEngineCmdSelectProfile7CaptionEv @ 301 NONAME
+	_ZNK32TMCETestUIEngineCmdSendDtmfToneL7CaptionEv @ 302 NONAME
+	_ZNK32TMCETestUIEngineCmdStopDtmfToneL7CaptionEv @ 303 NONAME
+	_ZNK32TMCETestUIEngineCmdUpdateSession7CaptionEv @ 304 NONAME
+	_ZNK33CMCETestUIQuestionSingleSelection7ChoicesEv @ 305 NONAME
+	_ZNK33TMCETestUIEngineCmdAudioTranscode7CaptionEv @ 306 NONAME
+	_ZNK33TMCETestUIEngineCmdRespondSession7CaptionEv @ 307 NONAME
+	_ZNK33TMCETestUIEngineCmdRingingSession7CaptionEv @ 308 NONAME
+	_ZNK33TMCETestUIEngineCmdStartDtmfToneL7CaptionEv @ 309 NONAME
+	_ZNK33TMCETestUIEngineCmdSubscribeEvent7CaptionEv @ 310 NONAME
+	_ZNK33TMCETestUIEngineCmdTerminateEvent7CaptionEv @ 311 NONAME
+	_ZNK33TMCETestUIEngineCmdVideoTranscode7CaptionEv @ 312 NONAME
+	_ZNK33TMCETestUIEngineCmdWriteSdpToFile7CaptionEv @ 313 NONAME
+	_ZNK34TMCETestUIEngineCmdEnableVideoSink7CaptionEv @ 314 NONAME
+	_ZNK35TMCETestUIEngineCmdCreatePoCSession7CaptionEv @ 315 NONAME
+	_ZNK35TMCETestUIEngineCmdCreateReferEvent7CaptionEv @ 316 NONAME
+	_ZNK35TMCETestUIEngineCmdDeleteAudioCodec7CaptionEv @ 317 NONAME
+	_ZNK35TMCETestUIEngineCmdDeleteVideoCodec7CaptionEv @ 318 NONAME
+	_ZNK35TMCETestUIEngineCmdDisableVideoSink7CaptionEv @ 319 NONAME
+	_ZNK35TMCETestUIEngineCmdEnableAudioCodec7CaptionEv @ 320 NONAME
+	_ZNK35TMCETestUIEngineCmdEnableVideoCodec7CaptionEv @ 321 NONAME
+	_ZNK35TMCETestUIEngineCmdSendInfoResponse7CaptionEv @ 322 NONAME
+	_ZNK35TMCETestUIEngineCmdSetCryptoContext7CaptionEv @ 323 NONAME
+	_ZNK35TMCETestUIEngineCmdTerminateSession7CaptionEv @ 324 NONAME
+	_ZNK36TMCETestUIEngineCmdCreateMceSettings7CaptionEv @ 325 NONAME
+	_ZNK36TMCETestUIEngineCmdCreateVoIPSession7CaptionEv @ 326 NONAME
+	_ZNK36TMCETestUIEngineCmdDisableAudioCodec7CaptionEv @ 327 NONAME
+	_ZNK36TMCETestUIEngineCmdDisableVideoCodec7CaptionEv @ 328 NONAME
+	_ZNK36TMCETestUIEngineCmdEnableVideoSource7CaptionEv @ 329 NONAME
+	_ZNK36TMCETestUIEngineCmdEnableVideoStream7CaptionEv @ 330 NONAME
+	_ZNK36TMCETestUIEngineCmdStandByAudioCodec7CaptionEv @ 331 NONAME
+	_ZNK36TMCETestUIEngineCmdStandByVideoCodec7CaptionEv @ 332 NONAME
+	_ZNK37TMCETestUIEngineCmdCreateReferSession7CaptionEv @ 333 NONAME
+	_ZNK37TMCETestUIEngineCmdDisableVideoSource7CaptionEv @ 334 NONAME
+	_ZNK37TMCETestUIEngineCmdDisableVideoStream7CaptionEv @ 335 NONAME
+	_ZNK37TMCETestUIEngineCmdEnableVideoSession7CaptionEv @ 336 NONAME
+	_ZNK38TMCETestUIEngineCmdDisableVideoSession7CaptionEv @ 337 NONAME
+	_ZNK38TMCETestUIEngineCmdEstablishWithValues7CaptionEv @ 338 NONAME
+	_ZNK39TMCETestUIEngineCmdAudioCancelTranscode7CaptionEv @ 339 NONAME
+	_ZNK39TMCETestUIEngineCmdCurrentCryptoContext7CaptionEv @ 340 NONAME
+	_ZNK39TMCETestUIEngineCmdVideoCancelTranscode7CaptionEv @ 341 NONAME
+	_ZNK40TMCETestUIEngineCmdSendDtmfToneSequenceL7CaptionEv @ 342 NONAME
+	_ZNK41TMCETestUIEngineCmdCreate2WayVideoSession7CaptionEv @ 343 NONAME
+	_ZNK41TMCETestUIEngineCmdCreateMceValueSettings7CaptionEv @ 344 NONAME
+	_ZNK41TMCETestUIEngineCmdCreateSessionFromRefer7CaptionEv @ 345 NONAME
+	_ZNK41TMCETestUIEngineCmdSupportedCryptoContext7CaptionEv @ 346 NONAME
+	_ZNK42TMCETestUIEngineCmdUpdateSessionWithValues7CaptionEv @ 347 NONAME
+	_ZNK43TMCETestUIEngineCmdCreateSessionUsingAPList7CaptionEv @ 348 NONAME
+	_ZNK45TMCETestUIEngineCmdCreateSessionUsingAPNumber7CaptionEv @ 349 NONAME
+	_ZNK46TMCETestUIEngineCmdEnableReceivingVideoSession7CaptionEv @ 350 NONAME
+	_ZNK47TMCETestUIEngineCmdDisableReceivingVideoSession7CaptionEv @ 351 NONAME
+	_ZNK49TMCETestUIEngineCmdEnableRtpSourceInActivityTimer7CaptionEv @ 352 NONAME
+	_ZTI16CMCETestUIEngine @ 353 NONAME ; #<TI>#
+	_ZTI20CMCETestUIEngineSink @ 354 NONAME ; #<TI>#
+	_ZTI21CMCETestUIEngineCodec @ 355 NONAME ; #<TI>#
+	_ZTI21CMCETestUIEngineEvent @ 356 NONAME ; #<TI>#
+	_ZTI21CMCETestUIEngineRefer @ 357 NONAME ; #<TI>#
+	_ZTI22CMCETestUIEngineSource @ 358 NONAME ; #<TI>#
+	_ZTI22CMCETestUIQuestionBase @ 359 NONAME ; #<TI>#
+	_ZTI23CMCEPoCOmaCSCallWatcher @ 360 NONAME ; #<TI>#
+	_ZTI23CMCETestUIEngineInEvent @ 361 NONAME ; #<TI>#
+	_ZTI23CMCETestUIEngineInRefer @ 362 NONAME ; #<TI>#
+	_ZTI23CMCETestUIEngineProfile @ 363 NONAME ; #<TI>#
+	_ZTI23CMCETestUIEngineSession @ 364 NONAME ; #<TI>#
+	_ZTI23TMCETestUIEngineCmdBase @ 365 NONAME ; #<TI>#
+	_ZTI24CMCETestUIEngineOutEvent @ 366 NONAME ; #<TI>#
+	_ZTI24CMCETestUIEngineOutRefer @ 367 NONAME ; #<TI>#
+	_ZTI24TMCETestUIEngineCmdRefer @ 368 NONAME ; #<TI>#
+	_ZTI25CMCETestUIEngineInSession @ 369 NONAME ; #<TI>#
+	_ZTI25CMCETestUIEngineVideoSink @ 370 NONAME ; #<TI>#
+	_ZTI25TMCETestUIEngineCmdSendRR @ 371 NONAME ; #<TI>#
+	_ZTI25TMCETestUIEngineCmdSendSR @ 372 NONAME ; #<TI>#
+	_ZTI26CMCETestUIEngineOutSession @ 373 NONAME ; #<TI>#
+	_ZTI26CMCETestUIEngineVideoCodec @ 374 NONAME ; #<TI>#
+	_ZTI27CMCETestUIEngineAudioStream @ 375 NONAME ; #<TI>#
+	_ZTI27CMCETestUIEngineSipObserver @ 376 NONAME ; #<TI>#
+	_ZTI27CMCETestUIEngineVideoSource @ 377 NONAME ; #<TI>#
+	_ZTI27CMCETestUIEngineVideoStream @ 378 NONAME ; #<TI>#
+	_ZTI27CMCETestUIQuestionDataQuery @ 379 NONAME ; #<TI>#
+	_ZTI27TMCETestUIEngineCmdAddCodec @ 380 NONAME ; #<TI>#
+	_ZTI27TMCETestUIEngineCmdDTMFInfo @ 381 NONAME ; #<TI>#
+	_ZTI27TMCETestUIEngineCmdHoldCall @ 382 NONAME ; #<TI>#
+	_ZTI27TMCETestUIEngineCmdRegister @ 383 NONAME ; #<TI>#
+	_ZTI27TMCETestUIEngineCmdSendInfo @ 384 NONAME ; #<TI>#
+	_ZTI28TMCETestUIEngineCmdEstablish @ 385 NONAME ; #<TI>#
+	_ZTI29TMCETestUIEngineCmdEnableSink @ 386 NONAME ; #<TI>#
+	_ZTI29TMCETestUIEngineCmdUnregister @ 387 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdAcceptEvent @ 388 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdAcceptRefer @ 389 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdCreateEvent @ 390 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdCreateRefer @ 391 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdDeleteEvent @ 392 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdDeleteRefer @ 393 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdDisableSink @ 394 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdNotifyEvent @ 395 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdRejectEvent @ 396 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdRejectRefer @ 397 NONAME ; #<TI>#
+	_ZTI30TMCETestUIEngineCmdUpdateEvent @ 398 NONAME ; #<TI>#
+	_ZTI31TMCETestUIEngineCmdEnableSource @ 399 NONAME ; #<TI>#
+	_ZTI31TMCETestUIEngineCmdEnableStream @ 400 NONAME ; #<TI>#
+	_ZTI31TMCETestUIEngineCmdRespondRefer @ 401 NONAME ; #<TI>#
+	_ZTI32CMCETestUIEngineProfileContainer @ 402 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdAcceptSession @ 403 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdAnswerSession @ 404 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdCancelSession @ 405 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdCreateSession @ 406 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdDeleteSession @ 407 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdDisableSource @ 408 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdDisableStream @ 409 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdFCSendSession @ 410 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdRejectSession @ 411 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdSelectProfile @ 412 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdSendDtmfToneL @ 413 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdStopDtmfToneL @ 414 NONAME ; #<TI>#
+	_ZTI32TMCETestUIEngineCmdUpdateSession @ 415 NONAME ; #<TI>#
+	_ZTI33CMCETestUIQuestionSingleSelection @ 416 NONAME ; #<TI>#
+	_ZTI33TMCETestUIEngineCmdAudioTranscode @ 417 NONAME ; #<TI>#
+	_ZTI33TMCETestUIEngineCmdRespondSession @ 418 NONAME ; #<TI>#
+	_ZTI33TMCETestUIEngineCmdRingingSession @ 419 NONAME ; #<TI>#
+	_ZTI33TMCETestUIEngineCmdStartDtmfToneL @ 420 NONAME ; #<TI>#
+	_ZTI33TMCETestUIEngineCmdSubscribeEvent @ 421 NONAME ; #<TI>#
+	_ZTI33TMCETestUIEngineCmdTerminateEvent @ 422 NONAME ; #<TI>#
+	_ZTI33TMCETestUIEngineCmdVideoTranscode @ 423 NONAME ; #<TI>#
+	_ZTI33TMCETestUIEngineCmdWriteSdpToFile @ 424 NONAME ; #<TI>#
+	_ZTI34CMCETestUIEngineMultimediaObserver @ 425 NONAME ; #<TI>#
+	_ZTI34TMCETestUIEngineCmdEnableVideoSink @ 426 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdCreatePoCSession @ 427 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdCreateReferEvent @ 428 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdDeleteAudioCodec @ 429 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdDeleteVideoCodec @ 430 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdDisableVideoSink @ 431 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdEnableAudioCodec @ 432 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdEnableVideoCodec @ 433 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdSendInfoResponse @ 434 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdSetCryptoContext @ 435 NONAME ; #<TI>#
+	_ZTI35TMCETestUIEngineCmdTerminateSession @ 436 NONAME ; #<TI>#
+	_ZTI36TMCETestUIEngineCmdCreateMceSettings @ 437 NONAME ; #<TI>#
+	_ZTI36TMCETestUIEngineCmdCreateVoIPSession @ 438 NONAME ; #<TI>#
+	_ZTI36TMCETestUIEngineCmdDisableAudioCodec @ 439 NONAME ; #<TI>#
+	_ZTI36TMCETestUIEngineCmdDisableVideoCodec @ 440 NONAME ; #<TI>#
+	_ZTI36TMCETestUIEngineCmdEnableVideoSource @ 441 NONAME ; #<TI>#
+	_ZTI36TMCETestUIEngineCmdEnableVideoStream @ 442 NONAME ; #<TI>#
+	_ZTI36TMCETestUIEngineCmdStandByAudioCodec @ 443 NONAME ; #<TI>#
+	_ZTI36TMCETestUIEngineCmdStandByVideoCodec @ 444 NONAME ; #<TI>#
+	_ZTI37TMCETestUIEngineCmdCreateReferSession @ 445 NONAME ; #<TI>#
+	_ZTI37TMCETestUIEngineCmdDisableVideoSource @ 446 NONAME ; #<TI>#
+	_ZTI37TMCETestUIEngineCmdDisableVideoStream @ 447 NONAME ; #<TI>#
+	_ZTI37TMCETestUIEngineCmdDisplayProfileUser @ 448 NONAME ; #<TI>#
+	_ZTI37TMCETestUIEngineCmdEnableVideoSession @ 449 NONAME ; #<TI>#
+	_ZTI38TMCETestUIEngineCmdDisableVideoSession @ 450 NONAME ; #<TI>#
+	_ZTI38TMCETestUIEngineCmdEstablishWithValues @ 451 NONAME ; #<TI>#
+	_ZTI39TMCETestUIEngineCmdAudioCancelTranscode @ 452 NONAME ; #<TI>#
+	_ZTI39TMCETestUIEngineCmdCurrentCryptoContext @ 453 NONAME ; #<TI>#
+	_ZTI39TMCETestUIEngineCmdVideoCancelTranscode @ 454 NONAME ; #<TI>#
+	_ZTI40TMCETestUIEngineCmdSendDtmfToneSequenceL @ 455 NONAME ; #<TI>#
+	_ZTI41TMCETestUIEngineCmdCreate2WayVideoSession @ 456 NONAME ; #<TI>#
+	_ZTI41TMCETestUIEngineCmdCreateMceValueSettings @ 457 NONAME ; #<TI>#
+	_ZTI41TMCETestUIEngineCmdCreateSessionFromRefer @ 458 NONAME ; #<TI>#
+	_ZTI41TMCETestUIEngineCmdSupportedCryptoContext @ 459 NONAME ; #<TI>#
+	_ZTI42TMCETestUIEngineCmdUpdateSessionWithValues @ 460 NONAME ; #<TI>#
+	_ZTI43TMCETestUIEngineCmdCreateSessionUsingAPList @ 461 NONAME ; #<TI>#
+	_ZTI45TMCETestUIEngineCmdCreateSessionUsingAPNumber @ 462 NONAME ; #<TI>#
+	_ZTI46TMCETestUIEngineCmdEnableReceivingVideoSession @ 463 NONAME ; #<TI>#
+	_ZTI47TMCETestUIEngineCmdDisableReceivingVideoSession @ 464 NONAME ; #<TI>#
+	_ZTI49TMCETestUIEngineCmdEnableRtpSourceInActivityTimer @ 465 NONAME ; #<TI>#
+	_ZTV16CMCETestUIEngine @ 466 NONAME ; #<VT>#
+	_ZTV20CMCETestUIEngineSink @ 467 NONAME ; #<VT>#
+	_ZTV21CMCETestUIEngineCodec @ 468 NONAME ; #<VT>#
+	_ZTV21CMCETestUIEngineEvent @ 469 NONAME ; #<VT>#
+	_ZTV21CMCETestUIEngineRefer @ 470 NONAME ; #<VT>#
+	_ZTV22CMCETestUIEngineSource @ 471 NONAME ; #<VT>#
+	_ZTV22CMCETestUIQuestionBase @ 472 NONAME ; #<VT>#
+	_ZTV23CMCEPoCOmaCSCallWatcher @ 473 NONAME ; #<VT>#
+	_ZTV23CMCETestUIEngineInEvent @ 474 NONAME ; #<VT>#
+	_ZTV23CMCETestUIEngineInRefer @ 475 NONAME ; #<VT>#
+	_ZTV23CMCETestUIEngineProfile @ 476 NONAME ; #<VT>#
+	_ZTV23CMCETestUIEngineSession @ 477 NONAME ; #<VT>#
+	_ZTV23TMCETestUIEngineCmdBase @ 478 NONAME ; #<VT>#
+	_ZTV24CMCETestUIEngineOutEvent @ 479 NONAME ; #<VT>#
+	_ZTV24CMCETestUIEngineOutRefer @ 480 NONAME ; #<VT>#
+	_ZTV24TMCETestUIEngineCmdRefer @ 481 NONAME ; #<VT>#
+	_ZTV25CMCETestUIEngineInSession @ 482 NONAME ; #<VT>#
+	_ZTV25CMCETestUIEngineVideoSink @ 483 NONAME ; #<VT>#
+	_ZTV25TMCETestUIEngineCmdSendRR @ 484 NONAME ; #<VT>#
+	_ZTV25TMCETestUIEngineCmdSendSR @ 485 NONAME ; #<VT>#
+	_ZTV26CMCETestUIEngineOutSession @ 486 NONAME ; #<VT>#
+	_ZTV26CMCETestUIEngineVideoCodec @ 487 NONAME ; #<VT>#
+	_ZTV27CMCETestUIEngineAudioStream @ 488 NONAME ; #<VT>#
+	_ZTV27CMCETestUIEngineSipObserver @ 489 NONAME ; #<VT>#
+	_ZTV27CMCETestUIEngineVideoSource @ 490 NONAME ; #<VT>#
+	_ZTV27CMCETestUIEngineVideoStream @ 491 NONAME ; #<VT>#
+	_ZTV27CMCETestUIQuestionDataQuery @ 492 NONAME ; #<VT>#
+	_ZTV27TMCETestUIEngineCmdAddCodec @ 493 NONAME ; #<VT>#
+	_ZTV27TMCETestUIEngineCmdDTMFInfo @ 494 NONAME ; #<VT>#
+	_ZTV27TMCETestUIEngineCmdHoldCall @ 495 NONAME ; #<VT>#
+	_ZTV27TMCETestUIEngineCmdRegister @ 496 NONAME ; #<VT>#
+	_ZTV27TMCETestUIEngineCmdSendInfo @ 497 NONAME ; #<VT>#
+	_ZTV28TMCETestUIEngineCmdEstablish @ 498 NONAME ; #<VT>#
+	_ZTV29TMCETestUIEngineCmdEnableSink @ 499 NONAME ; #<VT>#
+	_ZTV29TMCETestUIEngineCmdUnregister @ 500 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdAcceptEvent @ 501 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdAcceptRefer @ 502 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdCreateEvent @ 503 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdCreateRefer @ 504 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdDeleteEvent @ 505 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdDeleteRefer @ 506 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdDisableSink @ 507 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdNotifyEvent @ 508 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdRejectEvent @ 509 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdRejectRefer @ 510 NONAME ; #<VT>#
+	_ZTV30TMCETestUIEngineCmdUpdateEvent @ 511 NONAME ; #<VT>#
+	_ZTV31TMCETestUIEngineCmdEnableSource @ 512 NONAME ; #<VT>#
+	_ZTV31TMCETestUIEngineCmdEnableStream @ 513 NONAME ; #<VT>#
+	_ZTV31TMCETestUIEngineCmdRespondRefer @ 514 NONAME ; #<VT>#
+	_ZTV32CMCETestUIEngineProfileContainer @ 515 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdAcceptSession @ 516 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdAnswerSession @ 517 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdCancelSession @ 518 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdCreateSession @ 519 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdDeleteSession @ 520 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdDisableSource @ 521 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdDisableStream @ 522 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdFCSendSession @ 523 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdRejectSession @ 524 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdSelectProfile @ 525 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdSendDtmfToneL @ 526 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdStopDtmfToneL @ 527 NONAME ; #<VT>#
+	_ZTV32TMCETestUIEngineCmdUpdateSession @ 528 NONAME ; #<VT>#
+	_ZTV33CMCETestUIQuestionSingleSelection @ 529 NONAME ; #<VT>#
+	_ZTV33TMCETestUIEngineCmdAudioTranscode @ 530 NONAME ; #<VT>#
+	_ZTV33TMCETestUIEngineCmdRespondSession @ 531 NONAME ; #<VT>#
+	_ZTV33TMCETestUIEngineCmdRingingSession @ 532 NONAME ; #<VT>#
+	_ZTV33TMCETestUIEngineCmdStartDtmfToneL @ 533 NONAME ; #<VT>#
+	_ZTV33TMCETestUIEngineCmdSubscribeEvent @ 534 NONAME ; #<VT>#
+	_ZTV33TMCETestUIEngineCmdTerminateEvent @ 535 NONAME ; #<VT>#
+	_ZTV33TMCETestUIEngineCmdVideoTranscode @ 536 NONAME ; #<VT>#
+	_ZTV33TMCETestUIEngineCmdWriteSdpToFile @ 537 NONAME ; #<VT>#
+	_ZTV34CMCETestUIEngineMultimediaObserver @ 538 NONAME ; #<VT>#
+	_ZTV34TMCETestUIEngineCmdEnableVideoSink @ 539 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdCreatePoCSession @ 540 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdCreateReferEvent @ 541 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdDeleteAudioCodec @ 542 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdDeleteVideoCodec @ 543 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdDisableVideoSink @ 544 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdEnableAudioCodec @ 545 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdEnableVideoCodec @ 546 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdSendInfoResponse @ 547 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdSetCryptoContext @ 548 NONAME ; #<VT>#
+	_ZTV35TMCETestUIEngineCmdTerminateSession @ 549 NONAME ; #<VT>#
+	_ZTV36TMCETestUIEngineCmdCreateMceSettings @ 550 NONAME ; #<VT>#
+	_ZTV36TMCETestUIEngineCmdCreateVoIPSession @ 551 NONAME ; #<VT>#
+	_ZTV36TMCETestUIEngineCmdDisableAudioCodec @ 552 NONAME ; #<VT>#
+	_ZTV36TMCETestUIEngineCmdDisableVideoCodec @ 553 NONAME ; #<VT>#
+	_ZTV36TMCETestUIEngineCmdEnableVideoSource @ 554 NONAME ; #<VT>#
+	_ZTV36TMCETestUIEngineCmdEnableVideoStream @ 555 NONAME ; #<VT>#
+	_ZTV36TMCETestUIEngineCmdStandByAudioCodec @ 556 NONAME ; #<VT>#
+	_ZTV36TMCETestUIEngineCmdStandByVideoCodec @ 557 NONAME ; #<VT>#
+	_ZTV37TMCETestUIEngineCmdCreateReferSession @ 558 NONAME ; #<VT>#
+	_ZTV37TMCETestUIEngineCmdDisableVideoSource @ 559 NONAME ; #<VT>#
+	_ZTV37TMCETestUIEngineCmdDisableVideoStream @ 560 NONAME ; #<VT>#
+	_ZTV37TMCETestUIEngineCmdDisplayProfileUser @ 561 NONAME ; #<VT>#
+	_ZTV37TMCETestUIEngineCmdEnableVideoSession @ 562 NONAME ; #<VT>#
+	_ZTV38TMCETestUIEngineCmdDisableVideoSession @ 563 NONAME ; #<VT>#
+	_ZTV38TMCETestUIEngineCmdEstablishWithValues @ 564 NONAME ; #<VT>#
+	_ZTV39TMCETestUIEngineCmdAudioCancelTranscode @ 565 NONAME ; #<VT>#
+	_ZTV39TMCETestUIEngineCmdCurrentCryptoContext @ 566 NONAME ; #<VT>#
+	_ZTV39TMCETestUIEngineCmdVideoCancelTranscode @ 567 NONAME ; #<VT>#
+	_ZTV40TMCETestUIEngineCmdSendDtmfToneSequenceL @ 568 NONAME ; #<VT>#
+	_ZTV41TMCETestUIEngineCmdCreate2WayVideoSession @ 569 NONAME ; #<VT>#
+	_ZTV41TMCETestUIEngineCmdCreateMceValueSettings @ 570 NONAME ; #<VT>#
+	_ZTV41TMCETestUIEngineCmdCreateSessionFromRefer @ 571 NONAME ; #<VT>#
+	_ZTV41TMCETestUIEngineCmdSupportedCryptoContext @ 572 NONAME ; #<VT>#
+	_ZTV42TMCETestUIEngineCmdUpdateSessionWithValues @ 573 NONAME ; #<VT>#
+	_ZTV43TMCETestUIEngineCmdCreateSessionUsingAPList @ 574 NONAME ; #<VT>#
+	_ZTV45TMCETestUIEngineCmdCreateSessionUsingAPNumber @ 575 NONAME ; #<VT>#
+	_ZTV46TMCETestUIEngineCmdEnableReceivingVideoSession @ 576 NONAME ; #<VT>#
+	_ZTV47TMCETestUIEngineCmdDisableReceivingVideoSession @ 577 NONAME ; #<VT>#
+	_ZTV49TMCETestUIEngineCmdEnableRtpSourceInActivityTimer @ 578 NONAME ; #<VT>#
+	_ZThn4_N16CMCETestUIEngine12GetCommandsLEv @ 579 NONAME ; #<thunk>#
+

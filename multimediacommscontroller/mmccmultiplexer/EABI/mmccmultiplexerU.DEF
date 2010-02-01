@@ -1,0 +1,18 @@
+EXPORTS
+	_ZN15CMccMultiplexer15SetCurrentUserLER9MDataSink @ 1 NONAME
+	_ZN15CMccMultiplexer21RegClientForPayloadsLER9MDataSinkRK6RArrayIjE @ 2 NONAME
+	_ZN15CMccMultiplexer28MultiplexerSourceThreadLogonER18MAsyncEventHandlerR9MDataSinki4TUidi @ 3 NONAME
+	_ZN15CMccMultiplexer29MultiplexerSourceThreadLogoffEP9MDataSink @ 4 NONAME
+	_ZN15CMccMultiplexer4NewLEP11MDataSource @ 5 NONAME
+	_ZN15CMccMultiplexerD0Ev @ 6 NONAME
+	_ZN15CMccMultiplexerD1Ev @ 7 NONAME
+	_ZN15CMccMultiplexerD2Ev @ 8 NONAME
+	_ZTI12CMccSinkItem @ 9 NONAME ; #<TI>#
+	_ZTI15CMccMultiplexer @ 10 NONAME ; #<TI>#
+	_ZTV12CMccSinkItem @ 11 NONAME ; #<VT>#
+	_ZTV15CMccMultiplexer @ 12 NONAME ; #<VT>#
+	_ZThn16_N15CMccMultiplexerD0Ev @ 13 NONAME ; #<thunk>#
+	_ZThn16_N15CMccMultiplexerD1Ev @ 14 NONAME ; #<thunk>#
+	_ZThn4_N15CMccMultiplexerD0Ev @ 15 NONAME ; #<thunk>#
+	_ZThn4_N15CMccMultiplexerD1Ev @ 16 NONAME ; #<thunk>#
+

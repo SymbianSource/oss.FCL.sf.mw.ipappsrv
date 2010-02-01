@@ -1,0 +1,54 @@
+EXPORTS
+	_ZN14CMccUlDlClient10CloseLinkLEm @ 1 NONAME
+	_ZN14CMccUlDlClient10MaxVolumeLEmmRi @ 2 NONAME
+	_ZN14CMccUlDlClient10SetVolumeLEi @ 3 NONAME
+	_ZN14CMccUlDlClient11CreateLinkLERmi @ 4 NONAME
+	_ZN14CMccUlDlClient12GetFmtpAttrLEmmR5TDes8 @ 5 NONAME
+	_ZN14CMccUlDlClient12GetSessionIdEv @ 6 NONAME
+	_ZN14CMccUlDlClient12SetPriorityLEmm20TMMFPrioritySettings @ 7 NONAME
+	_ZN14CMccUlDlClient13GetParameterLEmmmmR6TDesC8 @ 8 NONAME
+	_ZN14CMccUlDlClient13SendRTCPDataLEmmRK6TDesC8 @ 9 NONAME
+	_ZN14CMccUlDlClient13SetParameterLEmmmmRK6TDesC8 @ 10 NONAME
+	_ZN14CMccUlDlClient14GetAudioRouteLEmmRm @ 11 NONAME
+	_ZN14CMccUlDlClient14RemoveContextLEmmm @ 12 NONAME
+	_ZN14CMccUlDlClient14SetAudioRouteLEmmm @ 13 NONAME
+	_ZN14CMccUlDlClient14StreamsExistsLEm @ 14 NONAME
+	_ZN14CMccUlDlClient15GetPlayBalanceLEmmRiS0_ @ 15 NONAME
+	_ZN14CMccUlDlClient15InitializeLinkLER14TRequestStatusmi @ 16 NONAME
+	_ZN14CMccUlDlClient15SetPlayBalanceLEmmii @ 17 NONAME
+	_ZN14CMccUlDlClient16GenerateStreamIdEv @ 18 NONAME
+	_ZN14CMccUlDlClient16SendMediaSignalLERK9TMccEvent @ 19 NONAME
+	_ZN14CMccUlDlClient17CreateRtpSessionLEmjii @ 20 NONAME
+	_ZN14CMccUlDlClient17GetCodecDefaultsLE4TUidR5TDes8R13TMccCodecInfo @ 21 NONAME
+	_ZN14CMccUlDlClient17GetRecordBalanceLEmmRiS0_ @ 22 NONAME
+	_ZN14CMccUlDlClient17SetRecordBalanceLEmmii @ 23 NONAME
+	_ZN14CMccUlDlClient17SetRemoteAddressLE9TInetAddrm @ 24 NONAME
+	_ZN14CMccUlDlClient18SetRemoteRtcpAddrLE9TInetAddrm @ 25 NONAME
+	_ZN14CMccUlDlClient20GetLocalIpAddressesLER14TMccCreateLink @ 26 NONAME
+	_ZN14CMccUlDlClient20SetCodecInformationLEmmRK13TMccCodecInfoRK6TDesC8 @ 27 NONAME
+	_ZN14CMccUlDlClient20StopInactivityTimerLEmm @ 28 NONAME
+	_ZN14CMccUlDlClient21GetSupportedBitratesLEmmR6RArrayIjE @ 29 NONAME
+	_ZN14CMccUlDlClient21SendRTCPSenderReportLEmm @ 30 NONAME
+	_ZN14CMccUlDlClient21StartInactivityTimerLEmmm @ 31 NONAME
+	_ZN14CMccUlDlClient22BindContextIntoStreamLEmmmRK17TMccCryptoContext @ 32 NONAME
+	_ZN14CMccUlDlClient23SendRTCPReceiverReportLEmm @ 33 NONAME
+	_ZN14CMccUlDlClient4NewLEP16MMccEventHandlerP13MMccResourcesm @ 34 NONAME
+	_ZN14CMccUlDlClient5OpenLEmmi7TFourCCP11MDataSourceP9MDataSink20TMMFPrioritySettings @ 35 NONAME
+	_ZN14CMccUlDlClient5PlayLEmmmii @ 36 NONAME
+	_ZN14CMccUlDlClient5StopLEmmm @ 37 NONAME
+	_ZN14CMccUlDlClient6CloseLEmm @ 38 NONAME
+	_ZN14CMccUlDlClient6PauseLEmmmi @ 39 NONAME
+	_ZN14CMccUlDlClient6UnuseLEmm @ 40 NONAME
+	_ZN14CMccUlDlClient7ResumeLEmmmi @ 41 NONAME
+	_ZN14CMccUlDlClient8GetGainLEmmRi @ 42 NONAME
+	_ZN14CMccUlDlClient8GetSSRCLEmmRm @ 43 NONAME
+	_ZN14CMccUlDlClient8MaxGainLEmmRi @ 44 NONAME
+	_ZN14CMccUlDlClient8PrepareLEmmm @ 45 NONAME
+	_ZN14CMccUlDlClient8SetGainLEi @ 46 NONAME
+	_ZN14CMccUlDlClient9GetCodecLEmmR13TMccCodecInfo @ 47 NONAME
+	_ZN14CMccUlDlClientD0Ev @ 48 NONAME
+	_ZN14CMccUlDlClientD1Ev @ 49 NONAME
+	_ZN14CMccUlDlClientD2Ev @ 50 NONAME
+	_ZTI14CMccUlDlClient @ 51 NONAME ; #<TI>#
+	_ZTV14CMccUlDlClient @ 52 NONAME ; #<VT>#
+

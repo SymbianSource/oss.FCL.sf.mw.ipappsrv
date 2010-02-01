@@ -1,0 +1,61 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET      	mmcch263plformat.dll
+
+CAPABILITY 		CAP_ECOM_PLUGIN
+VENDORID		VID_DEFAULT
+TARGETTYPE		PLUGIN
+
+UID             0x10009D8D 0x102747D9
+
+SOURCEPATH      ../src 
+SOURCE          mcch263payloadformatwrite.cpp
+SOURCE          mcch263payloadformatimplementationproxy.cpp
+SOURCE          mcch263oldpayloadencoder.cpp
+SOURCE          mcch263newpayloadencoder.cpp
+
+SOURCEPATH      ../../mmccshared/src
+SOURCE          formatstatemachine.cpp
+
+SOURCEPATH      ../data
+
+START RESOURCE	102747D9.rss
+TARGET          mmcch263plformat.rsc
+END
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../mmccshared/inc
+USERINCLUDE     ../../mmcccontroller/inc
+USERINCLUDE     ../../mmccinterface/inc
+USERINCLUDE     ../../mmccsubcontroller/inc
+USERINCLUDE     ../../mmccrtpsourcesink/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+
+LIBRARY         euser.lib                       
+LIBRARY         ecom.lib                        
+LIBRARY         mmfserverbaseclasses.lib
+LIBRARY         mmfcontrollerframework.lib
+
+PAGED

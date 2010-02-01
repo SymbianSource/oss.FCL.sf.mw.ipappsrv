@@ -1,0 +1,6 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZN13CIcmpReceiver4NewLER18MIcmpErrorObserverR11RSocketServ @ 2 NONAME
+	_ZTI13CIcmpReceiver @ 3 NONAME ; #<TI>#
+	_ZTV13CIcmpReceiver @ 4 NONAME ; #<VT>#
+

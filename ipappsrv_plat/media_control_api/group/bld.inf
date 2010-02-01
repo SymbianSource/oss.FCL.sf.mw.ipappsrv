@@ -1,0 +1,39 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    File that exports the files belonging to 
+:                media control api
+*
+*/
+
+
+
+
+#include <platform_paths.hrh>
+
+PRJ_PLATFORMS
+DEFAULT
+
+PRJ_EXPORTS
+
+../inc/mmcccodecinformation.h    MW_LAYER_PLATFORM_EXPORT_PATH(mmcccodecinformation.h)
+../inc/mmcccodecinformationfactory.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmcccodecinformationfactory.h)
+../inc/mmccctrlobserver.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmccctrlobserver.h)
+../inc/mmccevents.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmccevents.h)
+../inc/mmccinterface.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmccinterface.h)
+../inc/mmccinterfacedef.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmccinterfacedef.h)
+../inc/mmccnetworksettings.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmccnetworksettings.h)
+../inc/mmccsecureinterface.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmccsecureinterface.h)
+../inc/mmccsrtpcryptoparams.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmccsrtpcryptoparams.h)
+../inc/mmccsrtpmasterkey.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmccsrtpmasterkey.h)
+../inc/mmccsrtpmastersalt.h     MW_LAYER_PLATFORM_EXPORT_PATH(mmccsrtpmastersalt.h)

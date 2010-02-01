@@ -1,0 +1,176 @@
+EXPORTS
+	_ZN11CTcRegistry10AddObjectLEP5CBase @ 1 NONAME
+	_ZN11CTcRegistry10AddObjectLEPv @ 2 NONAME
+	_ZN11CTcRegistry10AddObjectLERK5CBase @ 3 NONAME
+	_ZN11CTcRegistry10DestroyAllEv @ 4 NONAME
+	_ZN11CTcRegistry10ObjectPtrLERK6TDesC8 @ 5 NONAME
+	_ZN11CTcRegistry12IsRegisteredEPKv @ 6 NONAME
+	_ZN11CTcRegistry13DestroyObjectEPv @ 7 NONAME
+	_ZN11CTcRegistry13DestroyObjectERK6TDesC8 @ 8 NONAME
+	_ZN11CTcRegistryC1Ev @ 9 NONAME
+	_ZN11CTcRegistryC2Ev @ 10 NONAME
+	_ZN11CTcRegistryD0Ev @ 11 NONAME
+	_ZN11CTcRegistryD1Ev @ 12 NONAME
+	_ZN11CTcRegistryD2Ev @ 13 NONAME
+	_ZN12CTcCTRLCodec17ConstructResponseERK13TTcIdentifierRK12CTcNameValueRK16CTcParameterList @ 14 NONAME
+	_ZN12CTcCTRLCodec19ConstructOkResponseEv @ 15 NONAME
+	_ZN12CTcCTRLCodec22ConstructErrorResponseERK6TDesC8 @ 16 NONAME
+	_ZN12CTcCTRLCodecC1ER5TDes8S1_ @ 17 NONAME
+	_ZN12CTcCTRLCodecC2ER5TDes8S1_ @ 18 NONAME
+	_ZN12CTcCTRLCodecD0Ev @ 19 NONAME
+	_ZN12CTcCTRLCodecD1Ev @ 20 NONAME
+	_ZN12CTcCTRLCodecD2Ev @ 21 NONAME
+	_ZN12CTcNameValue4SetLERK6TDesC8S2_ @ 22 NONAME
+	_ZN12CTcNameValue4SetLERK6TDesC8i @ 23 NONAME
+	_ZN12CTcNameValue5NewLCEv @ 24 NONAME
+	_ZN12CTcNameValue8SetNameLERK6TDesC8 @ 25 NONAME
+	_ZN12CTcNameValue9SetValueLERK6TDesC8 @ 26 NONAME
+	_ZN12CTcNameValue9SetValueLEi @ 27 NONAME
+	_ZN12CTcNameValueD0Ev @ 28 NONAME
+	_ZN12CTcNameValueD1Ev @ 29 NONAME
+	_ZN12CTcNameValueD2Ev @ 30 NONAME
+	_ZN12CTcStructure4ItemERK6TDesC8 @ 31 NONAME
+	_ZN12CTcStructure5ItemLERK6TDesC8i @ 32 NONAME
+	_ZN12CTcStructure5ItemLEii @ 33 NONAME
+	_ZN12CTcStructure5NewLCEv @ 34 NONAME
+	_ZN12CTcStructure7SetNameERK6TDesC8 @ 35 NONAME
+	_ZN12CTcStructure8AddItemLEP12CTcNameValue @ 36 NONAME
+	_ZN12CTcStructure8AddItemLERK6TDesC8S2_ @ 37 NONAME
+	_ZN12CTcStructure8AddItemLERK6TDesC8i @ 38 NONAME
+	_ZN12CTcStructureD0Ev @ 39 NONAME
+	_ZN12CTcStructureD1Ev @ 40 NONAME
+	_ZN12CTcStructureD2Ev @ 41 NONAME
+	_ZN13CTcTestRunner4NewLER9CTcBearerR15MTcTestObserveri @ 42 NONAME
+	_ZN13CTcTestRunner4StopEv @ 43 NONAME
+	_ZN13CTcTestRunner5StartEv @ 44 NONAME
+	_ZN13CTcTestRunnerD0Ev @ 45 NONAME
+	_ZN13CTcTestRunnerD1Ev @ 46 NONAME
+	_ZN13CTcTestRunnerD2Ev @ 47 NONAME
+	_ZN13TTcIdentifierC1ERK6TDesC8 @ 48 NONAME
+	_ZN13TTcIdentifierC1ERK6TDesC8S2_ @ 49 NONAME
+	_ZN13TTcIdentifierC1Ev @ 50 NONAME
+	_ZN13TTcIdentifierC2ERK6TDesC8 @ 51 NONAME
+	_ZN13TTcIdentifierC2ERK6TDesC8S2_ @ 52 NONAME
+	_ZN13TTcIdentifierC2Ev @ 53 NONAME
+	_ZN13TTcIdentifierD1Ev @ 54 NONAME
+	_ZN13TTcIdentifierD2Ev @ 55 NONAME
+	_ZN14CTcContextBase10ReturnListEv @ 56 NONAME
+	_ZN14CTcContextBase14CreateCommandLEPK9TcCommandiR13TTcIdentifierR14MTcTestContext @ 57 NONAME
+	_ZN14CTcContextBase4ListEv @ 58 NONAME
+	_ZN14CTcContextBase5CodecEv @ 59 NONAME
+	_ZN14CTcContextBase6ResetLERK13TTcIdentifier @ 60 NONAME
+	_ZN14CTcContextBase8ExecuteLEv @ 61 NONAME
+	_ZN14CTcContextBase8RegistryEv @ 62 NONAME
+	_ZN14CTcContextBaseC2ER12CTcCTRLCodec @ 63 NONAME
+	_ZN14CTcContextBaseD0Ev @ 64 NONAME
+	_ZN14CTcContextBaseD1Ev @ 65 NONAME
+	_ZN14CTcContextBaseD2Ev @ 66 NONAME
+	_ZN14TTcCommandBase16AddTextResponseLERK6TDesC8S2_ @ 67 NONAME
+	_ZN14TTcCommandBase17AddArrayResponseLERK6TDesC8RK11MDesC8Array @ 68 NONAME
+	_ZN14TTcCommandBase19AddBooleanResponseLERK6TDesC8i @ 69 NONAME
+	_ZN14TTcCommandBase19AddIntegerResponseLERK6TDesC8i @ 70 NONAME
+	_ZN14TTcCommandBase21AddStructureResponseLERK6TDesC8 @ 71 NONAME
+	_ZN14TTcCommandBase5MatchERK13TTcIdentifierRK6TDesC8 @ 72 NONAME
+	_ZN14TTcCommandBase5MatchERK13TTcIdentifierRK6TDesC8S5_ @ 73 NONAME
+	_ZN14TTcCommandBaseC2ER14CTcContextBase @ 74 NONAME
+	_ZN14TTcCommandBaseD0Ev @ 75 NONAME
+	_ZN14TTcCommandBaseD1Ev @ 76 NONAME
+	_ZN14TTcCommandBaseD2Ev @ 77 NONAME
+	_ZN16CTcParameterList13AddParameterLEP8MTcTyped @ 78 NONAME
+	_ZN16CTcParameterList15RemoveParameterERK6TDesC8N8MTcTyped14TParameterTypeE @ 79 NONAME
+	_ZN16CTcParameterList16InsertParameterLEP8MTcTypedi @ 80 NONAME
+	_ZN16CTcParameterList5ResetEv @ 81 NONAME
+	_ZN16CTcParameterListC1Ev @ 82 NONAME
+	_ZN16CTcParameterListC2Ev @ 83 NONAME
+	_ZN16CTcParameterListD0Ev @ 84 NONAME
+	_ZN16CTcParameterListD1Ev @ 85 NONAME
+	_ZN16CTcParameterListD2Ev @ 86 NONAME
+	_ZN5TcLog11WriteFormatE11TRefByValueIK6TDesC8Ez @ 87 NONAME
+	_ZN5TcLog11WriteFormatE11TRefByValueIK7TDesC16Ez @ 88 NONAME
+	_ZN5TcLog5WriteERK6TDesC8 @ 89 NONAME
+	_ZN5TcLog5WriteERK7TDesC16 @ 90 NONAME
+	_ZN5TcLog8ClearLogEv @ 91 NONAME
+	_ZN5TcLog9ReadLogLCEv @ 92 NONAME
+	_ZN8CTcArray10RemoveItemEi @ 93 NONAME
+	_ZN8CTcArray5NewLCEv @ 94 NONAME
+	_ZN8CTcArray7SetNameERK6TDesC8 @ 95 NONAME
+	_ZN8CTcArray8AddItemLERK6TDesC8 @ 96 NONAME
+	_ZN8CTcArray8AddItemLEi @ 97 NONAME
+	_ZN8CTcArray9AddItemsLERK11MDesC8Array @ 98 NONAME
+	_ZN8CTcArrayD0Ev @ 99 NONAME
+	_ZN8CTcArrayD1Ev @ 100 NONAME
+	_ZN8CTcArrayD2Ev @ 101 NONAME
+	_ZNK11CTcRegistry11ObjectNameLEPKv @ 102 NONAME
+	_ZNK11CTcRegistry5CountEv @ 103 NONAME
+	_ZNK12CTcCTRLCodec10IsCompleteEv @ 104 NONAME
+	_ZNK12CTcCTRLCodec11RequestTypeEv @ 105 NONAME
+	_ZNK12CTcCTRLCodec14GetIdentifierLER13TTcIdentifier @ 106 NONAME
+	_ZNK12CTcCTRLCodec14GetParametersLER16CTcParameterList @ 107 NONAME
+	_ZNK12CTcNameValue10NameAsIntLEv @ 108 NONAME
+	_ZNK12CTcNameValue10ValueAsIntEv @ 109 NONAME
+	_ZNK12CTcNameValue11ValueAsIntLEv @ 110 NONAME
+	_ZNK12CTcNameValue5ValueEv @ 111 NONAME
+	_ZNK12CTcStructure4ItemEi @ 112 NONAME
+	_ZNK12CTcStructure5CountEv @ 113 NONAME
+	_ZNK13CTcTestRunner18CurrentRequestNameEv @ 114 NONAME
+	_ZNK13CTcTestRunner19CurrentTestCaseNameEv @ 115 NONAME
+	_ZNK14TTcCommandBase10ExtractIdLERK6TDesC8i @ 116 NONAME
+	_ZNK14TTcCommandBase10FindArrayLERK6TDesC8i @ 117 NONAME
+	_ZNK14TTcCommandBase12ExtractTextLERK6TDesC8i @ 118 NONAME
+	_ZNK14TTcCommandBase14FindNameValueLEP12CTcStructureRK6TDesC8i @ 119 NONAME
+	_ZNK14TTcCommandBase14FindNameValueLERK6TDesC8i @ 120 NONAME
+	_ZNK14TTcCommandBase14FindStructureLERK6TDesC8i @ 121 NONAME
+	_ZNK14TTcCommandBase15ExtractBooleanLERK6TDesC8i @ 122 NONAME
+	_ZNK14TTcCommandBase15ExtractIntegerLERK6TDesC8ii @ 123 NONAME
+	_ZNK14TTcCommandBase15GetObjectForIdLERK6TDesC8i @ 124 NONAME
+	_ZNK16CTcParameterList11AsNameValueEi @ 125 NONAME
+	_ZNK16CTcParameterList11AsStructureEi @ 126 NONAME
+	_ZNK16CTcParameterList12AsNameValueLEi @ 127 NONAME
+	_ZNK16CTcParameterList12AsStructureLEi @ 128 NONAME
+	_ZNK16CTcParameterList13FindParameterERK6TDesC8N8MTcTyped14TParameterTypeE @ 129 NONAME
+	_ZNK16CTcParameterList13ParameterTypeEi @ 130 NONAME
+	_ZNK16CTcParameterList5CountEv @ 131 NONAME
+	_ZNK16CTcParameterList7AsArrayEi @ 132 NONAME
+	_ZNK16CTcParameterList8AsArrayLEi @ 133 NONAME
+	_ZNK8CTcArray12AsMDesCArrayEv @ 134 NONAME
+	_ZNK8CTcArray4ItemEi @ 135 NONAME
+	_ZNK8CTcArray5CountEv @ 136 NONAME
+	_ZNK8CTcArray9ItemAsIntEi @ 137 NONAME
+	_ZTI11CTcRegistry @ 138 NONAME ; #<TI>#
+	_ZTI12CTcCTRLCodec @ 139 NONAME ; #<TI>#
+	_ZTI12CTcNameValue @ 140 NONAME ; #<TI>#
+	_ZTI12CTcStructure @ 141 NONAME ; #<TI>#
+	_ZTI13CTcTestRunner @ 142 NONAME ; #<TI>#
+	_ZTI14CTcContextBase @ 143 NONAME ; #<TI>#
+	_ZTI14TTcCommandBase @ 144 NONAME ; #<TI>#
+	_ZTI16CTcParameterList @ 145 NONAME ; #<TI>#
+	_ZTI8CTcArray @ 146 NONAME ; #<TI>#
+	_ZTV11CTcRegistry @ 147 NONAME ; #<VT>#
+	_ZTV12CTcCTRLCodec @ 148 NONAME ; #<VT>#
+	_ZTV12CTcNameValue @ 149 NONAME ; #<VT>#
+	_ZTV12CTcStructure @ 150 NONAME ; #<VT>#
+	_ZTV13CTcTestRunner @ 151 NONAME ; #<VT>#
+	_ZTV14CTcContextBase @ 152 NONAME ; #<VT>#
+	_ZTV14TTcCommandBase @ 153 NONAME ; #<VT>#
+	_ZTV16CTcParameterList @ 154 NONAME ; #<VT>#
+	_ZTV8CTcArray @ 155 NONAME ; #<VT>#
+	_ZThn4_N12CTcNameValueD0Ev @ 156 NONAME ; #<thunk>#
+	_ZThn4_N12CTcNameValueD1Ev @ 157 NONAME ; #<thunk>#
+	_ZThn4_N12CTcStructureD0Ev @ 158 NONAME ; #<thunk>#
+	_ZThn4_N12CTcStructureD1Ev @ 159 NONAME ; #<thunk>#
+	_ZThn4_N13CTcTestRunnerD0Ev @ 160 NONAME ; #<thunk>#
+	_ZThn4_N13CTcTestRunnerD1Ev @ 161 NONAME ; #<thunk>#
+	_ZThn4_N14CTcContextBase5CodecEv @ 162 NONAME ; #<thunk>#
+	_ZThn4_N14CTcContextBase6ResetLERK13TTcIdentifier @ 163 NONAME ; #<thunk>#
+	_ZThn4_N14CTcContextBase8ExecuteLEv @ 164 NONAME ; #<thunk>#
+	_ZThn4_N14CTcContextBase8RegistryEv @ 165 NONAME ; #<thunk>#
+	_ZThn4_N14CTcContextBaseD0Ev @ 166 NONAME ; #<thunk>#
+	_ZThn4_N14CTcContextBaseD1Ev @ 167 NONAME ; #<thunk>#
+	_ZThn4_N8CTcArrayD0Ev @ 168 NONAME ; #<thunk>#
+	_ZThn4_N8CTcArrayD1Ev @ 169 NONAME ; #<thunk>#
+	_ZNK14TTcCommandBase11HasBooleanLERK6TDesC8 @ 170 NONAME
+	_ZN12CTcNameValue11SetBooleanLERK6TDesC8i @ 171 NONAME
+	_ZN12CTcNameValue16SetBooleanValueLEi @ 172 NONAME
+	_ZN12CTcStructure15AddBooleanItemLERK6TDesC8i @ 173 NONAME
+	_ZNK12CTcNameValue15ValueAsBooleanLEv @ 174 NONAME
+

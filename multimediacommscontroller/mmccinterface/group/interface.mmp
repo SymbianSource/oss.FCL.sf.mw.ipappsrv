@@ -1,0 +1,72 @@
+/*
+* Copyright (c) 2002-2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET             mmccinterface.dll
+
+CAPABILITY         CAP_GENERAL_DLL
+VENDORID           VID_DEFAULT
+TARGETTYPE         DLL
+
+UID             0x1000008D 0x102073F7
+
+SOURCEPATH      ../src
+SOURCE          mmccinterface.cpp
+SOURCE          mmcccodecinformation.cpp
+SOURCE          mmcccodecinformationfactory.cpp
+SOURCE          mmcccodecamr.cpp
+SOURCE          mmcccodecamrwb.cpp
+SOURCE          mmcccodecg711.cpp
+SOURCE          mmcccodecg729.cpp
+SOURCE          mmcccodecilbc.cpp
+SOURCE          mmcccodecdtmf.cpp
+SOURCE          mmcccodecred.cpp  
+SOURCE          mmcccodeccn.cpp               
+SOURCE          mmcccodech263.cpp                 
+SOURCE          mmcccodecavc.cpp 
+SOURCE          mmcccodecaac.cpp                
+SOURCE          mmccevent.cpp
+SOURCE          mmccsecureinterface.cpp
+SOURCE          mmcccryptocontextcontainer.cpp
+
+SOURCEPATH      ../../mmccshared/src
+SOURCE          mmcccryptocontext.cpp
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../mmccshared/inc
+USERINCLUDE     ../../mmcccontroller/inc
+USERINCLUDE     ../../mmccrtpsourcesink/inc
+USERINCLUDE     ../../mmccsubcontroller/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+
+LIBRARY         euser.lib
+LIBRARY         ecom.lib
+LIBRARY         mmfcontrollerframework.lib
+LIBRARY         mmfstandardcustomcommands.lib
+LIBRARY         insock.lib
+LIBRARY         esock.lib
+LIBRARY         inetprotutil.lib
+LIBRARY         charconv.lib
+LIBRARY         bafl.lib
+
+PAGED

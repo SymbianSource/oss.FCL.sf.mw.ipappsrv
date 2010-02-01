@@ -1,0 +1,79 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+MACRO           EUNIT_ALLOC_TEST_ON
+
+TARGET          UT_CAnyPayloadFormat.dll
+TARGETTYPE      dll
+TARGETPATH      /DigiaEUnit/Tests
+UID             0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE                  UT_CAnyPayloadFormatDllMain.cpp
+SOURCE                  UT_CAnyPayloadFormatRead.cpp
+ 
+// Sources needed by the test
+SOURCEPATH              ../../../../mmccshared/src
+SOURCE                  FormatStateMachine.cpp
+
+SOURCEPATH              ../../../src
+SOURCE                  AnyPayloadFormatRead.cpp
+
+SOURCEPATH              ../../../../mmccsubcontroller/src
+SOURCE                  mccdatapathbase.cpp
+SOURCE                  mcccompletecallback.cpp
+
+
+SOURCEPATH              ../../../../tsrc/stubs/src
+SOURCE                  Mcculdatapath_STUB.cpp
+SOURCE                  Mccdldatapath_STUB.cpp
+
+SOURCEPATH              ../../../../tsrc/rtpsourcesinkstub/src
+SOURCE                  MccRtpDataSource_STUB.cpp
+SOURCE                  mccrtpinterface_stub.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../inc
+USERINCLUDE             ../../../../tsrc/inc
+USERINCLUDE             ../../../../tsrc/stubs/inc
+USERINCLUDE             ../../../../tsrc/rtpsourcesinkstub/inc
+USERINCLUDE             ../../../../mmccshared/inc
+USERINCLUDE             ../../../../inc
+USERINCLUDE             ../../../../mmcccontroller/inc
+USERINCLUDE             ../../../../mmccjitterbuffer/inc
+USERINCLUDE             ../../../../mmccsubcontroller/inc
+USERINCLUDE             ../../../../mmccrtpsourcesink/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 ecom.lib
+LIBRARY                 EUnit.lib
+LIBRARY                 EUnitUtil.lib
+LIBRARY                 euser.lib
+LIBRARY                 mmfcontrollerframework.lib
+LIBRARY                 mmfserverbaseclasses.lib
+
+// End of file

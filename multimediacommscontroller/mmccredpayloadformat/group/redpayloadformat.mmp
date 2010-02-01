@@ -1,0 +1,60 @@
+/*
+* Copyright (c) 2004-2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for the redpayloadformat
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          mmccredplformat.dll
+TARGETTYPE      PLUGIN
+UID             0x10009D8D 0x102073F9
+
+CAPABILITY      CAP_ECOM_PLUGIN
+VENDORID        VID_DEFAULT
+
+SOURCEPATH      ../src 
+SOURCE          mccredpayloadwrite.cpp
+SOURCE          mccredpayloadread.cpp
+SOURCE          mccredencdecbase.cpp
+SOURCE          mccredencoder.cpp
+SOURCE          mccreddecoder.cpp
+SOURCE          mccredpayloadformatimplproxy.cpp
+
+SOURCEPATH      ../../mmccshared/src 
+SOURCE          streamformatter.cpp
+
+SOURCEPATH      ../data
+START RESOURCE  102073F9.rss
+TARGET          mmccredplformat.rsc
+END
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../mmccshared/inc
+USERINCLUDE     ../../mmcccontroller/inc
+USERINCLUDE     ../../mmccrtpsourcesink/inc
+USERINCLUDE     ../../mmccsubcontroller/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+
+LIBRARY         euser.lib                       
+LIBRARY         ecom.lib
+LIBRARY         mmfserverbaseclasses.lib
+LIBRARY         mmfcontrollerframework.lib
+
+PAGED

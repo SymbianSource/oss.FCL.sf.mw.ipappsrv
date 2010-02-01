@@ -1,0 +1,11 @@
+EXPORTS
+	?CreateNewTableKeyL@CSettings@@QBEKIK@Z @ 1 NONAME ; unsigned long CSettings::CreateNewTableKeyL(unsigned int, unsigned long) const
+	?CreateSettingsL@CDefaultSettings@@UAEXXZ @ 2 NONAME ; void CDefaultSettings::CreateSettingsL(void)
+	?EraseL@CSettings@@QAEHKK@Z @ 3 NONAME ; int CSettings::EraseL(unsigned long, unsigned long)
+	?NewL@CDefaultSettings@@SAPAV1@ABVTDesC8@@I@Z @ 4 NONAME ; class CDefaultSettings * CDefaultSettings::NewL(class TDesC8 const &, unsigned int)
+	?NewLC@CDefaultSettings@@SAPAV1@ABVTDesC8@@I@Z @ 5 NONAME ; class CDefaultSettings * CDefaultSettings::NewLC(class TDesC8 const &, unsigned int)
+	?Read@CSettings@@QAEHKAAH@Z @ 6 NONAME ; int CSettings::Read(unsigned long, int &)
+	?ReadL@CSettings@@QAEHKPAPAVHBufC8@@@Z @ 7 NONAME ; int CSettings::ReadL(unsigned long, class HBufC8 * *)
+	?StoreL@CSettings@@QAEXKABVTDesC8@@@Z @ 8 NONAME ; void CSettings::StoreL(unsigned long, class TDesC8 const &)
+	?StoreL@CSettings@@QAEXKH@Z @ 9 NONAME ; void CSettings::StoreL(unsigned long, int)
+

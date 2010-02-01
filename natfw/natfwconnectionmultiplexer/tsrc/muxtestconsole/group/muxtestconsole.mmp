@@ -1,0 +1,60 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for project connectionmux stub
+*
+*/
+
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          muxtestconsole.exe
+
+CAPABILITY 	CAP_GENERAL_DLL
+VENDORID	VID_DEFAULT
+
+
+TARGETTYPE      exe
+UID             0x100039CE 0x102743F6 
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../../../../inc
+USERINCLUDE     ../../../../natfwconnectionmultiplexer/inc
+USERINCLUDE     ../../../../natfwsocketmediaconnwrapper/inc
+USERINCLUDE     ../../../../natfwshared/inc
+USERINCLUDE     ../../../../natfwclient/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+// MCC needs
+
+
+
+SOURCEPATH      ../src
+SOURCE          muxtestconsole.cpp
+SOURCE          muxtestconsolemain.cpp
+SOURCE          muxtestconsolestubs.cpp
+
+SOURCE          multiplexerudptests.cpp
+SOURCE          multiplexertcptests.cpp
+
+LIBRARY     	euser.lib
+LIBRARY     	insock.lib
+LIBRARY     	esock.lib
+LIBRARY         connectionmux.lib
+LIBRARY         socketmediaconnwrapper.lib
+
+// MCC
+LIBRARY         mmccinterface.lib

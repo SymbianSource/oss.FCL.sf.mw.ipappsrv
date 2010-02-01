@@ -1,0 +1,9 @@
+EXPORTS
+	??0RTcWatcher@@QAE@XZ @ 1 NONAME ; RTcWatcher::RTcWatcher(void)
+	??1CTcWatcher@@UAE@XZ @ 2 NONAME ; CTcWatcher::~CTcWatcher(void)
+	?Close@RTcWatcher@@QAEXXZ @ 3 NONAME ; void RTcWatcher::Close(void)
+	?Connect@RTcWatcher@@QAEHABVTDesC16@@H@Z @ 4 NONAME ; int RTcWatcher::Connect(class TDesC16 const &, int)
+	?NewL@CTcWatcher@@SAPAV1@ABVTDesC16@@H@Z @ 5 NONAME ; class CTcWatcher * CTcWatcher::NewL(class TDesC16 const &, int)
+	?Ping@RTcWatcher@@QAEHXZ @ 6 NONAME ; int RTcWatcher::Ping(void)
+	?Version@RTcWatcher@@QBE?AVTVersion@@XZ @ 7 NONAME ; class TVersion RTcWatcher::Version(void) const
+

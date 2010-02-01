@@ -1,0 +1,141 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    This is project specification file for the MCE Client.
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+CAPABILITY 	CAP_GENERAL_DLL
+
+VENDORID	VID_DEFAULT
+
+TARGET          mceclient.dll
+TARGETTYPE      DLL
+UID             0x1000008D 0x1020286C
+
+SOURCEPATH      ../src
+SOURCE          mceevent.cpp
+SOURCE          mceinevent.cpp
+SOURCE          mceoutevent.cpp
+SOURCE          mcerefer.cpp
+SOURCE          mceinrefer.cpp
+SOURCE          mceoutrefer.cpp
+SOURCE          mcefactory.cpp
+SOURCE          mceitcsender.cpp
+SOURCE          mceitcreceiverbase.cpp
+SOURCE          mceeventmanagerreceiver.cpp
+SOURCE          mceeventreceiver.cpp
+SOURCE          mcereferreceiver.cpp
+SOURCE          mceaudiostream.cpp
+SOURCE          mceinsession.cpp
+SOURCE          mcemanager.cpp
+SOURCE          mcemediasink.cpp
+SOURCE          mcemediasource.cpp
+SOURCE          mcemediastream.cpp
+SOURCE          mcemicsource.cpp
+SOURCE          mceoutsession.cpp
+SOURCE          mcertpsink.cpp
+SOURCE          mcertpsource.cpp
+SOURCE          mcesession.cpp
+SOURCE          mcestreambundle.cpp
+SOURCE          mcespeakersink.cpp
+SOURCE          mcecodec.cpp
+SOURCE          mceaudiocodec.cpp
+SOURCE          mceamrcodec.cpp
+SOURCE          mceamrwbcodec.cpp
+SOURCE          mceg711codec.cpp 
+SOURCE          mceg729codec.cpp  
+SOURCE          mceilbccodec.cpp  
+SOURCE          mcedtmfcodec.cpp
+SOURCE          mcecncodec.cpp
+SOURCE          mceredcodec.cpp
+SOURCE          mcevideostream.cpp
+SOURCE          mcevideocodec.cpp
+SOURCE          mcecamerasource.cpp
+SOURCE          mcedisplaysink.cpp
+SOURCE          mcefilesource.cpp
+SOURCE          mcefilesink.cpp
+SOURCE          mceavsink.cpp
+SOURCE          mceh263codec.cpp
+SOURCE          mceavccodec.cpp
+SOURCE          mcefcmsgexchange.cpp
+SOURCE          mcemanagerreceiver.cpp
+SOURCE          mcesessionreceiver.cpp
+SOURCE          mce.cpp
+SOURCE          mceserverstarter.cpp
+SOURCE          mcetransactiondatacontainer.cpp
+SOURCE          mcesecureinsession.cpp
+SOURCE          mcesecureoutsession.cpp
+SOURCE          staticdllentry.cpp
+
+SOURCEPATH      ../../mmceshared/src
+SOURCE          mcecomsession.cpp
+SOURCE          mcecomstreambundle.cpp
+SOURCE          mcecommediastream.cpp
+SOURCE          mcecomaudiostream.cpp
+SOURCE          mcecomendpoint.cpp
+SOURCE          mcecomvideostream.cpp
+SOURCE          mcecommediasink.cpp
+SOURCE          mcecomrtpsink.cpp
+SOURCE          mcecomspeakersink.cpp
+SOURCE          mcecomdisplaysink.cpp
+SOURCE          mcecommediasource.cpp
+SOURCE          mcecommicsource.cpp
+SOURCE          mcecomrtpsource.cpp
+SOURCE          mcecomcamerasource.cpp
+SOURCE          mcecomfilesource.cpp
+SOURCE          mcecomfilesink.cpp
+SOURCE          mcecomavsink.cpp
+SOURCE          mcecomcodec.cpp
+SOURCE          mcecomaudiocodec.cpp
+SOURCE          mcecomvideocodec.cpp
+SOURCE          mcecomamrcodec.cpp
+SOURCE 			mcecomamrwbcodec.cpp
+SOURCE          mcecomg711codec.cpp  
+SOURCE          mcecomg729codec.cpp  
+SOURCE          mcecomilbccodec.cpp  
+SOURCE          mcecomdtmfcodec.cpp
+SOURCE          mcecomcncodec.cpp
+SOURCE          mcecomredcodec.cpp
+SOURCE          mcecomh263codec.cpp
+SOURCE          mcecomavccodec.cpp
+SOURCE          mcecomfactory.cpp
+SOURCE          mceserial.cpp
+SOURCE          mceevents.cpp
+SOURCE          mcecomserializationcontext.cpp
+
+
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../mmceshared/inc
+ 
+MW_LAYER_SYSTEMINCLUDE
+
+
+
+LIBRARY         euser.lib
+LIBRARY         estor.lib 
+LIBRARY         bafl.lib 
+LIBRARY         apparc.lib
+LIBRARY         apgrfx.lib
+LIBRARY         sipprofilecli.lib
+LIBRARY         insock.lib
+LIBRARY         charconv.lib
+LIBRARY         flogger.lib
+LIBRARY         efsrv.lib
+
+PAGED

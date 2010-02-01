@@ -1,0 +1,119 @@
+EXPORTS
+	??0CTcCTRLCodec@@QAE@AAVTDes8@@0@Z @ 1 NONAME ; CTcCTRLCodec::CTcCTRLCodec(class TDes8 &, class TDes8 &)
+	??0CTcContextBase@@IAE@AAVCTcCTRLCodec@@@Z @ 2 NONAME ; CTcContextBase::CTcContextBase(class CTcCTRLCodec &)
+	??0CTcParameterList@@QAE@XZ @ 3 NONAME ; CTcParameterList::CTcParameterList(void)
+	??0CTcRegistry@@QAE@XZ @ 4 NONAME ; CTcRegistry::CTcRegistry(void)
+	??0TTcCommandBase@@IAE@AAVCTcContextBase@@@Z @ 5 NONAME ; TTcCommandBase::TTcCommandBase(class CTcContextBase &)
+	??0TTcIdentifier@@QAE@ABVTDesC8@@0@Z @ 6 NONAME ; TTcIdentifier::TTcIdentifier(class TDesC8 const &, class TDesC8 const &)
+	??0TTcIdentifier@@QAE@ABVTDesC8@@@Z @ 7 NONAME ; TTcIdentifier::TTcIdentifier(class TDesC8 const &)
+	??0TTcIdentifier@@QAE@XZ @ 8 NONAME ; TTcIdentifier::TTcIdentifier(void)
+	??1CTcArray@@UAE@XZ @ 9 NONAME ; CTcArray::~CTcArray(void)
+	??1CTcCTRLCodec@@UAE@XZ @ 10 NONAME ; CTcCTRLCodec::~CTcCTRLCodec(void)
+	??1CTcContextBase@@UAE@XZ @ 11 NONAME ; CTcContextBase::~CTcContextBase(void)
+	??1CTcNameValue@@UAE@XZ @ 12 NONAME ; CTcNameValue::~CTcNameValue(void)
+	??1CTcParameterList@@UAE@XZ @ 13 NONAME ; CTcParameterList::~CTcParameterList(void)
+	??1CTcRegistry@@UAE@XZ @ 14 NONAME ; CTcRegistry::~CTcRegistry(void)
+	??1CTcStructure@@UAE@XZ @ 15 NONAME ; CTcStructure::~CTcStructure(void)
+	??1CTcTestRunner@@UAE@XZ @ 16 NONAME ; CTcTestRunner::~CTcTestRunner(void)
+	??1TTcCommandBase@@UAE@XZ @ 17 NONAME ; TTcCommandBase::~TTcCommandBase(void)
+	??1TTcIdentifier@@QAE@XZ @ 18 NONAME ; TTcIdentifier::~TTcIdentifier(void)
+	?AddArrayResponseL@TTcCommandBase@@IAEXABVTDesC8@@ABVMDesC8Array@@@Z @ 19 NONAME ; void TTcCommandBase::AddArrayResponseL(class TDesC8 const &, class MDesC8Array const &)
+	?AddBooleanResponseL@TTcCommandBase@@IAEXABVTDesC8@@H@Z @ 20 NONAME ; void TTcCommandBase::AddBooleanResponseL(class TDesC8 const &, int)
+	?AddIntegerResponseL@TTcCommandBase@@IAEXABVTDesC8@@H@Z @ 21 NONAME ; void TTcCommandBase::AddIntegerResponseL(class TDesC8 const &, int)
+	?AddItemL@CTcArray@@QAEXABVTDesC8@@@Z @ 22 NONAME ; void CTcArray::AddItemL(class TDesC8 const &)
+	?AddItemL@CTcArray@@QAEXH@Z @ 23 NONAME ; void CTcArray::AddItemL(int)
+	?AddItemL@CTcStructure@@QAEXABVTDesC8@@0@Z @ 24 NONAME ; void CTcStructure::AddItemL(class TDesC8 const &, class TDesC8 const &)
+	?AddItemL@CTcStructure@@QAEXABVTDesC8@@H@Z @ 25 NONAME ; void CTcStructure::AddItemL(class TDesC8 const &, int)
+	?AddItemL@CTcStructure@@QAEXPAVCTcNameValue@@@Z @ 26 NONAME ; void CTcStructure::AddItemL(class CTcNameValue *)
+	?AddItemsL@CTcArray@@QAEXABVMDesC8Array@@@Z @ 27 NONAME ; void CTcArray::AddItemsL(class MDesC8Array const &)
+	?AddObjectL@CTcRegistry@@QAEXABVCBase@@@Z @ 28 NONAME ; void CTcRegistry::AddObjectL(class CBase const &)
+	?AddObjectL@CTcRegistry@@QAEXPAVCBase@@@Z @ 29 NONAME ; void CTcRegistry::AddObjectL(class CBase *)
+	?AddObjectL@CTcRegistry@@QAEXPAX@Z @ 30 NONAME ; void CTcRegistry::AddObjectL(void *)
+	?AddParameterL@CTcParameterList@@QAEXPAVMTcTyped@@@Z @ 31 NONAME ; void CTcParameterList::AddParameterL(class MTcTyped *)
+	?AddStructureResponseL@TTcCommandBase@@IAEPAVCTcStructure@@ABVTDesC8@@@Z @ 32 NONAME ; class CTcStructure * TTcCommandBase::AddStructureResponseL(class TDesC8 const &)
+	?AddTextResponseL@TTcCommandBase@@IAEXABVTDesC8@@0@Z @ 33 NONAME ; void TTcCommandBase::AddTextResponseL(class TDesC8 const &, class TDesC8 const &)
+	?AsArray@CTcParameterList@@QBEAAVCTcArray@@H@Z @ 34 NONAME ; class CTcArray & CTcParameterList::AsArray(int) const
+	?AsArrayL@CTcParameterList@@QBEAAVCTcArray@@H@Z @ 35 NONAME ; class CTcArray & CTcParameterList::AsArrayL(int) const
+	?AsMDesCArray@CTcArray@@QBEABVMDesC8Array@@XZ @ 36 NONAME ; class MDesC8Array const & CTcArray::AsMDesCArray(void) const
+	?AsNameValue@CTcParameterList@@QBEAAVCTcNameValue@@H@Z @ 37 NONAME ; class CTcNameValue & CTcParameterList::AsNameValue(int) const
+	?AsNameValueL@CTcParameterList@@QBEAAVCTcNameValue@@H@Z @ 38 NONAME ; class CTcNameValue & CTcParameterList::AsNameValueL(int) const
+	?AsStructure@CTcParameterList@@QBEAAVCTcStructure@@H@Z @ 39 NONAME ; class CTcStructure & CTcParameterList::AsStructure(int) const
+	?AsStructureL@CTcParameterList@@QBEAAVCTcStructure@@H@Z @ 40 NONAME ; class CTcStructure & CTcParameterList::AsStructureL(int) const
+	?ClearLog@TcLog@@SAXXZ @ 41 NONAME ; void TcLog::ClearLog(void)
+	?Codec@CTcContextBase@@UAEAAVCTcCTRLCodec@@XZ @ 42 NONAME ; class CTcCTRLCodec & CTcContextBase::Codec(void)
+	?ConstructErrorResponse@CTcCTRLCodec@@QAEXABVTDesC8@@@Z @ 43 NONAME ; void CTcCTRLCodec::ConstructErrorResponse(class TDesC8 const &)
+	?ConstructOkResponse@CTcCTRLCodec@@QAEXXZ @ 44 NONAME ; void CTcCTRLCodec::ConstructOkResponse(void)
+	?ConstructResponse@CTcCTRLCodec@@QAEXABVTTcIdentifier@@ABVCTcNameValue@@ABVCTcParameterList@@@Z @ 45 NONAME ; void CTcCTRLCodec::ConstructResponse(class TTcIdentifier const &, class CTcNameValue const &, class CTcParameterList const &)
+	?Count@CTcArray@@QBEHXZ @ 46 NONAME ; int CTcArray::Count(void) const
+	?Count@CTcParameterList@@QBEHXZ @ 47 NONAME ; int CTcParameterList::Count(void) const
+	?Count@CTcRegistry@@QBEHXZ @ 48 NONAME ; int CTcRegistry::Count(void) const
+	?Count@CTcStructure@@QBEHXZ @ 49 NONAME ; int CTcStructure::Count(void) const
+	?CreateCommandL@CTcContextBase@@IAEPAVTTcCommandBase@@PBUTcCommand@@HAAVTTcIdentifier@@AAVMTcTestContext@@@Z @ 50 NONAME ; class TTcCommandBase * CTcContextBase::CreateCommandL(struct TcCommand const *, int, class TTcIdentifier &, class MTcTestContext &)
+	?CurrentRequestName@CTcTestRunner@@QBEABVTDesC8@@XZ @ 51 NONAME ; class TDesC8 const & CTcTestRunner::CurrentRequestName(void) const
+	?CurrentTestCaseName@CTcTestRunner@@QBEABVTDesC8@@XZ @ 52 NONAME ; class TDesC8 const & CTcTestRunner::CurrentTestCaseName(void) const
+	?DestroyAll@CTcRegistry@@QAEXXZ @ 53 NONAME ; void CTcRegistry::DestroyAll(void)
+	?DestroyObject@CTcRegistry@@QAEXABVTDesC8@@@Z @ 54 NONAME ; void CTcRegistry::DestroyObject(class TDesC8 const &)
+	?DestroyObject@CTcRegistry@@QAEXPAX@Z @ 55 NONAME ; void CTcRegistry::DestroyObject(void *)
+	?ExecuteL@CTcContextBase@@UAEXXZ @ 56 NONAME ; void CTcContextBase::ExecuteL(void)
+	?ExtractBooleanL@TTcCommandBase@@IBEHABVTDesC8@@H@Z @ 57 NONAME ; int TTcCommandBase::ExtractBooleanL(class TDesC8 const &, int) const
+	?ExtractIdL@TTcCommandBase@@IBE?AVTPtrC8@@ABVTDesC8@@H@Z @ 58 NONAME ; class TPtrC8 TTcCommandBase::ExtractIdL(class TDesC8 const &, int) const
+	?ExtractIntegerL@TTcCommandBase@@IBEHABVTDesC8@@HH@Z @ 59 NONAME ; int TTcCommandBase::ExtractIntegerL(class TDesC8 const &, int, int) const
+	?ExtractTextL@TTcCommandBase@@IBE?AVTPtrC8@@ABVTDesC8@@H@Z @ 60 NONAME ; class TPtrC8 TTcCommandBase::ExtractTextL(class TDesC8 const &, int) const
+	?FindArrayL@TTcCommandBase@@IBEPAVCTcArray@@ABVTDesC8@@H@Z @ 61 NONAME ; class CTcArray * TTcCommandBase::FindArrayL(class TDesC8 const &, int) const
+	?FindNameValueL@TTcCommandBase@@IBEPAVCTcNameValue@@ABVTDesC8@@H@Z @ 62 NONAME ; class CTcNameValue * TTcCommandBase::FindNameValueL(class TDesC8 const &, int) const
+	?FindNameValueL@TTcCommandBase@@IBEPAVCTcNameValue@@PAVCTcStructure@@ABVTDesC8@@H@Z @ 63 NONAME ; class CTcNameValue * TTcCommandBase::FindNameValueL(class CTcStructure *, class TDesC8 const &, int) const
+	?FindParameter@CTcParameterList@@QBEHABVTDesC8@@W4TParameterType@MTcTyped@@@Z @ 64 NONAME ; int CTcParameterList::FindParameter(class TDesC8 const &, enum MTcTyped::TParameterType) const
+	?FindStructureL@TTcCommandBase@@IBEPAVCTcStructure@@ABVTDesC8@@H@Z @ 65 NONAME ; class CTcStructure * TTcCommandBase::FindStructureL(class TDesC8 const &, int) const
+	?GetIdentifierL@CTcCTRLCodec@@QBEXAAVTTcIdentifier@@@Z @ 66 NONAME ; void CTcCTRLCodec::GetIdentifierL(class TTcIdentifier &) const
+	?GetObjectForIdL@TTcCommandBase@@IBEPAXABVTDesC8@@H@Z @ 67 NONAME ; void * TTcCommandBase::GetObjectForIdL(class TDesC8 const &, int) const
+	?GetParametersL@CTcCTRLCodec@@QBEXAAVCTcParameterList@@@Z @ 68 NONAME ; void CTcCTRLCodec::GetParametersL(class CTcParameterList &) const
+	?InsertParameterL@CTcParameterList@@QAEXPAVMTcTyped@@H@Z @ 69 NONAME ; void CTcParameterList::InsertParameterL(class MTcTyped *, int)
+	?IsComplete@CTcCTRLCodec@@QBEHXZ @ 70 NONAME ; int CTcCTRLCodec::IsComplete(void) const
+	?IsRegistered@CTcRegistry@@QAEHPBX@Z @ 71 NONAME ; int CTcRegistry::IsRegistered(void const *)
+	?Item@CTcArray@@QBE?AVTPtrC8@@H@Z @ 72 NONAME ; class TPtrC8 CTcArray::Item(int) const
+	?Item@CTcStructure@@QAEPAVCTcNameValue@@ABVTDesC8@@@Z @ 73 NONAME ; class CTcNameValue * CTcStructure::Item(class TDesC8 const &)
+	?Item@CTcStructure@@QBEABVCTcNameValue@@H@Z @ 74 NONAME ; class CTcNameValue const & CTcStructure::Item(int) const
+	?ItemAsInt@CTcArray@@QBEHH@Z @ 75 NONAME ; int CTcArray::ItemAsInt(int) const
+	?ItemL@CTcStructure@@QAEPAVCTcNameValue@@ABVTDesC8@@H@Z @ 76 NONAME ; class CTcNameValue * CTcStructure::ItemL(class TDesC8 const &, int)
+	?ItemL@CTcStructure@@QAEPAVCTcNameValue@@HH@Z @ 77 NONAME ; class CTcNameValue * CTcStructure::ItemL(int, int)
+	?List@CTcContextBase@@QAEAAVCTcParameterList@@XZ @ 78 NONAME ; class CTcParameterList & CTcContextBase::List(void)
+	?Match@TTcCommandBase@@SAHABVTTcIdentifier@@ABVTDesC8@@1@Z @ 79 NONAME ; int TTcCommandBase::Match(class TTcIdentifier const &, class TDesC8 const &, class TDesC8 const &)
+	?Match@TTcCommandBase@@SAHABVTTcIdentifier@@ABVTDesC8@@@Z @ 80 NONAME ; int TTcCommandBase::Match(class TTcIdentifier const &, class TDesC8 const &)
+	?NameAsIntL@CTcNameValue@@QBEHXZ @ 81 NONAME ; int CTcNameValue::NameAsIntL(void) const
+	?NewL@CTcTestRunner@@SAPAV1@AAVCTcBearer@@AAVMTcTestObserver@@H@Z @ 82 NONAME ; class CTcTestRunner * CTcTestRunner::NewL(class CTcBearer &, class MTcTestObserver &, int)
+	?NewLC@CTcArray@@SAPAV1@XZ @ 83 NONAME ; class CTcArray * CTcArray::NewLC(void)
+	?NewLC@CTcNameValue@@SAPAV1@XZ @ 84 NONAME ; class CTcNameValue * CTcNameValue::NewLC(void)
+	?NewLC@CTcStructure@@SAPAV1@XZ @ 85 NONAME ; class CTcStructure * CTcStructure::NewLC(void)
+	?ObjectNameL@CTcRegistry@@QBE?AVTPtrC8@@PBX@Z @ 86 NONAME ; class TPtrC8 CTcRegistry::ObjectNameL(void const *) const
+	?ObjectPtrL@CTcRegistry@@QAEPAXABVTDesC8@@@Z @ 87 NONAME ; void * CTcRegistry::ObjectPtrL(class TDesC8 const &)
+	?ParameterType@CTcParameterList@@QBE?AW4TParameterType@MTcTyped@@H@Z @ 88 NONAME ; enum MTcTyped::TParameterType CTcParameterList::ParameterType(int) const
+	?ReadLogLC@TcLog@@SAPAVHBufC8@@XZ @ 89 NONAME ; class HBufC8 * TcLog::ReadLogLC(void)
+	?Registry@CTcContextBase@@UAEAAVCTcRegistry@@XZ @ 90 NONAME ; class CTcRegistry & CTcContextBase::Registry(void)
+	?RemoveItem@CTcArray@@QAEXH@Z @ 91 NONAME ; void CTcArray::RemoveItem(int)
+	?RemoveParameter@CTcParameterList@@QAEXABVTDesC8@@W4TParameterType@MTcTyped@@@Z @ 92 NONAME ; void CTcParameterList::RemoveParameter(class TDesC8 const &, enum MTcTyped::TParameterType)
+	?RequestType@CTcCTRLCodec@@QBE?AW4TType@1@XZ @ 93 NONAME ; enum CTcCTRLCodec::TType CTcCTRLCodec::RequestType(void) const
+	?Reset@CTcParameterList@@QAEXXZ @ 94 NONAME ; void CTcParameterList::Reset(void)
+	?ResetL@CTcContextBase@@UAEXABVTTcIdentifier@@@Z @ 95 NONAME ; void CTcContextBase::ResetL(class TTcIdentifier const &)
+	?ReturnList@CTcContextBase@@QAEAAVCTcParameterList@@XZ @ 96 NONAME ; class CTcParameterList & CTcContextBase::ReturnList(void)
+	?SetL@CTcNameValue@@QAEXABVTDesC8@@0@Z @ 97 NONAME ; void CTcNameValue::SetL(class TDesC8 const &, class TDesC8 const &)
+	?SetL@CTcNameValue@@QAEXABVTDesC8@@H@Z @ 98 NONAME ; void CTcNameValue::SetL(class TDesC8 const &, int)
+	?SetName@CTcArray@@QAEXABVTDesC8@@@Z @ 99 NONAME ; void CTcArray::SetName(class TDesC8 const &)
+	?SetName@CTcStructure@@QAEXABVTDesC8@@@Z @ 100 NONAME ; void CTcStructure::SetName(class TDesC8 const &)
+	?SetNameL@CTcNameValue@@QAEXABVTDesC8@@@Z @ 101 NONAME ; void CTcNameValue::SetNameL(class TDesC8 const &)
+	?SetValueL@CTcNameValue@@QAEXABVTDesC8@@@Z @ 102 NONAME ; void CTcNameValue::SetValueL(class TDesC8 const &)
+	?SetValueL@CTcNameValue@@QAEXH@Z @ 103 NONAME ; void CTcNameValue::SetValueL(int)
+	?Start@CTcTestRunner@@QAEXXZ @ 104 NONAME ; void CTcTestRunner::Start(void)
+	?Stop@CTcTestRunner@@QAEXXZ @ 105 NONAME ; void CTcTestRunner::Stop(void)
+	?Value@CTcNameValue@@QBE?AVTPtrC8@@XZ @ 106 NONAME ; class TPtrC8 CTcNameValue::Value(void) const
+	?ValueAsInt@CTcNameValue@@QBEHXZ @ 107 NONAME ; int CTcNameValue::ValueAsInt(void) const
+	?ValueAsIntL@CTcNameValue@@QBEHXZ @ 108 NONAME ; int CTcNameValue::ValueAsIntL(void) const
+	?Write@TcLog@@SAXABVTDesC16@@@Z @ 109 NONAME ; void TcLog::Write(class TDesC16 const &)
+	?Write@TcLog@@SAXABVTDesC8@@@Z @ 110 NONAME ; void TcLog::Write(class TDesC8 const &)
+	?WriteFormat@TcLog@@SAXV?$TRefByValue@$$CBVTDesC16@@@@ZZ @ 111 NONAME ; void TcLog::WriteFormat(class TRefByValue<class TDesC16 const >, ...)
+	?WriteFormat@TcLog@@SAXV?$TRefByValue@$$CBVTDesC8@@@@ZZ @ 112 NONAME ; void TcLog::WriteFormat(class TRefByValue<class TDesC8 const >, ...)
+	?HasBooleanL@TTcCommandBase@@IBEHABVTDesC8@@@Z @ 113 NONAME ; int TTcCommandBase::HasBooleanL(class TDesC8 const &) const
+	?ValueAsBooleanL@CTcNameValue@@QBEHXZ @ 114 NONAME ; int CTcNameValue::ValueAsBooleanL(void) const
+	?AddBooleanItemL@CTcStructure@@QAEXABVTDesC8@@H@Z @ 115 NONAME ; void CTcStructure::AddBooleanItemL(class TDesC8 const &, int)
+	?SetBooleanL@CTcNameValue@@QAEXABVTDesC8@@H@Z @ 116 NONAME ; void CTcNameValue::SetBooleanL(class TDesC8 const &, int)
+	?SetBooleanValueL@CTcNameValue@@QAEXH@Z @ 117 NONAME ; void CTcNameValue::SetBooleanValueL(int)
+

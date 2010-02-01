@@ -1,0 +1,91 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+//  INCLUDES
+#ifndef MCCREDRAWHANDLER_H
+#define MCCREDRAWHANDLER_H
+
+#include <e32base.h>
+
+// FORWARD DECLARATIONS
+class RWsSession;
+class RWindow;
+class CWindowGc;
+
+// CLASS DECLARATION
+
+/**
+*  
+*/
+class CMccRedrawHandler : public CActive
+    {
+
+    public: // Methods called internally or by the controller
+
+        /**
+        * Two-phased constructor.
+        */
+        static CMccRedrawHandler* NewL( RWsSession& aWsSession, 
+                                        RWindow& aWindow, 
+                                        CWindowGc& aGc );
+
+		~CMccRedrawHandler();
+		
+		void BlackDrawingL( TBool aIsEnabled );
+    
+    protected: // From CActive
+    
+        void RunL();
+        
+        void DoCancel();
+          
+    private:
+
+        void ConstructL();
+        
+        CMccRedrawHandler( RWsSession& aWsSession, 
+                           RWindow& aWindow, 
+                           CWindowGc& aGc );
+    
+        void Draw( const TRect& aRect );
+        
+        TBool DoRedrawing() const;
+        
+        void StartRedrawing();
+        
+    private:
+    
+        RWsSession& iWsSession;
+		RWindow& iWindow;
+		CWindowGc& iGc;
+    
+        TBool iDrawBlack;
+        
+   	#ifdef TEST_EUNIT
+		friend class UT_CMccRedrawHandler;	
+   	#endif
+         
+
+	};
+
+
+#endif 
+
+
+// End of file

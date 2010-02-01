@@ -1,0 +1,99 @@
+// File : CtrlProfileFunctions.ttcn
+//
+// Info : This file specifies CTRL functions for using Profiles.
+//
+//        Do not modify without permission!
+//
+
+module CtrlProfileFunctions
+{
+
+import from CtrlFunctions all;
+import from CtrlRel2Types all;
+import from CtrlRel2Templates all;
+import from CtrlProfileTemplates all;
+import from OtherTypesAndConstants all;
+import from TestSystem all;
+
+//
+// -- Profile functions --------------------------------------------------------
+//
+
+
+function f_ctrlCreateProfile ( in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "CreateProfile", {}, omit, p_params );
+	}
+
+function f_ctrlCreateProfileRegistry () runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "CreateProfileRegistry", {}, omit, omit );
+	}
+
+function f_ctrlDeleteProfile ( in template TestClientIdList p_ids ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "DeleteProfile", {}, p_ids, omit );
+	}
+	
+function f_ctrlDestroyAllProfiles () runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "DestroyAllProfiles", {}, omit, omit );
+	}	
+	
+function f_ctrlDestroyProfile ( in template TestClientIdList p_ids ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "DestroyProfile", {}, p_ids, omit );
+	}
+	
+function f_ctrlDisableProfile ( in template TestClientIdList p_ids ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "DisableProfile", {}, p_ids, omit );
+	}
+
+function f_ctrlEnableProfile ( in template TestClientIdList p_ids ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "EnableProfile", {}, p_ids, omit );
+	}
+
+// Use f_ctrlGetParameter, f_ctrlGetArray and f_ctrlGetStructure (in CtrlFunctions.ttcn)
+// to read actual parameter values from the returned AbstractCtrlResponse
+function f_ctrlGetDefaultProfile () runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "GetDefaultProfile", {}, omit, omit );
+	}
+
+// Use f_ctrlGetParameter, f_ctrlGetArray and f_ctrlGetStructure (in CtrlFunctions.ttcn)
+// to read actual parameter values from the returned AbstractCtrlResponse
+function f_ctrlGetProfile ( in template TestClientIdList p_ids ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "GetProfile", {}, p_ids, omit );
+	}
+
+// Returns ProfileIds as a ValueList
+function f_ctrlGetProfiles ( in template ParameterList p_params ) runs on CtrlCompType return ValueList
+	{
+	var AbstractCtrlResponse res;
+	res := f_ctrlGenericRequest( "GetProfiles", {}, omit, p_params );
+	return f_ctrlGetArray( res, a_ctrlProfileIdList( * ) );
+	}
+
+// Returns ProfileErrorCode as integer
+function f_ctrlGetProfileStatus ( in template ParameterList p_params,
+								  out charstring p_profileState ) runs on CtrlCompType return integer
+	{
+	var AbstractCtrlResponse res;
+	var charstring profileErrorCode;
+
+	res := f_ctrlGenericRequest( "GetProfileStatus", {}, omit, p_params );
+	p_profileState := f_ctrlGetParameter( res, a_ctrlProfileState( * ) );
+	profileErrorCode :=  f_ctrlGetParameter( res, a_ctrlProfileErrorCode( * ) );
+	return str2int( profileErrorCode );
+	}
+
+function f_ctrlUpdateProfile ( in template TestClientIdList p_ids,
+							   in template ParameterList p_params ) runs on CtrlCompType return AbstractCtrlResponse
+	{
+	return f_ctrlGenericRequest( "UpdateProfile", {}, p_ids, p_params );
+	}
+
+} // end of CtrlProfileFunctions

@@ -1,0 +1,80 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:  
+;
+
+; Languages
+&EN
+
+; Header
+; Package UID equals the mmcinterface.dll UID
+#{"MultimediaCommsController Patch"}, (0x102073F7), 1, 0, 0, TYPE=SP
+
+; Supports S60 v 3.0
+[0x101F7961], 0, 0, 0, {"S60ProductID"}
+
+; Localised Vendor name
+%{"Nokia"}
+
+; Unique Vendor name
+:"Nokia"
+
+;Files
+;MCC
+"\epoc32\RELEASE\armv5\urel\mmccinterface.dll"-"!:\Sys\Bin\mmccinterface.dll"
+"\epoc32\RELEASE\armv5\urel\mmccjitterbuffer.dll"-"!:\Sys\Bin\mmccjitterbuffer.dll"
+"\epoc32\RELEASE\armv5\urel\mmccqoscontroller.dll"-"!:\Sys\Bin\mmccqoscontroller.dll"
+"\epoc32\RELEASE\armv5\urel\mmccmultiplexer.dll"-"!:\Sys\Bin\mmccmultiplexer.dll"
+
+"\epoc32\RELEASE\armv5\urel\mmccsubcontroller.dll"-"!:\Sys\Bin\mmccsubcontroller.dll"
+
+"\epoc32\RELEASE\armv5\urel\mmcccontroller.dll"-"!:\Sys\Bin\mmcccontroller.dll"
+"\epoc32\data\Z\Resource\Plugins\mmcccontroller.RSC"-"!:\resource\plugins\mmcccontroller.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccrtpsourcesink.dll"-"!:\Sys\Bin\mmccrtpsourcesink.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccrtpsourcesink.RSC"-"!:\resource\plugins\mmccrtpsourcesink.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccamrplformat.dll"-"!:\Sys\Bin\mmccamrplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccamrplformat.RSC"-"!:\resource\plugins\mmccamrplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccg711plformat.dll"-"!:\Sys\Bin\mmccg711plformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccg711plformat.RSC"-"!:\resource\plugins\mmccg711plformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccredplformat.dll"-"!:\Sys\Bin\mmccredplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccredplformat.RSC"-"!:\resource\plugins\mmccredplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccg729plformat.dll"-"!:\Sys\Bin\mmccg729plformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccg729plformat.RSC"-"!:\resource\plugins\mmccg729plformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccilbcplformat.dll"-"!:\Sys\Bin\mmccilbcplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccilbcplformat.RSC"-"!:\resource\plugins\mmccilbcplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccdtmfplformat.dll"-"!:\Sys\Bin\mmccdtmfplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccdtmfplformat.RSC"-"!:\resource\plugins\mmccdtmfplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccanyplformat.dll"-"!:\Sys\Bin\mmccanyplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccanyplformat.RSC"-"!:\resource\plugins\mmccanyplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmcch263plformat.dll"-"!:\Sys\Bin\mmcch263plformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmcch263plformat.RSC"-"!:\resource\plugins\mmcch263plformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccavcplformat.dll"-"!:\Sys\Bin\mmccavcplformat.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccavcplformat.RSC"-"!:\resource\plugins\mmccavcplformat.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccfilesourcesink.dll"-"!:\Sys\Bin\mmccfilesourcesink.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccfilesourcesink.RSC"-"!:\resource\plugins\mmccfilesourcesink.RSC"
+
+"\epoc32\RELEASE\armv5\urel\mmccvideosourcesink.dll"-"!:\Sys\Bin\mmccvideosourcesink.dll"
+"\epoc32\data\Z\Resource\Plugins\mmccvideosourcesink.RSC"-"!:\resource\plugins\mmccvideosourcesink.RSC"
+

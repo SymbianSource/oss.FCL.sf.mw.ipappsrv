@@ -1,0 +1,73 @@
+/*
+* Copyright (c) 2006 - 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Project definition file for project NAT FW STUN Plug-in
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET              stunplugin.dll
+TARGETTYPE          PLUGIN
+UID                 0x10009D8D 0x1027545C
+
+CAPABILITY          CAP_ECOM_PLUGIN
+VENDORID            VID_DEFAULT
+
+SOURCEPATH          ../../../../natfwstunplugin/src
+SOURCE              natfwstunrefreshtimer.cpp
+SOURCE              natfwstunpluginimplementationproxy.cpp
+SOURCE              cstunasynccallback.cpp
+SOURCE              tstunplugincallbackinfo.cpp
+SOURCE              cnatfwstunserversettings.cpp
+
+SOURCEPATH          ../stubs
+SOURCE              natfwstunconnectionhandler_stub.cpp
+SOURCE              natfwstunplugin_stub.cpp
+SOURCE              natfwstunbinding_stub.cpp
+
+SOURCEPATH          ../../../../natfwstunplugin/tsrc/ut_cnatfwstunplugin/stubs
+SOURCE              cstunclientstub.cpp
+SOURCE              cstunbindingstub.cpp
+
+SOURCEPATH          ../../../../natfwstunplugin/data
+START RESOURCE      1027545c.rss
+TARGET              stunplugin.rsc
+END
+
+USERINCLUDE	    ../inc
+USERINCLUDE         ../../../../inc
+USERINCLUDE         ../../../../../inc
+USERINCLUDE         ../../../../natfwstunplugin/inc
+USERINCLUDE         ../../../../natfwshared/inc
+USERINCLUDE         ../../../../natfwclient/inc
+USERINCLUDE         ../../../../natfwconnectionmultiplexer/inc
+USERINCLUDE         ../../../../natfwsocketmediaconnwrapper/inc
+USERINCLUDE         ../../../../natfwsettings/inc
+USERINCLUDE         ../../../../natfwstunturnclient/inc
+USERINCLUDE         ../../../../natfwicecandidatehandler/inc
+USERINCLUDE         ../../../../natfwunsaf_protocols/unsaf_codec/inc
+USERINCLUDE         ../../../../natfwunsaf_protocols/unsaf_transport/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY             euser.lib
+LIBRARY             ecom.lib
+LIBRARY             esock.lib
+LIBRARY             insock.lib
+LIBRARY             connectionmux.lib
+LIBRARY             natconfw.lib
+LIBRARY             natfwnatsettings.lib
+LIBRARY             natfwstunclient.lib

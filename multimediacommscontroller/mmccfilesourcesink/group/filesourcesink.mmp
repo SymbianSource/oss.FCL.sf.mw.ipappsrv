@@ -1,0 +1,68 @@
+/*
+* Copyright (c) 2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET          mmccfilesourcesink.dll
+
+CAPABILITY 		CAP_ECOM_PLUGIN
+VENDORID		VID_DEFAULT
+TARGETTYPE		PLUGIN
+
+UID             0x10009D8D 0x102747CB
+
+SOURCEPATH      ../src
+SOURCE          mcceoftimer.cpp
+SOURCE          mccfilesource.cpp
+SOURCE          mccfilesourceimpl.cpp
+SOURCE          mccfilesink.cpp
+SOURCE			mccfilesourcesinkfactory.cpp
+SOURCE          mccfilesourcetypebase.cpp
+SOURCE          mccfilevideo.cpp
+SOURCE          mccfileaudio.cpp
+SOURCE          mccperiodicrunner.cpp
+
+SOURCEPATH      ../data
+START RESOURCE	102747CB.rss 
+TARGET      	mmccfilesourcesink.rsc
+END
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../mmccinterface/inc
+USERINCLUDE     ../../mmccshared/inc
+USERINCLUDE     ../../mmcccontroller/inc
+USERINCLUDE     ../../mmccsubcontroller/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY         3gpmp4lib.lib
+LIBRARY         camc3gpsink.lib
+LIBRARY         euser.lib 
+LIBRARY         efsrv.lib
+LIBRARY         ecom.lib
+LIBRARY         esock.lib
+LIBRARY         ws32.lib
+LIBRARY         mmfcontrollerframework.lib
+LIBRARY         mmfserverbaseclasses.lib
+LIBRARY         mmccinterface.lib
+LIBRARY         imut.lib
+LIBRARY         charconv.lib
+LIBRARY		inetprotutil.lib
+
+PAGED

@@ -1,0 +1,165 @@
+// File : CtrlProfileTemplates.ttcn
+//
+// Info : This file specifies templates for CTRL parameters
+//        used with Profile functions (see CtrlProfileFunctions.ttcn)
+//
+//        Do not modify without permission!
+//
+
+module CtrlProfileTemplates
+{
+
+import from CtrlRel2Types all; 		// import TTCN-3 CTRL definition
+
+template ParameterListElement a_ctrlAutoRegistration ( template charstring p_value ) :=
+	{
+	parameter := { pName := "AutoRegistration", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlExtensionParameter (	
+										template charstring p_name,
+										template charstring p_value ) :=
+	{
+	struct :=	{ sName := "ExtensionParameter", sFields :=
+					{
+						{ pName := p_name, pValue := p_value }
+					}
+				}
+	}
+	
+template ParameterListElement a_ctrlNegotiatedSecMechanism( template charstring p_value ) :=
+	{
+	parameter := { pName := "NegotiatedSecMechanism", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlPrivateIdentity ( template charstring p_value ) :=
+	{
+	parameter := { pName := "PrivateIdentity", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlProfileAOR ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ProfileAOR", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlProfileAORList ( template ValueList p_aors ) :=
+	{
+	array := { aName := "ProfileAORList", aValues := p_aors }
+	}
+
+template ParameterListElement a_ctrlProfileDefault ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ProfileDefault", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlProfileEnabled ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ProfileEnabled", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlProfileErrorCode ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ProfileErrorCode", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlProfileHeadersList ( template ValueList p_headers ) :=
+	{
+	array := { aName := "ProfileHeadersList", aValues := p_headers }
+	}
+	
+template ParameterListElement a_ctrlProfileHeaderParamsList ( template ValueList p_headers ) :=
+	{
+	array := { aName := "ProfileHeaderParamsList", aValues := p_headers }
+	}
+	
+/*	
+template ParameterListElement a_ctrlProfileId ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ProfileId", pValue := p_value }
+	}
+*/
+template TestClientId a_ctrlProfileId ( template integer p_value ) :=
+	{
+	idName := "ProfileId", idValue := p_value
+	}
+
+template ParameterListElement a_ctrlProfileIdList ( template ValueList p_ids ) :=
+	{
+	array := { aName := "ProfileIdList", aValues := p_ids }
+	}
+	
+template ParameterListElement a_ctrlProfileName ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ProfileName", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlProfileRegStatus ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ProfileRegStatus", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlProfileState ( template charstring p_value ) :=
+	{
+	parameter := { pName := "ProfileState", pValue := p_value }
+	}
+
+template ParameterListElement a_ctrlProfileType (	template charstring p_class,
+													template charstring p_name ) :=
+	{
+	struct :=	{ sName := "ProfileType", sFields :=
+					{
+						{ pName := "Class", pValue := p_class },
+						{ pName := "ProfileName", pValue := p_name } 
+					}
+				}
+	}
+	
+template ParameterListElement a_ctrlSecurityNegotiation ( template charstring p_value ) :=
+	{
+	parameter := { pName := "SecurityNegotiation", pValue := p_value }
+	}
+	
+template ParameterListElement a_ctrlServer (	template charstring p_server,
+												template charstring p_address ) :=
+	{
+	struct :=	{ sName := "Server", sFields :=
+					{
+						{ pName := "Server", pValue := p_server },
+						{ pName := "Address", pValue := p_address } 
+					}
+				}
+	}
+
+template ParameterListElement a_ctrlServerExtensionParameter (	
+										template charstring p_server,
+										template charstring p_name,
+										template charstring p_value ) :=
+	{
+	struct :=	{ sName := "ServerExtensionParameter", sFields :=
+					{
+						{ pName := "Server", pValue := p_server },
+						{ pName := p_name, pValue := p_value }
+					}
+				}
+	}        
+	
+template ParameterListElement a_ctrlServerParameter (
+										template charstring p_server,
+										template charstring p_parameter,
+										template charstring p_value ) :=
+	{
+	struct :=	{ sName := "ServerParameter", sFields :=
+					{
+						{ pName := "Server", pValue := p_server },
+						{ pName := p_parameter, pValue := p_value} 
+					}
+				}
+	}
+
+template ParameterListElement a_ctrlSigComp ( template charstring p_value ) :=
+	{
+	parameter := { pName := "SigComp", pValue := p_value }
+	}
+
+
+} // end of CtrlProfileTemplates

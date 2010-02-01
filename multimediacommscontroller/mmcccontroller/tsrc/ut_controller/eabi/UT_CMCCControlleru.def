@@ -1,0 +1,27 @@
+EXPORTS
+	_Z16CreateTestSuiteLv @ 1 NONAME
+	_ZTI10CMccScreen @ 2 NONAME ; #<TI>#
+	_ZTI11CCameraStub @ 3 NONAME ; #<TI>#
+	_ZTI15CMccRtpDataSink @ 4 NONAME ; #<TI>#
+	_ZTI16CMccResourceItem @ 5 NONAME ; #<TI>#
+	_ZTI16CMccResourcePool @ 6 NONAME ; #<TI>#
+	_ZTI16CMccTimerManager @ 7 NONAME ; #<TI>#
+	_ZTI16MMccRtpInterface @ 8 NONAME ; #<TI>#
+	_ZTI17CMccCameraHandler @ 9 NONAME ; #<TI>#
+	_ZTI17CMccRtpDataSource @ 10 NONAME ; #<TI>#
+	_ZTI17UT_CMccController @ 11 NONAME ; #<TI>#
+	_ZTI20CMccTestCameraBuffer @ 12 NONAME ; #<TI>#
+	_ZTI21CMccResourceContainer @ 13 NONAME ; #<TI>#
+	_ZTV10CMccScreen @ 14 NONAME ; #<VT>#
+	_ZTV11CCameraStub @ 15 NONAME ; #<VT>#
+	_ZTV15CMccRtpDataSink @ 16 NONAME ; #<VT>#
+	_ZTV16CMccResourceItem @ 17 NONAME ; #<VT>#
+	_ZTV16CMccResourcePool @ 18 NONAME ; #<VT>#
+	_ZTV16CMccTimerManager @ 19 NONAME ; #<VT>#
+	_ZTV16MMccRtpInterface @ 20 NONAME ; #<VT>#
+	_ZTV17CMccCameraHandler @ 21 NONAME ; #<VT>#
+	_ZTV17CMccRtpDataSource @ 22 NONAME ; #<VT>#
+	_ZTV17UT_CMccController @ 23 NONAME ; #<VT>#
+	_ZTV20CMccTestCameraBuffer @ 24 NONAME ; #<VT>#
+	_ZTV21CMccResourceContainer @ 25 NONAME ; #<VT>#
+

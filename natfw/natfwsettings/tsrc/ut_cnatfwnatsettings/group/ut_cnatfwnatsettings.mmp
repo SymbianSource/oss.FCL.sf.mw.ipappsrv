@@ -1,0 +1,65 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+#include <eunitcaps.h>
+
+TARGET                  ut_cnatfwnatsettings.dll
+TARGETTYPE              dll
+TARGETPATH              /DigiaEUnit/Tests
+UID                     0x1000af5a 0x01700000
+
+CAPABILITY      EUNIT_CAPS
+
+VENDORID                VID_DEFAULT
+
+SOURCEPATH              ../src
+SOURCE                  UT_CNATFWNATSettingsDllMain.cpp
+SOURCE                  UT_CNATFWNATSettings.cpp
+SOURCE                  UT_CNATFWStunSettings.cpp
+SOURCE                  UT_CNATFWTurnSettings.cpp
+SOURCE                  UT_CNATFWIceSettings.cpp
+SOURCE                  datadepository.cpp  
+SOURCE                  settingstore.cpp
+
+// Sources needed by the test
+SOURCEPATH              ../../../src
+SOURCE                  cnatfwsettingsapi.cpp
+SOURCE                  cnatfwsettingsimpl.cpp
+SOURCE                  cnatfwserversettings.cpp
+SOURCE                  cnatfwicesettings.cpp
+SOURCE                  tnatfwicepreferences.cpp
+SOURCE                  cnatfwstunsettings.cpp
+SOURCE                  cnatfwturnsettings.cpp
+SOURCE                  tnatfwsettingsparser.cpp
+SOURCE                  cnatfwcenrephandler.cpp
+
+USERINCLUDE             ../inc
+USERINCLUDE             ../../../../natfwshared/inc
+USERINCLUDE             ../../../../tsrc/natfwtsrcshared/inc
+USERINCLUDE             ../../../inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+LIBRARY                 EUnit.lib
+LIBRARY                 euser.lib
+LIBRARY                 centralrepository.lib
+LIBRARY                 bafl.lib
+
+// End of file

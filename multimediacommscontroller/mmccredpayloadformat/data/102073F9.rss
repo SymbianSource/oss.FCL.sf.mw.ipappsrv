@@ -1,0 +1,64 @@
+/*
+* Copyright (c) 2004-2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    Resource definitions for project redpayloadformat
+*
+*/
+
+
+
+
+//  INCLUDES
+#include <ecom/registryinfo.rh>
+#include <mmf/plugin/mmfplugininterfaceuids.hrh>
+#include "mccuids.hrh"
+
+//  RESOURCE DEFINITIONS 
+
+RESOURCE REGISTRY_INFO theInfo
+	{
+	dll_uid = KDllUidRedPayloadFormat; 
+	interfaces = 
+		{
+		INTERFACE_INFO
+			{
+			interface_uid = KMmfUidPluginInterfaceFormatDecode;   
+			implementations = 
+				{
+				IMPLEMENTATION_INFO
+					{
+					implementation_uid = KImplUidRedPayloadFormatDecode;
+					version_no = KIpappsrvEcomVersionNumber;
+					display_name = "Red/RTP Payload Format Decode";
+					default_data = ""; 
+					opaque_data = "";
+					}
+				};
+			},
+		INTERFACE_INFO
+			{
+			interface_uid = KMmfUidPluginInterfaceFormatEncode;   
+			implementations = 
+				{
+				IMPLEMENTATION_INFO
+					{
+					implementation_uid = KImplUidRedPayloadFormatEncode;
+					version_no = KIpappsrvEcomVersionNumber;
+					display_name = "Red/RTP Payload Format Encode";
+					default_data = ""; 
+					opaque_data = "";
+					}
+				};
+			}
+		};
+	}

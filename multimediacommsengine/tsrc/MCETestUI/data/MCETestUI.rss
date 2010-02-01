@@ -1,0 +1,2625 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:  
+*
+*/
+
+
+// MCETestUI.rss
+//
+//
+
+NAME MTUI
+
+#include <uikon.rh>
+#include <eikcore.rsg>
+#include <eikon.rh>
+#include <eikon.rsg>
+#include <avkon.rh>
+#include <avkon.rsg>
+
+#include <appinfo.rh>
+#include <data_caging_paths_strings.hrh>
+
+
+
+#include "MCETestUI.hrh"
+#include "mcetestui.loc"
+
+
+RESOURCE RSS_SIGNATURE { }
+
+RESOURCE TBUF r_default_document_name { buf=""; }
+
+RESOURCE EIK_APP_INFO
+	{
+	//menubar=r_example_menubar;
+	cba = R_AVKON_SOFTKEYS_OPTIONS_EXIT;
+	}
+
+#ifdef EKA2
+RESOURCE LOCALISABLE_APP_INFO r_mcetestui_localisable_app_info
+    {
+    short_caption = "MCETestUI";
+    caption_and_icon = CAPTION_AND_ICON_INFO
+     { 
+     caption = "MCETestUI";
+    };
+    }
+#else
+RESOURCE CAPTION_DATA
+{
+    caption="MCETestUI";
+    shortcaption="MCETestUI";
+}
+#endif
+
+
+RESOURCE DIALOG r_text_query_dialog
+	{
+	flags=EAknGeneralQueryFlags;
+	buttons=R_AVKON_SOFTKEYS_OK_CANCEL;
+	items=
+		{
+		DLG_LINE
+			{
+			type=EAknCtQuery;
+			id=EGeneralQuery;
+			control = AVKON_DATA_QUERY
+				{
+				layout = EDataLayout;
+				control = EDWIN
+					{
+					};
+				};
+			}	
+		};
+	}
+
+RESOURCE DIALOG r_poc_session_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+//	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	buttons= R_AVKON_SOFTKEYS_OK_BACK;
+	form = r_mce_poc_session_form;
+	}
+
+	
+RESOURCE FORM r_mce_poc_session_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_pocaddress_prompt;
+            id = ESessionPoCDialogPoCAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed ;
+                lines = 2;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+          DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_poc_sessiontype_prompt;
+            id = EPoCSessionDialogSessionType;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_poc_sessiontype_array;
+                active = 0;
+                };
+            },
+          DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_event_originator_prompt;
+            id = ESessionPoCOriginaterAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 300;
+                };
+            }   
+            
+        };
+ 
+    }
+RESOURCE ARRAY r_mce_poc_sessiontype_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_poc_adhoc_call;
+        },
+    LBUF 
+        { 
+        txt = qtn_poc_pre_arranged_call; 
+        }
+    
+    };
+}   
+
+RESOURCE DIALOG r_voip_session_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+//	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	buttons= R_AVKON_SOFTKEYS_OK_BACK;
+	form = r_mce_voip_session_form;
+	}
+
+	
+RESOURCE FORM r_mce_voip_session_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_address_prompt;
+            id = ESessionVoIPDialogVoIPAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed ;
+                lines = 2;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+           DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_event_originator_prompt;
+            id = ESessionVoIPOriginaterAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 300;
+                };
+            }   
+            
+        };
+ 
+    }
+
+
+RESOURCE DIALOG r_2wayvideo_session_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+//	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	buttons= R_AVKON_SOFTKEYS_OK_BACK;
+	form = r_mce_2wayvideo_session_form;
+	}
+
+RESOURCE FORM r_mce_2wayvideo_session_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_address_prompt;
+            id = ESessionDialog2WayVideoRecipientAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed ;
+                lines = 2;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+        DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_2wayvideo_videocodec_prompt;
+            id = ESessionDialog2WayVideoVideoCodec;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_2wayvideo_videocodec_array;
+                active = 0;
+                };
+            },
+        DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_2wayvideo_audiocodec_prompt;
+            id = ESessionDialog2WayVideoAudioCodec;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_2wayvideo_audiocodec_array;
+                active = 0;
+                };
+            },
+        DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_2wayvideo_viewfinder_prompt;
+            id = ESessionDialog2WayVideoViewFinder;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_suppressrtcp_array;
+                active = 0;
+                };
+            },
+        DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_2wayvideo_camera_prompt;
+            id = ESessionDialog2WayVideoCamera;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_2wayvideo_camera_array;
+                active = 0;
+                };
+            }
+            
+        };
+ 
+    }
+
+RESOURCE ARRAY r_mce_2wayvideo_videocodec_array
+{   
+items=
+    {
+     LBUF 
+        {
+        txt = qtn_single; 
+        },
+     LBUF 
+        {
+        txt = qtn_all; 
+        },
+    LBUF 
+        {
+        txt = qtn_multiple_modes; 
+        }
+    };
+}  	
+
+RESOURCE ARRAY r_mce_2wayvideo_audiocodec_array
+{   
+items=
+    {
+     LBUF 
+        {
+        txt = qtn_single; 
+        },
+     LBUF 
+        {
+        txt = qtn_all; 
+        },
+     LBUF 
+        {
+        txt = qtn_none; 
+        } 
+    };
+} 
+
+RESOURCE ARRAY r_mce_2wayvideo_camera_array
+{   
+items=
+    {
+     LBUF 
+        {
+        txt = qtn_primary; 
+        },
+     LBUF 
+        {
+        txt = qtn_secondary; 
+        }
+    };
+} 
+
+RESOURCE DIALOG r_mce_secure_session_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+//	buttons= R_AVKON_SOFTKEYS_OK_BACK;
+	form = r_mce_secure_session_form;
+	}
+RESOURCE FORM r_mce_secure_session_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+          DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_secure_sessiontype_prompt;
+            id = ESessionDialogSecureSessionType;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_secure_sessiontype_array;
+                active = 0;
+                };
+            }
+        };
+    }
+RESOURCE ARRAY r_mce_secure_sessiontype_array
+{   
+items=
+    {
+     LBUF 
+        {
+        txt = qtn_crypto_32; 
+        },
+     LBUF 
+        {
+        txt = qtn_crypto_80; 
+        },
+    LBUF 
+        { 
+        txt = qtn_crypto_both; 
+        }
+    };
+}   
+
+	
+
+RESOURCE DIALOG r_mce_session_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+//	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	buttons= R_AVKON_SOFTKEYS_OK_BACK;
+	form = r_mce_session_form;
+	}
+RESOURCE FORM r_mce_session_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_address_prompt;
+            id = ESessionDialogRecipentAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 300;
+                };
+            },
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_sessiontype_prompt;
+            id = ESessionDialogSessionType;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_sessiontype_array;
+                active = 0;
+                };
+            }, 
+           DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_video_sessiontype_prompt;
+            id = ESessionDialogVideoSessionType;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_video_sessiontype_array;
+                active = 1;
+                };
+            }, 
+            
+             DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_secure_session_prompt;
+            id = ESessionDialogSecureSession;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 0;
+                };
+            }, 
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_sourcetype_prompt;
+            id = ESessionDialogSourceType;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_sourcetype_array;
+                active = 0;
+                };
+            },
+            DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_source_filepath_prompt;
+            id = ESessionDialogSourceFilePath;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+            DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_sink_filepath_prompt;
+            id = ESessionDialogSinkFilePath;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_audio_sinktype_prompt;
+            id = ESessionDialogAudioSinkType;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_audio_sinktype_array;
+                active = 0;
+                };
+            },
+       /*      DLG_LINE
+            {
+            type = EAknCtListQueryControl;
+            id = ESessionDialogVideoSinkType;
+            control = AVKON_LIST_QUERY_CONTROL
+                {
+                listtype = EAknCtSingleGraphicPopupMenuListBox;
+                listbox = AVKON_MULTISELECTION_LIST_QUERY_LIST 
+                    {
+                    flags = EAknListBoxMultiselectionList;
+                	array_id = r_mce_video_sinktype_array;
+                    };
+                 heading = qtn_mce_video_sinktype_prompt;
+                 };
+                 
+            },
+           DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_video_sinktype_prompt;
+            id = ESessionDialogVideoSinkType;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_video_sinktype_array;
+                active = 0;
+                };
+            },
+       */   
+       		DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_video_sinkdisplay_prompt;
+            id = ESessionDialogVideoSinkDisplay;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            },
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_video_sinkfile_prompt;
+            id = ESessionDialogVideoSinkFile;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 0;
+                };
+            },
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_video_sinkrtp_prompt;
+            id = ESessionDialogVideoSinkRtp;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            }, 
+       		DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_precondition_prompt;
+            id = ESessionDialogPrecondition;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_precondition_array;
+                active = 0;
+                };
+            },
+           DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_serviceType_prompt;
+            id = ESessionDialogServiceType;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 255;
+                };
+            },
+           DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_event_originator_prompt;
+            id =ESessionOriginaterAddress ;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 300;
+                };
+            }/*
+             DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_bundle_prompt;
+            id = ESessionDialogBundle;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            } */  
+       
+        };
+ 
+    }
+
+RESOURCE DIALOG r_number_query_dialog
+{
+    flags = EEikDialogFlagWait | EEikDialogFlagNoDrag |
+            EEikDialogFlagNoTitleBar | EEikDialogFlagCbaButtons | EEikDialogFlagNoShadow;
+
+    buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+    items =
+		{
+        DLG_LINE
+			{
+            type = EAknCtQuery;
+            id = EGeneralQuery;
+            control = AVERELL_DATA_QUERY 
+				{ 
+                layout = ENumberLayout;
+                label = "Enter IAP id:";
+                control = AVKON_INTEGER_EDWIN 
+					{
+					
+					min = 0;
+					max = 1000;
+                    
+					};
+            };
+        }
+    };
+}
+
+RESOURCE ARRAY r_mce_priority_array
+{   
+items=
+    {
+     LBUF 
+        {
+        txt = qtn_PoC; 
+        },
+     LBUF 
+        {
+        txt = qtn_VoIP; 
+        },
+    LBUF 
+        { 
+        txt = qtn_VS; 
+        }
+    };
+}   
+RESOURCE ARRAY r_mce_videosinkdisplay_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_no; 
+        },
+    LBUF 
+        { 
+        txt = qtn_yes; 
+        }
+       
+    };
+}   
+  
+RESOURCE ARRAY r_mce_sourcetype_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_live; 
+        },
+    LBUF 
+        { 
+        txt = qtn_file; 
+        }
+       
+    };
+}   
+
+RESOURCE ARRAY r_mce_audio_sinktype_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_rtp; 
+        },
+    LBUF 
+        { 
+        txt = qtn_speaker; 
+        }
+    
+    };
+}  
+RESOURCE ARRAY r_mce_video_sinktype_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_display; 
+        },
+    LBUF 
+        { 
+        txt = qtn_file; 
+        
+        },
+    LBUF 
+        {
+        txt = qtn_rtp; 
+        }
+    
+    };
+}  
+
+RESOURCE ARRAY r_mce_sessiontype_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_sr_only; 
+        },
+    LBUF 
+        { 
+        txt = qtn_s_only; 
+        },
+    LBUF 
+        {
+        txt = qtn_r_only; 
+        },
+    LBUF 
+        {
+        txt = qtn_nostreams; 
+        }
+    
+    };
+}  
+
+RESOURCE ARRAY r_mce_video_sessiontype_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_sr_video_only; 
+        },
+    LBUF 
+        { 
+        txt = qtn_s_video_only; 
+        },
+    LBUF 
+        {
+        txt = qtn_r_video_only; 
+        },
+    LBUF 
+        {
+        txt = qtn_nostreams_video; 
+        }
+    
+    };
+}  
+
+RESOURCE ARRAY r_mce_precondition_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_yes_precondition; 
+        },
+    LBUF 
+        { 
+        txt = qtn_no_precondition; 
+        }
+    
+    };
+}  
+
+RESOURCE DIALOG r_mce_stream_audiocodec_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_audiocodec_form;
+	}
+
+	
+RESOURCE FORM r_mce_stream_audiocodec_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_enable_vad_prompt;
+            id = EAudioCodecEnableVAD;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_suppressrtcp_array;
+                active = 0;
+                };
+            },
+        
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_bitrate;
+            id = EAudioCodecDialogBitRate;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_allowed_bitrate;
+            id = EAudioCodecDialogAllowedBitRate;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_ptime;
+            id = EAudioCodecDialogPTime;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 99999;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_max_ptime;
+            id = EAudioCodecDialogMaxPTime; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 99999;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_codec_mode;
+            id = EAudioCodecDialogCodecMode; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_payload_type;
+            id = EAudioCodecDialogPayLoadType; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+            
+         DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_ka_timer;
+            id = EAudioCodecKeepalivetimer; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+          DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_ka_payload_type;
+            id = EAudioCodecKeepalivePt; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            }
+            
+            
+        };
+ 
+    }
+    
+ RESOURCE DIALOG r_mce_event_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_event_form;
+	}
+
+	
+RESOURCE FORM r_mce_event_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_eventaddress_prompt;
+            id = EEventRecipentAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+         DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_eventheader_prompt;
+            id = EEventHeader;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+         DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_refresh_interval;
+            id = EEventRefreshInterval; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 99999;
+                };
+            },
+          DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_event_originator_prompt;
+            id = EEventOriginaterAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            }  
+        };
+ }   
+ 
+ RESOURCE DIALOG r_mce_refer_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_refer_form;
+	}
+
+	
+RESOURCE FORM r_mce_refer_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_referaddress_prompt;
+            id = EReferRecipentAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+         DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_referto_prompt;
+            id = EReferTo;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+         
+          DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_refer_originator_prompt;
+            id = EReferOriginaterAddress;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            }  
+        };
+ }   
+ 
+ 
+ RESOURCE DIALOG r_mce_establish_values_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_establish_values_form;
+	}
+
+RESOURCE DIALOG r_mce_notify_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_notify_form;
+	}
+	
+RESOURCE FORM r_mce_establish_values_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = "Session Timer";
+            id = ESessionTimeOut; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+         DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = "Service Type";
+            id = ESessionServiceType; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 255;
+                };
+            },
+         DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = "Session Headers";
+            id = ESessionHeaders;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            }
+            
+       
+
+       /*,   DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_session_contenttype_prompt;
+            id = EEstablishContentType;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+          
+          DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_session_content_prompt;
+            id = EEstablishContent;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+            
+          DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_mce_session_contentheaders_prompt;
+            id = EEstablishContentHeaders;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            }    */
+        };
+ }   
+ 
+ 
+ RESOURCE FORM r_mce_notify_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        
+         DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = "Notify Headers";
+            id = ENotifyHeaders;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 60;
+                };
+            }
+            
+
+        };
+ }  
+ 
+ 
+ RESOURCE DIALOG r_mce_response_values_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_response_values_form;
+	}
+
+	
+RESOURCE FORM r_mce_response_values_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = "code";
+            id = ESessionResponseCode; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+         DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = "Reason";
+            id = ESessionResponseReason;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            }
+  
+        };
+ 	}   
+ RESOURCE DIALOG r_mce_stream_rtpsink_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_rtpsink_form;
+	}
+
+	
+RESOURCE FORM r_mce_stream_rtpsink_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       	DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_supressrtcp_prompt;
+            id = ERtpSinkSuppressRtcp;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_suppressrtcp_array;
+                active = 0;
+                };
+            }
+        };
+ 
+    }
+  
+
+RESOURCE DIALOG r_mce_stream_speakersink_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_speakersink_form;
+	}
+
+	
+RESOURCE FORM r_mce_stream_speakersink_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_volume_setting;
+            id = ESpeakerSinkVolumeSetting; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 65535/2 ;
+                };
+            },
+         DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_routing_setting;
+            id = ESpeakerSinkRoutingSetting; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            }
+  
+        };
+ 
+    }
+
+RESOURCE DIALOG r_mce_stream_micsource_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_micsource_form;
+	}
+
+	
+RESOURCE FORM r_mce_stream_micsource_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_gain_setting;
+            id = ERtpSourceGainSetting; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 65535/2 ;
+                };
+            }
+  
+        };
+ 
+    }
+RESOURCE DIALOG r_mce_stream_filesource_audio_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_filesource_audio_form;
+	}
+
+	
+RESOURCE FORM r_mce_stream_filesource_audio_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       	DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_file_updating;
+            id = EFileSourceAudioFileUpdating;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_file_position;
+            id = EFileSourceAudioFilePosition; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_file_duration;
+            id = EFileSourceAudioFileDuration; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_file_fastforward_prompt;
+            id = EFileSourceAudioFileFastForward;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_suppressrtcp_array;
+                active = 0;
+                };
+            },
+         DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_file_fastrewind_prompt;
+            id = EFileSourceAudioFileFastRewind;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_suppressrtcp_array;
+                active = 0;
+                };
+            },
+          DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_file_transcode_progress;
+            id = EFileSourceAudioFileTransProgress; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+           DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_file_mediaelementcount;
+            id = EFileSourceAudioFileMediaElementCount; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+          DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_file_currentmediaelement;
+            id = EFileSourceAudioFileCurrentMediaElement; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            }
+          
+          
+        };
+ 
+    }
+RESOURCE DIALOG r_mce_stream_filesource_video_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_filesource_video_form;
+	}
+
+	
+RESOURCE FORM r_mce_stream_filesource_video_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       		DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_file_updating;
+            id = EFileSourceVideoFileUpdating;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            },
+            DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_file_position;
+            id = EFileSourceVideoFilePosition; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+           	DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_file_duration;
+            id = EFileSourceVideoFileDuration; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+	        DLG_LINE
+	            {
+	            type = EAknCtPopupFieldText;
+	            prompt = qtn_file_fastforward_prompt;
+	            id = EFileSourceVideoFileFastForward;
+	            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+	            control = POPUP_FIELD_TEXT
+	                {
+	                popupfield = POPUP_FIELD 
+	                    {
+	                    };
+	                textarray = r_mce_suppressrtcp_array;
+	                active = 0;
+	                };
+	            },
+	         DLG_LINE
+	            {
+	            type = EAknCtPopupFieldText;
+	            prompt = qtn_file_fastrewind_prompt;
+	            id = EFileSourceVideoFileFastRewind;
+	            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+	            control = POPUP_FIELD_TEXT
+	                {
+	                popupfield = POPUP_FIELD 
+	                    {
+	                    };
+	                textarray = r_mce_suppressrtcp_array;
+	                active = 0;
+	                };
+	            },
+	          DLG_LINE
+	            {
+	            type = EEikCtNumberEditor;
+	            prompt = qtn_file_transcode_progress;
+	            id = EFileSourceVideoFileTransProgress; 
+	            control = NUMBER_EDITOR
+	                {
+	                min = 0;
+	                max = 0xFFFF;
+	                };
+	            },
+	          
+	           DLG_LINE
+	            {
+	            type = EEikCtNumberEditor;
+	            prompt = qtn_file_mediaelementcount;
+	            id = EFileSourceVideoFileMediaElementCount; 
+	            control = NUMBER_EDITOR
+	                {
+	                min = 0;
+	                max = 0xFFFF;
+	                };
+	            },
+	          DLG_LINE
+	            {
+	            type = EEikCtNumberEditor;
+	            prompt = qtn_file_currentmediaelement;
+	            id = EFileSourceVideoFileCurrentMediaElement; 
+	            control = NUMBER_EDITOR
+	                {
+	                min = 0;
+	                max = 0xFFFF;
+	                };
+	            }
+       
+        };
+    }
+
+RESOURCE DIALOG r_mce_filetranscode_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_filesource_transcode_form;
+	}
+RESOURCE FORM r_mce_stream_filesource_transcode_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       		DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_file_transcode;
+            id = EFileSourceTranscodeFile;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 40;
+                };
+            }
+            
+        };
+    }
+
+RESOURCE DIALOG r_mce_value_settings_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+//	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	buttons= R_AVKON_SOFTKEYS_OK_BACK;
+	form = r_mce_value_settings_form;
+	}
+
+RESOURCE FORM r_mce_value_settings_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_mce_jitten_treshold_prompt;
+            id = EMceValueSettingsJitterTreshold;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_mce_jitter_size_prompt;
+            id = EMceValueSettingsJitterSize;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+         DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_mce_jitter_timeout_prompt;
+            id = EMceValueSettingsJitterTimeout;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            }
+    
+        };
+ 
+    }
+RESOURCE DIALOG r_mce_mcesettings_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_mcesettings_form;
+	}
+
+	
+RESOURCE FORM r_mce_mcesettings_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       	DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_fcsession_prompt;
+            id = EMceSettingsFCSession;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = qtn_mce_fcsession_array;
+                };
+            },
+            
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_audiopriority_prompt;
+            id = EMceSettingsAudioPriority;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_priority_array;
+                };
+            },
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_multicodec_prompt;
+            id = EMceSettingsMultiCodecSupport;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = qtn_mce_fcsession_array;
+                };
+            },
+            
+            
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_voipsession_prompt;
+            id = EMceSettingsVoipSession;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = qtn_mce_fcsession_array;
+                };
+            },
+             DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_supressrtcp_prompt;
+            id = ESessionDialogSessionRtcp;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_suppressrtcp_array;
+                active = 0;
+                };
+            },
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_acceptconectheaderkoppa_prompt;
+            id = ESessionDialogSessionAccContactKoppa;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_suppressrtcp_array;
+                active = 1;
+                };
+            },
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_180precondition_prompt;
+            id = EMceSettings180Precondition;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            },  
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_hold_with_addr_prompt;
+            id = EMceSettingsHoldWithAddress;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            },    
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_bundle_prompt;
+            id = ESessionDialogBundle;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            }, 
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_sdp_prompt;
+            id = EMceSettingsSDP;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            },
+             DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_autocodemenicon_prompt;
+            id = EMceSettingsCodemeniconAuto;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            } ,
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_SecureSessionAVP_prompt;
+            id = EMceSettingsSecureSessionAVP;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            } , 
+         
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_SecurePreconditions_prompt;
+            id = EMceSecPreconditions;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_videosinkdisplay_array;
+                active = 1;
+                };
+            },
+            
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_2wayvideo_viewfinder_prompt;
+            id = ESessionDialog2WayVideoViewFinder;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_suppressrtcp_array;
+                active = 0;
+                };
+            },
+            DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_2wayvideo_camera_prompt;
+            id = ESessionDialog2WayVideoCamera;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_2wayvideo_camera_array;
+                active = 0;
+                };
+            }          
+            
+            
+            
+        };
+ 
+    }
+RESOURCE ARRAY qtn_mce_fcsession_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_no_only; 
+        },
+    LBUF 
+        { 
+        txt = qtn_yes_only; 
+        }
+    };
+}     
+RESOURCE ARRAY r_mce_suppressrtcp_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_no_only; 
+        },
+    LBUF 
+        { 
+        txt = qtn_yes_only; 
+        }
+    };
+}     
+RESOURCE DIALOG r_mce_stream_videocodec_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_videocodec_form;
+	}
+
+	
+RESOURCE FORM r_mce_stream_videocodec_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_bitrate;
+            id = EVideoCodecDialogBitRate;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_allowed_bitrate;
+            id = EVideoCodecDialogAllowedBitRate;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFFFFF;
+                };
+            },
+   /*     DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_ptime;
+            id = EVideoCodecDialogPTime;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 99999;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_max_ptime;
+            id = EVideoCodecDialogMaxPTime; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 99999;
+                };
+            },
+     */   DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_codec_mode;
+            id = EVideoCodecDialogCodecMode; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_payload_type;
+            id = EVideoCodecDialogPayLoadType; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+              
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_ka_timer;
+            id = EVideoCodecKeepalivetimer; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_ka_payload_type;
+            id = EVideoCodecKeepalivePt; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_encoding_decoding_device;
+            id = EVideoCodecDialogEncDecDevice; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0x7fffffff;
+                };
+            }
+            
+            
+        };
+ 
+    }
+    
+    
+RESOURCE DIALOG r_mce_stream_camerasource_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_camerasource_form;
+	}
+
+	
+RESOURCE FORM r_mce_stream_camerasource_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_camera_index;
+            id = ECameraSourceDialogCameraIndex;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 10;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_camera_zoomfactor;
+            id = ECameraSourceDialogCameraZoomFactor;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_camera_digitalzoomfactor;
+            id = ECameraSourceDialogCameraDigitalZoomFactor;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_camera_digitalzoom;
+            id = ECameraSourceDialogZoomMax;
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+        DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_camera_brightness;
+            id = ECameraSourceDialogCameraBrightness; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+      DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_exposure;
+            id = ECameraSourceDialogExposure; 
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys; 
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_exposure_array;
+                active = 0;
+                };
+            },
+        DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_whitebalance;
+            id = ECameraSourceDialogCameraWhiteBalance;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys; 
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_camera_whitebalance_array;
+                active = 0;
+                };
+           	
+            }
+            
+            
+        };
+ 
+    }   
+RESOURCE DIALOG r_mce_stream_displaysink_video_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_stream_displaysink_video_form;
+	}
+
+	
+RESOURCE FORM r_mce_stream_displaysink_video_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       	    DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_display_priority;
+            id = EDisplaySinkPriority; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+           	DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_dislaysinks_available	;
+            id = EDisplaySinksAvailable; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+          DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_display_index;
+            id = EDisplaySinkIndex; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+          
+           DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_iX1;
+            id = EDisplaySinkRectIX1; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+            DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_iY1;
+            id = EDisplaySinkRectIY1; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+            DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_iX2;
+            id = EDisplaySinkRectIX2; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            },
+            DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_iY2;
+            id = EDisplaySinkRectIY2; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            }
+   
+        };
+    }  
+
+RESOURCE ARRAY r_mce_exposure_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_exposure_auto;
+        },
+    LBUF 
+        { 
+        txt = qtn_exposure_night; 
+        },
+    LBUF 
+        {
+        txt = qtn_exposure_backlight;
+        },
+    LBUF 
+        { 
+        txt = qtn_exposure_centre; 
+        }
+    
+    };
+}   
+
+RESOURCE ARRAY r_mce_camera_whitebalance_array
+{   
+items=
+    {
+    LBUF 
+        {
+        txt = qtn_wb_auto;
+        },
+    LBUF 
+        { 
+        txt = qtn_wb_daylight; 
+        },
+    LBUF 
+        {
+        txt = qtn_wb_cloudy;
+        },
+    LBUF 
+        { 
+        txt = qtn_wb_tungsten; 
+        },
+    LBUF 
+        {
+        txt = qtn_wb_flouroscent;
+        },
+    LBUF 
+        { 
+        txt = qtn_wb_flash; 
+        }
+    
+    };
+}
+
+
+
+RESOURCE DIALOG r_mce_start_dtmf_tone_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_start_dtmf_tone_form;
+	}
+
+	
+RESOURCE FORM r_mce_start_dtmf_tone_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        	DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_start_dtmf;
+            id = EStartDtmfTone;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 1;
+                };
+            }
+        };
+    }
+ 
+ 
+ RESOURCE DIALOG r_mce_send_dtmf_tone_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_send_dtmf_tone_form;
+	}
+
+	
+RESOURCE FORM r_mce_send_dtmf_tone_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+        	DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_send_dtmf_tone;
+            id = ESendDtmfTone;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 1;
+                };
+            },
+            DLG_LINE
+            {
+            type = EEikCtNumberEditor;
+            prompt = qtn_send_dtmf_tone_duration;
+            id = ESendDtmfTone_duration; 
+            control = NUMBER_EDITOR
+                {
+                min = 0;
+                max = 0xFFFF;
+                };
+            }
+            
+        };
+    }
+ 
+ RESOURCE DIALOG r_mce_send_dtmf_tone_sequence_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_send_dtmf_tone_sequence_form;
+	}
+
+	
+RESOURCE FORM r_mce_send_dtmf_tone_sequence_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       		DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_send_dtmf_sequence;
+            id = ESendDtmfToneSequence;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 20;
+                };
+            }   
+        };
+    }  
+    
+ RESOURCE DIALOG r_mce_referto_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_referto_form;
+	}
+
+	
+RESOURCE FORM r_mce_referto_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+       		DLG_LINE
+            {
+            type = EEikCtEdwin;
+            prompt = qtn_referto;
+            id = ESendReferTo;
+            control = EDWIN
+                {
+                flags = EEikEdwinInclusiveSizeFixed  ;
+                lines = 3;
+                width = 15;
+                maxlength = 20;
+                };
+            }   
+        };
+    }   
+ RESOURCE DIALOG r_mce_add_codec_dialog
+	{
+	flags = EEikDialogFlagNoDrag | 
+			EEikDialogFlagNoTitleBar |
+			EEikDialogFlagWait |
+			EEikDialogFlagCbaButtons |
+			EEikDialogFlagFillAppClientRect;
+	buttons = R_AVKON_SOFTKEYS_OK_CANCEL;
+	form = r_mce_add_codec_form;
+	}
+RESOURCE FORM r_mce_add_codec_form
+    {
+    flags = EEikFormEditModeOnly | EEikFormUseDoubleSpacedFormat;
+    items =
+        {
+          DLG_LINE
+            {
+            type = EAknCtPopupFieldText;
+            prompt = qtn_mce_add_codec_prompt;
+            id = EMceAddCodec;
+            itemflags = EEikDlgItemTakesEnterKey | EEikDlgItemOfferAllHotKeys;
+            control = POPUP_FIELD_TEXT
+                {
+                popupfield = POPUP_FIELD 
+                    {
+                    };
+                textarray = r_mce_add_codec_array;
+                active = 0;
+                };
+            }
+        };
+    }
+RESOURCE ARRAY r_mce_add_codec_array
+{   
+items=
+    {
+     LBUF 
+        {
+        txt = qtn_amr; 
+        },
+     LBUF 
+        {
+        txt = qtn_pcmu; 
+        },
+    LBUF 
+        {
+        txt = qtn_pcma; 
+        },
+    LBUF 
+        { 
+        txt = qtn_g729; 
+        },
+    LBUF 
+        { 
+        txt = qtn_ilbc; 
+        },
+    LBUF 
+        { 
+        txt = qtn_dtmf; 
+        },
+    LBUF 
+        { 
+        txt = qtn_redcodec; 
+        },
+    LBUF 
+        { 
+        txt = qtn_cncodec; 
+        }
+    };
+}      
+        

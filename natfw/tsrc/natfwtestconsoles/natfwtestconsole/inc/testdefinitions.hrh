@@ -1,0 +1,92 @@
+/*
+* Copyright (c) 2007 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    definitions
+*
+*/
+
+
+
+#ifndef TESTDEFINITIONS_HRH
+#define TESTDEFINITIONS_HRH
+
+#include <e32cmn.h>
+
+// DEFINITIONS
+
+// CONSTANTS
+_LIT( KMainTitle, "NAT Connectivity FW Tests" );
+
+_LIT( KTxtLineBreak, "/n" );
+_LIT( KTxtWrongOption, "Wrong Option! Try Again." );
+_LIT( KTxtCharacter, "%c");
+
+_LIT( KTxtMainInstructions, "Please select one option:/n/n"
+ L"1.  SETUP DOMAIN/n"
+ L"2.  MEDIA TESTS/n"
+ L"/n"
+ L"3.  STUN UDP tests/n"
+ L"4.  STUN TCP tests/n"
+ L"5.  TURN UDP tests/n"
+ L"6.  TURN TCP tests/n"
+ L"7.  ICE UDP tests/n"
+ L"8.  ICE TCP tests/n"
+ L"/n"
+ L"9.  Start STUN loopback media test/n"
+ L"10.  Stop STUN loopback media test/n"
+ L"/n"
+ L"11. Print NAT Settings/n"
+ L"12. Print STUN local candidate/n"
+ L"13. Print Stored Candidates/n"
+ L"/n"
+ L"0.  QUIT/n");
+
+// Example Domain, Provide IP Address or Domain Name for testing
+
+_LIT( KTxtDomainSetupInstructions, "Select domain:/n/n"
+ L"1. isp1v.wipsl.com/n"
+ L"2. isp1t.wipsl.com/n"
+ L"3. isp1e.wipsl.com/n"
+ L"4. isp1s.wipsl.com/n"
+ L"/n" );
+
+_LIT( KTxtIapList, "List of IAPs:/n/n" );
+_LIT( KIapPrintFormat, "%S Id: %d/n" );
+_LIT( KTxtTypeIap, "/nType IAP id:/n" );
+
+_LIT( KTxtMediaTestInstructions, "Please select one option:/n/n"
+ L"1.  Fetch Candidates,ICE,UPD/n"
+ L"2.  MO ICE ComTest,UDP/n"
+ L"3.  MT ICE ComTest,UDP/n"
+ L"/n"
+ L"4.  Fetch Candidates,UDP,RTCP/n"
+ L"5.  MO ICE ComTest,UDP,RTCP/n"
+ L"6.  MT ICE ComTest,MT,UDP,RTCP/n"
+ L"/n"
+ L"7.  Fetch Stun Candidate UDP/n"
+ L"8.  Stun ComTest/n"
+ L"/n"
+ L"9.  Fetch Stun Candidate,RTCP,UDP/n"
+ L"10. Stun ComTest,RTCP,UDP/n"
+ L"/n"
+ L"11. Fetch Turn Candidate UDP/n"
+ L"12. Turn ComTest/n"
+ L"/n"
+ L"13. Fetch Turn Candidate,RTCP,UDP/n"
+ L"14. Turn ComTest,RTCP,UDP/n"
+ L"/n"
+ L"15. Stop com test/n"
+ L"0.  EXIT/n"
+ L"/n" );
+
+#endif //TESTDEFINITIONS_HRH

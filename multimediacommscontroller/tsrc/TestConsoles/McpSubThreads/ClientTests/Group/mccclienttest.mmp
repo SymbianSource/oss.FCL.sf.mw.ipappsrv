@@ -1,0 +1,93 @@
+/*
+* Copyright (c) 2004 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    This is the Make file for Mccclienttest app.
+**
+*/
+
+
+
+#include <platform_paths.hrh>
+
+//MACRO           _DEBUG_UL
+//MACRO           _DEBUG_DL
+//MACRO           __MCCMEMTRACE
+//MACRO           __DEBUG_SESSION
+//MACRO           __DEBUG_DP
+
+TARGET          MccClientTest.exe
+TARGETTYPE      exe
+UID	            0	0
+
+#if (defined EKA2)
+CAPABILITY      CAP_APPLICATION
+VENDORID        VID_DEFAULT
+#endif
+
+SOURCEPATH      ../../../../../../subcontroller/src
+SOURCE          mccsubthreadclientbase.cpp
+SOURCE          mcculdlclient.cpp
+SOURCE          mccdatapathbase.cpp
+SOURCE          mcculdatapath.cpp
+SOURCE          mccdldatapath.cpp
+SOURCE          mcccodecconfigurator.cpp
+SOURCE          mcccompletecallback.cpp
+SOURCE          mccrtpmanager.cpp
+SOURCE          mccsymstreambase.cpp
+SOURCE          mccsymdlstream.cpp
+SOURCE          mccsymulstream.cpp
+SOURCE          mccsymsimpledlstream.cpp
+SOURCE          mccsymsubthreadclient.cpp
+
+SOURCEPATH	../../../../../../controller/src
+SOURCE			mccrtpmanager.cpp
+
+SOURCEPATH	../src
+SOURCE          Testconsole.cpp
+SOURCE          TestconsoleMain.cpp
+
+USERINCLUDE	../inc
+USERINCLUDE     ../../../../../../subcontroller/inc
+USERINCLUDE     ../../../../../../common/inc
+USERINCLUDE     ../../../../../../jitterbuffer/inc
+USERINCLUDE     ../../../../../../amrpayloadformat/inc
+USERINCLUDE     ../../../../../../h263payloadformat/inc
+USERINCLUDE     ../../../../../../dtmfpayloadformat/inc
+USERINCLUDE     ../../../../../../anypayloadformat/inc
+USERINCLUDE     ../../../../../../interface/api
+USERINCLUDE     ../../../../../../interface/inc
+USERINCLUDE     ../../../../../../controller/inc
+USERINCLUDE     ../../../../../../rtpsourcesink/inc
+USERINCLUDE     ../../../../../../videosourcesink/inc
+USERINCLUDE     ../../../../../../filesourcesink/inc
+
+MW_LAYER_SYSTEMINCLUDE
+
+
+// Symbian OS libraries
+LIBRARY     	euser.lib
+LIBRARY     	mmfcontrollerframework.lib
+LIBRARY         mmfserverbaseclasses.lib
+LIBRARY         ecom.lib
+LIBRARY         mmfdevsound.lib
+LIBRARY         EFSRV.LIB
+LIBRARY         rtpservice.lib
+LIBRARY         insock.lib
+LIBRARY         esock.lib
+LIBRARY         centralrepository.lib
+LIBRARY         commonengine.lib
+LIBRARY         CenRepNotifHandler.lib
+LIBRARY         3gpmp4lib.lib
+LIBRARY         mmccjitterbuffer.lib
+
+

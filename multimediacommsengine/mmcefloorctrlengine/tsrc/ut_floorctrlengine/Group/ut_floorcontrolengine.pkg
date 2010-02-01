@@ -1,0 +1,36 @@
+;
+; Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+; All rights reserved.
+; This component and the accompanying materials are made available
+; under the terms of "Eclipse Public License v1.0"
+; which accompanies this distribution, and is available
+; at the URL "http://www.eclipse.org/legal/epl-v10.html".
+;
+; Initial Contributors:
+; Nokia Corporation - initial contribution.
+;
+; Contributors:
+;
+; Description:  
+;
+
+;Languages
+&EN
+
+;Header
+#{"EUnit: FCEngine"},(0x01700000),1,0,0
+
+(0x101F7961), 0, 0, 0, {"Series60ProductID"}
+
+;Localised Vendor name
+%{"Nokia"}
+
+;Unique vendor name
+:"Nokia"
+
+;DLL files
+"\epoc32\release\armv5\urel\UT_CFCPlugInEngineTest.dll"-"c:\sys\bin\UT_CFCPlugInEngineTest.dll"
+"\epoc32\release\armv5\urel\FCTestPlugIn.dll"-"c:\sys\bin\FCTestPlugIn.dll"
+"\epoc32\data\Z\Resource\Plugins\FCTestPlugIn.RSC"-"c:\resource\plugins\FCTestPlugIn.RSC"
+"\epoc32\release\armv5\urel\TBCPTestPlugIn.dll"-"c:\sys\bin\TBCPTestPlugIn.dll"
+"\epoc32\data\Z\Resource\Plugins\TBCPTestPlugIn.RSC"-"c:\resource\plugins\TBCPTestPlugIn.RSC"
