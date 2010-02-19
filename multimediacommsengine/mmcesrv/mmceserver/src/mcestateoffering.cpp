@@ -34,6 +34,9 @@
 #include "mcenatmacros.h"
 #include "mcesdpsession.h"
 #include "mcesrvlogs.h"
+#include "mcemediastate.h"
+#include "mcemediadefs.h"
+#include "mcemediamanager.h"
 
 // -----------------------------------------------------------------------------
 // CMceStateOffering::CMceStateOffering
@@ -271,7 +274,15 @@ void CMceStateOffering::EntryProvisionalResponseL(
     if ( MceSip::ResponseCode( session.Response() ) == KMceSipSessionProgress && 
     	   session.ForkedDialogsCount() ) 
         {
+        if( session.ActiveBody().NegotiationState().Id() == KMceMediaNegotiated ||
+        	 session.ActiveBody().NegotiationState().Id() == KMceOfferingMedia )
+        	{
         IsFork = ETrue;
+        	}
+        else
+        	{
+        	session.ResetCurrentDialog();
+        	}
   	    }
     if ( session.Actions().NeedToProcessL( aEvent ) || IsFork )
         {
@@ -484,6 +495,13 @@ void CMceStateOffering::EntryResponseL( TMceStateTransitionEvent& aEvent )
     	    {
     	    if  ( !MCE_NEED_TO_RECEIVE( session ) )
     	        {
+    	        if ( session.ActiveBody().SecureSession())
+    	            {
+    	            if( session.ForkedDialogsCount() )
+    	            	{
+    	            	session.ForceUpdateStreamL();
+    	            	}
+    	            }
                 status = session.Actions().UpdateL();
     	        // SDP answer was received before
     	        // go to established state

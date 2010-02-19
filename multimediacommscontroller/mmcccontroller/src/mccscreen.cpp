@@ -787,7 +787,19 @@ void CMccScreenDirect::StartL()
         }
     else if ( VfStartPossible() )
         {
-        __CONTROLLER( "CMccScreenDirect::StartL, starting" )
+        __CONTROLLER( "CMccScreenDirect::StartL, starting, draw with alpha" )
+        
+		TRect vfRect( TPoint( 0, 0 ), iArea );
+        iGraphicsContext->Activate( *iRw ); 
+        iRw->Invalidate( vfRect );
+        iRw->BeginRedraw( vfRect );
+        iGraphicsContext->CancelClippingRect();
+        iGraphicsContext->SetBrushStyle( CGraphicsContext::ESolidBrush );
+        iGraphicsContext->SetBrushColor( TRgb( 255, 255, 255, 0 ) );
+        iGraphicsContext->DrawRect( vfRect );
+        iRw->EndRedraw();
+        iGraphicsContext->Deactivate();
+        iRwSession.Flush();
        
         StartDirectViewFinderL();
         }

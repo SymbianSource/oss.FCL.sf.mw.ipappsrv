@@ -210,6 +210,7 @@ public:
         * @return void 
         */
        	void CopyStreamCryptoL( CMceSecureDesStream& aCopyFrom );
+       	void ForceUpdateStreamL();
     
    private:     
     	/**

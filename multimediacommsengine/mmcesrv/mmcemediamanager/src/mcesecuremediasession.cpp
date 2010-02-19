@@ -619,4 +619,32 @@ void CMceSecureMediaSession::RemoveSecureCrypto( )
 		iSession.iIsSecureSession = EFalse;
 		}
     }					
+// -----------------------------------------------------------------------------
+// CMceSecureMediaSession::ForceUpdateSecureStreamL
+// 
+// -----------------------------------------------------------------------------
+//  
+void CMceSecureMediaSession::ForceUpdateSecureStreamL(CMceComMediaStream& aStream,
+		CSdpMediaField& aMediaLine )
+	{
+	MCEMM_DEBUG("CMceSecureMediaSession::ForceUpdateSecureStreamL(), Entry ");
+	User::LeaveIfNull( &aStream );
+	User::LeaveIfNull( &aMediaLine );
+	CMceSecureDesStream* secStream=NULL; 
+	TInt secStreamCount = iMceSecureDesStreams.Count();
+	for (TInt j=0; j<secStreamCount; j++)
+		{
+		CMceSecureDesStream* secDesStream = iMceSecureDesStreams[j];
+		if (IfStreamMatchMedia( aStream, *secDesStream, aMediaLine))
+	    		{
+	    		j=secStreamCount;
+	    		secStream = secDesStream;
+	    		}
+		}
+	if( secStream )
+		{
+		secStream->ForceUpdateStreamL();
+		}
+	MCEMM_DEBUG("CMceSecureMediaSession::ForceUpdateSecureStreamL(), Exit ");
+	}
 //  End of File  

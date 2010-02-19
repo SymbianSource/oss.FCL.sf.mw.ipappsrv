@@ -4780,5 +4780,80 @@ void CMceMediaManager::DoConfigKeyUpdateL(
         
     MCEMM_DEBUG("CMceMediaManager::DoConfigKeyUpdateL(), Exit ");
     }
+// ---------------------------------------------------------
+// CMceMediaManager::UpDateStreamStateL
+// ---------------------------------------------------------    
+//
+void CMceMediaManager::UpDateStreamStateL(CMceComSession& currentSession,
+		                    CMceComSession& forkSession )
+	{
+	MCEMM_DEBUG("CMceMediaManager::UpDateStreamState, Entry ");
+	CMceSrvStream* stream = NULL;
+	RPointerArray<CMceSrvStream> currentStreams;
+	TMceSrvStreamIterator sendStreams( currentSession.MccStreams(), 
+			                            TMceSrvStreamIterator::ESend );
+	while( sendStreams.Next( stream, CMceSrvStream::EStopped, 
+		                           TMceSrvStreamIterator::ExactReverseMatch ) )	                                     
+		{
+		if ( stream->State() != CMceSrvStream::EInactive &&
+				 stream->Codec().iIsNegotiated )
+			{ 
+			currentStreams.Append( stream );
+			}
+		}
+	TMceSrvStreamIterator forkSendStreams( forkSession.MccStreams(), 
+			                                 TMceSrvStreamIterator::ESend );
+	while( forkSendStreams.Next( stream, CMceSrvStream::EStopped, 
+	                             TMceSrvStreamIterator::ExactReverseMatch ) )                                     
+		{
+		if ( stream->State() != CMceSrvStream::EInactive &&
+				stream->Codec().iIsNegotiated )
+			{ 
+			CMccCodecInformation* codec = 
+			                      iMccInterface->CodecL( stream->SessionId(),
+	                    		                         stream->LinkId(),
+	                    		                         stream->Id() );
+			CleanupStack::PushL( codec );
+			stream->Codec().MccPopulateL( *codec, *stream, EMceRoleOfferer );
+			User::LeaveIfError( iMccInterface->SetCodec( stream->SessionId(),
+	                    		  stream->LinkId(), stream->Id(), *codec ) );
+			CleanupStack::PopAndDestroy( codec );
+			TBool IsMatch = EFalse;
+			for( TInt count = 0; count < currentStreams.Count() && !IsMatch; count++ )
+				{
+				if( currentStreams[count]->Codec().iSdpName ==  
+				                           stream->Codec().iSdpName )
+					{
+					IsMatch = ETrue;
+					}
+				}
+			if( !IsMatch )
+				{
+				SetPendingState( *stream, 0, CMceSrvStream::EPaused );
+				} 	
+			}
+		}
+	MCEMM_DEBUG("CMceMediaManager::UpDateStreamState, Exit ");
+	}
+// ---------------------------------------------------------
+// CMceMediaManager::ForceEnableSinkState
+// ---------------------------------------------------------    
+//
+void CMceMediaManager::ForceEnableSinkState(CMceComSession& aSession )
+	{
+	CMceSrvStream* stream = NULL;
+	TBool IsSet = EFalse;
+	TMceSrvStreamIterator sendStreams( aSession.MccStreams(), TMceSrvStreamIterator::ESend );
+	while( !IsSet && sendStreams.Next( stream, CMceSrvStream::EStopped, 
+			                             TMceSrvStreamIterator::ExactReverseMatch ) )	                                     
+		{
+		if ( stream->State() != CMceSrvStream::EInactive &&
+			             stream->Codec().iIsNegotiated )
+			{ 
+			SetPendingState( *stream, stream->Sink().Id(), CMceSrvStream::EPaused );
+			IsSet = ETrue;
+			}
+		}
+	}
         
 // End of File

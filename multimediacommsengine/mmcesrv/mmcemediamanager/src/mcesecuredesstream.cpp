@@ -1898,4 +1898,20 @@ void CMceSecureDesStream::SetCryptoByClientL(
 			}
 	MCEMM_DEBUG( "CMceSecureDesStream::SetCryptoByClientL, exit " )
 	}   							
+//-----------------------------------------------------------------------------
+// CMceSecureDesStream::ForceUpdateStreamL ()
+// 
+// -----------------------------------------------------------------------------
+//
+void CMceSecureDesStream::ForceUpdateStreamL()
+	{
+	MCEMM_DEBUG( "CMceSecureDesStream::ForceUpdateStream, entry " )
+	UpdateCryptoContextL( iCryptoIn ); 
+    UpdateCryptoContextL( iCryptoOut ); 			
+    if ( iWaitingBinding )
+    	{
+    	iSecureSession.BindStreamCrypto();
+    	}
+    MCEMM_DEBUG( "CMceSecureDesStream::ForceUpdateStream, exit " )
+	}
 //  End of File  

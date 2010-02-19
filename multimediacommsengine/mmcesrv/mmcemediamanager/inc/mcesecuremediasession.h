@@ -173,6 +173,8 @@ class CMceSecureMediaSession : public CBase
      	
      	void RemoveSecureCrypto();
      	
+     	void ForceUpdateSecureStreamL( CMceComMediaStream& aStream, 
+     			                       CSdpMediaField& aMediaLine );
     private:
     
         /**
