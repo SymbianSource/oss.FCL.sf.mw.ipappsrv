@@ -2635,6 +2635,8 @@ void CMceSipSession::ForceUpdateStreamL()
 		{
 		ActiveBody().SdpSession().UpdateSecureStreamL( ActiveBody() );
 		Manager().MediaManager().UpDateStreamStateL( *iBody, ActiveBody() );
+		__ASSERT_ALWAYS( iFirstOffer, User::Leave( KErrArgument ) );
+		ActiveBody().SdpSession().iSdpDocument = iFirstOffer;
 		}
 	MCESRV_DEBUG("CMceSipSession::ForceUpdateStream, Exit");    
 	}
@@ -2647,6 +2649,15 @@ void CMceSipSession::ResetCurrentDialog()
 	if( iBodyBucket.Count() == 0 )
 		{
 		iCurrentDialog = iDialog;
+		}
+	}
+void CMceSipSession::SetFirstOffer()
+	{	
+	if( iBodyBucket.Count() == 0 )
+		{
+		CSdpDocument* clonedOffer = NULL;
+		TRAP_IGNORE( ( clonedOffer = iOffer->CloneL() ) );
+		iFirstOffer = clonedOffer;
 		}
 	}
 //  End of File

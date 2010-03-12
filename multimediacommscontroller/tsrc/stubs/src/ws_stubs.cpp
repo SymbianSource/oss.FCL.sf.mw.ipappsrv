@@ -53,7 +53,16 @@ void CWindowGc::SetDrawMode( TDrawMode aDrawingMode )
 void CWindowGc::Deactivate()
     {
     
-    }/*
+    }
+void CWindowGc::CancelClippingRect()
+	{
+	
+	}
+void CWindowGc::DrawRect( const TRect &aRect )
+	{
+	
+	}
+/*
 TInt CWindowGc::APIExtension(TUid aUid, TAny*& aOutput, TAny* aInput)
     {
     

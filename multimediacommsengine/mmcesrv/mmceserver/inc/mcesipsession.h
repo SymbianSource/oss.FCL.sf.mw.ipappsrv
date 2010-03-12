@@ -731,6 +731,7 @@ public: //New Functions
 	
     void ForceUpdateStreamL();
     void ResetCurrentDialog();
+    void SetFirstOffer();
 protected:
 
 
@@ -790,6 +791,7 @@ protected: // Own Data
 
     //SDP offer/answer
     CSdpDocument* iOffer;
+    CSdpDocument* iFirstOffer;
     
     // Force SDP Sending Flag used for Resrouce Reservation
     TBool iForceSDPSending;
