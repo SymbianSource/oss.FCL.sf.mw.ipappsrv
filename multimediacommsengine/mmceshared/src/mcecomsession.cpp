@@ -1075,6 +1075,10 @@ CMceComSession* CMceComSession::CloneAndMergeLC( CMceComSession& aSession )
     copy->iServiceType = aSession.iServiceType;
     copy->iAnswerType = aSession.iAnswerType;
     copy->iRemoteSecPreconditionsRequired = aSession.iRemoteSecPreconditionsRequired;
+	if( copy->iSecureMediaSession )
+	    {
+        copy->iSecureMediaSession->iLSReadyToBind = EFalse;
+		}
 
     TInt index = 0;
     for( index = 0; index < copy->Streams().Count(); index++ )

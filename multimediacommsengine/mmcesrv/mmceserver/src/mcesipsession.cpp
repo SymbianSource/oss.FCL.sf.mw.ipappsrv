@@ -225,6 +225,13 @@ void CMceSipSession::CloseBodyBucket()
         CMceComSession* body = iBodyBucket[ 0 ];
         if ( &body->SdpSession() )
             {
+            if( body->SdpSession().Context() == Dialog() )
+                {
+                //fork situation
+                CMceComSession* tmpBody = body;
+                body = iBody;
+                iBody = tmpBody;
+                }
             body->SdpSession().AttachContext( NULL );
             }
         CMceComSession::Delete( body, Manager().MediaManager() );
@@ -1268,7 +1275,8 @@ void CMceSipSession::ResponseReceived()
         }
     else
         {
-        if ( Response().Type() == SIPStrings::StringF( SipStrConsts::EInvite ) )
+        if ( Response().Type() == SIPStrings::StringF( SipStrConsts::EInvite ) ||
+        		Response().Type() == SIPStrings::StringF( SipStrConsts::EPrack ) )
             {
             // If one of the forked dialogs generated 200 OK response 
             // for a session that is not in established state,
@@ -2611,5 +2619,34 @@ TBool CMceSipSession::IsNatSession()
 TInt CMceSipSession::ForkedDialogsCount()
 	{
 	return iForkedDialogs.Count();
+	}
+// -----------------------------------------------------------------------------
+// CMceSipSession::ForceUpdateStreamL
+// -----------------------------------------------------------------------------
+//
+void CMceSipSession::ForceUpdateStreamL()
+	{
+	MCESRV_DEBUG("CMceSipSession::ForceUpdateStream, Entry");    
+	if( iBody->SdpSession().Context() == Dialog() )
+		{
+		Manager().MediaManager().ForceEnableSinkState( ActiveBody() );
+		}
+	else
+		{
+		ActiveBody().SdpSession().UpdateSecureStreamL( ActiveBody() );
+		Manager().MediaManager().UpDateStreamStateL( *iBody, ActiveBody() );
+		}
+	MCESRV_DEBUG("CMceSipSession::ForceUpdateStream, Exit");    
+	}
+// -----------------------------------------------------------------------------
+// CMceSipSession::ResetCurrentDialog
+// -----------------------------------------------------------------------------
+//
+void CMceSipSession::ResetCurrentDialog()
+	{
+	if( iBodyBucket.Count() == 0 )
+		{
+		iCurrentDialog = iDialog;
+		}
 	}
 //  End of File

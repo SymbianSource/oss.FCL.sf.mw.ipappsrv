@@ -213,6 +213,14 @@ void UT_CMceNatStateDecodeAnswer::
     								   *iNatSession, EMceInvite );
     EUNIT_ASSERT_LEAVE( iState->TransitionHandler().ExitL( event2 ));
 
+    // NAT EMceNatHandleSIP Handled 
+    iNatSession->iNatDisabled = EFalse;
+	iNatSession->iEntryPoint = CMceNatSipSession::ENatEntryHandleSIPEvent;
+    eventcode = EMceNatHandleSIP;
+    iNatSession->NextState( KMceStateOffering ); 
+	TMceNatStateTransitionEvent event3( NULL, *iNatSession,eventcode,
+    								   *iNatSession, EMceProvisionalResponse );
+    EUNIT_ASSERT_LEAVE( iState->TransitionHandler().ExitL( event3 ));
 
 	}
 	

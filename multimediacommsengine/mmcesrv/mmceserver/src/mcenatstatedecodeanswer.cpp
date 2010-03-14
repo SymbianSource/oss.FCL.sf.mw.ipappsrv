@@ -142,9 +142,15 @@ void CMceNatStateDecodeAnswer::ExitDefaultL( TMceNatStateTransitionEvent& aEvent
 	aEvent.Session().SetOffer( aEvent.Document() );
 	aEvent.NatActions().SetOffered( KMceNatOfferSdp );
 	aEvent.NatActions().SdpCleanup( previous, session.Offer() );
-	aEvent.NatActions().StateChangedL( aEvent, KMceNatStateConnected );
+	if( EMceProvisionalResponse == aEvent.Code() )
+		{
+		aEvent.NatActions().StateChangedL( aEvent, KMceNatStateWait );		
+		}
+	else
+		{
+		aEvent.NatActions().StateChangedL( aEvent, KMceNatStateConnected );		
+		}
     }
-
 
 // End of File
 

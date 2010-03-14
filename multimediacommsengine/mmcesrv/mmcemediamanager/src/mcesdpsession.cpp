@@ -1539,9 +1539,11 @@ void CMceSdpSession::ContextSwitch( CMceSdpSession* aForkedSession )
                               newMaster->iContext;
         newMaster->iRequestedContext = NULL;
         oldMaster->iRequestedContext = NULL;
-
+        if( aForkedSession )
+        	{
         newMaster->MediaSession()->Merge( *oldMaster->MediaSession(), 
                                           KMceDeepMergeYes );
+        	}
         
         MCEMM_DEBUG("context switch performed")
         }
@@ -1722,3 +1724,22 @@ TInt CMceSdpSession::TIterator::Count()
 
     return count;
     }
+void CMceSdpSession::UpdateSecureStreamL( CMceComSession& aSession )
+	{
+	MCEMM_DEBUG("CMceSdpSession::UpdateSecureStream() : Entry ")
+	RPointerArray< CSdpMediaField >& mediaLines = iSdpRemoteMediaFields;
+	RPointerArray <CMceComMediaStream>& streams = aSession.Streams();
+	CSdpMediaField* mediaLine = NULL;
+	CMceComMediaStream* aStream = NULL;
+	for ( TInt index = 0; index < mediaLines.Count(); index++ )
+        {
+        mediaLine = mediaLines[ index ];
+        aStream = MediaSlotInUse( index, streams );
+        if( aSession.SecureSession() && aStream )
+        	{
+        	aStream = aStream->OfferStream();
+        	aSession.SecureSession()->ForceUpdateSecureStreamL(*aStream, *mediaLine );
+        	} 
+        }
+	MCEMM_DEBUG("CMceSdpSession::UpdateSecureStream() : Exit ")
+	}

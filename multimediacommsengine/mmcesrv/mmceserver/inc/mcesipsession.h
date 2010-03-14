@@ -729,6 +729,8 @@ public: //New Functions
 
     TInt ForkedDialogsCount();
 	
+    void ForceUpdateStreamL();
+    void ResetCurrentDialog();
 protected:
 
 

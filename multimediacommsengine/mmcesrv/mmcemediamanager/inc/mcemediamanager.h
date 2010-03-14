@@ -633,6 +633,9 @@ class CMceMediaManager : public CBase, public MMccCtrlObserver
         * @param aSource
         */
         void UpdateConfigKeyL( const CMceComMediaSource& aSource );
+        void UpDateStreamStateL(CMceComSession& currentSession,
+        		                    CMceComSession& forkSession );
+        void ForceEnableSinkState(CMceComSession& aSession );
 
     private: // 
 
