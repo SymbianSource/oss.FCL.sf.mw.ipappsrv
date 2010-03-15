@@ -203,6 +203,7 @@ void CMccScreen::ConstructL()
     iRwGroup->SetName( KMccWindowGroupName );
     
     iRwGroup->SetOrdinalPosition( iWindowOrdinalPosition, iWindowOrdinalPriority );
+    iRwGroup->AutoForeground( EFalse );
          
     // Create screen device
     iDev = new (ELeave) CWsScreenDevice( iRwSession );

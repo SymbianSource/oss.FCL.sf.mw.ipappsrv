@@ -148,6 +148,7 @@ void CMccVideoSinkImpl::ConstructL( const TMccVideoSinkSetting& aSettings )
     
     // TBD: use also iWindowOrdinalPriority
     iRwGroup->SetOrdinalPosition( iSettings.iWindowOrdinalPosition );
+    iRwGroup->AutoForeground( EFalse );
          
     // Create screen device
 	iDev = new (ELeave) CWsScreenDevice( iRwSession );
