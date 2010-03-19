@@ -201,6 +201,7 @@ class CMceSdpSession : public CBase
         CSIPDialogAssocBase* Context();
 
         TBool ContextSwitchRequested();
+        void UpdateSecureStreamL( CMceComSession& aSession );
         
 
 public: //update handling

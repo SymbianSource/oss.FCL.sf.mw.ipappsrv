@@ -246,6 +246,7 @@ void CMceStateConfirming::EntryResponseL( TMceStateTransitionEvent& aEvent )
                 	{
                 	session.ActiveBody().SecureSession()->iLSReadyToBind = ETrue;
                 	}
+                session.SetFirstOffer();
                 status = session.Actions().DecodeL();
                 if ( status == KMceSipPreconditionFailure )
                 	{
