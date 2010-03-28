@@ -384,7 +384,7 @@ public:// new Functions
 	* Checks whether remote RTCP address, and port has changed 
 	* @return ETrue if port has changed, otherwise return EFalse
 	*/
-	TBool CMceComMediaStream::RemoteRTCPAddressChanged( TUint aNewPort, TInetAddr aAddr );
+	TBool RemoteRTCPAddressChanged( TUint aNewPort, TInetAddr aAddr );
     
 		
 	/**

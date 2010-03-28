@@ -502,7 +502,7 @@ public: //New Functions
     * Create body
     * @param aSession
     */
-    void CMceSipSession::SetBodyL( CMceComSession* aSession = NULL );
+    void SetBodyL( CMceComSession* aSession = NULL );
     
 	/**
     * Returns session body

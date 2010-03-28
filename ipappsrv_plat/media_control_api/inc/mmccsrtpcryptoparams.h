@@ -85,7 +85,7 @@ class TMccSrtpCryptoParams
 public:
  
     //IF any of the following param changes it will cause the caculation changes.
-    inline TMccSrtpCryptoParams::TMccSrtpCryptoParams() : 
+    inline TMccSrtpCryptoParams() : 
       	iSrtpEncAlg( ESrtpEncAES_CM ), 
        	iSrtcpEncAlg( ESrtpEncAES_CM ), 
         iSrtpAuthAlg( ESrtpAuthHMAC_SHA1 ), 

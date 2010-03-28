@@ -461,7 +461,7 @@ public://new functions
     * Handle Reliable Response 
     * @return EFalse if response contains RSeq value that is not one higher than the last one.
     */
-	TBool TMceActionSet::NeedToProcessL( TMceStateTransitionEvent& aEvent );
+	TBool NeedToProcessL( TMceStateTransitionEvent& aEvent );
     
     
     /**

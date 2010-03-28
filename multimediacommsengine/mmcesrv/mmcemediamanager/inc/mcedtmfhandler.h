@@ -47,8 +47,8 @@ class CMceDtmfHandler: public CActive
 public: // Constructors & Destructor
 
 
-    static CMceDtmfHandler* CMceDtmfHandler::NewL( CMceSrvStream& aStream, 
-                                                   CMccInterface& aMccInterface );
+    static CMceDtmfHandler* NewL( CMceSrvStream& aStream, 
+                                  CMccInterface& aMccInterface );
     /**
     * Destructor.
     */
