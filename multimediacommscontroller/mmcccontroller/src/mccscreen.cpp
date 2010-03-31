@@ -795,6 +795,7 @@ void CMccScreenDirect::StartL()
         iRw->Invalidate( vfRect );
         iRw->BeginRedraw( vfRect );
         iGraphicsContext->CancelClippingRect();
+        iGraphicsContext->SetDrawMode( CGraphicsContext::EDrawModeWriteAlpha );
         iGraphicsContext->SetBrushStyle( CGraphicsContext::ESolidBrush );
         iGraphicsContext->SetBrushColor( TRgb( 255, 255, 255, 0 ) );
         iGraphicsContext->DrawRect( vfRect );

@@ -1360,8 +1360,24 @@ void CMceMediaManager::UpdateConfigKeyL( const CMceComMediaSource& /*aSource*/ )
 	HBufC8* configKey = HBufC8::NewLC( KMaxConfigKeyLen );
 	CleanupStack::PopAndDestroy( configKey );		
 	}
-
-
+	
+// ---------------------------------------------------------
+// CMceMediaManager::UpDateStreamStateL 
+// ---------------------------------------------------------    
+//
+void CMceMediaManager::UpDateStreamStateL(CMceComSession& /*currentSession*/,
+		                    CMceComSession& /*forkSession*/ )
+	{
+	}
+	
+// ---------------------------------------------------------
+// CMceMediaManager::ForceEnableSinkState
+// ---------------------------------------------------------    
+//	
+void CMceMediaManager::ForceEnableSinkState(CMceComSession& /*aSession*/ )
+	{
+	}	
+	
 
 // ---------------------------------------------------------
 // CMceMediaManager::SdpCodec
