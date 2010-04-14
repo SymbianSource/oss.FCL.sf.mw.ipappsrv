@@ -612,6 +612,26 @@ void UT_CMceStateOffering::UT_CMceStateOffering_EntryL_WithErrorResponsesL()
     EUNIT_ASSERT ( iSipSession->PendingTransactions().Count() == 4 );
     MCE_RESET_STUBS();
     
+    // KMceSipRequestPending updating
+    iSipSession->iSubState = CMceSipSession::EUpdating;
+    iStorage->iMediaManagerUpdateStatus = KMceAsync;
+    
+    MCETestHelper::ChangeResponseTypeL( 
+        *iSipSession->iResponse->ResponseElements(),
+        KMceSipRequestPending,
+        SipStrConsts:: EPhraseBusyHere);
+    
+    TMceStateTransitionEvent event3_4( *iSipSession, EMceErrorResponse );
+    iState->EntryL( event3_4 );
+    MCE_ENTRYL_POSTCONDITION_2
+    MCE_ASSERT_STUBS( CMCETls::ECloseSession /*mmaction*/, 
+                      CMCETls::ENone /*mmsdpaction*/, 
+                      SipStrConsts::EBye /*sentMethod*/, 
+                      KErrNotFound /*sentResponse*/);
+    
+    EUNIT_ASSERT ( event3_4.Code() == EMceErrorResponse );
+    MCE_RESET_STUBS();
+    
     // KMceSipSessionIntervalTooSmall && dialog state ETerminated
     iSipSession->Dialog()->Dialog().iState = CSIPDialog::ETerminated;
     iSipSession->iSubState = CMceSipSession::EOffering;

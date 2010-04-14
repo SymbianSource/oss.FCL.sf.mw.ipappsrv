@@ -58,8 +58,6 @@ LIBRARY        	euser.lib
 LIBRARY	        ProvisioningEngine.lib
 LIBRARY         centralrepository.lib
 LIBRARY         charconv.lib
-LIBRARY         apengine.lib 
-LIBRARY         commdb.lib
 LIBRARY         cmmanager.lib
 
 PAGED

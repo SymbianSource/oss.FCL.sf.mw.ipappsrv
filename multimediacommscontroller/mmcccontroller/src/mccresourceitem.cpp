@@ -253,6 +253,10 @@ TBool CMccResourceItem::NeedsCamera( CMccCameraHandler& aCameraHandler )
         {
         needsCamera = aCameraHandler.IsViewFinderEnabled();
         }
+    else if ( iState == MMccResources::EResourcePaused )
+        {
+        needsCamera = aCameraHandler.IsViewFinderEnabled();
+        }		
     else
         {
         // NOP

@@ -898,20 +898,24 @@ TInt CMceSrvStream::RequireSignalling( CMceSrvStream& aCurrent,
         MCEMM_DEBUG("CMceSrvStream::RequireSignalling(): codec requires signalling");
         action = KMceRequiresSignalling;
         }
-    else if ( LocalMediaPort() != aCurrent.LocalMediaPort() ||
-              Data().RemoteMediaPortChanged( aCurrent.Data().RemoteMediaPort() ) )
+    else if ( LocalMediaPort() != aCurrent.LocalMediaPort() )
     //local port has changed => needs new media session & signaling
         {
         MCEMM_DEBUG("CMceSrvStream::RequireSignalling(): local port changed. requires signalling");
         action = KMceRequiresSignalling;
         }
+    else if ( Data().RemoteMediaPortChanged( aCurrent.Data().RemoteMediaPort() ) )
+    	{
+    	MCEMM_DEBUG("CMceSrvStream::RequireSignalling(): Remote port changed. requires signalling");
+    	action = KMceRequiresSipSignallingOnly;
+    	}
         
     else if ( Data().RemoteRTCPAddressChanged(aCurrent.Data().iRemoteRtcpPort, 
     		 	aCurrent.Data().iRemoteRtcpAddress))
     		  
     	{
     	MCEMM_DEBUG("CMceSrvStream::RequireSignalling(): Remote Rtcp Port changed, requires signalling");
-        action = KMceRequiresSignalling;
+        action = KMceRequiresSipSignallingOnly;
     	}
         
     else if ( Data().iIsEnabled != aCurrent.Data().iIsEnabled )

@@ -350,6 +350,14 @@ void UT_CMccResourceItem::UT_CMccResourceItem_NeedsCameraL()
     camera->iViewFinderEnabled = ETrue;
     camera->iViewFinderSettings.iSize = TSize( 100, 100 );
     EUNIT_ASSERT( iItem->NeedsCamera( *camera ) )
+
+    // In paused state camera is needed only when viewfinder is enabled
+    camera->iViewFinderEnabled = EFalse;
+    iItem->iState = MMccResources::EResourcePaused;
+    EUNIT_ASSERT( !iItem->NeedsCamera( *camera ) )
+    camera->iViewFinderEnabled = ETrue;
+    camera->iViewFinderSettings.iSize = TSize( 100, 100 );
+    EUNIT_ASSERT( iItem->NeedsCamera( *camera ) )
     
     CleanupStack::PopAndDestroy( camera );
     CleanupStack::PopAndDestroy( pool );
