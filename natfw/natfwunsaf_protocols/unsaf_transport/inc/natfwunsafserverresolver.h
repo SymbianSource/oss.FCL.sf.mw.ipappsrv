@@ -97,16 +97,16 @@ class CNATFWUNSAFServerResolver : public CBase
         * @param aResult a client owned array
         *        that will be filled on succesful completion.
         */
-        void ResolveL(const TDesC8& aHostName,
-                      const TDesC8& aServiceName,
-                      const TDesC8& aProtocol,
-                      TUint aDefaultPort,
-                      RArray<TInetAddr>& aResult);
+        IMPORT_C void ResolveL(const TDesC8& aHostName,
+                               const TDesC8& aServiceName,
+                               const TDesC8& aProtocol,
+                               TUint aDefaultPort,
+                               RArray<TInetAddr>& aResult);
 
         /**
         * Cancels a pending resolving request.
         */
-        void CancelResolving();
+        IMPORT_C void CancelResolving();
 
     private:// Constructors and destructor
 

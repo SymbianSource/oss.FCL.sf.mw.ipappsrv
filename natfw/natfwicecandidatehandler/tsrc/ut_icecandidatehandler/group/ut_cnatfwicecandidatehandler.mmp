@@ -30,7 +30,7 @@ CAPABILITY      EUNIT_CAPS
 VENDORID                0x00000000
 
 MACRO                   CPPUNIT_TEST
-
+MACRO           				TEST_EUNIT // to allow friend class in target class
 SOURCEPATH              ../src
 SOURCE                  ut_cnatfwicecandidatehandlerdllmain.cpp
 SOURCE                  ut_cicesessiondata.cpp
