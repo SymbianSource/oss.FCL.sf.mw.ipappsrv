@@ -77,7 +77,7 @@ public:
      * @leave   KErrAlreadyExists Observer is already registered for some of
      *  the events
      */
-    void RegisterObserverForEventsL( MNATFWConnectivityObserver& aObserver,
+    IMPORT_C void RegisterObserverForEventsL( MNATFWConnectivityObserver& aObserver,
         TUint16 aEvents );
 
     /**
@@ -91,7 +91,7 @@ public:
      * @post    Observer will not receive notifications for specified events
      *          any more.
      */
-    void UnregisterObserverForEvents( MNATFWConnectivityObserver& aObserver,
+    IMPORT_C void UnregisterObserverForEvents( MNATFWConnectivityObserver& aObserver,
         TUint16 aEvents );
 
     /**
