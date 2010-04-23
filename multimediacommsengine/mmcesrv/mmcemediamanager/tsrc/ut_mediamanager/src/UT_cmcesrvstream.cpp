@@ -641,7 +641,7 @@ void UT_CMceSrvStream::UT_CMceSrvStream_RequireSignallingL()
     iMcc->iRequireSignalling = EFalse;
     iStream->Data().SetLocalMediaPort( stream->LocalMediaPort() );
     iStream->Data().SetRemoteMediaPort( 10 );
-    EUNIT_ASSERT( iStream->RequireSignalling( *stream, *current, *update ) );
+    EUNIT_ASSERT( iStream->RequireSignalling( *stream, *current, *update ) == KMceRequiresSipSignallingOnly );
 
     iMcc->iRequireSignalling = EFalse;
     iStream->Data().SetLocalMediaPort( stream->LocalMediaPort() );

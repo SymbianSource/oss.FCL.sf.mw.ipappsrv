@@ -1121,17 +1121,31 @@ void CMceMediaSdpCodec::DecodeDirectionL( CSdpMediaField& aMediaLine,
 	   		// did we try old school hold?
 	    	if ( oldSchool )           
 	      	    {
-	      	    if ( !isNullAddress )
-	      	      	{
-	      	  		// ignore that other party didn't understand us
-	      	        // and full cancel of old school process
-	         	    sSession.iOOldSchool = 0;
-	            	sSession.iOOldSchoolProceeding = 0;
-	                sSession.iOOldSchoolCompleted = 0;
-	      	      	}
+          	    if ( loc_direction == SdpCodecStringConstants::EAttributeSendrecv )
+          	        {
+          	        if ( !isNullAddress )
+          	            {
+          	            rmt_direction = SdpCodecStringConstants::EAttributeSendrecv;
+          	            }
+          	        else
+	      	            {
+          	            rmt_direction = SdpCodecStringConstants::EAttributeRecvonly;
+          	            }
+          	        }
+          	    else
+         	        {
+          	        if ( !isNullAddress )
+    				    {
+                        // ignore that other party didn't understand us
+                        // and full cancel of old school process
+                        sSession.iOOldSchool = 0;
+                        sSession.iOOldSchoolProceeding = 0;
+                        sSession.iOOldSchoolCompleted = 0;
+                        }
 	       		
-	       		rmt_direction = SdpCodecStringConstants::EAttributeRecvonly;
-	       		oldSchool = 0;
+                    rmt_direction = SdpCodecStringConstants::EAttributeRecvonly;
+          	        }
+                oldSchool = 0;
 	      	    }    
             else  //  didn't try old school yet
                 {

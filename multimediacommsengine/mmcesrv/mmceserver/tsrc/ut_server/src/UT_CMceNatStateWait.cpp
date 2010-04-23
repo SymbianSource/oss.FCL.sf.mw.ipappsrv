@@ -142,13 +142,13 @@ void UT_CMceNatStateWait::
         
     EUNIT_ASSERT( DoesAccept( EMceNatError ) );
     EUNIT_ASSERT( DoesAccept( EMceNatICMPError ) );
+    EUNIT_ASSERT( DoesAccept( EMceNatUpdated ) );
   
   	EUNIT_ASSERT( !DoesAccept( EMceNatHandleSIP ) );  
     EUNIT_ASSERT( !DoesAccept( EMceNatInitialized ) );
     EUNIT_ASSERT( !DoesAccept( EMceNatOffer ) );
     EUNIT_ASSERT( !DoesAccept( EMceNatAnswer ) );
     EUNIT_ASSERT( !DoesAccept( EMceNatUpdateSdp ) );
-    EUNIT_ASSERT( !DoesAccept( EMceNatUpdated ) );
     EUNIT_ASSERT( !DoesAccept( EMceNatSync ) );
         
     }
@@ -193,6 +193,12 @@ void UT_CMceNatStateWait::
     								   *iNatSession, EMceInvite );
     EUNIT_ASSERT_LEAVE( iState->TransitionHandler().ExitL( event2 ));
 
+    iNatSession->iNatDisabled = EFalse;
+    eventcode = EMceNatUpdated;
+    iNatSession->NextState( KMceStateOffering ); 
+    TMceNatStateTransitionEvent event3( NULL, *iNatSession,eventcode,
+        								   *iNatSession, EMcePrack );
+    EUNIT_ASSERT_NO_LEAVE( iState->TransitionHandler().ExitL( event3 ));
 	}
 
 TBool

@@ -506,6 +506,7 @@ class UT_CMceMediaManager : public CEUnitTestSuiteClass
         void UT_CMceMediaManager_SetCNameLL();
         void UT_CMceMediaManager_SetRemoteAddressLL();
         void UT_CMceMediaManager_UpdateConfigKeyLL();
+        void UT_CMceMediaManager_ForceEnableSinkStateL();
         
         /**
         * Tests
