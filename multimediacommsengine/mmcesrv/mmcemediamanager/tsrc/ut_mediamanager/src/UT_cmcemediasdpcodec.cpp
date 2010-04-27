@@ -1433,9 +1433,26 @@ void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_DecodeDirectionLL()
 			
 	// Ensure old school to be used next		
 	EUNIT_ASSERT( iSession->SdpSession().iOOldSchool == 1 );
-	
-	CleanupStack::PopAndDestroy( sdp );
-	
+
+    CleanupStack::PopAndDestroy( sdp );
+
+    sdp = CSdpDocument::DecodeL( KMceTestSdpAMRWithOutDirection );
+    CleanupStack::PushL( sdp );
+    iSession->SdpSession().iOOldSchool = 1; // OldSchool Tried Already
+    audioLine = sdp->MediaFields()[ 0 ];
+    mediaStream = iSession->Streams()[ 0 ];
+    mediaStream->SetDirection( SdpCodecStringConstants::EAttributeSendrecv );
+
+    aRole = EMceRoleOfferer;
+
+    // Check if we offer Sendrecv to unhold the call and the other party
+    // is just only accept oldschool hold.
+    iSdpCodec->DecodeDirectionL(*audioLine, *mediaStream, *sdp, aRole );
+
+    EUNIT_ASSERT( iSession->SdpSession().iOOldSchool == 1 );
+    EUNIT_ASSERT( mediaStream->Direction() == SdpCodecStringConstants::EAttributeSendrecv );
+    CleanupStack::PopAndDestroy( sdp );
+    
 	}
 	
 

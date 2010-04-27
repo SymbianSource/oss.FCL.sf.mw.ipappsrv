@@ -610,6 +610,12 @@ void UT_CMccCodecDTMF::UT_CMccCodecDTMF_ParseFmtpAttrL()
     EUNIT_ASSERT( iCodec->iBitrateMask == 0 ); 
     iCodec->iBitrateMask = 0;
    
+    // multiple fmtp
+    retValue = EFalse;
+    MCC_EUNIT_ASSERT_SPECIFIC_LEAVE( retValue = iCodec->ParseFmtpAttrL(_L8("0-15;0-15")), KErrArgument); 
+    EUNIT_ASSERT( !retValue );
+    EUNIT_ASSERT( iCodec->iBitrateMask == 0 ); 
+    iCodec->iBitrateMask = 0;
     }
 
 void UT_CMccCodecDTMF::UT_CMccCodecDTMF_GetFmtpL()

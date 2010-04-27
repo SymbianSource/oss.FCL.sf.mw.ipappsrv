@@ -36,6 +36,7 @@ const TInt KMaxFmtpAttrLength( 50 );
 const TText8 KCharComma = ',';
 const TText8 KCharHyphen = '-';
 const TText8 KCharSpace = ' ';
+const TText8 KCharSemicolon = ';';
 
 
 
@@ -384,13 +385,20 @@ TBool CMccCodecDTMF::ParseFmtpAttrL( const TDesC8& aFmtp )
     
     if ( aFmtp.Length() > 0 )
         {
+		//the firt, process semicolon and get its left data
+		TBufC8<256> value(aFmtp);
+		TInt match = value.Locate( KCharSemicolon );
+		if( KErrNotFound != match )
+			{
+			value = value.Left( match );
+			}
         // white space is not allowed 
-        if ( aFmtp.Locate( KCharSpace ) >= 0 )
+        if ( value.Locate( KCharSpace ) >= 0 )
             {
             User::Leave( KErrArgument );  
             }
            
-        CPtrC8Array* tokens = TokenizeL( aFmtp, KCharComma );
+        CPtrC8Array* tokens = TokenizeL( value, KCharComma );
         CleanupStack::PushL( tokens );
         
         // Mask will be updated while parsing
