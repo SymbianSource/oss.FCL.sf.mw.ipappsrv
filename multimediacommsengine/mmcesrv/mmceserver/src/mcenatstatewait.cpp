@@ -52,6 +52,7 @@ TBool CMceNatStateWait::Accept( TMceNatStateTransitionEvent& aEvent )
 	         EMceProvisionalResponse == aEvent.Code() ) &&
 	     	 MceSip::HasContent( aEvent.Session().Response() ) ) ||
 	     	 EMceNatError == aEvent.NatCode() ||
+	     	 EMceNatUpdated == aEvent.NatCode() ||
 	         ( EMceAck == aEvent.Code() &&  
             	    	MceSip::HasContent( aEvent.Session().Request())) ||
 	     	 EMceNatICMPError == aEvent.NatCode())
@@ -135,6 +136,7 @@ void CMceNatStateWait::ExitErrorL( TMceNatStateTransitionEvent& aEvent )
 void CMceNatStateWait::ExitDefaultL( TMceNatStateTransitionEvent& aEvent )
     {
     CMceSipSession& session = aEvent.Session();
+    TMceStateIndex sipState = aEvent.Session().CurrentState().Id();
     
     if ( EMceAck == aEvent.Code() &&  
           MceSip::HasContent( aEvent.Session().Request()))
@@ -142,6 +144,11 @@ void CMceNatStateWait::ExitDefaultL( TMceNatStateTransitionEvent& aEvent )
     	User::LeaveIfError( session.Actions().CreateSDP( session.Request() ) );
         aEvent.NatActions().UpdateL();
     	aEvent.NatActions().StateChangedL( aEvent, KMceNatStateDecodeAnswer );		
+    	}
+    else if( EMceNatUpdated == aEvent.NatCode() && 
+    		 KMceStateOffering == sipState )                //for prack
+    	{
+		aEvent.NatActions().StateChangedL( aEvent, KMceNatStateCreateOffer );	
     	}
     else
     	{
