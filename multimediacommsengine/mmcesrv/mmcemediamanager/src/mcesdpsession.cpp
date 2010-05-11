@@ -95,7 +95,8 @@ CMceSdpSession::CMceSdpSession(
             iOOldSchoolProceeding( 0 ),
             iOOldSchoolCompleted( 0 ),
             iIsMaster( ETrue ),
-            iOldLocalMediaPort( 0 )
+            iOldLocalMediaPort( 0 ),
+            iStoreRemoteOrigin ( ETrue )
     {
     iSessionId = GetRandomNumber();
     iSessionVersion = GetRandomNumber();
@@ -508,11 +509,15 @@ TInt CMceSdpSession::DecodeOfferL(
         MCEMM_DEBUG("CMceSdpSession::DecodeOfferL(), Exit ")
         return KMceSipWarnIncompatibleMediaFormat;
         }
-        
-    // store the remote o= field
-    StoreRemoteOriginL();
-    // store the remote a= field
-    StoreRemoteMediaFieldsL();
+    
+    //avoid to store the value second time when in nat environment
+    if ( iStoreRemoteOrigin )
+        {
+        // store the remote o= field
+        StoreRemoteOriginL();
+        // store the remote a= field
+        StoreRemoteMediaFieldsL();
+        }
     //set remote ip address
     result = SetRemoteIpAddressL( aSession, aSdpDocument );
     

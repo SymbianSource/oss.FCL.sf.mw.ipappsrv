@@ -1333,6 +1333,35 @@ void UT_CMceSdpSession::UT_CMceSdpSession_DecodeOfferL_3L(  )
 		
 	CleanupStack::PopAndDestroy( offer3 );						
     }    
+	
+void UT_CMceSdpSession::UT_CMceSdpSession_DecodeOfferL_4L()
+    {	
+    iSdpSession->SetMediaSession( iInSession );
+    iInSession->AttachSDPSessionL( *iSdpSession );
+    
+    TInetAddr remoteIP;
+    remoteIP.SetAddress( INET_ADDR( 10,10,10,10 ) );
+    
+    _LIT8( KMyUserName, "username" );
+    const TInt64 KSessionId( 1234 );
+    const TInt64 KSessionVersion( 5678 );    
+    CSdpOriginField* remoteorigin = 
+            CSdpOriginField::NewL( KMyUserName, KSessionId, KSessionVersion, remoteIP );
+    iSdpSession->iRemoteOrigin = remoteorigin;
+
+    iSdpSession->iStoreRemoteOrigin = EFalse;
+    CSdpDocument* offer = CSdpDocument::DecodeL( KMceMMTestSdpMessage_MT_Confield_In_MediaLine );
+    CleanupStack::PushL( offer );
+    TInt err = iSdpSession->DecodeOfferL( *offer, *iInSession );
+    EUNIT_ASSERT( err == KErrNone );
+    EUNIT_ASSERT( iSdpSession->iRemoteOrigin->InetAddress()->CmpAddr( remoteIP ) );
+
+    iSdpSession->iStoreRemoteOrigin = ETrue;
+    err = iSdpSession->DecodeOfferL( *offer, *iInSession );
+    EUNIT_ASSERT( err == KErrNone );
+    EUNIT_ASSERT( !iSdpSession->iRemoteOrigin->InetAddress()->CmpAddr( remoteIP ) );
+    CleanupStack::PopAndDestroy( offer ); 
+    }
 
 void UT_CMceSdpSession::UT_CMceSdpSession_DecodeOfferLL_CreateAnswer_NOK_1(  )
     {
@@ -2851,6 +2880,13 @@ EUNIT_TEST(
     "DecodeOffer3L",
     "FUNCTIONALITY",
     SetupL, UT_CMceSdpSession_DecodeOfferL_3L, Teardown)    
+    
+EUNIT_TEST(
+    "iStoreRemoteOrigin - test",
+    "CMceSdpSession",
+    "DecodeOffer4L",
+    "FUNCTIONALITY",
+    SetupL, UT_CMceSdpSession_DecodeOfferL_4L, Teardown) 
 
 EUNIT_TEST(
     "ForkL - test",

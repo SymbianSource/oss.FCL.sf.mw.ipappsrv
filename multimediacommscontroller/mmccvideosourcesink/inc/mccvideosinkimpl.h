@@ -61,7 +61,6 @@ class CXPSPacketSink;
 class CMccVideoSinkUser;
 class MAsyncEventHandler;
 class MDataSource;
-class CMccRedrawHandler;
 
 // CLASS DECLARATION
 
@@ -453,6 +452,10 @@ class CMccVideoSinkImpl :
         
         TBool AllUsersReady();
         
+        void UpdateScreenTransparencyL(const TMccVideoSinkSetting& aSettings);
+        void DeleteWindowingElements();
+        void CreateWindowingElementsL(const TMccVideoSinkSetting& aSettings);
+        
     private: // Data
     
         RWsSession           iRwSession;
@@ -488,8 +491,6 @@ class CMccVideoSinkImpl :
         TInt iPreroll;
         
         TBool iPrerollSet;
-        
-        CMccRedrawHandler* iRedrawHandler;
         
         TUint32 iNumPacketsEnqueued;
         

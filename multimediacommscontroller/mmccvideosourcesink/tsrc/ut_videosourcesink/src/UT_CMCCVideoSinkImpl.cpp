@@ -41,6 +41,7 @@
 #include "Mcctesteventhandler.h"
 #include "mmcccodecamr.h"
 #include "mccvideosinkuser.h"
+#include "ws_stubs_helper.h"
 
 
 const TInt KVideoSinkTestFramerateNormal = 15;
@@ -761,10 +762,16 @@ void UT_CMccVideoSinkImpl::UT_CMccVideoSinkImpl_UpdateSettingsL()
     settings.iRotation = EMccNone;
     
     // No change
+    TWsStubsHelper::Reset();
+    TInt numWindowCreated = TWsStubsHelper::NumWindowsCreated();
     iSinkImpl->UpdateSettingsL( settings, EFalse );
+    EUNIT_ASSERT( numWindowCreated == TWsStubsHelper::NumWindowsCreated() );
+    EUNIT_ASSERT( TWsStubsHelper::CurrentDrawMode() != CGraphicsContext::EDrawModeWriteAlpha );
     
     // Force
     iSinkImpl->UpdateSettingsL( settings, ETrue );
+    EUNIT_ASSERT( ++numWindowCreated == TWsStubsHelper::NumWindowsCreated() ); // Window was recreated
+    EUNIT_ASSERT( TWsStubsHelper::CurrentDrawMode() == CGraphicsContext::EDrawModeWriteAlpha );
     
     // Settings changed
     settings.iRotation = EMccClockwise180Degree;
