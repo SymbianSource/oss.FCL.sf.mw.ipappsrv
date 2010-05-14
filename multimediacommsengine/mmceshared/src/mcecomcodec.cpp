@@ -228,7 +228,14 @@ TBool CMceComCodec::Decodes(
     const TDesC8& /*aFmtpValue*/,
     TBool /*aIsStrictMatch*/ )
     {
-    return aRtpmapValue.FindF( iSdpName ) == 0;
+    // find MIME type
+    TInt slashPos = aRtpmapValue.Find( _L8( "/" ) );
+    if ( slashPos != KErrNotFound )
+        {
+        return aRtpmapValue.Left(slashPos).Compare( iSdpName ) == 0;
+        }
+
+    return aRtpmapValue.FindF(iSdpName) == 0;
     }
     
 // -----------------------------------------------------------------------------

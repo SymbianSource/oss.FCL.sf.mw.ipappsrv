@@ -409,7 +409,8 @@ public: //update handling
         
         // old local port, used for refresh
         TUint iOldLocalMediaPort;
-        
+		
+        TBool iStoreRemoteOrigin;
     	//definitions for unit testing
     	MCEMM_UT_DEFINITIONS
 

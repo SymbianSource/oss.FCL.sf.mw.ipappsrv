@@ -582,6 +582,7 @@ void CMccFileSink::CalculateAverageTimestampDifferenceL(
            {
            iAddToTimestamp += ( currDifference + averageTimeStampDifference );
            iTimestamps.Reset();
+		   iPausedDuration = 0;
            
            __FILESINK_CONTROLL_INT1("CMccFileSink::TimeToPlay, iAddToTimestamp=", iAddToTimestamp )  
            }

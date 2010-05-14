@@ -392,7 +392,7 @@ class CMccVideoSourceImpl: public CBase,
         void RateAdaptationRequestL( const TMccEvent& aInputData, 
                                      TMccEvent& aOutputData );
                                      
-        void DoCodecSpecificConfigurationL( TUid& aEncoderUid );
+        void DoCodecSpecificConfigurationL( TUid& aEncoderUid,TBool& aForceEncapsulationType );
         
         HBufC8* GetFmtpLC( const TMccCodecInfo& aCodecInfo ); 
         

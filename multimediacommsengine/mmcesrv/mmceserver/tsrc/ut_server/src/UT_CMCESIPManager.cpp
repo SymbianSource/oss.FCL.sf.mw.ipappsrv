@@ -480,6 +480,43 @@ void UT_CMceSipManager::UT_CMceSipManager_OrphanSubSessionCountL()
   	EUNIT_ASSERT( iManager->OrphanSubSessionCount() == 0 );
     }
 
+void UT_CMceSipManager::UT_CMceSipManager_UpdateProfileToSubSessionsL()
+    {
+    iIds.iProfileID = 1;
+    iIds.iManagerType = KMceCSSIPSession;
+    iIds.iDialogType = KMceDlgTypeInvite;
+    
+	CDesC8ArrayFlat* params = new (ELeave) CDesC8ArrayFlat( KMceArrayGranularity );
+	CleanupStack::PushL( params );
+	params->AppendL( _L8("User <user2@host>") );
+	params->AppendL( _L8("User <user@host>") );
+    
+    CMceCsSubSession* subsession = 
+        iManager->CreateSubSessionL( *iSession, iIds, *params );
+    CleanupStack::PushL( subsession );
+    
+    CSIPProfile& profileOld = subsession->Profile();
+  	EUNIT_ASSERT( &profileOld != NULL );
+    CSIPProfile& profileNew = iManager->ProfileL( 2 );
+  	EUNIT_ASSERT( &profileNew != NULL );
+
+  	CMceCsSessionImplementation& session = iManager->iClients[ 0 ]->Implementation();
+  	RPointerArray<CMceCsSubSession>& subSessions = session.SubSessions();
+  	subSessions.AppendL(subsession);
+  	
+  	iManager->UpdateProfileToSubSessions(profileNew, profileOld);
+  	EUNIT_ASSERT(&subsession->Profile() == &profileNew)
+  	subSessions.Remove(0);
+
+  	iManager->AddOrphanSubSessionL( subsession );
+  	iManager->UpdateProfileToSubSessions(profileOld, profileNew);
+  	RPointerArray<CMceCsSubSession>& orphanSubSessions = iManager->iOrphanSubSessions->SubSessions();
+  	EUNIT_ASSERT(&subsession->Profile() == &profileOld)
+
+  	CleanupStack::Pop( subsession );
+  	CleanupStack::PopAndDestroy( params );
+    }
+
 
 //  TEST TABLE
 
@@ -621,6 +658,12 @@ EUNIT_TEST(
     "FUNCTIONALITY",
     SetupL, UT_CMceSipManager_OrphanSubSessionCountL, Teardown)
 
+EUNIT_TEST(
+    "UpdateProfileToSubSessions - test ",
+    "CMceSipManager",
+    "UpdateProfileToSubSessions",
+    "FUNCTIONALITY",
+    SetupL, UT_CMceSipManager_UpdateProfileToSubSessionsL, Teardown)
 
 EUNIT_END_TEST_TABLE
 

@@ -338,6 +338,11 @@ void UT_CMccVideoSourceImpl::UT_CMccVideoSourceImpl_SourcePrimeLL(  )
     iSourceImpl->SetVideoCodecL( codecInfo );
     iSourceImpl->SourcePrimeL();
     EUNIT_ASSERT( iSourceImpl->iVideoCodecFourCC->Des().FindF( KH263SdpName ) != KErrNotFound );
+    // Encoder uid should not be set in case of H263 is used
+    CCMRMediaRecorderStub* stub = 
+        reinterpret_cast<CCMRMediaRecorderStub*>( iSourceImpl->iMediaRecorder->iMediaRecorder );
+    EUNIT_ASSERT( stub->iEncoderUid == KNullUid );
+    EUNIT_ASSERT( stub->iEncapsulation != EDuElementaryStream ); // Not forced in H263 case
     }
     
 void UT_CMccVideoSourceImpl::UT_CMccVideoSourceImpl_SourcePrimeL2L(  )
@@ -436,6 +441,7 @@ void UT_CMccVideoSourceImpl::UT_CMccVideoSourceImpl_SourcePrimeL4L(  )
     CCMRMediaRecorderStub* stub = 
         reinterpret_cast<CCMRMediaRecorderStub*>( iSourceImpl->iMediaRecorder->iMediaRecorder );
     EUNIT_ASSERT( stub->iEncoderUid != KNullUid );
+    EUNIT_ASSERT( stub->iEncapsulation == EDuElementaryStream ); // Forced in AVC case
     
     // Multiple codecs prepare
     iSourceImpl->SourceStopL();

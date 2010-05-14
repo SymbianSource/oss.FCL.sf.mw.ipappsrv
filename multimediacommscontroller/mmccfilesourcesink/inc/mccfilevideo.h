@@ -26,6 +26,9 @@
 
 #include "mccfilesourcetypebase.h"
 
+
+const TUint KMccReadFrameFailCountMax = 20;
+
 // FORWARD DECLARATIONS
 class CMccFileSourceImpl;
 class MMccResources;
@@ -112,6 +115,9 @@ private: //data
 	TBool   iIsVideoLeft;
 	TBool   iIsFirstFrame;
 	TFourCC	iFourCC;
+	
+	TInt iReadFrameFailCount;
+	TBool iSendReadFrameFailEvent;
     
 	MMccResources* iMccResources;
 	TUint32 iEndpointId;

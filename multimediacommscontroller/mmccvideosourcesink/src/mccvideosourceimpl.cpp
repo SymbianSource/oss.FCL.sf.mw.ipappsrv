@@ -166,13 +166,14 @@ void CMccVideoSourceImpl::SourcePrimeL( TBool aMultipleCodecs )
             __V_SOURCESINK_CONTROLL( "CMccVideoSourceImpl::SourcePrimeL, prepare fully" )
             
             TUid encoderUid( KNullUid );
-            DoCodecSpecificConfigurationL( encoderUid );
+            TBool forceEncapsulationType( EFalse );
+            DoCodecSpecificConfigurationL( encoderUid, forceEncapsulationType );
             
             __ASSERT_ALWAYS( iVideoCodecFourCC, User::Leave( KErrNotReady ) );
             	
             __V_SOURCESINK_CONTROLL( "CMccVideoSourceImpl::SourcePrimeL, opening source" )		
         	iMediaRecorder->OpenL( iAudioSource, iCameraHandler->Handle(), 
-        		*iVideoCodecFourCC, iAudioFourCC, encoderUid ) ;
+        		*iVideoCodecFourCC, iAudioFourCC, encoderUid, forceEncapsulationType ) ;
             }
         }
     else
@@ -1218,7 +1219,8 @@ void CMccVideoSourceImpl::RateAdaptationRequestL(
 // CMccVideoSourceImpl::DoCodecSpecificConfigurationL
 // ---------------------------------------------------------------------------
 //
-void CMccVideoSourceImpl::DoCodecSpecificConfigurationL( TUid& aEncoderUid )
+void CMccVideoSourceImpl::DoCodecSpecificConfigurationL( 
+    TUid& aEncoderUid, TBool& aForceEncapsulationType )
     {
     __V_SOURCESINK_CONTROLL( "CMccVideoSourceImpl::DoCodecSpecificConfigurationL" )
     
@@ -1264,6 +1266,7 @@ void CMccVideoSourceImpl::DoCodecSpecificConfigurationL( TUid& aEncoderUid )
         __V_SOURCESINK_CONTROLL_INT1( "CMccVideoSourceImpl::DoCodecSpecificConfigurationL, EncodingDecodingDeviceUid:", 
     		                              iVideoCodec.iEncodingDecodingDevice.iUid )
         aEncoderUid = iVideoCodec.iEncodingDecodingDevice;
+        aForceEncapsulationType = ETrue;
         }
     else
         {

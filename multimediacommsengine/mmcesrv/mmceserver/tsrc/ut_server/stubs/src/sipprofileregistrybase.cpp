@@ -52,9 +52,13 @@ EXPORT_C void CSIPProfileRegistryBase::ProfilesL(
 	// stubs
 	CSIPProfileRegistry* reg = (CSIPProfileRegistry*) this;
 	CSIPProfile* profile = CSIPProfile::NewLC(reg);
+	CSIPProfile* profile2 = CSIPProfile::NewLC(reg);
+	profile2->SetContextId(2);
 	
 	aProfiles.AppendL ( profile  );
+	aProfiles.AppendL ( profile2  );
 	
+	CleanupStack::Pop( profile2 );
 	CleanupStack::Pop( profile );
 
 	
@@ -72,8 +76,12 @@ EXPORT_C void CSIPProfileRegistryBase::ProfilesL(
 	CSIPProfileRegistry* reg = (CSIPProfileRegistry*) this;
 	
 	CSIPProfile* profile = CSIPProfile::NewLC( reg );
+	CSIPProfile* profile2 = CSIPProfile::NewLC(reg);
+	profile2->SetContextId(2);
 	aProfiles.AppendL ( profile  );
+	aProfiles.AppendL ( profile2  );
 
+	CleanupStack::Pop( profile2 );
 	CleanupStack::Pop( profile );
 	
 	}

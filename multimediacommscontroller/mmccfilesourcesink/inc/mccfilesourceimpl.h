@@ -283,6 +283,8 @@ class CMccFileSourceImpl :
 
         void StopEofTimer(); 
         void EofTimerExpiredL(); // from MMccEofTimerObserver
+        
+        void InvalidVideoFrame( TBool aInvalid = EFalse );
   	  	
     public:
     

@@ -36,6 +36,7 @@ CCMRMediaRecorderStub::CCMRMediaRecorderStub()
     {
     iCurrentState = CCMRMediaRecorderStub::EStateNone;
     iVideoBitrate = 64000;
+    iEncapsulation = EDuGenericPayload;
     }
 
 CCMRMediaRecorderStub::~CCMRMediaRecorderStub()
@@ -231,9 +232,10 @@ void CCMRMediaRecorderStub::SetPreferredVideoEncoderL(TUid& aEncoder)
     iEncoderUid = aEncoder;
     }
 
-void CCMRMediaRecorderStub::SetPreferredVideoEncapsulationL(TVideoDataUnitEncapsulation /*aCapsulation*/)
+void CCMRMediaRecorderStub::SetPreferredVideoEncapsulationL(TVideoDataUnitEncapsulation aCapsulation)
     {
     iLastFunctionCall = ETestPreferredEncapsulation;
+    iEncapsulation = aCapsulation;
     }
         
 // STUB STUFF

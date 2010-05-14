@@ -1086,6 +1086,27 @@ TBool CMccFileSourceImpl::StartNeededL( CMccFileSourceTypeBase& aFileSource )
     
     return startNeeded;
     }
+
+// -----------------------------------------------------------------------------
+// CMccFileSourceImpl::InvalidVideoFrame()
+// -----------------------------------------------------------------------------
+//
+void CMccFileSourceImpl::InvalidVideoFrame( TBool aInvalid )
+	{
+	__FILESOURCE_CONTROLL( 
+	            "CMccFileSourceImpl::InvalidVideoFrame" )
+    if( aInvalid )
+	    {
+	    SendStreamEventToClient( KMccEventCategoryStream, 
+		    	                 KMccStreamIdle );
+		}
+	else
+	    {
+	    SendStreamEventToClient( KMccEventCategoryStream, 
+		    	                 KMccStreamPlaying );
+	    }
+	}
+
     
 #ifndef EKA2
 // DLL interface code
