@@ -401,6 +401,7 @@ public:
 		TMceSecureCryptoInfo iCryptoOut;
     	TMceSecureCryptoInfo iCryptoIn;
     	TBool iGnoreSdpMsg;
+    	TBool iWaitingBinding;
     	
     private://data
     
@@ -421,8 +422,6 @@ public:
     	CSdpMediaField* iMediaField;
 
     	TBool iIsSAVP;
-
-    	TBool iWaitingBinding;
 
     	TUint32 iCryptoContextOutId;
 

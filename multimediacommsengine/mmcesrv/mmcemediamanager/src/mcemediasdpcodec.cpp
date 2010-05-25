@@ -1040,10 +1040,8 @@ void CMceMediaSdpCodec::DecodeSecureSessionL(
     else if ( secureSession && aRole == EMceRoleAnswerer && aUpdate )
         {
         // for long session
-        if ( secureSession->iKeyNeedUpdated )
-        	{
-        	secureSession->DecodeSecureDesSdpUpdateL( aStream, aMediaLine ) ;
-        	}
+        secureSession->iKeyNeedUpdated = ETrue;
+        secureSession->DecodeSecureDesSdpUpdateL( aStream, aMediaLine ) ;
         }
     else if ( secureSession && aRole == EMceRoleOfferer )
         {

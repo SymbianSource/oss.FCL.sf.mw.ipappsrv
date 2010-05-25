@@ -1350,7 +1350,22 @@ void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_ValidateSdpL()
 
     }
     
+void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_DecodeSecureSessionLL()
+	{
+	CSdpDocument* sdp = CSdpDocument::DecodeL( KMceTestSdpAMR );
+	CSdpMediaField* audioLine = sdp->MediaFields()[ 0 ];
+    iSession->SecureSessionL();
+    
+    CMceComMediaStream* mediaStream = iSession->Streams()[ 0 ];
+    CMceSecureMediaSession* secureSession = iSession->SecureSession();
 
+    CleanupStack::PushL( sdp );
+    secureSession->iKeyNeedUpdated = EFalse;
+	iSdpCodec->DecodeSecureSessionL(*audioLine, *mediaStream, EMceRoleAnswerer, ETrue );
+	
+	EUNIT_ASSERT( secureSession->iKeyNeedUpdated == ETrue );
+	CleanupStack::PopAndDestroy( sdp );	
+	}
 
 void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_DecodeDirectionLL()
 	{
@@ -1658,11 +1673,17 @@ EUNIT_TEST (
     "FUNCTIONALITY",
     SetupL, UT_CMceMediaSdpCodec_EncodelocalRtcpAttrLL, Teardown)
     
-
+EUNIT_TEST (
+    "DecodeSecureSessionL test",
+    "CMceMediaSdpCodec",
+    "DecodeSecureSessionL",
+    "FUNCTIONALITY",
+    SetupL, UT_CMceMediaSdpCodec_DecodeSecureSessionLL, Teardown)
+    
 EUNIT_TEST (
     "DecodeDirection test",
     "CMceMediaSdpCodec",
-    "DecodeDirectionAttribute",
+    "DecodeDirectionL",
     "FUNCTIONALITY",
     SetupL, UT_CMceMediaSdpCodec_DecodeDirectionLL, Teardown)        
     

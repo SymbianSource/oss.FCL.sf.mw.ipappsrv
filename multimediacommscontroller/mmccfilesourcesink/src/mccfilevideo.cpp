@@ -402,11 +402,27 @@ MP4ParseNextFrameSize not Ok" )
 		{
 		__FILESOURCE_CONTROLL( "CMccFileVideo::ReadFrameL, reading frame, NOT OK" )
 		CleanupStack::PopAndDestroy( mediaBuffer );
+	  	if( !iSendReadFrameFailEvent )
+	  	    {
+	  	    iReadFrameFailCount++;
+	  	    if( iReadFrameFailCount >= KMccReadFrameFailCountMax )
+	  	    	{
+	  	    	iSendReadFrameFailEvent = ETrue;
+	  	    	iSource.InvalidVideoFrame( ETrue );
+	  	    	}
+	  	    }
         }
     else
     	{
  		__FILESOURCE_CONTROLL_INT1( "CMccFileVideo::ReadFrameL, reading frame, OK, position", 
  		                            iPosition )   		
+ 		                            
+	    if( iSendReadFrameFailEvent )
+		    {
+		    iSendReadFrameFailEvent = EFalse;
+		    iReadFrameFailCount = 0;
+		    iSource.InvalidVideoFrame( EFalse );
+		    }
 
         DoTimingCorrection( iPosition );
                

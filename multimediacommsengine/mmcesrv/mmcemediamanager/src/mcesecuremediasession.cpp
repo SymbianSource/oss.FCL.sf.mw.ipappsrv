@@ -433,7 +433,7 @@ TInt CMceSecureMediaSession::BindStreamCrypto( )
 	{
 	MCEMM_DEBUG("CMceSecureDesStream::BindStreamCrypto(), Entry");
 	TInt err(KErrNone);
-	if (iSession.iClientCryptoSuites.Count())
+	if (iLSReadyToBind && iSession.iClientCryptoSuites.Count())
 		{
 		for (TInt i=0; i<iSession.MccStreams().Count(); i++)
 			{
@@ -441,20 +441,22 @@ TInt CMceSecureMediaSession::BindStreamCrypto( )
 			MCEMM_DEBUG_DVALUE("	CMceSrvStream id =", stream->Data().Id().iId );	
 			MCEMM_DEBUG_DVALUE("	App id", stream->Data().Id().iAppId );		
 			TInt secStreamCount = iMceSecureDesStreams.Count();
-    		for (TInt j=0; j<secStreamCount; j++)
-				{
-				CMceSecureDesStream* secureStream=iMceSecureDesStreams[j]; 
-				MCEMM_DEBUG_DVALUE("	SrvStream id in SecureStream ", secureStream->MediaStream().Id().iId);	
-				MCEMM_DEBUG_DVALUE("	App id in SecureStream ", secureStream->MediaStream().Id().iAppId);	
-				if (stream->Data().Id()== secureStream->MediaStream().Id() || 
-					 ( stream->Data().BoundStream() && 
-					   stream->Data().iLinkedStream->Id() == secureStream->MediaStream().Id() ) ) 
-					{
-					//bind
-					secureStream->BindCrypto(*stream);
-					
-					}
-				}
+            for (TInt j=0; j<secStreamCount; j++)
+                {
+                CMceSecureDesStream* secureStream=iMceSecureDesStreams[j];
+                MCEMM_DEBUG_DVALUE("	SrvStream id in SecureStream ", secureStream->MediaStream().Id().iId);	
+                MCEMM_DEBUG_DVALUE("	App id in SecureStream ", secureStream->MediaStream().Id().iAppId);	
+                if(secureStream->iWaitingBinding)
+                    {
+                    if (stream->Data().Id()== secureStream->MediaStream().Id() || 
+                         ( stream->Data().BoundStream() && 
+                           stream->Data().iLinkedStream->Id() == secureStream->MediaStream().Id() ) ) 
+                        {
+                        //bind
+                        err = secureStream->BindCrypto(*stream);					
+                        }
+                    }
+                }
 			}
 		}
 	MCEMM_DEBUG("CMceSecureDesStream::BindStreamCrypto(), Exit");

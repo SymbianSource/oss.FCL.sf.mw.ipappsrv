@@ -83,12 +83,11 @@ CMceSecureDesStream::CMceSecureDesStream(	CMceSecureMediaSession& aSecureSession
 											CMccSecureInterface& aSecureInterface,
         									CMceComMediaStream& aMediaStream
         									):
-	
+	iWaitingBinding(EFalse),
 	iSecureSession(aSecureSession),
 	iSecInf(aSecureInterface),
 	iMediaStream(aMediaStream),
 	iIsSAVP(ETrue),
-	iWaitingBinding(EFalse),
 	iCryptoContextOutId(0),
 	iCryptoContextInId(0),
 	iOldLocalMediaPort(0)
@@ -489,10 +488,6 @@ void CMceSecureDesStream::SetCryptoContextL( )
     iGnoreSdpMsg = (iCryptoIn.iIfCryptoContextIdSet && 
     				iCryptoOut.iIfCryptoContextIdSet ) &&
     				!iGnoreSdpMsg ? EFalse : ETrue;		
-    if ( iWaitingBinding )
-    	{
-    	iSecureSession.BindStreamCrypto();
-    	}
     	
     MCEMM_DEBUG("SetCryptoContext(), Exit")
     }
@@ -858,6 +853,10 @@ void CMceSecureDesStream::GenerateCryptoLineL(
       	if ( iSecureSession.iLSReadyToBind )
       		{
       		SetCryptoContextL();
+            if ( iWaitingBinding )
+               {
+               iSecureSession.BindStreamCrypto();
+               }
       		}
         MSG_IGNORE_RETURN()
         }
@@ -1490,8 +1489,10 @@ TInt CMceSecureDesStream::SearchAndSetCrypto(TMceSecureCryptoInfo& aCrypto)
 			 cryptoOut.iAuthAlgms == aCrypto.iAuthAlgms &&
 			 cryptoOut.iCryptoSuite.Compare(aCrypto.iCryptoSuite) == 0)
 			{
-			//SEtCrypto
-			iCryptoOut.Copy( cryptoOut );
+            if(!iCryptoOut.iIfCryptoContextIdSet)
+                {  //SEtCrypto
+                iCryptoOut.Copy( cryptoOut );
+                }
 			iCryptoIn.iTag = cryptoOut.iTag;
 			iCryptoIn.iEncAlgms = cryptoOut.iEncAlgms;
 			iCryptoIn.iAuthAlgms = cryptoOut.iAuthAlgms;
@@ -1683,7 +1684,8 @@ void CMceSecureDesStream::CopyStreamCryptoL( CMceSecureDesStream& aCopyFrom )
 		{
 		iCryptoOuts->AppendL( aCopyFrom.iCryptoOuts->At( i ) );
 		}
-		iOldLocalMediaPort = aCopyFrom.iOldLocalMediaPort;
+    iOldLocalMediaPort = aCopyFrom.iOldLocalMediaPort;
+    iWaitingBinding = aCopyFrom.iWaitingBinding;
  	MCEMM_DEBUG( "CMceSecureDesStream::CopyStreamCryptoL Exit" )
 	}
 
