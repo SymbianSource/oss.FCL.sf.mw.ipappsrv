@@ -95,7 +95,8 @@ CMceSdpSession::CMceSdpSession(
             iOOldSchoolProceeding( 0 ),
             iOOldSchoolCompleted( 0 ),
             iIsMaster( ETrue ),
-            iOldLocalMediaPort( 0 )
+            iOldLocalMediaPort( 0 ),
+            iStoreRemoteOrigin ( ETrue )
     {
     iSessionId = GetRandomNumber();
     iSessionVersion = GetRandomNumber();
@@ -508,11 +509,15 @@ TInt CMceSdpSession::DecodeOfferL(
         MCEMM_DEBUG("CMceSdpSession::DecodeOfferL(), Exit ")
         return KMceSipWarnIncompatibleMediaFormat;
         }
-        
-    // store the remote o= field
-    StoreRemoteOriginL();
-    // store the remote a= field
-    StoreRemoteMediaFieldsL();
+    
+    //avoid to store the value second time when in nat environment
+    if ( iStoreRemoteOrigin )
+        {
+        // store the remote o= field
+        StoreRemoteOriginL();
+        // store the remote a= field
+        StoreRemoteMediaFieldsL();
+        }
     //set remote ip address
     result = SetRemoteIpAddressL( aSession, aSdpDocument );
     
@@ -921,7 +926,28 @@ TMceSipWarningCode CMceSdpSession::SetRemoteIpAddressL(
     CSdpConnectionField* connfield = aSdpDocument.ConnectionField();
     const TInetAddr* inetAddr = NULL;
     
-    if( connfield )
+    // find "c-" line from media level
+    TInt index = 0;
+    TBool found = ETrue;
+    while( found && index < mediaLines.Count() )
+        {
+        RPointerArray<CSdpConnectionField>& connfields = 
+                                            mediaLines[index]->ConnectionFields();
+        
+        if ( mediaLines[index++]->Port() > 0 )
+            {
+            TInt cfindex = 0;
+	        TBool cffound = EFalse;
+	        while( !cffound && cfindex < connfields.Count() )
+	            {
+	            inetAddr = connfields[cfindex++]->InetAddress();
+	            cffound = MCE_NOT_NULL_PTR( inetAddr );
+	            }
+	        found = cffound;
+            }
+        }
+    
+    if( connfield && !found )
         {
 		inetAddr = connfield->InetAddress();
 		if( inetAddr )
@@ -930,29 +956,6 @@ TMceSipWarningCode CMceSdpSession::SetRemoteIpAddressL(
 		    // if present, if not then should be media level
 		    MCE_SET_REMOTE_IP_ADDR( &aSession, inetAddress );
 		    }
-        }
-    
-    if ( !inetAddr )
-        {
-        TInt index = 0;
-        TBool found = ETrue;
-        while( found && index < mediaLines.Count() )
-            {
-            RPointerArray<CSdpConnectionField>& connfields = 
-                                                mediaLines[index]->ConnectionFields();
-            
-            if ( mediaLines[index++]->Port() > 0 )
-                {
-	            TInt cfindex = 0;
-	            TBool cffound = EFalse;
-	            while( !cffound && cfindex < connfields.Count() )
-	                {
-	                inetAddr = connfields[cfindex++]->InetAddress();
-	                cffound = MCE_NOT_NULL_PTR( inetAddr );
-	                }
-	            found = cffound;
-                }
-            }
         }
         
     if ( inetAddr )

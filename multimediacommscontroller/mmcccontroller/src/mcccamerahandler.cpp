@@ -731,9 +731,15 @@ void CMccCameraHandler::DoReserveComplete( TInt aError )
 void CMccCameraHandler::DoPowerOnComplete( TInt aError )
 	{
 	__CONTROLLER_INT1( "CMccCameraHandler::DoPowerOnComplete, with value", aError )
+	
 	if ( aError == KErrNone )
 		{
 		iState = EPowered;
+		
+	    // Notify observers about success, important to do before VF handling
+		// as VF behaves more nicely at enabling when it sees that media recorder
+		// is already using camera.
+	    NotifyObservers( aError );
 		
 		// Viewfinder was enabled before resource release, enable again.
 		// Also set old camera settings.
@@ -757,10 +763,10 @@ void CMccCameraHandler::DoPowerOnComplete( TInt aError )
 		{
 		__CONTROLLER_INT1( "CMccCameraHandler::DoPowerOnComplete, powering failed", aError )
 		iState = EFailed;
-		}	
-	
-	// Notify observers about success or failure
-    NotifyObservers( aError );
+		
+	    // Notify observers about failure
+	    NotifyObservers( aError );
+		}
     
 	__CONTROLLER( "CMccCameraHandler::DoPowerOnComplete, exit" )
 	}

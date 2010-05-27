@@ -286,9 +286,11 @@ TBool TMceMediaNegotiated::TMceAnswererWaitingAnswerState::NeedToNegotiate(
 TMceSipWarningCode TMceMediaNegotiated::TMceAnswererEndState::DecodeL( CSdpDocument& aSdpDocument )
     {
     MCEMM_DEBUG("TMceMediaNegotiated::TMceAnswererEndState::DecodeL(), Entry ");
-        
+    
+    iSession.SdpSession().iStoreRemoteOrigin = EFalse;
     TMceSipWarningCode code =
          iSession.SdpSession().DecodeOfferL( aSdpDocument, iSession );
+    iSession.SdpSession().iStoreRemoteOrigin = ETrue;
     
     MCEMM_DEBUG("TMceMediaNegotiated::TMceAnswererEndState::DecodeL(), Exit ");
     

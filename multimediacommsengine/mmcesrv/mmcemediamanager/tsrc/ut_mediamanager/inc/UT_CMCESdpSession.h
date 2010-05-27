@@ -120,6 +120,8 @@ class UT_CMceSdpSession
          void UT_CMceSdpSession_DecodeOfferL_2L();
          
          void UT_CMceSdpSession_DecodeOfferL_3L( );
+          
+         void UT_CMceSdpSession_DecodeOfferL_4L( );
 
         void UT_CMceSdpSession_ForkLL();
 

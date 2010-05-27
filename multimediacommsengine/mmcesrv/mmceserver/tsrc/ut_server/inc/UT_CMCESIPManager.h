@@ -102,6 +102,8 @@ class UT_CMceSipManager
         void UT_CMceSipManager_SIPClientL();
 
         void UT_CMceSipManager_OrphanSubSessionCountL();
+        
+        void UT_CMceSipManager_UpdateProfileToSubSessionsL();
          
 
     private:    // Data

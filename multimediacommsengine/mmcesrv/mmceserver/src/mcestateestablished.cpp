@@ -27,7 +27,7 @@
 #include "mcenatmacros.h"
 #include "mcesdpsession.h"
 #include "mcesrvlogs.h"
-
+#include "mcenatsipsession.h"
 
 // -----------------------------------------------------------------------------
 // CMceStateEstablished::CMceStateEstablished
@@ -180,7 +180,12 @@ void CMceStateEstablished::EntryL( TMceStateTransitionEvent& aEvent )
 	        //and thus, refresh is launched (INVITE)
 	        case EMceSessionRefresh:
 	            {
-	            session.Actions().EncodeL();
+                session.Actions().EncodeL();
+                if ( session.IsNatSession() ) 
+                    {
+                    CMceNatSipSession* natSession = static_cast<CMceNatSipSession*>( &session );
+                    natSession->CreateOfferL();
+                    }
 	            session.FCActions().UpdateFCOfferL( *session.Offer() );
 	            session.Actions().SendSessionRefreshL();
 	            break;

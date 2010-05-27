@@ -546,6 +546,8 @@ public:
     
     TUid iEncoderUid;
     
+    TVideoDataUnitEncapsulation iEncapsulation;
+    
     };
 
 #endif // CCMRMEDIARECORDER_H

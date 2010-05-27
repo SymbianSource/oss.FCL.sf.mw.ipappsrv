@@ -325,6 +325,11 @@ class CSIPProfile: public CBase, public MSIPRegistrationContext
 		*/
 		void ClearRegistry();
 		
+		/**
+		* Set context id
+		*/
+		void SetContextId(TInt aContextId);
+		
 	public: // for unittesting
 	    
 	    void SetParam( TUint aParam, HBufC8* aValue );
@@ -376,6 +381,8 @@ class CSIPProfile: public CBase, public MSIPRegistrationContext
         HBufC8* iDigestPassword;
         HBufC8* iRequestUriUser;
         HBufC8* iContactHeader;
+        
+        TInt	iContextId;
         
     	//definitions for unit testing
     	MCESRV_UT_DEFINITIONS

@@ -44,7 +44,6 @@ SOURCE                  MccVideoSourceImpl.cpp
 SOURCE                  MccVideoSource.cpp 
 SOURCE                  MccVideoSourceWrapper.cpp
 SOURCE					        MccVideoSourceSinkFactory.cpp
-SOURCE                  MccRedrawHandler.cpp
 SOURCE									mccvideosourcekeyretriever.cpp
 
 SOURCEPATH              ../src

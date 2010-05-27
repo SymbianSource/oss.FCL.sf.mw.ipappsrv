@@ -1084,5 +1084,21 @@ void CMceSipManager::UpdateProfileToSubSessions( CSIPProfile& aNewProfile,
 				}
 			}
 		}
+
+	// Update orphan subsessions
+    RPointerArray<CMceCsSubSession>& orphanSubSessions = iOrphanSubSessions->SubSessions();
+    TInt orphanSubSessionCount = orphanSubSessions.Count();
+	
+    for ( TInt j = 0; j < orphanSubSessionCount; ++j )
+        {
+        CSIPProfile& subSessionProfile = orphanSubSessions[ j ]->Profile();
+        if ( &subSessionProfile == &aOldProfile )
+            {
+            MCESRV_DEBUG_DVALUE("update orphan subsession profile, j", j )
+            MCESRV_DEBUG_DVALUES("oldProfile", (TInt)&aOldProfile,
+                                 "newProfile", (TInt)&aNewProfile )
+            orphanSubSessions[ j ]->SetProfile( aNewProfile );
+            }
+        }
 	MCESRV_DEBUG("CMceSipManager::UpdateProfileToSubSessions, Exit")
 	}

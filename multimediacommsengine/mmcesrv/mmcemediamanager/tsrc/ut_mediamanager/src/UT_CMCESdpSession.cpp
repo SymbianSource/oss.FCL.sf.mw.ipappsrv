@@ -210,10 +210,10 @@ c=IN IP4 193.65.182.50\r\n");
 _LIT8( KConnectionField2, "v=0\r\n\
 o=- 123 123 IN IP4 0.0.0.0\r\n\
 s=-\r\n\
-c=IN IP4 10.36.7.239\r\n\
+c=IN IP4 10.36.7.229\r\n\
 t=0 0\r\n\
 m=audio 5000/1 RTP/AVP 96\r\n\
-c=IN IP4 10.36.7.229\r\n\
+c=IN IP4 10.36.7.239\r\n\
 a=rtpmap:96 AMR/8000\r\n\
 m=video 0 RTP/AVP 97\r\n\
 c=IN IP4 193.65.182.50\r\n");
@@ -1333,6 +1333,35 @@ void UT_CMceSdpSession::UT_CMceSdpSession_DecodeOfferL_3L(  )
 		
 	CleanupStack::PopAndDestroy( offer3 );						
     }    
+	
+void UT_CMceSdpSession::UT_CMceSdpSession_DecodeOfferL_4L()
+    {	
+    iSdpSession->SetMediaSession( iInSession );
+    iInSession->AttachSDPSessionL( *iSdpSession );
+    
+    TInetAddr remoteIP;
+    remoteIP.SetAddress( INET_ADDR( 10,10,10,10 ) );
+    
+    _LIT8( KMyUserName, "username" );
+    const TInt64 KSessionId( 1234 );
+    const TInt64 KSessionVersion( 5678 );    
+    CSdpOriginField* remoteorigin = 
+            CSdpOriginField::NewL( KMyUserName, KSessionId, KSessionVersion, remoteIP );
+    iSdpSession->iRemoteOrigin = remoteorigin;
+
+    iSdpSession->iStoreRemoteOrigin = EFalse;
+    CSdpDocument* offer = CSdpDocument::DecodeL( KMceMMTestSdpMessage_MT_Confield_In_MediaLine );
+    CleanupStack::PushL( offer );
+    TInt err = iSdpSession->DecodeOfferL( *offer, *iInSession );
+    EUNIT_ASSERT( err == KErrNone );
+    EUNIT_ASSERT( iSdpSession->iRemoteOrigin->InetAddress()->CmpAddr( remoteIP ) );
+
+    iSdpSession->iStoreRemoteOrigin = ETrue;
+    err = iSdpSession->DecodeOfferL( *offer, *iInSession );
+    EUNIT_ASSERT( err == KErrNone );
+    EUNIT_ASSERT( !iSdpSession->iRemoteOrigin->InetAddress()->CmpAddr( remoteIP ) );
+    CleanupStack::PopAndDestroy( offer ); 
+    }
 
 void UT_CMceSdpSession::UT_CMceSdpSession_DecodeOfferLL_CreateAnswer_NOK_1(  )
     {
@@ -2851,6 +2880,13 @@ EUNIT_TEST(
     "DecodeOffer3L",
     "FUNCTIONALITY",
     SetupL, UT_CMceSdpSession_DecodeOfferL_3L, Teardown)    
+    
+EUNIT_TEST(
+    "iStoreRemoteOrigin - test",
+    "CMceSdpSession",
+    "DecodeOffer4L",
+    "FUNCTIONALITY",
+    SetupL, UT_CMceSdpSession_DecodeOfferL_4L, Teardown) 
 
 EUNIT_TEST(
     "ForkL - test",
