@@ -315,7 +315,6 @@ CMceComCodec* CMceComAMRWbCodec::DoMccValidateL( CMccCodecInformation& aMccCodec
                   ( mceBitrates && mccBitrates == 0 ||
 	                mceBitrates < mccBitrates );
 	
-	User::LeaveIfError( notValid ? KErrNotSupported : KErrNone );
 	if ( aMccCodec.CodecMode() != (TCodecMode)iCodecMode )
 		{
 		// codec-mode was different, fail.

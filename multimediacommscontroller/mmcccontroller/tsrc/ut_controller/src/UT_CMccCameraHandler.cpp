@@ -286,6 +286,22 @@ void UT_CMccCameraHandler::UT_CMccCameraHandler_EnableViewFinderL()
     iCameraHandler->GetViewFinderSettingsL( settings2 );
     EUNIT_ASSERT_EQUALS( settings2.iSize.iWidth, 0 );
     EUNIT_ASSERT( iCameraHandler->iCamera->iVfStarted == EFalse )
+    
+    // Check that iEnabled in settings is handled correctly
+    iCameraHandler->iViewFinderEnabled = EFalse;
+    settings.iEnabled = EFalse;
+    iCameraHandler->EnableViewFinderL( settings );
+    EUNIT_ASSERT( iCameraHandler->iViewFinderEnabled == EFalse )
+    EUNIT_ASSERT( iCameraHandler->iCamera->iVfStarted == EFalse )
+    iCameraHandler->GetViewFinderSettingsL( settings2 );
+    EUNIT_ASSERT( settings2.iEnabled == EFalse )
+    
+    settings.iEnabled = ETrue;
+    iCameraHandler->EnableViewFinderL( settings );
+    EUNIT_ASSERT( iCameraHandler->iViewFinderEnabled == ETrue )
+    EUNIT_ASSERT( iCameraHandler->iCamera->iVfStarted == EFalse )
+    iCameraHandler->GetViewFinderSettingsL( settings2 );
+    EUNIT_ASSERT( settings2.iEnabled == ETrue )
     }
 
 void UT_CMccCameraHandler::UT_CMccCameraHandler_DisableViewFinderL()

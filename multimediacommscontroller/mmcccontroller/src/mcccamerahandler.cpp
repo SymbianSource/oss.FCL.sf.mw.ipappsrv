@@ -150,6 +150,10 @@ void CMccCameraHandler::EnableViewFinderL( TMccVideoSinkSetting& aSetting )
     
     iViewFinderSettings = aSetting;
     
+    if ( !iViewFinderSettings.iEnabled ){
+        __CONTROLLER( "CMccCameraHandler::EnableViewFinderL, param update, exit" )
+        return;
+    }
     __CONTROLLER( "CMccCameraHandler::EnableViewFinderL, starting vf" )
 
     CCamera* cam = IsCameraReady() ? iCamera : NULL;
@@ -217,8 +221,9 @@ void CMccCameraHandler::GetViewFinderSettingsL( TMccVideoSinkSetting& aSetting )
 	                       iViewFinderSettings.iSize.iWidth)
     __CONTROLLER_INT2( "CMccCameraHandler::GetViewFinderSettingsL, location",  
 	                       iViewFinderSettings.iLocation.iX, 
-	                       iViewFinderSettings.iLocation.iY)
-    aSetting = iViewFinderSettings;    
+	                       iViewFinderSettings.iLocation.iY)               
+    aSetting = iViewFinderSettings;  
+    aSetting.iEnabled = iViewFinderEnabled;
     __CONTROLLER( "CMccCameraHandler::GetViewFinderSettingsL,exit" )
     }
 
