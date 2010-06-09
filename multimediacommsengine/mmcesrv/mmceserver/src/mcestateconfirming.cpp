@@ -242,11 +242,9 @@ void CMceStateConfirming::EntryResponseL( TMceStateTransitionEvent& aEvent )
             NAT_WAIT_NO_EXEC( session, (status = session.Actions().CreateSDP( response )));
             if ( !MCE_IS_ERROR( status ) && MCE_NEED_TO_SEND( session, NULL ) )
                 {
-                CMceSecureMediaSession* secSession = session.ActiveBody().SecureSession();
-                if ( secSession )
+                if ( session.ActiveBody().SecureSession() )
                 	{
-                    secSession->iLSReadyToBind = ETrue;
-                    secSession->iKeyNeedUpdated = ETrue;
+                	session.ActiveBody().SecureSession()->iLSReadyToBind = ETrue;
                 	}
                 session.SetFirstOffer();
                 status = session.Actions().DecodeL();

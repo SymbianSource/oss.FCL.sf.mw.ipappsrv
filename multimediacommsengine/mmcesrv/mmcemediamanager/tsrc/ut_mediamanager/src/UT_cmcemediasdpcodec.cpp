@@ -908,6 +908,25 @@ void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_DecodeRemoteRtcpFieldLL()
     EUNIT_ASSERT( mediaStream->iRemoteRtcpAddress.IsUnspecified() )
     audioLine->AttributeFields().ResetAndDestroy();
     
+    // Rtcp attribute has incorrectly our local address, it should not be used
+    mediaStream->Session()->iLocalIpAddress.Input( _L("10.20.30.40") );
+    rtcp = CSdpAttributeField::DecodeLC( _L8( "a=rtcp:5020 IN IP4 10.20.30.40\r\n" ) );
+    audioLine->AttributeFields().AppendL( rtcp );
+    CleanupStack::Pop( rtcp );
+    iSdpCodec->DecodeRemoteRtcpFieldL( *audioLine, *mediaStream );
+    EUNIT_ASSERT_EQUALS( 5020, mediaStream->iRemoteRtcpPort )
+    EUNIT_ASSERT( mediaStream->iRemoteRtcpAddress.IsUnspecified() )  // Not changed
+    audioLine->AttributeFields().ResetAndDestroy();
+
+    // Rtcp attrubute is local loopback address, ok to use
+    rtcp = CSdpAttributeField::DecodeLC( _L8( "a=rtcp:5020 IN IP4 127.0.0.1\r\n" ) );
+    audioLine->AttributeFields().AppendL( rtcp );
+    CleanupStack::Pop( rtcp );
+    iSdpCodec->DecodeRemoteRtcpFieldL( *audioLine, *mediaStream );
+    EUNIT_ASSERT_EQUALS( 5020, mediaStream->iRemoteRtcpPort )
+    EUNIT_ASSERT_EQUALS( INET_ADDR( 127,0,0,1 ), mediaStream->iRemoteRtcpAddress.Address() )
+    audioLine->AttributeFields().ResetAndDestroy();
+    
     CleanupStack::PopAndDestroy( sdp );
     }
     
@@ -1350,14 +1369,6 @@ void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_ValidateSdpL()
 
     }
     
-void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_DecodeSecureSessionLL()
-	{
-	CSdpDocument* sdp = CSdpDocument::DecodeL( KMceTestSdpAMR );
-	CSdpMediaField* audioLine = sdp->MediaFields()[ 0 ];
-    iSession->SecureSessionL();
-    
-    CMceComMediaStream* mediaStream = iSession->Streams()[ 0 ];
-    CMceSecureMediaSession* secureSession = iSession->SecureSession();
 
     CleanupStack::PushL( sdp );
     secureSession->iKeyNeedUpdated = EFalse;
@@ -1673,17 +1684,11 @@ EUNIT_TEST (
     "FUNCTIONALITY",
     SetupL, UT_CMceMediaSdpCodec_EncodelocalRtcpAttrLL, Teardown)
     
-EUNIT_TEST (
-    "DecodeSecureSessionL test",
-    "CMceMediaSdpCodec",
-    "DecodeSecureSessionL",
-    "FUNCTIONALITY",
-    SetupL, UT_CMceMediaSdpCodec_DecodeSecureSessionLL, Teardown)
-    
+
 EUNIT_TEST (
     "DecodeDirection test",
     "CMceMediaSdpCodec",
-    "DecodeDirectionL",
+    "DecodeDirectionAttribute",
     "FUNCTIONALITY",
     SetupL, UT_CMceMediaSdpCodec_DecodeDirectionLL, Teardown)        
     

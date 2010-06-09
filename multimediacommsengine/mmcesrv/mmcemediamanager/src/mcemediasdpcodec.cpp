@@ -916,7 +916,7 @@ void CMceMediaSdpCodec::DecodeRemoteRtcpFieldL(
                 const TUint8 KAddrOffsetFromNetType = 4;
                 TInt addr_offset = 
                     value.Match( KMatchIp ) + KAddrOffsetFromNetType;
-                TPtrC8 remoteRtcpAddr = value.Mid( addr_offset );
+                TPtrC8 remoteRtcpAddrTxt = value.Mid( addr_offset );
                 
                 const TUint8 KPortOffsetFromIP = 1;
                 TInt port_offset = 
@@ -927,11 +927,20 @@ void CMceMediaSdpCodec::DecodeRemoteRtcpFieldL(
                 User::LeaveIfError( lexPT.Val( rtcpPort, EDecimal ) );
                 // copy the address into correct format
                 TBuf16 <KMaxAddressLength> input;
-                input.Copy( remoteRtcpAddr );      
+                input.Copy( remoteRtcpAddrTxt );      
                 
                 MCEMM_DEBUG_SVALUE( "Found RTCP address", input )
                 
-                aStream.SetRemoteRtcpMediaAddrL( input );
+                TInetAddr remoteRtcpAddr;
+                User::LeaveIfError( remoteRtcpAddr.Input( input ) ); 
+                TInetAddr localIpAddr( aStream.Session()->iLocalIpAddress );
+                TBool validRemoteRtcpAddr( 
+                    remoteRtcpAddr.IsLoopback() || !localIpAddr.Match( remoteRtcpAddr ) );
+                MCEMM_DEBUG_DVALUE( "Remote RTCP addr valid:", validRemoteRtcpAddr )
+                if ( validRemoteRtcpAddr )
+                    {
+                    aStream.SetRemoteRtcpMediaAddrL( input );
+                    }
                 }
             else
                 {
@@ -1040,8 +1049,10 @@ void CMceMediaSdpCodec::DecodeSecureSessionL(
     else if ( secureSession && aRole == EMceRoleAnswerer && aUpdate )
         {
         // for long session
-        secureSession->iKeyNeedUpdated = ETrue;
-        secureSession->DecodeSecureDesSdpUpdateL( aStream, aMediaLine ) ;
+          if( secureSession->SdpCryptoAttributeCount( aMediaLine ) )
+        	{
+            secureSession->DecodeSecureDesSdpUpdateL( aStream, aMediaLine ) ;
+        	}
         }
     else if ( secureSession && aRole == EMceRoleOfferer )
         {

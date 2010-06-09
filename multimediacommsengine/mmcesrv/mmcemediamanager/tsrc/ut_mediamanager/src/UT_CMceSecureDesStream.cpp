@@ -658,7 +658,7 @@ void UT_CMceSecureDesStream::UT_CMceSecureDesStream_DecodeSecureSdpAnswerLL(  )
     CleanupStack::PushL( mediaAnswer2 );
     //iCryptoOut crypto is not set
     iSecureStream->DecodeSecureSdpAnswerL(*mediaAnswer2);
-    //EUNIT_ASSERT( !iSecureStream->Session().iIsSecureSession );
+    EUNIT_ASSERT( iSecureStream->Session().iIsSecureSession );
     EUNIT_ASSERT( iSecureStream->iCryptoIn.iMKLifeTime == 32 );
     EUNIT_ASSERT( iSecureStream->iCryptoOut.iMKLifeTime == KDefalutMaterKeysLifeTime );
     CleanupStack::PopAndDestroy(mediaAnswer2);
@@ -670,7 +670,7 @@ void UT_CMceSecureDesStream::UT_CMceSecureDesStream_DecodeSecureSdpAnswerLL(  )
     CleanupStack::PushL( mediaOffer );	
     iSecureSession->iCryptoContextUpdate = ETrue;
     iSecureStream->EncodeSecureSdpL(*mediaOffer, EFalse );
-    //EUNIT_ASSERT( !iSecureStream->Session().iIsSecureSession );
+    EUNIT_ASSERT( iSecureStream->Session().iIsSecureSession );
 	
     CSdpMediaField* mediaAnswer3 = CSdpMediaField::DecodeL( KMceTestMeidaCryptoMultiple );
     CleanupStack::PushL( mediaAnswer3 );
@@ -1015,11 +1015,9 @@ void UT_CMceSecureDesStream::UT_CMceSecureDesStream_CopyStreamCryptoL()
                                                 *iSecureInterface,
                                                 *iStream1);
 	CleanupStack::PushL( copy);
-    iSecureStream->iWaitingBinding = ETrue;
 	copy->CopyStreamCryptoL(*iSecureStream);
 	CleanupStack::Pop( copy );
 	EUNIT_ASSERT( copy->iCryptoOuts->Count()==KTotalCryptoAnswerCount );
-    EUNIT_ASSERT( copy->iWaitingBinding == ETrue );
 	
 	delete copy;
 	}

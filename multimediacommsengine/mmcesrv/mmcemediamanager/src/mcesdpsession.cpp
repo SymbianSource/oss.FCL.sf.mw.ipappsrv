@@ -183,6 +183,13 @@ CSdpDocument* CMceSdpSession::CreateOfferL(
         }
     else
         {
+		if( aSession.SecureSession() )
+			{
+			if( aSession.SecureSession()->iKeyNeedUpdated )
+				{
+			    aSession.SecureSession()->iKeyNeedUpdated = EFalse;
+				}
+			}
         sdpDocument = iSdpDocument;
         CleanSessionParams( *iSdpDocument );
         }
@@ -646,6 +653,11 @@ CSdpDocument& CMceSdpSession::CreateAnswerL(
     MCEMM_DEBUG("CMceSdpSession::CreateAnswerL(), Entry ")
     
     TOfferType type = !Backup() ? EFirst : EUpdate;
+    
+    if( type == EUpdate && aSession.SecureSession() )
+    	{
+		aSession.SecureSession()->iLSReadyToBind = ETrue;
+    	}
     
     CleanSessionParams( *iSdpDocument );
 

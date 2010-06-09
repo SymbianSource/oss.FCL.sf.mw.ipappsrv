@@ -465,12 +465,10 @@ void CMceStateOffering::EntryResponseL( TMceStateTransitionEvent& aEvent )
                     //update FC
                     session.FCActions().PeekFCDocumentL( *session.Offer() );
                 	
-                    CMceSecureMediaSession* secSession = session.ActiveBody().SecureSession();
             	    //decode answer, ignore warning code 
-                    if ( secSession )
+                    if ( session.ActiveBody().SecureSession())
                     	{
-                        secSession->iLSReadyToBind = ETrue;
-                        secSession->iKeyNeedUpdated = ETrue;
+                    	session.ActiveBody().SecureSession()->iLSReadyToBind = ETrue;
                     	}
                     status = session.Actions().Decode();
 

@@ -77,7 +77,6 @@ private:    // Test methods
     void UT_CMceMediaSdpCodec_EncodeFmtpAttributeLL();
     void UT_CMceMediaSdpCodec_DecodeFmtpLinesLL();
     void UT_CMceMediaSdpCodec_ValidateSdpL();
-    void UT_CMceMediaSdpCodec_DecodeSecureSessionLL(); 
     void UT_CMceMediaSdpCodec_DecodeDirectionLL(); 
     void UT_CMceMediaSdpCodec_DecodeRtpmapLinesLL();
 

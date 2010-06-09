@@ -374,7 +374,6 @@ void UT_CMceStateOffering::UT_CMceStateOffering_EntryL_With2XXResponsesL()
     EUNIT_ASSERT ( !iSipSession->WaitingMediaCallback() );
 	EUNIT_ASSERT ( body.iSipContactAddrSecure == CMceSession::EControlPathUnsecure );
 	EUNIT_ASSERT ( body.SecureSession()->iLSReadyToBind == ETrue );
-    EUNIT_ASSERT ( body.SecureSession()->iKeyNeedUpdated == ETrue );
 
     iSipSession->iSubState = CMceSipSession::EOffering;
     MCE_RESET_STUBS();
