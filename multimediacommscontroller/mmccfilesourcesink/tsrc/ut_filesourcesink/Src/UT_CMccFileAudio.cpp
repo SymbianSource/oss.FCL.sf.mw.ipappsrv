@@ -32,6 +32,7 @@
 #include "mmccinterfacedef.h"
 #include "mccresourcepool.h"
 #include "Mcculdatapath.h"
+#include "mccinternaldef.h"
 
 // CONSTRUCTION
 UT_CMccFileAudio* UT_CMccFileAudio::NewL()
@@ -315,7 +316,20 @@ void UT_CMccFileAudio::UT_CMccFileAudio_VideoFrameSizeLL(  )
 void UT_CMccFileAudio::UT_CMccFileAudio_VideoFrameRateLL(  )
     {
     TReal videoFrameRate = iAudio->VideoFrameRateL();
+    EUNIT_ASSERT_EQUALS( (TInt)videoFrameRate, 0 );
     TReal videoFrameRate2 = iVideo->VideoFrameRateL();
+    EUNIT_ASSERT_EQUALS( (TInt)videoFrameRate2, 5 );
+    
+    // Test that framerate is limited to more interoperable value if value is too high for codec type
+    iVideo->iType = MP4_TYPE_H263_PROFILE_0;
+    iVideo->iFrameRate = 21;
+    videoFrameRate2 = iVideo->VideoFrameRateL();
+    EUNIT_ASSERT_EQUALS( (TInt)videoFrameRate2, KMccH263ProfileZeroMaxFramerateIOP );
+    
+    iVideo->iType = MP4_TYPE_AVC_PROFILE_BASELINE;
+    iVideo->iFrameRate = 18;
+    videoFrameRate2 = iVideo->VideoFrameRateL();
+    EUNIT_ASSERT_EQUALS( (TInt)videoFrameRate2, 18 ); // Value not changed for AVC
     }
 
 void UT_CMccFileAudio::UT_CMccFileAudio_StartTimerL(  )

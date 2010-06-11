@@ -23,6 +23,7 @@
 #include "mmcccodecinformation.h"
 #include "mccresourcepool.h"
 #include "mmccinterfacedef.h"
+#include "mccinternaldef.h"
 #include "mccunittestmacros.h"
 
 
@@ -252,6 +253,12 @@ void UT_CMccFileSourceImpl::UT_CMccFileSourceImpl_VideoFrameSizeLL(  )
 void UT_CMccFileSourceImpl::UT_CMccFileSourceImpl_VideoBitRateLL(  )
     {
     TUint32 videoBitRate = iSourceImp->VideoBitRateL();
+    EUNIT_ASSERT_EQUALS(videoBitRate, KMccH263ProfileZeroMinBitRateIOP); // Low bitrate increased to more interoperable
+    
+    // Test situation where no need to make iop modification for bitrate
+    iSourceImp->iFileVideo->iStreamAverageBitRate = 100000;
+    videoBitRate = iSourceImp->VideoBitRateL();
+    EUNIT_ASSERT_EQUALS(videoBitRate, iSourceImp->iFileVideo->iStreamAverageBitRate - iSourceImp->iFileAudio->iAverageBitRate);
     }
 
 void UT_CMccFileSourceImpl::UT_CMccFileSourceImpl_PositionLL(  )
