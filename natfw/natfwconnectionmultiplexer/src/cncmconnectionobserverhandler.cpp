@@ -260,20 +260,25 @@ TBool CNcmConnectionObserverHandler::IsDuplicatePacket(
         const TInt KRtpRtcpDiffByteOffset( 1 );
         const TInt KLowestAssignedRtcpMsgType = 200;
         const TInt KHighestAssignedRtcpMsgType = 209;
+        TInt rtcpType = aMessage[KRtpRtcpDiffByteOffset];
         TBool isRtcp = 
-           ( KLowestAssignedRtcpMsgType <= aMessage[KRtpRtcpDiffByteOffset] &&
-            aMessage[KRtpRtcpDiffByteOffset] <= KHighestAssignedRtcpMsgType );
+           ( KLowestAssignedRtcpMsgType <= rtcpType &&
+        		   rtcpType <= KHighestAssignedRtcpMsgType );
         
-        // This offset refers either to SR RTP timestamp or RR highest 
-        // sequence number received. These are unique for a distinct 
-        // RTCP packet.
-        const TInt KRtcpDiffByteOffset( 19 );
+        // This offset refers to RR highest sequence number received.
+        const TInt KRRtcpDiffByteOffset( 19 );
+        
+        // This offset refers either to SR RTP packet count received.
+        const TInt KSRtcpDiffByteOffset( 23 );
         
         // This offset refers to lower byte of unique RTP sequence number.
         const TInt KRtpDiffByteOffset( 3 );
         TInt diffByteOffset 
-            = isRtcp ? KRtcpDiffByteOffset : KRtpDiffByteOffset;
+            = isRtcp ? KRRtcpDiffByteOffset : KRtpDiffByteOffset;
 
+        diffByteOffset = (rtcpType == KLowestAssignedRtcpMsgType)?
+        		KSRtcpDiffByteOffset : diffByteOffset;
+        
         if ( diffByteOffset < aMessage.Size() )
             {
             hash = aMessage[diffByteOffset];
@@ -294,14 +299,12 @@ TBool CNcmConnectionObserverHandler::IsDuplicatePacket(
             }
         else
             {
-            isDuplicate = EFalse;
-            }
-        
-        iLatestHashes.Append( hash );
-        const TInt KMaxHashCount( 5 );
-        if ( KMaxHashCount <= iLatestHashes.Count() )
-            {
-            iLatestHashes.Remove( 0 );
+            iLatestHashes.Append( hash );
+            const TInt KMaxHashCount( 5 );
+            if ( KMaxHashCount <= iLatestHashes.Count() )
+                {
+                iLatestHashes.Remove( 0 );
+                }
             }
         }
     else

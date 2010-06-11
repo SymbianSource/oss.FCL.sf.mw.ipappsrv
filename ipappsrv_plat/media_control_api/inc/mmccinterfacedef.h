@@ -104,6 +104,12 @@ enum TMediaReportInterval
 class TMccVideoSinkSetting
 {
 public:
+    TMccVideoSinkSetting() : iLocation(0,0), iSize(0,0), iVideoPayloadType(0), 
+        iAudioPayloadType(0), iIAPId(0), iDeviceIndex(0), iWindowOrdinalPosition(0),
+        iWindowOrdinalPriority(0), iRotation(EMccNone), iVideoFrameRate(0.0), iEnabled(ETrue)
+        {
+        }
+        
     TPoint iLocation;
     TSize iSize;
     TUint iVideoPayloadType;
@@ -115,6 +121,7 @@ public:
 	TInt iWindowOrdinalPriority;
 	TMccVideoRotation iRotation;	
 	TReal iVideoFrameRate;
+	TBool iEnabled;
 };
 
 typedef TPckgBuf<TMccVideoSinkSetting> TMccVideoSinkSettingBuf;    
