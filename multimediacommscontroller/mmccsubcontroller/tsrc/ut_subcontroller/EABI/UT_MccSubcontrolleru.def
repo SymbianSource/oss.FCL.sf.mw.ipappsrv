@@ -261,7 +261,7 @@ EXPORTS
 	_ZTI28CSubConExtensionParameterSet @ 260 NONAME ; #<TI>#
 	_ZTI30CSpeechEncoderConfigProxy_STUB @ 261 NONAME ; #<TI>#
 	_ZTIN4Meta13SMetaDataEComE @ 262 NONAME ; #<TI>#
-	_ZTIN4Meta18RMetaDataContainerINS_13SMetaDataEComEEE @ 263 NONAME ; #<TI>#
+	_ZTIN4Meta18RMetaDataContainerINS_13SMetaDataEComEEE @ 263 NONAME ABSENT ; #<TI>#
 	_ZTIN4Meta9SMetaDataE @ 264 NONAME ; #<TI>#
 	_ZTV11CMccAnySink @ 265 NONAME ; #<VT>#
 	_ZTV11RConnection @ 266 NONAME ; #<VT>#
@@ -295,7 +295,7 @@ EXPORTS
 	_ZTV28CSubConExtensionParameterSet @ 294 NONAME ; #<VT>#
 	_ZTV30CSpeechEncoderConfigProxy_STUB @ 295 NONAME ; #<VT>#
 	_ZTVN4Meta13SMetaDataEComE @ 296 NONAME ; #<VT>#
-	_ZTVN4Meta18RMetaDataContainerINS_13SMetaDataEComEEE @ 297 NONAME ; #<VT>#
+	_ZTVN4Meta18RMetaDataContainerINS_13SMetaDataEComEEE @ 297 NONAME ABSENT ; #<VT>#
 	_ZTVN4Meta9SMetaDataE @ 298 NONAME ; #<VT>#
 	_ZThn16_N15CMccMultiplexerD0Ev @ 299 NONAME ; #<thunk>#
 	_ZThn16_N15CMccMultiplexerD1Ev @ 300 NONAME ; #<thunk>#
