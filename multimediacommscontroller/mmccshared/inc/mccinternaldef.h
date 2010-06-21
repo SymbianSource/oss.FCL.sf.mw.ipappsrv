@@ -25,6 +25,8 @@
 #include <e32base.h>
 #include <mmf/common/mmfcontroller.h>
 #include <tconvbase64.h>  
+#include <e32math.h>
+#include <3gplibrary/mp4lib.h>
 
 
 #include "rtpdef.h"
@@ -67,6 +69,10 @@ const TUint32 KMccPrerollTime = 60;
 
 // Increased RTP socket size in bytes, default socket size is around 4KB
 const TInt KMccIncreasedRtpSocketSize = 10000;
+
+// Values used to force better interoperability against some vendors
+const TReal KMccH263ProfileZeroMaxFramerateIOP = 15;
+const TUint32 KMccH263ProfileZeroMinBitRateIOP = 64001;
 
 // MACROS
 
@@ -782,6 +788,35 @@ public:
     	User::LeaveIfError( encoder.Encode( aInput, ptrOutput ) );
     	return output;
         }
+    
+    static void FrameRateSanitizeL( 
+        TReal& aSanitizedFrameRate, TReal aOrigFrameRate, TUint32 aVideoType )
+        {
+        // Round to have zero decimals for clearness sake
+        User::LeaveIfError( Math::Round( aSanitizedFrameRate, aOrigFrameRate, 0 ) );
+        
+        if ( aVideoType == MP4_TYPE_H263_PROFILE_0 && 
+             aSanitizedFrameRate > KMccH263ProfileZeroMaxFramerateIOP )
+            {
+            aSanitizedFrameRate = KMccH263ProfileZeroMaxFramerateIOP;
+            }
+        }
+    
+    static void BitRateSanitize( 
+        TUint32& aSanitizedBitRate, TUint32 aOrigBitRate, TUint32 aVideoType )
+        {
+        if ( aVideoType == MP4_TYPE_H263_PROFILE_0 && 
+             aOrigBitRate > 0 && 
+             aOrigBitRate < KMccH263ProfileZeroMinBitRateIOP )
+            {
+            aSanitizedBitRate = KMccH263ProfileZeroMinBitRateIOP;
+            }
+        else 
+            {
+            aSanitizedBitRate = aOrigBitRate;
+            }
+        }
+    
     };
         
 #endif

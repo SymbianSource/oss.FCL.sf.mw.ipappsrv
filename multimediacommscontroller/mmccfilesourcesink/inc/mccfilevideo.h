@@ -56,6 +56,7 @@ public:
 	TFourCC GetFourCC();
 	TCallBack TickCallBack();
 	HBufC8* GetConfigKeyL();
+	TUint32 VideoType() const;
 
 public:
     static TInt TickVideoL( TAny* aObject );

@@ -921,14 +921,15 @@ void CMceMediaSdpCodec::DecodeRemoteRtcpFieldL(
                 const TUint8 KPortOffsetFromIP = 1;
                 TInt port_offset = 
                     value.Match( KMatchIN ) - KPortOffsetFromIP;
-                TPtrC8 remoteRtcpPort = value.Left( port_offset );
-                
+                HBufC8* dataRemoteRtcpPort = value.Left( port_offset ).AllocLC();
+                TPtr8 remoteRtcpPort( dataRemoteRtcpPort->Des() );
+                remoteRtcpPort.TrimAll();
                 TLex8 lexPT( remoteRtcpPort );
                 User::LeaveIfError( lexPT.Val( rtcpPort, EDecimal ) );
                 // copy the address into correct format
                 TBuf16 <KMaxAddressLength> input;
                 input.Copy( remoteRtcpAddrTxt );      
-                
+                input.TrimAll();
                 MCEMM_DEBUG_SVALUE( "Found RTCP address", input )
                 
                 TInetAddr remoteRtcpAddr;
@@ -941,12 +942,17 @@ void CMceMediaSdpCodec::DecodeRemoteRtcpFieldL(
                     {
                     aStream.SetRemoteRtcpMediaAddrL( input );
                     }
+                CleanupStack::PopAndDestroy( dataRemoteRtcpPort );
                 }
             else
                 {
                 // only port present
-                TLex8 lexPT( value );
+                HBufC8* dataRemoteRtcpPort = value.AllocLC();
+                TPtr8 remoteRtcpPort( dataRemoteRtcpPort->Des() );
+                remoteRtcpPort.TrimAll();
+                TLex8 lexPT( remoteRtcpPort );
                 User::LeaveIfError ( lexPT.Val( rtcpPort, EDecimal ) );
+                CleanupStack::PopAndDestroy( dataRemoteRtcpPort );
                 }
 
 			aStream.SetRemoteRtcpMediaPort( rtcpPort );
