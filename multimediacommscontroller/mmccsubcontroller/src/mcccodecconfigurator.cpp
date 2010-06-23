@@ -667,14 +667,19 @@ void MccCodecConfigurator::DoGetClipConfigurationL( TDes8& aParam )
                 __SUBCONTROLLER( "AVC" )
                 setting.iVideoFourCC = TFourCC( KMccFourCCIdAVC );
                 }
-            // Round to have zero decimals for clearness sake
-            User::LeaveIfError( Math::Round( setting.iVideoFrameRate, frameRate, 0 ) );
+
+            MccConversionUtility::FrameRateSanitize( 
+                setting.iVideoFrameRate, frameRate, videoType );
+            
             setting.iVideoFrameSize.iWidth = videoWidth;
             setting.iVideoFrameSize.iHeight = videoHeight;
             
             // Average bitrate is for the whole stream, 
             // subtract audio average to get video average
             setting.iVideoBitRate = videoAverageBitRate - audioAverageBitRate;
+            
+            MccConversionUtility::BitRateSanitize( 
+                            setting.iVideoBitRate, setting.iVideoBitRate, videoType );
             }
         else
             {

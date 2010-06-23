@@ -231,7 +231,16 @@ HBufC8* CMccFileVideo::GetConfigKeyL()
     ExtractH264ParameterSetNALUsL( &configKey, ETrue );
     return configKey;
     }
-    
+
+// -----------------------------------------------------------------------------
+// CMccFileVideo::VideoType
+// -----------------------------------------------------------------------------
+//
+TUint32 CMccFileVideo::VideoType() const
+    {
+    return iType;
+    }
+
 // -----------------------------------------------------------------------------
 // CMccFileVideo::Position
 // -----------------------------------------------------------------------------
@@ -279,10 +288,9 @@ TSize CMccFileVideo::VideoFrameSize()
 //
 TReal CMccFileVideo::VideoFrameRateL()
 	{
-	// Round to have zero decimals for clearness sake
-	TReal roundedFrameRate;
-	User::LeaveIfError( Math::Round( roundedFrameRate, iFrameRate, 0 ) );
-    return roundedFrameRate;	
+    TReal modFrameRate;
+    MccConversionUtility::FrameRateSanitize( modFrameRate, iFrameRate, iType );
+    return modFrameRate;
 	}
  
 // -----------------------------------------------------------------------------

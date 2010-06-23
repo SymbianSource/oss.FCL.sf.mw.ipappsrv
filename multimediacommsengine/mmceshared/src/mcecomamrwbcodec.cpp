@@ -306,6 +306,7 @@ CMceComCodec* CMceComAMRWbCodec::DoMccValidateL( CMccCodecInformation& aMccCodec
     //if offerer codec represents the sent offer and mcc codec the answer
     
     // Bitrates field contains also additional information, mask it away
+	/*
     TUint mccBitrates = ( aMccCodec.AllowedBitrates() & KMceAllowedAmrWbBitrateAll );
     TUint mceBitrates = ( iAllowedBitrates & KMceAllowedAmrWbBitrateAll );
     
@@ -314,7 +315,9 @@ CMceComCodec* CMceComAMRWbCodec::DoMccValidateL( CMccCodecInformation& aMccCodec
 	                mceBitrates > mccBitrates ) :
                   ( mceBitrates && mccBitrates == 0 ||
 	                mceBitrates < mccBitrates );
-	
+	                
+	*/
+//	User::LeaveIfError( notValid ? KErrNotSupported : KErrNone );
 	if ( aMccCodec.CodecMode() != (TCodecMode)iCodecMode )
 		{
 		// codec-mode was different, fail.
