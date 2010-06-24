@@ -668,7 +668,7 @@ void MccCodecConfigurator::DoGetClipConfigurationL( TDes8& aParam )
                 setting.iVideoFourCC = TFourCC( KMccFourCCIdAVC );
                 }
 
-            MccConversionUtility::FrameRateSanitize( 
+            MccConversionUtility::FrameRateSanitizeL( 
                 setting.iVideoFrameRate, frameRate, videoType );
             
             setting.iVideoFrameSize.iWidth = videoWidth;

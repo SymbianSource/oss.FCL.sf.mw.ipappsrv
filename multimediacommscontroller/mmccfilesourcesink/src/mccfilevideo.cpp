@@ -289,7 +289,7 @@ TSize CMccFileVideo::VideoFrameSize()
 TReal CMccFileVideo::VideoFrameRateL()
 	{
     TReal modFrameRate;
-    MccConversionUtility::FrameRateSanitize( modFrameRate, iFrameRate, iType );
+    MccConversionUtility::FrameRateSanitizeL( modFrameRate, iFrameRate, iType );
     return modFrameRate;
 	}
  
