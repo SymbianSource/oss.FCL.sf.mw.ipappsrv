@@ -23,7 +23,7 @@
 
 // INCLUDES
 #include <e32std.h>  
-#include <MceMediaSink.h>
+#include <mcemediasink.h>
 
 // CONSTANTS
 const TMceSinkType KMceRTPSink = 1;
