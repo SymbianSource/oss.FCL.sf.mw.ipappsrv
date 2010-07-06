@@ -263,7 +263,13 @@ public:  // Owned serialized Data
 	* Comfort noise
 	*/
 	TBool iComfortNoiseEnabled;
-	
+
+
+private:    // Friend classes
+
+    #ifdef TEST_EUNIT
+        friend class UT_CMceComAudioCodec;
+    #endif
     };
 
 

@@ -789,7 +789,7 @@ public:
     	return output;
         }
     
-    static void FrameRateSanitize( 
+    static void FrameRateSanitizeL( 
         TReal& aSanitizedFrameRate, TReal aOrigFrameRate, TUint32 aVideoType )
         {
         // Round to have zero decimals for clearness sake
