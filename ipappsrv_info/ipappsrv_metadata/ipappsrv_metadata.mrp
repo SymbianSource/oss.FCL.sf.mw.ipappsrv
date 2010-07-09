@@ -1,6 +1,0 @@
-component           ipappsrv_metadata
-source   \sf\mw\ipappsrv\ipappsrv_info\ipappsrv_metadata 
-source   \sf\mw\ipappsrv\package_definition.xml
-source   \sf\mw\ipappsrv\distribution.policy.s60
-notes_source      \component_defs\release.src
-ipr T 

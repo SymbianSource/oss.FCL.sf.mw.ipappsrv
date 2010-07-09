@@ -44,7 +44,7 @@
 class MRtpJitterObserver
     {
     public:
-          virtual void SendJitterEvent( TMccRtpEventData aEvent, TInt aError ) = 0;
+          virtual void SendJitterEvent( TMccRtpEventDataExtended aEvent, TInt aError ) = 0;
     };
 
 
@@ -91,7 +91,7 @@ class CMccJitterCalculator : public CBase
         *           RTP header from received packet
         * @return   void
         */
-        void RtpPacketReceived( const TUint32 aTimeStamp, TBool aMarker );
+        void RtpPacketReceived( const TUint32 aTimeStamp, TBool aMarker, TUint16 aSeqNum );
         
         /**
         * Set media configurations
@@ -134,6 +134,44 @@ class CMccJitterCalculator : public CBase
         */
         void JitterObserving();
         
+        /**
+        * Counts packet loss percentage from iStartingSeqNum, iCurrentSeqNum
+        * 		and iReceivedPacketCounter
+        * @return   Counted packet loss percentage
+        */
+        TInt CountPacketLossPercentage();
+        
+        /**
+        * Checks if current jitter level exceeds the jitter level given by the client,
+        * 		and if exceeded, sends the report to client 
+        * @param    "aReportIntervalReached"
+        *           Changed to ETrue if the report interval was reached
+        * @param    "aReportSent"
+        *           Changed to ETrue if the jitter report was sent
+        * @return   void
+        */
+        void CheckJitter( TBool& aReportIntervalReached, TBool& aReportSent );
+        
+        /**
+        * Checks if current packet loss level exceeds the packet loss level 
+        * 		given by the client, and if exceeded, sends the report to client 
+        * @param    "aReportIntervalReached"
+        *           Changed to ETrue if the report interval was reached
+        * @param    "aReportSent"
+        *           Changed to ETrue if the packet loss report was sent
+        * @return   void
+        */
+        void CheckPacketLoss( TBool& aReportIntervalReached, TBool& aReportSent );
+
+        /**
+        * Calculates a new FER value 
+        * @param    aPrevValue Previous FER value
+        * @param    aAdd Value to add( ETrue/EFalse)
+        * @param    aFlag To add (ETrue) or remove (EFalse)
+        * @return   new FER value
+        */    
+        TUint32 CalculateFer( TUint32 aPrevValue, TBool aAdd, TBool aFlag );
+
     private:   
         
         // Number of packets received
@@ -191,6 +229,21 @@ class CMccJitterCalculator : public CBase
          */
         MRtpJitterObserver* iObserver;
         
+        // Current packet sequence number
+ 		TUint16 iCurrentSeqNum;
+ 		
+ 		// Packet sequence number where to start counting the packet loss
+ 		TUint16 iStartingSeqNum;
+
+        // Holds the previous number of packets expected
+        TUint32 iPrevExpectedPackets;
+        
+        // Holds the previous number of packets received
+        TUint32 iPrevPacketsReceived;
+        
+        // Holds the previous FER value
+        TUint32 iPrevFerValue;
+
         #ifdef FTD_ENABLED
 
         // Message queue carrying stream statistics

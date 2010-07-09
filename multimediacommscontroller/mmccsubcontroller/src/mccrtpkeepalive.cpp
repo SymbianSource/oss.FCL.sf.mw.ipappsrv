@@ -62,7 +62,7 @@ CMccRtpKeepalive* CMccRtpKeepalive::NewL(
     CRtpAPI& aRtpAPI,
     TRtpId aRtpSessionId,
     TUint8 aKeepalivePayloadType,
-    TUint8 aKeepaliveInterval,
+    TUint32 aKeepaliveInterval,
     const TDesC8& aKeepaliveData,
     TBool aRemoteAddressSet )
     {
@@ -220,7 +220,7 @@ TBool CMccRtpKeepalive::IsForSink()
 // ---------------------------------------------------------------------------
 //   
 void CMccRtpKeepalive::UpdateParamsL( TUint8 aKeepalivePT, 
-    TUint8 aKeepaliveInterval, const TDesC8& aKeepaliveData )
+    TUint32 aKeepaliveInterval, const TDesC8& aKeepaliveData, CMccRtpMediaClock* aRtpMediaClock )
     {
     __SUBCONTROLLER_INT1( 
         "CMccRtpKeepalive::UpdateParamsL(), PT:", aKeepalivePT )
@@ -236,8 +236,8 @@ void CMccRtpKeepalive::UpdateParamsL( TUint8 aKeepalivePT,
     delete iKeepaliveData;
     iKeepaliveData = tmp;    
     
-    const TUint KMccSecsToMicroSecs = 1000000;
-    iKeepaliveInterval = aKeepaliveInterval * KMccSecsToMicroSecs;
+    iKeepaliveInterval = aKeepaliveInterval;
+	iRtpMediaClock = aRtpMediaClock;
     }
 
 // ---------------------------------------------------------------------------
@@ -412,7 +412,7 @@ TInt CMccRtpKeepalive::StartSending()
         
     if ( !IsActive() && ( 0 < iKeepaliveInterval ) )
         {
-        if ( iRemoteAddressSet )
+        if ( iRemoteAddressSet && iRtpMediaClock )
             {
             __SUBCONTROLLER( "CMccRtpKeepalive::StartSending(), issue send timer" )
             
@@ -548,7 +548,7 @@ CMccRtpKeepalive::CMccRtpKeepalive(
 //
 void CMccRtpKeepalive::ConstructL( 
     TUint8 aKeepalivePayloadType,
-    TUint8 aKeepaliveInterval,
+    TUint32 aKeepaliveInterval,
     const TDesC8& aKeepaliveData )
     {
     __SUBCONTROLLER( "CMccRtpKeepalive::ConstructL()" )
@@ -561,7 +561,7 @@ void CMccRtpKeepalive::ConstructL(
     iRtpHeaderInfo.iMarker = 0;
     
     UpdateParamsL( aKeepalivePayloadType, aKeepaliveInterval, 
-        aKeepaliveData );
+        aKeepaliveData, NULL );
     
     iSequenceNum = Random();
     

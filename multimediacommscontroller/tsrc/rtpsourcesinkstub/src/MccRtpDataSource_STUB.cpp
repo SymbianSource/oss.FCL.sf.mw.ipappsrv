@@ -516,7 +516,7 @@ void CMccRtpDataSource::SendStreamEventToClient(
 // CMccRtpDataSource::SendJitterEvent()
 // -----------------------------------------------------------------------------
 //	
-void CMccRtpDataSource::SendJitterEvent( TMccRtpEventData /*aEvent*/, TInt /*aError*/ )
+void CMccRtpDataSource::SendJitterEvent( TMccRtpEventDataExtended /*aEvent*/, TInt /*aError*/ )
     {
 
     }

@@ -37,6 +37,7 @@ const TUint KDefaultBufferThreshold = 5;
 const TUint KDefaultPreference = EMdaPriorityPreferenceNone;
 const TUint KDefaultPriority = EMdaPriorityNormal;
 const TInt KDefaultModeChangePeriod = 1;
+const TUint KMccSecsToMicroSecs = 1000000;
 
 
 // MACROS
@@ -136,7 +137,16 @@ void CMccCodecInformation::SetValues( TMccCodecInfo codecInfo )
     iFrameSize = codecInfo.iFrameSize;
     iHwFrameTime = codecInfo.iHwFrameTime;
     
-    iKeepAliveTimer = codecInfo.iKeepaliveInterval;
+    if( (codecInfo.iKeepaliveInterval / KMccSecsToMicroSecs) > KMaxTUint8 )
+    	{
+    	iKeepAliveTimer = KMaxTUint8;
+    	iKeepAliveTimerMicroSecs = KMaxTUint8 * KMccSecsToMicroSecs;	
+    	}
+    else
+    	{
+    	iKeepAliveTimer = codecInfo.iKeepaliveInterval / KMccSecsToMicroSecs;
+    	iKeepAliveTimerMicroSecs = codecInfo.iKeepaliveInterval;	
+    	}
     iKeepAlivePT = codecInfo.iKeepalivePT;
     iKeepAliveData = codecInfo.iKeepaliveData;
     
@@ -188,7 +198,7 @@ void CMccCodecInformation::GetValues( TMccCodecInfo& codecInfo ) const
     codecInfo.iRedundantPayload = iRedundancyPT;
     codecInfo.iNeighbor = iNeighbor;
     codecInfo.iModeChangePeriod = iModeChangePeriod;
-    codecInfo.iKeepaliveInterval = iKeepAliveTimer;
+    codecInfo.iKeepaliveInterval = iKeepAliveTimerMicroSecs;
     codecInfo.iKeepalivePT = iKeepAlivePT;
     codecInfo.iKeepaliveData = iKeepAliveData;
     codecInfo.iMaxRed = iMaxRed;
@@ -924,6 +934,7 @@ TUint CMccCodecInformation::FrameWidth() const
 TInt CMccCodecInformation::SetKeepAliveTimer( TUint8 aTimerValue )
     {
     iKeepAliveTimer = aTimerValue;
+    iKeepAliveTimerMicroSecs = aTimerValue * KMccSecsToMicroSecs;
     return KErrNone;    
     }
 
@@ -982,4 +993,35 @@ TUint8 CMccCodecInformation::KeepAlivePT() const
 const TDesC8& CMccCodecInformation::KeepAliveData() const
     {
     return iKeepAliveData;
+    }
+
+// -----------------------------------------------------------------------------
+// CMccCodecInformation:SetKeepAliveTimerMicroSecs
+// Default implementation
+// -----------------------------------------------------------------------------
+// 
+TInt CMccCodecInformation::SetKeepAliveTimerMicroSecs( 
+									TUint32 aTimerValueMicroSecs )
+    {
+    if( (aTimerValueMicroSecs / KMccSecsToMicroSecs) > KMaxTUint8 )
+    	{
+    	iKeepAliveTimer = KMaxTUint8;
+    	iKeepAliveTimerMicroSecs = KMaxTUint8 * KMccSecsToMicroSecs;	
+    	}
+    else
+    	{
+    	iKeepAliveTimer = aTimerValueMicroSecs / KMccSecsToMicroSecs;	
+    	iKeepAliveTimerMicroSecs = aTimerValueMicroSecs;
+    	}
+    return KErrNone;    
+    }
+
+// -----------------------------------------------------------------------------
+// CMccCodecInformation:KeepAliveTimerMicroSecs
+// Default implementation
+// -----------------------------------------------------------------------------
+// 
+TUint32 CMccCodecInformation::KeepAliveTimerMicroSecs() const
+    {
+    return iKeepAliveTimerMicroSecs;
     }
