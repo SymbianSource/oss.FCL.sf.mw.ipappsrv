@@ -44,7 +44,9 @@
 // -----------------------------------------------------------------------------
 //
 CMceStateOffering::CMceStateOffering ()
-    : CMceState( KMceStateOffering )
+    : CMceState( KMceStateOffering ),
+      iLastResponse ( 0 ),
+	  iReadyToSendACK ( ETrue )
 	{
 	}
 
@@ -265,6 +267,7 @@ void CMceStateOffering::EntryProvisionalResponseL(
     TInt status = KErrNone;
     CMceSipSession& session = aEvent.Session();
     CSIPClientTransaction& response = session.Response();
+    iLastResponse = MceSip::ResponseCode( response );
      
     session.Extensions().UpdateL( response );
     session.Actions().CheckContactIsSecureL( response );
@@ -440,14 +443,35 @@ void CMceStateOffering::EntryResponseL( TMceStateTransitionEvent& aEvent )
     TInt status = KErrNone;
 	CMceSipSession& session = aEvent.Session();
     CMceSipSession::TSubState subState = session.SubState();
+    TInt currentResponse = MceSip::ResponseCode( session.Response() );
 	
+	// If media handling is ongoing while 200OK arrives with certain SDP content
+    // don't send ACK thus the UAS will retransmit 200OK untile pervious meida handling
+    // finish.
+ 
+    if ( KMceSipRinging == iLastResponse &&
+    	 KMceSipOK == currentResponse && 
+    	 MceSip::HasContent( session.Response() ) )
+    	{
+		if ( session.WaitingMediaCallback() )
+    		{
+			iReadyToSendACK = EFalse;
+			MCESRV_DEBUG("Waiting media callback, do not send ACK for this 200OK")
+    		return;
+    		}
+    	else
+    		{
+			iReadyToSendACK = ETrue;
+			MCESRV_DEBUG("Ready to send ACK")
+    		}
+    	}
     //send ACK
     session.Actions().SendACKL( session.Response() );
 	session.Actions().CheckContactIsSecureL( session.Response() );
     session.ActiveBody().AnswerType() = KMceNegotiationAnswerTypeFinal;
     
-	// Handle the answer only if the media processing is not
-	// already ongoing
+    iLastResponse = currentResponse;
+
 	if ( !session.WaitingMediaCallback() )
 	    {
 	    if ( MceSip::HasContent( session.Response() ) )
@@ -773,6 +797,11 @@ void CMceStateOffering::EntryByeL( TMceStateTransitionEvent& aEvent )
 //
 void CMceStateOffering::ExitL( TMceStateTransitionEvent& aEvent )
 	{
+	if ( !iReadyToSendACK )
+		{
+		MCESRV_DEBUG("Not ready, don't change any state");
+		return;
+		}
 	
 	if ( IsExtensionRequestEvent( aEvent ))
 		{
