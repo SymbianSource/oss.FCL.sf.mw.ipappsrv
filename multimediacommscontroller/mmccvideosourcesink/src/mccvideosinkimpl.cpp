@@ -31,7 +31,6 @@
 #include "mmcccodecamr.h"
 #include "mccvideosinkuser.h"
 #include "mccdef.h"
-#include "mccredrawhandler.h"
 #include "mccinternaldef.h"
 #include <videoplayer2.h>
 
@@ -139,44 +138,7 @@ void CMccVideoSinkImpl::ConstructL( const TMccVideoSinkSetting& aSettings )
     __V_SOURCESINK_CONTROLL_INT1( "CMccVideoSinkImpl rotation:", 
                                   iSettings.iRotation )
     
-	// Create window group
-	TInt groupId = iRwSession.GetFocusWindowGroup();
-    iRwGroup = new (ELeave) RWindowGroup( iRwSession );	
-    
-	User::LeaveIfError( iRwGroup->Construct( groupId, EFalse ) );	
-    iRwGroup->SetName( KMccWindowGroupName );
-    
-    // TBD: use also iWindowOrdinalPriority
-    iRwGroup->SetOrdinalPosition( iSettings.iWindowOrdinalPosition );
-         
-    // Create screen device
-	iDev = new (ELeave) CWsScreenDevice( iRwSession );
-	User::LeaveIfError( iDev->Construct( iSettings.iDeviceIndex ) ); 
-	
-	// Create window
-	iRw = new (ELeave) RWindow( iRwSession );
-    
-    User::LeaveIfError( iRw->Construct( *iRwGroup, (TUint32)iRw ) );
-
-    iRw->SetPosition( iSettings.iLocation );
-    iRw->SetSize( iSettings.iSize );
-    
-    iRw->SetOrdinalPosition( iSettings.iWindowOrdinalPosition );
-        
-	__V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl: creating graphics context ..." )
-    User::LeaveIfError( iDev->CreateContext( iGc ) );
-	__V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl: graphics context created!" )
-    
-      
-    iRw->Activate();
-    
-    iRwSession.Flush();
-    
-    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl: creating redraw handler" )
-    
-    iRedrawHandler = CMccRedrawHandler::NewL( iRwSession, *iRw, *iGc );
-    
-    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl: created redraw handler" )
+    CreateWindowingElementsL(iSettings);
       
     // Videoplayer needs to be created last, otherwise destruction
     // order causes problems
@@ -245,14 +207,10 @@ CMccVideoSinkImpl::~CMccVideoSinkImpl()
 		}
 		
 	delete iVideoPlayer;
+	iVideoPlayer = NULL;
 	
-	delete iRedrawHandler;
-	
-	delete iGc;
-	delete iDev;
+	DeleteWindowingElements();
 
-    delete iRw;
-    delete iRwGroup;	
 	iRwSession.Close();
 
 	delete iServerName;
@@ -419,7 +377,6 @@ void CMccVideoSinkImpl::StartL()
             }
         else
             {
-            iRedrawHandler->BlackDrawingL( ETrue );
             SendStreamEventToClient( KMccStreamStarted, iCurrentUser );
             SetStartedOnce( userEntry, ETrue );
             }   
@@ -777,8 +734,6 @@ void CMccVideoSinkImpl::EmptyBufferL( CMMFBuffer* aBuffer,
 	     user.PacketOverflowState() != CMccVideoSinkUser::EOccured && 
 	     dataSize >= KMccMinPacketSize )
 		{
-		iRedrawHandler->BlackDrawingL( EFalse );
-		
     	__V_SOURCESINK_CONTROLL( 
     	    "CMccVideoSinkImpl::EmptyBufferL, sending packet to helix" )		
       
@@ -837,16 +792,11 @@ void CMccVideoSinkImpl::UpdateSettingsL(
         __V_SOURCESINK_CONTROLL_INT1( "CMccVideoSinkImpl rotation:", 
                 aSettings.iRotation )
         
-        __ASSERT_ALWAYS( iRw && iRwGroup && iDev, User::Leave( KErrNotReady ) );
+        // Need to recreate windowing stuff, otherwise orientation switch does not work
+        DeleteWindowingElements();
+        CreateWindowingElementsL(aSettings);
         
-        // TBD: use also aSettings.iWindowOrdinalPriority
-        iRwGroup->SetOrdinalPosition( aSettings.iWindowOrdinalPosition );
-
-        iRw->SetPosition( aSettings.iLocation );
-        iRw->SetSize( aSettings.iSize );
-        iRw->SetOrdinalPosition( aSettings.iWindowOrdinalPosition );
-        
-        iRwSession.Flush();
+        UpdateScreenTransparencyL(aSettings);
             
         SetDisplayWindowL( iRwSession, *iDev, *iRw );
         
@@ -1945,6 +1895,97 @@ TBool CMccVideoSinkImpl::AllUsersReady()
             }
         }
     return allUsersReady;
+    }
+
+// ---------------------------------------------------------------------------
+//
+// ---------------------------------------------------------------------------
+// 
+void CMccVideoSinkImpl::UpdateScreenTransparencyL(const TMccVideoSinkSetting& aSettings)
+    {
+    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl::UpdateScreenTransparencyL" )
+    __ASSERT_ALWAYS( iGc && iRw, User::Leave( KErrNotReady ) );
+    TRect vfRect( TPoint( 0, 0 ), aSettings.iSize );
+    iGc->Activate( *iRw ); 
+    iRw->Invalidate( vfRect );
+    iRw->BeginRedraw( vfRect );
+    iGc->CancelClippingRect();
+    iGc->SetDrawMode( CGraphicsContext::EDrawModeWriteAlpha );
+    iGc->SetBrushStyle( CGraphicsContext::ESolidBrush );
+    iGc->SetBrushColor( TRgb( 0, 0, 0, 0 ) );
+    iGc->DrawRect( vfRect );
+    iRw->EndRedraw();
+    iGc->Deactivate();
+    iRwSession.Flush();
+    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl::UpdateScreenTransparencyL, exit" )
+    }
+
+// ---------------------------------------------------------------------------
+//
+// ---------------------------------------------------------------------------
+//
+void CMccVideoSinkImpl::DeleteWindowingElements()
+    {
+    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl::DeleteWindowingElements" )
+    if ( iVideoPlayer && iRw )
+        {
+        __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl: removing window from player" )
+        iVideoPlayer->RemoveDisplayWindow( *iRw );
+        }
+    delete iGc;
+    iGc = NULL;
+    delete iDev;
+    iDev = NULL;
+    delete iRw;
+    iRw = NULL;
+    delete iRwGroup;    
+    iRwGroup = NULL;
+    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl::DeleteWindowingElements, exit" )
+    }
+
+// ---------------------------------------------------------------------------
+//
+// ---------------------------------------------------------------------------
+//
+void CMccVideoSinkImpl::CreateWindowingElementsL(const TMccVideoSinkSetting& aSettings)
+    {
+    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl::CreateWindowingElementsL" )
+        
+    __ASSERT_ALWAYS( !iGc && !iDev && !iRw && !iRwGroup, User::Leave( KErrAlreadyExists ) );
+        
+    TInt groupId = iRwSession.GetFocusWindowGroup();
+    iRwGroup = new (ELeave) RWindowGroup( iRwSession ); 
+    
+    User::LeaveIfError( iRwGroup->Construct( groupId, EFalse ) );   
+    iRwGroup->SetName( KMccWindowGroupName );
+    
+    // TBD: use also iWindowOrdinalPriority
+    iRwGroup->SetOrdinalPosition( aSettings.iWindowOrdinalPosition );
+    iRwGroup->AutoForeground( EFalse );
+       
+    // Create screen device
+    iDev = new (ELeave) CWsScreenDevice( iRwSession );
+    User::LeaveIfError( iDev->Construct( aSettings.iDeviceIndex ) ); 
+    
+    // Create window
+    iRw = new (ELeave) RWindow( iRwSession );
+
+    User::LeaveIfError( iRw->Construct( *iRwGroup, (TUint32)iRw ) );
+    
+    iRw->SetPosition( aSettings.iLocation );
+    iRw->SetSize( aSettings.iSize );
+    
+    iRw->SetOrdinalPosition( aSettings.iWindowOrdinalPosition );
+      
+    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl: creating graphics context ..." )
+    User::LeaveIfError( iDev->CreateContext( iGc ) );
+    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl: graphics context created!" )   
+    
+    iRw->Activate();
+    
+    iRwSession.Flush();
+    
+    __V_SOURCESINK_CONTROLL( "CMccVideoSinkImpl::CreateWindowingElementsL, exit" )
     }
     
 // End of file

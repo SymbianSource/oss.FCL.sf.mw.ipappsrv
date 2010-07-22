@@ -231,7 +231,16 @@ HBufC8* CMccFileVideo::GetConfigKeyL()
     ExtractH264ParameterSetNALUsL( &configKey, ETrue );
     return configKey;
     }
-    
+
+// -----------------------------------------------------------------------------
+// CMccFileVideo::VideoType
+// -----------------------------------------------------------------------------
+//
+TUint32 CMccFileVideo::VideoType() const
+    {
+    return iType;
+    }
+
 // -----------------------------------------------------------------------------
 // CMccFileVideo::Position
 // -----------------------------------------------------------------------------
@@ -279,10 +288,9 @@ TSize CMccFileVideo::VideoFrameSize()
 //
 TReal CMccFileVideo::VideoFrameRateL()
 	{
-	// Round to have zero decimals for clearness sake
-	TReal roundedFrameRate;
-	User::LeaveIfError( Math::Round( roundedFrameRate, iFrameRate, 0 ) );
-    return roundedFrameRate;	
+    TReal modFrameRate;
+    MccConversionUtility::FrameRateSanitizeL( modFrameRate, iFrameRate, iType );
+    return modFrameRate;
 	}
  
 // -----------------------------------------------------------------------------
@@ -402,11 +410,27 @@ MP4ParseNextFrameSize not Ok" )
 		{
 		__FILESOURCE_CONTROLL( "CMccFileVideo::ReadFrameL, reading frame, NOT OK" )
 		CleanupStack::PopAndDestroy( mediaBuffer );
+	  	if( !iSendReadFrameFailEvent )
+	  	    {
+	  	    iReadFrameFailCount++;
+	  	    if( iReadFrameFailCount >= KMccReadFrameFailCountMax )
+	  	    	{
+	  	    	iSendReadFrameFailEvent = ETrue;
+	  	    	iSource.InvalidVideoFrame( ETrue );
+	  	    	}
+	  	    }
         }
     else
     	{
  		__FILESOURCE_CONTROLL_INT1( "CMccFileVideo::ReadFrameL, reading frame, OK, position", 
  		                            iPosition )   		
+ 		                            
+	    if( iSendReadFrameFailEvent )
+		    {
+		    iSendReadFrameFailEvent = EFalse;
+		    iReadFrameFailCount = 0;
+		    iSource.InvalidVideoFrame( EFalse );
+		    }
 
         DoTimingCorrection( iPosition );
                

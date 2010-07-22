@@ -16,6 +16,26 @@
 */
 
 #include <w32std.h>
+#include "ws_stubs_helper.h"
+
+static CGraphicsContext::TDrawMode testDrawMode = CGraphicsContext::EDrawModeAND;
+static TInt testNumWindowsCreated = 0;
+
+CGraphicsContext::TDrawMode TWsStubsHelper::CurrentDrawMode()
+{
+    return testDrawMode;
+}
+
+TInt TWsStubsHelper::NumWindowsCreated()
+{
+    return testNumWindowsCreated;
+}
+
+void TWsStubsHelper::Reset()
+{
+    testDrawMode = CGraphicsContext::EDrawModeAND;
+    testNumWindowsCreated = 0;
+}
 
 // -----------------------------------------------------------------------------
 // CWindowGc
@@ -48,8 +68,9 @@ void CWindowGc::Clear( const TRect &aRect)
     }
 void CWindowGc::SetDrawMode( TDrawMode aDrawingMode )
     {
-    
+    testDrawMode = aDrawingMode;
     }
+
 void CWindowGc::Deactivate()
     {
     
@@ -145,6 +166,7 @@ RWindow::RWindow(RWsSession &aWs)
     }
 TInt RWindow::Construct(const RWindowTreeNode &parent,TUint32 aHandle)
     {
+    testNumWindowsCreated++;
     return KErrNone;
     }
 void RWindow::BeginRedraw(const TRect &aRect)
@@ -260,6 +282,11 @@ TInt RWindowGroup::Construct(TUint32 aClientHandle,TBool aIsFocusable)
 TInt RWindowGroup::SetName(const TDesC &aName)
     {
     return KErrNone;
+    }
+
+void RWindowGroup::AutoForeground(TBool /*aState*/)
+    {
+        
     }
 
 // -----------------------------------------------------------------------------

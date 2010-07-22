@@ -908,6 +908,42 @@ void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_DecodeRemoteRtcpFieldLL()
     EUNIT_ASSERT( mediaStream->iRemoteRtcpAddress.IsUnspecified() )
     audioLine->AttributeFields().ResetAndDestroy();
     
+    // Rtcp attribute has incorrectly our local address, it should not be used
+    mediaStream->Session()->iLocalIpAddress.Input( _L("10.20.30.40") );
+    rtcp = CSdpAttributeField::DecodeLC( _L8( "a=rtcp:5020 IN IP4 10.20.30.40\r\n" ) );
+    audioLine->AttributeFields().AppendL( rtcp );
+    CleanupStack::Pop( rtcp );
+    iSdpCodec->DecodeRemoteRtcpFieldL( *audioLine, *mediaStream );
+    EUNIT_ASSERT_EQUALS( 5020, mediaStream->iRemoteRtcpPort )
+    EUNIT_ASSERT( mediaStream->iRemoteRtcpAddress.IsUnspecified() )  // Not changed
+    audioLine->AttributeFields().ResetAndDestroy();
+
+    // Rtcp attrubute is local loopback address, ok to use
+    rtcp = CSdpAttributeField::DecodeLC( _L8( "a=rtcp:5020 IN IP4 127.0.0.1\r\n" ) );
+    audioLine->AttributeFields().AppendL( rtcp );
+    CleanupStack::Pop( rtcp );
+    iSdpCodec->DecodeRemoteRtcpFieldL( *audioLine, *mediaStream );
+    EUNIT_ASSERT_EQUALS( 5020, mediaStream->iRemoteRtcpPort )
+    EUNIT_ASSERT_EQUALS( INET_ADDR( 127,0,0,1 ), mediaStream->iRemoteRtcpAddress.Address() )
+    audioLine->AttributeFields().ResetAndDestroy();
+    
+    // Incorrect white space usage
+    rtcp = CSdpAttributeField::DecodeLC( _L8( "a=rtcp: 5050  IN IP4 2.2.2.2 \r\n" ) );
+    audioLine->AttributeFields().AppendL( rtcp );
+    CleanupStack::Pop( rtcp );
+    iSdpCodec->DecodeRemoteRtcpFieldL( *audioLine, *mediaStream );
+    EUNIT_ASSERT_EQUALS( 5050, mediaStream->iRemoteRtcpPort )
+    EUNIT_ASSERT_EQUALS( INET_ADDR( 2,2,2,2 ), mediaStream->iRemoteRtcpAddress.Address() )
+    audioLine->AttributeFields().ResetAndDestroy();
+    
+    rtcp = CSdpAttributeField::DecodeLC( _L8( "a=rtcp:  50506\r\n" ) );
+    audioLine->AttributeFields().AppendL( rtcp );
+    CleanupStack::Pop( rtcp );
+    iSdpCodec->DecodeRemoteRtcpFieldL( *audioLine, *mediaStream );
+    EUNIT_ASSERT_EQUALS( 50506, mediaStream->iRemoteRtcpPort )
+    EUNIT_ASSERT_EQUALS( INET_ADDR( 2,2,2,2 ), mediaStream->iRemoteRtcpAddress.Address() )
+    audioLine->AttributeFields().ResetAndDestroy();
+       
     CleanupStack::PopAndDestroy( sdp );
     }
     
@@ -1349,7 +1385,6 @@ void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_ValidateSdpL()
     CleanupStack::PopAndDestroy( sdp );
 
     }
-    
 
 
 void UT_CMceMediaSdpCodec::UT_CMceMediaSdpCodec_DecodeDirectionLL()

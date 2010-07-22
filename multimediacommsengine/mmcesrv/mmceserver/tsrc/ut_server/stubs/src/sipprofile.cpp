@@ -191,7 +191,7 @@ EXPORT_C TInt CSIPProfile::GetParameter(TUint32 aParam, TUint32& aVal) const
 	    }
 	if( aParam == KSIPProfileId )
 		{
-		aVal = 1;
+		aVal = ContextId();
 		}
 	return ret;
 	}	
@@ -279,7 +279,7 @@ CSIPProfile::CSIPProfile(CSIPProfileRegistryBase* aRegistry):
 // -----------------------------------------------------------------------------
 //	
 CSIPProfile::CSIPProfile():
-	iEnabled(EFalse)
+	iEnabled(EFalse), iContextId(1)
 	{
 	}
 
@@ -307,6 +307,11 @@ TBool CSIPProfile::IsContextActive() const
 	{
 	return ETrue;
 	}
+
+void CSIPProfile::SetContextId(TInt aContextId)
+	{
+	iContextId = aContextId;
+	}
 	
 // -----------------------------------------------------------------------------
 // CSIPProfile::ContextId
@@ -314,7 +319,7 @@ TBool CSIPProfile::IsContextActive() const
 //	
 TUint32 CSIPProfile::ContextId() const
 	{
-	return 1;
+	return iContextId;
 	}
 
 // -----------------------------------------------------------------------------

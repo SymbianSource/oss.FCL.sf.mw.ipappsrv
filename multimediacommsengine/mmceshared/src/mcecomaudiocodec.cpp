@@ -522,6 +522,10 @@ void CMceComAudioCodec::DoMccEncodeComfortNoiseL(
             	
            	aStream.Data().BoundStreamL().RemoveCodecL( boundCnCodec );
             }
+			
+		// update keep alive payload type and data
+	    aMccCodec.SetKeepAlivePT( 120 );
+        aMccCodec.SetKeepAliveData( KNullDesC8 );
     	}
     	
     CleanupStack::PopAndDestroy( searchCodec );

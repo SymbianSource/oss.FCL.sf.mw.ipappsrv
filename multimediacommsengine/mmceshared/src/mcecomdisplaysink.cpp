@@ -347,6 +347,7 @@ const TDesC8& CMceComDisplaySink::DoInitParamL( const CMceComCodec& aCodec )
     displaySetting.iWindowOrdinalPosition = 1;
     displaySetting.iWindowOrdinalPriority = iPriority;
     displaySetting.iRotation = EMccNone;
+    displaySetting.iEnabled = ETrue;
     
     if ( aCodec.Stream() && aCodec.Stream()->iType == KMceVideo )
         {

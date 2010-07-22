@@ -63,7 +63,8 @@ class CMccVideoSourceWrapper: public CBase, public MCMRMediaSink, public MCMRMed
                     TInt aCameraHandle,
                     const TDesC8& aVideoMimeType = KNullDesC8,
                     TFourCC aAudioType = KFourCCNULL,
-                    TUid aEncoderUid = KNullUid );
+                    TUid aEncoderUid = KNullUid,
+                    TBool aForceEncapsulationType = EFalse );
 
         void PlayL();
         

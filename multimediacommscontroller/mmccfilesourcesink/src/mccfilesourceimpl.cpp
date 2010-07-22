@@ -28,6 +28,7 @@
 #include "mccfilevideo.h"
 #include "mccinternalevents.h"
 #include "mmccinterfacedef.h"
+#include "mccinternaldef.h"
 
 
 
@@ -368,12 +369,14 @@ TUint32 CMccFileSourceImpl::VideoBitRateL()
     
     // Average bitrate is for the whole stream, 
     // subtract audio average to get video average
-    TUint32 averageBitRate = iFileVideo->StreamAverageBitRate() - audioBitRate;
+    TUint32 videoBitRate = iFileVideo->StreamAverageBitRate() - audioBitRate;
+    MccConversionUtility::BitRateSanitize( 
+        videoBitRate, videoBitRate, iFileVideo->VideoType() );
     
     __FILESOURCE_CONTROLL_INT1( "CMccFileSourceImpl::VideoBitRateL, videoBitRate", 
-                               averageBitRate )
+        videoBitRate )
 
-    return averageBitRate;
+    return videoBitRate;
     }
 
 // -----------------------------------------------------------------------------
@@ -1086,6 +1089,27 @@ TBool CMccFileSourceImpl::StartNeededL( CMccFileSourceTypeBase& aFileSource )
     
     return startNeeded;
     }
+
+// -----------------------------------------------------------------------------
+// CMccFileSourceImpl::InvalidVideoFrame()
+// -----------------------------------------------------------------------------
+//
+void CMccFileSourceImpl::InvalidVideoFrame( TBool aInvalid )
+	{
+	__FILESOURCE_CONTROLL( 
+	            "CMccFileSourceImpl::InvalidVideoFrame" )
+    if( aInvalid )
+	    {
+	    SendStreamEventToClient( KMccEventCategoryStream, 
+		    	                 KMccStreamIdle );
+		}
+	else
+	    {
+	    SendStreamEventToClient( KMccEventCategoryStream, 
+		    	                 KMccStreamPlaying );
+	    }
+	}
+
     
 #ifndef EKA2
 // DLL interface code

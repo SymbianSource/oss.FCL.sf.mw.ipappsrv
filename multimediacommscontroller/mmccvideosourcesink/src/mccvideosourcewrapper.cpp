@@ -89,7 +89,8 @@ void CMccVideoSourceWrapper::OpenL(
     TInt aCameraHandle,
     const TDesC8& aVideoMimeType,
     TFourCC aAudioType,
-    TUid aEncoderUid )
+    TUid aEncoderUid,
+    TBool aForceEncapsulationType )
 	{
     __V_SOURCESINK_CONTROLL( "CMccVideoSourceWrapper::OpenL" )	
     
@@ -109,9 +110,12 @@ void CMccVideoSourceWrapper::OpenL(
     		__V_SOURCESINK_CONTROLL_INT1( "SetPreferredVideoEncoderL, uid:", 
     		                              aEncoderUid.iUid )
             iMediaRecorder->SetPreferredVideoEncoderL( aEncoderUid );
+		    }
+		if ( aForceEncapsulationType )
+            {
             __V_SOURCESINK_CONTROLL( "SetPreferredVideoEncapsulationL" )
             iMediaRecorder->SetPreferredVideoEncapsulationL( EDuElementaryStream );
-		    }
+            }
         
         __V_SOURCESINK_CONTROLL( "SetVideoCodingOptionsL" )        
 		//set mediarecorder to insert GOB:s

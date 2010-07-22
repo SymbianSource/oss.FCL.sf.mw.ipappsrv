@@ -100,6 +100,7 @@ private:
 	#ifdef EUNIT_TEST
         friend class UT_CMccFileAudio;
         friend class UT_CMccMultiplexer;
+        friend class UT_CMccFileSourceImpl;
     #endif	
 	};
 

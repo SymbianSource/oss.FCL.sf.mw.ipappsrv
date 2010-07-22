@@ -22,6 +22,7 @@
 #define CMCESTATEOFFERING_H
 
 #include "mcestate.h"
+#include "mcesrv.h"
 
 /**
 *  Represents MCE server state Offering
@@ -154,7 +155,12 @@ private://handler routines
     void ExitSIPEventL( TMceStateTransitionEvent& aEvent );
     
     void EntryAnswerToOfferDecodedL( TMceStateTransitionEvent& aEvent );
+	
+private:
+	TInt iLastResponse;
+	TBool iReadyToSendACK;
 
+    MCESRV_UT_DEFINITIONS;
 	};
 
 #endif

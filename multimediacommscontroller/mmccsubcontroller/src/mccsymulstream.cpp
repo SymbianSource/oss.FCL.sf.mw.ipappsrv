@@ -288,6 +288,15 @@ void CMccSymUlStream::LoadCodecL( const TMccCodecInfo& aCodecInfo,
                                                
             UpdateCodecInformationL( iCodecInfo );
             }
+        else if ( iDatasink->DataSinkType() == KMccRtpSinkUid )
+       	    {
+            CMccRtpDataSink* dataSink = 
+                static_cast<CMccRtpDataSink*>( iDatasink );
+            
+            // For updating keep alive parameters
+            TMccCodecInfoBuffer infoBuffer( iCodecInfo );     
+            dataSink->ConfigureL( infoBuffer );
+       	    }
         }
     else if ( CurrentCodecState() == EStateCodecLoaded ||
               CurrentCodecState() == EStateCodecLoadedAndUpdating )

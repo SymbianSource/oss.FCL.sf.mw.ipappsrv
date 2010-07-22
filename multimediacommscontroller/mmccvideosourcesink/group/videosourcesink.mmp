@@ -35,7 +35,6 @@ SOURCE          mccvideosinkuser.cpp
 SOURCE          mccvideojitterbuffer.cpp
 SOURCE          mccvideosourceimpl.cpp
 SOURCE          mccvideosourcewrapper.cpp
-SOURCE          mccredrawhandler.cpp
 SOURCE          mccvideosourcekeyretriever.cpp
 
 #if (defined WINS)
