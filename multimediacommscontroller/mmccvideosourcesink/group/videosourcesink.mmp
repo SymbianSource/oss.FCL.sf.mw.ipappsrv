@@ -27,6 +27,8 @@ TARGETTYPE		PLUGIN
 
 UID             0x10009D8D 0x102747CC
 
+STDCPP
+
 SOURCEPATH      ../src
 SOURCE          mccvideosourcesinkfactory.cpp
 SOURCE          mccvideosink.cpp
