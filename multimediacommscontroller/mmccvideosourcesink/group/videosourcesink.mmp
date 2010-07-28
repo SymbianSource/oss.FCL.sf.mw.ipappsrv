@@ -94,7 +94,7 @@ STATICLIBRARY   XPSPacketSink.lib
 
 #if (defined WINS)
 LIBRARY         camc3gpsink.lib
-LIBRARY         esock.lib
+LIBRARY         esock.lib libstdcppv5.lib
 
 MACRO MCC_VIDEO_SOURCE_FOR_EMU
 
