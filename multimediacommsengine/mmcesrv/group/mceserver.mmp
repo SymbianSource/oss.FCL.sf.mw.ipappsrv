@@ -223,7 +223,7 @@ LIBRARY     insock.lib
 LIBRARY     esock.lib
 LIBRARY     bafl.lib
 LIBRARY     estor.lib
-LIBRARY     commonengine.lib
+LIBRARY     CommonEngine.lib
 LIBRARY     commdb.lib 
 LIBRARY     charconv.lib
 LIBRARY     sipclient.lib

@@ -623,6 +623,8 @@ void CMceSipConnection::ConnectionStateChanged(
             session->Canceled();
             }
         }
+    
+    iSessionManager.Cleanup();
     MCESRV_DEBUG("CMceSipConnection::ConnectionStateChanged, Exit")
     }
 
