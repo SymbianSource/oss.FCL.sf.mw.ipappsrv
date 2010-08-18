@@ -42,6 +42,7 @@
 #include <srtpmastersalt.h>
 #include <srtpstreamout.h>
 #include "mccunittestmacros.h"
+#include "mccrtpmediaclock.h"
 
 
 #define MCCEVENTDATAPCKG_TO_RTCPEVENTDATAPCKG( event )\
@@ -115,6 +116,7 @@ void UT_CMccRtpDataSink::SetupL()
                                          *iRtpApi, 
                                          rtpSessionId ); 
                                          
+    iRtpMediaClock = CMccRtpMediaClock::NewL();                                     
     } 
 
 void UT_CMccRtpDataSink::Teardown()
@@ -136,6 +138,12 @@ void UT_CMccRtpDataSink::Teardown()
         delete iRtpApi;
         iRtpApi = NULL;
         }
+        
+    if ( iRtpMediaClock )
+        {
+        delete iRtpMediaClock;
+        iRtpMediaClock = NULL;
+        }
     }
 
 // HELPERS
@@ -156,7 +164,7 @@ void UT_CMccRtpDataSink::InitializeStreamL()
     TMccCodecInfo cInfo;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf ) );
+    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf, iRtpMediaClock ) );
     }
 
 
@@ -218,7 +226,7 @@ void UT_CMccRtpDataSink::UT_CMccRtpDataSink_SendMediaSignallingLL()
     
     TMccCodecInfo cInfo;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
-    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf ) );
+    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf, iRtpMediaClock ) );
     MCC_EUNIT_ASSERT_EQUALS( iSink->SinkThreadLogon( *this ), KErrNone );
     iSink->SetCurrentUser( this );
     EUNIT_ASSERT_NO_LEAVE( iSink->SinkPrimeL() );
@@ -289,7 +297,7 @@ void UT_CMccRtpDataSink::UT_CMccRtpDataSink_SinkThreadLogoffL()
     MCC_EUNIT_ASSERT_EQUALS( iSink->SinkThreadLogon( *this ), KErrNone );
     iSink->SetCurrentUser( this );
     EUNIT_ASSERT_NO_LEAVE( iSink->SetSessionParamsL( params ) );
-    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf ) );
+    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf, iRtpMediaClock ) );
     EUNIT_ASSERT_NO_LEAVE( iSink->SinkPrimeL() );
     iSink->SinkThreadLogoff();
     }
@@ -366,7 +374,7 @@ void UT_CMccRtpDataSink::UT_CMccRtpDataSink_SinkPrimeLL()
     TMccCodecInfo cInfo;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf ) );
+    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf, iRtpMediaClock ) );
     EUNIT_ASSERT_NO_LEAVE( iSink->SinkPrimeL() );
     EUNIT_ASSERT( iRtpKeepaliveMechanism->iStopped == EFalse );
   
@@ -615,7 +623,7 @@ void UT_CMccRtpDataSink::UT_CMccRtpDataSink_PrepareLL()
     TMccCodecInfo cInfo;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf ) );
+    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf, iRtpMediaClock ) );
     EUNIT_ASSERT_NO_LEAVE( iSink->SinkPrimeL() ); 
 
     // Create a comfort noise stream
@@ -638,12 +646,12 @@ void UT_CMccRtpDataSink::UT_CMccRtpDataSink_CreateStreamLL()
     TMccCodecInfo cInfo;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf ) );
+    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf, iRtpMediaClock ) );
 
     // This should leave because the string is too short
     TBuf8<5> dummy;
     dummy.Format( _L8( "foo42" ) );
-    EUNIT_ASSERT_LEAVE( iSink->ConfigureL( dummy ) );
+    EUNIT_ASSERT_LEAVE( iSink->ConfigureL( dummy, iRtpMediaClock ) );
 
     // Get a new sink
     //Teardown();
@@ -690,7 +698,7 @@ void UT_CMccRtpDataSink::UT_CMccRtpDataSink_CreateStreamLL()
     cInfo2.iAlgoUsed = EGenRedUsed;
     TMccCodecInfoBuffer cInfoBuf2( cInfo2 );
 
-    EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf2 ) );
+    EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf2, iRtpMediaClock ) );
     }
 
 void UT_CMccRtpDataSink::UT_CMccRtpDataSink_RemoveStreamLL()
@@ -741,7 +749,7 @@ void UT_CMccRtpDataSink::UT_CMccRtpDataSink_PlayStreamLL()
     TMccCodecInfo cInfo;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf ) );
+    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf, iRtpMediaClock ) );
 
     // Wrong state
     EUNIT_ASSERT_LEAVE( iSink->SinkPlayL() );
@@ -770,7 +778,7 @@ void UT_CMccRtpDataSink::UT_CMccRtpDataSink_PauseStreamLL()
     TMccCodecInfo cInfo;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf ) );
+    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf, iRtpMediaClock ) );
 
     // Wrong state
     EUNIT_ASSERT_LEAVE( iSink->SinkPauseL() );
@@ -797,7 +805,7 @@ void UT_CMccRtpDataSink::UT_CMccRtpDataSink_StopStreamLL()
     TMccCodecInfo cInfo;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf ) );
+    MCC_EUNIT_ASSERT_NO_LEAVE( iSink->ConfigureL( cInfoBuf, iRtpMediaClock ) );
     iSink->SinkPrimeL();
     iSink->SinkPlayL();
 

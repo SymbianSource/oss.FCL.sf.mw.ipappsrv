@@ -166,7 +166,7 @@ void CMccRtpKeepaliveContainer::ResetKeepaliveTimer()
 // ---------------------------------------------------------------------------
 //  
 void CMccRtpKeepaliveContainer::UpdateParamsL( MMccRtpInterface& aUser,
-    const TMccCodecInfo& aCodecInfo )
+    const TMccCodecInfo& aCodecInfo, CMccRtpMediaClock& aRtpMediaClock )
     {
     }
 

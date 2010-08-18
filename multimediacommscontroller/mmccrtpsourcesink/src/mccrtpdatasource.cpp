@@ -19,7 +19,7 @@
 
 
 // INCLUDE FILES
-#include <in_sock.h>
+#include <in_sock.h> 
 #include <mmf/common/mmfcontroller.h>
 
 #include "rtpapi.h"
@@ -254,7 +254,8 @@ void CMccRtpDataSource::RtpPacketReceivedL( TRtpId aStreamId,
         if ( iJitCalc->IsObserving() )
             {
             iJitCalc->RtpPacketReceived( aHeaderInfo.iTimestamp,
-                                         aHeaderInfo.iMarker );
+                                         aHeaderInfo.iMarker,
+                                         aHeaderInfo.iSeqNum );
             }
             
         // First packet after SourcePlayL, notify event handler by sending
@@ -851,20 +852,22 @@ void CMccRtpDataSource::SendStreamEventToClient(
 // CMccRtpDataSource::SendJitterEvent()
 // -----------------------------------------------------------------------------
 //	
-void CMccRtpDataSource::SendJitterEvent( TMccRtpEventData aEvent, TInt aError )
+void CMccRtpDataSource::SendJitterEvent( TMccRtpEventDataExtended aEvent, TInt aError )
     {
     TRACE_RTP_SOURCE_PRINT( "CMccRtpDataSource::SendJitterEvent" )
-	    
-	SendInternalRtpEventToClient( iEventHandler,
-	                              KMccRtpSourceUid, 
-                                  EMccInternalJitterEventStatusReport, 
-                                  KMccMediaQualityStatus,
-                                  MCC_RTPSOURCE_ENDPOINT_ID,
-                                  aError,
-                                  aEvent.iJitterEstimate,
-                                  aEvent.iPacketsReceived,
-                                  aEvent.iPrevTransTime,
-                                  aEvent.iTriggeredJitterLevel );
+
+	SendJitterEventToClient( iEventHandler,
+	                         KMccRtpSourceUid, 
+                             EMccInternalJitterEventStatusReport, 
+                             KMccMediaQualityStatus,
+                             MCC_RTPSOURCE_ENDPOINT_ID,
+                             aError,
+                             aEvent.iJitterEstimate,
+                             aEvent.iPacketsReceived,
+                             aEvent.iPrevTransTime,
+                             aEvent.iTriggeredJitterLevel,
+                             aEvent.iPacketLoss,
+                             aEvent.iTriggeredPacketLoss );
     }  
 
 // -----------------------------------------------------------------------------

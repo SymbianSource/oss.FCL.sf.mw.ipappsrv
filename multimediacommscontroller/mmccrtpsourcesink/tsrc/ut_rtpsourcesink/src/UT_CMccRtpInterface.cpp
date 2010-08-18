@@ -29,6 +29,7 @@
 #include "mccrtpinterface.h"
 #include "mccrtpdatasink.h"
 #include "mccrtpkeepalivecontainer.h"
+#include "mccrtpmediaclock.h"
 
 // CONSTRUCTION
 UT_CMccRtpInterface* UT_CMccRtpInterface::NewL()
@@ -93,6 +94,8 @@ void UT_CMccRtpInterface::SetupL(  )
         CMccRtpKeepaliveContainer::NewL( *eventHandler, 
                                          *iRtpApi, 
                                          iRtpSessionId ); 
+    
+    iRtpMediaClock = CMccRtpMediaClock::NewL();                                      
     } 
 
 void UT_CMccRtpInterface::Teardown(  )
@@ -105,13 +108,19 @@ void UT_CMccRtpInterface::Teardown(  )
     
     delete iRtpApi;
     iRtpApi = NULL;
+    
+    if ( iRtpMediaClock )
+        {
+        delete iRtpMediaClock;
+        iRtpMediaClock = NULL;
+        }
     }
 
 void UT_CMccRtpInterface::UT_CMccRtpInterface_ConfigureLL()
     {
     TMccCodecInfo cInfo;
     EUNIT_ASSERT_SPECIFIC_LEAVE( 
-        iInterface->ConfigureL( TMccCodecInfoBuffer( cInfo ) ), KErrNotReady );
+        iInterface->ConfigureL( TMccCodecInfoBuffer( cInfo ), iRtpMediaClock ), KErrNotReady );
     
     TMccRtpSessionParams params;
     params.iRtpAPI = iRtpApi;
@@ -121,23 +130,23 @@ void UT_CMccRtpInterface::UT_CMccRtpInterface_ConfigureLL()
     iInterface->SetSessionParamsL( params );
     TBuf8<1> kaData;
     EUNIT_ASSERT_SPECIFIC_LEAVE( 
-        iInterface->ConfigureL( kaData ), KErrArgument );
+        iInterface->ConfigureL( kaData, iRtpMediaClock ), KErrArgument );
     
     cInfo.iKeepalivePT = 13;
     cInfo.iKeepaliveInterval = 0;
     cInfo.iKeepaliveData = kaData;
-    iInterface->ConfigureL( TMccCodecInfoBuffer( cInfo ) );
+    iInterface->ConfigureL( TMccCodecInfoBuffer( cInfo ), iRtpMediaClock );
     EUNIT_ASSERT( TMccCodecInfo::Compare( cInfo, iInterface->iCodecInfo ) );
     
     TMccCodecInfo backup = iInterface->iCodecInfo;
     cInfo.iKeepaliveInterval = 28;
-    iInterface->ConfigureL( TMccCodecInfoBuffer( cInfo ) );
+    iInterface->ConfigureL( TMccCodecInfoBuffer( cInfo ), iRtpMediaClock );
     EUNIT_ASSERT( 
         cInfo.iKeepaliveInterval == iInterface->iCodecInfo.iKeepaliveInterval );
     
     backup = iInterface->iCodecInfo;
     cInfo.iKeepaliveInterval = 0;
-    iInterface->ConfigureL( TMccCodecInfoBuffer( cInfo ) );
+    iInterface->ConfigureL( TMccCodecInfoBuffer( cInfo ), iRtpMediaClock );
     EUNIT_ASSERT( TMccCodecInfo::Compare( backup, iInterface->iCodecInfo ) );
     }
 

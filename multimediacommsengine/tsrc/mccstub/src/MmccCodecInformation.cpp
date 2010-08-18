@@ -990,3 +990,13 @@ const TDesC8& CMccCodecInformation::KeepAliveData() const
 
     }
     
+TUint32 CMccCodecInformation::KeepAliveTimerMicroSecs() const
+	{
+	return iKeepAliveTimerMicroSecs;
+	}
+TInt CMccCodecInformation::SetKeepAliveTimerMicroSecs( TUint32 aTimerValueMicroSecs )
+	{
+	iKeepAliveTimerMicroSecs = aTimerValueMicroSecs;
+	return KErrNone;
+	}
+    

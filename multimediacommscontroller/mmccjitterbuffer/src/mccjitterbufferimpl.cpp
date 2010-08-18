@@ -116,7 +116,8 @@ CMccJitterBufferImpl::CMccJitterBufferImpl( MJitterBufferObserver* aObserver):
         iPlayToneInterval( 0 ),
         iNotifyUser( ETrue ),
         iLatestNotifiedEvent( KMccEventNone ),
-        iSampleRate( KDefaultSampleRateInkHz )
+        iSampleRate( KDefaultSampleRateInkHz ),
+        iBufLenMultiplier( 1 )
     {
     iTonePlayTime.UniversalTime();
     }
@@ -207,135 +208,145 @@ void CMccJitterBufferImpl::SetupL(
     __ASSERT_ALWAYS( aCInfo.iJitterBufBufferLength, User::Leave( KErrArgument ) );
     __ASSERT_ALWAYS( aCInfo.iHwFrameTime, User::Leave( KErrArgument ) );
     
-    // Save the original HW frame time because we may need it in case of
-    // dynamic G.711 adjustment.
-    const TUint8 origHwtime = iCInfo.iHwFrameTime;
-    iCInfo = aCInfo;
-    iEventHandler = aEventHandler;
-    iEndpointId = aEndpointId;
-    
-    __JITTER_BUFFER_INT1( "CMccJitterBufferImpl::SetupL origHwtime:", origHwtime )
-    
-    if( iCInfo.iJitterBufInactivityTimeOut )
-        {
-        if( ( iCInfo.iJitterBufPlayToneFrequency > 0 ) && 
-            ( iCInfo.iJitterBufPlayToneDuration > 0 ) )
-            {
-            iPlayToneInterval = iCInfo.iJitterBufPlayToneTimeout;            
-            iPlay = ETrue;
-            }
-        }
-        
-    TInt bufLenMultiplier = 1;
-    if ( iCInfo.iFourCC == KMMFFourCCCodeAMR )
-        {
-        iFrameSize = KAMRNBFrameSize;
-        iFrameTime = KAMRNBFrameTime;
-        }
-    else if ( iCInfo.iFourCC == KMMFFourCCCodeAWB )
-        {   
-        iFrameSize = KAMRWBFrameSize;
-        iFrameTime = KAMRNBFrameTime;
-        iSampleRate = KWbSampleRateInkHz;
-        }
-    else if( iCInfo.iFourCC == KMccFourCCIdG711 )
-        {
-        // G.711 is configured dynamically. Take voip headerlength also in to
-        // account. G.711 hwframetime is in milliseconds, so need to multiply.
-        iFrameSize = ( iCInfo.iHwFrameTime * KDefaultSampleRateInkHz )
-            + KVoIPHeaderLength;
-        iFrameTime = 0;
-        
-        // In case of G.711 codec dynamic configuration, we may need to double
-        // the jitterbuffer length if HW frame time is changed from 20ms to
-        // 10ms. 
-        if ( origHwtime )
-            {
-            bufLenMultiplier = origHwtime / iCInfo.iHwFrameTime;
-            if ( !bufLenMultiplier )
-                {
-                bufLenMultiplier = 1;
-                }
-            }
-        }
-    else if( iCInfo.iFourCC == KMccFourCCIdILBC )
-        {
-        iFrameSize = KILBCFrameSize;
-        iFrameTime = 0;
-        }
-    else if( iCInfo.iFourCC == KMccFourCCIdG729 )
-        {
-        iFrameSize = KG729FrameSize;
-        iFrameTime = 0;
-        // Multiply G.729 also by two...
-        bufLenMultiplier = 2;
-        }
-    else
-        {
-        __JITTER_BUFFER( "CMccJitterBufferImpl::SetupL KErrNotSupported" )
-        
-        User::Leave( KErrNotSupported );
-        }
-            
-    // Delete old buffer & reset it
-    const TInt elems = iBuffer.Count();
-    for( TInt i = 0; i < elems; i++ )
-        {
-        delete iBuffer[i].iDataFrame;
-        iBuffer[i].iDataFrame = NULL;
-        }
-    
-    iBuffer.Reset();
-    
-    // Calculate needed elements
-    TInt bufLen = iCInfo.iJitterBufBufferLength * bufLenMultiplier;
-    
-    __JITTER_BUFFER_INT1( "CMccJitterBufferImpl::SetupL G.711 bufLenMultiplier ",
-        bufLenMultiplier )
-    __JITTER_BUFFER_INT1( "CMccJitterBufferImpl::SetupL iBufferLength: ",
-        bufLen )
-    
-    __ASSERT_ALWAYS( aPlayoutThreshold < bufLen, User::Leave( KErrTooBig ) );
-    
-    // if differences between bufferlength and treshold set by client
-    // is less than 10, increase bufferlength so the differences is 10
-    // this is to help buffer goes to overflow easily.
-    // Also possible G.711/729 multiplier needs to be taken care of.
-    CheckThresholdBufferLength( bufLen, aPlayoutThreshold );
-    iCurrentPlayThreshold = aPlayoutThreshold * bufLenMultiplier;
-    iOriginalPlayThreshold = aPlayoutThreshold * bufLenMultiplier;
-    
-    if( iCnGenerator )
-        {
-        delete iCnGenerator;
-        iCnGenerator = NULL;
-        }
+    if( aCInfo.iJitterBufInactivityTimeOut 	!= iCInfo.iJitterBufInactivityTimeOut 
+    	|| aCInfo.iJitterBufBufferLength 	!= iCInfo.iJitterBufBufferLength
+    	|| aCInfo.iHwFrameTime 				!= iCInfo.iHwFrameTime 
+    	|| aCInfo.iFourCC 					!= iCInfo.iFourCC   
+    	|| aPlayoutThreshold 				!= iOriginalPlayThreshold / iBufLenMultiplier )
+	    {
+	    // Save the original HW frame time because we may need it in case of
+	    // dynamic G.711 adjustment.
+	    const TUint8 origHwtime = iCInfo.iHwFrameTime;
+	    iCInfo = aCInfo;
+	    iEventHandler = aEventHandler;
+	    iEndpointId = aEndpointId;
+	    
+	    __JITTER_BUFFER_INT1( "CMccJitterBufferImpl::SetupL origHwtime:", origHwtime )
+	    
+	    if( iCInfo.iJitterBufInactivityTimeOut )
+	        {
+	        if( ( iCInfo.iJitterBufPlayToneFrequency > 0 ) && 
+	            ( iCInfo.iJitterBufPlayToneDuration > 0 ) )
+	            {
+	            iPlayToneInterval = iCInfo.iJitterBufPlayToneTimeout;            
+	            iPlay = ETrue;
+	            }
+	        }
+	        
+	    TInt bufLenMultiplier = 1;
+	    if ( iCInfo.iFourCC == KMMFFourCCCodeAMR )
+	        {
+	        iFrameSize = KAMRNBFrameSize;
+	        iFrameTime = KAMRNBFrameTime;
+	        }
+	    else if ( iCInfo.iFourCC == KMMFFourCCCodeAWB )
+	        {   
+	        iFrameSize = KAMRWBFrameSize;
+	        iFrameTime = KAMRNBFrameTime;
+	        iSampleRate = KWbSampleRateInkHz;
+	        }
+	    else if( iCInfo.iFourCC == KMccFourCCIdG711 )
+	        {
+	        // G.711 is configured dynamically. Take voip headerlength also in to
+	        // account. G.711 hwframetime is in milliseconds, so need to multiply.
+	        iFrameSize = ( iCInfo.iHwFrameTime * KDefaultSampleRateInkHz )
+	            + KVoIPHeaderLength;
+	        iFrameTime = 0;
+	        
+	        // In case of G.711 codec dynamic configuration, we may need to double
+	        // the jitterbuffer length if HW frame time is changed from 20ms to
+	        // 10ms. 
+	        if ( origHwtime )
+	            {
+	            bufLenMultiplier = origHwtime / iCInfo.iHwFrameTime;
+	            if ( !bufLenMultiplier )
+	                {
+	                bufLenMultiplier = 1;
+	                }
+	            }
+	        }
+	    else if( iCInfo.iFourCC == KMccFourCCIdILBC )
+	        {
+	        iFrameSize = KILBCFrameSize;
+	        iFrameTime = 0;
+	        }
+	    else if( iCInfo.iFourCC == KMccFourCCIdG729 )
+	        {
+	        iFrameSize = KG729FrameSize;
+	        iFrameTime = 0;
+	        // Multiply G.729 also by two...
+	        bufLenMultiplier = 2;
+	        }
+	    else
+	        {
+	        __JITTER_BUFFER( "CMccJitterBufferImpl::SetupL KErrNotSupported" )
+	        
+	        User::Leave( KErrNotSupported );
+	        }
+	        
+	    // Save the bufLenMultiplier value, so we can use it later in comparison   
+		iBufLenMultiplier = bufLenMultiplier;
+	            
+	    // Delete old buffer & reset it
+	    const TInt elems = iBuffer.Count();
+	    for( TInt i = 0; i < elems; i++ )
+	        {
+	        delete iBuffer[i].iDataFrame;
+	        iBuffer[i].iDataFrame = NULL;
+	        }
+	    
+	    iBuffer.Reset();
+	    
+	    // Calculate needed elements
+	    TInt bufLen = iCInfo.iJitterBufBufferLength * bufLenMultiplier;
+	    
+	    __JITTER_BUFFER_INT1( "CMccJitterBufferImpl::SetupL G.711 bufLenMultiplier ",
+	        bufLenMultiplier )
+	    __JITTER_BUFFER_INT1( "CMccJitterBufferImpl::SetupL iBufferLength: ",
+	        bufLen )
+	    
+	    __ASSERT_ALWAYS( aPlayoutThreshold < bufLen, User::Leave( KErrTooBig ) );
+	    
+	    // if differences between bufferlength and treshold set by client
+	    // is less than 10, increase bufferlength so the differences is 10
+	    // this is to help buffer goes to overflow easily.
+	    // Also possible G.711/729 multiplier needs to be taken care of.
+	    CheckThresholdBufferLength( bufLen, aPlayoutThreshold );
+	    iCurrentPlayThreshold = aPlayoutThreshold * bufLenMultiplier;
+	    iOriginalPlayThreshold = aPlayoutThreshold * bufLenMultiplier;
+	    
+	    if( iCnGenerator )
+	        {
+	        delete iCnGenerator;
+	        iCnGenerator = NULL;
+	        }
 
-    iCnGenerator = CMccCnGenerator::NewL( iCInfo.iFourCC, aDevSound );
-    
-    // Create the elements in the Buffer
-    for( TInt k = 0; k < bufLen; k++ )
-        {
-        CMMFDataBuffer* buf = CMMFDataBuffer::NewL( iFrameSize );
-        CleanupStack::PushL( buf );
-        TJitterBufferElement newElement;
-        newElement.iDataFrame = buf;
-        newElement.iSequenceNumber = -1;
-        newElement.iStamp = -1;
-        iBuffer.AppendL( newElement );
-        CleanupStack::Pop( buf );
-        }
-    
-    // Zero the statistic members
-    iFramesLost = 0;
-    iFramesReceived = 0;
-    iNumOfLateFrames = 0;
-    iFramesRemoved = 0;
-    iFramesPlayed = 0;
-    iPacketsInBuffer = 0;
-    
-    // Calculate the sequence number increment
-    iSeqNumIncrement = iSampleRate * iCInfo.iHwFrameTime;
+	    iCnGenerator = CMccCnGenerator::NewL( iCInfo.iFourCC, aDevSound );
+	    
+	    // Create the elements in the Buffer
+	    for( TInt k = 0; k < bufLen; k++ )
+	        {
+	        CMMFDataBuffer* buf = CMMFDataBuffer::NewL( iFrameSize );
+	        CleanupStack::PushL( buf );
+	        TJitterBufferElement newElement;
+	        newElement.iDataFrame = buf;
+	        newElement.iSequenceNumber = -1;
+	        newElement.iStamp = -1;
+	        iBuffer.AppendL( newElement );
+	        CleanupStack::Pop( buf );
+	        }
+	    
+	    // Zero the statistic members
+	    iFramesLost = 0;
+	    iFramesReceived = 0;
+	    iNumOfLateFrames = 0;
+	    iFramesRemoved = 0;
+	    iFramesPlayed = 0;
+	    iPacketsInBuffer = 0;
+	    
+	    // Calculate the sequence number increment
+	    iSeqNumIncrement = iSampleRate * iCInfo.iHwFrameTime;
+	    }
     } 
         
 // -----------------------------------------------------------------------------

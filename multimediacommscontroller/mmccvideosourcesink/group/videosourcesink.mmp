@@ -27,6 +27,8 @@ TARGETTYPE		PLUGIN
 
 UID             0x10009D8D 0x102747CC
 
+STDCPP
+
 SOURCEPATH      ../src
 SOURCE          mccvideosourcesinkfactory.cpp
 SOURCE          mccvideosink.cpp
@@ -92,7 +94,7 @@ STATICLIBRARY   XPSPacketSink.lib
 
 #if (defined WINS)
 LIBRARY         camc3gpsink.lib
-LIBRARY         esock.lib
+LIBRARY         esock.lib libstdcppv5.lib
 
 MACRO MCC_VIDEO_SOURCE_FOR_EMU
 

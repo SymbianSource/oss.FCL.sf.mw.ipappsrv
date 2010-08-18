@@ -400,6 +400,65 @@ class TMccDtmfEventData
     };
     
 typedef TPckgBuf<TMccDtmfEventData> TMccDtmfEventDataPackage;
+
+
+/**
+* Rtp SourceSink event data, extended version
+*/
+class TMccRtpEventDataExtended : public TMccRtpEventData
+    {
+    public: 
+    
+        /**
+        * Default constructor
+        */
+        inline TMccRtpEventDataExtended() :
+            TMccRtpEventData(),
+  			iPacketLoss( 0 ),
+			iTriggeredPacketLoss( 0 )
+            {   
+            }
+    
+        /**
+        * Copy constructor
+        */           
+        inline TMccRtpEventDataExtended( const TMccRtpEventDataExtended& aEvent ) :
+            TMccRtpEventData( aEvent ),
+            iPacketLoss( aEvent.iPacketLoss ),
+			iTriggeredPacketLoss( aEvent.iTriggeredPacketLoss )
+            {
+            }
+        
+        
+        /**
+         * parametrized constructor
+         */
+        inline TMccRtpEventDataExtended( TInt64 aEstimate, 
+                                 TUint32 aPcksRec, 
+                                 TInt64 aPrevTransTime, 
+                                 TUint64 aTriggeredJitterLevel,
+                                 TInt aPacketLoss,
+								 TInt aTriggeredPacketLoss ) :
+            TMccRtpEventData(	aEstimate, 
+            					aPcksRec, 
+            					aPrevTransTime, 
+            					aTriggeredJitterLevel ),
+            iPacketLoss( aPacketLoss ),
+			iTriggeredPacketLoss( aTriggeredPacketLoss )
+            {
+            }
+        
+    public: // Data
+        
+        // Current packet loss percentage
+		TInt iPacketLoss;
+		
+		// Triggered packet loss percentage
+		TInt iTriggeredPacketLoss;
+
+    };
+    
+typedef TPckgBuf<TMccRtpEventDataExtended> TMccRtpEventDataExtendedPackage; 
       
 #endif      // MMCCEVENTS_H   
             
