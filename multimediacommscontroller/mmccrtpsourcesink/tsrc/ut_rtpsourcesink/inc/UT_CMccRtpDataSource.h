@@ -36,6 +36,7 @@
 class CMccRtpDataSource;
 class CMccRtpKeepaliveContainer;
 class CMccTestEventHandler;
+class CMccRtpMediaClock;
 
 //  CLASS DEFINITION
 /**
@@ -186,7 +187,7 @@ class UT_CMccRtpDataSource
         CMccRtpKeepaliveContainer* iRtpKeepaliveMechanism;
         CMccTestEventHandler* iEventHandler;
         CSRTPSession* iSecSession; 
-
+		CMccRtpMediaClock* iRtpMediaClock;
 		
     };
 

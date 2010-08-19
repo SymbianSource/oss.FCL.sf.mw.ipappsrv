@@ -50,7 +50,8 @@ NONSHARABLE_CLASS( CMccSymDlStream ) : public CMccSymStreamBase, public MJitterB
                 MAsyncEventHandler* aEventhandler,  
                 MMccResources* aMccResources, 
                 CMccRtpManager* aManager,
-                TInt aStreamType );
+                TInt aStreamType,
+                CMccRtpMediaClock& aClock );
         
         /**
         * Destructor.
@@ -200,7 +201,8 @@ NONSHARABLE_CLASS( CMccSymDlStream ) : public CMccSymStreamBase, public MJitterB
                          MAsyncEventHandler* aEventhandler, 
                          MMccResources* aMccResources, 
                          CMccRtpManager* aManager, 
-                         TInt aStreamType );
+                         TInt aStreamType,
+                         CMccRtpMediaClock& aClock );
         
         /**
         * 2nd phase constructor

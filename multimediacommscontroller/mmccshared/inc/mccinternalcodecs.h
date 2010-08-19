@@ -563,8 +563,8 @@ class TMccCodecInfo
         // MMF Priority settings
         TMMFPrioritySettings iPriority;       
         
-        // Rtp keepalive interval (secs)
-        TUint8 iKeepaliveInterval;
+        // Rtp keepalive interval (microsecs)
+        TUint32 iKeepaliveInterval;
     
         // Rtp keepalive payload type
         TUint8 iKeepalivePT;

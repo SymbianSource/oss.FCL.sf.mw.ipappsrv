@@ -55,7 +55,7 @@ USERINCLUDE     ../inc
 USERINCLUDE     ../loc
 
 LIBRARY        	euser.lib 
-LIBRARY	        ProvisioningEngine.lib
+LIBRARY	        provisioningengine.lib
 LIBRARY         centralrepository.lib
 LIBRARY         charconv.lib
 LIBRARY         cmmanager.lib

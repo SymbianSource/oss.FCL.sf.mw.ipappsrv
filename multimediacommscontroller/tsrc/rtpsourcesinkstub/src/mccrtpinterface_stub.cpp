@@ -92,7 +92,7 @@ void MMccRtpInterface::CloseStreams()
 // Configures the RTP source/sink
 // -----------------------------------------------------------------------------
 //
-void MMccRtpInterface::ConfigureL( const TDesC8& /*aConfig*/ )
+void MMccRtpInterface::ConfigureL( const TDesC8& /*aConfig*/, CMccRtpMediaClock* /*aRtpMediaClock*/ )
     {
     if ( KNullId == RtpStreamId() )
         {

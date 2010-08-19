@@ -516,7 +516,7 @@ TUint32 CMccRtpManager::CreateTransmitStreamL( MDataSink& aSink,
         dSink.SetSessionParamsL( sessParams );
         
         TMccCodecInfoBuffer infoBuffer( aCodecInfo );
-        dSink.ConfigureL( infoBuffer );
+        dSink.ConfigureL( infoBuffer, NULL );
         
         UpdateL( &aCodecInfo );
         }
@@ -549,7 +549,7 @@ TUint32 CMccRtpManager::CreateReceiveStreamL( MDataSource& aSource,
         dSource.SetSessionParamsL( sessParams );
         
         TMccCodecInfoBuffer infoBuffer( aCodecInfo );
-        dSource.ConfigureL( infoBuffer );
+        dSource.ConfigureL( infoBuffer, NULL );
         
         UpdateL( &aCodecInfo );
         }

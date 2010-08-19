@@ -355,6 +355,9 @@ private: // Data
      */
     TBool iDropNextFrame;
     
+    // Saved bufLenMultiplier from SetupL()
+    TInt iBufLenMultiplier;
+    
     private:
         #ifdef TEST_EUNIT
             friend class UT_CMccJitterBufferImpl;

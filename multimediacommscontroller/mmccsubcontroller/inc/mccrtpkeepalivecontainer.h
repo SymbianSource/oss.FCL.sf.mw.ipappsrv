@@ -87,10 +87,12 @@ class MMccRtpKeepalive
          * @since Series 60 3.2
          * @param aUser rtp interface instance
          * @param aCodecInfo codec info instance
+         * @param aRtpMediaClock rtp media clock instance
          * @return void
          */
         virtual void UpdateParamsL( MMccRtpInterface& aUser, 
-                                    const TMccCodecInfo& aCodecInfo ) = 0;
+                                    const TMccCodecInfo& aCodecInfo,
+                                    CMccRtpMediaClock& aRtpMediaClock ) = 0;
     };
 
 NONSHARABLE_CLASS( CMccRtpKeepaliveContainer ) : public CBase, 
@@ -149,10 +151,12 @@ NONSHARABLE_CLASS( CMccRtpKeepaliveContainer ) : public CBase,
          * @since Series 60 3.2
          * @param aUser rtp interface instance
          * @param aConfig Configuration
+         * @param aRtpMediaClock rtp media clock instance
          * @return void
          */
         virtual void UpdateParamsL( MMccRtpInterface& aUser, 
-                                    const TMccCodecInfo& aConfig );                            
+                                    const TMccCodecInfo& aConfig,
+                                    CMccRtpMediaClock& aRtpMediaClock );                            
     
     public: // Functions
        

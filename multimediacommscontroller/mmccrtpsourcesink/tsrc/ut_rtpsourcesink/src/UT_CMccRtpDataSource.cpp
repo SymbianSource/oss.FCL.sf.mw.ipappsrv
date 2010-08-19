@@ -36,6 +36,7 @@
 #include <srtpstreamin.h>
 #include "UT_CMccRtpInterface.h"
 #include "mccunittestmacros.h"
+#include "mccrtpmediaclock.h"
 
 // CONSTANTS
 _LIT8(KRFC3711_TestMasterKey128bits,    "E1F97A0D3E018BE0D64FA32C06DE4139");
@@ -103,7 +104,8 @@ void UT_CMccRtpDataSource::SetupL()
         CMccRtpKeepaliveContainer::NewL( *eventHandler, 
                                          *iRtpApi, 
                                          rtpSessionId ); 
-                                         
+      
+    iRtpMediaClock = CMccRtpMediaClock::NewL();                                    
     } 
 
 void UT_CMccRtpDataSource::Teardown()
@@ -128,6 +130,12 @@ void UT_CMccRtpDataSource::Teardown()
         }
         
     delete iEventHandler;
+    
+    if ( iRtpMediaClock )
+        {
+        delete iRtpMediaClock;
+        iRtpMediaClock = NULL;
+        }
     }
 
 
@@ -165,7 +173,7 @@ void UT_CMccRtpDataSource::CreateStreamL()
     cInfo.iBitrate = 8000;
     cInfo.iPayloadType = KDefaultAmrNbPT;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
-    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf ) );
+    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf, iRtpMediaClock ) );
     }
     
 // TEST FUNCTIONS
@@ -209,7 +217,7 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_RtpPacketReceivedL()
     cInfo.iPayloadType = KDefaultAmrNbPT;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf ) );
+    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf, iRtpMediaClock ) );
     //iSource->NegotiateSourceL( *iEventHandler );
     EUNIT_ASSERT_NO_LEAVE( iSource->NegotiateSourceL( *amrPfRead ) );
     EUNIT_ASSERT_NO_LEAVE( iSource->SourcePrimeL() );
@@ -375,7 +383,7 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_SourceThreadLogoffL()
     cInfo.iPayloadType = KDefaultAmrNbPT;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf ) );
+    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf, iRtpMediaClock ) );
 
     MCC_EUNIT_ASSERT_EQUALS( iSource->SourceThreadLogon( *iEventHandler ), KErrNone );
     EUNIT_ASSERT_NO_LEAVE( iSource->SourcePrimeL() );
@@ -400,7 +408,7 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_SourcePrimeLL()
     cInfo.iPayloadType = KDefaultAmrNbPT;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf ) );
+    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf, iRtpMediaClock ) );
 
     MCC_EUNIT_ASSERT_EQUALS( iSource->SourceThreadLogon( *iEventHandler ), KErrNone );
     EUNIT_ASSERT_NO_LEAVE( iSource->SourcePrimeL() );
@@ -521,7 +529,7 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_NegotiateSourceLL()
     cInfo.iPayloadType = KDefaultAmrNbPT;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf ) );
+    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf, iRtpMediaClock ) );
     MCC_EUNIT_ASSERT_EQUALS( iSource->SourceThreadLogon( *iEventHandler ), KErrNone );
     EUNIT_ASSERT_NO_LEAVE( iSource->SourcePrimeL() );
 
@@ -607,7 +615,7 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_ValidatePacketL()
     cInfo.iFourCC = TFourCC( KMccFourCCIdG711 );
     cInfo.iEnableDTX = ETrue;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
-    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf ) );
+    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf, iRtpMediaClock ) );
 
     header.iPayloadType = KPcmuPayloadType;
 
@@ -639,7 +647,7 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_CreateStreamLL()
     TMccCodecInfo cInfo;
     TMccCodecInfoBuffer cInfoBuf( cInfo );
     
-    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf ) );
+    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf, iRtpMediaClock ) );
 
     // Get a new Source
     Teardown();
@@ -649,7 +657,7 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_CreateStreamLL()
     TBuf8<5> dummy;
     dummy.Format( _L8( "foo42" ) );
     EUNIT_ASSERT_NO_LEAVE( iSource->SetSessionParamsL( params ) );
-    EUNIT_ASSERT_LEAVE( iSource->ConfigureL( dummy ) );
+    EUNIT_ASSERT_LEAVE( iSource->ConfigureL( dummy, iRtpMediaClock ) );
 
     // Get a new Source
     Teardown();
@@ -670,7 +678,7 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_CreateStreamLL()
     cInfo2.iAlgoUsed = EGenRedUsed;
     TMccCodecInfoBuffer cInfoBuf2( cInfo2 );
 
-    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf2 ) );
+    EUNIT_ASSERT_NO_LEAVE( iSource->ConfigureL( cInfoBuf2, iRtpMediaClock ) );
     }
 
 void UT_CMccRtpDataSource::UT_CMccRtpDataSource_DoCreateSrtpStreamL()
@@ -701,7 +709,7 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_TestSendEventL()
     EUNIT_ASSERT_EQUALS( iEventHandler->iLastEvent.iEventType, KMccStreamResumed );
     
     // Jitter event when no event handler
-    TMccRtpEventData eventData;
+    TMccRtpEventDataExtended eventData;
     iSource->SendJitterEvent( eventData, KErrNone );
     EUNIT_ASSERT_EQUALS( iEventHandler->iLastEvent.iEventType, KMccStreamResumed );
 
@@ -779,6 +787,19 @@ void UT_CMccRtpDataSource::UT_CMccRtpDataSource_TestBaseClassL()
     iSource->SendSecureRtpEventToClient( 
         iEventHandler, KMccRtpSourceUid, EMccInternalEventNone, KMccStreamPaused, 0 );
     EUNIT_ASSERT_EQUALS( iEventHandler->iLastEvent.iEventType, KMccStreamPaused );
+    
+    // SendJitterEventToClient()
+    iSource->SendJitterEventToClient( iEventHandler, KMccRtpSourceUid, 
+    	EMccInternalEventNone, KMccEventNone, 0, 0, 1,2,3,4,5,6 );
+    EUNIT_ASSERT_EQUALS( iEventHandler->iLastEvent.iEventType, KMccEventNone );
+    const TMccRtpEventDataExtended& rtpEvent = 
+    	(*reinterpret_cast<const TMccRtpEventDataExtendedPackage*>( &iEventHandler->iLastEvent.iEventData ))();
+    EUNIT_ASSERT_EQUALS( rtpEvent.iJitterEstimate, 1 );
+    EUNIT_ASSERT_EQUALS( rtpEvent.iPacketsReceived, 2 );
+    EUNIT_ASSERT_EQUALS( rtpEvent.iPrevTransTime, 3 );
+    EUNIT_ASSERT_EQUALS( rtpEvent.iTriggeredJitterLevel, 4 );
+    EUNIT_ASSERT_EQUALS( rtpEvent.iPacketLoss, 5 );
+    EUNIT_ASSERT_EQUALS( rtpEvent.iTriggeredPacketLoss, 6 );
     }
     
 void UT_CMccRtpDataSource::UT_CMccRtpDataSource_DoStandbyDecisionL()

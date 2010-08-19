@@ -809,11 +809,25 @@ void UT_CMccCodecInformation::UT_CMccCodecInformation_SetPriorityPreferenceL(  )
 
 void UT_CMccCodecInformation::UT_CMccCodecInformation_SetKeepAliveTimerL(  )
     {
+    const TInt KNum25 = 25;
+    const TInt KSecsToMicroSecs = 1000000;
     for( TInt k = 0; k < iCount; k++ )
         {
-        EUNIT_ASSERT_EQUALS( iCodecArray[k]->SetKeepAliveTimer( 25 ), KErrNone );
+        EUNIT_ASSERT_EQUALS( iCodecArray[k]->SetKeepAliveTimer( KNum25 ), KErrNone );
+        EUNIT_ASSERT_EQUALS( iCodecArray[k]->KeepAliveTimerMicroSecs(), KNum25 * KSecsToMicroSecs );
         }
     }
+    
+void UT_CMccCodecInformation::UT_CMccCodecInformation_SetKeepAliveTimerMicroSecsL(  )
+    {
+    const TInt KNum2000000 = 2000000;
+    const TInt KSecsToMicroSecs = 1000000;
+    for( TInt k = 0; k < iCount; k++ )
+        {
+        EUNIT_ASSERT_EQUALS( iCodecArray[k]->SetKeepAliveTimerMicroSecs( 2000000 ), KErrNone );
+        EUNIT_ASSERT_EQUALS( iCodecArray[k]->KeepAliveTimer(), KNum2000000 / KSecsToMicroSecs );
+        }
+    }    
 
 void UT_CMccCodecInformation::UT_CMccCodecInformation_SetKeepAlivePTL(  )
     {
@@ -1215,6 +1229,15 @@ void UT_CMccCodecInformation::UT_CMccCodecInformation_KeepAliveTimerL(  )
                              iCodecArray[k]->iKeepAliveTimer );
         }
     }
+    
+void UT_CMccCodecInformation::UT_CMccCodecInformation_KeepAliveTimerMicroSecsL(  )
+    {
+    for( TInt k = 0; k < iCount; k++ )
+        {
+        EUNIT_ASSERT_EQUALS( iCodecArray[k]->KeepAliveTimerMicroSecs(), 
+                             iCodecArray[k]->iKeepAliveTimerMicroSecs );
+        }
+    }    
 
 void UT_CMccCodecInformation::UT_CMccCodecInformation_KeepAlivePTL(  )
     {
@@ -1733,6 +1756,13 @@ EUNIT_TEST(
     "SetKeepAliveTimer",
     "FUNCTIONALITY",
     SetupL, UT_CMccCodecInformation_SetKeepAliveTimerL, Teardown)
+    
+EUNIT_TEST(
+    "SetKeepAliveTimerMicroSecs - test ",
+    "CMccCodecInformation",
+    "SetKeepAliveTimerMicroSecs",
+    "FUNCTIONALITY",
+    SetupL, UT_CMccCodecInformation_SetKeepAliveTimerMicroSecsL, Teardown)    
 
 EUNIT_TEST(
     "SetKeepAlivePT - test ",
@@ -1957,6 +1987,13 @@ EUNIT_TEST(
     "KeepAliveTimer",
     "FUNCTIONALITY",
     SetupL, UT_CMccCodecInformation_KeepAliveTimerL, Teardown)
+    
+EUNIT_TEST(
+    "KeepAliveTimerMicroSecs - test ",
+    "CMccCodecInformation",
+    "KeepAliveTimerMicroSecs",
+    "FUNCTIONALITY",
+    SetupL, UT_CMccCodecInformation_KeepAliveTimerMicroSecsL, Teardown)    
 
 EUNIT_TEST(
     "KeepAlivePT - test ",

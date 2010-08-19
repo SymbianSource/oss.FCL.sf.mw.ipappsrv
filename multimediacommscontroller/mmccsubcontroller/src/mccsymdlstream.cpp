@@ -49,7 +49,8 @@ CMccSymDlStream::CMccSymDlStream(
     MAsyncEventHandler* aEventhandler, 
     MMccResources* aMccResources, 
     CMccRtpManager* aManager, 
-    TInt aStreamType ) : 
+    TInt aStreamType,
+    CMccRtpMediaClock& aClock ) : 
     CMccSymStreamBase( aMccStreamId, 
                        aEventhandler, 
                        aMccResources, 
@@ -58,6 +59,7 @@ CMccSymDlStream::CMccSymDlStream(
     iJitterBuffer( NULL ), 
     iFormatDecode( NULL )
     {
+    iRtpMediaClock = &aClock;
     }
 
 // -----------------------------------------------------------------------------
@@ -70,14 +72,16 @@ CMccSymDlStream* CMccSymDlStream::NewLC(
     MAsyncEventHandler* aEventhandler, 
     MMccResources* aMccResources,
     CMccRtpManager* aManager, 
-    TInt aStreamType ) 
+    TInt aStreamType,
+    CMccRtpMediaClock& aClock ) 
     {
     CMccSymDlStream* s = 
             new ( ELeave ) CMccSymDlStream( aMccStreamId, 
                                             aEventhandler, 
                                             aMccResources,
                                             aManager, 
-                                            aStreamType );
+                                            aStreamType,
+                                            aClock );
     CleanupStack::PushL( s );
     s->ConstructL();
     return s;
@@ -261,6 +265,10 @@ void CMccSymDlStream::LoadCodecL( const TMccCodecInfo& aCodecInfo,
     else if ( CurrentCodecState() == EStateCodecLoaded ||
               CurrentCodecState() == EStateCodecLoadedAndUpdating )
         {
+        iJitterBuffer->SetupL( iCodecInfo.iMaxPtime, 
+                       		   iCodecInfo.iJitterBufThreshold, 
+                       		   iCodecInfo );
+        
         // Update codec info
         if ( iDatasource->DataSourceType() == KMccRtpSourceUid )
        	    {
@@ -269,7 +277,7 @@ void CMccSymDlStream::LoadCodecL( const TMccCodecInfo& aCodecInfo,
             
             // For updating keep alive parameters
             TMccCodecInfoBuffer infoBuffer( iCodecInfo );     
-            dataSource->ConfigureL( infoBuffer );
+            dataSource->ConfigureL( infoBuffer, iRtpMediaClock );
        	    }
         SetCodecState( EStateCodecLoadedAndUpdating );
     	UpdateCodecInformationL( orig, iCodecInfo );

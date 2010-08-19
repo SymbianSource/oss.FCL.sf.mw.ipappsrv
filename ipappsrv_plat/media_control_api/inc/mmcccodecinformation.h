@@ -584,8 +584,8 @@ public: // get
     virtual TInt PriorityPreference( ) const;
 
     /**
-    * Get keep alive packets send timer value.
-    * @return keep alive packets send timer value.
+    * Get keep alive packets send timer value in seconds.
+    * @return keep alive packets send timer value in seconds.
     */
     virtual TUint8 KeepAliveTimer() const;
 
@@ -742,7 +742,21 @@ private:
     */
     virtual TInt GetInterleaving() const;
           
-    
+public:
+
+   /**
+    * Set keep alive packets send timer value.
+    * @param aTimerValueMicroSecs timer value in microseconds for keep alive packets
+    * @return One of the standard system-wide error codes.
+    */
+	virtual TInt SetKeepAliveTimerMicroSecs( TUint32 aTimerValueMicroSecs );
+	
+	/**
+    * Get keep alive packets send timer value in microseconds.
+    * @return keep alive packets send timer value in microseconds.
+    */
+	virtual TUint32 KeepAliveTimerMicroSecs() const;
+	   
 protected:  // Data
 
     /**
@@ -936,7 +950,7 @@ protected:  // Data
     TUint iVideoHeight;
     
     /**
-    * Timer value for keep alive data
+    * Timer value for keep alive data, seconds
     */
     TUint8 iKeepAliveTimer;
     
@@ -970,7 +984,12 @@ protected:  // Data
     * Encoder/decoder uid
     */
     TUid iEncodingDecodingDevice;
-        
+    
+	/**    
+	* Timer value for keep alive data, microseconds
+    */
+    TUint32 iKeepAliveTimerMicroSecs;
+	
 private:
 
     #ifdef TEST_EUNIT

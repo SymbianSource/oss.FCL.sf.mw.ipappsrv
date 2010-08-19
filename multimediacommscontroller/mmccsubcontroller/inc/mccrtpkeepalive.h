@@ -67,7 +67,7 @@ NONSHARABLE_CLASS( CMccRtpKeepalive ) : public CActive
                                        CRtpAPI& aRtpAPI,
                                        TRtpId aRtpSessionId,
                                        TUint8 aKeepalivePayloadType,
-                                       TUint8 aKeepaliveInterval,
+                                       TUint32 aKeepaliveInterval,
                                        const TDesC8& aKeepaliveData,
                                        TBool aRemoteAddressSet );
         
@@ -139,8 +139,9 @@ NONSHARABLE_CLASS( CMccRtpKeepalive ) : public CActive
          * @return void
          */
         void UpdateParamsL( TUint8 aKeepalivePT,
-                            TUint8 aKeepaliveInterval,
-                            const TDesC8& aKeepaliveData );
+                            TUint32 aKeepaliveInterval,
+                            const TDesC8& aKeepaliveData, 
+							CMccRtpMediaClock* aRtpMediaClock );
         
     protected:  // New functions
     
@@ -180,7 +181,7 @@ NONSHARABLE_CLASS( CMccRtpKeepalive ) : public CActive
         * By default Symbian 2nd phase constructor is private.
         */
         void ConstructL( TUint8 aKeepalivePayloadType,
-                         TUint8 aKeepaliveInterval,
+                         TUint32 aKeepaliveInterval,
                          const TDesC8& aKeepaliveData );       
 
     public:     // Data

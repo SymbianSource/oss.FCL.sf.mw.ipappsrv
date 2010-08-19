@@ -160,6 +160,8 @@ NONSHARABLE_CLASS( UT_CMccSymSimpleDlStream )
         CMccTestEventHandler* iEventHandler;
         
         CMccResourcePoolStub* iResources;
+        
+        CMccRtpMediaClock* iRtpMediaClock;
 		
         TUint32 iMccSessionId;
 

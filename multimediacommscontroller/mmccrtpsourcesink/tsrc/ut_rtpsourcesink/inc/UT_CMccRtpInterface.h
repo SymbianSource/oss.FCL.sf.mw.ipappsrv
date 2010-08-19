@@ -34,6 +34,7 @@ class TMccEvent;
 class CRtpAPI;
 class MMccRtpInterface;
 class CMccRtpKeepaliveContainer;
+class CMccRtpMediaClock;
 
 //  CLASS DEFINITION
 /**
@@ -97,6 +98,7 @@ class UT_CMccRtpInterface
         CRtpAPI* iRtpApi;
         MMccRtpInterface* iInterface;
         CMccRtpKeepaliveContainer* iRtpKeepaliveMechanism;
+        CMccRtpMediaClock* iRtpMediaClock;
     };
 
 #endif      //  __UT_CMccRTPINTERFACE_H__

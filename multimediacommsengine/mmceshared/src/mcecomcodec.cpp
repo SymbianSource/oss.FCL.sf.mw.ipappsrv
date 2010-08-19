@@ -232,7 +232,7 @@ TBool CMceComCodec::Decodes(
     TInt slashPos = aRtpmapValue.Find( _L8( "/" ) );
     if ( slashPos != KErrNotFound )
         {
-        return aRtpmapValue.Left(slashPos).Compare( iSdpName ) == 0;
+		return aRtpmapValue.Left(slashPos).CompareF( iSdpName ) == 0;
         }
 
     return aRtpmapValue.FindF(iSdpName) == 0;
