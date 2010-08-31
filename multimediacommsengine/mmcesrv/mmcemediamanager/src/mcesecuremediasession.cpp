@@ -49,8 +49,8 @@ CMceSecureMediaSession::CMceSecureMediaSession( CMceComSession& aSession,
             iSession( aSession ),
             iSecureInterface(aSecureInterface),
             iKeyNeedUpdated( ETrue ),
-            iCryptoContextUpdate (EFalse ),
-            iLSReadyToBind ( EFalse ),
+            iCryptoContextUpdate (EFalse),
+            iLSReadyToBind ( ETrue ),
             iStringTable( NULL )
     {
     
@@ -451,10 +451,8 @@ TInt CMceSecureMediaSession::BindStreamCrypto( )
 					   stream->Data().iLinkedStream->Id() == secureStream->MediaStream().Id() ) ) 
 					{
 					//bind
-				    if( secureStream->iWaitingBinding )
-				    	{
-						secureStream->BindCrypto(*stream);
-				    	}
+					secureStream->BindCrypto(*stream);
+					
 					}
 				}
 			}

@@ -307,11 +307,6 @@ TMceReturnStatus CMceMediaManager::UpdateL( CMceComSession& aSession )
     aSession.NegotiationState().UpdateL();
     status = !aSession.NegotiationState().CallbackAllowed() ? 
              KMceReady : KMceAsync;
-    if ( aSession.SecureSession() && negotationStateId ==
-    	 KMceOfferingMedia && aSession.SecureSession()->iLSReadyToBind )
-    	{
-        aSession.SecureSession()->BindStreamCrypto();
-    	}
     MCEMM_DEBUG("CMceMediaManager::UpdateL(), Exit ");
     return status;
     }

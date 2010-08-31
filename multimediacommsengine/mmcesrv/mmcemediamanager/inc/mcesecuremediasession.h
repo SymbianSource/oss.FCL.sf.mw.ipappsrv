@@ -207,7 +207,6 @@ class CMceSecureMediaSession : public CBase
         TBool iKeyNeedUpdated;
         TBool iCryptoContextUpdate;
         TBool iLSReadyToBind;
-        TBool iNatBind;
 
     private:
         

@@ -61,6 +61,7 @@ void CMccRedrawHandler::BlackDrawingL( TBool aIsEnabled )
     __V_SOURCESINK_CONTROLL_INT1( "CMccRedrawHandler::BlackDrawingL, enabled:", 
                                   aIsEnabled )
     
+    iDrawBlack = aIsEnabled;
     
     if ( DoRedrawing() )
         {
@@ -115,7 +116,8 @@ CMccRedrawHandler::CMccRedrawHandler(
     CActive( CActive::EPriorityStandard ),
     iWsSession( aWsSession ),
     iWindow( aWindow ),
-    iGc( aGc )
+    iGc( aGc ),
+    iDrawBlack( EFalse )
     {
     CActiveScheduler::Add( this );
     }
@@ -148,7 +150,14 @@ void CMccRedrawHandler::Draw( const TRect& aRect )
     iWindow.Invalidate( aRect );
     iWindow.BeginRedraw( aRect );
 
-    if ( iWindow.DisplayMode() >= EColor16MA )
+    if ( iDrawBlack )
+        {
+        iGc.SetBrushStyle( CGraphicsContext::ESolidBrush );
+        iGc.SetBrushColor( KRgbBlack );
+        iGc.Clear( aRect );
+        iDrawBlack = EFalse;
+        }
+    else if ( iWindow.DisplayMode() >= EColor16MA )
         { 
         // Need to set alpha mode, otherwise video cannot be seen
     	iGc.SetDrawMode( CGraphicsContext::EDrawModeWriteAlpha );
@@ -173,7 +182,7 @@ void CMccRedrawHandler::Draw( const TRect& aRect )
 //
 TBool CMccRedrawHandler::DoRedrawing() const
     {
-    return ( iWindow.DisplayMode() >= EColor16MA );
+    return ( iDrawBlack || iWindow.DisplayMode() >= EColor16MA );
     }
 
 // -----------------------------------------------------------------------------

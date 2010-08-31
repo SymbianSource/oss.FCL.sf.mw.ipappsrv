@@ -270,7 +270,7 @@ EXPORT_C TInt CSIPProfile::GetParameter(TUint32 aParam,
 // -----------------------------------------------------------------------------
 //	
 CSIPProfile::CSIPProfile(CSIPProfileRegistryBase* aRegistry):
-	iSIPProfileRegistry(aRegistry), iEnabled(EFalse), iContextId(1)
+	iSIPProfileRegistry(aRegistry), iEnabled(EFalse)
 	{
 	}
 

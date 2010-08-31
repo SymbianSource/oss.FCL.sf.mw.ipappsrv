@@ -397,7 +397,7 @@ void UT_CMceStateOffering::UT_CMceStateOffering_EntryL_With2XXResponsesL()
     EUNIT_ASSERT ( iSipSession->WaitingMediaCallback() );
     MCE_RESET_STUBS();
     
-    // 200 OK while waiting for media callback non early media
+    // 200 OK while waiting for media callback
     iSipSession->iSubState = CMceSipSession::EOffering;
     iStorage->iMediaManagerUpdateStatus = KMceAsync;
     
@@ -411,31 +411,6 @@ void UT_CMceStateOffering::UT_CMceStateOffering_EntryL_With2XXResponsesL()
                       KErrNotFound /*sentResponse*/);
     
     EUNIT_ASSERT ( iStorage->iAckSent );
-    EUNIT_ASSERT ( event2_1.Code() == EMceResponse );
-    EUNIT_ASSERT ( iSipSession->PendingTransactions().Count() == 1 );
-    EUNIT_ASSERT ( iSipSession->WaitingMediaCallback() );
-    MCE_RESET_STUBS();
-    
-    // 200 OK while waiting for media callback with early media
-    iSipSession->iSubState = CMceSipSession::EOffering;
-    iStorage->iMediaManagerUpdateStatus = KMceAsync;
-    iState->iLastResponse = KMceSipRinging;
-    MCETestHelper::SetResponseL( 
-            *iSipSession->iResponse, 
-            KMceSipOK, 
-            SipStrConsts::EPhraseOk, 
-            ETrue, ETrue, 1 );
-
-    TMceStateTransitionEvent event2_2( *iSipSession, EMceResponse );
-    iState->EntryL( event2_2 );
-    MCE_ENTRYL_POSTCONDITION
-        
-    MCE_ASSERT_STUBS( CMCETls::ENone /*mmaction*/, 
-                      CMCETls::ENone /*mmsdpaction*/, 
-                      SipStrConsts::EEmpty /*sentMethod*/, 
-                      KErrNotFound /*sentResponse*/);
-        
-    EUNIT_ASSERT ( iStorage->iAckSent == EFalse );
     EUNIT_ASSERT ( event2_1.Code() == EMceResponse );
     EUNIT_ASSERT ( iSipSession->PendingTransactions().Count() == 1 );
     EUNIT_ASSERT ( iSipSession->WaitingMediaCallback() );
@@ -635,26 +610,6 @@ void UT_CMceStateOffering::UT_CMceStateOffering_EntryL_WithErrorResponsesL()
     
     EUNIT_ASSERT ( event3_2.Code() == EMceErrorResponse );
     EUNIT_ASSERT ( iSipSession->PendingTransactions().Count() == 4 );
-    MCE_RESET_STUBS();
-    
-    // KMceSipRequestPending updating
-    iSipSession->iSubState = CMceSipSession::EUpdating;
-    iStorage->iMediaManagerUpdateStatus = KMceAsync;
-    
-    MCETestHelper::ChangeResponseTypeL( 
-        *iSipSession->iResponse->ResponseElements(),
-        KMceSipRequestPending,
-        SipStrConsts:: EPhraseBusyHere);
-    
-    TMceStateTransitionEvent event3_4( *iSipSession, EMceErrorResponse );
-    iState->EntryL( event3_4 );
-    MCE_ENTRYL_POSTCONDITION_2
-    MCE_ASSERT_STUBS( CMCETls::ECloseSession /*mmaction*/, 
-                      CMCETls::ENone /*mmsdpaction*/, 
-                      SipStrConsts::EBye /*sentMethod*/, 
-                      KErrNotFound /*sentResponse*/);
-    
-    EUNIT_ASSERT ( event3_4.Code() == EMceErrorResponse );
     MCE_RESET_STUBS();
     
     // KMceSipSessionIntervalTooSmall && dialog state ETerminated
@@ -1030,20 +985,8 @@ void UT_CMceStateOffering::UT_CMceStateOffering_ExitLL()
 	
 	TMceStateTransitionEvent event15( *iSipSession, EMceResponse );
     iState->ExitL( event15 );
-    EUNIT_ASSERT ( iSipSession->CurrentState().Id() == KMceStateOffering );  
-    
-    // EMceResponse with early media & waiting media call back
-    CSIPClientTransaction* clitransaction1_1 = 
-    MCETestHelper::ClientTransactionLC( SipStrConsts::EInfo, KMceSipOK, 
-        								SipStrConsts::EPhraseOk, ETrue );
-    iSipSession->SetPendingTransactionL( clitransaction1_1 );
-    CleanupStack::Pop( clitransaction1_1 );
-    iSipSession->iResponse = clitransaction1_1;
-    	
-    TMceStateTransitionEvent event15_1( *iSipSession, EMceResponse );
-    iState->iReadyToSendACK = EFalse;
-    iState->ExitL( event15_1 );
-    EUNIT_ASSERT ( iSipSession->CurrentState().Id() == KMceStateOffering );  
+    EUNIT_ASSERT ( iSipSession->CurrentState().Id() == KMceStateOffering );   
+
 
 	//EMceRedirectionResponse
 	CSIPClientTransaction* clitransaction2 = 
