@@ -252,6 +252,8 @@ public: // from MMceNatActions
 	void SetReservationStatus(TMceReturnStatus aStatus);
 
 	void ResumeNatUpdated();
+	
+	void StateRollBack();
 
 private: // Constructors
 

@@ -87,6 +87,11 @@ public: //New
 	*/
     void ErrorOccurred();
     
+	/**
+	* Sets current Nat state.
+	*/
+    void SetCurrentNatState(TMceNatStateIndex aStatus);
+    
 private:
 
 	CMceNatSipStateMachine();

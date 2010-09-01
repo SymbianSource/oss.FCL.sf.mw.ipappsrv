@@ -135,6 +135,17 @@ void CMceStateUpdating::EntryL( TMceStateTransitionEvent& aEvent )
 	                        session.Actions().StateChanged( 
 	                            KMceStateAcknowledgementRequired );
 	                        }
+	    	            else
+	    	            	{
+							if ( session.ActiveBody().SecureSession() )
+								{
+							    if( session.IsNatSession() )
+							    	{
+							        session.ActiveBody().SecureSession()->iNatBind = ETrue;
+							    	}
+							    session.ActiveBody().SecureSession()->iLSReadyToBind = ETrue;
+								}
+	    	            	}
 	    	            }
 	                else
 	                    {

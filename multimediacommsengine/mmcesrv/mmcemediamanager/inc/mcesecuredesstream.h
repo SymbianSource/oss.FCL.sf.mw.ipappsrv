@@ -213,13 +213,12 @@ public:
        	void ForceUpdateStreamL();
     
    private:     
-    	/**
-        * Set Crypto Context to MCC after Encode/Decode SDP are done
-        * @return void
-        */
- 		void SetCryptoContextL( );
- 		
-        
+       	/**
+       	* * Set Crypto Context to MCC after Encode/Decode SDP are done
+       	* @return void
+       	*/
+       	void SetCryptoContextL( TBool aAnswer = ETrue );
+    
 		/**
         * Base64 encoding
         * @since    Series 60 3.0 
@@ -401,6 +400,7 @@ public:
 		TMceSecureCryptoInfo iCryptoOut;
     	TMceSecureCryptoInfo iCryptoIn;
     	TBool iGnoreSdpMsg;
+    	TBool iWaitingBinding;
     	
     private://data
     
@@ -421,8 +421,9 @@ public:
     	CSdpMediaField* iMediaField;
 
     	TBool iIsSAVP;
-
-    	TBool iWaitingBinding;
+    	
+    	TBool iRemoteChangeKey;
+    	
 
     	TUint32 iCryptoContextOutId;
 

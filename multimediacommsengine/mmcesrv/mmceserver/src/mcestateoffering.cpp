@@ -31,6 +31,7 @@
 #include "mceclientserver.h"
 #include "mcesip.h"
 #include "mcesipsession.h"
+#include "mcenatsipsession.h"
 #include "mcenatmacros.h"
 #include "mcesdpsession.h"
 #include "mcesrvlogs.h"
@@ -656,6 +657,11 @@ void CMceStateOffering::EntryErrorResponseL( TMceStateTransitionEvent& aEvent )
          else
             {
             session.Actions().UpdateFailed(); 
+            if(session.IsNatSession()) 
+            	{
+				CMceNatSipSession* natsession = static_cast <CMceNatSipSession*>( &session );
+				natsession->StateRollBack();
+            	}
             session.Actions().StateChanged( KMceStateEstablished );
             session.Actions().ClientStateChangedL( CMceSession::EEstablished, 
                                                    *session.Body(),

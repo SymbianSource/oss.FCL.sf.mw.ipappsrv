@@ -188,3 +188,12 @@ void CMceNatSipStateMachine::ErrorOccurred()
     {
     iCurrentState = KMceNatStateIdle;
     }
+
+// -----------------------------------------------------------------------------
+// CMceNatSipStateMachine::SetCurrentNatState
+// -----------------------------------------------------------------------------
+//
+void CMceNatSipStateMachine::SetCurrentNatState(TMceNatStateIndex aStatus)
+    {
+    iCurrentState = aStatus;
+    }

@@ -873,4 +873,9 @@ void CMceNatSipSession::ResumeNatUpdated()
 	MCESRV_DEBUG( "*** CMceNatSipSession::ResumeNatUpdated, Exit" )
 	}
 
+void CMceNatSipSession::StateRollBack()
+	{
+	iNatStateMachine->SetCurrentNatState( KMceNatStateConnected );
+	}
+
 // End of File

@@ -300,24 +300,8 @@ TInt CMceComAMRWbCodec::ResolveAllowedBitrates(
 //
 CMceComCodec* CMceComAMRWbCodec::DoMccValidateL( CMccCodecInformation& aMccCodec,
                                                CMceSrvStream& /*aStream*/,
-                                               TMceNegotiationRole aRole )
+                                               TMceNegotiationRole /*aRole */)
     {
-    //if answerer mcc codec represents the received offer and codec the answer
-    //if offerer codec represents the sent offer and mcc codec the answer
-    
-    // Bitrates field contains also additional information, mask it away
-	/*
-    TUint mccBitrates = ( aMccCodec.AllowedBitrates() & KMceAllowedAmrWbBitrateAll );
-    TUint mceBitrates = ( iAllowedBitrates & KMceAllowedAmrWbBitrateAll );
-    
-    TBool notValid = aRole == EMceRoleAnswerer ?
-                  ( mceBitrates && mccBitrates == 0 ||
-	                mceBitrates > mccBitrates ) :
-                  ( mceBitrates && mccBitrates == 0 ||
-	                mceBitrates < mccBitrates );
-	                
-	*/
-//	User::LeaveIfError( notValid ? KErrNotSupported : KErrNone );
 	if ( aMccCodec.CodecMode() != (TCodecMode)iCodecMode )
 		{
 		// codec-mode was different, fail.

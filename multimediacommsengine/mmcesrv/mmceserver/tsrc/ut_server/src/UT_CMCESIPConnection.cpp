@@ -617,7 +617,31 @@ void UT_CMceSipConnection::UT_CMceSipConnection_ConnectionStateChangedL()
   	iConnection->ConnectionStateChanged( CSIPConnection::EUnavailable );
     EUNIT_ASSERT( !iSipSession->Body()->iIsConnectionActive );
   	
-  	
+    //cleanup orphan session test
+    CMceSipManager& manager = iServerCore->Manager();
+    iIds.iProfileID = 1;
+    iIds.iManagerType = KMceCSSIPSession;
+    iIds.iDialogType = KMceDlgTypeInvite;
+    
+    CDesC8ArrayFlat* params = new (ELeave) CDesC8ArrayFlat( KMceArrayGranularity );
+    CleanupStack::PushL( params );
+    params->AppendL( _L8("User <user2@host>") );
+    params->AppendL( _L8("User <user@host>") );
+
+    iConnection->Connection().SetState( CSIPConnection::EActive );
+    CMceCsSubSession* subsession = 
+    		manager.CreateSubSessionL( *iSession, iIds, *params );
+    CleanupStack::PushL( subsession );
+    
+    manager.AddOrphanSubSessionL(subsession);
+    CleanupStack::Pop( subsession );
+    EUNIT_ASSERT ( manager.OrphanSubSessionCount() == 1 );
+
+    iConnection->Connection().SetState( CSIPConnection::EInactive );
+  	iConnection->ConnectionStateChanged( CSIPConnection::EInactive );
+    EUNIT_ASSERT ( manager.OrphanSubSessionCount() == 0 );
+    
+    CleanupStack::PopAndDestroy();
     }
     
     

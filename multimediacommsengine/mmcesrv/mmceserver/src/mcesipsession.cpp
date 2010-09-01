@@ -2046,9 +2046,11 @@ void CMceSipSession::Updated( CMceComSession& aSession )
     {
     MCESRV_DEBUG("CMceSipSession::Updated, Entry");
     
-    __ASSERT_ALWAYS( &aSession == iBody || &aSession == iNewBodyCandidate, 
-        User::Panic( KMceServerPanic, KErrArgument ) );
     
+    __ASSERT_ALWAYS( &aSession == &( ActiveBody() ) || &aSession == iNewBodyCandidate, 
+        User::Panic( KMceServerPanic, KErrArgument ) );
+		
+		    
     TMceStateTransitionEvent event( *this, EMceMediaUpdated );
     TRAPD( error, iStateMachine->ProcessL( event ) );
     if ( error != KErrNone )

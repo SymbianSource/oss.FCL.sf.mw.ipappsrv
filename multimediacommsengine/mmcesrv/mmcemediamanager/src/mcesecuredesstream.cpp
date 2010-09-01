@@ -83,12 +83,12 @@ CMceSecureDesStream::CMceSecureDesStream(	CMceSecureMediaSession& aSecureSession
 											CMccSecureInterface& aSecureInterface,
         									CMceComMediaStream& aMediaStream
         									):
-	
+	iWaitingBinding(EFalse),
 	iSecureSession(aSecureSession),
 	iSecInf(aSecureInterface),
 	iMediaStream(aMediaStream),
 	iIsSAVP(ETrue),
-	iWaitingBinding(EFalse),
+	iRemoteChangeKey(EFalse),
 	iCryptoContextOutId(0),
 	iCryptoContextInId(0),
 	iOldLocalMediaPort(0)
@@ -337,6 +337,11 @@ void CMceSecureDesStream::DecodeSecureSdpL( CSdpMediaField& aMediaField )
     	MCEMM_DEBUG(" Set Multiple Client Cryptoto")
     	User::LeaveIfError ( CountCryptoInOffer( aMediaField ) );
     	Session().iIsSecureSession =  !iGnoreSdpMsg ? ETrue : EFalse;
+    	if( iSecureSession.iNatBind )
+    		{
+			SetCryptoContextL( ETrue );
+			iSecureSession.iNatBind = EFalse;
+    		}
     	}
     MCEMM_DEBUG("CMceSecureDesStream::DecodeSecureSdpL(), Exit")      
     MSG_IGNORE_RETURN()
@@ -377,7 +382,8 @@ void CMceSecureDesStream::DecodeSecureSdpAnswerL( CSdpMediaField& aMediaField)
 				}
 			if ( iSecureSession.iLSReadyToBind )
 				{
-				SetCryptoContextL();
+				SetCryptoContextL( EFalse );
+				iRemoteChangeKey = EFalse;
 				}
 			MSG_IGNORE_RETURN()
 			if ( !iCryptoIn.iCryptoSuite.Length() )
@@ -438,9 +444,10 @@ void CMceSecureDesStream::RemvoeSecureSdp(CSdpMediaField& aMediaField)
 // Sets crypto context to MCC
 // -----------------------------------------------------------------------------
 //
-void CMceSecureDesStream::SetCryptoContextL( )
+void CMceSecureDesStream::SetCryptoContextL( TBool aAnswer )
     {
-    MCEMM_DEBUG("SetCryptoContext(), Entry")   
+    MCEMM_DEBUG("SetCryptoContext(), Entry") 
+    TBool bindContext = ETrue;
     TBool storedIgnoreSdpMsg = EFalse;
     //Check state first if the crypto has been set
     if ( !iCryptoIn.iIfCryptoContextIdSet && 
@@ -455,6 +462,12 @@ void CMceSecureDesStream::SetCryptoContextL( )
     	CreateCryptoContextL( iCryptoOut ); 
     	MCEMM_DEBUG_DVALUE( "iCryptoContextOutId", iCryptoIn.iCryptoContextId )
 		MCEMM_DEBUG_DVALUE( "iCryptoContextInId", iCryptoOut.iCryptoContextId )
+    	
+    	if( !aAnswer )
+    		{
+			bindContext = EFalse;
+    	    MCEMM_DEBUG("delay to bind!");
+    		}
 
     	iCryptoOuts->Reset();
     	
@@ -473,7 +486,7 @@ void CMceSecureDesStream::SetCryptoContextL( )
 			}
 		MCEMM_DEBUG_DVALUE( "Updated iCryptoContextOutId", iCryptoIn.iCryptoContextId )
 		MCEMM_DEBUG_DVALUE( "Updated iCryptoContextInId", iCryptoOut.iCryptoContextId )
-    	if ( iSecureSession.iKeyNeedUpdated )
+    	if ( iSecureSession.iKeyNeedUpdated  || iRemoteChangeKey )
     		{
     		UpdateCryptoContextL( iCryptoIn ); 
     		storedIgnoreSdpMsg = iGnoreSdpMsg;
@@ -489,7 +502,7 @@ void CMceSecureDesStream::SetCryptoContextL( )
     iGnoreSdpMsg = (iCryptoIn.iIfCryptoContextIdSet && 
     				iCryptoOut.iIfCryptoContextIdSet ) &&
     				!iGnoreSdpMsg ? EFalse : ETrue;		
-    if ( iWaitingBinding )
+    if ( iWaitingBinding && bindContext )
     	{
     	iSecureSession.BindStreamCrypto();
     	}
@@ -844,6 +857,13 @@ void CMceSecureDesStream::GenerateCryptoLineL(
         	}
         else
         	{
+			if( iRemoteChangeKey )
+				{
+				MCEMM_DEBUG("Update CryptoIn" )
+				TBool tmpSet = iCryptoIn.iIfCryptoContextIdSet;
+				iCryptoIn.Copy( iCryptoIns->At( 0 ) );
+				iCryptoIn.iIfCryptoContextIdSet = tmpSet;
+				}
         	if(iOldLocalMediaPort != iMediaStream.iLocalMediaPort)
         		{
         	    GenerateRandomKeys( iCryptoOut );
@@ -857,7 +877,8 @@ void CMceSecureDesStream::GenerateCryptoLineL(
         MSG_IGNORE_RETURN()
       	if ( iSecureSession.iLSReadyToBind )
       		{
-      		SetCryptoContextL();
+      		SetCryptoContextL( ETrue );
+      		iRemoteChangeKey = EFalse;
       		}
         MSG_IGNORE_RETURN()
         }
@@ -1207,13 +1228,14 @@ void CMceSecureDesStream::ValidateAnswerByOfferL(const TDesC8& aSecDec )
 	        	}
     
 	    TPtrC8 keyInfo = aSecDec.Mid(keyInfoPos, keyInfoLen);
-	    if ( iSecureSession.iKeyNeedUpdated )
-	    	{
 	    	
-		    TBool valid = ValidateSecurityDescriptions( keyInfo );
-	   		if ( valid )
+	    	
+		TBool valid = ValidateSecurityDescriptions( keyInfo );
+		if ( valid )
+	   		{
+		    iRemoteChangeKey = iCryptoIn.iEncodedKey.Compare( keyInfo ) != 0;
+	   		if( iSecureSession.iKeyNeedUpdated || iRemoteChangeKey ) 
 	   			{
-	   			
 		    	// check keyInfo 
 			    if (iCryptoOut.iEncodedKey.Compare( keyInfo ) == 0)
 			    	{
@@ -1227,11 +1249,11 @@ void CMceSecureDesStream::ValidateAnswerByOfferL(const TDesC8& aSecDec )
 				iCryptoIn.iEncodedKey = keyInfo;
 				StoreKeys(iCryptoIn.iEncodedKey);
 	   			}
-	   		else
-	   			{
-	   			User::Leave( KErrArgument );
-	   			}
-	    	}
+	   		}
+		else
+	   		{
+		    User::Leave( KErrArgument );
+	   		}
 	   	}
  	else
  		{
@@ -1286,7 +1308,12 @@ void CMceSecureDesStream::ValidateOfferByAnswerL( const TDesC8& aSecDec )
         
         if ( valid )
         	{
-        	
+        	if( !iSecureSession.iKeyNeedUpdated && 
+        			iCryptoIn.iEncodedKey.Compare( keyInfo ) != 0 )
+        		{
+        	    MCEMM_DEBUG("Remote change the key");
+        	    iRemoteChangeKey = ETrue;
+        		}
             //check keyinfo mki 
 		     DecodeMKIValueL( aSecDec, EFalse, crypto );   
 		     MSG_IGNORE_RETURN()
