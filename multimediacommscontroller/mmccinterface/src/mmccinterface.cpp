@@ -322,6 +322,36 @@ EXPORT_C TInt CMccInterface::SetRemoteAddress( TUint32 aSessionId,
     return err;
     }
 
+
+// ---------------------------------------------------------------------------
+// CMccInterface::SetRemoteAddress
+// Set remote msrp path and port number for a given msrp session and connects with remote end point.
+// ---------------------------------------------------------------------------
+//
+EXPORT_C TInt CMccInterface::SetRemoteMsrpPath( TUint32 aSessionId, 
+                                               TUint32 aLinkId,
+                                               TDes8 &aRemoteMsrpPath,
+                                               TDes8 &aConnStatus)
+    {
+    __INTERFACE( "MccInterface::SetRemoteMsrpPath" )
+    TInt err = KErrNone;
+    TMccAddress addr;
+    addr.iSessionID = aSessionId;
+    addr.iLinkID = aLinkId;
+    addr.iRemoteMsrpPath = aRemoteMsrpPath;
+    addr.iConnStatus = aConnStatus;
+    TMccAddressPckg package( addr );
+
+    err = iController.CustomCommandSync( iMessageDest,
+                                         EMccSetRemoteMsrpPath,
+                                         package,
+                                         KNullDesC8 );
+
+    
+    __INTERFACE_INT1( "MccInterface::SetRemoteMsrpPath, exit with ", err )
+    return err;
+    }
+
 // ---------------------------------------------------------------------------
 // CMccInterface::CreateSession
 // Creates a new RTP session with a remote participant.
@@ -383,6 +413,81 @@ EXPORT_C TInt CMccInterface::CreateLink( TUint32 aSessionId,
     __INTERFACE_INT1( "MccInterface::CreateLink, exit with ", result )
     return result;
     }
+
+
+// ---------------------------------------------------------------------------
+// CMccInterface::CreateLink
+// Creates a new Mcc link with a remote participant.
+// ---------------------------------------------------------------------------
+//
+EXPORT_C TInt CMccInterface::CreateLink( TUint32 aSessionId,
+        TInt aLinkType,
+        TUint32& aLinkId,
+        TMccMsrpSettings& aNetSettings)
+    {    
+    __INTERFACE( "MccInterface::CreateLink with msrpsettings")
+    
+    TMccCreateLink pktLink;
+    pktLink.iSessionID = aSessionId;
+    pktLink.iLinkType = aLinkType;
+    pktLink.iIapId = aNetSettings.iIapId;
+    pktLink.iRemoteAddress = aNetSettings.iRemoteAddress;
+    pktLink.iLocalAddress.SetPort( aNetSettings.iLocalAddress.Port() );
+    pktLink.iIpTOS = aNetSettings.iMediaQosValue;
+    TBool fileShare = EFalse;
+    if ( aNetSettings.iFileShare )
+        {
+        fileShare = ETrue;
+        if ( NULL != aNetSettings.iFileName )
+            {
+            pktLink.iFileName.Zero();
+            pktLink.iFileName.Copy( aNetSettings.iFileName->Des());
+            }
+        pktLink.iFileSize = aNetSettings.iFileSize;
+        if (NULL != aNetSettings.iFileType )
+            {
+            pktLink.iFileType.Zero();
+            pktLink.iFileType.Copy(aNetSettings.iFileType->Des());
+            }
+        pktLink.iFileShare = aNetSettings.iFileShare;
+        pktLink.iFTProgressNotification = aNetSettings.iFTProgressNotification;
+        }
+    //pktLink.iLocalMsrpPath = aNetSettings.iLocalMsrpPath;
+    pktLink.iLocalMsrpPath.Zero();
+    
+    TMccCreateLinkPckg package( pktLink );
+
+    TInt result = iController.CustomCommandSync( iMessageDest,
+                                                 EMccCreateLink,
+                                                 package,
+                                                 KNullDesC8,
+                                                 package );
+
+    if ( KErrNone == result )
+        {
+        aLinkId = package().iLinkID;
+        if (package().iLocalMsrpPath.Length() > 0 )
+            {
+            aNetSettings.iLocalMsrpPath = package().iLocalMsrpPath.Alloc();
+            }
+        }
+
+    __INTERFACE_INT1( "MccInterface::CreateLink, exit with ", result )
+    return result;
+    }
+
+/*
+EXPORT_C TInt CMccInterface::CreateLink( TUint32 aSessionId,
+                             TInt aLinkType,
+                             TUint32& aLinkId,
+                             TMccNetSettings& aNetSettings,
+                             TDes8 &aLocalMsrpPath)
+    {
+    // not required .. 
+    // need to be removed.
+    return 0;
+    }
+*/
 
 // ---------------------------------------------------------------------------
 // CMccInterface::CloseSession

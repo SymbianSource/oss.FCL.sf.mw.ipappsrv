@@ -224,6 +224,43 @@ class CMceMediaSdpCodec : public CMceSdpCodec
         */
         virtual TMceSipWarningCode ValidateSdpL( CSdpMediaField& aMediaLine,
                                                 CSdpDocument& aSdpDocument );
+        
+        /**
+        * Creates fmtlist that can be used as media field fmt list -attribute
+        * @param aCodecs codecs
+        * @return fmtp list
+        */
+        virtual HBufC8* CreateFormatListL( CMceComCodec::TIterator& aCodecs ) const;
+        
+        /**
+         * Decodes static payloads if payload wasn't defined as rtpmap
+         * @param aMediaLine Media line
+         * @param aStream stream
+         * @param aPayloadTypes payload types as an array
+         * @param aRole role of negotiation
+         * @return number of lines decoded
+         */
+        virtual TInt DecodeStaticPayloadsL( CSdpMediaField& aMediaLine,
+                        CMceComMediaStream& aStream,
+                        RArray<TUint>& aPayloadTypes, 
+                        TMceNegotiationRole aRole ) const;
+        
+        /**
+         * Decodes media line's format list to payload type array
+         * @param aMediaLine Media line
+         * @param aPayloadTypes payload types as an array
+         */
+        virtual void DecodeFormatListL( CSdpMediaField& aMedia, 
+                        RArray<TUint>& aPayloadTypes ) const;
+        
+        /**
+        * Decodes media line's format list to payload type array
+        * @param aMediaLine Media line
+        * @param aPayloadTypes payload types as an array
+        * @return  system wide error
+        */
+        virtual TInt DecodeFormatList( CSdpMediaField& aMedia, 
+                               RArray<TUint>& aPayloadTypes ) const;
 
         /**
         * Gets the type of session ( sendrecv, sendonly or receiveonly )
@@ -293,18 +330,7 @@ class CMceMediaSdpCodec : public CMceSdpCodec
         TInt DecodeRtpmapLinesL( CSdpMediaField& aMediaLine,
                                  CMceComMediaStream& aStream ) const;
 
-        /**
-        * Decodes static payloads if payload wasn't defined as rtpmap
-        * @param aMediaLine Media line
-        * @param aStream stream
-        * @param aPayloadTypes payload types as an array
-        * @param aRole role of negotiation
-        * @return number of lines decoded
-        */
-        TInt DecodeStaticPayloadsL( CSdpMediaField& aMediaLine,
-                                    CMceComMediaStream& aStream,
-                                    RArray<TUint>& aPayloadTypes, 
-                                    TMceNegotiationRole aRole ) const;
+
 
         /**
         * Decodes rtpmap line. 
@@ -318,6 +344,17 @@ class CMceMediaSdpCodec : public CMceSdpCodec
                                          CSdpMediaField& aMediaLine,
                                          CMceComMediaStream& aStream,
                                          const TDesC8& aFmtpValue = KNullDesC8 ) const;
+        
+        /**
+        * Decodes rtpmap line. 
+        * @param aRtpMaptLine rtpmap line
+        * @param aMediaLine media line
+        * @param aStream stream
+        * @param aFmtpValue
+        * @return decoded codec if codec was supported
+        */
+        CMceComCodec* DecodeRtpmapLineL( CSdpMediaField& aMediaLine,
+                                         CMceComMediaStream& aStream ) const;
  
         /**
         * Decodes fmtp lines. 
@@ -391,14 +428,6 @@ class CMceMediaSdpCodec : public CMceSdpCodec
                                               CMceComMediaStream& aStream,
                                               CSdpDocument& aSdpDocument) const;
 
-        /**
-        * Creates fmtlist that can be used as media field fmt list -attribute
-        * @param aCodecs codecs
-        * @return fmtp list
-        */
-        HBufC8* CreateFormatListL( CMceComCodec::TIterator& aCodecs ) const;
-        
-        
        /**
         * decodes the remote RTCP port according to RFC 3605
         * @param aMediaLine Media line
@@ -428,27 +457,10 @@ class CMceMediaSdpCodec : public CMceSdpCodec
         * @param aMediaLine Media line
         * @param aStream media stream
         */
-        void DecodeClientAttributesL( CSdpMediaField& aMediaLine, 
+        void virtual DecodeClientAttributesL( CSdpMediaField& aMediaLine, 
                                       CMceComMediaStream& aStream ) const;  
                               
         
-        /**
-        * Decodes media line's format list to payload type array
-        * @param aMediaLine Media line
-        * @param aPayloadTypes payload types as an array
-        */
-        void DecodeFormatListL( CSdpMediaField& aMedia, 
-                                RArray<TUint>& aPayloadTypes ) const;
-
-        /**
-        * Decodes media line's format list to payload type array
-        * @param aMediaLine Media line
-        * @param aPayloadTypes payload types as an array
-        * @return  system wide error
-        */
-        TInt DecodeFormatList( CSdpMediaField& aMedia, 
-                               RArray<TUint>& aPayloadTypes ) const;
-                             
         /**
         * Finds codec based on payload type
         * @param aPayloadType payload

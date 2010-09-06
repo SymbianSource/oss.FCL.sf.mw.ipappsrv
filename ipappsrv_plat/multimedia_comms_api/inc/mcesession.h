@@ -565,6 +565,13 @@ class CMceSession : public CBase
 	    * @return ETrue, if session is zombie by update
 	    */
 	    TBool IsZombie();
+	    
+	    /**
+	     * Return ETrue, if session is zombie by update
+	     * @return ETrue, if session is zombie by update
+	     */
+	    const CMceComSession* FlatData();
+	    
 
 	protected:
 

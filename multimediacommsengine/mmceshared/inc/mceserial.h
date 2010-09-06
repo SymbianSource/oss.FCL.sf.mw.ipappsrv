@@ -25,6 +25,8 @@
 #include <s32strm.h>
 #include <s32mem.h>
 #include <e32des8.h>
+#include <uri8.h>
+#include <e32cmn.h>
 
 #include "mcerefer.h"
 #include "mcecomsession.h"
@@ -88,6 +90,15 @@ public:
     **/
     static void EncodeL( const TDesC8& aString, RWriteStream& aWriteStream );
     
+    
+    /**
+    * Encodes descriptor to stream
+    * @param aString string to be encoded to stream
+    * @param aWriteStream stream to which string is encoded
+    **/
+    static void EncodeL( const TDesC16& aString, RWriteStream& aWriteStream );
+    
+    
     /**
      * Encodes string buffer to stream. If buffer is NULL empty string is encoded
      * @param aString string buffer to be encoded to stream
@@ -96,11 +107,27 @@ public:
     static void EncodeL( HBufC8* aString, RWriteStream& aWriteStream );
     
     /**
+     * Encodes string buffer to stream. If buffer is NULL empty string is encoded
+     * @param aString string buffer to be encoded to stream
+     * @param aWriteStream stream to which string is encoded
+     **/
+    static void EncodeL( HBufC16* aString, RWriteStream& aWriteStream );
+    
+    /**
      * Decodes string buffer from stream
      * @param aBuffer placeholder for data to be read from stream
      * @param aReadStream stream from which data is decoded
      **/
     static void DecodeL( HBufC8*& aBuffer, RReadStream& aReadStream );
+    
+    
+    /**
+     * Decodes string buffer from stream
+     * @param aBuffer placeholder for data to be read from stream
+     * @param aReadStream stream from which data is decoded
+     **/
+    static void DecodeL( HBufC16*& aBuffer, RReadStream& aReadStream );
+        
 
     /**
      * Decodes descriptor array from stream
@@ -131,8 +158,14 @@ public:
     static void EncodeL( TMceMediaId aId, RWriteStream& aWriteStream );
 	
 	static void EncodeL( RArray<TMceCryptoContext>& aArray, RWriteStream& aWriteStream  );
+	static void EncodeL(TInetAddr& aAddr, RWriteStream& aWriteStream);
     
     static void DecodeL( RArray<TMceCryptoContext>& aArray, RReadStream& aReadStream );
+    
+    static void EncodeL( RPointerArray<TUriC8>& aArray, RWriteStream& aWriteStream  );
+        
+    static void DecodeL( RPointerArray<TUriC8>& aArray, RReadStream& aReadStream );
+    static void DecodeL(TInetAddr& aAddr, RReadStream& aReadStream);
     };
     
 
@@ -1051,6 +1084,46 @@ private:
 
 
 
+	
+/**
+ * message stream serializer for Server and Client side stream
+ *
+ * @lib 
+ */
+template <class T>
+class TMceMessageStreamSerializer
+    {
+    
+public:
+
+    /**
+    * Constructor for internalization for server side
+    * @param aStream the stream
+    */
+    inline TMceMessageStreamSerializer( T& aStream );
+
+    /**
+    * Internalizes
+    * @param aSerCtx context for serialization
+    */
+    inline void InternalizeL( MMceComSerializationContext& aSerCtx );
+
+    /**
+    * Externalizes
+    * @param aSerCtx context for serialization
+    */
+    inline void ExternalizeL( MMceComSerializationContext& aSerCtx );
+
+
+private:
+
+      
+    /**
+    * Server / client side stream
+    */
+    T& iMessageStream;
+
+    };
 
 #include "mceserial.inl"
 

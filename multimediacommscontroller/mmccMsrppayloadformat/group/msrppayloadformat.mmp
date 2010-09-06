@@ -1,0 +1,69 @@
+/*
+* Copyright (c) 2004-2006 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:    
+*
+*/
+
+
+
+#include <platform_paths.hrh>
+
+TARGET         	mmccmsrpplformat.dll		
+
+CAPABILITY 		CAP_ECOM_PLUGIN
+VENDORID		VID_DEFAULT
+TARGETTYPE		PLUGIN
+
+UID             0x10009D8D 0x10299988                      
+
+SOURCEPATH      ../src
+SOURCE          msrppayloadformatread.cpp
+SOURCE          msrppayloadformatwrite.cpp
+SOURCE          msrppayloadformatimplementationproxy.cpp
+SOURCE          sendstatemachine.cpp
+SOURCE 		BufferTimer.cpp
+
+SOURCEPATH      ../../mmccshared/src
+SOURCE          formatstatemachine.cpp
+
+USERINCLUDE     ../inc
+USERINCLUDE     ../../mmccshared/inc
+USERINCLUDE     ../../mmccrtpsourcesink/inc
+USERINCLUDE     ../../mmccmsrpsourcesink/inc
+USERINCLUDE     ../../mmcccontroller/inc
+USERINCLUDE     ../../mmccinterface/inc
+USERINCLUDE     ../../mmccsubcontroller/inc
+
+MW_LAYER_SYSTEMINCLUDE
+SYSTEMINCLUDE   /epoc32/include/mmf/common
+SYSTEMINCLUDE   /epoc32/include/mmf/server
+SYSTEMINCLUDE   /epoc32/include/ecom
+
+#ifdef FTD_ENABLED
+USERINCLUDE     ../../internal/FTD
+#endif
+
+SOURCEPATH      ../data
+
+START RESOURCE	10299988.rss
+TARGET			mmccmsrpplformat.rsc
+END
+
+LIBRARY         euser.lib
+LIBRARY         mmfserverbaseclasses.lib
+LIBRARY         ecom.lib
+LIBRARY         mmfcontrollerframework.lib
+LIBRARY		charconv.lib
+
+PAGED

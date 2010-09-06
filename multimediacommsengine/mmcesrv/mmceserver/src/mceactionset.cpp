@@ -2344,6 +2344,13 @@ void TMceActionSet::ClientMediaStateChangedL( TMceMccComEvent* aMccEvent,
     	ids.iState = aMccEvent->iItcData;
     	ids.iStatus = aMccEvent->iError;
 
+        // For file transfer events
+        if (aMccEvent->iEvent == KMccFileSendProgressNotification ||
+                aMccEvent->iEvent == KMccFileReceiveProgressNotification)
+            {
+            ids.iSpare1 = aMccEvent->iEventData1;
+            ids.iSpare2 = aMccEvent->iEventData2;
+            }
         iSession.SendToClient( ids );
         }
     else

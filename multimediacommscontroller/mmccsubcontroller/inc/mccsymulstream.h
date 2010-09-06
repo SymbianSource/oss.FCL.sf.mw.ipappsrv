@@ -62,6 +62,14 @@ class CMccSymUlStream : public CMccSymStreamBase
                                        TInt aStreamType,
                                        CMccRtpMediaClock& aClock );
         
+        static CMccSymUlStream* NewLC( TUint32 aMccStreamId, 
+                                       MAsyncEventHandler* aEventhandler, 
+                                       MMccResources* aMccResources,
+                                       CMccMsrpManager* aManager, 
+                                       TFourCC aFourCC,
+                                       TInt aStreamType,
+                                       CMccRtpMediaClock& aClock );
+        
         /**
         * Destructor.
         */
@@ -177,6 +185,14 @@ class CMccSymUlStream : public CMccSymStreamBase
                          MAsyncEventHandler* aEventhandler,
                          MMccResources* aMccResources,
                          CMccRtpManager* aManager, 
+                         TFourCC aFourCC,
+                         TInt aStreamType,
+                         CMccRtpMediaClock& aClock );
+        
+        CMccSymUlStream( TUint32 aMccStreamId, 
+                         MAsyncEventHandler* aEventhandler,
+                         MMccResources* aMccResources,
+                         CMccMsrpManager* aManager, 
                          TFourCC aFourCC,
                          TInt aStreamType,
                          CMccRtpMediaClock& aClock );

@@ -77,7 +77,11 @@ enum TMceItcCallBack
     EMceItcDtmfSendError = 18,
     EMceItcLinkCreated = 19, 
     EMceItcResponseReceived = 20,
-    EMceItcRequestReceived = 21
+    EMceItcRequestReceived = 21,
+    EMceItcFileSendCompleted=22,
+    EMceItcFileReceiveCompleted=23, 
+    EMceFileSendInProgress=24,
+    EMceFileReceiveInProgress=25
     };
 
 

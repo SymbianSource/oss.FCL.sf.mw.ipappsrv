@@ -268,7 +268,14 @@ void TMcePreparingStreams::StartStreamsL( TBool aUpdateRemoteAddress )
         else if ( aUpdateRemoteAddress )
             {
             MCEMM_DEBUG( "TMcePreparingStreams::StartStreamsL() remote address update" )
-            iSession.SdpSession().Manager().SetRemoteAddressL( *stream );
+            if(stream->LinkType() == KMccLinkMessage)
+                {
+                iSession.SdpSession().Manager().SetRemoteMsrpPathL( *stream );
+                }
+            else
+                {
+                iSession.SdpSession().Manager().SetRemoteAddressL( *stream );
+                }
             }
         else
             {

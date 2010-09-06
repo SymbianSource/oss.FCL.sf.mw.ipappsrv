@@ -44,3 +44,5 @@ PRJ_MMPFILES
 ../mmccfilesourcesink/group/filesourcesink.mmp
 ../mmccanysourcesink/group/anysourcesink.mmp
 ../mmccavcpayloadformat/group/avcpayloadformat.mmp
+../mmccmsrppayloadformat/group/msrppayloadformat.mmp
+../mmccmsrpsourcesink/group/msrpsourcesink.mmp

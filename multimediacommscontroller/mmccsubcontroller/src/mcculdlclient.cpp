@@ -29,6 +29,7 @@
 #include "mccsubcontrollerlogs.h"
 #include "mccrtpmediaclock.h"
 #include "mmccsecureinterface.h"
+#include "mccmsrpmanager.h"
 
 
 // EXTERNAL DATA STRUCTURES
@@ -63,6 +64,7 @@ CMccUlDlClient::CMccUlDlClient( MMccEventHandler* aMccEventHandler,
                                 iMccEventHandler( aMccEventHandler ),
                                 iMccResources( aMccResources )
     {
+    iIsMsrpSessionCreated = EFalse;
     }
 
 // -----------------------------------------------------------------------------
@@ -75,7 +77,9 @@ void CMccUlDlClient::ConstructL()
     User::LeaveIfNull( iMccEventHandler );
     User::LeaveIfNull( iMccResources );
     iRtpMediaClock = CMccRtpMediaClock::NewL();
-    
+    iFileShare = EFalse;
+    iFileName = NULL;
+    iFileType = NULL;
 	__SUBCONTROLLER( "CMccUlDlClient::ConstructL, exit" )
     }   
 
@@ -108,7 +112,10 @@ EXPORT_C CMccUlDlClient::~CMccUlDlClient()
     iClientArray.ResetAndDestroy();
     iClientArray.Close();
     
+    delete iFileName;
+    delete iFileType;
     delete iRtpMediaClock;
+    delete iMSRP;
 
 	__SUBCONTROLLER( "CMccUlDlClient::~CMccUlDlClient, exit" )
     }
@@ -512,6 +519,30 @@ EXPORT_C void CMccUlDlClient::CreateLinkL( TUint32& aLinkId,
             break;
             }
 
+        case KMccLinkMessage:
+            {
+            CMccSymSubthreadClient* symClient = 
+                            CMccSymSubthreadClient::NewL( this, iMccResources, aType, iSessionId );
+
+            err = StoreLink( symClient ); // Writing data to client, here we can write msrplocal path to iClientData and can send to client.
+            if ( err == KErrNone )
+                {
+                aLinkId = reinterpret_cast<TUint32>( symClient );
+                symClient->SetLinkId( aLinkId );  
+                }
+            else
+                {
+                delete symClient;
+                }
+            if (iMSRP == NULL )
+                {
+                TUid uid = {0x123456};
+                iMSRP = CMSRP::NewL(uid);
+                }
+            symClient->SetMsrpObject(iMSRP);
+            break;
+            }
+
         case KMccLinkLocal:
             {
             CMccSymSubthreadClient* symClient = 
@@ -575,6 +606,48 @@ EXPORT_C void CMccUlDlClient::InitializeLinkL( TRequestStatus& aStatus,
     }
 
 // -----------------------------------------------------------------------------
+// CMccUlDlClient::InitializeLinkL
+// Initializes ul and dl links, 2nd step in link creation - MSRP
+// -----------------------------------------------------------------------------
+// 
+
+
+EXPORT_C void CMccUlDlClient::InitializeLinkL( TRequestStatus& aStatus,
+                                       TUint32 aLinkId,
+                                       TInt aIapId,
+                                       HBufC8* &aLocalMsrpPath)
+    {
+    __SUBCONTROLLER( "CMccUlDlClient::InitializeLinkL" )
+    iLinkCount++;
+    TInt link = FindLinkL( aLinkId );
+    if(!iIsMsrpSessionCreated)
+        {
+        // Creates MSRP session and gets LocalMsrpPath
+        iClientArray[link]->InitializeLinkL( aStatus, aIapId, aLocalMsrpPath );
+        iIsMsrpSessionCreated = ETrue;
+        }
+    else
+        {
+        for ( TInt i = 0;  i < iClientArray.Count() ; i++ )
+            {
+            if (iClientArray[i]->GetLinkType() == KMccLinkMessage && i!= link)
+                {
+            
+                iClientArray[link]->iMsrpmanager->iMsrpSession =
+                        iClientArray[i]->iMsrpmanager->iMsrpSession;
+            
+                delete iClientArray[link]->iMsrpmanager->iMsrpObserver;
+                iClientArray[link]->iMsrpmanager->iMsrpObserver = 
+                        iClientArray[i]->iMsrpmanager->iMsrpObserver ;
+                break;
+                }
+            }
+        TRequestStatus* status = &aStatus;
+        User::RequestComplete(status, KErrNone);
+        }
+    }
+
+// -----------------------------------------------------------------------------
 // CMccUlDlClient::CreateRtpSessionL
 // Creates RTP session, 3rd step in link creation
 // -----------------------------------------------------------------------------
@@ -604,6 +677,20 @@ EXPORT_C TInt CMccUlDlClient::CloseLinkL( TUint32 aLinkId )
 	__SUBCONTROLLER( "CMccUlDlClient::CloseLinkL" )
 	__SUBCONTROLLER_INT1( "CMccUlDlClient linkid",  aLinkId )
     TInt arrayId = FindLinkL( aLinkId );
+	
+	if (iClientArray[arrayId]->GetLinkType() == KMccLinkMessage )
+	    {
+        // trace through links to check there is no message link exists
+	    for ( TInt i = 0;  i < iClientArray.Count() ; i++ )
+	        {
+	        if (iClientArray[i]->GetLinkType() == KMccLinkMessage && i!= arrayId)
+	            {
+                iClientArray[i]->iMsrpmanager->iMsrpObserver = NULL;
+                iClientArray[i]->iMsrpmanager->iMsrpSession = NULL;
+                break;
+	            }
+	        }
+	    }
     CMccSubThreadClientBase* temp = iClientArray[arrayId];    
     iClientArray[arrayId]->CloseL();
     iClientArray.Remove( arrayId );
@@ -644,6 +731,24 @@ EXPORT_C void CMccUlDlClient::SetRemoteRtcpAddrL( TInetAddr aRemAddr,
     TInt ind = FindLinkL( aLinkId );
     iClientArray[ind]->SetRemoteRtcpAddrL( aRemAddr );
 	__SUBCONTROLLER( "CMccUlDlClient::SetRemoteRtcpAddrL, exit" )
+    }
+
+// -----------------------------------------------------------------------------
+// CMccUlSubThreadClient::SetRemoteMsrpPathL
+// Sets the remote msrp path for uplink stream
+// -----------------------------------------------------------------------------
+EXPORT_C void CMccUlDlClient::SetRemoteMsrpPathL( TDes8& aRemMsrpPath,
+                                                  TDes8& aConnStatus, TUint32 aLinkId ) 
+    {
+    __SUBCONTROLLER( "CMccUlDlClient::SetRemoteMsrpPathL" )
+    __SUBCONTROLLER_INT1( "CMccUlDlClient linkid",  aLinkId )
+    TInt ind = FindLinkL( aLinkId );
+    if (iFileShare )
+        {
+        iClientArray[ind]->SetFileSharingAttrbs(iFileName, iFileSize, iFileType,iFTProgressNotification);
+        }
+    iClientArray[ind]->SetRemoteMsrpPathL( aRemMsrpPath, aConnStatus );
+    __SUBCONTROLLER( "CMccUlDlClient::SetRemoteMsrpPathL, exit" )
     }
     
 // -----------------------------------------------------------------------------
@@ -988,6 +1093,29 @@ TInt CMccUlDlClient::StoreLink( CMccSubThreadClientBase* aClient )
     err = iClientArray.Append( aClient ); 
 	__SUBCONTROLLER_INT1( "CMccUlDlClient::StoreLink, exit with", err )
     return err;
+    }
+
+
+// -----------------------------------------------------------------------------
+// CMccUlDlClient::SetFileShareAttrbs()
+// stores the File Sharing attributes
+// -----------------------------------------------------------------------------
+//
+void CMccUlDlClient::SetFileShareAttrbs(HBufC16* aFileName, 
+        TInt aFileSize, 
+        HBufC8* aFileType,
+        TBool aFTProgressNotification) 
+    {
+    __SUBCONTROLLER( "CMccUlDlClient::SetFileShareAttrbs, IN ")
+    iFileShare = ETrue; 
+    if ( NULL != aFileName)
+        iFileName = aFileName->Des().Alloc();
+    iFileSize = aFileSize;
+    if (NULL!=aFileType)
+        iFileType = aFileType->Des().Alloc();
+    iFTProgressNotification = aFTProgressNotification;
+    
+    __SUBCONTROLLER( "CMccUlDlClient::SetFileShareAttrbs, OUT")
     }
 
 // -----------------------------------------------------------------------------

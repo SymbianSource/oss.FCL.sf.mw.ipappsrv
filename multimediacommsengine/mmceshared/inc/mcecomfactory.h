@@ -39,6 +39,7 @@ class CMceComSession;
 class CMceMsgBase;
 class CMceComStreamBundle;
 class MMceComSerializable;
+class CMceComMessageCodec;
 
 class TMceComMediaStreamFactory
 	{
@@ -112,6 +113,27 @@ public:
 
 	};
 
+class TMceComMessageCodecFactory
+    {
+
+public:
+    
+    //might leave KErrNotSupported
+    CMceComMessageCodec* CreateLC( const TBuf8<KMceMaxSdpNameLength> aSdpName  );  
+
+    CMceComMessageCodec* CreateLC( MMceComSerializationContext& aSerCtx ); 
+    
+    //return NULL, if codec cannot been created
+    CMceComMessageCodec* CreateCodecLC( const TBuf8<KMceMaxSdpNameLength> aSdpName  ); 
+
+    //return NULL, if codec cannot been created
+    CMceComMessageCodec* CreateCodecLC( TUint aPayload );
+    
+    TInt iDummy;
+
+
+    };
+
 class TMceComFactory
     {
     
@@ -155,6 +177,11 @@ public:
     inline TMceComVideoCodecFactory VideoCodecFactory()
         {
         return TMceComVideoCodecFactory();
+        }
+    
+    inline TMceComMessageCodecFactory MessageCodecFactory()
+        {
+        return TMceComMessageCodecFactory();
         }
     
     TInt iDummy;

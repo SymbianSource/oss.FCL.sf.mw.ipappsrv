@@ -874,6 +874,9 @@ void CMccController::CustomCommandL( TMMFMessage& aMessage )
         case EMccSetRemoteRtcpAddr:
         	SetRemoteRtcpAddrL( aMessage );
         	break;
+        case EMccSetRemoteMsrpPath:
+            SetRemoteMsrpPathL( aMessage );
+            break;
         case EMccCloseSession:
             CloseSessionL( aMessage );
             break;
@@ -1080,6 +1083,8 @@ void CMccController::GetSupportedCodecsL( TMMFMessage& aMessage ) const
     AddCodec( KMccFourCCIdILBC, outCodecs, inCodecs, codecs, index++ );
     AddCodec( KMccFourCCIdG729, outCodecs, inCodecs, codecs, index++ );
     // Not in CMMFDevSound's list
+    //MSRP
+    codecs[ index++ ] = TFourCC( KMccFourCCIdMSRP );
     codecs[ index++ ] = TFourCC( KMccFourCCIdDTMF ); 
     codecs[ index++ ] = TFourCC( KMccFourCCIdRed );
     codecs[ index++ ] = TFourCC( KMccFourCCIdCN );
@@ -1267,6 +1272,24 @@ void CMccController::SetRemoteRtcpAddrL( TMMFMessage& aMessage )
     iSessionArray[session]->SetRemoteRtcpAddrL( pckg().iAddress,
                                                pckg().iLinkID );
 	__CONTROLLER( "CMccController::SetRemoteAddrL, exit" )
+    }
+
+// -----------------------------------------------------------------------------
+// CMccController::SetRemoteMsrpPathL
+// Sets remote address
+// -----------------------------------------------------------------------------
+//
+void CMccController::SetRemoteMsrpPathL( TMMFMessage& aMessage )
+    {
+    __CONTROLLER( "CMccController::SetRemoteMsrpPathL" )
+    TMccAddressPckg pckg;
+    aMessage.ReadData1FromClientL( pckg );
+
+    TInt session = FindSessionL( pckg().iSessionID );
+    
+    iSessionArray[session]->SetRemoteMsrpPathL( pckg().iRemoteMsrpPath,
+                                                pckg().iConnStatus, pckg().iLinkID );
+    __CONTROLLER( "CMccController::SetRemoteMsrpPathL, exit" )
     }
 
 // -----------------------------------------------------------------------------

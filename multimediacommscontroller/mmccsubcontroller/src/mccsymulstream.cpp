@@ -26,6 +26,7 @@
 #include "mcculdatapath.h"
 #include "mcccodecconfigurator.h"
 #include "mccrtpmanager.h"
+#include "mccmsrpmanager.h"
 #include "mccrtpdatasink.h"
 #include "mmccinterface.h"
 #include "mccsubcontrollerlogs.h"
@@ -81,6 +82,32 @@ CMccSymUlStream::CMccSymUlStream(
     {
     iRtpMediaClock = &aClock;
     }
+    
+    
+// -----------------------------------------------------------------------------
+// CMccSymUlStream::CMccSymUlStream
+// C++ default constructor can NOT contain any code, that
+// might leave.
+// -----------------------------------------------------------------------------
+//
+CMccSymUlStream::CMccSymUlStream( 
+    TUint32 aMccStreamId, 
+    MAsyncEventHandler* aEventhandler, 
+    MMccResources* aMccResources,
+    CMccMsrpManager* aManager, 
+    TFourCC aFourCC,
+    TInt aStreamType, 
+    CMccRtpMediaClock& aClock ) : 
+    CMccSymStreamBase( aMccStreamId, 
+                       aEventhandler, 
+                       aMccResources, 
+                       aManager, 
+                       aStreamType ), 
+    iFormatEncode( NULL ), 
+    iFourCC( aFourCC )
+    {
+    iRtpMediaClock = &aClock;
+    }
 
 // -----------------------------------------------------------------------------
 // CMccSymUlStream::NewL
@@ -92,6 +119,34 @@ CMccSymUlStream* CMccSymUlStream::NewLC(
     MAsyncEventHandler* aEventhandler,
     MMccResources* aMccResources,
     CMccRtpManager* aManager, 
+    TFourCC aFourCC,
+    TInt aStreamType,
+    CMccRtpMediaClock& aClock ) 
+    {
+    CMccSymUlStream* s = 
+            new ( ELeave ) CMccSymUlStream( aMccStreamId, 
+                                            aEventhandler, 
+                                            aMccResources,
+                                            aManager, 
+                                            aFourCC, 
+                                            aStreamType,
+                                            aClock );
+    CleanupStack::PushL( s );
+    s->ConstructL();
+    return s;
+    }
+
+
+// -----------------------------------------------------------------------------
+// CMccSymUlStream::NewL
+// Two-phased constructor.
+// -----------------------------------------------------------------------------
+//
+CMccSymUlStream* CMccSymUlStream::NewLC( 
+    TUint32 aMccStreamId, 
+    MAsyncEventHandler* aEventhandler,
+    MMccResources* aMccResources,
+    CMccMsrpManager* aManager, 
     TFourCC aFourCC,
     TInt aStreamType,
     CMccRtpMediaClock& aClock ) 
@@ -388,10 +443,18 @@ void CMccSymUlStream::PrimeL( const TUint32 aEndpointId )
 	
     TBool controlNetworkResources = SetStateL( EStatePrepared, aEndpointId );  
     
-    if ( controlNetworkResources && !LocalStream() )
+    if(this->iType == KMccMessageUplinkStream)
+        {
+        iMsrpmanager->CreateTransmitStreamL (*iDatasink, iCodecInfo);
+        }
+    else if ( controlNetworkResources && !LocalStream())
         {
         iRtpmanager->CreateTransmitStreamL( *iDatasink, iCodecInfo );
         }
+	else
+		{
+		//NOP
+		}
 
     LoadCodecL( iCodecInfo, KNullDesC8 );
         
@@ -415,7 +478,7 @@ void CMccSymUlStream::PlayL( TUint32 aEndpointId,
 	
     TBool controlNetworkResources = SetStateL( EStateStreaming, aEndpointId );
     
-    if ( !LocalStream() )
+    if ( !LocalStream() && (this->iType !=KMccMessageUplinkStream))
         {
         if ( controlNetworkResources )
             {
@@ -445,11 +508,13 @@ void CMccSymUlStream::PauseL( const TUint32 aEndpointId,
 							  TBool aEnableRtcp )
     {
     __SUBCONTROLLER( "CMccSymUlStream::PauseL" )
-    
+        
     SetStateL( EStatePaused, aEndpointId );
-    
-    if ( !LocalStream() )
-        { 
+    if(this->iType != KMccMessageUplinkStream && !LocalStream())
+        {
+        __ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
+        __ASSERT_ALWAYS( iDatapath, User::Leave( KErrArgument ) );
+        
         User::LeaveIfError( iRtpmanager->SetRTCPSendReceive( aEnableRtcp ) );
         }
     
@@ -469,12 +534,16 @@ void CMccSymUlStream::ResumeL( const TUint32 aEndpointId,
     __SUBCONTROLLER( "CMccSymUlStream::ResumeL" )
     
     SetStateL( EStateStreaming, aEndpointId );
-    
-    if ( !LocalStream() )
+    if (this->iType != KMccMessageUplinkStream &&  !LocalStream() )
         { 
+        __ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
+        __ASSERT_ALWAYS( iDatapath, User::Leave( KErrArgument ) );
         User::LeaveIfError( iRtpmanager->SetRTCPSendReceive( aEnableRtcp ) );
         }
-    
+    else
+        {
+        //NOP
+        }
     DoResumeL();
 
     InformStreamStateChange( KMccStreamResumed, aEndpointId );

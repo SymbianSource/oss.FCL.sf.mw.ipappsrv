@@ -40,6 +40,9 @@ const TUid KMccVideoSourceUid   = { 0x102747D6 };
 const TUid KMccVideoSinkUid     = { 0x102747D8 };
 const TUid KMccAnySourceUid     = { 0x10283394 };
 const TUid KMccAnySinkUid       = { 0x10283395 };
+// MSRP Source and Sink UIDs same as KUidMccMsrpSink and Source values
+const TUid KMccMsrpSourceUid     = { 0xA000EBE3 };
+const TUid KMccMsrpSinkUid       = { 0xA000EBE4 };
 
 
 const TUint32 KMccAudioToPrivate = 3;
@@ -53,6 +56,7 @@ const TUint32 KMccNullId = 0xffffffff;
 const TInt KMccLinkGeneral = 100;     
 const TInt KMccLinkLocal = 101;    
 const TInt KMccLinkGeneralVideo = 102;
+const TInt KMccLinkMessage = 120;
 
 // Mcc stream types
 const TInt KMccAudioUplinkStream = 200;
@@ -63,6 +67,9 @@ const TInt KMccVideoDownlinkStream = 204;
 const TInt KMccVideoLocalStream = 205;
 const TInt KMccAudioDownlinkStandbyStream = 206;
 const TInt KMccDtmfStream = 207;
+const TInt KMccMessageUplinkStream = 220;
+const TInt KMccMessageDownlinkStream = 221;
+const TInt KMccMessageLocalStream = 222;
 
 const TInt KMccMaxBundleSize = 40;     
 

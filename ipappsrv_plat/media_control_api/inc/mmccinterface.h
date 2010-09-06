@@ -45,6 +45,8 @@ const TUid KUidMccVideoSink     = { 0x102747D8 };
 const TUid KUidMccTranscoder    = { 0x10282897 };
 const TUid KUidMccAnySource     = { 0x10283394 };
 const TUid KUidMccAnySink       = { 0x10283395 };
+const TUid KUidMccMsrpSource     = { 0xA000EBE3 };
+const TUid KUidMccMsrpSink       = { 0xA000EBE4 };
 
 // MACROS
 
@@ -556,8 +558,35 @@ public: // New functions
      */
     IMPORT_C TInt CancelMediaQualityRequest( 
         const TMccMediaQualityConfig& aConfig );
+   
+    /**
+    * Set remote msrp path and port number for a given session.
+    * @param aSessionId session ID
+    * @param aLinkId link ID
+    * @param aRemoteMsrpPath Remote msrp path to set
+    * @return One of the standard system-wide error codes.
+    */
+    IMPORT_C TInt SetRemoteMsrpPath( TUint32 aSessionId, TUint32 aLinkId,
+                                    TDes8& aRemoteAddr, TDes8& aConnStatus);
      
     /**
+    * Creates a new MCC link with a remote participant. Link creates
+    * new MSRP session with given network settings.
+    * @param aSessionId session ID
+    * @param aLinkType Defines is stream Up- or Downlink
+    * @param aLinkId ID of new link
+    * @param aNetSettings network settings for the link
+    * @param &aLocalMsrpPath Returned LocalMSRPPath from MSRP stack
+    * @return KErrNone if success; otherwise system wide error code.
+    */
+                              
+                              
+    IMPORT_C TInt CreateLink( TUint32 aSessionId,
+        TInt aLinkType,
+        TUint32& aLinkId,
+        TMccMsrpSettings& aNetSettings);
+    
+     /**
      * Returns the reference to handle to controller plugin which interface
      * use for sending custom commands.
      * Client representation of a controller plugin for

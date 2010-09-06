@@ -86,6 +86,53 @@ public: // Data
 
 typedef TPckgBuf<TMccNetSettings> TMccNetSettingsPackage;
 
+class TMccMsrpSettings: public TMccNetSettings
+    {
+public:
+    
+    inline TMccMsrpSettings(TMccNetSettings& aMccNetSettings)
+    {
+    iRemoteAddress = aMccNetSettings.iRemoteAddress;
+    iRemoteRtcpPort = aMccNetSettings.iRemoteRtcpPort;
+    iLocalAddress = aMccNetSettings.iLocalAddress;
+    iLocalPublicAddress = aMccNetSettings.iLocalPublicAddress;
+    iLocalRtcpPort = aMccNetSettings.iLocalRtcpPort;
+    iLocalPublicRtcpPort = aMccNetSettings.iLocalPublicRtcpPort;
+    iMediaQosValue = aMccNetSettings.iMediaQosValue;
+    iIapId = aMccNetSettings.iIapId;
+    
+    iLocalMsrpPath = NULL ;
+    iFileName = NULL;
+    iFileSize = 0;
+    iFileType= NULL;
+    iFileShare= EFalse;
+    iFTProgressNotification = EFalse;
+    };
+    
+    
+    inline TMccMsrpSettings() :
+        TMccNetSettings()
+        {
+        iLocalMsrpPath = NULL;
+        iFileName = NULL;
+        iFileSize = 0;
+        iFileType=NULL;
+        iFileShare = EFalse;
+        iFTProgressNotification = EFalse;
+        };
+            
+    public:
+        //not owned
+        HBufC8*    iLocalMsrpPath;
+        //not owned
+        HBufC16*   iFileName;
+        TInt       iFileSize; 
+        // not owned
+        HBufC8*    iFileType;
+        TBool      iFileShare;
+        TBool      iFTProgressNotification;
+    };
+
 #endif /* MMCCNETWORKSETTINGS_H */
 
 // End of File

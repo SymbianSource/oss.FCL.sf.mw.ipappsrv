@@ -158,6 +158,10 @@ void CMccEvent::RunL()
             case KMccTranscodeInProgress:
             case KMccTranscodeCompleted:
             case KMccMasterKeyStaled:
+            case KMccFileSendCompleted:
+            case KMccFileSendProgressNotification:
+            case KMccFileReceiveCompleted:
+            case KMccFileReceiveProgressNotification:
                 HandleMccMediaEvent( event );
                 break;
             

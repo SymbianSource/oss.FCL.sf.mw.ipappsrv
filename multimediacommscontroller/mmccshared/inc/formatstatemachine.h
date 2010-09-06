@@ -31,16 +31,18 @@
 enum TFormatEncodeState
     {
     EEncodeIdle             = 0,
-    EEmptySourceBuffer      = 1,
-    ESourceBufferEmptied    = 2
+    EWaitForSourceData      = 1,
+    EEmptySourceBuffer      = 2,
+    ESourceBufferEmptied    = 3
     };
 
 // Payload format decoding states
 enum TFormatDecodeState
     {
     EDecodeIdle         = 0,
-    ESourceDataReady    = 1,
-    EEmptyDataToSink    = 2
+    EWaitSourceData     = 1,
+    ESourceDataReady    = 2,
+    EEmptyDataToSink    = 3
     };
 
 // CLASS DECLARATION
@@ -57,6 +59,12 @@ class CMccRtpMediaClock;
 class MPayloadFormatRead
     {
     public:
+        
+        /**
+        * Fill sourcebuffer state chage
+        * @since    Series 60 3.0
+        */
+        virtual void FillSourceBufferL() = 0;
         
         /**
         * Fill sinkbuffer state change

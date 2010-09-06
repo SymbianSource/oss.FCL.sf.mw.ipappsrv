@@ -148,6 +148,15 @@ SOURCE          mcecomfactory.cpp
 SOURCE          mceserial.cpp
 SOURCE          mceevents.cpp
 SOURCE          mcecomserializationcontext.cpp
+SOURCE			mcecomexternalsink.cpp
+SOURCE			mcecomexternalsource.cpp
+SOURCE			mcecommessagestream.cpp
+SOURCE			mcecommsrpsource.cpp
+SOURCE			mcecommsrpsink.cpp
+SOURCE			mcecommessagesource.cpp
+SOURCE			mcecommessagesink.cpp
+SOURCE			mcecommsrpcodec.cpp
+SOURCE			mcecommessagecodec.cpp
  
 
 SOURCEPATH      ../mmcemediamanager/src
@@ -158,6 +167,7 @@ SOURCE          mcesdpcodec.cpp
 SOURCE          mcemediasdpcodec.cpp
 SOURCE          mceaudiosdpcodec.cpp
 SOURCE          mcevideosdpcodec.cpp
+SOURCE          mcemessagesdpcodec.cpp
 SOURCE          mcesrvstream.cpp
 SOURCE          mceadoptedsrvstream.cpp
 SOURCE          mcesrvendpoint.cpp

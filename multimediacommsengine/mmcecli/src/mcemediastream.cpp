@@ -29,6 +29,7 @@
 #include "mceevents.h"
 #include "mceclilogs.h"
 #include "mcesessionobserver.h"
+#include "mcefilesharingobserver.h"
 
 #define _FLAT_DATA static_cast<CMceComMediaStream*>( iFlatData )
 #define FLAT_DATA( data ) _FLAT_DATA->data
@@ -952,17 +953,101 @@ TInt CMceMediaStream::HandleEvent( TMceEvent& aEvent )
             }
         status = KMceEventConsumed;
         }
-    else if ( aEvent.Action() == EMceItcLinkCreated )
+    else if (aEvent.Action() == EMceItcFileSendCompleted )
         {
-        MCECLI_DEBUG("CMceMediaStream::HandleEvent, link created");
-        _FLAT_DATA->SetLocalMediaPort( aEvent.ActionData() );
+        // state will be changed automatically so send state change event
+        MCECLI_DEBUG("CMceMediaStream::HandleEvent, media state changed");
+        SetState( static_cast<CMceMediaStream::TState>( aEvent.ActionData() ) );
+            
+        if ( !HandleMediaError( FLAT_DATA( iState ), 
+                FLAT_DATA( iIsEnabled ), 
+                aEvent.Id().iStatus ) )
+            {
+            Updated();
+            }
+    
+        MCECLI_DEBUG("CMceMediaStream::HandleEvent, EMceItcFileSendCompleted  received");
+        MMceFileSharingObserver* observer = iSession->Manager().FileSharingObserver();
+        if (observer )
+            {
+            observer->SendFileCompleted(aEvent.Id().iStatus);
+            }
         status = KMceEventConsumed;
         }
-    else
+    else if (aEvent.Action() == EMceFileSendInProgress )
         {
-        //NOP
-        MCECLI_DEBUG("CMceMediaStream::HandleEvent, not consumed");
-        }    
+        // state will be changed automatically so send state change event
+        MCECLI_DEBUG("CMceMediaStream::HandleEvent, media state changed");
+        SetState( static_cast<CMceMediaStream::TState>( aEvent.ActionData() ) );
+                         
+        if ( !HandleMediaError( FLAT_DATA( iState ), 
+                FLAT_DATA( iIsEnabled ), 
+                aEvent.Id().iStatus ) )
+            {
+            Updated();
+            }        
+        
+        MCECLI_DEBUG("CMceMediaStream::HandleEvent, EMceFileSendInProgress  received");
+        MMceFileSharingObserver* observer = iSession->Manager().FileSharingObserver();
+        if (observer )
+            {
+            observer->SendFileProgressNotification(aEvent.Id().iSpare1, aEvent.Id().iSpare2);
+            }
+        status = KMceEventConsumed;
+        }
+    else if (aEvent.Action() == EMceItcFileReceiveCompleted )
+        {
+        // state will be changed automatically so send state change event
+        MCECLI_DEBUG("CMceMediaStream::HandleEvent, media state changed");
+        SetState( static_cast<CMceMediaStream::TState>( aEvent.ActionData() ) );
+                                    
+        if ( !HandleMediaError( FLAT_DATA( iState ), 
+                FLAT_DATA( iIsEnabled ), 
+                aEvent.Id().iStatus ) )
+            {
+            Updated();
+            }
+        
+        MCECLI_DEBUG("CMceMediaStream::HandleEvent, EMceItcFileReceiveCompleted  received");
+        MMceFileSharingObserver* observer = iSession->Manager().FileSharingObserver();
+        if (observer )
+            {
+            observer->ReceiveFileCompleted(aEvent.Id().iStatus);
+            }
+        status = KMceEventConsumed;
+        }
+        else if (aEvent.Action() == EMceFileReceiveInProgress )
+            {
+            // state will be changed automatically so send state change event
+            MCECLI_DEBUG("CMceMediaStream::HandleEvent, media state changed");
+            SetState( static_cast<CMceMediaStream::TState>( aEvent.ActionData() ) );
+                                
+            if ( !HandleMediaError( FLAT_DATA( iState ), 
+                    FLAT_DATA( iIsEnabled ), 
+                    aEvent.Id().iStatus ) )
+                {
+                Updated();
+                }
+            
+            MCECLI_DEBUG("CMceMediaStream::HandleEvent, EMceFileReceiveInProgress  received");
+            MMceFileSharingObserver* observer = iSession->Manager().FileSharingObserver();
+            if (observer )
+                {
+                observer->ReceiveFileProgressNotification(aEvent.Id().iSpare1, aEvent.Id().iSpare2);
+                }
+            status = KMceEventConsumed;
+            }
+        else if ( aEvent.Action() == EMceItcLinkCreated )
+            {
+            MCECLI_DEBUG("CMceMediaStream::HandleEvent, link created");
+            _FLAT_DATA->SetLocalMediaPort( aEvent.ActionData() );
+            status = KMceEventConsumed;
+            }
+        else
+            {
+            //NOP
+            MCECLI_DEBUG("CMceMediaStream::HandleEvent, not consumed");
+            }    
         
     MCECLI_DEBUG_DVALUE("CMceMediaStream::HandleEvent, Exit. status", status );
     

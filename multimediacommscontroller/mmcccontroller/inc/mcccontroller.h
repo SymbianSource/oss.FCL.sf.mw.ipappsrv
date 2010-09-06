@@ -424,6 +424,15 @@ class CMccController : public CMMFController,
 		void SetRemoteRtcpAddrL( TMMFMessage& aMessage );
 		
         /**
+        * Sets remote msrp path for given session
+        * @since Series 60 3.0
+        * @param aMessage - [input] Message from clientside
+        * @leave System wide error code if unsuccessful
+        * @return None
+        */
+        void SetRemoteMsrpPathL( TMMFMessage& aMessage );
+		
+        /**
         * Finds given session from session array
         * @since Series 60 3.0
         * @param aSessionID - [input] RTP session ID

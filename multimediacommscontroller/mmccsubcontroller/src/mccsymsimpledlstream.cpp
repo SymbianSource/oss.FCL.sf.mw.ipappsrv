@@ -25,6 +25,7 @@
 #include "mccjitterbuffer.h"
 #include "mccuids.hrh"
 #include "mccrtpmanager.h"
+#include "mccmsrpmanager.h"
 #include "mcccodecconfigurator.h"
 #include "mccinternaldef.h"
 #include "mccvideosink.h"
@@ -61,6 +62,30 @@ CMccSymSimpleDlStream::CMccSymSimpleDlStream(
     iFourCC = aFourCC;
     iRtpMediaClock = &aClock;
     }
+	
+	// -----------------------------------------------------------------------------
+// CMccSymSimpleDlStream::CMccSymSimpleDlStream
+// C++ default constructor can NOT contain any code, that
+// might leave.
+// -----------------------------------------------------------------------------
+//
+CMccSymSimpleDlStream::CMccSymSimpleDlStream( 
+    TUint32 aMccStreamId, 
+    MAsyncEventHandler* aEventhandler, 
+    MMccResources* aMccResources,
+    CMccMsrpManager* aManager, 
+    TFourCC aFourCC,
+    TInt aStreamType,
+	CMccRtpMediaClock& aClock ) : 
+    CMccSymStreamBase( aMccStreamId, 
+                       aEventhandler, 
+                       aMccResources, 
+                       aManager, 
+                       aStreamType )
+    {
+    iFourCC = aFourCC;
+	iRtpMediaClock = &aClock;
+    } 
 
 // -----------------------------------------------------------------------------
 // CMccSymSimpleDlStream::NewL
@@ -89,6 +114,34 @@ CMccSymSimpleDlStream* CMccSymSimpleDlStream::NewLC(
 
     return s;
     }
+	
+// -----------------------------------------------------------------------------
+// CMccSymSimpleDlStream::NewL
+// Two-phased constructor.
+// -----------------------------------------------------------------------------
+//
+CMccSymSimpleDlStream* CMccSymSimpleDlStream::NewLC( 
+    TUint32 aMccStreamId, 
+    MAsyncEventHandler* aEventhandler, 
+    MMccResources* aMccResources,
+    CMccMsrpManager* aManager, 
+    TFourCC aFourCC,
+    TInt aStreamType,
+    CMccRtpMediaClock& aClock ) 
+    {
+    CMccSymSimpleDlStream* s = 
+            new ( ELeave ) CMccSymSimpleDlStream( aMccStreamId, 
+                                                  aEventhandler,
+                                                  aMccResources, 
+                                                  aManager, 
+                                                  aFourCC, 
+                                                  aStreamType,
+												  aClock );
+    CleanupStack::PushL( s );
+    s->ConstructL();
+
+    return s;
+    }	
 
 // -----------------------------------------------------------------------------
 // CMccSymSimpleDlStream::ConstructL
@@ -294,11 +347,17 @@ void CMccSymSimpleDlStream::CreatePayloadFormatDecoderL()
 
     TUid formatuid;
     CMMFFormatDecode* tmp = NULL;
-    
-    formatuid.iUid = KImplUidAnyPayloadFormatDecode;
+    if(this->iType == KMccMessageDownlinkStream)
+        {
+        formatuid.iUid = iCodecInfo.iPayloadFormatDecoder;
+        }
+    else
+        {
+        formatuid.iUid = KImplUidAnyPayloadFormatDecode;
+        }
     
     // Multiplexer is the source of the decoder
-    tmp = CMMFFormatDecode::NewL( formatuid, iMultiplexer );
+    tmp = CMMFFormatDecode::NewL( formatuid, iDatasource );
     
 	tmp->SetSourceDataTypeCode( iCodecInfo.iFourCC, Type() );
 
@@ -335,13 +394,17 @@ void CMccSymSimpleDlStream::CreatePayloadFormatDecoderL()
 //
 void CMccSymSimpleDlStream::PrimeL( const TUint32 aEndpointId )
     {
-    __ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
     __ASSERT_ALWAYS( iDatapath, User::Leave( KErrArgument ) );
 
     TBool controlNetworkResources = SetStateL( EStatePrepared, aEndpointId );
     
-     if ( controlNetworkResources && !LocalStream() )
+    if( this->iType == KMccMessageDownlinkStream )
         {
+        iMsrpmanager->CreateReceiveStreamL( *iDatasource, iCodecInfo );
+        }
+    else if( controlNetworkResources && !LocalStream() )
+        { 
+		__ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
         iRtpmanager->CreateReceiveStreamL( *iDatasource, iCodecInfo );
         }
     
@@ -362,15 +425,15 @@ void CMccSymSimpleDlStream::PlayL(
     TBool /*aStreamPaused*/, 
     TBool aEnableRtcp )
     {
-    __ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
     __ASSERT_ALWAYS( iDatapath, User::Leave( KErrArgument ) );
     
     TBool controlNetworkResources = SetStateL( EStateStreaming, aEndpointId );
     
-    if ( !LocalStream() )
+    if ( !LocalStream() && (this->iType != KMccMessageDownlinkStream) )
         {  
         if ( controlNetworkResources )
             {
+            __ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
             iRtpmanager->StartSessionL();
             }
             
@@ -393,13 +456,14 @@ void CMccSymSimpleDlStream::PlayL(
 //
 void CMccSymSimpleDlStream::PauseL( const TUint32 aEndpointId, TBool aEnableRtcp )
     {
-    __ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
-    __ASSERT_ALWAYS( iDatapath, User::Leave( KErrArgument ) );
     
     SetStateL( EStatePaused, aEndpointId );
     
-     if ( !LocalStream() )
-        { 
+    if(this->iType != KMccMessageDownlinkStream && !LocalStream())
+        {
+        __ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
+        __ASSERT_ALWAYS( iDatapath, User::Leave( KErrArgument ) );
+    
         User::LeaveIfError( iRtpmanager->SetRTCPSendReceive( aEnableRtcp ) );
         }
 
@@ -415,13 +479,14 @@ void CMccSymSimpleDlStream::PauseL( const TUint32 aEndpointId, TBool aEnableRtcp
 //
 void CMccSymSimpleDlStream::ResumeL( const TUint32 aEndpointId, TBool aEnableRtcp )
     {
-    __ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
-    __ASSERT_ALWAYS( iDatapath, User::Leave( KErrArgument ) );
     
     SetStateL( EStateStreaming, aEndpointId );
     
-    if ( !LocalStream() )
-        { 
+    if(this->iType != KMccMessageDownlinkStream && !LocalStream() )
+        {
+        __ASSERT_ALWAYS( iRtpmanager, User::Leave( KErrArgument ) );
+        __ASSERT_ALWAYS( iDatapath, User::Leave( KErrArgument ) );
+    
         User::LeaveIfError( iRtpmanager->SetRTCPSendReceive( aEnableRtcp ) );
         }
 

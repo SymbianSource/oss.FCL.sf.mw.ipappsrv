@@ -597,4 +597,56 @@ inline void TMceVideoStreamSerializer<T>::ExternalizeL( MMceComSerializationCont
         iVideoStream.Codecs()[i]->ExternalizeL( aSerCtx );
         }
     
+    }	
+
+// -----------------------------------------------------------------------------
+// TMceMEssageStreamSerializer::TMceMEssageStreamSerializer
+// -----------------------------------------------------------------------------
+//
+template <class T>
+inline TMceMessageStreamSerializer<T>::TMceMessageStreamSerializer( T& aStream )
+  : iMessageStream( aStream )
+    {
+    }
+
+
+// -----------------------------------------------------------------------------
+// TMceMessageStreamSerializer::InternalizeL
+// -----------------------------------------------------------------------------
+//
+template <class T>
+inline void TMceMessageStreamSerializer<T>::InternalizeL( MMceComSerializationContext& aSerCtx )
+    {
+
+    RReadStream& readStream = aSerCtx.ReadStream();
+    //codecs. presently the codec support for the message streams doesn't exist 
+    TUint32 codecCount = readStream.ReadUint32L();
+    for( TUint i=0;i<codecCount;i++)
+        {
+        // Presently there is no codec support for message streams
+        iMessageStream.AddCodecL( 
+            iMessageStream.BaseFactory().MessageCodecFactory().CreateLC( aSerCtx ) );
+            
+        CleanupStack::Pop();
+        }
+
+    }
+    
+// -----------------------------------------------------------------------------
+// TMceMessageStreamSerializer::ExternalizeL
+// -----------------------------------------------------------------------------
+//
+template <class T>
+inline void TMceMessageStreamSerializer<T>::ExternalizeL( MMceComSerializationContext& aSerCtx )
+    {
+    RWriteStream& writeStream = aSerCtx.WriteStream();
+    
+    //codecs .. currently there is no codec support for Message type streams
+    TUint32 codecCount = iMessageStream.Codecs().Count();
+    writeStream.WriteUint32L( codecCount );
+   // Presently the codec support for message streams doesn't exist in MCE/MCC 
+   for( TUint i=0;i<codecCount;i++)
+        {
+        iMessageStream.Codecs()[i]->ExternalizeL( aSerCtx );
+        }
     }

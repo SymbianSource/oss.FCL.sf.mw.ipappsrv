@@ -47,4 +47,6 @@ EXPORTS
 	?GetParameterL@@YAXKKKKAAVTDesC8@@@Z @ 46 NONAME ; void GetParameterL(unsigned long, unsigned long, unsigned long, unsigned long, class TDesC8 &)
 	?SetParameterL@CMccUlDlClient@@QAEXKKKKABVTDesC8@@@Z @ 47 NONAME ; void CMccUlDlClient::SetParameterL(unsigned long, unsigned long, unsigned long, unsigned long, class TDesC8 const &)
 	?SetRemoteRtcpAddrL@CMccUlDlClient@@QAEXVTInetAddr@@K@Z @ 48 NONAME ; void CMccUlDlClient::SetRemoteRtcpAddrL(class TInetAddr, unsigned long)
+	?InitializeLinkL@CMccUlDlClient@@QAEXAAVTRequestStatus@@KHAAPAVHBufC8@@@Z @ 49 NONAME ; void CMccUlDlClient::InitializeLinkL(class TRequestStatus &, unsigned long, int, class HBufC8 * &)
+	?SetRemoteMsrpPathL@CMccUlDlClient@@QAEXAAVTDes8@@0K@Z @ 50 NONAME ; void CMccUlDlClient::SetRemoteMsrpPathL(class TDes8 &, class TDes8 &, unsigned long)
 

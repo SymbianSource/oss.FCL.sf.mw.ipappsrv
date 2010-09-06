@@ -30,6 +30,8 @@ UID             0x10009D8D 0x10283393
 SOURCEPATH      ../src
 SOURCE          mccanysource.cpp
 SOURCE          mccanysink.cpp
+SOURCE          mccdatasender.cpp
+SOURCE          mccdatareceiver.cpp
 SOURCE			    mccanysourcesinkfactory.cpp
 
 SOURCEPATH      ../data

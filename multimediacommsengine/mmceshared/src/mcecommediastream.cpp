@@ -28,6 +28,10 @@
 #include "mcecomcodec.h"
 #include "cleanupresetanddestroy.h"
 #include "mceclient.pan"
+#include "mcemsrpsource.h"
+#include "mcemsrpsink.h"
+#include "mcemsrpsource.h"
+#include "mceclilogs.h"
 
 #ifdef MCE_COMMON_SERVER_SIDE
 
@@ -401,6 +405,7 @@ CMceComMediaStream::CMceComMediaStream( TMceMediaType aType )
     iLinkId( KMceNotAssigned ),
     iDowngradedEnpoints( EFalse )
     {
+    iRemoteMsrpPath.Zero();
     }
 
 
@@ -630,7 +635,7 @@ void CMceComMediaStream::InitializeL( CMceComSession& aParent )
     if ( iSource )
         {
         iSource->InitializeL( *this );
-        if ( iSource->iType == KMceRTPSource )
+        if ( iSource->iType == KMceRTPSource || iSource->iType == KMceMSRPSource)
             {
             iStreamType = BoundStream() ? EReceiveStream : EReceiveOnlyStream;
             }
@@ -641,7 +646,7 @@ void CMceComMediaStream::InitializeL( CMceComSession& aParent )
         {
         iSinks[i]->InitializeL( *this );
         if ( iStreamType == ELocalStream && 
-             iSinks[i]->iType == KMceRTPSink )
+             (iSinks[i]->iType == KMceRTPSink || iSinks[i]->iType == KMceMSRPSink) )
             {
             iStreamType = BoundStream() ? ESendStream : ESendOnlyStream;
             }
@@ -680,6 +685,24 @@ void CMceComMediaStream::SetRemoteMediaPort( TUint aPort )
     if ( BoundStream() )
         {
         iLinkedStream->iRemoteMediaPort = aPort;
+        }
+        
+    }    
+
+// -----------------------------------------------------------------------------
+// CMceComMediaStream::SetRemoteMsrpPath
+// -----------------------------------------------------------------------------
+//
+void CMceComMediaStream::SetRemoteMsrpPath(TDes8 &aremoteMsrpPath, TDes8 &aConnStatus)
+    {
+    
+    iRemoteMsrpPath = aremoteMsrpPath;
+    iConnStatus = aConnStatus;
+    
+    if ( BoundStream() )
+        {
+        iLinkedStream->iRemoteMsrpPath = aremoteMsrpPath;
+        iLinkedStream->iConnStatus = aConnStatus;
         }
         
     }    
@@ -1296,6 +1319,35 @@ void CMceComMediaStream::EventReceived( TMceMccComEvent& aEvent )
                         session->MediaObserver().EventReceived( aEvent );
                         break;
                         }
+                    // file tranfer events
+                    case KMccFileSendCompleted:
+                        {
+                        aEvent.iItcEvent =EMceItcFileSendCompleted;
+                        aEvent.iItcData = iState;
+                        session->MediaObserver().EventReceived( aEvent );
+                        break;
+                        }
+                    case KMccFileSendProgressNotification:
+                        {
+                        aEvent.iItcEvent =EMceFileSendInProgress;
+                        aEvent.iItcData = iState;
+                        session->MediaObserver().EventReceived( aEvent );
+                        break;
+                        }
+                    case KMccFileReceiveCompleted:
+                        {
+                        aEvent.iItcEvent =EMceItcFileReceiveCompleted;
+                        aEvent.iItcData = iState;
+                        session->MediaObserver().EventReceived( aEvent );
+                        break;
+                        }
+                    case KMccFileReceiveProgressNotification:
+                        {
+                        aEvent.iItcEvent = EMceFileReceiveInProgress;
+                        aEvent.iItcData = iState;
+                        session->MediaObserver().EventReceived( aEvent );
+                        break;
+                        }
                     case KMccLinkCreated:
                         {
                         aEvent.iItcEvent = EMceItcLinkCreated;
@@ -1342,6 +1394,20 @@ void CMceComMediaStream::SetState( TMceMccComEvent& aEvent )
             iState = CMceMediaStream::EStreaming;
             break;
             }
+        // For file transfer use cases
+        case KMccFileSendProgressNotification:
+            iState = CMceMediaStream::EFileSendInProgress;
+            break;
+            // For file transfer use cases    
+        case KMccFileReceiveProgressNotification:
+            iState = CMceMediaStream::EFileReceiveInProgress;
+            break;
+            
+        case KMccFileSendCompleted:
+        case KMccFileReceiveCompleted:
+            iState = CMceMediaStream::EFileTransferCompleted;
+            break;
+            
         case KMccStreamBuffering:
             {
             iState = CMceMediaStream::EBuffering;
@@ -1418,6 +1484,23 @@ void CMceComMediaStream::SetLinkId( TUint32 aLinkId )
     if ( BoundStream() )
         {
         iLinkedStream->iLinkId = aLinkId;
+        }
+        
+    }
+
+
+// -----------------------------------------------------------------------------
+// CMceComMediaStream::SetLocalMsrpPath
+// -----------------------------------------------------------------------------
+//
+void CMceComMediaStream::SetLocalMsrpPath(TDesC8& aLocalMsrpPath)
+    {
+    
+    iLocalMsrpPath = aLocalMsrpPath;
+    
+    if ( BoundStream() )
+        {
+        iLinkedStream->iLocalMsrpPath = aLocalMsrpPath;
         }
         
     }

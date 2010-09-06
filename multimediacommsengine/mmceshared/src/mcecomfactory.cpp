@@ -61,8 +61,23 @@
 #include "mcecomavccodec.h"
 #include "mcecomamrwbcodec.h"
 #include "mceserial.h"
-
-
+#include "mcemessagestream.h"
+#include "mcecommessagestream.h"
+#include "mcemsrpsource.h"
+#include "mcecommsrpsource.h"
+#include "mcemsrpsink.h"
+#include "mcecommsrpsink.h"
+#include "mceexternalsink.h"
+#include "mcecomexternalsink.h"
+#include "mcecomexternalsource.h"
+#include "mcemessagesink.h"
+#include "mcemessagesource.h"
+#include "mcecommessagesink.h"
+#include "mcecommessagesource.h"
+#include "mceexternalsource.h"
+#include "mcemessagecodec.h"
+#include "mcecommessagecodec.h"
+#include "mcecommsrpcodec.h"
 
 // ============================ MEMBER FUNCTIONS ===============================
 
@@ -261,6 +276,11 @@ CMceComMediaStream* TMceComMediaStreamFactory::CreateLC( TMceMediaType aType )
             stream = CMceComVideoStream::NewLC();
             break;
             }
+		case KMceMessage:
+			{
+			stream = CMceComMessageStream::NewLC();
+			break;
+			}
         default:
             {
             break;
@@ -329,6 +349,23 @@ CMceComMediaSource* TMceComSourceFactory::CreateLC( TMceSourceType aType )
             source = CMceComFileSource::NewLC();
             break;
             }
+		case KMceExternalSource:
+            {
+            source = CMceComExternalSource::NewLC();
+            break;
+            }
+            
+		case KMceMessageSource:
+		    {
+		    source = CMceComMessageSource::NewLC();
+		    break;
+		    }
+			
+		case KMceMSRPSource:
+            {
+            source = CMceComMsrpSource::NewLC();
+            break;
+            }
         default:
             {
             break;
@@ -394,6 +431,21 @@ CMceComMediaSink* TMceComSinkFactory::CreateLC( TMceSinkType aType )
             sink = CMceComFileSink::NewLC();
             break;
             }
+		case KMceExternalSink:
+			{
+			sink = CMceComExternalSink::NewLC();
+			break;
+			}
+		case KMceMessageSink:
+		    {
+		    sink = CMceComMessageSink::NewLC();
+		    break;
+		    }
+		case KMceMSRPSink:
+			{
+			sink = CMceComMsrpSink::NewLC();
+			break;
+			}
         default:
             {
             break;
@@ -631,6 +683,70 @@ CMceComVideoCodec* TMceComVideoCodecFactory::CreateLC( MMceComSerializationConte
     streamBuf->SeekL( MStreamBuf::ERead, pos );
     
     CMceComVideoCodec* codec = CreateLC( sdpName );
+    codec->InternalizeL( aSerCtx );
+    return codec;
+    
+    }
+
+// -----------------------------------------------------------------------------
+// TMceComMessageCodecFactory::CreateLC 
+// -----------------------------------------------------------------------------
+//
+CMceComMessageCodec* TMceComMessageCodecFactory::CreateLC( const TBuf8<KMceMaxSdpNameLength> aSdpName )
+    {
+    CMceComMessageCodec* codec = CreateCodecLC( aSdpName );
+    __ASSERT_ALWAYS( codec, User::Leave( KErrNotSupported ) );
+    
+    return codec;
+    
+    }
+
+// -----------------------------------------------------------------------------
+// TMceComMessageCodecFactory::CreateCodecLC 
+// -----------------------------------------------------------------------------
+//
+CMceComMessageCodec* TMceComMessageCodecFactory::CreateCodecLC( const TBuf8<KMceMaxSdpNameLength> aSdpName )
+    {
+    CMceComMessageCodec* codec = NULL; 
+   	
+   	//plain codec 
+    if ( !aSdpName.CompareF(KMceSDPNameMsrp) )
+        {
+        codec = CMceComMsrpCodec::NewLC( aSdpName );
+        }
+   else
+        {
+        codec = NULL;
+        }
+    
+    return codec;
+    
+    }
+
+// -----------------------------------------------------------------------------
+// TMceComMessageCodecFactory::CreateCodecLC 
+// -----------------------------------------------------------------------------
+//
+CMceComMessageCodec* TMceComMessageCodecFactory::CreateCodecLC( TUint /*aPayload*/ )
+    {
+    return NULL;
+    }
+
+// -----------------------------------------------------------------------------
+// TMceComMessageCodecFactory::CreateLC
+// -----------------------------------------------------------------------------
+//
+CMceComMessageCodec* TMceComMessageCodecFactory::CreateLC( MMceComSerializationContext& aSerCtx )
+    {
+    RReadStream& readStream = aSerCtx.ReadStream();
+    
+    MStreamBuf* streamBuf = readStream.Source();
+    TStreamPos pos = streamBuf->TellL( MStreamBuf::ERead );
+    TBuf8<KMceMaxSdpNameLength> sdpName;
+    MceSerial::DecodeL( sdpName, readStream );
+    streamBuf->SeekL( MStreamBuf::ERead, pos );
+    
+    CMceComMessageCodec* codec = CreateLC( sdpName );
     codec->InternalizeL( aSerCtx );
     return codec;
     

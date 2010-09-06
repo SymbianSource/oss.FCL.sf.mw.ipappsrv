@@ -32,6 +32,7 @@
 #include "mmcccodecdtmf.h"
 #include "mmcccodeccn.h"
 #include "mmcccodecamrwb.h"
+#include "mmcccodecmsrp.h"
 
 
 // ============================= LOCAL FUNCTIONS ===============================
@@ -137,6 +138,11 @@ EXPORT_C CMccCodecInformation* CMccCodecInformationFactory::CreateCodecInformati
         codec = CMccCodecCn::NewL();
         CleanupStack::PushL( codec );
         }
+    else if( !aSdpName.CompareF( KMSRPSdpName ) )
+        {
+        codec = CMccCodecMsrp::NewL();
+        CleanupStack::PushL( codec );
+        }
     else
         {
         User::Leave( KErrNotSupported );
@@ -195,6 +201,11 @@ EXPORT_C CMccCodecInformation* CMccCodecInformationFactory::CreateCodecInformati
         {
         codec = CMccCodecCn::NewL();
         }
+    else if ( aFourCC == KMccFourCCIdMSRP )
+        {
+        codec =  CMccCodecMsrp::NewL();
+        }
+
     else
         {
         User::Leave( KErrNotSupported );

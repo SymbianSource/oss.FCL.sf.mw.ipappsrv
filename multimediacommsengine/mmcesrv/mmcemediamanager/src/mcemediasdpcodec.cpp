@@ -29,6 +29,10 @@
 #include "mcesip.h"
 #include "mcemediamanager.h"
 #include "mcenatpluginmanager.h"
+#include "mcemessagesdpcodec.h"
+#include "mcedefs.h"
+#include <mceexternalsink.h>
+#include <mceexternalsource.h>
 
 #include <sdpconnectionfield.h>
 #include <sdpdocument.h>
@@ -40,9 +44,13 @@
 #include <sdpfmtattributefield.h>
 #include <sdporiginfield.h>
 #include <sdpbandwidthfield.h>
+#include <sdpconnectionfield.h>
 #include <mmcccodecinformation.h>
 #include <sdpcodecstringpool.h>
 #include <delimitedpathsegment8.h>
+#include <mcemessagestream.h>
+#include <mcemessagesink.h>
+#include <mcemessagesource.h>
 
 
 // ================= MEMBER FUNCTIONS =======================
@@ -85,8 +93,10 @@ void CMceMediaSdpCodec::EncodeMediaOfferL(
     // Set the fmt list containing all supported payload 
     // types supported by this media
     // i.e. all the rtpmap fields in the pointer array
-    HBufC8* fmtlist = CreateFormatListL( codecs );
-    CleanupStack::PushL( fmtlist ); 
+    // Set the format list to '*' for MESSAGE streams
+    HBufC8* fmtlist;
+    fmtlist = CreateFormatListL( codecs );
+    CleanupStack::PushL( fmtlist );
     codecs.Reset();
 
     aMediaLine.SetFormatListL( *fmtlist );
@@ -98,7 +108,7 @@ void CMceMediaSdpCodec::EncodeMediaOfferL(
     // e.g. a=rtpmap: 97 AMR/8000
     // and ptime and maxptime
     // e.g. a=ptime:20 a=maxptime:40
-    while( codecs.Next( codec ) )
+    while( codecs.Next( codec ) && (aStream.iType != KMceMessage))
         {
         CSdpFmtAttributeField* rtpmap = EncodeRtpmapAttributeLC( *codec );
 
@@ -149,13 +159,38 @@ TMceSipWarningCode CMceMediaSdpCodec::DecodeMediaAnswerL(
     //decode direction or old school hold if necessary                                            
     DecodeDirectionL( aMediaLine, aStream, aSdpDocument, EMceRoleOfferer );
 	        
-    __ASSERT_ALWAYS( codecs.Count() > 0, User::Leave( KErrNotReady ) );
+     // If the type of the source/sink is external then it is expected that the application takes care of
+    // data path and hence the codec count can be zero 
+    TBool Allow = EFalse;
+    if ( IS_SENDSTREAM(&aStream))
+        {
+        if ( (aStream.Source()->Type() == KMceExternalSource) || (aStream.Source()->Type() == KMceMessageSource) )
+            {
+            Allow = ETrue;
+            }
+        }
+    else
+        {
+        for (TInt i=0; i<aStream.Sinks().Count();i++)
+            {
+            if ( (aStream.Sinks()[i]->Type() == KMceExternalSink) || (aStream.Sinks()[i]->Type() == KMceMessageSink) )
+                {
+                Allow = ETrue;
+                }
+            }
+        }
+    
+    if (!Allow)
+        {
+        __ASSERT_ALWAYS( codecs.Count() > 0, User::Leave( KErrNotReady ) );
+        }
+    
     __ASSERT_ALWAYS( aMediaLine.Port() != 0 , User::Leave( KErrNotReady ) );
 
     //decode based on rtpmaps + their media attributes
     TInt decoded = DecodePayloadsL( aMediaLine, aStream, EMceRoleOfferer );
 
-    if ( !decoded )
+    if ( !decoded && !Allow)
         {
         MCEMM_DEBUG("ERROR: No codecs decoded")
         User::Leave( KErrNotReady );
@@ -340,13 +375,41 @@ void CMceMediaSdpCodec::EncodeMediaAnswerL(
     CMceComCodec* codec = NULL;
     CMceComCodec::TIterator codecs( allCodecs, CMceComCodec::TIterator::EFilterIsNegotiated );
 
-    if ( codecs.Count() > 0 ) 
+    // If the type of the source/sink is external then it is expected that the application takes care of
+    // data path and hence the codec count can be zero 
+    TBool CanCodecsBeZero = EFalse;
+    if ( IS_SENDSTREAM(&aStream))
+        {
+        if (aStream.Source()->Type() == KMceExternalSource)
+            {
+            CanCodecsBeZero = ETrue;
+            }
+        }
+       else
+           {
+           for (TInt i=0; i<aStream.Sinks().Count();i++)
+               {
+               if (aStream.Sinks()[i]->Type() == KMceExternalSink)
+                   {
+                   CanCodecsBeZero = ETrue;
+                   }
+               }
+           }
+
+    if ( codecs.Count() > 0 || CanCodecsBeZero) 
         {
         
         // Set the fmt list containing all supported payload 
         // types supported by this media
         // i.e. all the rtpmap fields in the pointer array
         HBufC8* fmtlist = CreateFormatListL( codecs );
+        // Presently for message type streams the codecs will be zero and as per RFC the fomat should be *. 
+	 if (CanCodecsBeZero && codecs.Count() == 0 )
+	 	{
+	 	TPtr8 ptr(fmtlist->Des());
+	 	
+	 	ptr.Append(_L8("*"));
+	 	}
         CleanupStack::PushL( fmtlist ); 
         codecs.Reset();
 
@@ -355,13 +418,21 @@ void CMceMediaSdpCodec::EncodeMediaAnswerL(
         
         MCEMM_DEBUG_SVALUE("encoded formatlist", aMediaLine.FormatList() )
         
-        aMediaLine.SetPortL( aStream.iLocalMediaPort );
+        if(IS_RECEIVESTREAM(&aStream))
+            {
+            aMediaLine.SetPortL( aStream.iLocalMediaPort );
+            }
+        else
+            {
+            aMediaLine.SetPortL( aStream.iRemoteMediaPort );
+            }
+        
         MCEMM_DEBUG_DVALUE("encoded local port", aMediaLine.Port() )
         
         // add the direction attribute
         EncodeDirectionL( aStream, aMediaLine, aSdpDocument, EMceRoleAnswerer );
 
-        while( codecs.Next( codec ) )
+        while( codecs.Next( codec )  && (aStream.iType != KMceMessage) )
             {
             CSdpFmtAttributeField* rtpmap = EncodeRtpmapAttributeLC( *codec );
 
@@ -447,6 +518,27 @@ TInt CMceMediaSdpCodec::DecodeRtpmapLinesL(
     const RPointerArray<CMceComCodec>& allCodecs = CodecsL( aStream );
     CMceComCodec* codec = NULL;
     CMceComCodec::TIterator codecs( allCodecs );
+    if(aStream.iType == KMceMessage)
+        {
+        codecs.Next(codec); 
+        if(codec)
+            {
+            codec->iIsNegotiated = ETrue;  
+            codec->iPayloadType = 120;
+            }
+        
+        if ( aRole == EMceRoleAnswerer )
+            {
+            if ( DecodeRtpmapLineL( aMediaLine, aStream ) )
+                {
+                decoded++;
+                }
+            }
+        else
+            {
+            // NOP
+            }
+        }
     
     RArray<TUint> payloadTypesInMediaLine;
     CleanupClosePushL( payloadTypesInMediaLine );
@@ -677,7 +769,7 @@ CMceComCodec* CMceMediaSdpCodec::DecodeRtpmapLineL(
     CMceComCodec* codec = NULL;
     
     // Ingoring if there is no matching pt in medialine for this rtmpmap line
-    if ( payloadTypesInMediaLine.Find( rtpMapPT ) != KErrNotFound )
+    if ( payloadTypesInMediaLine.Find( rtpMapPT ) != KErrNotFound || (aStream.iType == KMceMessage) )
         {
         codec = CreateCodecLC( aRtpMaptLine );
         if ( codec )
@@ -698,6 +790,49 @@ CMceComCodec* CMceMediaSdpCodec::DecodeRtpmapLineL(
                 aStream.AddCodecL( codec );
                 CleanupStack::Pop( codec );
                 }
+            }    
+        }
+
+    CleanupStack::PopAndDestroy( &payloadTypesInMediaLine );
+
+    MCEMM_DEBUG("CMceMediaSdpCodec::DecodeFmtpLineL(), Exit ")
+    return codec;        
+    }
+
+
+// -----------------------------------------------------------------------------
+// CMceMediaSdpCodec::DecodeRtpmapLineL
+// -----------------------------------------------------------------------------
+//
+CMceComCodec* CMceMediaSdpCodec::DecodeRtpmapLineL( 
+    CSdpMediaField& aMediaLine,
+    CMceComMediaStream& aStream ) const
+    {
+    MCEMM_DEBUG("CMceMediaSdpCodec::DecodeFmtpLineL(), Entry ")
+    
+    CSdpFmtAttributeField* aRtpMaptLine = NULL;
+    RArray<TUint> payloadTypesInMediaLine;
+    CleanupClosePushL( payloadTypesInMediaLine );
+
+    User::LeaveIfError( DecodeFormatList( aMediaLine, payloadTypesInMediaLine ) );
+
+    CMceComCodec* codec = NULL;
+    
+    // Ingoring if there is no matching pt in medialine for this rtmpmap line
+    if ( aStream.iType == KMceMessage )
+        {
+        codec = CreateCodecLC( *aRtpMaptLine );
+        if ( codec )
+            {
+            codec->InitializeL( aStream );
+
+            // check if ptime or maxptime attributes are present
+            DecodeMediaAttributesL( aMediaLine, *codec, *aRtpMaptLine );
+            codec->iIsNegotiated = ETrue;
+            MCEMM_DEBUG_SVALUE("adding codec", codec->iSdpName )
+            aStream.AddCodecL( codec );
+            CleanupStack::Pop( codec );
+
             }    
         }
 
@@ -796,6 +931,7 @@ void CMceMediaSdpCodec::EncodeFmtpAttributeL(
         
     MCEMM_DEBUG("CMceMediaSdpCodec::EncodeFmtpAttributeL(), Exit ")
     }
+
         
 // -----------------------------------------------------------------------------
 // CMceMediaSdpCodec::CreateFormatListL
@@ -1473,6 +1609,22 @@ void CMceMediaSdpCodec::DecodeClientAttributesL(
 	    writeStream.PushL();
         
         aMediaLine.BandwidthFields()[ i ]->EncodeL( writeStream );
+        MCEMM_DEBUG_SVALUE("found attribute", encodeBuf->Ptr( 0 ) )
+        remoteAttributes->AppendL( encodeBuf->Ptr( 0 ) );
+    	
+    	CleanupStack::PopAndDestroy(); // writeStream
+        CleanupStack::PopAndDestroy( encodeBuf ); // encodeBuf
+        }
+
+    for ( TInt i = 0; i < aMediaLine.ConnectionFields().Count(); i++ )
+        {
+        
+    	encodeBuf = CBufFlat::NewL( KMceExternalizeBufferExpandSize );
+    	CleanupStack::PushL( encodeBuf );
+    	RBufWriteStream writeStream( *encodeBuf, 0 );
+	    writeStream.PushL();
+        
+        aMediaLine.ConnectionFields()[ i ]->EncodeL( writeStream );
         MCEMM_DEBUG_SVALUE("found attribute", encodeBuf->Ptr( 0 ) )
         remoteAttributes->AppendL( encodeBuf->Ptr( 0 ) );
     	

@@ -429,6 +429,26 @@ TInt CMceComAudioCodec::DoMccRequireSignalling(
     return action;
     
     }
+
+
+// -----------------------------------------------------------------------------
+// CMceComAudioCodec::DoMccRequireSignalling
+// -----------------------------------------------------------------------------
+//
+TInt CMceComAudioCodec::DoMccRequireSignalling( 
+    const CMceSrvStream& /*aOldStream*/,
+    const CMceSrvStream& /*aCurrentStream*/,
+    const CMccCodecInformation& /*aMccCurentCodec*/, 
+    const CMccCodecInformation& /*aMccUpdateCodec*/ ) const
+    {
+	// MSRP -	Chat Use case
+    TInt action = KMceNoSignalling;
+        
+    return action;
+    
+    }
+
+
     
 // -----------------------------------------------------------------------------
 // CMceComAudioCodec::DoMccAdjustL

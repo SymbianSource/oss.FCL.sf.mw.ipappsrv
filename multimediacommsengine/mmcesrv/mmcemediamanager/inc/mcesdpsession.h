@@ -299,7 +299,7 @@ public: //update handling
         
         void PrepareForAnswerEncodeL( CSdpMediaField& aMediaLine );
         
-        CSdpMediaField* CreateMediaLineLC( CMceComMediaStream& aStream ) const;
+        CSdpMediaField* CreateMediaLineLC( CMceComMediaStream& aStream );
         
         TBool MediaLineLC( CSdpMediaField*& aMediaLine, 
                            CMceSdpCodec*& sdpCodec,
@@ -352,6 +352,9 @@ public: //update handling
         * C++ default constructor
         */
         CMceSdpSession( CMceComSession& aSession, CMceMediaManager& aManager );  
+        
+        RStringF iProtocol;
+        RStringF iProtocolTls;
     
     public:    // Owned Data
 

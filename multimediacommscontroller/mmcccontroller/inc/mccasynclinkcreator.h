@@ -144,6 +144,9 @@ private: // data
      * State of link creation.
      */
     TBool iLinkCreated;
+    
+    HBufC* iFileName;
+    HBufC8* iFileType;
 
     };
 

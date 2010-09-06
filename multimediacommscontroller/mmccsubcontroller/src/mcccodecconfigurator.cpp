@@ -192,6 +192,22 @@ void MccCodecConfigurator::ConfigureCodecL(
             User::Leave( KErrArgument );
             }
         }
+    else if( KMccAnySourceUid == aDatasource.DataSourceType() )
+        {
+        __SUBCONTROLLER( "CMccCodecConfigurator::ConfigureCodecL, KMccAnySourceUid" )
+        
+        CPayloadFormatWrite& formatEnc = static_cast<CPayloadFormatWrite&>( aDatasink );
+        const TMccCodecInfoBuffer buffer( aCodec );
+        formatEnc.ConfigurePayloadFormatL( buffer, aClock );
+        }
+    else if( KMccAnySinkUid == aDatasink.DataSinkType() && KMccMsrpSourceUid != aDatasource.DataSourceType())
+        {
+        __SUBCONTROLLER( "CMccCodecConfigurator::ConfigureCodecL, KMccAnySinkUid" )
+        
+        CPayloadFormatRead& formatDec = static_cast<CPayloadFormatRead&>( aDatasource );
+        const TMccCodecInfoBuffer buffer( aCodec );
+        formatDec.ConfigurePayloadFormatL( buffer );
+        }
     else
         {
 		__SUBCONTROLLER( "MccCodecConfigurator::ConfigureCodecL, KErrArgument" )

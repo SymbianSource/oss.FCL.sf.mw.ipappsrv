@@ -50,6 +50,23 @@ _LIT8( KMceSDPNameH2632000, "H263-2000" );
 _LIT8( KMceSDPNameH2631998, "H263-1998" );
 _LIT8( KMceSDPNameH264, "H264" );
 
+_LIT8( KMceSDPNameMsrp, "message codec" );
+_LIT8( KMceSDPNamePath, "path" );
+_LIT8( KMceSDPNameAcceptTypes, "accept-types" );
+_LIT8( KMceSDPNameAcceptWrappedTypes, "accept-wrapped-types" );
+_LIT8( KMCESDPNameFileselector, "file-selector");
+_LIT8( KMCESDPNameFiletransferid, "file-transfer-id");
+_LIT8( KMCESDPNameFiledisposition, "file-disposition");
+_LIT8(KMceSDPNameConnection, "connection");
+_LIT8( KMceSDPFileName, "name:");
+_LIT8( KMceSDPFileType, " type:");
+_LIT8( KMceSDPFileSize, " size:");
+_LIT8( KMceMediaMessage,"message");
+_LIT8( KMceSDPMsrpTcp,"TCP/MSRP");
+_LIT8( KMceSDPMsrpTls, "TCP/TLS/MSRP");
+_LIT8( KMceAcceptWrappedTypes, "*");
+
+
 typedef TInt TMceReturnStatus;
 const TMceReturnStatus KMceAsync = 1;
 const TMceReturnStatus KMceReady = 0;
@@ -215,7 +232,17 @@ const TMceSessionModifier KMceSecPreconditions = 6;
     friend class CMceG711CodecTest;\
     friend class CMceSecureInSessionTest;\
     friend class CMceAvcCodecTest;\
-    friend class CMceSecureOutSessionTest;
+    friend class CMceSecureOutSessionTest;\
+    friend class CMceMessageStreamTest;\
+    friend class CMceMsrpSourceTest;\
+    friend class CMceMsrpSinkTest;\
+    friend class CMceExternalSourceTest;\
+    friend class CMceExternalSinkTest;\
+    friend class CMceSessionUtilityTest;\
+    friend class CMceMessageSinkTest;\
+    friend class CMceMessageSourceTest;\
+    friend class CMceMessageCodecTest;\
+    friend class CMceMsrpCodecTest;
 #else
 #define MCE_UNIT_TEST_DEFS
 #endif

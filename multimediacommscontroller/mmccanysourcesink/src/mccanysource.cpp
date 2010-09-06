@@ -24,6 +24,7 @@
 #include "mccanysourcesinklogs.h"
 #include "mccinternalevents.h"
 #include "mccinternaldef.h"
+#include "mccdatareceiver.h"
 
 
 // ============================ MEMBER FUNCTIONS ===============================
@@ -48,6 +49,7 @@ MDataSource* CMccAnySource::NewSourceL( TUid /*aImplementationUid*/,
 void CMccAnySource::ConstructSourceL( const TDesC8& /*aInitData*/ )
     {    	
     __ANYSOURCESINK_CONTROLL( "CMccAnySource::ConstructSourceL" )
+    iDataReceiver = CMccDataReceiver::NewL( *this );
     }
 	    
 // -----------------------------------------------------------------------------
@@ -65,6 +67,11 @@ CMccAnySource::CMccAnySource() : CMccDataSource( KMccAnySourceUid )
 CMccAnySource::~CMccAnySource()
     {   
     __ANYSOURCESINK_CONTROLL( "CMccAnySource::~CMccAnySource" )
+    
+    iBufferToBeFilled = NULL;
+    iConsumer = NULL;
+    
+    delete iDataReceiver;
     }
 
 	
@@ -213,12 +220,13 @@ void CMccAnySource::SourceThreadLogoff()
 // -----------------------------------------------------------------------------
 //
 void CMccAnySource::FillBufferL( 
-	CMMFBuffer* /*aBuffer*/,
-    MDataSink* /*aConsumer*/,
+	CMMFBuffer* aBuffer,
+    MDataSink* aConsumer,
     TMediaId /*aMediaId*/ )
 	{
 	__ANYSOURCESINK_CONTROLL( "CMccAnySource::FillBufferL" )
-	User::Leave( KErrNotSupported );
+	iBufferToBeFilled = aBuffer;
+	iConsumer = aConsumer;
 	}	
                   
 // -----------------------------------------------------------------------------
@@ -258,6 +266,28 @@ void CMccAnySource::SendStreamEventToClient(
 		iAsyncEventHandler->SendEventToClient( internalEvent );
 	    }
 	}
+
+// -----------------------------------------------------------------------------
+// CMccAnySource::DataReceivedL
+// -----------------------------------------------------------------------------
+//	
+void CMccAnySource::DataReceivedL( const TDesC8& aData )
+    {
+    __ANYSOURCESINK_CONTROLL( "CMccAnySource::DataReceivedL, Entry" )
+            
+    if ( iBufferToBeFilled && iConsumer )
+        {
+        CMMFDataBuffer* buffer = static_cast<CMMFDataBuffer*>(iBufferToBeFilled);
+
+        if (buffer->Data().MaxLength() >= aData.Length())
+            {            
+            buffer->Data().Copy( aData );
+            iConsumer->BufferFilledL( iBufferToBeFilled );
+        	iBufferToBeFilled = 0;
+        	iConsumer = 0;
+      		}      		
+        }
+    }
 
 // End of file
 

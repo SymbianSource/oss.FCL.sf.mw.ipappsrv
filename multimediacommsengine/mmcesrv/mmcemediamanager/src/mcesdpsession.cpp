@@ -32,7 +32,14 @@
 #include <sdpdocument.h>
 #include <sdpbandwidthfield.h>
 #include <siptoheader.h>
+#include <mcemessagestream.h>
+#include <mcemsrpsource.h>
+#include <mcemsrpsink.h>
 
+#include <mcedefs.h>
+#include <mcemessagestream.h>
+#include "mcemessagesdpcodec.h"
+#include "mcecommsrpsink.h"
 #include "mcemediadefs.h"
 #include "mcesdpsession.h"
 #include "mcecomsession.h"
@@ -46,6 +53,8 @@
 #include "mcepreconditions.h"
 #include "mcemediaobserver.h"
 #include "mcemediastate.h"
+#include "mcecommessagestream.h"
+#include "mcecommsrpsource.h"
 
 
 _LIT8(KTBCP, "TBCP"); 
@@ -134,6 +143,8 @@ CMceSdpSession::~CMceSdpSession()
         {
         Backup()->DetachSDPSession();
         }
+    iProtocol.Close();
+    iProtocolTls.Close();
     }
 
 // -----------------------------------------------------------------------------
@@ -165,7 +176,7 @@ CSdpDocument* CMceSdpSession::CreateOfferL(
     MCEMM_DEBUG("CMceSdpSession::CreateOfferL(), Entry ")
     
     CSdpDocument* sdpDocument = NULL;
-
+    TBuf8<256> tempMsrpPath;
     if ( aType == CMceSdpSession::ERefresh )
         {
         User::LeaveIfNull( iSdpDocument );
@@ -207,6 +218,20 @@ CSdpDocument* CMceSdpSession::CreateOfferL(
     for ( TInt index = 0; index < streams.Count(); index++ )
         {
         mediastream = streams[ index ];
+        
+        if(streams.Count() == 2 && mediastream->iType == KMceMessage) 
+        { 
+            if (mediastream->iStreamType == CMceComMediaStream::ESendOnlyStream && (mediastream->iLocalMsrpPath.Length()))
+                {
+                tempMsrpPath = mediastream->iLocalMsrpPath;
+                //mediastream->iLocalMsrpPath.Zero();
+                }
+            else if(mediastream->iStreamType == CMceComMediaStream::EReceiveOnlyStream && !(mediastream->iLocalMsrpPath.Length()))
+                {
+                mediastream->iLocalMsrpPath = tempMsrpPath;
+                }
+        }
+        
         TBool add = MediaLineLC( mediaLine, sdpCodec, mediastream,
                                  mediaLines, streams );
         if ( mediaLine )
@@ -218,6 +243,14 @@ CSdpDocument* CMceSdpSession::CreateOfferL(
                 }
             mediastream = mediastream->OfferStream();//downlink
             sdpCodec->PrepareForEncodeL( *mediastream, *mediaLine );
+            
+            if (mediastream->iType == KMceMessage)
+                {                
+                CMceMessageSdpCodec* codec = static_cast<CMceMessageSdpCodec* >(sdpCodec);
+                codec->EncodeMessageMediaAttributesL(reinterpret_cast<CMceComMessageStream&>(*mediastream), 
+                        *mediaLine);           
+                }
+            
             sdpCodec->EncodeMediaOfferL( *mediastream, *mediaLine, *sdpDocument );
             if ( add )
                 {
@@ -405,6 +438,7 @@ TInt CMceSdpSession::DecodeAnswerL(
 	                    }
 	                else //rejected
 	                    {
+			    		mediastream->SetLocalMediaPort(0);
 	                    mediastream->SetDirection( SdpCodecStringConstants::EAttributeInactive );
 	                    mediastream->SdpIndex() = KErrNotFound;
 	                    }
@@ -679,6 +713,14 @@ CSdpDocument& CMceSdpSession::CreateAnswerL(
                 mediastream = mediastream->OfferStream();//downlink
                 sdpCodec->PrepareForEncodeL( *mediastream, *mediaLine );
                 PrepareForAnswerEncodeL( *mediaLine );
+
+		  // encode the message specific attributes to the m-line 
+		  if (mediastream->iType  == KMceMessage)
+		  	{
+		  	static_cast<CMceMessageSdpCodec*>(sdpCodec)->EncodeMessageMediaAttributesL(
+		  	        static_cast<CMceComMessageStream&>(*mediastream), *mediaLine);
+		  	}
+		  
                 sdpCodec->EncodeMediaAnswerL( *mediastream, *mediaLine, *iSdpDocument );
                 }
             }
@@ -739,10 +781,65 @@ void CMceSdpSession::PrepareForAnswerEncodeL( CSdpMediaField& aMediaLine )
 // -----------------------------------------------------------------------------
 //
 CSdpMediaField* CMceSdpSession::CreateMediaLineLC( 
-    CMceComMediaStream& aStream ) const
+    CMceComMediaStream& aStream ) 
     {
+    MCEMM_DEBUG("CMceSdpSession::CreateMediaLineLC")
     RStringF protocol = SDP_STRING( SdpCodecStringConstants::EProtocolRtpAvp );
-        
+    
+    if (aStream.iType == KMceMessage)
+        {
+        TBool Secureconn = EFalse;
+        if (aStream.Source()->iType != KMceMSRPSource)
+            {
+            RPointerArray<CMceComMediaSink>& sinks = aStream.Sinks();
+            __ASSERT_ALWAYS(sinks.Count(), User::Leave(KErrArgument));
+            for (TInt i=0; i< sinks.Count(); i++)
+                {
+                if (sinks[i]->iType == KMceMSRPSink)
+                    Secureconn = (reinterpret_cast<CMceComMsrpSink* >(sinks[i])->iSecureConnection);
+                }
+        	}
+		else
+			{ // for Receive streams
+			CMceComMsrpSource* source = static_cast<CMceComMsrpSource*> (aStream.Source());
+			__ASSERT_ALWAYS(source!=NULL, User::Leave(KErrArgument));
+			if (source ->iType == KMceMSRPSource)
+			    Secureconn = (static_cast<CMceComMsrpSource*>(source)->iSecureConnection);			
+			}
+        	
+          if (!Secureconn)
+                {
+                // Make MSRP/TCP as a default protocol for message sessions
+                //iProtocol = iStringPool.OpenFStringL(KMceSDPMsrpTcp);
+                if ( iProtocol.DesC().Length() == 0)
+                    {
+                    iProtocol = SdpCodecStringPool::StringPoolL().OpenFStringL(KMceSDPMsrpTcp);                    
+                    }
+                protocol = iProtocol;
+                }
+            else
+                {
+                // Make MSRP/TCP as a default protocol for message sessions
+                //iProtocol = iStringPool.OpenFStringL(KMceSDPMsrpTls);
+                if (iProtocolTls.DesC().Length() == 0 )
+                    {
+                    iProtocolTls = SdpCodecStringPool::StringPoolL().
+                                                 OpenFStringL(KMceSDPMsrpTls);                    
+                    }
+                protocol = iProtocolTls;
+                }
+          //Parsing Path for Port value
+          TUriParser8 parser;
+          
+          TInt parseValue = parser.Parse(aStream.iLocalMsrpPath); 
+          TBuf8<10> portBuf = parser.Extract(EUriPort);
+          TBuf16<10> portBuf16;
+          portBuf16.Copy(portBuf);
+          TLex iLex(portBuf16);
+
+          iLex.Val(aStream.iLocalMediaPort);
+            } 
+    
     CSdpMediaField* medialine = 
             CSdpMediaField::NewLC( Manager().SdpCodec( aStream )->Media(), 
                                    aStream.iLocalMediaPort,
@@ -926,28 +1023,7 @@ TMceSipWarningCode CMceSdpSession::SetRemoteIpAddressL(
     CSdpConnectionField* connfield = aSdpDocument.ConnectionField();
     const TInetAddr* inetAddr = NULL;
     
-    // find "c-" line from media level
-    TInt index = 0;
-    TBool found = ETrue;
-    while( found && index < mediaLines.Count() )
-        {
-        RPointerArray<CSdpConnectionField>& connfields = 
-                                            mediaLines[index]->ConnectionFields();
-        
-        if ( mediaLines[index++]->Port() > 0 )
-            {
-            TInt cfindex = 0;
-	        TBool cffound = EFalse;
-	        while( !cffound && cfindex < connfields.Count() )
-	            {
-	            inetAddr = connfields[cfindex++]->InetAddress();
-	            cffound = MCE_NOT_NULL_PTR( inetAddr );
-	            }
-	        found = cffound;
-            }
-        }
-    
-    if( connfield && !found )
+    if( connfield )
         {
 		inetAddr = connfield->InetAddress();
 		if( inetAddr )
@@ -956,6 +1032,29 @@ TMceSipWarningCode CMceSdpSession::SetRemoteIpAddressL(
 		    // if present, if not then should be media level
 		    MCE_SET_REMOTE_IP_ADDR( &aSession, inetAddress );
 		    }
+        }
+    
+    if ( !inetAddr )
+        {
+        TInt index = 0;
+        TBool found = ETrue;
+        while( found && index < mediaLines.Count() )
+            {
+            RPointerArray<CSdpConnectionField>& connfields = 
+                                                mediaLines[index]->ConnectionFields();
+            
+            if ( mediaLines[index++]->Port() > 0 )
+                {
+	            TInt cfindex = 0;
+	            TBool cffound = EFalse;
+	            while( !cffound && cfindex < connfields.Count() )
+	                {
+	                inetAddr = connfields[cfindex++]->InetAddress();
+	                cffound = MCE_NOT_NULL_PTR( inetAddr );
+	                }
+	            found = cffound;
+                }
+            }
         }
         
     if ( inetAddr )

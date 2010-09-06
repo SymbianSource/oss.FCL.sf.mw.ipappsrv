@@ -24,6 +24,7 @@
 #include "mccanysourcesinklogs.h"
 #include "mccinternalevents.h"
 #include "mccinternaldef.h"
+#include "mccdatasender.h"
 
 // CONSTANTS
 
@@ -49,6 +50,7 @@ MDataSink* CMccAnySink::NewSinkL( TUid /*aImplementationUid*/,
 void CMccAnySink::ConstructSinkL( const TDesC8& /*aInitData*/ )
     {
     __ANYSOURCESINK_CONTROLL( "CMccAnySink::ConstructSinkL" )
+    iDataSender = CMccDataSender::NewL();
     }
     
 // -----------------------------------------------------------------------------
@@ -66,6 +68,7 @@ CMccAnySink::CMccAnySink() : CMccDataSink( KMccAnySinkUid )
 CMccAnySink::~CMccAnySink()
     {
     __ANYSOURCESINK_CONTROLL( "CMccAnySink::~CMccAnySink" )
+    delete iDataSender;
     }
 
 // -----------------------------------------------------------------------------
@@ -216,13 +219,18 @@ void CMccAnySink::SinkThreadLogoff()
 // CMccAnySink::EmptyBufferL
 // -----------------------------------------------------------------------------
 //
-void CMccAnySink::EmptyBufferL( CMMFBuffer* /*aBuffer*/,
-                  MDataSource* /*aProvider*/,
+void CMccAnySink::EmptyBufferL( CMMFBuffer* aBuffer,
+                  MDataSource* aProvider,
                   TMediaId /*aMediaId*/ )
 	{
 	__ANYSOURCESINK_CONTROLL( "CMccAnySink::EmptyBufferL" )
+    __ASSERT_ALWAYS( aBuffer, User::Leave( KErrArgument ) );
+	__ASSERT_ALWAYS( aProvider, User::Leave( KErrArgument ) );
 	
-	User::Leave( KErrNotSupported );
+    CMMFDataBuffer* dataBuffer = static_cast<CMMFDataBuffer*>( aBuffer );
+	const TDesC8& data = dataBuffer->Data();	
+    iDataSender->Send( data );
+    aProvider->BufferEmptiedL( aBuffer );
 	}	
 
 // -----------------------------------------------------------------------------

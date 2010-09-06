@@ -24,6 +24,7 @@
 //  INCLUDES
 #include <e32base.h>
 #include "mccinternalcodecs.h"
+#include <CMSRP.h>
 
 // CONSTANTS
 
@@ -33,6 +34,7 @@ class MDataSink;
 class MMccEventHandler;
 class TMccEvent;
 class CMccRtpManager;
+class CMccMsrpManager;
 class MMccResources;
 class CMccRtpMediaClock;
 class TMccCreateLink;
@@ -449,6 +451,44 @@ NONSHARABLE_CLASS( CMccSubThreadClientBase ) : public CBase
          */	
         virtual void RemoveContextL( TUint32 aStreamId, 
                                      TUint32 aEndpointId ) = 0;
+        
+        
+        /**
+        * 1st step to create link asynchronously - MSRP
+        * @since Series 60 3.0
+        * @param [input/output] aStatus
+        * @param [input] aIapId
+        * @return void
+        */
+        virtual void InitializeLinkL( TRequestStatus& aStatus,
+                                      TInt aIapId,
+                                      HBufC8* &aLocalMsrpPath);
+
+
+        /**
+        * Gets the codec info of the subthread client
+        * @since Series 60 3.0
+        * @param [output] aCodec The codec info reference where to write
+        * @return void
+        */
+        virtual void GetCodecL( const TUint32 aStreamId, TMccCodecInfo& aCodec );
+        
+        /**
+        * Sets the remote msrp path                    
+        * @since Series 60 3.0
+        * @param [input] aRemMsrpPath Contains the remote msrp path
+        * @return void
+        */
+        virtual void SetRemoteMsrpPathL( TDes8& aRemMsrpPath, TDes8& aConnStatus );
+        
+        virtual void SetFileSharingAttrbs(HBufC16* aFileName, TInt aFileSize, 
+                HBufC8* aFileType, TBool aFTProgressNotification) =0;
+        
+        void SetMsrpObject(CMSRP* aMsrpObject);
+        
+        CMccMsrpManager* iMsrpmanager;
+        
+        TInt GetLinkType();
                                                         
     protected:  // Constructor
 
@@ -496,6 +536,9 @@ NONSHARABLE_CLASS( CMccSubThreadClientBase ) : public CBase
         // Priority settings
         TMMFPrioritySettings iPrioritySettings;
         
+        // Codec information struct
+        TMccCodecInfo iCodecInfo;
+        
         // Flag for session creation
         TBool iSessionCreated;
         
@@ -509,6 +552,9 @@ NONSHARABLE_CLASS( CMccSubThreadClientBase ) : public CBase
     
         // Id of this link
         TUint32 iLinkId;
+        
+        // Local MSRP Path
+        TBuf8<256> iLocalMsrpPath;
         
         // Streams owned by the link
         RPointerArray<CMccSymStreamBase> iStreams;

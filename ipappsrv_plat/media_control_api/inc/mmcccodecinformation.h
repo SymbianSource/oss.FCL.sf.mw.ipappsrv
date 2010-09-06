@@ -48,10 +48,12 @@ _LIT8( KH2631998SdpName, "H263-1998" );
 _LIT8( KH2632000SdpName, "H263-2000" );
 _LIT8( KAVCSdpName, "H264" );
 _LIT8( KAACSdpName, "AAC" );
+_LIT8( KMSRPSdpName, "message codec" );
 _LIT8( KIlbcFmtp, "mode=" );
 _LIT8( KSemicolonSpace, "; " );
 _LIT8( KCommaSign, "," );
 const TInt KPTimeFactor = 1000;
+static const TUid KUidMediaTypeMessage = {0x10289999};
 
 // Maximum buffer length for SDP names
 const TInt KMaxSdpNameLength = 20;
@@ -114,6 +116,9 @@ const TUint32 KMccFourCCIdH263 = 0x461A1B1C;
 
 // ( 'H', '2', '6', '4' )
 const TUint32 KMccFourCCIdAVC = 0x461A1BDD;
+
+// ( 'M', 'S', 'R', 'P' )
+const TUint32 KMccFourCCIdMSRP = 6789;
 
 // Red - not official
 const TUint32 KMccFourCCIdRed = 0x4DDDDDDD;

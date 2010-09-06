@@ -50,10 +50,13 @@ class MMceItc;
 class TMceMediaId;
 class CMceAudioCodec;
 class CMceVideoCodec;
+class CMceMessageCodec;
 class CMceItcSender;
 class TMceTransactionDataContainer;
 class CMceFileSource;
 class TMceIds;
+class MMceDataSinkObserver;
+class MMceFileSharingObserver;
 
 // CLASS DECLARATION
 
@@ -228,6 +231,33 @@ class CMceManager : public CBase
 	    IMPORT_C CDesC8Array* DefaultHeadersL( const TDesC8& aMethod ) const;
 
 	    
+        /**
+        * Sets observer for data sink events.
+        * @param aDataSinkObserver, observer of the event. Ownership is
+		*	     not transferred. May be NULL to remove observer.
+        */
+		IMPORT_C void SetDataSinkObserver(
+					 MMceDataSinkObserver* aDataSinkObserver );
+		
+		
+		/**
+		 * Sets observer for data sink events.
+		 * @param aDataSinkObserver, observer of the event. Ownership is
+		 *        not transferred. May be NULL to remove observer.
+		 */
+		IMPORT_C void SetFileSharingObserver(
+		        MMceFileSharingObserver* aFileSharingObserver );
+				
+	
+		/**
+        * Returns supported message codecs of the system.
+        * @return supported message codecs of the system.
+        */
+        IMPORT_C const RPointerArray<const CMceMessageCodec>& SupportedMessageCodecs() const;
+        
+        /*
+		
+			
 	public: // Functions
 
 	    /**
@@ -292,6 +322,16 @@ class CMceManager : public CBase
         MMceInTransactionObserver* InTransactionObserver() const;
                            
                 
+        /**
+        * Gets data sink observer
+        * @return data sink observer
+        */
+        MMceDataSinkObserver* DataSinkObserver() const;
+        
+        /*
+         * 
+         */
+        MMceFileSharingObserver* FileSharingObserver() const;
         
         /**
         * Gets dtmf observer
@@ -388,7 +428,12 @@ class CMceManager : public CBase
 	     */
 	    void ReceiveSupportedVideoCodecsL();
 	    
-	    /**
+        /**
+         * Receives supported Message codecs
+         */
+        void ReceiveSupportedMessageCodecsL();
+
+        /**
 	    * Session registers itself to manager
 	    * @param aSession the session
 	    * @param aParams parameter list for dialog creation
@@ -522,7 +567,12 @@ class CMceManager : public CBase
 	     */
 	    RPointerArray<const CMceVideoCodec> iSupportedVideoCodecs;
 	    
-	    /**
+        /**
+         * supported message codecs
+         */
+        RPointerArray<const CMceMessageCodec> iSupportedMessageCodecs;
+        
+        /**
 	     * manager receiver for sessions
 	     */
 	    CMceManagerReceiver* iSessionReceiver;
@@ -617,7 +667,17 @@ class CMceManager : public CBase
         * Dtmf observer.
         */
         MMceDtmfObserver* iDtmfObserver;
-                	    
+
+        /**
+        * data sink observer.
+        */
+        MMceDataSinkObserver* iDataSinkObserver;
+        
+        /*
+         * file sharing observer
+         */
+        MMceFileSharingObserver* iFileSharingObserver;
+        
     private: // Reserved for future use
     
         TAny* iReserved;       

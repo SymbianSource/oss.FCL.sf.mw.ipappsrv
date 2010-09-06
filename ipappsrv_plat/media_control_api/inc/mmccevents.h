@@ -71,6 +71,10 @@ const TMccEventType KMccTranscodeCancelled = 26;
 const TMccEventType KMccUnknownMediaReceived = 27;
 const TMccEventType KMccMediaQualityStatus = 28;
 const TMccEventType KMccMasterKeyStaled = 29;
+const TMccEventType KMccFileSendCompleted = 30;
+const TMccEventType KMccFileSendProgressNotification = 31;
+const TMccEventType KMccFileReceiveCompleted = 32;
+const TMccEventType KMccFileReceiveProgressNotification = 33;
 
 const TMccRtcpPacketType KRtcpPacketUndefined = 0;
 const TMccRtcpPacketType KRtcpSdesPacket = 1;

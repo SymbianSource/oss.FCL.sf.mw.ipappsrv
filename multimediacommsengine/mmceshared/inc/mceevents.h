@@ -245,7 +245,9 @@ public:
                   iStream( NULL ),
                   iItcEvent( EMceItcNotAssigned ),
                   iItcData( KMceNotAssigned ),
-                  iItcDataDesC( NULL )
+                  iItcDataDesC( NULL ),
+                  iEventData1(KMceNotAssigned),
+                  iEventData2(KMceNotAssigned)
                     {
                     }
 
@@ -270,7 +272,9 @@ public:
                   iStream( NULL ),
                   iItcEvent( EMceItcNotAssigned ),
                   iItcData( KMceNotAssigned ),
-                  iItcDataDesC( NULL )
+                  iItcDataDesC( NULL ),
+                  iEventData1(KMceNotAssigned),
+                  iEventData2(KMceNotAssigned)
                     {
                     }
 
@@ -291,7 +295,9 @@ public:
                   iStream( NULL ),
                   iItcEvent( EMceItcNotAssigned ),
                   iItcData( KMceNotAssigned ),
-                  iItcDataDesC( NULL )
+                  iItcDataDesC( NULL ),
+                  iEventData1(KMceNotAssigned),
+                  iEventData2(KMceNotAssigned)
                     {
                     }
                   
@@ -320,7 +326,8 @@ public://mce/itc data
     TMceItcCallBack iItcEvent;
     TUint32 iItcData;
     const TDesC8* iItcDataDesC;
-         
+    TUint32 iEventData1;
+    TUint32 iEventData2;
     };
 	
 	

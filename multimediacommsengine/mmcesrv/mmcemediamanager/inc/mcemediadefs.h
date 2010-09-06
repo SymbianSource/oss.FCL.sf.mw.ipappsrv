@@ -47,10 +47,14 @@ const TInt KMceSdpNumericAttributeLength = 11;
     static_cast<CMceComAudioStream&>( stream )
 #define MCE_VIDEO( stream )\
     static_cast<CMceComVideoStream&>( stream )
+#define MCE_MESSAGE(stream)\
+    static_cast<CMceComMessageStream&>(stream)
 
 #define MCE_DEFINE_DECSTR( attr, value )\
     TBuf8<KMceSdpNumericAttributeLength> attr;\
     attr.Num( value, EDecimal );
+#define MCE_DEFINE_MESSAGE(stream, mediastream)\
+    CMceComMessageStream& stream = MCE_MESSAGE(mediastream)
 #define MCE_DEFINE_AUDIO( stream, mediaStream )\
     CMceComAudioStream& stream = MCE_AUDIO( mediaStream )
 #define MCE_DEFINE_AUDIO_CODEC( codec, aCodec )\

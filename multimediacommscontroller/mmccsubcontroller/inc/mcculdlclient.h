@@ -29,6 +29,8 @@
 #include "mmccinterfacedef.h"
 #include "mccinternaldef.h"
 
+#include <CMSRP.h>
+
 // CONSTANTS
 
 // MACROS
@@ -610,6 +612,32 @@ class CMccUlDlClient : public CBase, public MMccEventHandler
                                      TUint32 aStreamId,
                                      TUint32 aEndpointId,
                                      TDesC8& aVal );
+        
+        
+        /**
+        * Initializes link
+        * @since Series 60 3.0
+        * @param [input/output] aStatus Status of the request
+        * @param [input] aLinkId ID of the link
+        * @param [input] aIapId IAP ID
+        * @return void
+        */
+        IMPORT_C void InitializeLinkL( TRequestStatus& aStatus,
+                                       TUint32 aLinkId,
+                                       TInt aIapId,
+                                       HBufC8* &aLocalMsrpPath);    
+        
+        /**
+        * Sets the remote msrp path for aStream
+        * @since Series 60 3.0
+        * @param [input] aRemAddr Denotes the remote msrp path address
+        * @param [input] aLinkId Link location in the array
+        * @leave System wide error code if unsuccessful
+        * @return None
+        */
+        IMPORT_C void SetRemoteMsrpPathL( TDes8& aRemMsrpPath, TDes8& aConnStatus, 
+                                           TUint32 aLinkId ); 
+        
                                                                   
     public: // From MMccEventHandler
         
@@ -622,6 +650,8 @@ class CMccUlDlClient : public CBase, public MMccEventHandler
 	                               TUint32 aLinkId,
 	                               TUint32 aStreamId, 
 	                               TUint32 aEndpointId );
+	    virtual void SetFileShareAttrbs(HBufC16* aFileName, TInt aFileSize, 
+	            HBufC8* aFileType, TBool aFTProgressNotification);
 
     protected:  // New functions
        
@@ -668,7 +698,11 @@ class CMccUlDlClient : public CBase, public MMccEventHandler
     
         // array for storing ul & dl client pointers to streams 
         RPointerArray<CMccSubThreadClientBase> iClientArray;
-
+        
+        TBool iIsMsrpSessionCreated;
+        
+        TInt iLinkCount;
+        
         // member variable for storing session id
         TUint32 iSessionId;
 
@@ -689,6 +723,12 @@ class CMccUlDlClient : public CBase, public MMccEventHandler
         
         // Rtp media clock
         CMccRtpMediaClock* iRtpMediaClock;
+        HBufC16*   iFileName;
+        TInt iFileSize;
+        HBufC8*   iFileType;
+        TBool        iFileShare;
+        TBool iFTProgressNotification;
+        CMSRP*       iMSRP;
                 
     public:     // Friend classes
        

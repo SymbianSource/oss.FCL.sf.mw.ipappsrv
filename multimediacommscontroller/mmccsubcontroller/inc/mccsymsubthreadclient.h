@@ -27,6 +27,7 @@
 #include <mmf/server/mmfdatasource.h>
 #include "mccsubthreadclientbase.h"
 #include "mccinternaldef.h"
+#include <CMSRP.h>
 
 
 // FORWARD DECLARATIONS
@@ -194,6 +195,8 @@ NONSHARABLE_CLASS( CMccSymSubthreadClient ): public CMccSubThreadClientBase,
 		
 		void SetRemoteRtcpAddrL( TInetAddr aRemAddr );
 		
+	    void SetRemoteMsrpPathL( TDes8& aRemMsrpPath, TDes8& aConnStatus );
+		
 		/**
         * 2nd step to create link
         * @since Series 60 3.0
@@ -202,6 +205,15 @@ NONSHARABLE_CLASS( CMccSymSubthreadClient ): public CMccSubThreadClientBase,
         * @return void
         */
 		void InitializeLinkL( TRequestStatus& aStatus, TInt aIapId );
+		
+	    /** MSRP Link
+        * 2nd step to create link
+        * @since Series 60 3.0
+        * @param [input/output] aStatus
+        * @param [input] aIapId
+        * @return void
+        */
+        void InitializeLinkL( TRequestStatus& aStatus, TInt aIapId, HBufC8*& aLocalMsrpPath );
 		
 		/**
         * 3rd step to create link. Creates a RTP session in the subthread
@@ -290,6 +302,11 @@ NONSHARABLE_CLASS( CMccSymSubthreadClient ): public CMccSubThreadClientBase,
 		TInt HandleAmrEvent( const TMMFEvent& aEvent,
 		                     const TMccEvent& aMccEvent );
 		
+		void SetFileSharingAttrbs(HBufC16* aFileName, 
+                                  TInt aFileSize, 
+                                  HBufC8* aFileType,
+                                  TBool aFTProgressNotification);
+		
     private:    // Data
         		        
         // Priority settings
@@ -299,6 +316,11 @@ NONSHARABLE_CLASS( CMccSymSubthreadClient ): public CMccSubThreadClientBase,
 
         // Rtp media clock instance
         CMccRtpMediaClock* iRtpMediaClock;
+        HBufC16*  iFileName;
+        TInt       iFileSize; 
+        HBufC8* iFileType;
+        TBool  iFileShare;
+        TBool iFTProgressNotification;
                         
         #ifdef TEST_EUNIT
         friend class UT_CMccSymSubthreadClient;

@@ -38,6 +38,7 @@ SOURCE          mcccompletecallback.cpp
 SOURCE          mccqoshandler.cpp
 SOURCE          mccqossockethandler.cpp
 SOURCE          mccqoseventmonitor.cpp
+SOURCE          mccmsrpmanager.cpp
 SOURCE          mccrtpmanager.cpp
 SOURCE          mccsymstreambase.cpp
 SOURCE          mccsymdlstream.cpp
@@ -51,6 +52,7 @@ SOURCE          mccrtpkeepalive.cpp
 SOURCE          mccrtpmediaclock.cpp
 SOURCE          mccdtmfdlstream.cpp
 SOURCE          mccdtmfulstream.cpp
+SOURCE			msrpcallbackmgrobserver.cpp
 
 USERINCLUDE     ../inc
 USERINCLUDE     ../../mmccshared/inc
@@ -65,12 +67,14 @@ USERINCLUDE     ../../mmccanypayloadformat/inc
 USERINCLUDE     ../../mmccinterface/inc
 USERINCLUDE     ../../mmcccontroller/inc
 USERINCLUDE     ../../mmccrtpsourcesink/inc
+USERINCLUDE     ../../mmccmsrpsourcesink/inc
 USERINCLUDE     ../../mmccvideosourcesink/inc
 USERINCLUDE     ../../mmccfilesourcesink/inc
 USERINCLUDE     ../../mmccmultiplexer/inc
 USERINCLUDE     ../../mmccredpayloadformat/inc
 
 MW_LAYER_SYSTEMINCLUDE
+SYSTEMINCLUDE	epoc32/include/platform/mw
 
 LIBRARY     euser.lib
 LIBRARY     mmfcontrollerframework.lib
@@ -92,9 +96,11 @@ LIBRARY     G729EncoderIntfc.lib
 LIBRARY     IlbcDecoderIntfc.lib
 LIBRARY     IlbcEncoderIntfc.lib
 LIBRARY     srtp.lib
+LIBRARY     msrpclient.lib
 // Other MCC libraries
 LIBRARY     mmccjitterbuffer.lib
 LIBRARY     mmccmultiplexer.lib
+LIBRARY     inetprotutil.lib
 
 PAGED
 

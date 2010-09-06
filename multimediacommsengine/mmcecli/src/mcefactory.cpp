@@ -19,6 +19,7 @@
 
 
 #include <s32buf.h>
+#include <mcedefs.h>
 
 #include "mceinsession.h"
 #include "mceoutsession.h"
@@ -48,6 +49,15 @@
 #include "mcestreambundle.h"
 #include "mceavsink.h"
 #include "mceavccodec.h"
+#include "mcemessagestream.h"
+#include "mcemsrpsource.h"
+#include "mcemsrpsink.h"
+#include "mceexternalsource.h"
+#include "mceexternalsink.h"
+#include "mcemsrpcodec.h"
+#include "mcemessagesource.h"
+#include "mcemessagesink.h"
+
 
 // ============================ MEMBER FUNCTIONS ===============================
 
@@ -254,7 +264,12 @@ CMceMediaStream* TMceMediaStreamFactory::CreateLC( TMceMediaType aType )
             {
             stream = CMceVideoStream::NewLC();
             break;
-            }            
+            }
+        case KMceMessage:
+            {
+            stream = CMceMessageStream::NewLC();
+            break;
+            }
         default:
             {
             break;
@@ -324,6 +339,21 @@ CMceMediaSource* TMceSourceFactory::CreateLC( TMceSourceType aType )
             source = CMceFileSource::NewLC();
             break;
             }
+        case KMceMSRPSource:
+            {
+            source = CMceMsrpSource::NewLC();
+            break;
+            }
+        case KMceExternalSource:
+            {
+            source = CMceExternalSource::NewLC();
+            break;
+            }
+        case KMceMessageSource:
+            {
+            source = CMceMessageSource::NewLC();
+            break;
+            }     
         default:
             {
             break;
@@ -386,6 +416,21 @@ CMceMediaSink* TMceSinkFactory::CreateLC( TMceSinkType aType )
         case KMceFileSink:
             {
             sink = CMceFileSink::NewLC();
+            break;
+            }
+        case KMceMSRPSink:
+            {
+            sink = CMceMsrpSink::NewLC();
+            break;
+            }
+        case KMceExternalSink:
+            {
+            sink = CMceExternalSink::NewLC();
+            break;
+            }
+        case KMceMessageSink:
+            {
+            sink = CMceMessageSink::NewLC();
             break;
             }
         default:
@@ -598,3 +643,58 @@ CMceVideoCodec* TMceVideoCodecFactory::CreateLC( MMceComSerializationContext& aS
     return codec;    
     }
 
+
+// -----------------------------------------------------------------------------
+// TMceMessageCodecFactory::CreateLC
+// -----------------------------------------------------------------------------
+//
+CMceMessageCodec* TMceMessageCodecFactory::CreateLC( TBuf8<KMceMaxSdpNameLength> aSdpName )
+    {
+    CMceMessageCodec* codec = CreateL( aSdpName );
+    CleanupStack::PushL( codec );
+	return codec;     
+    }
+    
+// -----------------------------------------------------------------------------
+// TMceMessageCodecFactory::CreateL
+// -----------------------------------------------------------------------------
+//
+CMceMessageCodec* TMceMessageCodecFactory::CreateL( TBuf8<KMceMaxSdpNameLength> aSdpName )
+    {
+    CMceMessageCodec* codec = NULL;
+    if( !aSdpName.CompareF(KMceSDPNameMsrp) )
+        {
+        codec = CMceMsrpCodec::NewL( aSdpName );
+        } 
+    //else if( !aSdpName.CompareF(KMceSDPNameRED) )
+    //    {
+    //    codec = CMceRedCodec::NewL( aSdpName );
+    //    } 
+    else
+        {
+        User::Leave( KErrNotSupported );
+        }
+	return codec;
+	        
+    }
+
+// -----------------------------------------------------------------------------
+// TMceMessageCodecFactory::CreateLC
+// -----------------------------------------------------------------------------
+//
+CMceMessageCodec* TMceMessageCodecFactory::CreateLC( MMceComSerializationContext& aSerCtx )
+    {
+    RReadStream& readStream = aSerCtx.ReadStream();
+    
+    MStreamBuf* streamBuf = readStream.Source();
+    TStreamPos pos = streamBuf->TellL( MStreamBuf::ERead );
+    TBuf8<KMceMaxSdpNameLength> sdpName;
+    MceSerial::DecodeL( sdpName, readStream );
+    
+    streamBuf->SeekL( MStreamBuf::ERead, pos );
+    
+    CMceMessageCodec* codec = CreateL( sdpName );
+    CleanupStack::PushL( codec );
+    codec->InternalizeL( aSerCtx );
+    return codec;    
+    }

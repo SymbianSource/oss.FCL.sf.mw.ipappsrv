@@ -171,6 +171,18 @@ public: //new functions
                                 const CMceSrvStream& aStream,
                                 const CMccCodecInformation& aMccCurentCodec, 
                                 const CMccCodecInformation& aMccUpdateCodec ) const;
+    
+    /**
+    * Checks, if signalling is required
+    * @param aStream stream
+    * @param aMccCurentCodec current mcc codec
+    * @param aMccUpdateCodec to be used mcc codec
+    */
+    TInt DoMccRequireSignalling( 
+                                const CMceSrvStream& aOldStream,
+                                const CMceSrvStream& aCurrentStream,
+                                const CMccCodecInformation& aMccCurentCodec, 
+                                const CMccCodecInformation& aMccUpdateCodec ) const;
 
     /**
     * Creates server stream(s) for this codec

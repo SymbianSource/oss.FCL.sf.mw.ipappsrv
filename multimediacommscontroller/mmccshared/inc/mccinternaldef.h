@@ -62,7 +62,7 @@ const TUint8 KMccPTNotDefined = 128;
 // Used to define exitence of codec which is not supported by mcc
 const TUint32 KMccFourCCUnsupported = 0x4EEEEEEE;
 
-const TInt KMccFourCCArraySize = 10;
+const TInt KMccFourCCArraySize = 15;
 
 // Use TPckgBuf<TInt> as a parameter value. Should not overlap with values from API.
 const TUint32 KMccPrerollTime = 60;
@@ -105,6 +105,7 @@ const TUint32 KMccH263ProfileZeroMinBitRateIOP = 64001;
 #define IS_MCC_EVENT(a)\
 ( a.iEventType == KUidMediaTypeAudio ||\
 a.iEventType == KUidMediaTypeVideo ||\
+a.iEventType == KUidMediaTypeMessage ||\
 a.iEventType == KMccFileSinkUid ||\
 a.iEventType == KMccFileSourceUid ||\
 a.iEventType == KMccRtpSourceUid ||\
@@ -116,6 +117,8 @@ a.iEventType == KMccAmrFormatterUid ||\
 a.iEventType == KMccMultiplexerUid ||\
 a.iEventType == KMccDtmfFormatterUid ||\
 a.iEventType == KMccAnySourceUid ||\
+a.iEventType == KMccMsrpSourceUid ||\
+a.iEventType == KMccMsrpSinkUid ||\
 a.iEventType == KMccAnySinkUid )
 
 #define MCC_STREAM_STATE_CHANGE_EVENT( aEvent )\
@@ -134,6 +137,8 @@ a.iEventType == KMccAnySinkUid )
   aEndpointUid == KImplUidRtpDataSink ||\
   aEndpointUid == KImplUidMccVideoSource ||\
   aEndpointUid == KImplUidMccVideoSink ||\
+  aEndpointUid == KImplUidMccMsrpSink ||\
+  aEndpointUid == KImplUidMccMsrpSource ||\
   aEndpointUid == KImplUidMccAnySource ||\
   aEndpointUid == KImplUidMccAnySink )
 
@@ -216,7 +221,8 @@ enum TSrCustomCommandMessages
     EMccTranscodeFile,
     EMccCancelTranscodeFile,
     EMccBindContextIntoStream,
-    EMccRemoveContext
+    EMccRemoveContext,
+    EMccSetRemoteMsrpPath
     };
     
 
@@ -281,7 +287,14 @@ class TMccCreateLink
     	    iLocalRtcpAddress( KInetAddrAny ),
             iIapId( 0 ),
             iIpTOS( 0 ),
-            iMediaSignaling( 0 )
+            iConnStatus(KNullDesC8),
+            iMediaSignaling( 0 ),
+            iLocalMsrpPath(NULL),
+            iFileName(NULL),
+            iFileSize(0),
+            iFileType(NULL),
+            iFileShare(EFalse),
+            iFTProgressNotification(EFalse)
             {}
 
         TUint32 iSessionID;
@@ -292,7 +305,14 @@ class TMccCreateLink
         TInetAddr iLocalRtcpAddress;
         TInt iIapId;
         TInt iIpTOS;
+        TBuf8<10>  iConnStatus;
         TInt iMediaSignaling;
+        TBuf8<150> iLocalMsrpPath;
+        TFileName iFileName;
+        TInt iFileSize;
+        TBuf8<70>  iFileType;
+        TBool iFileShare;
+        TBool iFTProgressNotification;
     };
 
 typedef TPckgBuf<TMccCreateLink> TMccCreateLinkPckg;
@@ -451,6 +471,8 @@ class TMccAddress
         TUint32 iLinkID;
         TUint32 iStreamID;
         TInetAddr iAddress;
+        TBuf8<256> iRemoteMsrpPath;
+        TBuf8<10> iConnStatus;
     };
 
 typedef TPckgBuf<TMccAddress> TMccAddressPckg;

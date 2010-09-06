@@ -300,7 +300,7 @@ TInt CMceComAMRWbCodec::ResolveAllowedBitrates(
 //
 CMceComCodec* CMceComAMRWbCodec::DoMccValidateL( CMccCodecInformation& aMccCodec,
                                                CMceSrvStream& /*aStream*/,
-                                               TMceNegotiationRole aRole )
+                                               TMceNegotiationRole /*aRole*/ )
     {
     //if answerer mcc codec represents the received offer and codec the answer
     //if offerer codec represents the sent offer and mcc codec the answer

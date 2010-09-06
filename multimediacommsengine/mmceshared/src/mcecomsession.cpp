@@ -465,6 +465,8 @@ void CMceComSession::InternalizeFlatL( RReadStream& aReadStream )
    	iServiceType = aReadStream.ReadUint32L();
    	iSipContactAddrSecure = 
    		static_cast<CMceSession::TControlPathSecurityLevel>( aReadStream.ReadUint8L() );
+   	MceSerial::DecodeL(iLocalIpAddress, aReadStream);
+   	MceSerial::DecodeL(iRemoteIpAddress, aReadStream);
     }
 
 
@@ -494,6 +496,8 @@ void CMceComSession::ExternalizeFlatL( RWriteStream& aWriteStream )
     MceSerial::EncodeL(iClientCryptoSuites, aWriteStream);
     aWriteStream.WriteUint32L( iServiceType );
     aWriteStream.WriteUint8L( iSipContactAddrSecure );
+    MceSerial::EncodeL(iLocalIpAddress, aWriteStream);
+    MceSerial::EncodeL(iRemoteIpAddress, aWriteStream);
     }
 
 
@@ -726,6 +730,10 @@ void CMceComSession::UpdateFlatL( CMceComSession& aSession )
     	}
     iServiceType = aSession.iServiceType;
     iSipContactAddrSecure = aSession.iSipContactAddrSecure;
+    
+    iRemoteIpAddress = aSession.iRemoteIpAddress;
+    
+    iLocalIpAddress = aSession.iLocalIpAddress;
     }
 
 // ---------------------------------------------------------

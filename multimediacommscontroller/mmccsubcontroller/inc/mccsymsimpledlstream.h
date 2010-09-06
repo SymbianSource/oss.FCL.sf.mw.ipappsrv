@@ -24,6 +24,7 @@
 #include "mccsymstreambase.h"
 #include "mccrtpdatasource.h"
 #include "mccjitterbufferobserver.h"
+#include "mccmsrpmanager.h"
 
 // FORWARD DECLARATIONS
 class CMMFFormatDecode;
@@ -51,7 +52,16 @@ NONSHARABLE_CLASS( CMccSymSimpleDlStream ) : public CMccSymStreamBase, public MJ
                                              TFourCC aFourCC, 
                                              TInt aStreamType,
                                              CMccRtpMediaClock& aClock );
-        
+        /**
+        * Static constructor
+        */
+        static CMccSymSimpleDlStream* NewLC( TUint32 aMccStreamId, 
+                                             MAsyncEventHandler* aEventhandler,  
+                                             MMccResources* aMccResources,
+                                             CMccMsrpManager* aManager, 
+                                             TFourCC aFourCC, 
+                                             TInt aStreamType,
+											 CMccRtpMediaClock& aClock );   
         /**
         * Destructor.
         */
@@ -188,6 +198,13 @@ NONSHARABLE_CLASS( CMccSymSimpleDlStream ) : public CMccSymStreamBase, public MJ
                                CMccRtpManager* aManager, 
                                TFourCC aFourCC, 
                                TInt aStreamType,
+                               CMccRtpMediaClock& aClock );
+CMccSymSimpleDlStream( TUint32 aMccStreamId, 
+                               MAsyncEventHandler* aEventhandler, 
+                               MMccResources* aMccResources,
+                               CMccMsrpManager* aManager, 
+                               TFourCC aFourCC, 
+                               TInt aStreamType ,
                                CMccRtpMediaClock& aClock );
         
         /**

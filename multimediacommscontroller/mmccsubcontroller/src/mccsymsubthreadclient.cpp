@@ -21,6 +21,7 @@
 #include <mmf/server/mmfdatasource.h>
 #include <mmf/server/mmfdatasink.h>
 
+#include "mmccinterfacedef.h"
 #include "mccsymsubthreadclient.h"
 #include "mccsymulstream.h"
 #include "mccsymdlstream.h"
@@ -28,6 +29,7 @@
 #include "mccdtmfdlstream.h"
 #include "mccdtmfulstream.h"
 #include "mccrtpmanager.h"
+#include "mccmsrpmanager.h"
 #include "amrpayloadformatutil.h"
 #include "mccinternalevents.h"
 #include "mccsubcontrollerlogs.h"
@@ -59,7 +61,18 @@ void CMccSymSubthreadClient::ConstructL()
 	__SUBCONTROLLER( "CMccSymSubthreadClient::ConstructL" )
 	User::LeaveIfNull( iObserver );
 	User::LeaveIfNull( iMccResources );
-    iRtpmanager = CMccRtpManager::NewL( *this, *iMccResources, MccSessionId() );
+	iFileName = NULL;
+	iFileType = NULL;
+	if(this->iLinkType == KMccLinkMessage)
+	    {
+	    TUid uid = {0x123456};
+	    iMsrpmanager = CMccMsrpManager::NewL( *this, *iMccResources, uid );
+	    iFileShare = NULL;
+	    }
+	else
+	    {
+        iRtpmanager = CMccRtpManager::NewL( *this, *iMccResources, MccSessionId() );
+	    }
 	__SUBCONTROLLER( "CMccSymSubthreadClient::ConstructL, exit" )
     }
 
@@ -94,12 +107,22 @@ CMccSymSubthreadClient::~CMccSymSubthreadClient()
     
     iUnusedStreams.Reset();
     iUnusedStreams.Close();
+    delete iFileName;
+    delete iFileType;
     
     if( iRtpmanager )
         {
         iRtpmanager->CloseSession();
         delete iRtpmanager;
-        }    
+        }
+    else if (iMsrpmanager)
+        {
+        delete iMsrpmanager;
+        }
+    else
+        {
+        // NOP
+        }
 	__SUBCONTROLLER( "CMccSymSubthreadClient::~CMccSymSubthreadClient, exit" )
     }
 
@@ -252,7 +275,7 @@ void CMccSymSubthreadClient::OpenL( TInt aStreamType,
     {
 	__SUBCONTROLLER_INT1( "CMccSymSubthreadClient::OpenL for streamId", aStreamId )
 	__SUBCONTROLLER_INT1( "CMccSymSubthreadClient stream type", aStreamType )
-    __ASSERT_ALWAYS( iSessionCreated, User::Leave( KErrNotReady ) );
+    //__ASSERT_ALWAYS( iSessionCreated, User::Leave( KErrNotReady ) );
     __ASSERT_ALWAYS( aDatasource, User::Leave( KErrArgument ) );
     __ASSERT_ALWAYS( aDatasink, User::Leave( KErrArgument ) );
         
@@ -270,7 +293,29 @@ void CMccSymSubthreadClient::OpenL( TInt aStreamType,
                                      sourceType == KMccFileSourceUid &&
                                      sinkType == KMccVideoSinkUid;
     
-    if ( KMccDtmfStream == aStreamType && KMccRtpSourceUid == sourceType )
+    if ( KMccMessageDownlinkStream == aStreamType )
+        {
+        __SUBCONTROLLER( "CMccSymSubthreadClient::OpenL, new CMccSymSimpleDlStream" )      
+        stream = CMccSymSimpleDlStream::NewLC( aStreamId, 
+                                               this, 
+                                               iMccResources,
+                                               iMsrpmanager, 
+                                               aFourCC, 
+                                               aStreamType,
+                                               *iRtpMediaClock);
+        }
+    else if (KMccMessageUplinkStream == aStreamType)
+        {
+        __SUBCONTROLLER( "CMccSymSubthreadClient::OpenL, new CMccSymUlStream" )
+        stream = CMccSymUlStream::NewLC( aStreamId, 
+                                         this, 
+                                         iMccResources, 
+                                         iMsrpmanager, 
+                                         aFourCC, 
+                                         aStreamType,
+                                         *iRtpMediaClock );
+        }
+    else if ( KMccDtmfStream == aStreamType && KMccRtpSourceUid == sourceType )
         {
         __SUBCONTROLLER( "CMccSymSubthreadClient::OpenL, new CMccDtmfDlStream" )
         
@@ -448,8 +493,15 @@ void CMccSymSubthreadClient::CloseL( const TUint32 aStreamId )
         iUnusedStreams.Remove( index );
         }
     
-    // No need to fail stream deletion if manager update fails
-    TRAP_IGNORE( iRtpmanager->UpdateL() )
+    if(this->iLinkType == KMccLinkMessage)
+        {
+        // NOP, MSRP sesssion will be deleted in destructor.
+        }
+    else
+        {
+        // No need to fail stream deletion if manager update fails
+        TRAP_IGNORE( iRtpmanager->UpdateL() )
+        }
         
 	__SUBCONTROLLER( "CMccSymSubthreadClient::CloseL, exit" )
     }
@@ -644,6 +696,34 @@ void CMccSymSubthreadClient::SetRemoteRtcpAddrL( TInetAddr aRemAddr )
         }
 	__SUBCONTROLLER( "CMccSymSubthreadClient::SetRemoteRtcpAddrL, exit" )
     }
+
+
+// -----------------------------------------------------------------------------
+// CMccSymSubthreadClient::SetRemoteAddressL
+// Sets the remote address of uplink stream
+// -----------------------------------------------------------------------------
+void CMccSymSubthreadClient::SetRemoteMsrpPathL( TDes8& aRemoteMsrpPath, TDes8& aConnStatus )
+    {    
+    __SUBCONTROLLER( "CMccSymSubthreadClient::SetRemoteMsrpPathL" )
+    __ASSERT_ALWAYS( iMsrpmanager, User::Leave( KErrArgument ) );
+    
+    if (iFileShare )
+        {
+        iMsrpmanager->SetFileShareAttrbs(iFileName, iFileSize, iFileType, iFTProgressNotification);
+        }
+    if(this->iLinkType == KMccLinkMessage) 
+        { 
+        User::LeaveIfError( iMsrpmanager->SetRemoteMsrpPathL( aRemoteMsrpPath, aConnStatus )); 
+        }
+    
+    TInt strmCount = iStreams.Count();
+    for( TInt k = 0; k < strmCount; k++ )
+        {
+        iStreams[k]->ResetCountersL();
+        }
+    __SUBCONTROLLER( "CMccSymSubthreadClient::SetRemoteMsrpPathL, exit" )
+    }
+
     
 // -----------------------------------------------------------------------------
 // CMccSymSubthreadClient::InitializeLinkL
@@ -657,6 +737,31 @@ void CMccSymSubthreadClient::InitializeLinkL( TRequestStatus& aStatus,
     __ASSERT_ALWAYS( !iSessionCreated, User::Leave( KErrAlreadyExists ) );
     iRtpmanager->InitializeL( aStatus, aIapId );
 	__SUBCONTROLLER( "CMccSymSubthreadClient::InitializeLinkL, exit" )
+    }
+
+// -----------------------------------------------------------------------------
+// CMccSymSubthreadClient::InitializeLinkL
+// Initializes the RTP session in the subthread
+// -----------------------------------------------------------------------------
+// 
+void CMccSymSubthreadClient::InitializeLinkL( TRequestStatus& aStatus,
+                                              TInt aIapId,
+                                              HBufC8*& aLocalMsrpPath)
+    {    
+    __SUBCONTROLLER( "CMccSymSubthreadClient::InitializeLinkL" )
+    __ASSERT_ALWAYS( !iSessionCreated, User::Leave( KErrAlreadyExists ) );
+    
+    //Create MSRP session
+    iMsrpmanager->iMsrpSession = iMsrpmanager->CreateMSRPSessionL(*iMsrpmanager->iMsrpObserver, aIapId);
+    
+    
+    iSessionCreated = ETrue;
+    
+    aLocalMsrpPath = iMsrpmanager->GetLocalMSRPPath().Alloc();
+    
+    TRequestStatus* status = &aStatus;
+    User::RequestComplete(status, KErrNone);
+    __SUBCONTROLLER( "CMccSymSubthreadClient::InitializeLinkL, exit" )
     }
 
 // -----------------------------------------------------------------------------
@@ -753,8 +858,14 @@ void CMccSymSubthreadClient::UnuseL( TUint32 aStreamId )
 void CMccSymSubthreadClient::GetLocalIpAddressesL( TMccCreateLink& aClientData )
 	{
 	__SUBCONTROLLER( "CMccSymSubthreadClient::GetLocalIpAddressesL" )
-	
-	iRtpmanager->GetLocalIpAddressesL( aClientData );
+	if(this->iLinkType == KMccLinkMessage)
+	    {
+	    iMsrpmanager->GetLocalIpAddressesL( aClientData );
+	    }
+	else
+	    {
+	    iRtpmanager->GetLocalIpAddressesL( aClientData );
+	    }
 	                                      
 	__SUBCONTROLLER( "CMccSymSubthreadClient::GetLocalIpAddressesL, exit" )
 	}
@@ -989,6 +1100,28 @@ TInt CMccSymSubthreadClient::HandleAmrEvent(
         }
     return KErrNone;
     }
+
+// -----------------------------------------------------------------------------
+// CMccUlDlClient::SetFileShareAttrbs()
+// stores the File Sharing attributes
+// -----------------------------------------------------------------------------
+//
+void CMccSymSubthreadClient::SetFileSharingAttrbs(HBufC16* aFileName, 
+        TInt aFileSize, 
+        HBufC8* aFileType,
+        TBool aFTProgressNotification) 
+    {
+    __SUBCONTROLLER( "CMccSymSubthreadClient::SetFileSharingAttrbs Entry" )
+    iFileShare = ETrue; 
+    if (NULL!=aFileName )
+        iFileName = aFileName->Des().Alloc();
+    iFileSize = aFileSize;
+    if (NULL!=aFileType )
+        iFileType = aFileType->Des().Alloc();
+    iFTProgressNotification = aFTProgressNotification;
+    __SUBCONTROLLER( "CMccSymSubthreadClient::SetFileSharingAttrbs Exit" )
+    }
+
     
 // ========================== OTHER EXPORTED FUNCTIONS =========================
 

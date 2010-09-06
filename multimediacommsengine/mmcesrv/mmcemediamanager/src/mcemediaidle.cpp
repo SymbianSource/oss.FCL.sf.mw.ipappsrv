@@ -24,6 +24,7 @@
 #include "mcecomsession.h"
 #include "mcesdpsession.h"
 #include "mcemmlogs.h"
+#include "mceofferingmedia.h"
 
 
 // -----------------------------------------------------------------------------
@@ -117,8 +118,17 @@ void TMceMediaIdle::OfferL()
         MCEMM_DEBUG_STREAM( "TMceMediaIdle::OfferL(): validated inactive stream", *stream );
         }
     
-    //set next state, this state will become unusable
-    TMcePreparingOffererStreams::SetAsCurrentStateL( iSession );
+    // Prepare the MCC streams only if the count is greaterthan zero else move to offeringMedia
+    if (iSession.MccStreams().Count() <= 0)
+        {
+        //set next state to offeringmedia
+        TMceOfferingMedia::SetAsCurrentStateL( iSession );
+        }
+	else
+		{
+		//set next state, this state will become unusable
+		TMcePreparingOffererStreams::SetAsCurrentStateL( iSession );            
+		}
     
     MCEMM_DEBUG("TMceMediaIdle::OfferL(), Exit ");
     }

@@ -33,6 +33,7 @@
 #include "mcedefs.h"
 #include "mceclientserver.h"
 #include "mcecomserializationcontext.h"
+#include "mcemessagecodec.h"
 
 class CMceMediaSource;
 class CMceMediaSink;
@@ -104,6 +105,21 @@ public:
 
 	};
 
+class TMceMessageCodecFactory
+	{
+
+public:
+    
+    CMceMessageCodec* CreateL( TBuf8<KMceMaxSdpNameLength> aSdpName );	
+    
+    CMceMessageCodec* CreateLC( TBuf8<KMceMaxSdpNameLength> aSdpName );
+
+    CMceMessageCodec* CreateLC( MMceComSerializationContext& aSerCtx );	
+
+	};
+
+
+
 class TMceFactory
     {
     
@@ -146,7 +162,13 @@ public:
     inline TMceVideoCodecFactory VideoCodecFactory()
         {
         return TMceVideoCodecFactory();
-        }   
+        }
+    
+    inline TMceMessageCodecFactory MessageCodecFactory()
+        {
+        return TMceMessageCodecFactory();
+        }    
+
    	TInt iDummy; 
     };
 

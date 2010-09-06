@@ -780,6 +780,8 @@ class CMceMediaManager : public CBase, public MMccCtrlObserver
         void StopMccStream( CMceSrvStream& aStream );
     
         void SetRemoteAddressL( CMceSrvStream& aStream );
+        
+        void SetRemoteMsrpPathL( CMceSrvStream& aStream );
 
         void PrepareUpdateL( CMceSdpSession& aSession );
 
@@ -941,7 +943,8 @@ class CMceMediaManager : public CBase, public MMccCtrlObserver
         RPointerArray<CMceSdpCodec> iSdpCodecs;
         
         RPointerArray<CMceComFileSource> iTranscodeSessions;
-
+        
+        TBool iMsrpSessionCreated;
         
 
     private:

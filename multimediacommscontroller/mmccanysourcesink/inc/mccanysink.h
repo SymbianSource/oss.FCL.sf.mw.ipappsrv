@@ -24,9 +24,11 @@
 #include <e32std.h>
 #include "mccdatasink.h"
 #include "mmccevents.h"
+#include "mccdatasender.h"
 
 // FORWARD DECLARATIONS
 
+class CMccDataSender;
 /**
 *  
 */
@@ -89,6 +91,8 @@ class CMccAnySink : public CMccDataSink
 	    MAsyncEventHandler* iAsyncEventHandler;
 	    TBool iPaused;
 	    TFourCC iFourCC;
+	    
+	    CMccDataSender* iDataSender;
 
 	#ifdef EUNIT_TEST
         friend class UT_CMccAnySink;

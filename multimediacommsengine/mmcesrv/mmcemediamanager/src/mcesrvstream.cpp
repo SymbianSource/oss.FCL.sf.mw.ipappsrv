@@ -37,6 +37,7 @@
 #include "mcedisplaysink.h"
 #include "mcecamerasource.h"
 
+#include <mcemessagestream.h>
 #include "mceaudiostream.h"
 #include "mcevideostream.h"
 #include "mcesrvstreamiterator.h"
@@ -44,6 +45,10 @@
 #include "mcedtmfcodec.h"
 #include "mcemmlogs.h"
 #include "mcedtmfhandler.h"
+#include "mcecommessagestream.h"
+#include "mcecommessagecodec.h"
+#include "mceexternalsource.h"
+#include "mceexternalsink.h"
 
 #define MCE_MCC_STREAM_STATE_CHANGE_EVENT( event )\
 ( aEvent.iEvent == KMccStreamPrepared || \
@@ -82,6 +87,13 @@ void CMceSrvStream::DecodeL( RPointerArray<CMceSrvStream>& aStreams,
             DecodeVideoL( aStreams, video, aManager );
             break;
             }
+        case KMceMessage:
+            {
+            CMceComMessageStream& message =
+                reinterpret_cast<CMceComMessageStream&>(aStream);
+            DecodeMessageL(aStreams, message, aManager); 
+            break;
+            }
         default:
             {
             User::Leave( KErrNotSupported );
@@ -91,6 +103,49 @@ void CMceSrvStream::DecodeL( RPointerArray<CMceSrvStream>& aStreams,
     MCEMM_DEBUG("CMceSrvStream::DecodeL(), Exit ");
     }
 
+
+
+// -----------------------------------------------------------------------------
+// CMceSrvStream::DecodeMessageL
+// -----------------------------------------------------------------------------
+
+void CMceSrvStream::DecodeMessageL( RPointerArray<CMceSrvStream>& aStreams,
+                                  CMceComMessageStream& aMessage,
+                                  CMceMediaManager& aManager )
+    {
+    MCEMM_DEBUG("CMceSrvStream::DecodeMessageL(), Entry ");
+    
+//Data path for Message stream is handled
+    if(aMessage.Source()->Type() != KMceExternalSource )
+        {
+        for( TInt codecNdx = 0;codecNdx < aMessage.CodecCount();codecNdx++ )
+            {
+            aMessage.CodecL( codecNdx )->SetEnabled( codecNdx == 0 || IS_RECEIVESTREAM( &aMessage ) );
+                
+            for( TInt sinkNdx = 0 ; sinkNdx < aMessage.Sinks().Count() ; sinkNdx++ )
+                {
+                if(aMessage.Sinks()[ sinkNdx ]->Type() == KMceExternalSink)
+                    {
+                    return;
+                    }
+                CMceSrvStream* srvStream = NewL( aManager, aMessage, 
+                                                 *aMessage.Source(),
+                                                 *aMessage.Sinks()[ sinkNdx ],
+                                                 *aMessage.CodecL( codecNdx ) );
+                    CleanupStack::PushL( srvStream );
+                    MCEMM_DEBUG_STREAM( "CMceSrvStream::DecodeMessageL(): decoded message", *srvStream );
+                    aStreams.AppendL( srvStream );
+                    CleanupStack::Pop( srvStream );
+                }
+            }
+        if ( aMessage.BoundStream() && aMessage.Binder() )
+            {
+            DecodeL( aStreams, aMessage.BoundStreamL(), aManager );
+            }
+        }
+
+    MCEMM_DEBUG("CMceSrvStream::DecodeMessageL(), Exit ");
+    }
 
 
 // -----------------------------------------------------------------------------
@@ -686,6 +741,33 @@ void CMceSrvStream::SetLinkId( TUint32 aLinkId )
     {
     Data()().SetLinkId( aLinkId );
     }
+
+// -----------------------------------------------------------------------------
+// CMceSrvStream::RemMsrpPath
+// -----------------------------------------------------------------------------
+//
+TDes8 & CMceSrvStream::RemMsrpPath() const
+    {
+    return Data().iRemoteMsrpPath;
+    }
+
+// -----------------------------------------------------------------------------
+// CMceSrvStream::RemMsrpPath
+// -----------------------------------------------------------------------------
+//
+TDes8 & CMceSrvStream::ConnStatus() const
+    {
+    return Data().iConnStatus;
+    }
+
+// -----------------------------------------------------------------------------
+// CMceSrvStream::SetLinkId
+// -----------------------------------------------------------------------------
+//
+void CMceSrvStream::SetMsrpPath( TDesC8& aLocalMsrpPath )
+    {
+    Data()().SetLocalMsrpPath(aLocalMsrpPath);
+    }
     
     
 // -----------------------------------------------------------------------------
@@ -898,17 +980,20 @@ TInt CMceSrvStream::RequireSignalling( CMceSrvStream& aCurrent,
         MCEMM_DEBUG("CMceSrvStream::RequireSignalling(): codec requires signalling");
         action = KMceRequiresSignalling;
         }
-    else if ( LocalMediaPort() != aCurrent.LocalMediaPort() )
+    
+    else if ( Codec().MccRequireSignalling( *this, aCurrent, aMccCurentCodec, aMccUpdateCodec ) )
+        {
+        MCEMM_DEBUG("CMceSrvStream::RequireSignalling(): codec requires signalling");
+        action = KMceRequiresSignalling;
+        }
+    
+    else if ( LocalMediaPort() != aCurrent.LocalMediaPort() ||
+              Data().RemoteMediaPortChanged( aCurrent.Data().RemoteMediaPort() ) )
     //local port has changed => needs new media session & signaling
         {
         MCEMM_DEBUG("CMceSrvStream::RequireSignalling(): local port changed. requires signalling");
         action = KMceRequiresSignalling;
         }
-    else if ( Data().RemoteMediaPortChanged( aCurrent.Data().RemoteMediaPort() ) )
-    	{
-    	MCEMM_DEBUG("CMceSrvStream::RequireSignalling(): Remote port changed. requires signalling");
-    	action = KMceRequiresSipSignallingOnly;
-    	}
         
     else if ( Data().RemoteRTCPAddressChanged(aCurrent.Data().iRemoteRtcpPort, 
     		 	aCurrent.Data().iRemoteRtcpAddress))

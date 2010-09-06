@@ -47,6 +47,8 @@ CMccAsyncLinkCreator::CMccAsyncLinkCreator(
     iClientData( TMccCreateLinkPckg() ), iSession( aSession )
     {
     CActiveScheduler::Add( this );
+    iFileName = NULL;
+    iFileType = NULL;
     }
 
 // ---------------------------------------------------------------------------
@@ -85,6 +87,8 @@ CMccAsyncLinkCreator* CMccAsyncLinkCreator::NewLC(
 CMccAsyncLinkCreator::~CMccAsyncLinkCreator()
     {
     this->Cancel();
+    delete iFileName;
+    delete iFileType;
     }
 
 // ---------------------------------------------------------------------------
@@ -101,6 +105,12 @@ void CMccAsyncLinkCreator::RunL()
     
     if( KErrNone == iStatus.Int() )
         {
+        if (iClientData().iLinkType == KMccLinkMessage)
+            {
+            RDebug::Print( _L("CMccAsyncLinkCreator::RunL Link Type") );
+            
+            iLinkCreated = ETrue;
+            }
         if ( iLinkCreated == EFalse )
             {                                                           
             iSession->CreateRtpSessionL( iClientData().iLinkID,
@@ -208,10 +218,48 @@ void CMccAsyncLinkCreator::StartLinkCreationL( TMMFMessage& aMessage )
     aMessage.ReadData1FromClientL( iClientData );
 
     iSession->CreateLinkL( iClientData().iLinkID, iClientData().iLinkType );
-    iSession->InitializeLinkL( iStatus,
+    
+    if(iClientData().iLinkType == KMccLinkMessage)
+        {
+        HBufC8* tmpMsrpPath = NULL;
+        iSession->InitializeLinkL( iStatus,
+                                       iClientData().iLinkID,
+                                       iClientData().iIapId,
+                                       tmpMsrpPath);
+        if (NULL != tmpMsrpPath )
+            {
+            iClientData().iLocalMsrpPath.Zero();
+            iClientData().iLocalMsrpPath.Copy(tmpMsrpPath->Des());
+            delete tmpMsrpPath;
+            tmpMsrpPath = NULL;
+            }
+        if ( iClientData().iFileShare )
+            {
+            if (iClientData().iFileName.Length() > 0)
+                {
+                if (NULL != iFileName )
+                    delete iFileName;
+                iFileName = iClientData().iFileName.Alloc();
+                }
+            if (iClientData().iFileType.Length() >0 )
+                {
+                if (NULL != iFileType )
+                    delete iFileType;
+                iFileType = iClientData().iFileType.Alloc();
+                }
+            iSession->SetFileShareAttrbs(iFileName, 
+                    iClientData().iFileSize, 
+                    iFileType,
+                    iClientData().iFTProgressNotification);
+            }
+        }
+    else
+        {
+        iSession->InitializeLinkL( iStatus,
                                iClientData().iLinkID,
                                iClientData().iIapId );
 
+        }
     this->SetActive();
     aMessage.WriteDataToClientL( iClientData );
     }

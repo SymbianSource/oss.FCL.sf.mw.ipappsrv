@@ -61,6 +61,19 @@ void MceSerial::EncodeL( const TDesC8& aString, RWriteStream& aWriteStream )
 // MceSerial::EncodeL
 // -----------------------------------------------------------------------------
 //
+void MceSerial::EncodeL( const TDesC16& aString, RWriteStream& aWriteStream )
+    {
+    aWriteStream.WriteUint32L( aString.Length() );
+    if ( aString.Length() > 0 )
+        {
+        aWriteStream.WriteL( aString );
+        }
+    }
+
+// -----------------------------------------------------------------------------
+// MceSerial::EncodeL
+// -----------------------------------------------------------------------------
+//
 void MceSerial::EncodeL( HBufC8* aString, RWriteStream& aWriteStream )
     {
     if ( aString )
@@ -72,6 +85,49 @@ void MceSerial::EncodeL( HBufC8* aString, RWriteStream& aWriteStream )
         EncodeL( KNullDesC8, aWriteStream );
         }
     }
+
+// -----------------------------------------------------------------------------
+// MceSerial::EncodeL
+// -----------------------------------------------------------------------------
+//
+void MceSerial::EncodeL( HBufC16* aString, RWriteStream& aWriteStream )
+    {
+    if ( aString )
+        {
+        EncodeL( *aString, aWriteStream );
+        }
+    else
+        {
+        EncodeL( KNullDesC, aWriteStream );
+        }
+    }
+
+
+// -----------------------------------------------------------------------------
+// MceSerial::DecodeL
+// -----------------------------------------------------------------------------
+//
+void MceSerial::DecodeL( HBufC16*& aBuffer, RReadStream& aReadStream )
+    {
+   delete aBuffer;
+   aBuffer = NULL;
+       
+   TUint32 len = aReadStream.ReadUint32L();
+   
+    if ( len > 0 )
+        {
+        HBufC16* tmpBuffer = HBufC16::NewLC ( len );
+        TPtr16 bufPtr = tmpBuffer->Des();
+        aReadStream.ReadL( bufPtr, len );
+        CleanupStack::Pop( tmpBuffer );
+        aBuffer = tmpBuffer;
+        }
+    else
+        {
+        aBuffer = KNullDesC().AllocL();
+        }           
+    }
+
 
 // -----------------------------------------------------------------------------
 // MceSerial::DecodeL
@@ -104,9 +160,13 @@ void MceSerial::DecodeL( HBufC8*& aBuffer, RReadStream& aReadStream )
 //
 void MceSerial::DecodeL( CDesC8Array*& aArray, RReadStream& aReadStream )
     {
-    delete aArray;
-    aArray = NULL;
-    
+    if (aArray!=NULL )
+        {
+        aArray->Reset();
+        delete aArray;
+        aArray = NULL;
+        }
+        
     TInt count = aReadStream.ReadUint32L();
 	CDesC8ArrayFlat* tmpArray = new (ELeave) CDesC8ArrayFlat( KMceArrayGranularity );
 	CleanupStack::PushL( tmpArray );
@@ -173,6 +233,86 @@ void MceSerial::EncodeL( RArray<TMceCryptoContext>& aArray,
     	{
     	aWriteStream.WriteInt32L(aArray[i]);
     	}
+    }
+
+
+// -----------------------------------------------------------------------------
+// MceSerial::EncodeL
+// -----------------------------------------------------------------------------
+//
+void MceSerial::EncodeL( RPointerArray<TUriC8>& aArray,
+                         RWriteStream& aWriteStream )
+    {
+    TInt count = aArray.Count();
+    aWriteStream.WriteUint32L( count );
+    for (int i=0; i<count; i++)
+        {
+        TInt length = aArray[i]->UriDes().Length();
+        aWriteStream.WriteUint32L(length);
+        aWriteStream.WriteL(aArray[i]->UriDes());
+        }
+    }
+
+
+// -----------------------------------------------------------------------------
+// MceSerial::EncodeL
+// -----------------------------------------------------------------------------
+//
+void MceSerial::EncodeL(TInetAddr& aAddr, RWriteStream& aWriteStream)
+    {
+    TBuf16<60> buf16; 
+    aAddr.Output(buf16);
+    TBuf8<60> buf8;
+    buf8.Copy(buf16);
+    MceSerial::EncodeL(buf8, aWriteStream);
+    }
+
+
+// -----------------------------------------------------------------------------
+// MceSerial::DecodeL
+// -----------------------------------------------------------------------------
+//
+void MceSerial::DecodeL(TInetAddr& aAddr, RReadStream& aReadStream)
+    {
+    TBuf8<100>  buf8; 
+    MceSerial::DecodeL(buf8, aReadStream);
+    TBuf16<100> buf16;
+    buf16.Copy(buf8);
+    aAddr.Input(buf16);
+    }
+
+// -----------------------------------------------------------------------------
+// MceSerial::DecodeL
+// -----------------------------------------------------------------------------
+//
+void MceSerial::DecodeL( RPointerArray<TUriC8>& aArray,
+        RReadStream& aReadStream )
+    {
+    aArray.ResetAndDestroy();
+    TInt count = aReadStream.ReadUint32L();
+    for (int i=0; i<count; i++)
+        {
+        TInt length = aReadStream.ReadUint32L();
+#if 0      
+        iPath.Zero();
+        aReadStream.ReadL(iPath, length);
+        
+        TUriParser8* parser = new (ELeave) TUriParser8;        
+        User::LeaveIfError(parser->Parse(iPath) );
+        aArray.AppendL( parser);
+#endif  
+        HBufC8* item = HBufC8::NewLC( length );
+        TPtr8 ptr(item->Des());
+        aReadStream.ReadL( ptr , length );        
+
+        TUriParser8* parser = new (ELeave) TUriParser8;        
+        User::LeaveIfError(parser->Parse(ptr) );
+        CleanupStack::Pop(item);        
+        CleanupStack::PushL(parser);
+        aArray.AppendL( parser);
+        CleanupStack::Pop(parser);
+
+        }
     }
 
 // -----------------------------------------------------------------------------

@@ -43,6 +43,7 @@ class CMccCodecInformation;
 class CMccInterface;
 class CMceDtmfHandler;
 class CMceSrvEndpoint;
+class CMceComMessageStream;
 
 
 const TBool KMceSrvStreamCallback = ETrue;
@@ -207,6 +208,21 @@ public: // virtual functions
     * Is adopted
     */
     virtual TBool IsAdopted() const;
+    
+    
+    virtual void SetMsrpPath( TDesC8& aLocalMsrpPath );
+    
+    /**
+    * Gets link id
+    * @return link id
+    */
+    virtual TDes8& RemMsrpPath() const;
+    
+    /**
+    * Gets link id
+    * @return link id
+    */
+    virtual TDes8& ConnStatus() const;
     
 public: // Data access etc
 
@@ -424,6 +440,10 @@ private: //
     static void DecodeVideoL( RPointerArray<CMceSrvStream>& aStreams,
                               CMceComVideoStream& aVideo,
                               CMceMediaManager& aManager );
+							  
+    static void DecodeMessageL( RPointerArray<CMceSrvStream>& aStreams,
+            CMceComMessageStream& aMessage,
+            CMceMediaManager& aManager );
                               
     TBool UseDefaultStartupSequence();
     

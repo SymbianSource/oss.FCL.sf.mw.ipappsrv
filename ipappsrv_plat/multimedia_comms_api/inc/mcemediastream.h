@@ -77,7 +77,10 @@ class CMceMediaStream : public CBase
 	        EDisabled,            // Stream is explicitly disabled
 	        ENoResources,         // Stream has no needed resources to stream
 	        ETranscodingRequired, // Stream requires non-realtime transcoding
-	        ETranscoding          // Stream is transcoding in non-realtime
+	        ETranscoding,           // Stream is transcoding in non-realtime
+			EFileSendInProgress,    // Sending a file is in progress
+	        EFileTransferCompleted, // either send/receive of file is completed
+	        EFileReceiveInProgress // Receiving a file is in progress 
 	        };
 	        
 	public: // Destructor

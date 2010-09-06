@@ -118,7 +118,7 @@ void CMccDlDataPath::PrimeL( TUint32 aEndpointId )
         TBool bufferReference;
         iSourceBuffer = 
             iDataSource->CreateSourceBufferL( iMediaId, bufferReference );
-        __ASSERT_ALWAYS( iSourceBuffer, User::Leave( KErrGeneral ) );
+        //__ASSERT_ALWAYS( iSourceBuffer, User::Leave( KErrGeneral ) ); 
         __ASSERT_ALWAYS( bufferReference, User::Leave( KErrGeneral ) );
         }
     

@@ -196,5 +196,22 @@
 // Plugin Interface UID 
 #define KMmfUidPluginInterfaceTranscoder  0x10282898
 
+
+// -----------------------------------------------------------------------------
+// MSRP\Message SourceSink
+// -----------------------------------------------------------------------------
+// Plugin DLL UID
+#define KDllUidMccMsrpSourceSink         0xA000EBE2
+
+// Interface Implementation UIDs
+#define KImplUidMccMsrpSource            0xA000EBE3      // MMF MDataSource interface
+#define KImplUidMccMsrpSink              0xA000EBE4      // MMF MDataSink interface
+
+#define KDllUidMsrpPayloadFormat            0x10299988
+#define KImplUidMsrpPayloadFormatDecode     0x10288888
+#define KImplUidMsrpPayloadFormatEncode     0x10289999
+
+
+
 #endif /* MCCUIDS_HRH */
 

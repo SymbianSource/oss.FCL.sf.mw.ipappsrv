@@ -30,6 +30,7 @@
 #include "mceinsession.h"
 #include "mceaudiocodec.h"
 #include "mcevideocodec.h"
+#include "mcemessagecodec.h"
 #include "mcefilesource.h"
 #include "mceevent.h"
 #include "mcerefer.h"
@@ -42,6 +43,9 @@
 #include "mceevents.h"
 #include "mceclilogs.h"
 #include "mcecomfilesource.h"
+#include "mcemessagecodec.h"
+#include "mcemsrpcodec.h"
+#include "mcedatasinkobserver.h"
 
 // ============================ MEMBER FUNCTIONS ===============================
 
@@ -90,7 +94,7 @@ EXPORT_C CMceManager::~CMceManager()
     
     iSupportedAudioCodecs.ResetAndDestroy();
     iSupportedVideoCodecs.ResetAndDestroy();
-    
+    iSupportedMessageCodecs.ResetAndDestroy();
     iTranscodingFiles.Reset();
     iTranscodingFiles.Close();
     
@@ -222,6 +226,29 @@ EXPORT_C void CMceManager::SetDtmfObserver(
 	iDtmfObserver = aDtmfObserver;	
 	}
 
+//Implement Observer for MSRP messages 
+// -----------------------------------------------------------------------------
+// CMceManager::SetDataSinkObserver
+// -----------------------------------------------------------------------------
+//
+EXPORT_C void CMceManager::SetDataSinkObserver(
+			 MMceDataSinkObserver* aDataObserver )
+	{
+	iDataSinkObserver = aDataObserver;	
+	}
+
+//Implement Observer for MSRP file sharing callbacks 
+// -----------------------------------------------------------------------------
+// CMceManager::SetFileSharingObserver
+// -----------------------------------------------------------------------------
+//
+EXPORT_C void CMceManager::SetFileSharingObserver(
+                MMceFileSharingObserver* aFileSharingObserver )
+    {
+    iFileSharingObserver = aFileSharingObserver;
+    }
+
+
 // -----------------------------------------------------------------------------
 // CMceManager::SupportedAudioCodecs
 // -----------------------------------------------------------------------------
@@ -240,6 +267,16 @@ EXPORT_C const RPointerArray<const CMceVideoCodec>&
 CMceManager::SupportedVideoCodecs() const
     {
     return iSupportedVideoCodecs;
+    }
+
+// -----------------------------------------------------------------------------
+// CMceManager::SupportedMessageCodecs
+// -----------------------------------------------------------------------------
+//
+EXPORT_C const RPointerArray<const CMceMessageCodec>&
+CMceManager::SupportedMessageCodecs() const
+    {
+    return iSupportedMessageCodecs;
     }
     
 // -----------------------------------------------------------------------------
@@ -570,6 +607,15 @@ MMceInTransactionObserver* CMceManager::InTransactionObserver() const
     }
     
         
+//Implement Observer for MSRP messages 
+// -----------------------------------------------------------------------------
+// CMceEventManager::DataSinkObserver
+// -----------------------------------------------------------------------------
+//    
+MMceDataSinkObserver* CMceManager::DataSinkObserver() const
+    {
+    return iDataSinkObserver;
+    }
 
 // -----------------------------------------------------------------------------
 // CMceEventManager::DtmfObserver
@@ -578,6 +624,16 @@ MMceInTransactionObserver* CMceManager::InTransactionObserver() const
 MMceDtmfObserver* CMceManager::DtmfObserver() const
     {
     return iDtmfObserver;
+    }
+
+//Implement Observer for MSRP file sharing callbacks 
+// -----------------------------------------------------------------------------
+// CMceManager::SetFileSharingObserver
+// -----------------------------------------------------------------------------
+//
+MMceFileSharingObserver* CMceManager::FileSharingObserver( ) const
+    {
+    return iFileSharingObserver;
     }
     
 // -----------------------------------------------------------------------------
@@ -1007,6 +1063,8 @@ void CMceManager::ConstructL()
     
     ReceiveSupportedAudioCodecsL();
     ReceiveSupportedVideoCodecsL();
+    ReceiveSupportedMessageCodecsL();
+    
     	                           
     User::LeaveIfError( iServerSession->SendClientUid( iAppUid ) );
 
@@ -1083,6 +1141,21 @@ void CMceManager::ReceiveSupportedVideoCodecsL()
     MCECLI_DEBUG("CMceManager::ReceiveSupportedVideoCodecsL, Exit");
     }
     
+// -----------------------------------------------------------------------------
+// CMceManager::ReceiveSupportedMessageCodecsL
+// -----------------------------------------------------------------------------
+//
+void CMceManager::ReceiveSupportedMessageCodecsL() 
+    {
+    MCECLI_DEBUG("CMceManager::ReceiveSupportedMessageCodecsL, Entry");
+    
+    CMceMsrpCodec* codec = CMceMsrpCodec::NewLC( KMceSDPNameMsrp() );            
+    iSupportedMessageCodecs.AppendL( codec );
+    CleanupStack::Pop( codec );
+    
+    MCECLI_DEBUG("CMceManager::ReceiveSupportedMessageCodecsL, Exit");
+    } 
+
     
 // -----------------------------------------------------------------------------
 // CMceManager::NextMediaId

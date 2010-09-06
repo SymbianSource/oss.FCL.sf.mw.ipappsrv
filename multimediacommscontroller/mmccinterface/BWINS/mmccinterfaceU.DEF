@@ -47,4 +47,6 @@ EXPORTS
 	?NewL@CMccSecureInterface@@SAPAV1@AAVCMccInterface@@@Z @ 46 NONAME ; class CMccSecureInterface * CMccSecureInterface::NewL(class CMccInterface &)
 	?RemoveContext@CMccSecureInterface@@QAEHK@Z @ 47 NONAME ; int CMccSecureInterface::RemoveContext(unsigned long)
 	?UpdateContext@CMccSecureInterface@@QAEHABVTDesC8@@0K0@Z @ 48 NONAME ; int CMccSecureInterface::UpdateContext(class TDesC8 const &, class TDesC8 const &, unsigned long, class TDesC8 const &)
+	?CreateLink@CMccInterface@@QAEHKHAAKAAVTMccMsrpSettings@@@Z @ 49 NONAME ; int CMccInterface::CreateLink(unsigned long, int, unsigned long &, class TMccMsrpSettings &)
+	?SetRemoteMsrpPath@CMccInterface@@QAEHKKAAVTDes8@@0@Z @ 50 NONAME ; int CMccInterface::SetRemoteMsrpPath(unsigned long, unsigned long, class TDes8 &, class TDes8 &)
 

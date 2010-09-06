@@ -450,6 +450,24 @@ TInt CMceComVideoCodec::DoMccRequireSignalling(
     
     }
     
+
+// -----------------------------------------------------------------------------
+// CMceComAudioCodec::DoMccRequireSignalling
+// -----------------------------------------------------------------------------
+//
+TInt CMceComVideoCodec::DoMccRequireSignalling( 
+    const CMceSrvStream& /*aOldStream*/,
+    const CMceSrvStream& /*aCurrentStream*/,
+    const CMccCodecInformation& /*aMccCurentCodec*/, 
+    const CMccCodecInformation& /*aMccUpdateCodec*/ ) const
+    {
+    TInt action = KMceNoSignalling;
+        
+    return action;
+    
+    }
+    
+
 // -----------------------------------------------------------------------------
 // CMceComVideoCodec::DoMccAdjustL
 // -----------------------------------------------------------------------------

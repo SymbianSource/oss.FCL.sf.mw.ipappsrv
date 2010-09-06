@@ -47,6 +47,7 @@ CMccSymStreamBase::CMccSymStreamBase(
     MMccResources* aMccResources,
     CMccRtpManager* aManager, 
     TInt aStreamType ) : 
+    iMsrpmanager( NULL ),
     iDatapath( NULL ), 
     iEventhandler( aEventhandler ), 
     iMccResources( aMccResources ),
@@ -59,6 +60,34 @@ CMccSymStreamBase::CMccSymStreamBase(
     iType( aStreamType )
     {
     }
+    
+    
+    
+// -----------------------------------------------------------------------------
+// CMccSymStreamBase::CMccSymStreamBase
+// C++ default constructor can NOT contain any code, that
+// might leave.
+// -----------------------------------------------------------------------------
+//
+CMccSymStreamBase::CMccSymStreamBase( 
+    TUint32 aMccStreamId, 
+    MAsyncEventHandler* aEventhandler, 
+    MMccResources* aMccResources,
+    CMccMsrpManager* aManager, 
+    TInt aStreamType ) : 
+    iMsrpmanager( aManager ),
+    iDatapath( NULL ), 
+    iEventhandler( aEventhandler ), 
+    iMccResources( aMccResources ),
+    iDatasink( NULL ), 
+    iDatasource( NULL ), 
+    iFmtpAttr( NULL ), 
+    iSoundDevice( NULL ), 
+    iMccStreamId( aMccStreamId ), 
+    iType( aStreamType )
+    {
+    }
+        
 
 // -----------------------------------------------------------------------------
 // CMccSymStreamBase::~CMccSymStreamBase
@@ -477,6 +506,18 @@ const TUid CMccSymStreamBase::Type()
         {
         type = KUidMediaTypeVideo;
         }
+    else if (iType == KMccMessageUplinkStream)
+        {
+        
+        static const TUid KUidMediaTypeMessage    = {0x10289999};  //KImplUidMsrpPayloadFormatEncode
+        type = KUidMediaTypeMessage;
+        }
+    else if (iType == KMccMessageDownlinkStream)
+        {
+        
+        static const TUid KUidMediaTypeMessage    = {0x10288888};  //KImplUidMsrpPayloadFormatDecode
+        type = KUidMediaTypeMessage;
+        }
         
     return type;
     }
@@ -487,7 +528,7 @@ const TUid CMccSymStreamBase::Type()
 //     
 TBool CMccSymStreamBase::LocalStream() const
     {
-    return ( iType == KMccVideoLocalStream || iType == KMccAudioLocalStream );
+    return ( iType == KMccVideoLocalStream || iType == KMccAudioLocalStream || iType == KMccMessageLocalStream );
     }
 
 // -----------------------------------------------------------------------------

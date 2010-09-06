@@ -33,6 +33,7 @@ class CMccDataPathBase;
 class MDataSink;
 class MDataSource;
 class CMccRtpManager;
+class CMccMsrpManager;
 class CMMFDevSound;
 class MMccResources;
 class CMccMultiplexer;
@@ -483,6 +484,12 @@ NONSHARABLE_CLASS( CMccSymStreamBase ) : public CBase,
                 CMccRtpManager* aManager, 
                 TInt aStreamType );
         
+        CMccSymStreamBase( TUint32 aMccStreamId, 
+                MAsyncEventHandler* aEventhandler, 
+                MMccResources* aMccResources,
+                CMccMsrpManager* aManager, 
+                TInt aStreamType );
+        
     private:    // Consturctor
         
         /**
@@ -494,6 +501,12 @@ NONSHARABLE_CLASS( CMccSymStreamBase ) : public CBase,
             iSoundDevice( NULL ), iMccStreamId( (TUint) KErrNotFound ), 
             iState ( EStateNone )
             {   };
+            
+    public:
+        
+        
+        // MSRP Manager instance needs to set this from cmccsubthreadclientbase class
+        CMccMsrpManager* iMsrpmanager;
 
     protected:  // Data
     

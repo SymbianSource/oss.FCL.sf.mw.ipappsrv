@@ -28,6 +28,8 @@
 #include <sdpdocument.h>
 #include <sdpcodecstringpool.h>
 
+#include "mcemsrpsource.h"
+#include "mcemsrpsink.h"
 #include "mcemediasource.h"
 #include "mcemediastream.h"
 #include "mceaudiostream.h"
@@ -71,6 +73,7 @@
 
 #include "mceaudiosdpcodec.h"
 #include "mcevideosdpcodec.h"
+#include "mcemessagesdpcodec.h"
 #include "cleanupresetanddestroy.h"
 #include "mcedtmfhandler.h"
 #include "mcecomendpointproxy.h"
@@ -93,6 +96,7 @@ const TInt KMceMaxFileName8 = KMceMaxFileNameLength * 4;
 // ---------------------------------------------------------
 CMceMediaManager::CMceMediaManager() 
     {
+    iMsrpSessionCreated = EFalse;
     }
 
 // ---------------------------------------------------------
@@ -123,6 +127,11 @@ void CMceMediaManager::ConstructL( MMceMediaGeneralObserver& aObserver )
     iSdpCodecs.AppendL( sdpCodec );
     CleanupStack::Pop( sdpCodec );
     
+    //MEssage SDP Codec
+    sdpCodec = CMceMessageSdpCodec::NewL();
+    CleanupStack::PushL( sdpCodec );
+    iSdpCodecs.AppendL( sdpCodec );
+    CleanupStack::Pop( sdpCodec );
     }
 
 
@@ -2263,16 +2272,83 @@ void CMceMediaManager::CreateMccLinkL( CMceSrvStream& aStream )
     netSettings.iLocalAddress.SetPort( aStream.LocalMediaPort() );
     netSettings.iMediaQosValue = aStream.Data().Session()->iServiceType;
     TUint32 linkId = aStream.LinkId();
+    TMccMsrpSettings msrpSettings(netSettings);
     
     if ( linkId == KMceNotAssigned && 
          !ReuseLink( aStream ) )
         {
         MCEMM_DEBUG("CMceMediaManager::CreateMccLinkL(): no link. creating link");
-        User::LeaveIfError( 
-            iMccInterface->CreateLink( aStream.SessionId(),
-                                       aStream.LinkType(), 
-                                       linkId,
-                                       netSettings ) );
+        if(aStream.LinkType() == KMccLinkMessage)
+            {
+            CMceComMsrpSource* msrpSource = NULL;
+            CMceComMsrpSink* msrpSink = NULL;
+            // Pass on the file sharing parameters if exist
+            if (IS_SENDSTREAM(&aStream.Data()) )
+                {
+                for(TInt i=0; i<aStream.Data().Sinks().Count(); i++)
+                    {
+                    if ( (aStream.Data().Sinks())[i]->iType == KMceMSRPSink)
+                        {
+                        msrpSink = dynamic_cast<CMceComMsrpSink*>( aStream.Data().Sinks()[i]);
+                        break;
+                        }
+                    }
+                }else
+                    {
+                    __ASSERT_ALWAYS( aStream.Data().Source()->iType == KMceMSRPSource, User::Leave(KErrArgument));
+                    msrpSource = dynamic_cast<CMceComMsrpSource*>( aStream.Data().Source());
+                    }
+            
+            __ASSERT_ALWAYS( (msrpSource || msrpSink), User::Leave( KErrArgument ) );
+            
+            if ( (NULL!=msrpSource && msrpSource->iFileShare)  ||
+                    (NULL!=msrpSink && msrpSink->iFileShare)  )
+                {
+                // File sharing attrbs are exist. Extracts them and pass to MCC to start the file transfer
+                if (NULL!=msrpSource && NULL!= msrpSource->iFileName )
+                    msrpSettings.iFileName =  msrpSource->iFileName->Des().Alloc();
+                else if (NULL!=msrpSink && NULL!= msrpSink->iFileName  )
+                    msrpSettings.iFileName = msrpSink->iFileName->Des().Alloc();
+                    
+                NULL!=msrpSource ? (msrpSettings.iFileSize = msrpSource->iFileSize):(msrpSettings.iFileSize = msrpSink->iFileSize);
+                //NULL!=msrpSource ? (msrpSettings.iFileType = msrpSource->iFileType):(msrpSettings.iFileType = msrpSink->iFileType);
+                if (NULL!=msrpSource && NULL!= msrpSource->iFileType )
+                    msrpSettings.iFileType = msrpSource->iFileType->Des().Alloc();
+                else if (NULL!=msrpSink && NULL!= msrpSink->iFileType  )
+                    msrpSettings.iFileType = msrpSink->iFileType->Des().Alloc();
+                msrpSettings.iFileShare = ETrue;
+                
+                if (NULL!=msrpSource)
+                    {
+                    msrpSettings.iFTProgressNotification = msrpSource->iFTProgressNotification;
+                    }
+                else
+                    {
+                    msrpSettings.iFTProgressNotification = msrpSink->iFTProgressNotification;
+                    }
+                        
+                }
+            
+            User::LeaveIfError( iMccInterface->CreateLink( aStream.SessionId(),
+                                                           aStream.LinkType(), 
+                                                           linkId, 
+                                                           msrpSettings ));
+            // aStream.SetMsrpPath(localMsrpPath);
+            if (NULL != msrpSettings.iLocalMsrpPath )
+                {
+                aStream.SetMsrpPath(*msrpSettings.iLocalMsrpPath);
+                }
+            delete msrpSettings.iLocalMsrpPath;
+            delete msrpSettings.iFileName;
+            delete msrpSettings.iFileType;
+            }
+        else  // for non-message typed links
+            {
+            User::LeaveIfError( iMccInterface->CreateLink( aStream.SessionId(),
+                                                            aStream.LinkType(), 
+                                                            linkId,
+                                                            netSettings ) );
+            }   
         
         aStream.SetLinkId( linkId );
         
@@ -2387,13 +2463,14 @@ void CMceMediaManager::CreateMccStreamL(
     __ASSERT_ALWAYS( aStream.State() != CMceSrvStream::EAdopted,
                      User::Leave( KErrArgument ) );
     
-    // Create mcc codec even if mcc prepare is not needed in order to
-    // construct fmtp info also for local codecs. That information might
-    // be needed in some stream matching cases later on.
-    CMccCodecInformation* mccCodec = CreateMccCodecLC( aStream, aRole );
-        
-    if ( !aStream.PrepareL() )
+    if ( !aStream.PrepareL() ) 
         {
+        
+        // Create mcc codec even if mcc prepare is not needed in order to
+        // construct fmtp info also for local codecs. That information might
+        // be needed in some stream matching cases later on.
+        CMccCodecInformation* mccCodec = CreateMccCodecLC( aStream, aRole );
+        
         CMceComCodec& codec = aStream.Codec();
 
         if ( ReuseSource( aStream ) )
@@ -2444,10 +2521,11 @@ void CMceMediaManager::CreateMccStreamL(
         
         aStream.Source().Data().InitializedL();
         aStream.Sink().Data().InitializedL();
+        
+        CleanupStack::PopAndDestroy( mccCodec );
 
         }
 
-    CleanupStack::PopAndDestroy( mccCodec );
     
     MCEMM_DEBUG("CMceMediaManager::CreateMccStreamL(), Exit ");
     }
@@ -2506,6 +2584,27 @@ void CMceMediaManager::SetRemoteAddressL( CMceSrvStream& aStream )
     	 remoteIpAddress.Port() != 0 &&
          aStream.IsMccPrepared() )
         {
+        
+        //MSRP    
+        if (aStream.LinkType() == KMccLinkMessage )  
+            {
+            if( aStream.Data().iRemoteMsrpPath.Length())
+                {
+                    // Create MSRP Session with remote terminal
+                    User::LeaveIfError( 
+                            iMccInterface->SetRemoteMsrpPath( 
+                                aStream.SessionId(),
+                                aStream.LinkId(),
+                                aStream.RemMsrpPath(),
+                                aStream.ConnStatus() )); 
+                }
+            else
+                {
+                // NOP
+                }
+            return;
+            }
+        
         User::LeaveIfError( 
             iMccInterface->SetRemoteAddress( 
                     aStream.SessionId(),
@@ -2533,6 +2632,28 @@ void CMceMediaManager::SetRemoteAddressL( CMceSrvStream& aStream )
 		                aStream.Data().iRemoteRtcpPort ) );
 		    }
         }
+    }
+
+
+// ---------------------------------------------------------
+// CMceMediaManager::SetRemoteMsrpPathL
+// ---------------------------------------------------------   
+//
+void CMceMediaManager::SetRemoteMsrpPathL( CMceSrvStream& aStream )
+    {
+    
+    MCEMM_DEBUG("CMceMediaManager::SetRemoteMsrpPathL(), Entry ");   
+
+   if (aStream.LinkType() == KMccLinkMessage)
+        {
+        User::LeaveIfError( 
+                iMccInterface->SetRemoteMsrpPath( 
+                    aStream.SessionId(),
+                    aStream.LinkId(),
+                    aStream.RemMsrpPath(),
+                    aStream.ConnStatus() ));            
+        }
+
     }
 
 
@@ -3166,7 +3287,8 @@ TBool CMceMediaManager::ReuseLink( CMceSrvStream& aStream )
     while( !inUse && sourceMatchStreams.Next( stream ) )
         {
         if ( ( aStream.Data().iStreamType == CMceComMediaStream::ELocalStream || 
-               aStream.Source().Data().Type() == KMceRTPSource ) &&
+               aStream.Source().Data().Type() == KMceRTPSource ||
+               aStream.Source().Data().Type() == KMceMSRPSource ) &&
                stream->Data().iLinkId != KMceNotAssigned )
             {
             inUse = ETrue;
@@ -3177,7 +3299,8 @@ TBool CMceMediaManager::ReuseLink( CMceSrvStream& aStream )
     while( !inUse && sinkMatchStreams.Next( stream ) )
         {
         if ( ( aStream.Data().iStreamType == CMceComMediaStream::ELocalStream || 
-               aStream.Sink().Data().Type() == KMceRTPSink ) &&
+               aStream.Sink().Data().Type() == KMceRTPSink ||
+               aStream.Sink().Data().Type() == KMceMSRPSink ) &&
                stream->Data().iLinkId != KMceNotAssigned )
             {
             inUse = ETrue;
@@ -3936,6 +4059,19 @@ void CMceMediaManager::MccEventReceived( const TMccEvent& aEvent )
                 {
                 // NOP
                 }
+            
+            if (aEvent.iEventType == KMccFileSendCompleted || 
+                    aEvent.iEventType == KMccFileReceiveCompleted )
+                {
+            //  aEvent.iErrorCode cpontains the file tranfer completion info
+                event.iError = aEvent.iErrorCode ; 
+                }else if( aEvent.iEventType == KMccFileSendProgressNotification ||
+                        aEvent.iEventType == KMccFileReceiveProgressNotification)
+                    {
+                    event.iEventData1 = aEvent.iErrorCode ; //contains the tranferred data
+                    event.iEventData2 = aEvent.iEventNumData ; // contains the total file size
+                    }
+                    
             
             // Event might contain only link id (e.g. rtcp rr) but
             // we do not want to propagate it to all streams of that link.                               

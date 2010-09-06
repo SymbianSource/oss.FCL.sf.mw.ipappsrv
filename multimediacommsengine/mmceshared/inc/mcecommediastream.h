@@ -343,6 +343,12 @@ public:// new Functions
     */
 	void SetRemoteMediaPort( TUint aPort );
 	
+    /**
+    * Sets remote msrp path
+    * @param aPort remote msrp path
+    */
+    void SetRemoteMsrpPath( TDes8& aremoteMsrpPath, TDes8& aConnStatus  );
+	
 	/**
     * Sets remote rtcp media address
     * @param aAddr remote rtcp media address
@@ -452,6 +458,12 @@ public:// new Functions
     * @param aLinkId the link id
     */
     void SetLinkId( TUint32 aLinkId );
+    
+    /**
+     * Sets Local MSRP Path
+     */
+    
+    void SetLocalMsrpPath( TDesC8& aLocalMsrpPath );
     
     /**
     * Gets direction
@@ -593,7 +605,13 @@ public: // Owned serialized Data
      */
     TBool iIsEnabled;
     
-	/**
+    /**
+     * Local MSRP Path
+     */
+    
+    TBuf8<256> iLocalMsrpPath;
+
+    /**
     * Local port
     */
 	TUint iLocalMediaPort;
@@ -602,6 +620,15 @@ public: // Owned serialized Data
     * Remote port
     */
 	TUint iRemoteMediaPort;
+	
+	/**
+     * Remote MSRP Path
+     */
+    
+    TBuf8<256> iRemoteMsrpPath;
+    
+    TBuf8<10> iConnStatus;
+
     
     /**
     * Remote RTCP IP-address (IPv4 or IPv6)

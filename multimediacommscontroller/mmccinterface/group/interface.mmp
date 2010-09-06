@@ -40,6 +40,7 @@ SOURCE          mmcccodecdtmf.cpp
 SOURCE          mmcccodecred.cpp  
 SOURCE          mmcccodeccn.cpp               
 SOURCE          mmcccodech263.cpp                 
+SOURCE		mmcccodecmsrp.cpp                 
 SOURCE          mmcccodecavc.cpp 
 SOURCE          mmcccodecaac.cpp                
 SOURCE          mmccevent.cpp

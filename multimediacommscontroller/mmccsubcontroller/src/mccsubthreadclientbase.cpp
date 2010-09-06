@@ -21,8 +21,10 @@
 // INCLUDE FILES
 #include "mccsubthreadclientbase.h"
 #include "mccrtpmanager.h"
+#include "mccmsrpmanager.h"
 #include "mccsubcontrollerlogs.h"
 #include "mccsymstreambase.h"
+#include "mmccinterfacedef.h"
 
 
 // ============================ MEMBER FUNCTIONS ===============================
@@ -40,6 +42,25 @@ CMccSubThreadClientBase::~CMccSubThreadClientBase()
 
 // -----------------------------------------------------------------------------
 // CMccSubThreadClientBase::GetCodecL
+// Returns the used codec
+// -----------------------------------------------------------------------------
+void CMccSubThreadClientBase::GetCodecL( const TUint32 /*aStreamId*/,
+                                         TMccCodecInfo& aCodec )
+    {   
+    TFourCC nullFourCC;
+    if( nullFourCC == iCodecInfo.iFourCC )
+        {
+        //User::Leave( KErrNotReady );
+        }
+    else
+        {
+        aCodec = iCodecInfo;
+        }
+    }
+
+
+// -----------------------------------------------------------------------------
+// CMccSubThreadClientBase::CodecInformationL
 // Returns the used codec
 // -----------------------------------------------------------------------------
 void CMccSubThreadClientBase::CodecInformationL( TUint32 aStreamId,
@@ -105,12 +126,33 @@ void CMccSubThreadClientBase::SetRemoteRtcpAddrL( TInetAddr /*aRemAddr*/ )
     }
 
 // -----------------------------------------------------------------------------
+// CMccSubThreadClientBase::SetRemoteMsrpPathL
+// Sets the remote msrp path of uplink stream
+// -----------------------------------------------------------------------------
+void CMccSubThreadClientBase::SetRemoteMsrpPathL( TDes8& /*aRemAddr*/, TDes8& /*aConnStatus*/ )
+    {
+    User::Leave( KErrNotSupported );    
+    }
+
+// -----------------------------------------------------------------------------
 // CMccSubThreadClientBase::InitializeLinkL
 // Creates the RTP session in the subthread, STEP #1
 // -----------------------------------------------------------------------------
 //
 void CMccSubThreadClientBase::InitializeLinkL( TRequestStatus& /*aStatus*/, 
                                                TInt /*aIapId*/ )
+    {
+    User::Leave( KErrNotSupported );    
+    }
+
+// -----------------------------------------------------------------------------
+// CMccSubThreadClientBase::InitializeLinkL
+// Creates the MSRP session in the subthread, STEP #1
+// -----------------------------------------------------------------------------
+//
+void CMccSubThreadClientBase::InitializeLinkL( TRequestStatus& /*aStatus*/, 
+                                               TInt /*aIapId*/,
+                                               HBufC8*& /*aLocalMsrpPath*/ )
     {
     User::Leave( KErrNotSupported );    
     }
@@ -136,9 +178,16 @@ void CMccSubThreadClientBase::CreateRtpSessionL( TUint /*aPort*/,
 void CMccSubThreadClientBase::SetLinkId( TUint32 aLinkId )
     {
     iLinkId = aLinkId;
-    if ( iRtpmanager )
+    if(this->iLinkType == KMccLinkMessage)
         {
-        iRtpmanager->SetLinkId( aLinkId );
+        iMsrpmanager->SetLinkId( aLinkId );
+        }
+    else
+        {
+        if ( iRtpmanager )
+            {
+            iRtpmanager->SetLinkId( aLinkId );
+            }
         }
     }
 
@@ -306,6 +355,21 @@ TInt CMccSubThreadClientBase::FindStream( TUint32 aStreamId )
         }
     
     return KErrNotFound;
+    }
+
+TInt CMccSubThreadClientBase::GetLinkType()
+    {
+    return iLinkType;
+    }
+
+// -----------------------------------------------------------------------------
+// CMccUlDlClient::SetMsrpObject()
+// Sets CMSRP object
+// -----------------------------------------------------------------------------
+//
+void CMccSubThreadClientBase::SetMsrpObject(CMSRP* aMsrpObject)
+    {
+    iMsrpmanager->SetMsrpObject(aMsrpObject);
     }
 
 // ========================== OTHER EXPORTED FUNCTIONS =========================

@@ -81,6 +81,18 @@ SOURCE          mcetransactiondatacontainer.cpp
 SOURCE          mcesecureinsession.cpp
 SOURCE          mcesecureoutsession.cpp
 SOURCE          staticdllentry.cpp
+SOURCE			mcemessagestream.cpp
+SOURCE			mceexternalsink.cpp
+SOURCE			mceexternalsource.cpp
+SOURCE			mcemsrpsink.cpp
+SOURCE			mcemsrpsource.cpp
+SOURCE			mcesessionutility.cpp
+SOURCE			mcemessagesink.cpp
+SOURCE			mcemessagesource.cpp
+SOURCE 			mcemessagecodec.cpp 
+SOURCE			mcemsrpcodec.cpp
+SOURCE			mcedatasender.cpp
+SOURCE			mcedatareceiver.cpp
 
 SOURCEPATH      ../../mmceshared/src
 SOURCE          mcecomsession.cpp
@@ -117,6 +129,15 @@ SOURCE          mcecomfactory.cpp
 SOURCE          mceserial.cpp
 SOURCE          mceevents.cpp
 SOURCE          mcecomserializationcontext.cpp
+SOURCE			mcecomexternalsink.cpp
+SOURCE			mcecomexternalsource.cpp
+SOURCE			mcecommessagestream.cpp
+SOURCE			mcecommsrpsource.cpp
+SOURCE			mcecommsrpsink.cpp
+SOURCE			mcecommessagesource.cpp
+SOURCE			mcecommessagesink.cpp
+SOURCE			mcecommsrpcodec.cpp
+SOURCE			mcecommessagecodec.cpp
 
 
 
@@ -137,5 +158,6 @@ LIBRARY         insock.lib
 LIBRARY         charconv.lib
 LIBRARY         flogger.lib
 LIBRARY         efsrv.lib
-
+LIBRARY 		inetprotutil.lib
+LIBRARY 		sdpcodec.lib
 PAGED

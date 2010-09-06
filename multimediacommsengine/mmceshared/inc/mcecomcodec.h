@@ -308,6 +308,18 @@ public: //new functions
                         const CMceSrvStream& aStream,
                         const CMccCodecInformation& aMccCurentCodec, 
                         const CMccCodecInformation& aMccUpdateCodec ) const;
+    
+    /**
+    * Checks, if signalling is required - MSRP Capabilities check
+    * @param aStream stream
+    * @param aMccCurentCodec current mcc codec
+    * @param aMccUpdateCodec to be used mcc codec
+    */
+    TInt MccRequireSignalling( 
+                        const CMceSrvStream& aOldStream,
+                        const CMceSrvStream& aNewStream,
+                        const CMccCodecInformation& aMccCurentCodec, 
+                        const CMccCodecInformation& aMccUpdateCodec ) const;
    
     /**
     * Sets state of codec based on event
@@ -396,6 +408,18 @@ protected://abstract methods
     * Set default fmtp line
     */                                    
     virtual void DoSetDefaultFmtpAttributeL() = 0;
+    
+    /**
+    * Checks, if signalling is required - MSRP capabilities Check
+    * @param aStream stream
+    * @param aMccCurentCodec current mcc codec
+    * @param aMccUpdateCodec to be used mcc codec
+    */
+    virtual TInt DoMccRequireSignalling( 
+                                const CMceSrvStream& aOldStream,
+                                const CMceSrvStream& aCurrentStream,
+                                const CMccCodecInformation& aMccCurentCodec, 
+                                const CMccCodecInformation& aMccUpdateCodec ) const = 0;
         
     /**
     * Encodes common values from mcc codec

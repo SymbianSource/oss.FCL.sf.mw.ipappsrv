@@ -24,13 +24,15 @@
 #include <e32std.h>
 #include "mccdatasource.h"
 #include "mmccevents.h"
+#include "mccdatareceiver.h"
+#include "mccdatareceiverobserver.h"
 
 // FORWARD DECLARATIONS
 
 /**
 *  
 */
-class CMccAnySource: public CMccDataSource
+class CMccAnySource: public CMccDataSource, public MMccDataReceiverObserver
     {
 
     public: // Methods called internally or by the controller
@@ -208,6 +210,10 @@ class CMccAnySource: public CMccDataSource
         * From MDataSource
         */
         void NegotiateSourceL( MDataSink& aDataSink );	
+
+    public:
+    			
+		void DataReceivedL( const TDesC8& aData );
         
     private:
     	
@@ -221,6 +227,10 @@ class CMccAnySource: public CMccDataSource
         MAsyncEventHandler* iAsyncEventHandler;
 	    TBool iPaused;
 	    TFourCC iFourCC;
+
+	    CMccDataReceiver* iDataReceiver;
+    	CMMFBuffer* iBufferToBeFilled;
+        MDataSink* iConsumer;
 
 	#ifdef EUNIT_TEST
         friend class UT_CMccAnySource;

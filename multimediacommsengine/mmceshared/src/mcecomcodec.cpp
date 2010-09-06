@@ -755,6 +755,26 @@ TInt CMceComCodec::MccRequireSignalling(
     return action;                
     }
 
+// -----------------------------------------------------------------------------
+// CMceComCodec::MccRequireSignalling
+// -----------------------------------------------------------------------------
+//
+TInt CMceComCodec::MccRequireSignalling( 
+    const CMceSrvStream& aOldStream,
+    const CMceSrvStream& aCurrentStream,
+    const CMccCodecInformation& aMccCurentCodec, 
+    const CMccCodecInformation& aMccUpdateCodec ) const
+    {
+    TInt action = KMceRequiresSignalling;
+
+    if ( !aMccCurentCodec.RequireSignalling( aMccUpdateCodec ) )
+        {
+        action = DoMccRequireSignalling( aOldStream, aCurrentStream, aMccCurentCodec, aMccUpdateCodec );
+        }
+        
+    return action;                
+    }
+
     
 // -----------------------------------------------------------------------------
 // CMceComCodec::SetState
