@@ -141,6 +141,8 @@ NONSHARABLE_CLASS( UT_CMccFileSink )
          
          void UT_CMccFileSink_UpdateActiveUserL();
          
+         void UT_CMccFileSink_CalculateAverageTimestampDifferenceL();
+         
     private: // Helpers
     
          CMccTestEventHandler* AddUserL( TBool aIsAvc = EFalse );

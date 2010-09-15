@@ -613,6 +613,41 @@ void UT_CMccFileSink::UT_CMccFileSink_UpdateActiveUserL()
     EUNIT_ASSERT_EQUALS( iFileSink->iActiveUserIndex, 1 );
     EUNIT_ASSERT( iFileSink->iAsyncEventHandler == iEventHandler2 );
     }
+
+void UT_CMccFileSink::UT_CMccFileSink_CalculateAverageTimestampDifferenceL()
+	{
+	const TInt KMccMaxNumTimestamps = 5;
+	const TInt KMccTimestampDifferenceMultiplier = 10;
+	TInt originalTime(1000);
+	TInt timeIncrement(1000);
+	
+	iFileSink->iCurrAvgTimestampDifference = 0;
+
+	// Ask so long that average timestamp difference can be calculated
+	for (TInt i = 0; i < (KMccTimestampDifferenceMultiplier + 2); i++)
+		{
+		TTimeIntervalMicroSeconds timeToPlay = iFileSink->TimeToPlayL(
+				TTimeIntervalMicroSeconds(originalTime));
+
+		EUNIT_ASSERT_EQUALS( timeToPlay.Int64(), originalTime );
+
+		originalTime += timeIncrement;
+		}
+
+	EUNIT_ASSERT_EQUALS( iFileSink->iTimestamps.Count(), KMccMaxNumTimestamps );
+	EUNIT_ASSERT_GREATER( iFileSink->iCurrAvgTimestampDifference, 0 );
+	
+	iFileSink->iTimestamps.Reset();
+	iFileSink->iPreviousTimestamp = 500;
+	iFileSink->TimeToPlayL( TTimeIntervalMicroSeconds( originalTime ) );
+	EUNIT_ASSERT_GREATER( iFileSink->iTimestamps.Count(), 0 );
+	
+	originalTime = 1000;
+	iFileSink->iAddToTimestamp = 0;
+	iFileSink->iPreviousTimestamp = 1010;
+	iFileSink->TimeToPlayL( TTimeIntervalMicroSeconds( originalTime ) );
+	EUNIT_ASSERT_GREATER( iFileSink->iAddToTimestamp, 0 );
+	}
     
 // HELPERS
 
@@ -812,6 +847,13 @@ EUNIT_TEST(
     "UpdateActiveUserL",
     "FUNCTIONALITY",
     SetupL, UT_CMccFileSink_UpdateActiveUserL, Teardown)    
+    
+EUNIT_TEST(
+    "CalculateAverageTimestampDifferenceL - test ",
+    "CMccFileSink",
+    "CalculateAverageTimestampDifferenceL",
+    "FUNCTIONALITY",
+    SetupL, UT_CMccFileSink_CalculateAverageTimestampDifferenceL, Teardown)
    
 EUNIT_END_TEST_TABLE
 
