@@ -33,7 +33,8 @@
 
 const TInt KMccMaxNumTimestamps = 5;
 
-const TInt KMccTimestampDifferenceMultiplier = 10;
+// used for Calculate Average Timestamp
+const TInt KMccDefaultAvgTimestampDiff = 66000;
 
 // ============================ MEMBER FUNCTIONS ===============================
 
@@ -71,7 +72,8 @@ void CMccFileSink::ConstructSinkL( const TDesC8& aInitData )
 // -----------------------------------------------------------------------------
 //
 CMccFileSink::CMccFileSink() : 
-    CMccDataSink( KMccFileSinkUid )
+    CMccDataSink( KMccFileSinkUid ),
+    iCurrAvgTimestampDifference( KMccDefaultAvgTimestampDiff )
     {
     iVideoCodec.iFourCC = TFourCC( KMccFourCCIdH263 );
     // FJKI-7J58CB no use case for audio in file, hence removing the audio track capability 
@@ -565,6 +567,10 @@ void CMccFileSink::CalculateAverageTimestampDifferenceL(
                
        averageTimeStampDifference = averageTimeStampDifference / ( KMccMaxNumTimestamps - 1 );
        }
+    if ( averageTimeStampDifference > 0 )
+	   {
+	   iCurrAvgTimestampDifference = averageTimeStampDifference;
+       }
     
     if ( aCurrentTimestamp > iPreviousTimestamp )
        {
@@ -574,19 +580,19 @@ void CMccFileSink::CalculateAverageTimestampDifferenceL(
            }
        iTimestamps.AppendL( aCurrentTimestamp.Int64() );
        }
-    else
+    else if ( aCurrentTimestamp < iPreviousTimestamp )
        {
-       TInt64 currDifference = iPreviousTimestamp.Int64() - aCurrentTimestamp.Int64();
-       if ( averageTimeStampDifference != 0 && 
-            currDifference > ( averageTimeStampDifference * KMccTimestampDifferenceMultiplier ) )
-           {
-           iAddToTimestamp += ( currDifference + averageTimeStampDifference );
-           iTimestamps.Reset();
-		   iPausedDuration = 0;
+	   TInt64 currDifference = iPreviousTimestamp.Int64() - aCurrentTimestamp.Int64();
+       iAddToTimestamp += ( currDifference + iCurrAvgTimestampDifference );
+       iTimestamps.Reset();
+       iPausedDuration = 0;
            
-           __FILESINK_CONTROLL_INT1("CMccFileSink::TimeToPlay, iAddToTimestamp=", iAddToTimestamp )  
-           }
+       __FILESINK_CONTROLL_INT1("CMccFileSink::TimeToPlay, iAddToTimestamp=", iAddToTimestamp )  
        }
+    else
+        {
+        // NOP
+        }
     }
 
 // -----------------------------------------------------------------------------
