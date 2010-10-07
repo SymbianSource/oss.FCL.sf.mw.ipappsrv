@@ -1,0 +1,80 @@
+/*
+* ==============================================================================
+*  Name        : A000EBE2.rss
+*  Part of     : MCC (Multimedia Comms Controller) / RTPSourceSink
+*  Description :
+*  Version     : 0.01
+*
+*  Copyright © 2007 Nokia. All rights reserved.
+*  This material, including documentation and any related 
+*  computer programs, is protected by copyright controlled by 
+*  Nokia. All rights are reserved. Copying, including 
+*  reproducing, storing, adapting or translating, any 
+*  or all of this material requires the prior written consent of 
+*  Nokia. This material also contains confidential 
+*  information which may not be disclosed to others without the 
+*  prior written consent of Nokia.
+* ==============================================================================
+*/
+
+//  RESOURCE IDENTIFIER
+
+//  INCLUDES
+#include <mmfplugininterfaceuids.hrh>
+#include "registryinfo.rh"
+#include "mccuids.hrh"
+
+//  CONSTANTS  
+//  MACROS  
+
+//  RESOURCE DEFINITIONS
+// -----------------------------------------------------------------------------
+//   
+// AnySourceSink
+//
+//
+// -----------------------------------------------------------------------------
+//
+RESOURCE REGISTRY_INFO theInfo
+    {
+    dll_uid = KDllUidMccMsrpSourceSink; 
+    interfaces = 
+        {
+        INTERFACE_INFO
+            {
+            interface_uid = KMmfUidPluginInterfaceDataSource; // MdataSource
+            implementations = 
+                {
+                IMPLEMENTATION_INFO
+                    {
+                    implementation_uid =  KImplUidMccMsrpSource; 
+                    version_no = KIpappsrvEcomVersionNumber;
+                    display_name = "Msrp Data Source";
+                    default_data = "";
+                    opaque_data = "";
+                    }
+                };
+            }
+             ,
+        INTERFACE_INFO
+            {
+            interface_uid = KMmfUidPluginInterfaceDataSink; // MdataSink
+            implementations = 
+                {
+                IMPLEMENTATION_INFO
+                    {
+                    implementation_uid =  KImplUidMccMsrpSink;
+                    version_no = KIpappsrvEcomVersionNumber;
+                    display_name = "Msrp Data Sink";
+                    default_data = "";
+                    opaque_data = "";
+                    }
+                };
+            }
+
+        };
+    }
+    
+// End of File
+    
+

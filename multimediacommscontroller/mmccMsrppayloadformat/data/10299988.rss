@@ -1,0 +1,66 @@
+/*
+* ==============================================================================
+*  Name        : 10299988.rss
+*  Part of     : 
+*  Description :
+*  Version     : 0.01
+*
+*  Copyright © 2002-2004 Nokia. All rights reserved.
+*  This material, including documentation and any related 
+*  computer programs, is protected by copyright controlled by 
+*  Nokia. All rights are reserved. Copying, including 
+*  reproducing, storing, adapting or translating, any 
+*  or all of this material requires the prior written consent of 
+*  Nokia. This material also contains confidential 
+*  information which may not be disclosed to others without the 
+*  prior written consent of Nokia.
+* ==============================================================================
+*/
+
+//  INCLUDES
+#include <ecom/registryinfo.rh>
+#include <mmf/plugin/mmfplugininterfaceuids.hrh>
+#include "mccuids.hrh"
+
+//  RESOURCE DEFINITIONS 
+
+RESOURCE REGISTRY_INFO theInfo
+	{
+	dll_uid = KDllUidMsrpPayloadFormat; 
+	interfaces = 
+		{
+		INTERFACE_INFO
+			{
+			interface_uid = KMmfUidPluginInterfaceFormatDecode;   
+			implementations = 
+				{
+				IMPLEMENTATION_INFO
+					{
+					implementation_uid = KImplUidMsrpPayloadFormatDecode;
+					version_no = KIpappsrvEcomVersionNumber;
+					display_name = "MSRP Payload Format Decode";
+					default_data = ""; 
+					opaque_data = "";
+					}
+				};
+			},
+		INTERFACE_INFO
+			{
+			interface_uid = KMmfUidPluginInterfaceFormatEncode;   
+			implementations = 
+				{
+				IMPLEMENTATION_INFO
+					{
+					implementation_uid = KImplUidMsrpPayloadFormatEncode;
+					version_no = KIpappsrvEcomVersionNumber;
+					display_name = "MSRP Payload Format Encode";
+					default_data = ""; 
+					opaque_data = "";
+					}
+				};
+			}
+		};
+	}
+
+// End of File
+
