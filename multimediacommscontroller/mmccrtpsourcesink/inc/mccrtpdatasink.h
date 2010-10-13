@@ -85,6 +85,16 @@ class CMccRtpDataSink : public CMccDataSink,
         	}
 
         /**
+         * Sets rtp media clock instance for data sink. Instance is forwarded 
+         * to rtp keep alive sender.
+         *
+         * @since Series 60 3.0
+         * @param aRtpMediaClock media clock instance
+         * @return void
+         */
+        virtual void SetMediaClock( CMccRtpMediaClock& aRtpMediaClock );
+        
+        /**
          * Mutes/Unmutes RTP sink. When mute is enabled, only packets with
          * exception payload type are sent.
          *

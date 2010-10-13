@@ -174,7 +174,7 @@ class MMccRtpInterface : public MSRTPReKeyingObserver
         * @param aConfig Configuration
         * @return void
         */
-        virtual void ConfigureL( const TDesC8& aConfig, CMccRtpMediaClock* aRtpMediaClock );
+        virtual void ConfigureL( const TDesC8& aConfig );
         
         /**
         * Sends RTCP receiver report to uplink if possible.
@@ -264,8 +264,7 @@ class MMccRtpInterface : public MSRTPReKeyingObserver
             iEventHandler( NULL ), iCodecInfo(), iMccStreamId( 0 ), 
             iMccEvent( TMccEvent() ), iRtpKeepalive( NULL ), iContext( NULL), 
             iSecSession( NULL ), iSrtpStream( NULL ), iRtpMediaClock( NULL ),
-            iContextId( 0 ),
-			iRtpKeepaliveUpdatePending( ETrue )
+            iContextId( 0 )
             { }
             
             
@@ -308,19 +307,6 @@ class MMccRtpInterface : public MSRTPReKeyingObserver
             }
         
         void CloseStreams();
-        
-        void SendJitterEventToClient( 	MAsyncEventHandler* aEventHandler,
-                                        TUid aEventOriginator,
-                                        TMccInternalEventType aInternalEventType,
-                                        TMccEventType aEventType,
-                                        TUint32 aEndpointId,
-                                        TInt aError = KErrNone, 
-                                        TUint64 aJitterEstimate = 0,
-                                        TUint32 aPacketsReceived = 0,
-                                        TInt64 aPrevTransTime = 0,
-                                        TUint64 aTriggeredJitterLevel = 0,
-        								TInt aPacketLoss = 0,
-        								TInt aTriggeredPacketLoss = 0 );
         
         void SendInternalRtpEventToClient( MAsyncEventHandler* aEventHandler,
                                            TUid aEventOriginator,
@@ -465,12 +451,7 @@ class MMccRtpInterface : public MSRTPReKeyingObserver
          * Context identifier
          */
          TUint32 iContextId;
-       
-	   /*
-         * Indicates need for setting media clock for keepalivetimer. 
-         */
-		TBool iRtpKeepaliveUpdatePending;	 
-		 
+
     private:    // Friend classes
     
         #ifdef TEST_EUNIT

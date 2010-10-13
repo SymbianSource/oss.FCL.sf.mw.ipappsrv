@@ -83,8 +83,6 @@ void UT_CMccRtpKeepalive::ConstructL()
 
 void UT_CMccRtpKeepalive::SetupL()
     {
-    iRtpMediaClock = CMccRtpMediaClock::NewL();
-    
     iEventHandler = CMccTestEventHandler::NewL();
     iRtpApi = CRtpAPI::NewL( *iEventHandler );
     TPckgBuf<TInt> params( 30000 );
@@ -94,15 +92,15 @@ void UT_CMccRtpKeepalive::SetupL()
 	TMccCodecInfo codecInfo;
 	TMccCodecInfoBuffer infoBuffer( codecInfo );
 	CMccRtpDataSource* dSource = static_cast<CMccRtpDataSource*>( iRtpSource );
-	dSource->ConfigureL( infoBuffer, iRtpMediaClock );
+	dSource->ConfigureL( infoBuffer );
 	CMccRtpDataSink* dSink = static_cast<CMccRtpDataSink*>( iRtpSink );
-	dSink->ConfigureL( infoBuffer, iRtpMediaClock );
+	dSink->ConfigureL( infoBuffer );
+	
+	iRtpMediaClock = CMccRtpMediaClock::NewL();
     } 
 
 void UT_CMccRtpKeepalive::Setup2L()
     {
-    iRtpMediaClock = CMccRtpMediaClock::NewL();
-    
     iEventHandler = CMccTestEventHandler::NewL();
     iRtpApi = CRtpAPI::NewL( *iEventHandler );
     TPckgBuf<TInt> params( 30000 );
@@ -112,10 +110,11 @@ void UT_CMccRtpKeepalive::Setup2L()
 	TMccCodecInfo codecInfo;
 	TMccCodecInfoBuffer infoBuffer( codecInfo );
 	CMccRtpDataSource* dSource = static_cast<CMccRtpDataSource*>( iRtpSource );
-	dSource->ConfigureL( infoBuffer, iRtpMediaClock );
+	dSource->ConfigureL( infoBuffer );
 	CMccRtpDataSink* dSink = static_cast<CMccRtpDataSink*>( iRtpSink );
-	dSink->ConfigureL( infoBuffer, iRtpMediaClock );
+	dSink->ConfigureL( infoBuffer );
 	
+	iRtpMediaClock = CMccRtpMediaClock::NewL();
 	iKeepaliveHandler = 
 	    CMccRtpKeepalive::NewL( *iEventHandler, *iRtpApi, TRtpId(), 96, 1000, KNullDesC8, ETrue );
 	    
@@ -178,11 +177,11 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_ContainerTestsL()
         EUNIT_ASSERT_EQUALS( container->RemoteAddressSet(), KErrNone );
         
         // Update valid case
-        MCC_EUNIT_ASSERT_NO_LEAVE( container->UpdateParamsL( *static_cast<CMccRtpDataSink*>( iRtpSink ), codecInfo, *iRtpMediaClock ) );
+        MCC_EUNIT_ASSERT_NO_LEAVE( container->UpdateParamsL( *static_cast<CMccRtpDataSink*>( iRtpSink ), codecInfo ) );
         
         // Update with keealive interval 0
         codecInfo.iKeepaliveInterval = 0;
-        MCC_EUNIT_ASSERT_NO_LEAVE( container->UpdateParamsL( *static_cast<CMccRtpDataSink*>( iRtpSink ), codecInfo, *iRtpMediaClock ) );
+        MCC_EUNIT_ASSERT_NO_LEAVE( container->UpdateParamsL( *static_cast<CMccRtpDataSink*>( iRtpSink ), codecInfo ) );
         
         // Stop keepalive
         //
@@ -227,11 +226,11 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_ContainerTestsL()
         EUNIT_ASSERT_EQUALS( container->RemoteAddressSet(), KErrNone );
         
         // Update valid case
-        container->UpdateParamsL( *static_cast<CMccRtpDataSink*>( iRtpSink ), codecInfo, *iRtpMediaClock );
+        container->UpdateParamsL( *static_cast<CMccRtpDataSink*>( iRtpSink ), codecInfo );
         
         // Update with keealive interval 0
         codecInfo.iKeepaliveInterval = 0;
-        container->UpdateParamsL( *static_cast<CMccRtpDataSink*>( iRtpSink ), codecInfo, *iRtpMediaClock );
+        container->UpdateParamsL( *static_cast<CMccRtpDataSink*>( iRtpSink ), codecInfo );
         
         
         // Stop keepalive
@@ -338,7 +337,7 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_UpdateParamsLL()
 	    CleanupStack::PushL( keepaliveHandler );    
     
         TUint8 keepalivePT(96); 
-        TUint32 keepaliveInterval(25000000);    
+        TUint8 keepaliveInterval(25);    
         const TUint8 KAmrKeepAlivePayload[6] = 
         { 
         0xF4, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -347,11 +346,11 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_UpdateParamsLL()
         keepAliveData.Copy( KAmrKeepAlivePayload );
         
         // Valid case
-        EUNIT_ASSERT_LEAVE( keepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData, iRtpMediaClock ) );
+        EUNIT_ASSERT_LEAVE( keepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData ) );
 
         // Wrong payload type
         keepalivePT = 129;
-        EUNIT_ASSERT_LEAVE( keepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData, iRtpMediaClock ) );    
+        EUNIT_ASSERT_LEAVE( keepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData ) );    
         CleanupStack::PopAndDestroy( keepaliveHandler );
         }
     else
@@ -360,7 +359,7 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_UpdateParamsLL()
      	    CMccRtpKeepalive::NewL( *iEventHandler, *iRtpApi, TRtpId(), 96, 1000, KNullDesC8, ETrue );
         
         TUint8 keepalivePT(96); 
-        TUint32 keepaliveInterval(25000000);    
+        TUint8 keepaliveInterval(25);    
         const TUint8 KAmrKeepAlivePayload[6] = 
         { 
         0xF4, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -369,11 +368,11 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_UpdateParamsLL()
         keepAliveData.Copy( KAmrKeepAlivePayload );
         
         // Valid case
-        MCC_EUNIT_ASSERT_NO_LEAVE( iKeepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData, iRtpMediaClock ) );
+        MCC_EUNIT_ASSERT_NO_LEAVE( iKeepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData ) );
 
         // Wrong payload type
         keepalivePT = 129;
-        MCC_EUNIT_ASSERT_SPECIFIC_LEAVE( iKeepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData, iRtpMediaClock ), KErrArgument );            
+        MCC_EUNIT_ASSERT_SPECIFIC_LEAVE( iKeepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData ), KErrArgument );            
         }
     }
 
@@ -446,8 +445,8 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_RunLL()
         iKeepaliveHandler->iStatus = KErrNone;
         iKeepaliveHandler->iCurrentState = CMccRtpKeepalive::ESending;
         MCC_EUNIT_ASSERT_NO_LEAVE( iKeepaliveHandler->RunL() );
-        EUNIT_ASSERT( iKeepaliveHandler->iCurrentState == CMccRtpKeepalive::ESendingPending );
-        EUNIT_ASSERT( !iKeepaliveHandler->IsActive() );
+        EUNIT_ASSERT( iKeepaliveHandler->iCurrentState == CMccRtpKeepalive::EWaitingTimer );
+        EUNIT_ASSERT( iKeepaliveHandler->IsActive() );
         
         // Completed in not supported state
         iKeepaliveHandler->iStatus = KErrNone;
@@ -473,14 +472,12 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_RunLL()
         };
         TBuf8<6> keepAliveData;
         keepAliveData.Copy( KAmrKeepAlivePayload );
-        EUNIT_ASSERT_LEAVE( iKeepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData, iRtpMediaClock ) );
+        EUNIT_ASSERT_LEAVE( iKeepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData ) );
         
         // Send completion ok when not active anymore, timer is started
         iKeepaliveHandler->Cancel();
         iKeepaliveHandler->iStatus = KErrNone;
         iKeepaliveHandler->iCurrentState = CMccRtpKeepalive::ESending;
-        iKeepaliveHandler->iRtpMediaClock = iRtpMediaClock;
-        
         MCC_EUNIT_ASSERT_NO_LEAVE( iKeepaliveHandler->RunL() );
         EUNIT_ASSERT( iKeepaliveHandler->iCurrentState == CMccRtpKeepalive::EWaitingTimer );
         EUNIT_ASSERT( iKeepaliveHandler->IsActive() );
@@ -511,10 +508,10 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_RunLL()
         // Send completion ok when not active anymore, timer is started
         iKeepaliveHandler->Cancel();
         iKeepaliveHandler->iStatus = KErrNone;
-        iKeepaliveHandler->iCurrentState = CMccRtpKeepalive::ESending;        
+        iKeepaliveHandler->iCurrentState = CMccRtpKeepalive::ESending;
         iKeepaliveHandler->RunL();
-        EUNIT_ASSERT( iKeepaliveHandler->iCurrentState == CMccRtpKeepalive::ESendingPending );
-        EUNIT_ASSERT( !iKeepaliveHandler->IsActive() );
+        EUNIT_ASSERT( iKeepaliveHandler->iCurrentState == CMccRtpKeepalive::EWaitingTimer );
+        EUNIT_ASSERT( iKeepaliveHandler->IsActive() );
         
         // Completed in not supported state
         iKeepaliveHandler->iStatus = KErrNone;
@@ -540,7 +537,7 @@ void UT_CMccRtpKeepalive::UT_CMccRtpKeepalive_RunLL()
         };
         TBuf8<6> keepAliveData;
         keepAliveData.Copy( KAmrKeepAlivePayload );
-        MCC_EUNIT_ASSERT_NO_LEAVE( iKeepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData, iRtpMediaClock ) );
+        MCC_EUNIT_ASSERT_NO_LEAVE( iKeepaliveHandler->UpdateParamsL( keepalivePT, keepaliveInterval, keepAliveData ) );
         
         // Send completion ok when not active anymore, timer is started
         iKeepaliveHandler->Cancel();

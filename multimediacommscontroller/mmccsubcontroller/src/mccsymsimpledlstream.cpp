@@ -50,8 +50,7 @@ CMccSymSimpleDlStream::CMccSymSimpleDlStream(
     MMccResources* aMccResources,
     CMccRtpManager* aManager, 
     TFourCC aFourCC,
-    TInt aStreamType,
-    CMccRtpMediaClock& aClock ) : 
+    TInt aStreamType ) : 
     CMccSymStreamBase( aMccStreamId, 
                        aEventhandler, 
                        aMccResources, 
@@ -59,7 +58,6 @@ CMccSymSimpleDlStream::CMccSymSimpleDlStream(
                        aStreamType )
     {
     iFourCC = aFourCC;
-    iRtpMediaClock = &aClock;
     }
 
 // -----------------------------------------------------------------------------
@@ -73,8 +71,7 @@ CMccSymSimpleDlStream* CMccSymSimpleDlStream::NewLC(
     MMccResources* aMccResources,
     CMccRtpManager* aManager, 
     TFourCC aFourCC,
-    TInt aStreamType,
-    CMccRtpMediaClock& aClock ) 
+    TInt aStreamType ) 
     {
     CMccSymSimpleDlStream* s = 
             new ( ELeave ) CMccSymSimpleDlStream( aMccStreamId, 
@@ -82,8 +79,7 @@ CMccSymSimpleDlStream* CMccSymSimpleDlStream::NewLC(
                                                   aMccResources, 
                                                   aManager, 
                                                   aFourCC, 
-                                                  aStreamType,
-                                                  aClock );
+                                                  aStreamType );
     CleanupStack::PushL( s );
     s->ConstructL();
 
@@ -238,7 +234,7 @@ void CMccSymSimpleDlStream::LoadCodecL(
             
             // For updating keep alive parameters
             TMccCodecInfoBuffer infoBuffer( iCodecInfo );     
-            dataSource->ConfigureL( infoBuffer, iRtpMediaClock );
+            dataSource->ConfigureL( infoBuffer );
        	    }
         SetCodecState( EStateCodecLoadedAndUpdating );
     	UpdateCodecInformationL( iCodecInfo );

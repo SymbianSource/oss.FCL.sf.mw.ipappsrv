@@ -34,7 +34,6 @@
 class CMccRtpDataSink;
 class CMccRtpKeepaliveContainer;
 class TMccInternalEvent;
-class CMccRtpMediaClock;
 //  CLASS DEFINITION
 /**
  *
@@ -204,7 +203,6 @@ class UT_CMccRtpDataSink
         CMccRtpKeepaliveContainer* iRtpKeepaliveMechanism;
         CSRTPSession* iSecSession;
         TUint iEventType;
-        CMccRtpMediaClock* iRtpMediaClock;
 		
     };
 

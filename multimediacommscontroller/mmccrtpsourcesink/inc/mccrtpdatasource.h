@@ -301,7 +301,7 @@ class CMccRtpDataSource : public CMccDataSource,
 		 * @since	Series 60 3.2
          * Send jitter event through mcc rtp interface
          */
-        void SendJitterEvent( TMccRtpEventDataExtended aEvent, TInt aError );
+        void SendJitterEvent( TMccRtpEventData aEvent, TInt aError );
 
         
     protected:  // Functions from base classes

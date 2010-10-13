@@ -21,6 +21,7 @@
 #include "mcelocaladdrresolver.h"
 #include <es_sock.h>
 #include <commdbconnpref.h>
+#include <extendedconnpref.h>
 
 
 // -----------------------------------------------------------------------------
@@ -80,11 +81,11 @@ void CMceLocalAddrResolver::ConstructL( TUint32 aIapId )
     // as the related SIP profile has been registered using it and
     // the synchronous RConnection::Start should return quickly and
     // should not hang the whole MCE server process for too long
-    TCommDbConnPref prefs;
-    prefs.SetDialogPreference( ECommDbDialogPrefDoNotPrompt );
-    prefs.SetDirection( ECommDbConnectionDirectionOutgoing );
-    prefs.SetIapId( aIapId );
-    connection.Start( prefs );    
+    TConnPrefList prefList;
+    TExtendedConnPref preferences;
+    preferences.SetIapId( aIapId );
+    prefList.AppendL( &preferences ); 
+    connection.Start( prefList );    
     
     // Fetch the actual IAP ID from the started connection
 	_LIT( KIapIdSetting, "IAP\\Id" );

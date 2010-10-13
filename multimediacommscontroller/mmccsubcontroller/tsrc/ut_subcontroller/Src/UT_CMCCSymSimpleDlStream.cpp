@@ -86,15 +86,13 @@ void UT_CMccSymSimpleDlStream::ConstructL()
 
 void UT_CMccSymSimpleDlStream::SetupL(  )
     {
-    iRtpMediaClock = CMccRtpMediaClock::NewL();
-    
     iResources = CMccResourcePoolStub::NewL();
     iEventHandler = CMccTestEventHandler::NewL();
     iRtpManager = CMccRtpManager::NewL(*iEventHandler, *iResources, iMccSessionId );
     iStreamId = 1;
     
     CMccSymSimpleDlStream* stream = CMccSymSimpleDlStream::NewLC(
-    	iStreamId, this, iResources, iRtpManager, TFourCC(),  KMccVideoDownlinkStream, *iRtpMediaClock );
+    	iStreamId, this, iResources, iRtpManager, TFourCC(),  KMccVideoDownlinkStream );
     CleanupStack::Pop( stream );
     iSimpleDlStream = stream;
     stream = NULL;
@@ -133,12 +131,6 @@ void UT_CMccSymSimpleDlStream::Teardown(  )
     delete iEventHandler;
     delete iResources;
     REComSession::FinalClose();
-    
-    if ( iRtpMediaClock )
-        {
-        delete iRtpMediaClock;
-        iRtpMediaClock = NULL;
-        }
     }
 
 void UT_CMccSymSimpleDlStream::UT_CMccSymSimpleDlStream_CreatePayloadFormatDecoderLL(  )

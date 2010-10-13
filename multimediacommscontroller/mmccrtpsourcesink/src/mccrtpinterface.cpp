@@ -204,16 +204,10 @@ void MMccRtpInterface::CloseStreams()
 // Configures the RTP source/sink
 // -----------------------------------------------------------------------------
 //
-void MMccRtpInterface::ConfigureL( const TDesC8& aConfig, 
-									CMccRtpMediaClock* aRtpMediaClock )
+void MMccRtpInterface::ConfigureL( const TDesC8& aConfig )
     {
     TRACE_RTP_INTERFACE_PRINT( "MMccRtpInterface::ConfigureL, Entry" )
     __ASSERT_ALWAYS( NULL != iRtpKeepalive, User::Leave( KErrNotReady ) );
-    
-    if ( !iRtpMediaClock )
-        {
-        iRtpMediaClock = aRtpMediaClock;
-        }
     
     if ( aConfig.Size() == sizeof( TMccCodecInfo ) )
         {
@@ -234,28 +228,17 @@ void MMccRtpInterface::ConfigureL( const TDesC8& aConfig,
                 ( iCodecInfo.iKeepalivePT != codecInfo.iKeepalivePT ||
                 iCodecInfo.iKeepaliveInterval != codecInfo.iKeepaliveInterval ||
                 iCodecInfo.iKeepaliveData != codecInfo.iKeepaliveData ) &&
-                0 != codecInfo.iKeepaliveInterval ||
-				iRtpKeepaliveUpdatePending;
+                0 != codecInfo.iKeepaliveInterval;
             
             if ( updateNeeded )
                 {
-				if ( iRtpMediaClock )
-					{
-	                TRACE_RTP_INTERFACE_PRINT( 
-	                    "MMccRtpInterface::ConfigureL - Update" )
-	                
-	                iCodecInfo.iKeepalivePT = codecInfo.iKeepalivePT;
-	                iCodecInfo.iKeepaliveInterval = codecInfo.iKeepaliveInterval;
-	                iCodecInfo.iKeepaliveData = codecInfo.iKeepaliveData;
-	                __ASSERT_ALWAYS( NULL != iRtpMediaClock, User::Leave( KErrNotReady ) );
-	                iRtpKeepalive->UpdateParamsL( *this, codecInfo, *iRtpMediaClock );
-					
-					iRtpKeepaliveUpdatePending = EFalse;
-					}
-				else
-					{
-					iRtpKeepaliveUpdatePending = ETrue;
-					}
+                TRACE_RTP_INTERFACE_PRINT( 
+                    "MMccRtpInterface::ConfigureL - Update" )
+                
+                iCodecInfo.iKeepalivePT = codecInfo.iKeepalivePT;
+                iCodecInfo.iKeepaliveInterval = codecInfo.iKeepaliveInterval;
+                iCodecInfo.iKeepaliveData = codecInfo.iKeepaliveData;
+                iRtpKeepalive->UpdateParamsL( *this, codecInfo );
                 }
             }
         }
@@ -378,62 +361,6 @@ TBool MMccRtpInterface::IsSending() const
     {
     return EFalse;
     }
-        
-// -----------------------------------------------------------------------------
-// MMccRtpInterface::SendJitterEventToClient
-// -----------------------------------------------------------------------------
-// 
-void MMccRtpInterface::SendJitterEventToClient( MAsyncEventHandler* aEventHandler,
-				                              	TUid aEventOriginator,
-				                            	TMccInternalEventType aInternalEventType,
-				                            	TMccEventType aEventType,
-				                            	TUint32 aEndpointId,
-				                            	TInt aError, 
-				                            	TUint64 aJitterEstimate,
-				                           	 	TUint32 aPacketsReceived,
-				                            	TInt64 aPrevTransTime,
-				                            	TUint64 aTriggeredJitterLevel,
-												TInt aPacketLoss,
-												TInt aTriggeredPacketLoss )
-	{
-	
-	TRACE_RTP_SOURCE_PRINT( "MMccRtpInterface::SendJitterEventToClient" )
-    
-    if ( aEventHandler )
-        {
-        ClearMccEvent();
-        
-        iMccEvent.iEventCategory = KMccEventCategoryRtp;
-        iMccEvent.iStreamId = iMccStreamId;
-        iMccEvent.iEndpointId = aEndpointId;
-        iMccEvent.iEventType = aEventType;
-        iMccEvent.iErrorCode = aError;
-        
-        // Save some stack memory
-        {
-        TMccRtpEventDataExtended eventData;
-        eventData.iJitterEstimate = aJitterEstimate;
-        eventData.iPacketsReceived = aPacketsReceived;
-        eventData.iPrevTransTime = aPrevTransTime;
-        eventData.iTriggeredJitterLevel = aTriggeredJitterLevel;
-        eventData.iPacketLoss = aPacketLoss;
-        eventData.iTriggeredPacketLoss = aTriggeredPacketLoss;
-        
-        iMccEvent.iEventData.Copy( TMccRtpEventDataExtendedPackage( eventData ) );
-        }
-        
-        TMccInternalEvent internalEvent( aEventOriginator, 
-                                         aInternalEventType,
-                                         iMccEvent );
-        
-        aEventHandler->SendEventToClient( internalEvent );
-        }
-    else
-        {
-	    TRACE_RTP_INTERFACE_PRINT("MMccRtpInterface::SendInternalRtpEventToClient, \
-aEventHandler=NULL")
-        }  
-	}        
         
 // -----------------------------------------------------------------------------
 // MMccRtpInterface::SendInternalRtpEventToClient

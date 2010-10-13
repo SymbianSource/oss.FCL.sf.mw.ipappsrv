@@ -53,9 +53,6 @@ SOURCEPATH          ../../../../mmccshared/src
 SOURCE              mmcccryptocontext.cpp
 SOURCE              mcctimermanager.cpp
 
-SOURCEPATH          ../../../../mmccsubcontroller/src
-SOURCE              mccrtpmediaclock.cpp
-
 SOURCEPATH          ../../../../tsrc/amrpayloadformatstub/src
 SOURCE              AmrPayloadFormatRead_STUB.cpp
 SOURCE              AmrPayloadFormatWrite_STUB.cpp

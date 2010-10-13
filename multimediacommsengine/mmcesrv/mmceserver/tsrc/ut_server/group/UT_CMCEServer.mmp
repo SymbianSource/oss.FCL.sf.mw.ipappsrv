@@ -304,6 +304,8 @@ LIBRARY         imut.lib
 LIBRARY         platformenv.lib
 LIBRARY         flogger.lib
 LIBRARY         efsrv.lib
+LIBRARY         extendedconnpref.lib
+LIBRARY         netmeta.lib
 
 //For Qualitykit 4.05 upwards use:
 CAPABILITY      EUNIT_CAPS

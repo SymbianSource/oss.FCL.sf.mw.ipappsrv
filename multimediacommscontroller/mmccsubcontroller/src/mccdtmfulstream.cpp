@@ -187,6 +187,9 @@ void CMccDtmfUlStream::LoadCodecL( const TMccCodecInfo& aCodecInfo,
                 
         CreatePayloadFormatEncoderL();
         
+        CMccRtpDataSink* dataSink = static_cast<CMccRtpDataSink*>( iDatasink );        
+        dataSink->SetMediaClock( *iRtpMediaClock ); 
+        
         SetCodecState( EStateCodecNegotiated );        	
         }
     else if ( CurrentCodecState() == EStateCodecNegotiated )

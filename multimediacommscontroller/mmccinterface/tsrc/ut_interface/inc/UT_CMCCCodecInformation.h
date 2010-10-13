@@ -156,9 +156,6 @@ class UT_CMccCodecInformation
         
         
          void UT_CMccCodecInformation_SetKeepAliveTimerL();
-         
-         
-         void UT_CMccCodecInformation_SetKeepAliveTimerMicroSecsL();
         
         
          void UT_CMccCodecInformation_SetKeepAlivePTL();
@@ -255,9 +252,6 @@ class UT_CMccCodecInformation
         
         
          void UT_CMccCodecInformation_KeepAliveTimerL();
-         
-         
-         void UT_CMccCodecInformation_KeepAliveTimerMicroSecsL();
         
         
          void UT_CMccCodecInformation_KeepAlivePTL();

@@ -49,8 +49,7 @@ NONSHARABLE_CLASS( CMccSymSimpleDlStream ) : public CMccSymStreamBase, public MJ
                                              MMccResources* aMccResources,
                                              CMccRtpManager* aManager, 
                                              TFourCC aFourCC, 
-                                             TInt aStreamType,
-                                             CMccRtpMediaClock& aClock );
+                                             TInt aStreamType );
         
         /**
         * Destructor.
@@ -187,8 +186,7 @@ NONSHARABLE_CLASS( CMccSymSimpleDlStream ) : public CMccSymStreamBase, public MJ
                                MMccResources* aMccResources,
                                CMccRtpManager* aManager, 
                                TFourCC aFourCC, 
-                               TInt aStreamType,
-                               CMccRtpMediaClock& aClock );
+                               TInt aStreamType );
         
         /**
         * 2nd phase constructor

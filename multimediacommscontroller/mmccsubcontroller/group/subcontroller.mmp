@@ -82,15 +82,15 @@ LIBRARY     esock.lib
 LIBRARY     insock.lib
 LIBRARY     3gpmp4lib.lib
 LIBRARY     efsrv.lib
-LIBRARY     SpeechEncoderConfig.lib
-LIBRARY	    ErrorConcealmentIntfc.lib
-LIBRARY     AudioOutputRouting.lib
-LIBRARY     G711DecoderIntfc.lib
-LIBRARY     G711EncoderIntfc.lib
-LIBRARY     G729DecoderIntfc.lib
-LIBRARY     G729EncoderIntfc.lib
-LIBRARY     IlbcDecoderIntfc.lib
-LIBRARY     IlbcEncoderIntfc.lib
+LIBRARY     speechencoderconfig.lib
+LIBRARY	    errorconcealmentintfc.lib
+LIBRARY     audiooutputrouting.lib
+LIBRARY     g711decoderintfc.lib
+LIBRARY     g711encoderintfc.lib
+LIBRARY     g729decoderintfc.lib
+LIBRARY     g729encoderintfc.lib
+LIBRARY     ilbcdecoderintfc.lib
+LIBRARY     ilbcencoderintfc.lib
 LIBRARY     srtp.lib
 // Other MCC libraries
 LIBRARY     mmccjitterbuffer.lib

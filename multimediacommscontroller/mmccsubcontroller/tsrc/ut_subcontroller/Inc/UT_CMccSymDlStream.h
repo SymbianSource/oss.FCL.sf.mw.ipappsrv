@@ -142,7 +142,6 @@ NONSHARABLE_CLASS( UT_CMccSymDlStream )
         
         CMccResourcePoolStub* iResources;
         CMccMultiplexer* iMultiPlexer;
-        CMccRtpMediaClock* iRtpMediaClock;
 		
         TUint32 iMccSessionId;
 

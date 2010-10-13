@@ -178,7 +178,7 @@ void CMccRtpKeepaliveContainer::ResetKeepaliveTimer()
 // ---------------------------------------------------------------------------
 //  
 void CMccRtpKeepaliveContainer::UpdateParamsL( MMccRtpInterface& aUser,
-    const TMccCodecInfo& aCodecInfo, CMccRtpMediaClock& aRtpMediaClock )
+    const TMccCodecInfo& aCodecInfo )
     {
     __SUBCONTROLLER( "CMccRtpKeepaliveContainer::UpdateParamsL(), Entry" )
     
@@ -191,18 +191,13 @@ void CMccRtpKeepaliveContainer::UpdateParamsL( MMccRtpInterface& aUser,
         // previous keep-alive data.
         handler->Cancel();
         handler->UpdateParamsL( aCodecInfo.iKeepalivePT, 
-            aCodecInfo.iKeepaliveInterval, aCodecInfo.iKeepaliveData, &aRtpMediaClock );
+            aCodecInfo.iKeepaliveInterval, aCodecInfo.iKeepaliveData );
         
         if ( aCodecInfo.iKeepaliveInterval > 0 && !handler->IsActive() )
             {
             handler->ResetKeepaliveTimer();
             }
         }
-    else
-    	{
-    	TMccCodecInfo cInfo = aCodecInfo;
-		StartKeepaliveL( aUser, cInfo, aRtpMediaClock );
-    	}
     
     __SUBCONTROLLER( "CMccRtpKeepaliveContainer::UpdateParamsL(), exit" )
     }

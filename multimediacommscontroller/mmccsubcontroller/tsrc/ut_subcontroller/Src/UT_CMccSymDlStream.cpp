@@ -35,7 +35,6 @@
 #include "mccmultiplexer.h"
 #include "mmcccryptocontext.h"
 #include "mccjitterbuffer.h"
-#include "mccrtpmediaclock.h"
 
 #include "mccunittestmacros.h"
 
@@ -84,13 +83,11 @@ void UT_CMccSymDlStream::ConstructL()
 //  METHODS
 void UT_CMccSymDlStream::SetupL()
     {
-    iRtpMediaClock = CMccRtpMediaClock::NewL();
-    
     iResources = CMccResourcePoolStub::NewL();
     iStreamId = 1;
     iHandler = CMccTestEventHandler::NewL();
     iRtpMan = CMccRtpManager::NewL( *iHandler, *iResources, iMccSessionId );
-    iStream = CMccSymDlStream::NewLC( iStreamId, iHandler, iResources, iRtpMan, 201, *iRtpMediaClock );
+    iStream = CMccSymDlStream::NewLC( iStreamId, iHandler, iResources, iRtpMan, 201 );
     CleanupStack::Pop( iStream );
     
     TPckgBuf<TInt> params( 30000 );
@@ -121,13 +118,11 @@ void UT_CMccSymDlStream::SetupL()
     
 void UT_CMccSymDlStream::Setup2L()
     {
-    iRtpMediaClock = CMccRtpMediaClock::NewL();
-    
     iResources = CMccResourcePoolStub::NewL();
     iStreamId = 1;
     iHandler = CMccTestEventHandler::NewL();
     iRtpMan = CMccRtpManager::NewL( *iHandler, *iResources, iMccSessionId );
-    iStream = CMccSymDlStream::NewLC( iStreamId, iHandler, iResources, iRtpMan, 201, *iRtpMediaClock );
+    iStream = CMccSymDlStream::NewLC( iStreamId, iHandler, iResources, iRtpMan, 201 );
     CleanupStack::Pop( iStream );
     
     TPckgBuf<TInt> params( 30000 );
@@ -139,13 +134,11 @@ void UT_CMccSymDlStream::Setup2L()
 
 void UT_CMccSymDlStream::SetupIlbcL()
     {
-    iRtpMediaClock = CMccRtpMediaClock::NewL();
-    
     iResources = CMccResourcePoolStub::NewL();
     iStreamId = 1;
     iHandler = CMccTestEventHandler::NewL();
     iRtpMan = CMccRtpManager::NewL( *iHandler, *iResources,iMccSessionId );
-    iStream = CMccSymDlStream::NewLC( iStreamId, iHandler, iResources, iRtpMan, 201, *iRtpMediaClock );
+    iStream = CMccSymDlStream::NewLC( iStreamId, iHandler, iResources, iRtpMan, 201 );
     CleanupStack::Pop( iStream );
     
     TPckgBuf<TInt> params( 30000 );
@@ -192,12 +185,6 @@ void UT_CMccSymDlStream::Teardown()
     delete iSourceStub;
     delete iSinkStub;
     delete iResources;
-    
-    if ( iRtpMediaClock )
-        {
-        delete iRtpMediaClock;
-        iRtpMediaClock = NULL;
-        }
     }
 
 void UT_CMccSymDlStream::UT_CMccSymDlStream_SetPrioritySettingsLL(  )

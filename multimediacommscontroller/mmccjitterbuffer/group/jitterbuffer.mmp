@@ -46,6 +46,6 @@ LIBRARY         euser.lib
 LIBRARY         ecom.lib
 LIBRARY         mmfcontrollerframework.lib
 LIBRARY         mmfserverbaseclasses.lib
-LIBRARY         ErrorConcealmentIntfc.lib
+LIBRARY         errorconcealmentintfc.lib
 
 PAGED

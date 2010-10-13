@@ -223,7 +223,7 @@ LIBRARY     insock.lib
 LIBRARY     esock.lib
 LIBRARY     bafl.lib
 LIBRARY     estor.lib
-LIBRARY     CommonEngine.lib
+LIBRARY     commonengine.lib
 LIBRARY     commdb.lib 
 LIBRARY     charconv.lib
 LIBRARY     sipclient.lib
@@ -240,6 +240,8 @@ LIBRARY     imut.lib
 LIBRARY     platformenv.lib
 LIBRARY     flogger.lib
 LIBRARY     efsrv.lib
+LIBRARY     extendedconnpref.lib
+LIBRARY     netmeta.lib
 
 // MACRO PLAT_SEC_TEST
 

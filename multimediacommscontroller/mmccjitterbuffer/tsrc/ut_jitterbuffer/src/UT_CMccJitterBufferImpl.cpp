@@ -246,57 +246,6 @@ void UT_CMccJitterBufferImpl::UT_CMccJitterBufferImpl_SetupL6L()
     iJBufImpl->SetupL( 5, cInfo, *devSoundDummy, this, 0 );
     iJBufImpl->SetupL( 33, cInfo, *devSoundDummy, this, 0 );
     EUNIT_ASSERT( iJBufImpl->iSampleRate == 16 );
-    
-    
-    // Check that values are not changed: 
-    
-    // Save original values:
-	TMccCodecInfo originalCInfo( cInfo );
-    
-    // Set dummy values:
-    cInfo.iPayloadFormatEncoder = 111;
-    cInfo.iPayloadFormatDecoder = 222;
-    cInfo.iBitrate = 333;
-    cInfo.iSamplingFreq = 444;
-    cInfo.iEnableDTX = ETrue;
-    cInfo.iCodecMode = 555;
-    cInfo.iAlgoUsed = 666;
-    cInfo.iPtime = 777;
-    cInfo.iMaxPtime = 888;
-    cInfo.iPayloadType = 999;
-    cInfo.iRedundantPayload = 1111;
-    cInfo.iRedundancyCount = 2222;
-    cInfo.iFrameSize = 3333;
-    cInfo.iCNFrameSize = 4444;
-    cInfo.iFmtpLength = 5555;
-    cInfo.iJitterSize = 6666;
-    cInfo.iNeighbor = ETrue;
-    cInfo.iModeChangePeriod = 7777;
-    cInfo.iJitterBufPlayToneTimeout = 8888; 
-    cInfo.iJitterBufPlayToneFrequency = 9999; 
-    cInfo.iJitterBufPlayToneDuration = 1;
-    cInfo.iComfortNoiseGenerationPt = 2;
-    cInfo.iBitrateMask = 3;
-	cInfo.iAverageBitrate = 4;
-	cInfo.iMaxBitrate = 5;
-	cInfo.iFramerate = 6;
-    cInfo.iVideoWidth = 7;
-    cInfo.iVideoHeight = 8;   
-    cInfo.iMTUSize = 9;
-    cInfo.iSessionID = 1;
-    cInfo.iLinkID = 2;
-    cInfo.iStreamID = 3;
-    cInfo.iKeepaliveInterval = 1234;
-    cInfo.iKeepalivePT = 2;
-    cInfo.iIsUpdate = ETrue;
-    cInfo.iMaxRed = 1000;
-    cInfo.iSourceDefinedTimeStamps = ETrue;
-
-	// Put the same parameter values than in previous function call, 
-    iJBufImpl->SetupL( 33, cInfo, *devSoundDummy, this, 0 );
-    // and check that TMccCodecInfo values were not changed:
-    TBool retval = originalCInfo.Compare( originalCInfo, iJBufImpl->iCInfo );
-    EUNIT_ASSERT( retval );  
     }  
 
 void UT_CMccJitterBufferImpl::UT_CMccJitterBufferImpl_ResetBufferL()

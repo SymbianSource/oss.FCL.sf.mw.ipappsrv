@@ -230,8 +230,6 @@ class CMccFileSink: public CMccDataSink, public M3GPDataSinkObserver
 	   	
 	   	TBool iDecSpecInfoProvided;
 	   	TBool iKeyFrameProvided;
-	   	
-	   	TInt64 iCurrAvgTimestampDifference;
 
 	#ifdef EUNIT_TEST
         friend class UT_CMccFileSink;

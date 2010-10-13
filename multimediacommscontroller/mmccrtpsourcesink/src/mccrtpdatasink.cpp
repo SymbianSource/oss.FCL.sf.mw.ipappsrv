@@ -778,6 +778,24 @@ TBool CMccRtpDataSink::SendingAllowed(
     }
 
 // ---------------------------------------------------------------------------
+// CMccRtpDataSink::SetMediaClock
+// ---------------------------------------------------------------------------
+//    
+void CMccRtpDataSink::SetMediaClock( CMccRtpMediaClock& aRtpMediaClock )
+    {
+    TRACE_RTP_SINK_PRINT( "CMccRtpDataSink::SetMediaClock" )
+    
+    if ( !iRtpMediaClock )
+        {
+        iRtpMediaClock = &aRtpMediaClock;
+        }
+    else
+        {
+        TRACE_RTP_SINK_PRINT( "CMccRtpDataSink::SetMediaClock - Allready set!" )
+        }
+    }
+
+// ---------------------------------------------------------------------------
 // FROM SRTP API
 // This function is called by SRTP Stream initiated with 
 // MSRTPReKeyingObserver when a master key is stale and needs 

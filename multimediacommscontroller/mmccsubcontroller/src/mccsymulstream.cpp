@@ -253,6 +253,12 @@ void CMccSymUlStream::LoadCodecL( const TMccCodecInfo& aCodecInfo,
         
         CreatePayloadFormatEncoderL();
         
+       	if ( iDatasink->DataSinkType() == KMccRtpSinkUid )
+       	    {
+            CMccRtpDataSink* dataSink = static_cast<CMccRtpDataSink*>( iDatasink );        
+            dataSink->SetMediaClock( *iRtpMediaClock ); 
+       	    }
+        
         // Just negotiate the codec, load it later
         static_cast<CMccUlDataPath*>( iDatapath )->NegotiateL( *iFormatEncode );
         
@@ -272,15 +278,6 @@ void CMccSymUlStream::LoadCodecL( const TMccCodecInfo& aCodecInfo,
         }
     else if ( CurrentCodecState() == EStateCodecPrepared )
         {
-        if ( iDatasink->DataSinkType() == KMccRtpSinkUid )
-       	    {
-	        CMccRtpDataSink* dataSink = 
-	                static_cast<CMccRtpDataSink*>( iDatasink );
-	            
-	        // For updating keep alive parameters
-	        TMccCodecInfoBuffer infoBuffer( iCodecInfo ); 
-	    	dataSink->ConfigureL( infoBuffer, iRtpMediaClock );
-       	    }
         if ( CodecLoadingAllowed() )
             {
             // Load the codec
@@ -291,6 +288,15 @@ void CMccSymUlStream::LoadCodecL( const TMccCodecInfo& aCodecInfo,
                                                
             UpdateCodecInformationL( iCodecInfo );
             }
+        else if ( iDatasink->DataSinkType() == KMccRtpSinkUid )
+       	    {
+            CMccRtpDataSink* dataSink = 
+                static_cast<CMccRtpDataSink*>( iDatasink );
+            
+            // For updating keep alive parameters
+            TMccCodecInfoBuffer infoBuffer( iCodecInfo );     
+            dataSink->ConfigureL( infoBuffer );
+       	    }
         }
     else if ( CurrentCodecState() == EStateCodecLoaded ||
               CurrentCodecState() == EStateCodecLoadedAndUpdating )
@@ -302,7 +308,7 @@ void CMccSymUlStream::LoadCodecL( const TMccCodecInfo& aCodecInfo,
             
             // For updating keep alive parameters
             TMccCodecInfoBuffer infoBuffer( iCodecInfo );     
-            dataSink->ConfigureL( infoBuffer, iRtpMediaClock );
+            dataSink->ConfigureL( infoBuffer );
        	    }
         // Update codec info
         SetCodecState( EStateCodecLoadedAndUpdating );

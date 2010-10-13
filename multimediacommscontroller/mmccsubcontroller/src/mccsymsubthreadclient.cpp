@@ -304,8 +304,7 @@ void CMccSymSubthreadClient::OpenL( TInt aStreamType,
                                          this, 
                                          iMccResources,
                                          iRtpmanager, 
-                                         aStreamType,
-                                         *iRtpMediaClock );
+                                         aStreamType );
         }
     else if( ( sourceType == KMccRtpSourceUid && sinkType == KMccVideoSinkUid ) ||
              ( aStreamType == KMccAudioLocalStream || aStreamType == KMccVideoLocalStream ) )
@@ -316,8 +315,7 @@ void CMccSymSubthreadClient::OpenL( TInt aStreamType,
                                                iMccResources,
                                                iRtpmanager, 
                                                aFourCC, 
-                                               aStreamType,
-                                               *iRtpMediaClock );
+                                               aStreamType );
                 
         }
     else

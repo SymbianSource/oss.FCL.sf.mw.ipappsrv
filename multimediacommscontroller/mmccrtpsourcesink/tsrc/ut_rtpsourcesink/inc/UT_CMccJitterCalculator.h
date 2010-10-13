@@ -58,7 +58,7 @@ class UT_CMccJitterCalculator
 
 	public: 	// From observer interface
 	
-	    void SendJitterEvent( TMccRtpEventDataExtended aEvent, TInt aError );
+	    void SendJitterEvent( TMccRtpEventData aEvent, TInt aError );
 		
 	public:     // Helpers
 
@@ -73,18 +73,12 @@ class UT_CMccJitterCalculator
          void UT_CMccJitterCalculator_JitterObservingL();
          
          void UT_CMccJitterCalculator_RtpPacketReceivedL();
-         
-         void UT_CMccJitterCalculator_CalculateFerL();
-         
-         void UT_CMccJitterCalculator_CountPacketLossPercentageL();
-         
-         void UT_CMccJitterCalculator_ResetCountersL();
         
         
     private:    // Data
     
         CMccJitterCalculator* iCalculator;
-        TMccRtpEventDataExtended iLastEvent;
+        TMccRtpEventData iLastEvent;
         TInt iLastError;
 
 		EUNIT_DECLARE_TEST_TABLE; 
